@@ -1,0 +1,1160 @@
+VERSION 5.00
+Object = "{FDAC2480-F4ED-4632-AA78-DCA210A74E49}#6.0#0"; "SPR32X60.ocx"
+Begin VB.Form frmTestSet 
+   Caption         =   "장비 코드 설정"
+   ClientHeight    =   7125
+   ClientLeft      =   2670
+   ClientTop       =   1290
+   ClientWidth     =   17415
+   Icon            =   "frmTestSet.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   LockControls    =   -1  'True
+   ScaleHeight     =   7125
+   ScaleWidth      =   17415
+   StartUpPosition =   1  '소유자 가운데
+   Begin VB.CommandButton cmdClose 
+      Caption         =   "닫기"
+      BeginProperty Font 
+         Name            =   "굴림"
+         Size            =   9.75
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   16260
+      TabIndex        =   28
+      Top             =   6570
+      Width           =   1125
+   End
+   Begin FPSpread.vaSpread vasList 
+      Height          =   6945
+      Left            =   90
+      TabIndex        =   23
+      Top             =   90
+      Width           =   13155
+      _Version        =   393216
+      _ExtentX        =   23204
+      _ExtentY        =   12250
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   19
+      MaxRows         =   20
+      OperationMode   =   2
+      RetainSelBlock  =   0   'False
+      ScrollBars      =   2
+      SelectBlockOptions=   0
+      SpreadDesigner  =   "frmTestSet.frx":1272
+   End
+   Begin VB.Frame Frame1 
+      Height          =   6285
+      Left            =   13320
+      TabIndex        =   15
+      Top             =   90
+      Width           =   4035
+      Begin VB.TextBox RSFH 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00FFC0FF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   3300
+         TabIndex        =   43
+         Top             =   4320
+         Width           =   615
+      End
+      Begin VB.TextBox RSFL 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00FFC0FF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   2550
+         TabIndex        =   42
+         Top             =   4320
+         Width           =   555
+      End
+      Begin VB.TextBox MCFH 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00FFC0FF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   3300
+         TabIndex        =   40
+         Top             =   3870
+         Width           =   615
+      End
+      Begin VB.TextBox MCFL 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00FFC0FF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   2550
+         TabIndex        =   39
+         Top             =   3870
+         Width           =   555
+      End
+      Begin VB.TextBox MIFH 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00FFC0FF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   3300
+         TabIndex        =   37
+         Top             =   3450
+         Width           =   615
+      End
+      Begin VB.TextBox MIFL 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00FFC0FF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   2550
+         TabIndex        =   36
+         Top             =   3450
+         Width           =   555
+      End
+      Begin VB.TextBox RSML 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00C0FFFF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1110
+         TabIndex        =   10
+         Top             =   4320
+         Width           =   555
+      End
+      Begin VB.TextBox RSMH 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00C0FFFF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1860
+         TabIndex        =   11
+         Top             =   4320
+         Width           =   615
+      End
+      Begin VB.TextBox MCML 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00C0FFFF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1110
+         TabIndex        =   8
+         Top             =   3870
+         Width           =   555
+      End
+      Begin VB.TextBox MCMH 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00C0FFFF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1860
+         TabIndex        =   9
+         Top             =   3870
+         Width           =   615
+      End
+      Begin VB.TextBox MIML 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00C0FFFF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1110
+         TabIndex        =   6
+         Top             =   3450
+         Width           =   555
+      End
+      Begin VB.TextBox MIMH 
+         Alignment       =   2  '가운데 맞춤
+         BackColor       =   &H00C0FFFF&
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1860
+         TabIndex        =   7
+         Top             =   3450
+         Width           =   615
+      End
+      Begin VB.TextBox txtRefHigh 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   3300
+         TabIndex        =   25
+         Top             =   2490
+         Visible         =   0   'False
+         Width           =   555
+      End
+      Begin VB.TextBox txtRefLow 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   2280
+         TabIndex        =   24
+         Top             =   2490
+         Visible         =   0   'False
+         Width           =   585
+      End
+      Begin VB.CommandButton cmdCancel 
+         Caption         =   "Clear"
+         Height          =   495
+         Left            =   2640
+         TabIndex        =   14
+         Top             =   5580
+         Width           =   1035
+      End
+      Begin VB.CommandButton cmdDelete 
+         Caption         =   "Delete"
+         Height          =   495
+         Left            =   1560
+         TabIndex        =   13
+         Top             =   5580
+         Width           =   1035
+      End
+      Begin VB.CommandButton cmdSave 
+         Caption         =   "Save"
+         Height          =   495
+         Left            =   480
+         TabIndex        =   12
+         Top             =   5580
+         Width           =   1035
+      End
+      Begin VB.PictureBox picEquip 
+         Appearance      =   0  '평면
+         BackColor       =   &H80000005&
+         BorderStyle     =   0  '없음
+         ForeColor       =   &H80000008&
+         Height          =   330
+         Left            =   3450
+         Picture         =   "frmTestSet.frx":1F04
+         ScaleHeight     =   330
+         ScaleWidth      =   330
+         TabIndex        =   22
+         Top             =   1170
+         Visible         =   0   'False
+         Width           =   330
+      End
+      Begin VB.TextBox txtSeq 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   1110
+         TabIndex        =   5
+         Top             =   2430
+         Width           =   585
+      End
+      Begin VB.TextBox txtMuch 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   1110
+         Locked          =   -1  'True
+         TabIndex        =   0
+         Top             =   300
+         Width           =   2115
+      End
+      Begin VB.TextBox txtName 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   1110
+         TabIndex        =   3
+         Top             =   1590
+         Width           =   2115
+      End
+      Begin VB.TextBox txtDec 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   1110
+         TabIndex        =   4
+         Top             =   2010
+         Width           =   2115
+      End
+      Begin VB.TextBox txtCode 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   1110
+         TabIndex        =   2
+         Top             =   1170
+         Width           =   2115
+      End
+      Begin VB.TextBox txtEquipCode 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   1110
+         TabIndex        =   1
+         Top             =   735
+         Width           =   2115
+      End
+      Begin VB.Label Label19 
+         Alignment       =   2  '가운데 맞춤
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Low     High"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   2610
+         TabIndex        =   46
+         Top             =   3210
+         Width           =   1170
+      End
+      Begin VB.Label Label20 
+         Alignment       =   2  '가운데 맞춤
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Low     High"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   1215
+         TabIndex        =   45
+         Top             =   3210
+         Width           =   1170
+      End
+      Begin VB.Label Label18 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   3120
+         TabIndex        =   44
+         Top             =   4320
+         Width           =   135
+      End
+      Begin VB.Label Label17 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   3120
+         TabIndex        =   41
+         Top             =   3870
+         Width           =   135
+      End
+      Begin VB.Label Label16 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   3120
+         TabIndex        =   38
+         Top             =   3450
+         Width           =   135
+      End
+      Begin VB.Label Label15 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Rat:SD"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   180
+         TabIndex        =   35
+         Top             =   4410
+         Width           =   540
+      End
+      Begin VB.Label Label14 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "M:C57BL/6"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   180
+         TabIndex        =   34
+         Top             =   3960
+         Width           =   810
+      End
+      Begin VB.Label Label13 
+         Alignment       =   2  '가운데 맞춤
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Female"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   180
+         Left            =   2580
+         TabIndex        =   33
+         Top             =   2940
+         Width           =   1260
+      End
+      Begin VB.Label Label11 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "M:ICR"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   180
+         TabIndex        =   32
+         Top             =   3540
+         Width           =   450
+      End
+      Begin VB.Label Label10 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1680
+         TabIndex        =   31
+         Top             =   4350
+         Width           =   135
+      End
+      Begin VB.Label Label9 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1680
+         TabIndex        =   30
+         Top             =   3870
+         Width           =   135
+      End
+      Begin VB.Label Label8 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   1680
+         TabIndex        =   29
+         Top             =   3450
+         Width           =   135
+      End
+      Begin VB.Label Label7 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "-"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   11.25
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   225
+         Left            =   3000
+         TabIndex        =   27
+         Top             =   2490
+         Visible         =   0   'False
+         Width           =   135
+      End
+      Begin VB.Label Label3 
+         Alignment       =   2  '가운데 맞춤
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Male"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   180
+         Left            =   1110
+         TabIndex        =   26
+         Top             =   2940
+         Width           =   1290
+      End
+      Begin VB.Label Label12 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "순    서"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   240
+         TabIndex        =   21
+         Top             =   2520
+         Width           =   720
+      End
+      Begin VB.Label Label6 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "장비구분"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   240
+         TabIndex        =   20
+         Top             =   375
+         Width           =   720
+      End
+      Begin VB.Label Label5 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "검 사 명"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   240
+         TabIndex        =   19
+         Top             =   1665
+         Width           =   720
+      End
+      Begin VB.Label Label4 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "소 수 점"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   240
+         TabIndex        =   18
+         Top             =   2085
+         Width           =   720
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "검사코드"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   240
+         TabIndex        =   17
+         Top             =   1230
+         Width           =   720
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "장비채널"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   240
+         TabIndex        =   16
+         Top             =   810
+         Width           =   720
+      End
+   End
+End
+Attribute VB_Name = "frmTestSet"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub ClearText()
+
+    txtEquipCode = ""
+    txtCode = ""
+    txtName = ""
+    txtDec = "1"
+    txtSeq = ""
+    txtRefLow = ""
+    txtRefHigh = ""
+    cmdSave.Caption = "Save"
+    
+End Sub
+
+Private Sub DisplayList()
+
+    ClearSpread vasList
+
+    SQL = "SELECT EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH, REFLOW_MIM,REFHIGH_MIM,REFLOW_MIF,REFHIGH_MIF, REFLOW_MCM,REFHIGH_MCM,REFLOW_MCF,REFHIGH_MCF, REFLOW_RSM,REFHIGH_RSM,REFLOW_RSF,REFHIGH_RSF " & vbCrLf & _
+          "  From EQPMASTER " & vbCrLf & _
+          " WHERE EQUIPNO = '" & gEquip & "' " & vbCrLf & _
+          " GROUP BY EXAMCODE, EQUIPCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH,REFLOW_MIM,REFHIGH_MIM,REFLOW_MIF,REFHIGH_MIF, REFLOW_MCM,REFHIGH_MCM,REFLOW_MCF,REFHIGH_MCF, REFLOW_RSM,REFHIGH_RSM,REFLOW_RSF,REFHIGH_RSF  "
+    SQL = SQL & " ORDER BY SEQNO * 10 "
+          
+    Res = GetDBSelectVas(gLocal, SQL, vasList)
+    
+    vasList.MaxRows = vasList.DataRowCnt
+    vasList.RowHeight(-1) = 12
+    'Call vasList_Click(1, 0)
+    
+End Sub
+
+'-- 장비코드와 수가코드에 해당하는 데이타 존재 확인 하는 procedure
+Function ExistOfEquipCode(asEquipCode As String, Optional asSuga As String = "") As Integer
+
+    ExistOfEquipCode = -1
+    
+    If asEquipCode = "" Then
+        Exit Function
+    End If
+    
+    SQL = "SELECT EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH " & vbCrLf & _
+          "  FROM EQPMASTER " & vbCrLf & _
+          " WHERE EQUIPNO = '" & gEquip & "' " & vbCrLf & _
+          "   AND EQUIPCODE = '" & asEquipCode & "' "
+          
+    If Trim(asSuga) <> "" Then
+        SQL = SQL & vbCrLf & _
+          "   AND EXAMCODE = '" & asSuga & "' "
+    End If
+    
+    Res = GetDBSelectColumn(gLocal, SQL)
+    If Res = 0 Then
+        ExistOfEquipCode = 0
+        Exit Function
+    ElseIf Res = -1 Then
+        ExistOfEquipCode = -1
+        Exit Function
+    End If
+    
+    If Trim(gReadBuf(0)) <> asEquipCode Or Trim(gReadBuf(1)) <> asSuga Then
+        Exit Function
+    End If
+        
+    ExistOfEquipCode = 1
+End Function
+
+Private Sub cmdCancel_Click()
+    ClearText
+    txtEquipCode.SetFocus
+End Sub
+
+Private Sub cmdClose_Click()
+    Unload Me
+End Sub
+
+Private Sub cmdDelete_Click()
+    If Trim(txtEquipCode) = "" Then
+        txtEquipCode.SetFocus
+        Exit Sub
+    End If
+    
+    SQL = "DELETE FROM EQPMASTER " & vbCrLf & _
+          "WHERE EQUIPNO = '" & gEquip & "' " & vbCrLf & _
+          "  AND EQUIPCODE = '" & Trim(txtEquipCode) & "' " & vbCrLf & _
+          "  AND EXAMCODE = '" & Trim(txtCode) & "' "
+    Res = SendQuery(gLocal, SQL)
+    If Res = -1 Then
+        Exit Sub
+    End If
+    
+    DisplayList
+    
+    cmdCancel_Click
+
+End Sub
+
+Private Sub cmdSave_Click()
+    Dim lsFlag As String
+    Dim lsResFlag As String
+    Dim liSeqNo As Integer
+
+    If Trim(txtEquipCode) = "" Then
+        txtEquipCode.SetFocus
+        MsgBox "장비코드를 입력하세요", vbInformation
+        Exit Sub
+    End If
+    
+    If Trim(txtDec) = "" Then
+        txtDec.Text = 1
+
+    End If
+    
+    If IsNumeric(txtSeq) Then
+        liSeqNo = CInt(txtSeq)
+    Else
+        liSeqNo = 0
+    End If
+    
+    Res = ExistOfEquipCode(Trim(txtEquipCode), Trim(txtCode))
+    If Res = 1 Then
+        SQL = "UPDATE EQPMASTER " & vbCrLf & _
+              "SET RESPREC = '" & Trim(txtDec) & "', " & vbCrLf & _
+              "    EXAMNAME = '" & Trim(txtName) & "', " & vbCrLf & _
+              "    REFLOW_MIM = '" & Trim(MIML.Text) & "', " & vbCrLf & _
+              "    REFHIGH_MIM = '" & Trim(MIMH.Text) & "', " & vbCrLf & _
+              "    REFLOW_MIF = '" & Trim(MIFL.Text) & "', " & vbCrLf & _
+              "    REFHIGH_MIF = '" & Trim(MIFH.Text) & "', " & vbCrLf & _
+              "    REFLOW_MCM = '" & Trim(MCML.Text) & "', " & vbCrLf & _
+              "    REFHIGH_MCM = '" & Trim(MCMH.Text) & "', " & vbCrLf & _
+              "    REFLOW_MCF = '" & Trim(MCFL.Text) & "', " & vbCrLf & _
+              "    REFHIGH_MCF = '" & Trim(MCFH.Text) & "', " & vbCrLf & _
+              "    REFLOW_RSM = '" & Trim(RSML.Text) & "', " & vbCrLf & _
+              "    REFHIGH_RSM = '" & Trim(RSMH.Text) & "', " & vbCrLf & _
+              "    REFLOW_RSF = '" & Trim(RSFL.Text) & "', " & vbCrLf & _
+              "    REFHIGH_RSF = '" & Trim(RSFH.Text) & "', " & vbCrLf & _
+              "    SEQNO = " & liSeqNo & " " & vbCrLf & _
+              "WHERE EQUIPNO = '" & gEquip & "' " & vbCrLf & _
+              "  AND EQUIPCODE = '" & Trim(txtEquipCode) & "' " & vbCrLf & _
+              "  AND EXAMCODE = '" & Trim(txtCode) & "' "
+    ElseIf Res = 0 Then
+        SQL = "INSERT INTO EQPMASTER (EQUIPNO,EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO , REFLOW, REFHIGH,REFLOW_MIM,REFHIGH_MIM,REFLOW_MIF,REFHIGH_MIF, REFLOW_MCM,REFHIGH_MCM,REFLOW_MCF,REFHIGH_MCF, REFLOW_RSM,REFHIGH_RSM,REFLOW_RSF,REFHIGH_RSF) " & vbCrLf & _
+              "VALUES ('" & gEquip & "', '" & Trim(txtEquipCode) & "', '" & Trim(txtCode) & "', '" & Trim(txtName.Text) & "', '" & Trim(txtDec) & "', " & liSeqNo & ", '" & Trim(txtRefLow) & "', '" & Trim(txtRefHigh) & "', '" & Trim(MIML.Text) & "', '" & Trim(MIMH.Text) & "', '" & Trim(MIFL.Text) & "', '" & Trim(MIFH.Text) & "', '" & Trim(MCML.Text) & "', '" & Trim(MCMH.Text) & "', '" & Trim(MCFL.Text) & "', '" & Trim(MCFH.Text) & "','" & Trim(RSML.Text) & "', '" & Trim(RSMH.Text) & "', '" & Trim(RSFL.Text) & "', '" & Trim(RSFH.Text) & "') "
+    End If
+
+    Res = SendQuery(gLocal, SQL)
+    If Res = -1 Then
+        SaveQuery SQL
+        Exit Sub
+    End If
+    
+    DisplayList
+    
+    cmdCancel_Click
+End Sub
+
+
+Private Sub Form_Load()
+    Me.Height = 7725
+    Me.Width = 17655 '9945
+            
+    ClearText
+    DisplayList
+
+    txtMuch = gEquip
+End Sub
+
+Private Sub txtEquipCode_GotFocus()
+    SelectFocus txtEquipCode
+End Sub
+
+Private Sub txtEquipCode_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyReturn Then
+        If txtEquipCode = "" Then
+            txtEquipCode.SetFocus
+            Exit Sub
+        End If
+        txtCode.SetFocus
+    End If
+End Sub
+
+Private Sub txtDec_GotFocus()
+    SelectFocus txtDec
+End Sub
+
+Private Sub txtDec_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyReturn Then
+        If txtDec = "" Then
+            txtDec.SetFocus
+'            Exit Sub
+        End If
+        
+        txtRefLow.SetFocus
+    End If
+End Sub
+
+Private Sub txtcode_GotFocus()
+    SelectFocus txtCode
+End Sub
+
+Private Sub txtcode_KeyDown(KeyCode As Integer, Shift As Integer)
+    
+    If KeyCode = vbKeyReturn Then
+        Res = ExistOfEquipCode(Trim(txtEquipCode), Trim(txtCode))
+        If Res = -1 Then
+            txtCode.SetFocus
+            Exit Sub
+        ElseIf Res = 0 Then
+            cmdSave.Caption = "Save"
+            
+        ElseIf Res = 1 Then
+            cmdSave.Caption = "Edit"
+            txtName = Trim(gReadBuf(2))
+            txtDec = Trim(gReadBuf(3))
+            txtSeq = Trim(gReadBuf(4))
+            txtRefLow = Trim(gReadBuf(5))
+            txtRefHigh = Trim(gReadBuf(6))
+        End If
+        
+        txtName.SetFocus
+    End If
+    
+End Sub
+
+Private Sub txtMuch_GotFocus()
+
+    SelectFocus txtMuch
+    
+End Sub
+
+Private Sub txtMuch_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyReturn Then
+        If Trim(txtMuch.Text) = "" Then
+            txtMuch.SetFocus
+            Exit Sub
+        End If
+        txtEquipCode.SetFocus
+    End If
+End Sub
+
+Private Sub txtName_GotFocus()
+    SelectFocus txtName
+End Sub
+
+Private Sub txtName_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyReturn Then
+        If Trim(txtName.Text) = "" Then
+            txtName.SetFocus
+            Exit Sub
+        End If
+        txtDec.SetFocus
+        
+    End If
+End Sub
+
+Private Sub txtSeq_GotFocus()
+    SelectFocus txtSeq
+End Sub
+
+Private Sub txtSeq_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = vbKeyReturn Then
+        If Trim(txtSeq.Text) = "" Then
+            txtSeq.SetFocus
+            Exit Sub
+        End If
+
+        cmdSave.SetFocus
+    End If
+End Sub
+
+Private Sub vasList_Click(ByVal Col As Long, ByVal Row As Long)
+    If Row = 0 Then
+        Select Case Col
+        Case 1
+            vasSort vasList, 1, 2
+        Case 2
+            vasSort vasList, 2, 1
+        Case 5
+            vasSort vasList, 5, 1
+        End Select
+        Exit Sub
+    End If
+    
+    If Row < 1 Or Row > vasList.DataRowCnt Then
+        cmdSave.Caption = "Save"
+        ClearText
+        Exit Sub
+    End If
+    
+    txtEquipCode = Trim(GetText(vasList, Row, 1))
+    txtCode = Trim(GetText(vasList, Row, 2))
+    txtName = Trim(GetText(vasList, Row, 3))
+    txtDec = Trim(GetText(vasList, Row, 4))
+    txtSeq = Trim(GetText(vasList, Row, 5))
+    txtRefLow = Trim(GetText(vasList, Row, 6))
+    txtRefHigh = Trim(GetText(vasList, Row, 7))
+
+    MIML.Text = Trim(GetText(vasList, Row, 8))
+    MIMH.Text = Trim(GetText(vasList, Row, 9))
+    MIFL.Text = Trim(GetText(vasList, Row, 10))
+    MIFH.Text = Trim(GetText(vasList, Row, 11))
+    MCML.Text = Trim(GetText(vasList, Row, 12))
+    MCMH.Text = Trim(GetText(vasList, Row, 13))
+    MCFL.Text = Trim(GetText(vasList, Row, 14))
+    MCFH.Text = Trim(GetText(vasList, Row, 15))
+    RSML.Text = Trim(GetText(vasList, Row, 16))
+    RSMH.Text = Trim(GetText(vasList, Row, 17))
+    RSFL.Text = Trim(GetText(vasList, Row, 18))
+    RSFH.Text = Trim(GetText(vasList, Row, 19))
+
+    
+    cmdSave.Caption = "Edit"
+End Sub

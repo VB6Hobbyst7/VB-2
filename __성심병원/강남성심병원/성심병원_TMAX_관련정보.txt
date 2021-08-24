@@ -1,0 +1,113 @@
+1. connect
+   - env위치 : c:\rmx\env\rmx.env
+   - ip로 병원구분
+       [190.65]    /* 한림 */
+       [190.1]     /* 강동 */  
+       [190.50]    /* 강남 */
+       [190.20]    /* 한강 */
+       [190.90]    /* 춘천 */
+       [DEV]       /* 개발 */
+   - fdlfile : c:\rmx\env\tmax.fdl
+
+ex) If tmaxreadenv("C:\RMX\ENV\RMX.env", "190.50") = -1 Then    '강남
+
+2. 병원게이트웨이 셋
+
+GW_LOCATE 3 ==> 강남성심 [번호는 병원마다 틀림]
+
+ex) If fbput(ByVal sendBuf.bufptr, fbget_fldkey("GW_LOCATE"), ByVal "3", 0) = -1 Then
+
+GW_LOCATE 7 ==> 평촌성심 [번호는 병원마다 틀림]
+ex) If fbput(ByVal sendBuf.bufptr, fbget_fldkey("GW_LOCATE"), ByVal "7", 0) = -1 Then
+
+
+3. 로그인
+   - service : SL_USERM_L1 ==> 운영:X 개발:O
+     input   : S_IDNUM1     /* 사번                   char(6)                (s) */
+     output  : S_NAME1      /* 성명                                          (s) */
+             : S_TEXT1      /* 비밀번호                                      (s) */
+
+DEV : 020487
+박제정|1|
+
+
+4. 검체정보 download (양방향용)
+   - service : SL_INTFC_L2  ==> 운영:O 개발:O
+     input   : S_IDNUM1     /* 검체번호               char(10)               (s) */
+     output  : S_DATE1      /* 검사일자 (yyyymmdd)                           (m) */
+               S_NUMVAL2    /* 수거번호                                      (m) */
+               S_NO1        /* 처방순번                                      (m) */
+               S_CODE2      /* 검사코드                                      (m) */
+               S_NAME1      /* 검사명                                        (m) */
+               S_CODE3      /* 검체코드                                      (m) */
+               S_NAME2      /* 검체명                                        (m) */
+               S_PATNO      /* 등록번호                                      (m) */
+               S_PATNAME    /* 성명                                          (m) */
+               S_STRING1    /* 성별                                          (m) */
+               S_STRING2    /* 나이                                          (m) */
+               S_CODE4      /* 진료과                                        (m) */
+               S_TEXT1      /* 직전결과                                      (m) */
+               S_TEXT2      /* 검사결과                                      (m) */
+               S_DATE2      /* 직전결과보고일시 (yyyymmdd hh24:mi:ss)        (m) */
+
+반환값
+DEV : 2110000983
+20110503|1|2001|C3700AA|Total Hb|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700BB|Oxyhemoglobin|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700CC|Carboxyhemo (CO-Hb)|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700DD|Methemoglobin|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700EE|O2 saturation|01|Whole blood|080157623|박용완|M|21|OS|| |
+
+운영 : 2114478947 
+20110607|190|2014|C2200C|Protein(정량, urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2014|C2200C|Protein(정량, urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2014|C3750AE|Creatinine(urine,응급)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2014|C2200CBB|Protein/Cr ratio|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2015|C3800A|Osmolality(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2011|C3791A|Na(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2013|C3792A|K(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2012|C3793A|Cl(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+
+강남
+20111222|343|2005|B2611E|Amylase(serum, 응급)|18|Serum|050386783|조계자|F|48|EM|73| |20110921 09:05:04|
+20111222|343|2003|C3730E|BUN(응급)|18|Serum|050386783|조계자|F|48|EM|9.0| |20110921 09:05:04|
+20111222|343|2003|C3750E|Creatinine(응급)|18|Serum|050386783|조계자|F|48|EM|0.76| |20110921 09:05:04|
+20111222|343|2003|C3750BB|Cr eGFR|18|Serum|050386783|조계자|F|48|EM|| ||
+20111222|343|2004|B2570E|AST (응급)|18|Serum|050386783|조계자|F|48|EM|135| |20110921 09:05:04|
+20111222|343|2004|B2580E|ALT (응급)|18|Serum|050386783|조계자|F|48|EM|58| |20110921 09:05:04|
+20111222|343|2007|C3711T|Glucose(응급)|18|Serum|050386783|조계자|F|48|EM|132| |20110921 09:05:04|
+20111222|343|2002|B2570FRAA|Na|18|Serum|050386783|조계자|F|48|EM|139| |20110921 09:05:04|
+20111222|343|2002|B2570FRBB|K|18|Serum|050386783|조계자|F|48|EM|3.8| |20110921 09:05:04|
+20111222|343|2002|B2570FRCC|Cl|18|Serum|050386783|조계자|F|48|EM|104| |20110921 09:05:04|
+20111222|343|2002|B2570FRDD|Total CO₂|18|Serum|050386783|조계자|F|48|EM|25.1| |20110921 09:05:04|
+
+
+5. 결과저장 upload
+   - service : SL_RSLTUP_M1 ==> 운영:미테스트 개발:미테스트
+     input   : S_STRING1    /* 장비코드 : OCS와 같게  varchar(10)            (s) */
+               S_IDNUM1     /* 검체번호 : 필수        char(10)               (m) */
+               S_CODE1      /* 검사코드 : 필수        varchar(10)            (m) */
+               S_NO1        /* 처방순번 : 필수        varchar(10)            (m) */
+               S_TEXT1      /* 검사결과               varchar(1000)          (m) */
+               LOG_USERID   /* 사번                   char(6)                (s) */
+               LOG_CLTNAME  /* IP                     varchar(15)            (s) */
+     output  : N/A
+
+6. timeout
+   - 30분간 service call 없으면 자동으로 session kill됨.
+     20분에 한번씩 dummy service call해서 session유지필요.
+   - service : CC_SYSDATE_S
+     input   : N/A
+     output  : S_DATETIME1  /* system time (yyyy-mm-dd hh24:mi:ss)           (s) */
+
+
+7. 검체 접수상태
+service : SL_SPCMD_L12	==> 운영:X 개발:O
+GET (S_FLAG1   , 0, in_flag     ); 	==> 'SPC'
+GET (S_IDNUM1  , 0, in_spcid    );	==> '검체번호'
+   
+SPUT (S_STAT1   , sProcstat  [iy]);	==> 상태 B:채취/접수,C:수거,E:검사,N:보고
+SPUT (S_CODE6    , sProcstat  [iy]);	==> 검사코드
+
+
+010 5651 2404 031 380 9460 석만근

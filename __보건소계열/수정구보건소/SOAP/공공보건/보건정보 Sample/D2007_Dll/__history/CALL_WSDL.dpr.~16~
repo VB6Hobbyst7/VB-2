@@ -1,0 +1,141 @@
+library CALL_WSDL;
+
+{ Important note about DLL memory management: ShareMem must be the
+  first unit in your library's USES clause AND your project's (select
+  Project-View Source) USES clause if your DLL exports any procedures or
+  functions that pass strings as parameters or function results. This
+  applies to all strings passed to and from your DLL--even those that
+  are nested in records and classes. ShareMem is the interface unit to
+  the BORLNDMM.DLL shared memory manager, which must be deployed along
+  with your DLL. To avoid using BORLNDMM.DLL, pass string information
+  using PChar or ShortString parameters. }
+
+uses
+  SysUtils,
+  Classes,
+  IdCoderMIME,
+  IdCoder,
+  IdCoder3to4,
+  IdBaseComponent,
+  //Dialogs,
+  Variants,
+  ActiveX,
+  WebService in 'WebService.pas';
+
+
+
+{$R *.res}
+
+function DownLoadOrder_BarCode_Dll(BarCode, ICode, KIGWAN_CODE:string):string; export;
+var
+  WSS: WebServiceSoap;
+  hl7In: WideString;
+  IdEncoderMIME1: TIdEncoderMIME;
+  IdDecoderMIME1: TIdDecoderMIME;
+begin
+  CoInitialize(nil);
+
+  Result:= '';
+  IdEncoderMIME1:= TIdEncoderMIME.Create(nil);
+  IdDecoderMIME1:= TIdDecoderMIME.Create(nil);
+  IdDecoderMIME1.FillChar:= #128;
+  try
+      hl7In:=IdEncoderMIME1.Encode('MSH|^~\&|HL7|MMS|||1||ORU^R01|1a082e2:10e59b48c04:-2cf9:27695009|P|2.3||||||8859/1'+#13+
+                                   'PID|||'+BarCode+'^'+ICode+'^^DefaultDomain^PI'+#13+
+                                   'PV1||E|'+KIGWAN_CODE+#13+
+                                   'OBR|1||||||1');
+      WSS:= GetWebServiceSoap(false, '', nil);
+      //Result:= IdDecoderMIME1.DecodeString( WSS.New_SelectOrder(hl7In));
+      IdDecoderMIME1.DecodeString( WSS.New_SelectOrder(hl7In));
+
+  finally
+      IdEncoderMIME1.Free;
+      IdDecoderMIME1.Free;
+  end;
+
+  CoUninitialize;
+end;
+
+function DownLoadOrder_WorkList_Dll(ICode, KIGWAN_CODE:string):string; stdcall;
+var
+  WSS: WebServiceSoap;
+  hl7In, sl7Out: WideString;
+  IdEncoderMIME1: TIdEncoderMIME;
+  IdDecoderMIME1: TIdDecoderMIME;
+begin
+  CoInitialize(nil);
+  Result:= '';
+  try
+      IdEncoderMIME1:= TIdEncoderMIME.Create(nil);
+      IdDecoderMIME1:= TIdDecoderMIME.Create(nil);
+      IdDecoderMIME1.FillChar:= #128;
+      try
+          hl7In:=IdEncoderMIME1.Encode('MSH|^~\&|HL7|MMS|||1||ORU^R01|1a082e2:10e59b48c04:-2cf9:27695009|P|2.3||||||8859/1'+#13+
+                                       'PID|||^'+ICode+'^'+KIGWAN_CODE+'00001^DefaultDomain^PI'+#13+
+                                       'PV1||E|'+KIGWAN_CODE+#13+
+                                       'OBR|1||||||1');
+          WSS:= GetWebServiceSoap(false, '', nil);
+          sl7Out:= IdDecoderMIME1.DecodeString( WSS.MdbOrderList(hl7In));
+          Result:= sl7Out;
+      finally
+          IdEncoderMIME1.Free;
+          IdDecoderMIME1.Free;
+      end;
+
+  finally
+      CoUninitialize;
+  end;
+
+end;
+
+function UploadResult_Dll(BarCode, ICode, KIGWAN_CODE:string; vResult, vExamCode:Variant):integer; stdcall;
+var
+  WSS: WebServiceSoap;
+  hl7In: WideString;
+  IdEncoderMIME1: TIdEncoderMIME;
+  UpDateTime:string;
+  sHeader, sMid, sEnd:string;
+  i:integer;
+begin
+  Result:= -1;
+
+  CoInitialize(nil);
+
+  UpDateTime:= FormatDateTime('yyyymmddhhnnss', now);
+
+  sHeader:= 'MSH|^~\&|HL7|MMS|||'+UpDateTime+'||ORU^R01|1a082e2:10e59b48c04:-2cf9:27695009|P|2.3||||||8859/1'+#13+
+            'PID|||'+BarCode+'^'+ICode+'^'+KIGWAN_CODE+'00001^^^DefaultDomain^PI'+#13+
+            'PV1||E|'+KIGWAN_CODE+#13+
+            'OBR|1||||||'+UpDateTime+#13;
+
+  sEnd:= 'OBR|1||||||1';
+  sMid:= '';
+
+  if VarArrayHighBound(vResult, 1) < 0 then
+      exit;
+  
+  for I := VarArrayLowBound(vResult, 1) to VarArrayHighBound(vResult, 1) do
+      sMid:= sMid + 'OBX|'+IntToStr(i+1)+'|ST|'+vExamCode[i]+'||'+vResult[i]+'||||||R'+#13;
+
+  IdEncoderMIME1:= TIdEncoderMIME.Create(nil);
+  try
+      hl7In:= IdEncoderMIME1.Encode(sHeader + sMid + sEnd);
+
+      WSS:= GetWebServiceSoap(false, '', nil);
+      Result:= WSS.UpdateRst(hl7In);
+  finally
+      IdEncoderMIME1.Free;
+  end;
+
+
+
+end;
+
+exports
+    DownLoadOrder_BarCode_Dll,
+    DownLoadOrder_WorkList_Dll,
+    UploadResult_Dll;
+
+begin
+
+end.

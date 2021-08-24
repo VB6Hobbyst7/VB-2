@@ -1,0 +1,34 @@
+#
+#
+LIBS=/link /LIBPATH:"$(TMAXDIR)\lib" tmaxsvr.lib Wintmax.lib tmaxmt.lib ws2_32.lib 
+ORALIBS=$(ORACLE_HOME)\precomp\lib\msvc\oraSQX9.lib  $(ORACLE_HOME)\precomp\lib\msvc\oraSQL9.lib  
+ORAINCDIR=$(ORACLE_HOME)\precomp\public
+
+CFLAGS=/D _DEBUG /D _USE_XA /I $(TMAXDIR) /Gd /MD 
+PROFLAGS=include=$(TMAXDIR)
+
+#
+#
+NAME	= $(TARGET:.exe= )
+SRC	= $(TARGET:.exe=.pc)
+APOBJS	= $(TARGET:.exe=.c)
+SVCTSRC	= $(TARGET:.exe=_svctab.c)
+SVCTOBJ	= $(TARGET:.exe=_svctab.obj)
+ORASOBJ = $(TMAXDIR)/lib/ora_stub.obj
+OBJS	= $(APOBJS) $(SVCTOBJ) 
+
+#
+#
+$(TARGET): svct $(OBJS) 
+	cl $(CFLAGS) -o $@ $(OBJS) $(ORASOBJ) $(LIBS) $(ORALIBS)
+	copy $@ $(TMAXDIR)\appbin
+
+$(APOBJS): $(SRC)
+	$(ORACLE_HOME)\bin\proc iname=$(NAME) include=$(TMAXDIR) include=$(ORAINCDIR)
+	cl $(CFLAGS) -c $(APOBJS)
+svct:
+	copy $(TMAXDIR)\svct\$(SVCTSRC)
+
+clean:
+	-del $(OBJS) $(TARGET)
+

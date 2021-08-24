@@ -1,0 +1,22 @@
+ Select                                                          P.PbsPatNam AS PNAME                                 
+    , P.PbsResNum AS PJUMIN                                
+    , W.OcmAcpDtm AS HOSPDATE                              
+    , R.ResOcmNum AS BARCODE                               
+    , W.OcmChtNum AS CHARTNO                               
+    , R.ResLabCod AS ITEM                                  
+    From OcmInf AS W                                       
+       , OdrInf AS O                                       
+       , ResInf AS R                                       
+       , PbsInf AS P                                       
+       , LabMst AS E                                       
+    where W.OcmNum    = R.ResOcmNum                        
+      and W.OcmChtNum = P.PbsChtNum                        
+      and W.OcmNum    = O.OdrOcmNum                        
+      And O.Odrdelflg = 'N'                                
+      and O.OdrSeq = R.ResOdrSeq                           
+      and R.ResLabCod = E.LabCod                           
+      and Upper(R.ResLabCod) IN ('3001','3002','3002-1','3002-2','3002-3','3003','3004','3005','3005','3006','3006','3007','3007','3008','3010','3010','3011','3012','3013','3013-1','3014','3015','ANC101','ANC101-1','H1234','H1324-1')
+      and W.OcmComStt Not In ('CN', 'CR','VC')             
+      and (R.ResRltVal is null or R.ResRltVal = '')        
+      and R.ResOcmNum = '55048885445'               
+

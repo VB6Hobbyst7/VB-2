@@ -1,0 +1,16 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , EXAMCODE        AS ITEM 
+  From UB_PATRESULT                        
+ Where BARCODE = '09050000000001'      
+   And PID     = 'o17826'        
+   And EXAMCODE IN ('B2570','B2580','B2602','B2710-1','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','LDL-cal','UA')    
+   AND SENDFLAG = '0' Order by SAVESEQ,HOSPDATE,PNAME           

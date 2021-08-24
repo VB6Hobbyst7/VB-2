@@ -1,0 +1,19 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , COUNT(EXAMCODE) AS CNT  
+  From UB_PATRESULT                                            
+ Where HOSPDATE Between '20210323' AND '20210323'      
+   And EXAMCODE IN ('D1830','D1840','D1850','D1860','D1870','D1880','D1890','D2263','D2280','D2300','D2310','D2510010','D2510050','D2611','D2613','D2614','D3022/2hr','D3022/30','D3022/F')                        
+   And (RESULT = '' OR RESULT IS NULL)                     
+   AND SENDFLAG = '0'                                      
+ Group By SAVESEQ,HOSPDATE,INOUT,CHARTNO,BARCODE,PID,PNAME,PSEX,PAGE,PJUMIN 
+ Order by HOSPDATE,PID,PNAME,BARCODE                               
+

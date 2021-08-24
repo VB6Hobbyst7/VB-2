@@ -1,0 +1,146 @@
+@echo off
+rem **************************************************************
+rem *                                                            *
+rem *            기본 틀 만든이 : 윤관영(JEUS)                   *
+rem *   		 수정 : 전병주                           *
+rem *                                                            *
+rem *   rem 부분은 주석이므로 아무런 의미가 없음.                *
+rem *                                                            *
+rem *   아래 :success 이하 ############ 와 ############ 사이에   *
+rem *   필요한 명령어들을 넣으면 됨.                             *
+rem *                                                            *
+rem *   TMAX 가 설치된 Drive : %TMAXDIR%                         *
+rem *   Patch File Name : %TARGET_FILE%                          *
+rem *                                                            *
+rem *   Windows 상의 Drive 는 J: 까지 인식 가능함.               *
+rem *   차후에 Z: 까지 늘일 수 있음.                             *
+rem *                                                            *
+rem **************************************************************
+
+echo.
+echo ##################################################################
+echo #                                                                #
+echo #  TMAX Patch 3.13.0                                             #
+echo #                                                                #
+echo #  This Software is made by 'Tmax Soft Co.,Ltd.'                 #
+echo #  and this software is distributed under our license agreement. #
+echo #                                                                #
+echo #  Software End-User Patch License Agreement                     #
+echo #                                                                #
+echo #  Product : TMAX                                                #
+echo #                                                                #
+echo #  This is a legal agreement between you (either an individual   #
+echo #  or an entity) and Tmax Soft, Incorporated.  By opening the    #
+echo #  sealed software package and/or by using the software, you     #
+echo #  agree to be bound by the terms of this agreement.             #
+echo #                                                                #
+echo ##################################################################
+echo.
+
+echo [Enter]: Do you accept all the terms of the agreement?
+echo [Ctrl-C]: Don't you accept our agreement?
+pause > nul
+
+pushd .
+set TARGET_FILE=T-P-3140-A-W2.exe
+
+set TMAXDRV=c:
+echo %TMAXDIR% | find /i /c "c:" > nul
+if errorlevel 1 goto d
+if errorlevel 0 goto success
+goto success
+
+:d
+set TMAXDRV=d:
+echo %TMAXDIR% | find /i /c "d:" > nul
+if errorlevel 1 goto e
+if errorlevel 0 goto success
+goto success
+
+:e
+set TMAXDRV=e:
+echo %TMAXDIR% | find /i /c "e:" > nul
+if errorlevel 1 goto f
+if errorlevel 0 goto success
+goto success
+
+:f
+set TMAXDRV=f:
+echo %TMAXDIR% | find /i /c "f:" > nul
+if errorlevel 1 goto g
+if errorlevel 0 goto success
+goto success
+
+:g
+set TMAXDRV=g:
+echo %TMAXDIR% | find /i /c "g:" > nul
+if errorlevel 1 goto h
+if errorlevel 0 goto success
+goto success
+
+:h
+set TMAXDRV=h:
+echo %TMAXDIR% | find /i /c "h:" > nul
+if errorlevel 1 goto i
+if errorlevel 0 goto success
+goto success
+
+:i
+set TMAXDRV=i:
+echo %TMAXDIR% | find /i /c "i:" > nul
+if errorlevel 1 goto j
+if errorlevel 0 goto success
+goto success
+
+:j
+set TMAXDRV=j:
+echo %TMAXDIR% | find /i /c "j:" > nul
+if errorlevel 1 goto errorRt
+if errorlevel 0 goto success
+goto success
+
+
+:success
+rem echo "TMAXDIR Directory 는 %TMAXDRV% 드라이브에 존재함!!"
+rem ################################################################
+rem 여기부터 명령어 넣기...
+rem ################################################################
+
+copy %TARGET_FILE% %TMAXDIR%\%TARGET_FILE% > nul
+
+%TMAXDRV%
+cd %TMAXDIR%
+
+%TARGET_FILE% > nul
+del %TARGET_FILE%
+
+popd
+
+rem ################################################################
+rem 여기까지..
+rem ################################################################
+goto end
+
+:end
+
+echo .
+echo ##################################################################
+echo #                                                                #
+echo #   Patch installation is completed successfully.                #
+echo #   Thank you for using Tmax Product!                            #
+echo #                                                                #
+echo #                        Technical Support Center                #
+echo #                                                                #
+echo #                        Homepage:  http://www.tmax.co.kr        #
+echo #                        E-mail  :  info@tmax.co.kr              #
+echo ##################################################################
+echo .
+goto end2
+ 
+:errorRt
+
+echo "TMAX가 설치되어 있지 않거나 TMAXDIR이 설정되어 있지 않습니다."
+goto end2 
+
+:end2
+pause > nul

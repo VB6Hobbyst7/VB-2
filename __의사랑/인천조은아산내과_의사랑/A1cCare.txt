@@ -1,0 +1,155 @@
+procedure TF_Main.A1cCare_ResProcess(s, SocketID: string;
+  ClientSocket: TCustomWinSocket);
+var
+  TMaster:TIfMaster;
+  i, GrdIdx, ibcd:integer;
+  sData,cFrame, sSub, sTemp,sInstExamTime,
+  sSampleID,sPanel:string;
+  bUpSucc, IsUpYN:boolean;
+  SampleSeq, ResultCount, UpSucc:integer;
+  msgType, DecPos, MsgSeq, ErrMsg, IBus, INm, QcCheck,
+  QPD1, QPD2, SMP:string;
+  sLow, sHigh:string;
+  dRes, dLow, dHigh:double;
+  slRcv:TStringList;
+  THl7:THL7_Info;
+  NGSP, IFCC, EAG:string;
+  dIfCc, deAG:double;
+begin
+  GrdIdx:= 0;
+  SampleSeq:=0;
+  ResultCount:=0;
+  IsUpYN:= False;
+
+  NGSP:= '';
+  msgType:= TokenStr(s, '|', 9);
+  MsgSeq := TokenStr(s, '|', 10);
+  ErrMsg := TokenStr(s, '|', 29);
+
+  slRcv:= TStringList.Create;
+  TMaster:= TIfMaster.Create;
+  try // ~Finally
+      slRcv.Text:= s;
+
+      for i:=0 to slRcv.Count -1 do begin
+          sData:= slRcv.Strings[i];
+          if Trim(sData) = '' then Continue;
+
+          cFrame := RightStr(TokenStr(sData, '|', 1),3);
+
+          if cFrame = 'MSH' then begin
+              msgType:= TokenStr(TokenStr(sData,'|',9),'^',3);  //ORU^R01
+              IBus:= TokenStr(sData,'|',3);
+              INm := TokenStr(sData,'|',4);
+          end
+          else if cFrame = 'SPM' then begin
+             QcCheck:= Copy(TokenStr(sData, '|', 12),1,1);
+              if QcCheck = 'Q' then
+                  TMaster.FQCYN:= 'Y'
+              else
+                  TMaster.FQCYN:= 'N';
+          end
+          else if cFrame = 'PID' then begin
+              TMaster.FBarCode:= Trim(TokenStr(sData, '|', 4));
+              ResultCount:= 0;
+              GrdIdx:= 0;
+              DM.DownLoadorder(TMaster);
+          end
+          else if cFrame = 'OBR' then begin
+              TMaster.FInstTime:= TokenStr(sData, '|', 9);
+              TMaster.FRcvTime:= Str2ViewDTM(TMaster.FInstTime);
+              TMaster.FExamDate:= Copy(TMaster.FInstTime, 1, 8);
+              TMaster.FExamSeq := DM.GetExamSeq(TMaster.FExamDate);
+
+              GrdIdx:= GetAddIndex(gdIf);
+              DispOnePat_Idx(TMaster, GrdIdx);
+              DM.SaveMaster(TMaster);
+          end
+          else if cFrame = 'OBX' then begin
+              sSub:= TokenStr(sData, '|', 3);  //NM,  ED,  EI
+
+              //정성결과 Influenz A or B
+              if sSub = 'CWE' then begin
+                  TMaster.FUpCode := Copy(TokenStr(TokenStr(sData, '|', 6),'^',2),1,11);
+                  TMaster.FResult:= RightStr(TokenStr(TokenStr(sData, '|', 6),'^',2),8);
+                  if TMaster.FResult = 'negative' then
+                      TMaster.FResult:= 'Negative'
+                  else if TMaster.FResult = 'positive' then
+                      TMaster.FResult:= 'Positive';
+              end
+              //정량
+              else if sSub = 'NM' then begin
+                  TMaster.FUpCode := TokenStr(TokenStr(sData, '|', 7), '^', 1);
+                  TMaster.FResult := TokenStr(sData, '|', 6);
+                  if TMaster.FUpCode = '%' then
+                      NGSP:= TMaster.FResult;
+              end;
+
+              TMaster.FFlag:= TokenStr(sData, '|', 9);
+              if TMaster.FFlag = '' then
+                  TMaster.FFlag:= 'N';
+
+              if TCOde.SetCode_UpCode(Tmaster.FUpCode) = False then
+                  Continue;
+
+              Inc(ResultCount);
+
+              TMaster.FAbbr:= TCode.GetAbbr_UpCode(TMaster.FUpCode);
+
+              if TMaster.FResult = 'Positive' then
+                  TMaster.FFlag:= 'H';
+
+              DM.SetDownCode(TMaster);
+
+              CheckFlag(TMaster);
+
+              DM.SaveResult(TMaster);
+              DispOneResult(TMaster, GrdIdx);
+
+              if TMaster.IsDownCodeOK = True then
+                  UploadProcess_One(TMaster, GrdIdx);
+
+          end;
+      end;
+
+      if (NGSP <> '') and (TryStrToFloat(NGSP, dRes) = True) then begin
+          //eAG
+          deAG:= (28.7 * dRes) - 46.7;
+          TMaster.FUpCode:= 'EAG';
+          if TCode.SetCode_UpCode(TMaster.FUpCode) = True then begin
+              TMaster.FResult:= Trim(Format('%5.0f', [deAG]));
+              TMaster.FAbbr:= TCode.GetAbbr_UpCode(TMaster.FUpCode);
+
+              DM.SetDownCode(TMaster);
+              CheckFlag(TMaster);
+
+              DM.SaveResult(TMaster);
+              DispOneResult(TMaster, GrdIdx);
+
+              if TMaster.IsDownCodeOK = True then
+                  UploadProcess_One(TMaster, GrdIdx);
+          end;
+
+          dIfCc:= (10.93 * dRes) - 23.5;
+          TMaster.FUpCode:= 'IFCC';
+          if TCode.SetCode_UpCode(TMaster.FUpCode) = True then begin
+              TMaster.FResult:= Trim(Format('%5.0f', [dIfCc]));
+              TMaster.FAbbr:= TCode.GetAbbr_UpCode(TMaster.FUpCode);
+
+              DM.SetDownCode(TMaster);
+              CheckFlag(TMaster);
+
+              DM.SaveResult(TMaster);
+              DispOneResult(TMaster, GrdIdx);
+
+              if TMaster.IsDownCodeOK = True then
+                  UploadProcess_One(TMaster, GrdIdx);
+          end;
+      end;
+      gdIf.Refresh;
+  finally
+      slRcv.Free;
+      TMaster.Free;
+  end;
+
+end;

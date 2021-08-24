@@ -1,0 +1,161 @@
+테스트
+05-510942
+
+장비별워크리스트조회
+
+전달값
+http://www.edemis.mnd.mil:8515/ws/device/si/Tr/LRController/selEqpIfSmporeWrkCtlg
+{"srchMap":{"SES_HSPT_CD":"L200","FROM_DATE":"20180426","TO_DATE":"20180426","LLRG_CD":"LU","VHDV_CD":"G"}}
+
+반환값
+{"result":{"message":"조회를 완료하였습니다.","resultCount":0},"resultList":[]}
+{"result":{"message":"조회를 완료하였습니다.","resultCount":4},"resultList":[{"PRSCRT_DR_NM":"소이현","PTT_SRVNO":"17-71003701","BARCDNO":"1840001445","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730057308","PTT_FULNM":"","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:33:50","RCP_OTTM":"2018-04-2609:33:57","SES_HSPT_CD":"L200"},{"PRSCRT_DR_NM":"OLTI","PTT_SRYNO":717-71003527","BAR?DNO":"1840001448","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730057004","PTT_FULNM":"AOTA","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:52:40","RCP_DTTM":"2018-04-2609:52:49","SES_HSPT_CD":"L200"},{"PRSCRT_DR_NM":"OTO.","PTT_SRYNO":17-71003861","BARCDNO":"1840001451","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730106345","PTT_FULNM":"71sol","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"KS","BLDCLT_DTTM":"2018-04-2609:52:40","RCP_DTTM":"2018-04-2609:52:49","SES_HSPT_CD":"L200"},{"PRSCRT_DR_NM":"","PTT_SRVNO":"17-71004328","BARCDNO":"1840001454","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730106358","PTT_FULNM":"","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:52:40","RCP_DTTM":"2018-04-2609:52:49","SES_HSPT_CD":"L200"}]}{"result":{"message":"JOEAZOISELICE.","resultCount":4},"resultList":[{"PRSCRT_DR_NM':"","PTT_SRVNO":"17-71003701","BARCDNO":"1840001445","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730057308""PTT_FULNM":"125","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426""SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:33:50","RCP_OTTM":"2018-04-2609:33:57","SES_HSPT_CD":"L200"},{"PRSCRT_DR_NM":"OJO","PTT_SRVNO":"17-71003527","BARCDNO":"1840001448","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730057004","PTTFULNM":"ACT","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCROPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:52:40","RCP_DTTM":"2018-04-2609:52:49","SES_HSPT_CD":"L200"},{"PRSCRT_DR_NM":"","PTT_SRVNO":"17-71003861","BARCDNO":"1840001451","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730106345","PTTFULNM":"7901","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426"."SMPORE_NM":"Urine,randomvoided","HLCROPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:52:40","RCP_DTTM":"2018-04-2609:52:49","SES_HSPT_CD":"L200"},{"PRSCRT_DR_NM":"9","PTT_SRVNO":"17?71004328","BARCDNO":"1840001454","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730106358","PTT_FULNM":"SAB","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426""SMPORE_NM":"Urine,randomvoided","HLCROPTCD":"HS","BLDCLT_DTTM":"2018-04-2609:52:40","RCP_DTTM":"2018-04-2609:52:49","SES_HSPT_CD":"L200"}]}
+
+반환값플이
+{"result":{"message":"조회를 완료하였습니다.","resultCount":4},"
+"resultList":[
+{"PRSCRT_DR_NM":"조이현"
+,"PTT_SRVNO":"17-71003701"
+,"BARCDNO":"1840001445"
+,"EMGCY_YN":null
+,"PTT_AGE":20
+,"SEXCD":"M"
+,"PTNTNO":"201730057308"
+,"PTT_FULNM":"최윤호"
+,"RSLT_STATE_CD":"0"
+,"PRSCRT_DATE":"20180426"
+,"SMPORE_NM":"Urine, random voided"
+,"HLCRDPTCD":"HS"
+,"BLDCLT_DTTM":"2018-04-26 09:33:50"
+,"RCP_OTTM":"2018-04-26 09:33:57"
+,"SES_HSPT_CD":"L200"},
+{"PRSCRT_DR_NM":"임지우","PTT_SRYNO":"17-71003527","BARCDNO":"1840001448","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730057004","PTT_FULNM":"전인준","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"HS","BLDCLT_DTTM":"2018-04-26 09:52:40","RCP_DTTM":"2018-04-26 09:52:49","SES_HSPT_CD":"L200"},
+{"PRSCRT_DR_NM":"임지우","PTT_SRYNO":"17-71003861","BARCDNO":"1840001451","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730106345","PTT_FULNM":"권성민","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"KS","BLDCLT_DTTM":"2018-04-26 09:52:40","RCP_DTTM":"2018-04-26 09:52:49","SES_HSPT_CD":"L200"},
+{"PRSCRT_DR_NM":"임지우","PTT_SRVNO":"17-71004328","BARCDNO":"1840001454","EMGCY_YN":null,"PTT_AGE":20,"SEXCD":"M","PTNTNO":"201730106358","PTT_FULNM":"송시훈","RSLT_STATE_CD":"0","PRSCRT_DATE":"20180426","SMPORE_NM":"Urine,randomvoided","HLCRDPTCD":"HS","BLDCLT_DTTM":"2018-04-26 09:52:40","RCP_DTTM":"2018-04-26 09:52:49","SES_HSPT_CD":"L200"}
+]}
+
+
+
+바코드로항목조회
+
+전달겂
+http://www.edemis.mnd.mil:8515/ws/device/si/Tr/LRController/selEgp/fSmporeRsItCtlg
+{"srchMap":{"SES_HSPT_CD":"L200","BARCDNO":"1840001370"}}
+
+반환값
+{"result":{"message":"조회를 완료하였습니다.","resultCount":1},"resultList":[{"INSP_REFVAL":"8 ~ 36","SEXCD":"M","PTNTNO":"201730057197","INSP_CD_DVS_CD":"S","RSLT_STATE_CD":"1","INSP_EQP_YN":"Y","PRSCRT_CODENO":"LC108","SMPORE_CD":"002","INSP_CLSFCT_CODENO":"LC108","REINSP_YN":null,"BARCDNO":"1840001370","PTT_AGE":20,"RLTY_RSLT_CTNT":null,"PTT_FULNM":"이민재"","INSP_NM":"SGOT(AST)","RSLT_UT_PTCLS":"IU/L","INSP_EQP_CODENO":null,"SES_HSPT_CD":"L200","APLY_RSLT_CTNT":null}]}
+
+
+반환값 풀이
+{"result":{"message":"조회를 완료하였습니다.","resultCount":1},
+"resultList":[
+{"INSP_REFVAL":"8 ~ 36"
+,"SEXCD":"M"
+,"PTNTNO":"201730057197"
+,"INSP_CD_DVS_CD":"S"
+,"RSLT_STATE_CD":"1"
+,"INSP_EQP_YN":"Y",
+"PRSCRT_CODENO":"LC108"
+,"SMPORE_CD":"002"
+,"INSP_CLSFCT_CODENO":"LC108"
+,"REINSP_YN":null
+,"BARCDNO":"1840001370"
+,"PTT_AGE":20
+,"RLTY_RSLT_CTNT":null
+,"PTT_FULNM":"이민재"
+,"INSP_NM":"SGOT(AST)"
+,"RSLT_UT_PTCLS":"IU/L"
+,"INSP_EQP_CODENO":null
+,"SES_HSPT_CD":"L200"
+,"APLY_RSLT_CTNT":null}
+]}
+
+
+
+장비코드목록조회
+
+전달값:
+http://www.edemis.mnd.mil:8515/ws/device/sl/Tr/LRController/sel|fEqpCdSeBox
+{"srchMap":{"SES_HSPT_CD":"L200"}}
+
+반환값
+{"result":{"message":"조회를 완료하였습니다.","resultCount":6},"resultList":[{"EQP_NM":"[001] ABL80 FLEX","INSP_EQP_CODENO":"001"},{"EQP_NM":"[002] AU480","INSP_EQP_CODENO":"002"},{"EQP_NM":"[003] CHEM 3500S","INSP_EQP_CODENO":"003"},"EQP_NM":"[004] Micros 60","INSP_EQP_CODENO":"004"},{"EQP_NM":"[005] Cybow Reader 720","INSP_EQP_CODENO":"005"},{"EQP_NM":"[999] 신검에서결과입력","INSP_EQP_CODENO":"999"}]}
+
+
+반환값 풀이
+{"result":{"message":"조회를 완료하였습니다.","resultCount":6},
+"resultList":[
+{"EQP_NM":"[001] ABL80 FLEX","INSP_EQP_CODENO":"001"}
+,{"EQP_NM":"[002] AU480","INSP_EQP_CODENO":"002"}
+,{"EQP_NM":"[003] CHEM 3500S","INSP_EQP_CODENO":"003"}
+,{"EQP_NM":"[004] Micros 60","INSP_EQP_CODENO":"004"}
+,{"EQP_NM":"[005] Cybow Reader 720","INSP_EQP_CODENO":"005"}
+,{"EQP_NM":"[999] 신검에서결과입력","INSP_EQP_CODENO":"999"}
+]}
+
+
+
+
+사용자ID로근무지정보조회
+
+전달값:
+http://www.edemis.mnd.mil:8515/ws/device/sl/Tr/LRController/selEgpIfUserHsptCdInfo
+{"srchMap":{"USER_ID":"05?510942"}}
+
+
+반환값
+{"result":{"message":"조회를 완료하였습니다.","resultCount":0},"resultList":[]}
+{"result":{"message":"조회를 완료하였습니다.","resultCount":1},"resultList":[{"USER_FULNM":"진명수","HSPT_CD":"L200","HSPT_NM":"해군 제2함대 의무대","APLY_START_DATE":"20160303"}]}
+
+반환값 풀이
+{"result":{"message":"조회를 완료하였습니다.","resultCount":1},
+"resultList":[
+{"USER_FULNM":"진명수"
+,"HSPT_CD":"L200"
+,"HSPT_NM":"해군 제2함대 의무대"
+,"APLY_START_DATE":"20160303"}
+]}
+
+
+
+검사결과저장
+
+한개저장
+전달값:
+http://www.edemis.mnd.mil:8515/ws/device/sl/Tr/LRController/exeEqpIfSmporeRsltCtlg
+{"saveList":[{"SES_HSPT_CD":"L200","BARCDNO":"1840001455","PRSCRT_CODENO":"LU103","INSP_CLSFCT_CODENO":"LU103","SMPORE_CD":"026","INSP_EQP_YN":"Y","INSP_EQP_CODENO":"999","RLTY_RSLT_CTNT":"-","APLY_RSLT_CTNT":"-","RSLT_STATE_CD":"1","SES_USER_ID":"05510942","SES_USER_IP":"127.0.0.1"}]
+
+전달값 풀이:
+{"saveList":[
+{"SES_HSPT_CD":"L200"
+,"BARCDNO":"1840001455"
+,"PRSCRT_CODENO":"LU103"
+,"INSP_CLSFCT_CODENO":"LU103"
+,"SMPORE_CD":"026"
+,"INSP_EQP_YN":"Y"
+,"INSP_EQP_CODENO":"999"
+,"RLTY_RSLT_CTNT":"-"
+,"APLY_RSLT_CTNT":"-"
+,"RSLT_STATE_CD":"1"
+,"SES_USER_ID":"05510942"
+,"SES_USER_IP":"127.0.0.1"}
+]}
+
+반환값
+{"result":{"message":"조회를 완료하였습니다.", "resultCount":1}}
+
+
+두개저장
+전달값:
+http://www.edemis.mnd.mil:8515/ws/device/sl/Tr/LRController/exeEqpIfSmporeRsltCtlg
+{"saveList":[{"SES_HSPT_CD":"L200","BARCDNO":"1840001455","PRSCRT_CODENO":"LU104","INSP_CLSFCT_CODENO":"LU104","SMPORE_CD":"026","INSP_EQP_YN":"Y","INSP_EQP_CODENO":"999","RLTY_RSLT_CTNT":"1.025","APLY_RSLT_CTNT":"1.025","RSLT_STATE_CD":"1","SES_USER_ID":"05510942","SES_USER_IP":"127.0.0.1"},{"SES_HSPT_CD":"L200","BARCDNO":"1840001455","PRSCRT_CODENO":"LU105","INSP_CLSFCT_CODENO":"LU105","SMPORE_CD":"026","INSP_EQP_YN":"Y","INSP_EQP_CODENO":"999","RLTY_RSLT_CTNT":"1.026","APLY_RSLT_CTNT":"1.026","RSLT_STATE_CD":"1","SES_USER_TD":"05510942","SES_USER_IP":"127.0.0.1"}]}
+
+
+전달값 풀이:
+{"saveList":[
+{"SES_HSPT_CD":"L200","BARCDNO":"1840001455","PRSCRT_CODENO":"LU104","INSP_CLSFCT_CODENO":"LU104","SMPORE_CD":"026","INSP_EQP_YN":"Y","INSP_EQP_CODENO":"999","RLTY_RSLT_CTNT":"1.025","APLY_RSLT_CTNT":"1.025","RSLT_STATE_CD":"1","SES_USER_ID":"05510942","SES_USER_IP":"127.0.0.1"},
+{"SES_HSPT_CD":"L200","BARCDNO":"1840001455","PRSCRT_CODENO":"LU105","INSP_CLSFCT_CODENO":"LU105","SMPORE_CD":"026","INSP_EQP_YN":"Y","INSP_EQP_CODENO":"999","RLTY_RSLT_CTNT":"1.026","APLY_RSLT_CTNT":"1.026","RSLT_STATE_CD":"1","SES_USER_TD":"05510942","SES_USER_IP":"127.0.0.1"}
+]}
+
+반환값
+{"result":{"message":"조회를 완료하였습니다.", "resultCount":2}}

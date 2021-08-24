@@ -1,0 +1,451 @@
+1. 검사 처방정보 Select 및 결과 Update
+    1) Pc_DownLoad_Gen: 검체의 처방 정보를 가지고 옴
+	
+    select --/*+ index(a, SLRTSTMT_PK) */
+           fn_lab_get_prtbcno_from_bcno(a.BCNO)                  as BCNO                       /* 검체번호  */
+         , b.WKGRPCD||'-'||b.WKYMD||'-'||lpad(b.WKSEQ, 4, '0')   as LABNO                      /* LAB 번호  */
+         , a.TCLSCD                                                                            /* 검사코드  */
+         , a.SPCCD                                                                             /* 검체코드  */
+         , fn_lab_get_spcnmd(a.SPCCD)                            as SPCNMD                     /* 검체명  */
+         , d.TNMD                                                                              /* 검사명  */
+         , ''                                                               as RERUN           /* 재검여부  */
+--         , decode(nvl(ar.TCLSCD, ' '), ' ', '', 'Y')                 as RERUN                /* 재검여부  */
+         , fn_lab_get_prtbcno_from_bcno(a.BCNO)                  as BCNOPRT                    /* 바코드 번호  */
+         , to_char(b.ORDDT, 'yyyy-MM-dd hh24:mi')                as ORDDT                      /* 처방일자  */
+         , b.PT_NO                                                                             /* 환자번호  */
+         , b.PATNM                                                       as PATNAME            /* 환자명  */
+         , b.SEX||'/'||b.AGE                                              as SEXAGE            /* 성별/나이  */
+         , f.CITIZEN1||'-'||substr(f.CITIZEN2, 1, 1) || '******'     as JUMINO                 /* 주민번호  */
+         , b.ORDDRNM                                                                           /* 의뢰의사  */
+         , b.DPNM                                                                              /* 부서명  */
+         , b.WARDNM                                                                            /* 병동명  */
+      from SLRTSTMT a
+         , SLCINFMT b
+         , SLCORDMT c
+         , SLFITEMT d
+         , SLFITEMT i
+         , SLFTIDMT e
+--         , SLRTREMT ar
+         , APPATBAT f
+     where a.BCNO    = vc_Bcno
+       and a.BCNO    = b.BCNO
+       and b.BCNO    = c.BCNO
+       and a.OTCLSCD = c.OTCLSCD
+       and a.SPCCD   = c.SPCCD
+       and b.SPCFLAG = vc_Acpt
+       and a.TCLSCD  = d.TCLSCD
+       and c.OTCLSCD = i.TCLSCD
+       and a.TCLSCD  = e.TCLSCD
+       and a.SPCCD   = e.SPCCD
+       and e.USDT   <= a.RLCOLLDT
+       and e.UEDT    > a.RLCOLLDT
+       and a.RSTFLAG in ('L','R')
+       and b.PT_NO   = f.PT_NO;
+
+  2) Pc_EqRstSave:  장비 결과를 저장한다.
+    -- 결과 저장
+                    update SLRTSTMT
+                       set RSTFLAG      = 'R'   /* 재검인 항목은 결과 상태를 변경하지 않는다. */
+                         , RSTNO        = decode(vc_OrgRst, null, RSTNO, vl_MaxNo + 1)
+                         , ORGRST       = vc_EqRst
+                         , VIEWRST      = vc_Vierst
+                         , JUDGMARK     = vc_Jmark
+                         , DELTAMARK    = vc_Dmark
+                         , PANICMARK    = vc_Pmark
+                         , CRITICALMARK = vc_Cmark          --데이터 안들어 가고 있음 2017.05.12(psj)
+                         , ALERTMARK    = vc_Amark           --데이터 안들어 가고 있음 2017.05.12(psj)
+                         , AMRMARK      = vc_Ammark        --데이터 안들어 가고 있음 2017.05.12(psj)  
+                         , CRRMARK      = vc_Crmark           --데이터 안들어 가고 있음 2017.05.12(psj)
+                         , BFFNDT       = (SELECT max(fndt) FROM SLRTSTMT    --BFFNDT 이전최종보고일자
+                                            WHERE PT_NO = vc_ptno
+                                              AND TCLSCD = vc_Tclscd
+                                              AND SPCCD = vc_Spccd
+                                              AND BCNO <> vc_Bcno
+                                              AND ORGRST is not null
+                                              AND RSTFLAG = 'V'
+                                              AND FNDT <= vc_racptdt)
+                         , BFORGRST  = (SELECT substr(max(to_char(fndt, 'yyyyMMddhh24miss') || orgrst), 15)  --이전실제결과
+				                        FROM SLRTSTMT
+                                       WHERE PT_NO = vc_ptno
+                                         AND TCLSCD = vc_Tclscd
+                                         AND SPCCD = vc_Spccd
+                                         AND BCNO <> vc_Bcno
+                                         AND ORGRST is not null
+                                         AND RSTFLAG = 'V'
+                                         AND FNDT <= vc_racptdt)
+                         , BFVIEWRST    = (SELECT substr(max(to_char(fndt, 'yyyyMMddhh24miss') || viewrst), 15) --이전보이는결과
+						                     FROM SLRTSTMT
+                                             WHERE PT_NO = vc_ptno
+                                               AND TCLSCD = vc_Tclscd
+                                               AND SPCCD = vc_Spccd
+                                               AND BCNO <> vc_Bcno
+                                               AND ORGRST is not null
+                                               AND RSTFLAG = 'V'
+                                               AND FNDT <= vc_racptdt)
+                         , EQCD         = in_sEqCd                                --장비명
+                         , EQBCNO       = in_sBcno                              --검체번호(바코드번호) 
+                         , EQRSTDT      = vd_TestDt                             --
+                         , EQRSTSEQNO   = in_sEqSeqNo
+                         , EQRSTPOS     = in_sRackPos
+                         , EQRSTFLAGCD  = vc_EqFlagCd
+                         , EQRSTFLAGNM  = vc_EqFlagNm
+                           --RSTID: 로긴 ID
+                         , RSTID        = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'RST'   
+                                                 , in_sUserId, decode(RSTID, null, in_sUserId, RSTID))
+                         , RSTDT        = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'RST', vd_Sysdate,
+                                              decode(RSTDT, null, vd_Sysdate, RSTDT))
+                         , MWID         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', in_sUserId,
+                                                             'FN', decode(MWID, null, in_sUserId, MWID), MWID)
+                         , MWDT         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', vd_Sysdate,
+                                                             'FN', decode(MWDT, null, vd_Sysdate, MWDT), MWDT)
+                         , FNID         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'FN', in_sUserId, FNID)
+                         , FNDT         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'FN', vd_Sysdate, FNDT)
+                         , EDTID        = in_sUserId
+                         , EDTIP        = in_sUserIp
+                         , EDTDT        = vd_Sysdate
+                         , EDTPG        = in_sUserPg
+                     where BCNO    = vc_Bcno
+                       and TCLSCD  = vc_Tclscd
+                       and SPCCD   = vc_Spccd
+                       and OTCLSCD = vc_Otclscd
+                       and nvl(RSTYN, 'N') = 'Y';
+                       
+
+	update SLCORDMT
+       set RSTFLAG   =  vc_SetFlag
+         , MWDT          = decode(vc_SetFlag, 'S', vd_TestDt, 'V', decode(MWDT, null, vd_TestDt, MWDT), MWDT)
+         , FNDT      = decode(vc_SetFlag, 'V', vd_TestDt, FNDT)
+         , EDTID      = in_sUserId
+         , EDTDT     = vd_Sysdate
+         , EDTPG     = in_sUserPg
+     where BCNO    = vc_Bcno
+       and OTCLSCD = vc_Otclscd
+       and SPCCD    = vc_Spccd;
+
+	update MOEEXAMT
+       set RSLTDATE = vd_Sysdate
+         , TST_STAT = 'D'
+     where PT_NO   = vc_exPtno
+       and ORD_DTE = vd_exOrddt
+       and ORD_SEQ = vl_exSeq;
+
+	--처방 정보 업데이트
+	update SLCINFMT
+       set RSTFLAG      = 'R'
+         , EDTID        = in_sUserId
+         , EDTDT        = vd_Sysdate
+         , EDTPG        = in_sUserPg
+
+
+2. 워크리스트 정보 Select
+   1)  Pc_DownLoad_Order:  작업그룹에 따른 워크리스트 정보를 가지고 옴
+   
+	select --/*+ index(a, SLRTSTMT_SI02) */
+           fn_lab_get_prtbcno_from_bcno(a.BCNO)                 as BCNO                   /* 검체번호  */
+         , b.WKGRPCD||'-'||b.WKYMD||'-'||lpad(b.WKSEQ, 4, '0')   as LABNO                 /* LAB 번호  */
+         , a.TCLSCD                                                                       /* 검사코드  */
+         , a.SPCCD                                                                        /* 검체코드  */
+         , fn_lab_get_spcnmd(a.SPCCD)                            as SPCNMD                /* 검체명  */
+         , d.TNMD                                                                         /* 검사명  */
+      --   , decode(nvl(ar.TCLSCD, ' '), ' ', '', 'Y')                  as RERUN          /* 재검여부  */
+         , fn_lab_get_prtbcno_from_bcno(a.BCNO)                  as BCNOPRT               /* 바코드 번호  */
+         , to_char(b.ACPTDT, 'yyyy-MM-dd hh24:mi')                as ORDDT                /* 처방일자  */
+         , b.PT_NO                                                                        /* 환자번호  */
+         , b.PATNM                                                          as PATNAME    /* 환자명  */
+         , b.SEX||'/'||b.AGE                                                as SEXAGE     /* 성별/나이  */
+         , f.CITIZEN1||'-'||substr(f.CITIZEN2, 1, 1) || '******'  as JUMINO               /* 주민번호  */
+         , b.ORDDRNM                                                                      /* 의뢰의사  */
+         , b.DPNM                                                                         /* 부서명  */
+         , b.WARDNM                                                                       /* 병동명  */
+         , b.IOCLS                                                                        /* 입외구분  */
+         , b.DPCD                                                                         /* 처방처  */
+      from SLRTSTMT a
+         , SLCINFMT b
+         , SLCORDMT c
+         , SLFITEMT d
+         , SLFITEMT i
+         , SLFTIDMT e
+        -- , SLRTREMT ar
+         , APPATBAT f
+     where a.BCNO    = b.BCNO
+       and b.BCNO    = c.BCNO
+       and a.OTCLSCD = c.OTCLSCD
+       and a.SPCCD   = c.SPCCD
+       and b.SPCFLAG = vc_Acpt
+       and a.RSTFLAG in ( 'L', 'R')
+       and a.TCLSCD  = d.TCLSCD
+       and c.OTCLSCD = i.TCLSCD
+       and a.TCLSCD  = e.TCLSCD
+       and a.SPCCD   = e.SPCCD
+       and e.USDT   <= a.RLCOLLDT
+       and e.UEDT    > a.RLCOLLDT
+       and b.PT_NO   = f.PT_NO
+       AND A.WKGRPCD = E.WKGRPCD
+       and e.WKGRPCD = in_GrpCode                              -- 그룹코드
+       and a.WKYMD >= to_date(in_SDate, 'YYYYmmdd')            -- 처방 검색 시작일자
+       and a.WKYMD <= to_date(in_EDate, 'YYYYmmdd') + 1.0      -- 처방 검색 종료일자
+     ORDER BY LABNO;
+
+2) Pc_DownLoad_Order2:  검체번호에 따른 워크리스트 정보를 가지고 옴
+
+	select --/*+ index(a, SLRTSTMT_SI02) */
+           fn_lab_get_prtbcno_from_bcno(a.BCNO)                 as BCNO                        /* 검체번호  */
+         , b.WKGRPCD||'-'||b.WKYMD||'-'||lpad(b.WKSEQ, 4, '0')   as LABNO                      /* LAB 번호  */
+         , a.TCLSCD                                                                            /* 검사코드  */
+         , a.SPCCD                                                                             /* 검체코드  */
+         , fn_lab_get_spcnmd(a.SPCCD)                              as SPCNMD                   /* 검체명  */
+         , d.TNMD                                                                              /* 검사명  */
+      --   , decode(nvl(ar.TCLSCD, ' '), ' ', '', 'Y')                     as RERUN            /* 재검여부  */
+         , fn_lab_get_prtbcno_from_bcno(a.BCNO)                  as BCNOPRT                    /* 바코드 번호  */
+         , to_char(b.ACPTDT, 'yyyy-MM-dd hh24:mi')                as ORDDT                     /* 처방일자  */
+         , b.PT_NO                                                                             /* 환자번호  */
+         , b.PATNM                                                   as PATNAME                /* 환자명  */
+         , b.SEX||'/'||b.AGE                                               as SEXAGE           /* 성별/나이  */
+         , f.CITIZEN1||'-'||substr(f.CITIZEN2, 1, 1) || '******'  as JUMINO                    /* 주민번호  */
+         , b.ORDDRNM                                                                           /* 의뢰의사  */
+         , b.DPNM                                                                              /* 부서명  */
+         , b.WARDNM                                                                            /* 병동명  */
+         , b.IOCLS                                                                             /* 입외구분  */
+         , b.DPCD                                                                              /* 처방처  */
+      from SLRTSTMT a
+         , SLCINFMT b
+         , SLCORDMT c
+         , SLFITEMT d
+         , SLFITEMT i
+         , SLFTIDMT e
+        -- , SLRTREMT ar
+         , APPATBAT f
+     where a.BCNO    = b.BCNO
+       and b.BCNO    = c.BCNO
+       and a.OTCLSCD = c.OTCLSCD
+       and a.SPCCD   = c.SPCCD
+       and b.SPCFLAG = vc_Acpt
+       and a.RSTFLAG in ( 'L', 'R')
+       and a.TCLSCD  = d.TCLSCD
+       and c.OTCLSCD = i.TCLSCD
+       and a.TCLSCD  = e.TCLSCD
+       and a.SPCCD   = e.SPCCD
+       and e.USDT   <= a.RLCOLLDT
+       and e.UEDT    > a.RLCOLLDT
+       and b.PT_NO   = f.PT_NO
+       AND A.WKGRPCD = E.WKGRPCD
+       and a.bcno    = in_ordbcno
+       and a.WKYMD >= to_date(in_SDate, 'YYYYmmdd')          -- 처방 검색 시작일자
+       and a.WKYMD <= to_date(in_EDate, 'YYYYmmdd') + 1.0    -- 처방 검색 종료일자
+     ORDER BY LABNO;
+
+
+3.  QC 처방정보 Select 및 결과 Update
+
+   1) Pc_DownLoad_QC: 검체의 QC 정보를 가지고 옴
+	select inf.bcd_no                         bcno     
+              ,pat.pt_no                        ptno
+              ,pat.pt_nm                      pt_name
+              ,rst.wrk_grp_cd                      dpcd 
+              ,exm.clsp_cd                       spccd
+              ,rst.tst_cd                       tclscd
+              ,itm.tnmd                         tnmd
+        from    slqcptmt  pat
+               ,slqexamt  exm
+               ,slqordmt  ord
+               ,slqinfmt  inf
+               ,slqtstmt  rst
+               ,slfitemt  itm
+        where inf.bcd_no = in_sBcno
+         and  inf.bcd_no = exm.bcd_no
+         and  inf.bcd_no = ord.bCd_NO
+         and  inf.bcd_no = rst.bcd_no 
+         and  inf.pt_no = pat.pt_no
+         and  ord.ord_seq_no = exm.ord_seq_no
+         and  exm.ord_dt  = ord.ord_dt
+         and  rst.ord_cd = exm.ord_cd
+         and  inf.tst_stat_cd in( 'L','R')
+         and  exm.ord_cd = itm.tclscd;
+
+   2) Pc_UploadQc:  QC 결과를 저장한다. 
+	UPDATE SLQTSTMT
+              SET TST_RSLT_CONT     = in_rstval
+                , EXPS_TST_RSLT_CONT    = in_rstval
+                , tst_stat_cd    = 'R'
+                , EQIP_TST_DTE    = SYSDATE
+                , TST_DTE     = SYSDATE
+                , EQIP_TST_ID_NM    = 'sk'
+                , TST_ID_NM     = 'sk'
+          WHERE bcd_no         = in_sBcno
+              and tst_cd     = in_examcode;
+
+	UPDATE SLQINFMT
+              SET tst_stat_cd    = 'R'
+            WHERE bcd_no         = in_sBcno;
+            
+
+4.  미생물 검사 처방정보 Select 및 결과 Update
+
+   1) Pc_DownLoad_Micro:; 미생물 검체의 처방 정보를 가지고 옴
+	select --/*+ index(a, SLRTSTMT_PK) */
+           fn_lab_get_prtbcno_from_bcno(a.BCNO)                  as BCNO                      /* 검체번호  */
+         , b.WKGRPCD||'-'||b.WKYMD||'-'||lpad(b.WKSEQ, 4, '0')   as LABNO                     /* LAB 번호  */
+         , a.TCLSCD                                                                           /* 검사코드  */
+         , a.SPCCD                                                                            /* 검체코드  */
+         , fn_lab_get_spcnmd(a.SPCCD)                                 as SPCNMD               /* 검체명  */
+         , d.TNMD                                                                             /* 검사명  */
+         , ''                                                                      as RERUN   /* 재검여부  */
+--         , decode(nvl(ar.TCLSCD, ' '), ' ', '', 'Y')                       as RERUN         /* 재검여부  */
+         , fn_lab_get_prtbcno_from_bcno(a.BCNO)                  as BCNOPRT                   /* 바코드 번호  */
+         , to_char(b.ORDDT, 'yyyy-MM-dd hh24:mi')                as ORDDT                     /* 처방일자  */
+         , b.PT_NO                                                                            /* 환자번호  */
+         , b.PATNM                                                        as PATNAME          /* 환자명  */
+         , b.SEX||'/'||b.AGE                                                 as SEXAGE        /* 성별/나이  */
+         , f.CITIZEN1||'-'||substr(f.CITIZEN2, 1, 1) || '******'  as JUMINO                   /* 주민번호  */
+         , b.ORDDRNM                                                                          /* 의뢰의사  */
+         , b.DPNM                                                                             /* 부서명  */
+         , b.WARDNM                                                                           /* 병동명  */
+      from SLRTSTMT a
+         , SLCINFMT b
+         , SLCORDMT c
+         , SLFITEMT d
+         , SLFITEMT i
+         , SLFTIDMT e
+--         , SLRTREMT ar
+         , APPATBAT f
+     where a.BCNO    = vc_Bcno
+       and a.BCNO    = b.BCNO
+       and b.BCNO    = c.BCNO
+       and a.OTCLSCD = c.OTCLSCD
+       and a.SPCCD   = c.SPCCD
+       and b.SPCFLAG = vc_Acpt
+       and a.TCLSCD  = d.TCLSCD
+       and c.OTCLSCD = i.TCLSCD
+       and a.TCLSCD  = e.TCLSCD
+       and a.SPCCD   = e.SPCCD
+       and e.USDT   <= a.RLCOLLDT
+       and e.UEDT    > a.RLCOLLDT
+       and b.wkgrpcd = 'M2'
+       and a.RSTFLAG in ('L')
+       and b.PT_NO   = f.PT_NO
+       and d.ORDSLIPCD = 'L13';
+
+   2) Pc_EqMicRstSave: 미생물 결과를 저장한다. 
+   
+        -- 검체별 재검정보 히스토리 입력
+        insert
+          into SLRTREHT
+        select vd_Sysdate
+             , in_sUserId
+             , a.*
+          from SLRTREMT a
+         where BCNO   = vc_Bcno
+           and TCLSCD = in_sTclscd;
+
+        -- 검체별 재검정보 삭제
+        delete
+          from SLRTREMT
+         where BCNO   = vc_Bcno
+           and TCLSCD = in_sTclscd;
+
+    -- 검체별 균결과 입력
+          insert     into SLMRBTMT
+                   ( BCNO,  TCLSCD,    SPCCD, OTCLSCD, RSTNO,   ADDID,  ADDDT,  ADDIP, ADDPG, SUBSYSCD
+                    , PT_NO, MBRSTFORM, BACCD, BACSEQ,  RANKING, INCRST, BACCMT, RSTID, RSTDT, MWID
+                    , MWDT,  FNID,      FNDT,  RSTCLS,  RSTFLAG)
+                    values
+                         ( vc_Bcno, in_sTclscd, vc_Spccd, vc_Otclscd,  vl_MaxRstNo, in_sUserId, vd_Sysdate, in_sUserIp, in_sUserPg, 'LAB'
+                         , vc_Ptno, 'B',        vc_Baccd, vl_MaxSeq,   vl_MaxRank,  vc_IncRst,  vc_Comment, in_sUserId, vd_Sysdate
+                         , decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', in_sUserId,
+                                                         'FN', in_sUserId, null)
+                         , decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', vd_Sysdate,
+                                                         'FN', vd_Sysdate, null)
+                         , decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'FN', in_sUserId, null)
+                         , decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'FN', vd_Sysdate, null)
+                         , decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', 1,
+                                                         'FN', 2, null)
+                         , vc_SetFlag );
+        --  항생제 결과 입력
+			Insert   into SLMRATMT
+                                     ( BCNO,  TCLSCD, SPCCD,   OTCLSCD, BACCD, BACSEQ, ANTICD, TSTMTD, ADDID, ADDDT, ADDIP, ADDPG, SUBSYSCD
+                                     , PT_NO, RISRST, ANTIRST, ANTICMT )
+                                values
+                                     ( vc_Bcno,    in_sTclscd, vc_Spccd,   vc_Otclscd, vc_Baccd, vl_MaxSeq, vc_Anticd, 'M'
+                                     , in_sUserId, vd_Sysdate, in_sUserIp, in_sUserPg, 'LAB'
+                                     , vc_Ptno,    vc_AntiRis, vc_AntiRst, vc_AntiCmt );
+
+        -- 균결과에 대해 모든 항목에 대해 업데이트
+        update SLMRBTMT
+           set MWID    = decode(in_sEqState, 'MW', decode(MWID, null, in_sUserId, MWID), 'FN', in_sUserId, MWID)
+             , MWDT    = decode(in_sEqState, 'MW', decode(MWDT, null, vd_Sysdate, MWDT), 'FN', vd_Sysdate, MWDT)
+             , FNID    = decode(in_sEqState, 'FN', decode(FNID, null, in_sUserId, FNID), FNID)
+             , FNDT    = decode(in_sEqState, 'FN', decode(FNDT, null, vd_Sysdate, FNDT), FNDT)
+             , RSTCLS  = decode(in_sEqState, 'MW', 1, 'FN', 2, RSTCLS)
+             , RSTFLAG = vc_SetFlag
+             , EDTID        = in_sUserId
+             , EDTDT        = vd_Sysdate
+             , EDTPG        = in_sUserPg
+         where BCNO = vc_Bcno;
+
+        -- 결과 저장
+        update SLRTSTMT
+           set RSTFLAG      = vc_SetFlag
+             , RSTNO        = decode(vc_OrgRst, null, RSTNO, RSTNO + 1)
+             , JUDGMARK     = vc_Jmark
+             , DELTAMARK    = vc_Dmark
+             , PANICMARK    = vc_Pmark
+             , CRITICALMARK = vc_Cmark
+             , ALERTMARK    = vc_Amark
+             , AMRMARK      = vc_Ammark
+             , CRRMARK      = vc_Crmark
+             , EQCD         = in_sEqCd
+             , EQBCNO       = in_sBcno
+             , EQRSTDT      = vd_Sysdate
+             , EQRSTSEQNO   = in_sEqSeqNo
+             , EQRSTPOS     = in_sRackPos
+             , RSTID        = decode(RSTID, null, in_sUserId, RSTID)
+             , RSTDT        = decode(RSTDT, null, vd_Sysdate, RSTDT)
+-- <<< mod freety 2012.06.21 : MD의 경우 처리 추가
+--             , MWID         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', in_sUserId,
+--                                                 'FN', decode(MWID, null, in_sUserId, MWID), MWID)
+--             , MWDT         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'MW', vd_Sysdate,
+--                                                 'FN', decode(MWDT, null, vd_Sysdate, MWDT), MWDT)
+             , MWID         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag),
+                                     'MW', in_sUserId,
+                                     'MD', in_sUserId,
+                                     'FN', decode(MWID, null, in_sUserId, MWID), MWID)
+             , MWDT         = case when vc_Flaggbn = 'MW' or vc_Flaggbn = 'MD' or vc_Flaggbn = 'FN' then
+                                  -- mod freety 2012.08.16 : 결과저장(R)에서 중간보고◎(T)로 변경하는 경우 존재하여 수정
+                                  --case when RSTFLAG = 'S' then
+                                  case when RSTFLAG = 'S' or RSTFLAG = 'R' then
+                                      vd_Sysdate
+                                  else
+                                      decode(MWDT, null, vd_Sysdate, MWDT)
+                                  end
+                              else
+                                  MWDT
+                              end
+-- >>>
+             , FNID         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'FN', in_sUserId, FNID)
+             , FNDT         = decode(fn_lab_get_flags_dtlcd('RSTFLAG', vc_SetFlag), 'FN', vd_Sysdate, FNDT)
+             , EDTID        = in_sUserId
+             , EDTDT        = vd_Sysdate
+             , EDTPG        = in_sUserPg
+         where BCNO    = vc_Bcno
+           and TCLSCD  = in_sTclscd
+           and SPCCD   = vc_Spccd
+           and OTCLSCD = vc_Otclscd;
+
+        update SLCORDMT
+           set RSTFLAG      = vc_SetFlag
+             , MWDT         = decode(in_sEqState, 'MW', vd_Sysdate, 'FN', decode(MWDT, null, vd_Sysdate, MWDT), MWDT)
+             , FNDT         = decode(in_sEqState, 'FN', vd_Sysdate, FNDT)
+             , EDTID        = in_sUserId
+             , EDTDT        = vd_Sysdate
+             , EDTPG        = in_sUserPg
+         where BCNO    = vc_Bcno
+           and OTCLSCD = vc_Otclscd
+           and SPCCD   = vc_Spccd;
+
+            update MOEEXAMT
+               set RSLTDATE = vd_Sysdate
+                 , TST_STAT = 'D'
+             where PT_NO   = vc_exPtno
+               and ORD_DTE = vd_exOrddt
+               and ORD_SEQ = vl_exSeq;
+        end if;

@@ -1,0 +1,5 @@
+Select equipcode, examcode, examname, resprec, seqno   
+  From EQPMASTER                                       
+ Where equipno = 'NX500'                      
+ Order by seqno * 10                                   
+

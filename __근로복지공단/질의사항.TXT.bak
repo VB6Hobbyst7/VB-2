@@ -1,0 +1,43 @@
+
+
+모르겠는거...
+
+1. 검사 처방정보 Select 및 결과 Update
+
+    1) Pc_DownLoad_Gen: 검체의 처방 정보를 가지고 옴
+	 where문에     
+     		and b.SPCFLAG = vc_Acpt
+     		vc_Acpt 는 어떤값인지..
+     
+
+
+  2) Pc_EqRstSave:  장비 결과를 저장한다.
+
+
+                         , RSTNO        = decode(vc_OrgRst, null, RSTNO, vl_MaxNo + 1)
+
+		RSTNO 는 어떤값을 넣는지?
+		vc_OrgRst ? 
+		vl_MaxNo ?
+
+
+	  JUDGMARK(=판정?) H,L을 넣는지?
+                                               AND FNDT <= vc_racptdt)	
+	
+	  vc_SetFlag 은 어떤값??
+	
+	
+	  in_sUserPg ??
+	
+	
+	  처방 정보 업데이트 구문에 where 절이 없음
+	
+	--처방 정보 업데이트 
+	update SLCINFMT
+       set RSTFLAG      = 'R'
+         , EDTID        = in_sUserId
+         , EDTDT        = vd_Sysdate
+         , EDTPG        = in_sUserPg
+
+? vd_exOrddt 
+? vl_exSeq

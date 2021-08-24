@@ -1,0 +1,19 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , COUNT(EXAMCODE) AS CNT  
+  From UB_PATRESULT                                            
+ Where HOSPDATE Between '20201017' AND '20201017'      
+   And EXAMCODE IN ('b2570','b2580','b2590','b2602','b2710','c2200','c2210','c2411','c2420','c2443','c3720','c3730','c3750','GLU')                        
+   And (RESULT = '' OR RESULT IS NULL) 
+   AND SENDFLAG = '0'                  
+ Group By SAVESEQ,HOSPDATE,INOUT,CHARTNO,BARCODE,PID,PNAME,PSEX,PAGE,PJUMIN 
+ Order by HOSPDATE,PID,PNAME,BARCODE                               
+

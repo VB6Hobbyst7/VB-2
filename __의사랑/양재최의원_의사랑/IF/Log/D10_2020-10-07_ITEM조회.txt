@@ -1,0 +1,1 @@
+Select Distinct EXAMCODE AS ITEM         From UB_PATRESULT                     Where BARCODE = '10070002100785'     And EXAMCODE IN ('D3061','D3061-1')   And (RESULT = '' OR RESULT IS NULL)  Order by EXAMCODE                     

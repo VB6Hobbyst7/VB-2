@@ -1,0 +1,131 @@
+  <!-- ORDER 리스트 조회(일반검사) -->
+  <query statement="Package" commandtype="StoredProcedure" queryid="selectIfList_GEN">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_DownLoad_Gen]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBcno</param>
+      <param direction="Output" dbtype="Cursor" size="0">out_rtnCs</param>
+    </parameters>
+  </query>
+
+
+
+----------------------------------------------------------------------------------------------
+
+  <!-- 인터페이스 장비결과 저장 -->
+  <query statement="Package" commandtype="StoredProcedure" queryid="pc_EqRstSave">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_EqRstSave]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBcno</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sTestDt</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sCnt</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sTclscd</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqRst</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqFlagCd</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqFlagNm</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqState</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqCd</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqSeqNo</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sRackPos</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sLowHigh</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sUserIp</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sUserPg</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sUserId</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqSpcFlag</param>
+      <param direction="InputOutput" dbtype="VarChar" size="1">io_erryn</param>
+      <param direction="InputOutput" dbtype="VarChar" size="4000">io_errmsg</param>
+    </parameters>
+  </query>
+
+
+----------------------------------------------------------------------------------------------
+
+  <!-- ORDER 리스트 조회(기간검색) -->
+  <query statement="Package" commandtype="StoredProcedure" queryid="selectIfList_Order">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_DownLoad_Order]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_SDate</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_EDate</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_GrpCode</param>
+      <param direction="Output" dbtype="Cursor" size="0">out_rtnCs</param>
+    </parameters>
+  </query>
+
+----------------------------------------------------------------------------------------------
+
+  <query statement="Package" commandtype="StoredProcedure" queryid="selectIfList_Order2">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_DownLoad_Order2]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_SDate</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_EDate</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_ordbcno</param>
+      <param direction="Output" dbtype="Cursor" size="0">out_rtnCs</param>
+    </parameters>
+  </query>
+
+----------------------------------------------------------------------------------------------
+
+  <!-- ORDER 리스트 조회(QC검사) -->
+  <query statement="Package" commandtype="StoredProcedure" queryid="selectIfList_QC">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_DownLoad_QC]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBcno</param>
+      <param direction="Output" dbtype="Cursor" size="0">out_rtnCs</param>
+    </parameters>
+  </query>
+
+----------------------------------------------------------------------------------------------
+
+  <!--**********************************************************************
+    작성자 : 박응규
+    작성일 : 
+    내  용 : 인터페이스 QC 결과 업데이트
+  **********************************************************************-->
+  <query statement="Package" commandtype="StoredProcedure" queryid="sld53_qcrsl_interface">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_uploadqc]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBcno</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_scnt</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_examcode</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_rstval</param>
+    </parameters>
+  </query>
+
+----------------------------------------------------------------------------------------------
+
+  <!-- 인터페이스 장비결과 저장(미생물) -->
+  <query statement="Package" commandtype="StoredProcedure" queryid="pc_EqMicRstSave">
+    <commandtext>
+      <![CDATA[PKG_SUP_LAB_INTERFACE.pc_EqMicRstSave]]>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBcno</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sTclscd</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqState</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqCd</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sEqSeqNo</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sRackPos</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBacCnt</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBacType</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sBacInfo</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sAntiCnt</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sAntiInfo</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_labcmt</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sUserIp</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sUserPg</param>
+      <param direction="Input" dbtype="VarChar" size="0">in_sUserId</param>
+      <param direction="InputOutput" dbtype="VarChar" size="1">io_erryn</param>
+      <param direction="InputOutput" dbtype="VarChar" size="4000">io_errmsg</param>
+    </parameters>
+  </query>

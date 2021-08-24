@@ -1,0 +1,110 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\Interface_work\BT2000\현진혜내과\Package
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+C:\WINDOWS\system32\MSCOMCT2.OCX=
+
+[Package|Standard Setup Package 1|Files Added]
+C:\Interface_work\BT2000\현진혜내과\interface.ini=
+C:\Interface_work\BT2000\현진혜내과\Interface.mdb=
+
+[Package|Standard Setup Package 1|Files Removed]
+c:\windows\system32\msvcrt.dll=
+c:\program files\microsoft visual studio\vb98\wizards\pdwizard\redist\msvcrt40.dll=
+c:\program files\microsoft visual studio\vb98\wizards\pdwizard\redist\mfc40.dll=
+c:\windows\system32\mfc42.dll=
+c:\program files\common files\system\ado\msado25.tlb=
+
+[Package|Standard Setup Package 1|Files In Project]
+C:\Interface_work\BT2000\현진혜내과\IF_BT2000.exe=Yes
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6KO.DLL=Yes
+C:\Program Files\Common Files\System\ado\msado25.tlb=No
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSCOMKO.DLL=Yes
+C:\Program Files\Spread35\Bin\SPR32X35.ocx=Yes
+C:\WINDOWS\system32\mfc42.dll=No
+C:\WINDOWS\system32\msvcrt.dll=No
+C:\WINDOWS\system32\THREED32.OCX=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MFC40.DLL=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MSVCRT40.DLL=No
+C:\WINDOWS\system32\MSCOMCT2.OCX=Yes
+C:\WINDOWS\system32\MSCC2KO.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+C:\Interface_work\BT2000\현진혜내과\interface.ini=Yes
+C:\Interface_work\BT2000\현진혜내과\Interface.mdb=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+C:\Interface_work\BT2000\현진혜내과\IF_BT2000.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6KO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMKO.DLL=$(WinSysPath)
+C:\Program Files\Spread35\Bin\SPR32X35.ocx=$(WinSysPath)
+C:\WINDOWS\system32\THREED32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCC2KO.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+C:\Interface_work\BT2000\현진혜내과\interface.ini=$(AppPath)
+C:\Interface_work\BT2000\현진혜내과\Interface.mdb=$(AppPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+C:\Interface_work\BT2000\현진혜내과\IF_BT2000.exe=No
+C:\Interface_work\BT2000\현진혜내과\interface.ini=No
+C:\Interface_work\BT2000\현진혜내과\Interface.mdb=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=INTERFACE
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=C:\Interface_work\BT2000\현진혜내과\Package
+ProjectFolder=C:\Interface_work\BT2000\현진혜내과
+ServerSideCab=
+File1=C:\Interface_work\BT2000\현진혜내과\Package\setup.exe
+File2=C:\Interface_work\BT2000\현진혜내과\Package\Setup.Lst
+File3=C:\Interface_work\BT2000\현진혜내과\Package\IF_BT2000.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

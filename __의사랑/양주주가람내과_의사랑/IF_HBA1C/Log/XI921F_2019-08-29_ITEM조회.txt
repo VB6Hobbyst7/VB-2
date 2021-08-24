@@ -1,0 +1,1 @@
+Select Distinct EXAMCODE AS ITEM         From UB_PATRESULT                     Where BARCODE = '08280000006532'     And PID     = 'o17113'       And EXAMCODE IN ('C3791','C3792','C3793')   And (RESULT = '' OR RESULT IS NULL)  Order by EXAMCODE                     

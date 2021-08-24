@@ -1,0 +1,1 @@
+Select Distinct EXAMCODE AS ITEM         From UB_PATRESULT                     Where BARCODE = '07050000004653'     And PID     = 'o43520'       And EXAMCODE IN ('Alb','ALP','GPT','GOT','TC','Cr','G-GTP','Sugar2','HDL-C','LDL1','TB','TP','TG','Uric','BUN')   And (RESULT = '' OR RESULT IS NULL)  Order by EXAMCODE                     

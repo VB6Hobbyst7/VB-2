@@ -1,0 +1,272 @@
+unit U_SetQC;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, NumEdit, Grids, BaseGrid, AdvGrid, ComCtrls, Buttons,
+  ExtCtrls, ADODB;
+
+type
+  TF_Code_QC = class(TForm)
+    StatusBar1: TStatusBar;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    gdCode: TAdvStringGrid;
+    Panel4: TPanel;
+    btnDel: TSpeedButton;
+    btnSave: TSpeedButton;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    edCode: TEdit;
+    edName: TEdit;
+    edAbbr: TEdit;
+    Panel10: TPanel;
+    edLow: TNumEdit;
+    edHigh: TNumEdit;
+    edSeq: TNumEdit;
+    Panel11: TPanel;
+    edUpCode: TEdit;
+    Panel1: TPanel;
+    btnClose: TSpeedButton;
+    btnView: TSpeedButton;
+    cmbLotNo: TComboBox;
+    Panel12: TPanel;
+    btnLot: TSpeedButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormDestroy(Sender: TObject);
+    procedure btnViewClick(Sender: TObject);
+    procedure cmbLotNoChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure gdCodeClickCell(Sender: TObject; ARow, ACol: Integer);
+    procedure gdCodeClick(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+    procedure btnLotClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure btnDelClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure ViewCodeList(sLot:string);
+    procedure ClearDetailPanel;
+    procedure AddLotList;
+  public
+    { Public declarations }
+  end;
+
+var
+  F_Code_QC: TF_Code_QC;
+
+implementation
+
+uses GlobalVar, SetDataBase, U_CodeInfo, StringLib, U_QCM, U_DM;
+
+const
+  C_Lot  = 0;
+  C_Seq  = C_Lot+1;
+  C_Code = C_Seq+1;
+  C_Name = C_Code+1;
+  C_Abbr = C_Name+1;
+  C_UPCd = C_Abbr+1;
+  C_RefL = C_UPCd+1;
+  C_RefH = C_RefL+1;
+
+{$R *.dfm}
+
+procedure TF_Code_QC.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action:= caFree;
+end;
+
+procedure TF_Code_QC.FormDestroy(Sender: TObject);
+begin
+  F_Code_QC:= nil;
+end;
+
+procedure TF_Code_QC.ViewCodeList(sLot: string);
+var
+  TSql:TQueryInfo;
+  QryEx:TAdoQuery;
+  i:integer;
+begin
+  TSql:= TQueryInfo.Create;
+  QryEx:= TAdoQuery.Create(Self);
+  try
+      with TSql do begin
+          Clear;
+          AddSql(' Select LotNo, ExamCode, IFCode, RefLow, RefHigh,  ');
+          AddSql('        ExamName, Abbr, DispSeq ');
+          AddSql(' From TB_QC  ');
+          AddSql(' Where LotNo = '''+sLot+''' ');
+          AddSql(' Order By DispSeq ');
+          RCount:= LocalSelect(QryEx);
+
+          if RCount = 0 then begin
+              ShowMessage('등록된 코드가 없습니다!');
+              exit;
+          end;
+
+          gdCode.RowCount:= RCount+1;
+
+          i:=0;
+          with QryEx do begin
+              While Not Eof do begin
+                  inc(i);
+                  gdCode.Cells[C_Lot, i]:=  FieldByName('LotNo').AsString;
+                  gdCode.Cells[C_Seq, i] := PadLeftStr(IntToStr(FieldByName('DispSeq').AsInteger), '0', 3);
+                  gdCode.Cells[C_Code, i]:= FieldByName('ExamCode').AsString;
+                  gdCode.Cells[C_Name, i]:= FieldByName('ExamName').AsString;
+                  gdCode.Cells[C_Abbr, i]:= FieldByName('Abbr').AsString;
+                  gdCode.Cells[C_RefL, i]:= FloatToStr(FieldByName('RefLow').AsFloat);
+                  gdCode.Cells[C_RefH, i]:= FloatToStr(FieldByName('RefHigh').AsFloat);
+                  gdCode.Cells[C_UPCd, i]:= FieldByName('IFCode').AsString;
+                  Next;
+              end;
+          end;
+      end;
+
+  finally
+      QryEx.Free;
+      TSql.Free;
+  end;
+
+end;
+
+procedure TF_Code_QC.btnViewClick(Sender: TObject);
+begin
+  ViewCodeList(cmbLotNo.Text);
+end;
+
+procedure TF_Code_QC.cmbLotNoChange(Sender: TObject);
+begin
+  ViewCodeList(cmbLotNo.Text);
+end;
+
+procedure TF_Code_QC.FormCreate(Sender: TObject);
+begin
+  AddLotList;
+end;
+
+procedure TF_Code_QC.FormShow(Sender: TObject);
+begin
+  btnView.Click;
+end;
+
+procedure TF_Code_QC.ClearDetailPanel;
+begin
+  edCode.Text:= '';
+  edName.Text:= '';
+  edUpCode.Text:= '';
+  edAbbr.Text:= '';
+  edLow.Value:= 0;
+  edHigh.Value:= 0;
+  edSeq.Value:= 0;
+end;
+
+procedure TF_Code_QC.gdCodeClickCell(Sender: TObject; ARow, ACol: Integer);
+begin
+  if ARow > 0 then begin
+      edCode.Text  := gdCode.Cells[C_Code, ARow];
+      edName.Text  := gdCode.Cells[C_Name, ARow];
+      edUpCode.Text:= gdCode.Cells[C_UPCd, ARow];
+      edAbbr.Text  := gdCode.Cells[C_ABBR, ARow];
+      edLow.Value  := StrToFloatDef(gdCode.Cells[C_RefL, ARow],0);
+      edHigh.Value := StrToFloatDef(gdCode.Cells[C_RefH, ARow],0);
+      edSeq.Value  := StrToFloatDef(gdCode.Cells[C_Seq, ARow],0);
+  end;
+
+end;
+
+procedure TF_Code_QC.gdCodeClick(Sender: TObject);
+begin
+  gdCode.OnClickCell(Sender, gdCode.Row, gdCode.Col);
+end;
+
+procedure TF_Code_QC.btnSaveClick(Sender: TObject);
+var
+  sLot,sCode,sName,sUp,sAbbr:string;
+  dLow,dHigh:double;
+  iSeq:integer;
+begin
+  sLot := cmbLotNo.Text;
+  sCode:= edCode.Text;
+  sName:= edName.Text;
+  sAbbr:= edAbbr.Text;
+  sUp  := edUpCode.Text;
+  dLow := edLow.Value;
+  dHigh:= edHigh.Value;
+  iSeq := StrToIntDef(edSeq.Text,0);
+
+  if sCode = '' then begin
+      ShowMessage('검사코드를 입력하세요!');
+      edCode.SetFocus; exit;
+  end;
+
+  if sUp = '' then begin
+      ShowMessage('장비 수신코드를 입력하세요!');
+      edUpCode.SetFocus; exit;
+  end;
+
+  DM.SaveQCCode(sLot,sCode,sName,sAbbr,sUp,dLow,dHigh,iSeq);
+  btnView.Click;
+
+end;
+
+procedure TF_Code_QC.btnLotClick(Sender: TObject);
+begin
+  if F_QCM = nil then  F_QCM:= TF_QCM.Create(Self);
+  F_QCM.ShowModal;
+
+  AddLotList;
+end;
+
+procedure TF_Code_QC.AddLotList;
+var
+  TSql:TQueryInfo;
+  Qry1:TAdoQuery;
+begin
+
+  TSql:= TQueryInfo.Create;
+  Qry1:= TAdoQuery.Create(nil);
+
+  try
+      cmbLotNo.Clear;
+
+      with TSql do begin
+          Clear;
+          AddSql(' Select LotNo From TB_QCM ');
+          RCount:= LocalSelect(Qry1);
+
+          if RCount = 0 then exit;
+
+          with Qry1 do begin
+              while Not Eof do begin
+                  cmbLotNo.Items.Add(Fields[0].AsString);
+                  Next;
+              end;
+          end;
+      end;
+
+  finally
+      TSql.Free;
+      Qry1.Free;
+  end;
+
+  cmbLotNo.ItemIndex:=0;
+end;
+
+procedure TF_Code_QC.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TF_Code_QC.btnDelClick(Sender: TObject);
+begin
+  DM.DeleteQCCode(cmbLotNo.Text, edCode.Text, edUpCode.Text);
+  ViewCodeList(cmbLotNo.Text);  
+end;
+
+end.

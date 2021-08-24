@@ -1,0 +1,832 @@
+unit U_Main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, Menus, OleCtrls, ComCtrls, ExtCtrls,
+  U_IfClass, StdCtrls, Grids, BaseGrid, AdvGrid, CPort, CPortCtl,
+  MSCommLib_TLB;
+
+type
+  TF_Main = class(TForm)
+    Panel2: TPanel;
+    StatusBar1: TStatusBar;
+    MainMenu1: TMainMenu;
+    pnLog: TPanel;
+    mmTemp: TMemo;
+    gdIf: TAdvStringGrid;
+    N1: TMenuItem;
+    N1_1: TMenuItem;
+    N1_4: TMenuItem;
+    L1: TMenuItem;
+    DEBUG1: TMenuItem;
+    mmLog: TMemo;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    Panel1: TPanel;
+    Panel3: TPanel;
+    Panel5: TPanel;
+    gdResult: TAdvStringGrid;
+    GroupBox1: TGroupBox;
+    mmView: TMemo;
+    GroupBox2: TGroupBox;
+    Panel21: TPanel;
+    pnBCD: TPanel;
+    Panel17: TPanel;
+    pnAcptNo: TPanel;
+    Panel15: TPanel;
+    pnPID: TPanel;
+    Panel29: TPanel;
+    pnPNM: TPanel;
+    N4: TMenuItem;
+    N5: TMenuItem;
+    btnTest: TButton;
+    N6: TMenuItem;
+    CLEAR1: TMenuItem;
+    ComPort1: TComPort;
+    pnPort: TPanel;
+    Memo1: TMemo;
+    Memo2: TMemo;
+    procedure btnTestClick(Sender: TObject);
+    procedure DEBUG1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure gdIfGetAlignment(Sender: TObject; ARow, ACol: Integer;
+      var HAlign: TAlignment; var VAlign: TVAlignment);
+    procedure gdIfGetCellColor(Sender: TObject; ARow, ACol: Integer;
+      AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
+    procedure ComPort1RxChar(Sender: TObject; Count: Integer);
+    procedure N1_4Click(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure N3Click(Sender: TObject);
+    procedure gdIfClickCell(Sender: TObject; ARow, ACol: Integer);
+    procedure gdIfCanEditCell(Sender: TObject; ARow, ACol: Integer;
+      var CanEdit: Boolean);
+    procedure N6Click(Sender: TObject);
+    procedure mmViewDblClick(Sender: TObject);
+    procedure N5Click(Sender: TObject);
+    procedure gdResultGetCellColor(Sender: TObject; ARow, ACol: Integer;
+      AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
+    procedure CLEAR1Click(Sender: TObject);
+    procedure N1_1Click(Sender: TObject);
+  private
+    { Private declarations }
+    procedure GridSetting;
+    procedure FormSizeSetting;
+    procedure DoH7180(const cData:string);
+    procedure AddDebugLine(cStr:string);
+    procedure ClearCommData;
+    procedure SetCommData(const cStr:string);
+    procedure SendStr(cStr:string);
+    procedure DispOneResult(ExamDate, ExamSeq, Abbr, cResult:string);
+    procedure DispOnePat(TMaster:TIfMaster);
+    procedure DispOnePatInfo(TMaster:TIfMaster);
+    procedure ChangeUpState(ExamDate, ExamSeq, UpState:string);
+    function GetAbbrIndex(Abbr:string):integer;
+    procedure AddResultGrid(Abbr, Res:string);
+    procedure ClearResultGrid;
+  public
+    { Public declarations }
+    function H747Str(cData:string): string;
+    function H747CheckSum(SData:string): string;
+    procedure H7180_Rcv;
+    procedure SendSPMFrame;
+    procedure SendOrderFrame(DataStr:string);
+    procedure H7180_ResultProcess(sData:string);
+    function PortSetup:boolean;
+    function LoadComPort:boolean;
+    function GetGridIndex(var TGrid:TAdvStringGrid; ExamDate, ExamSeq:string):integer;
+    procedure AddViewLog(Str:string);
+  end;
+
+  EPortError = Class(EAbort)
+    constructor Create;
+  End;
+var
+  F_Main: TF_Main;
+
+implementation
+
+uses GlobalVar, U_CodeInfo, SetDataBase, U_DM, StringLib, U_CommSet, U_CodeM;
+
+const
+  C_CHK  = 0;
+  C_DTM  = C_CHK+1;
+  C_SEQ  = C_DTM+1;
+  C_BCD  = C_SEQ+1;
+  C_PID  = C_BCD+1;
+  C_PNM  = C_PID+1;
+  C_ADT  = C_PNM+1;  //접수일자
+  C_ANO  = C_ADT+1;  //접수번호
+  C_STA  = C_ANO+1;
+
+  CommDelay = 100;
+
+var
+  vcTxData:string;
+
+{$R *.dfm}
+
+{ TForm1 }
+
+function TF_Main.GetAbbrIndex(Abbr:string):integer;
+var
+  i:integer;
+  nCol:integer;
+begin
+  Result:=0;
+
+  for i:=1 to gdIf.AllColCount-1 do begin
+      if Abbr = gdIf.Cells[i,0] then begin
+          Result:= i;
+          exit;
+      end;
+  end;
+
+end;
+
+procedure TF_Main.DispOneResult(ExamDate, ExamSeq, Abbr, cResult:string);
+var
+  nRow, nCol: integer;
+begin
+  nRow:= GetGridIndex(gdIf, ExamDate, ExamSeq);
+  nCol:= GetAbbrIndex(Abbr);
+
+  if (nRow = 0) or (nCol = 0) then exit;
+
+  with gdIf do begin
+      Cells[nCol, nRow]  := cResult;
+  end;
+
+  gdIf.OnClickCell(nil, nRow, nCol);
+  //application.ProcessMessages;
+  //gdIf.Refresh;
+end;
+
+procedure TF_Main.DispOnePat(TMaster:TIfMaster);
+var
+  nRow:integer;
+begin
+  nRow:= GetGridIndex(gdIf, TMaster.FExamDate, TMaster.FExamSeq);
+
+  gdIf.AddCheckBox(0, nRow, False, False);
+  with TMaster do begin
+      gdIf.Cells[C_SEQ, nRow] := FExamSeq;
+      gdIf.Cells[C_DTM, nRow] := ViewDateTime(FExamDate+FExamTime);
+      gdIf.Cells[C_BCD, nRow] := FBarCode;
+      gdIf.Cells[C_ADT, nRow] := FAcptDt;
+      gdIf.Cells[C_ANO, nRow] := FAcptNo;
+
+      if FUpState = 'Y' then
+          gdIf.Cells[C_STA, nRow] := '전송완료'
+      else
+          gdIf.Cells[C_STA, nRow] := '미전송'
+  end;
+
+  gdIf.OnClickCell(nil, nRow, C_DTM);
+end;
+
+procedure TF_Main.btnTestClick(Sender: TObject);
+begin
+  DoH7180('>3E');
+  //H7180_Rcv;
+end;
+
+procedure TF_Main.DEBUG1Click(Sender: TObject);
+begin
+  DEBUG1.Checked:= DEBUG1.Checked;
+  pnLog.Visible:= Debug1.Checked;
+  btnTest.Visible:= DEBUG1.Checked;
+end;
+
+procedure TF_Main.FormShow(Sender: TObject);
+begin
+
+  GridSetting;
+
+  FormSizeSetting;
+
+  Self.Caption:= TGlobal.AppTitle;
+
+  if Not LoadComPort then begin
+      ShowMessage('포트설정을 확인하세요!');
+      pnPort.Visible:= True;
+  end
+  else
+      ComPort1.Open;
+      //MsComm1.PortOpen:= True
+end;
+
+procedure TF_Main.FormSizeSetting;
+begin
+  try
+      Self.Top:= TGlobal.MainTop;
+      Self.Left:= TGlobal.MainLeft;
+      Self.Width:= TGlobal.MainWidth;
+      Self.Height:= TGlobal.MainHeigh;
+  except
+      Self.Top:= DEFTOP;
+      Self.Left:= DEFLFT;
+      Self.Width:= DEFWID;
+      Self.Height:= DEFHEI;
+  end;
+
+end;
+
+function TF_Main.PortSetup: boolean;
+begin
+  Result:= False;
+  pnPort.Visible:= False;
+
+  {CPort}
+  ComPort1.ShowSetupDialog;
+  ComPort1.StoreSettings(stIniFile, TGlobal.AppPath+IniFileName);
+  if ComPort1.Connected then
+      Result:= True
+
+  {MSComm}
+  {if F_CommSet = nil then
+      F_CommSet:= TF_CommSet.Create(Self);
+
+  F_CommSet.TCommPort:= MSComm1;
+  if F_CommSet.ShowModal = mrOk then
+      Result:= True
+  }
+
+end;
+
+procedure TF_Main.gdIfGetAlignment(Sender: TObject; ARow, ACol: Integer;
+  var HAlign: TAlignment; var VAlign: TVAlignment);
+begin
+  VAlign:= vtaCenter;
+  HAlign:= taCenter;
+end;
+
+procedure TF_Main.gdIfGetCellColor(Sender: TObject; ARow, ACol: Integer;
+  AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
+var
+  LH,Abbr,sResult,sCode:string;
+  DP:string;
+  nCol:integer;
+begin
+  if ARow = 0 then begin
+  end
+  else begin
+      nCol:= gdIf.AllColCount;
+
+      if ACol in [C_BCD..nCol -1] then begin
+          AFont.Style:= [fsBold];
+      end;
+      {
+      if ACol = C_STA then begin
+          ABrush.Color:=clYellow;
+          if gdIf.Cells[ACol, ARow] <> 'C' then
+              AFont.Color:= clRed;
+      end;
+      }
+
+      if ACol in [0..C_STA] then begin
+          if gdIf.Cells[C_STA, ARow] = '미전송' then
+              ABrush.Color:= clYellow
+          else
+              ABrush.Color:=$00D0FFD0;
+      end;
+
+      {
+      if ACol in [C_STA+1 .. nCol -1] then begin
+          if ACol+1 < nCol then begin
+              LH:= gdIf.Cells[ACol+1, ARow];
+              if LH = 'L' then
+                  AFont.Color:= Color_Low
+              else
+              if LH = 'H' then
+                  AFont.Color:= Color_High;
+          end;
+      end;
+      }
+  end;
+end;
+
+procedure TF_Main.ComPort1RxChar(Sender: TObject; Count: Integer);
+var
+  cStr:string;
+begin
+  ComPort1.ReadStr(cStr, Count);
+  DoH7180(cStr);
+end;
+
+procedure TF_Main.AddDebugLine(cStr:string);
+begin
+  mmLog.Lines.Add(cStr);
+end;
+
+procedure TF_Main.ClearCommData;
+begin
+  mmTemp.Clear;
+end;
+
+procedure TF_Main.SendOrderFrame(DataStr:string);
+var
+  H7180: TH7180If;
+  Bcd, sSender:string;
+begin
+  Bcd:= Trim(Copy(DataStr, 15, BarCodeLen));
+  if Bcd='' then begin
+      SendSPMFrame;
+      exit;
+  end
+  else begin
+      //Order
+      H7180:= TH7180If.Create;
+      try
+          H7180.FExamDate:= FormatDateTime('yyyymmdd', now);
+          H7180.FExamSeq := PadLeftStr(IntToStr(DM.GetExamSeq(H7180.FExamDate)), '0', 3);
+          H7180.BarCode:= Bcd;
+          H7180.DownLoadOrder;
+          sSender:= Copy(DataStr,1,40)+' 88';
+          sSender:= H7180.MakeOrderStr;
+          SendStr(STX + sSender + ETX + H747CheckSum(sSender) + CR);
+      finally
+          H7180.Free;
+      end;
+  end;
+end;
+
+procedure TF_Main.SendSPMFrame;
+var
+  s:string;
+begin
+  s:= '>' + H747CheckSum('>');
+  s:= STX + s + ETX + CR;
+  SendStr(s);
+end;
+
+procedure TF_Main.SendStr(cStr:string);
+begin
+  Memo2.Lines.Add(cStr);
+  Delay(200);
+  ComPort1.WriteStr(cStr);
+end;
+
+procedure TF_Main.SetCommData(const cStr: string);
+begin
+  mmTemp.Text:= cStr;
+  TGlobal.DataLog:= '[ABL]->'+cStr;
+end;
+
+procedure TF_Main.N1_1Click(Sender: TObject);
+begin
+  if F_CodeM = nil then
+      F_CodeM:= TF_CodeM.Create(Self);
+
+  F_CodeM.ShowModal;
+end;
+
+procedure TF_Main.N1_4Click(Sender: TObject);
+begin
+  PortSetup;
+end;
+
+procedure TF_Main.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TF_Main.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+  if MessageDlg('종료하시겠습니까? ', mtWarning, mbOKCancel, 0) <> mrOk then
+      CanClose:= False
+  else
+      CanClose:= True;
+end;
+
+procedure TF_Main.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  TGlobal.MainTop:= Self.Top;
+  TGlobal.MainLeft:= Self.Left;
+  TGlobal.MainWidth:= Self.Width;
+  TGlobal.MainHeigh:= Self.Height;
+end;
+
+
+procedure TF_Main.N3Click(Sender: TObject);
+begin
+  Close;
+end;
+
+function TF_Main.GetGridIndex(var TGrid:TAdvStringGrid; ExamDate, ExamSeq:string):integer;
+var
+  i:integer;
+  cDateTime:string;
+  cSeq:string;
+begin
+  Result:= 0;
+  if (TGrid.RowCount = 2) and (TGrid.Cells[1,1]='') then begin
+      Result:=1;  exit;
+  end;
+
+  for i:=1 to TGrid.RowCount -1 do begin
+      cDateTime:= Copy(Trim(TGrid.Cells[1, i]),1,10);
+      cDateTime:= Copy(cDateTime,1,4) + Copy(cDateTime,6,2) + Copy(cDateTime,9,2);
+      cSeq:= Trim(TGrid.Cells[2,i]);
+
+      if (cDateTime = ExamDate) and (ExamSeq = cSeq) then
+      begin
+          Result:= i;
+          exit;
+      end;
+  end;
+
+  TGrid.AddRow;
+  Result:= TGrid.RowCount -1;
+
+end;
+
+procedure TF_Main.GridSetting;
+var
+  i,K:integer;
+begin
+  //델타패닉 체크하려면 ABBR+1 하자.
+  K:= C_STA;
+  for i:=0 to TCode.AbbrList.Count -1 do begin
+      INC(K);
+      gdIf.InsertCols(K,1);
+      gdIf.Cells[K,0]:= TCode.AbbrList.Strings[i];
+  end;
+
+  gdIf.HideColumns(C_ADT, C_ANO);
+
+end;
+
+procedure TF_Main.gdIfClickCell(Sender: TObject; ARow, ACol: Integer);
+var
+  BCD, AN, PID, PNM,
+  Abbr,Res:string;
+  i:integer;
+begin
+  if ( ARow > 0 ) then begin
+      ClearResultGrid;
+      pnBCD.Caption    := gdIf.Cells[C_BCD, ARow];
+      pnAcptNo.Caption := gdIf.Cells[C_ANO, ARow];
+      pnPID.Caption    := gdIf.Cells[C_PID, ARow];
+      pnPNM.Caption    := gdIf.Cells[C_PNM, ARow];
+      for i:= C_STA+1 to gdIf.AllColCount -1 do begin
+          Abbr:= gdIf.Cells[i, 0];
+          Res := gdIf.Cells[i, ARow];
+          if Res <> '' then
+              AddResultGrid(Abbr, Res);
+      end;
+  end;
+end;
+
+procedure TF_Main.AddResultGrid(Abbr, Res: string);
+var
+  i, j:integer;
+begin
+  i:=1;
+  while (i < gdResult.ColCount) do begin
+      for j:=1 to gdResult.RowCount -1 do begin
+          if gdResult.Cells[i, j] = '' then begin
+              gdResult.Cells[i, j]:= abbr;
+              gdResult.Cells[i+1, j]:= Res;
+              exit;
+          end;
+      end;
+      i:= i+2;
+  end;
+end;
+
+procedure TF_Main.ClearResultGrid;
+begin
+  gdResult.ClearNormalCells;
+end;
+
+procedure TF_Main.AddViewLog(Str: string);
+begin
+  mmView.Lines.Add(Str);
+end;
+
+procedure TF_Main.ChangeUpState(ExamDate, ExamSeq, UpState:string);
+var
+  nRow:integer;
+begin
+  nRow:= GetGridIndex(gdIf, ExamDate, ExamSeq);
+
+  if UpState = 'Y' then
+      gdIf.Cells[C_STA, nRow] := '전송완료'
+  else
+      gdIf.Cells[C_STA, nRow] := '미전송';
+
+  gdIf.OnClickCell(nil, nRow, C_DTM);
+
+end;
+
+procedure TF_Main.gdIfCanEditCell(Sender: TObject; ARow, ACol: Integer;
+  var CanEdit: Boolean);
+begin
+  if ARow > 0 then begin
+      if ACol in [0, C_BCD] then
+          CanEdit:= True
+      else
+          CanEdit:= False;
+  end;
+end;
+
+procedure TF_Main.N6Click(Sender: TObject);
+var
+  i, UpCount:integer;
+  ExamDate, ExamSeq,
+  BarCode, ErrMsg,
+  PId, PNm, ANo:string;
+  bCheck:boolean;
+begin
+  if Not CheckBoxCheckYN(gdIf) then
+      exit;
+
+  if MessageDlg('선택한 검사결과를 전송하시겠습니까?', mtConfirmation, mbOKCancel, 1) <> mrOk then
+      exit;
+
+  UpCount:= 0;
+  for i:=1 to gdIf.RowCount -1 do begin
+      bCheck:= False;
+      gdIf.GetCheckBoxState(0, i, bCheck);
+      if bCheck then begin
+          ExamDate:= Copy(gdIf.Cells[C_DTM, i],1,4)+
+                     Copy(gdIf.Cells[C_DTM, i],6,2)+
+                     Copy(gdIf.Cells[C_DTM, i],9,2);
+          ExamSeq := gdIf.Cells[C_SEQ, i];
+          BarCode := gdIf.Cells[C_BCD, i];
+          DM.ChangeBarCode(ExamDate, ExamSeq, BarCode);
+
+          if DM.DownLoadOrder(ExamDate, ExamSeq, BarCode, PId, PNm, ANo)then begin
+              gdIf.Cells[C_PID, i]:= PID;
+              gdIf.Cells[C_PNM, i]:= PNM;
+              gdIf.Cells[C_ANO, i]:= ANO;
+              gdIf.OnClickCell(nil, i, C_DTM);
+          end
+          else begin
+              AddViewLog('바코드:'+BarCode+' -> Not Found Order!');
+              Continue;
+          end;
+
+          if DM.UpLoadResult(ExamDate, ExamSeq, BarCode, ErrMsg) then begin
+              Inc(Upcount);
+              DM.ChangeState(ExamDate, ExamSeq, 'Y');
+              gdIf.Cells[C_STA, i]:= '전송완료';
+              gdIf.SetCheckBoxState(0, i, False);
+              gdIf.Refresh;
+              gdIf.OnClickCell(nil, i, C_DTM);
+          end
+          else begin
+              AddViewLog('바코드:'+BarCode+' 전송 에러 -> MSG['+ErrMsg+']');
+          end;
+      end;
+  end;
+
+end;
+
+procedure TF_Main.mmViewDblClick(Sender: TObject);
+begin
+  mmView.Clear;
+end;
+
+procedure TF_Main.N5Click(Sender: TObject);
+begin
+  if MessageDlg('화면에 결과를 모두 삭제하시겠습니까?', mtConfirmation, mbOKCancel, 1) <> mrOk then
+      exit;
+
+  gdIf.ClearNormalCells;
+  gdIf.RowCount:=2;
+  
+end;
+
+procedure TF_Main.gdResultGetCellColor(Sender: TObject; ARow,
+  ACol: Integer; AState: TGridDrawState; ABrush: TBrush; AFont: TFont);
+begin
+  if ARow > 0 then begin
+      if ACol in [1,3,5] then begin
+          if gdResult.Cells[ACol, ARow] <> '' then
+          ABrush.Color:= $00FFCAE4;
+      end;
+  end;
+end;
+
+procedure TF_Main.DispOnePatInfo(TMaster: TIfMaster);
+var
+  nRow:integer;
+begin
+  nRow:= GetGridIndex(gdIf, TMaster.FExamDate, TMaster.FExamSeq);
+
+  gdIf.AddCheckBox(0, nRow, False, False);
+  with TMaster do begin
+      gdIf.Cells[C_ANO, nRow] := FAcptNo;
+      gdIf.Cells[C_PID, nRow] := FPatId;
+      gdIf.Cells[C_PNM, nRow] := FPatNm;
+  end;
+  gdIf.OnClickCell(nil, nRow, C_DTM);
+end;
+
+procedure TF_Main.CLEAR1Click(Sender: TObject);
+begin
+  if MessageDlg('화면상의 데이터를 모두 삭제하시겠습니까?', mtConfirmation, mbOKCancel, 1) <> mrOK then exit;
+
+  gdIf.ClearNormalCells;
+  gdIf.RowCount:=2;
+
+  gdIf.Refresh;
+
+end;
+
+procedure TF_Main.DoH7180(const cData: string);
+var
+ i,j,k, nCNT,nInstNo,nPos:integer;
+ cBuffer,cStr,tSID,cFlag,cCS,cTemp,cFrame,cFunc,cFunc1,cSendStr:string;
+ cSID,BarCode,cEXAMCODE,cWorkCode,cIfCode,cResult,cInstAbbr:string;
+begin
+     // 전역변수로 보관한 자료를 읽음
+     cFunc:='';
+     cFunc1:='';
+     k:=0;
+     cSendStr:='';
+     cBuffer:=vcTxData+cData;
+     for i:= 1 to Length(cBuffer) do begin
+       case cBuffer[i] of
+           SOH: ;//AddDebugLine('H7180:SOH');
+           STX:begin
+                   cStr:='';
+               end;
+           ETB: ;//AddDebugLine('H7180:[STX]'+cStr+'[ETB]');
+           ETX:begin
+                   //AddDebugLine('H7180:[STX]'+cStr+'[ETX]');
+                   SetCommData(cStr);
+                   H7180_Rcv;
+                   vcTxData:='';
+                   cStr:='';
+                   ClearCommData;
+               end;
+           EOT: ;//AddDebugLine('H7180:EOT');
+           else
+              cStr:=cStr+cBuffer[i];
+       end;
+     end;
+     vcTxData:=cStr;
+end;
+
+function TF_Main.H747Str(cData:string): string;
+begin
+   H747Str := STX + cData + ETX + H747CheckSum(cData) + CR;
+end;
+
+function TF_Main.LoadComPort: boolean;
+begin
+  Result:= False;
+  pnPort.Visible:= False;
+
+  { CPort }
+  ComPort1.LoadSettings(stIniFile, TGlobal.AppPath+IniFileName);
+  ComPort1.Open;
+  Result:= True
+
+  { MSComm }
+  {try
+      TGlobal.ComPortIniLoad;
+      MSComm1.CommPort := TGlobal.ComPortSet.PortNum;
+      MSComm1.Settings := TGlobal.ComPortSet.Settings;
+      MsComm1.DTREnable:= TGlobal.ComPortSet.Dtr;
+      MsComm1.RTSEnable:= TGlobal.ComPortSet.Rts;
+      MsComm1.Handshaking:= TGlobal.ComPortSet.HandShake;
+  except
+      on e:Exception do begin
+          ShowMessage(e.Message);
+          exit;
+      end;
+
+  end;
+  Result:= True;
+  }
+
+end;
+
+function TF_Main.H747CheckSum(SData:string): string;
+var
+	Sum, i : LongInt;
+begin
+   Sum := 0;
+   for i := 1 to Length(SData) do
+		Sum := Sum + Ord(SData[i]);
+   H747CheckSum := Copy(Format('%4x', [Sum]), 3, 2);
+end;
+
+
+procedure TF_Main.H7180_Rcv;
+var
+  Temp:string;
+  Frame, Func:string;
+  BarCode, ResStr, IfCode, sResult,Flag:string;
+  nCnt, j:integer;
+  H7180: TH7180If;
+  sSender:string;
+begin
+  Temp:= Trim(mmTemp.Text);
+
+  Memo1.Lines.Add(Temp);
+
+  Frame := copy(Temp, 1, 1);
+  Func  := copy(Temp, 2, 2);
+
+  if Frame = '' then Exit;
+
+  case Frame[1]  of
+      ':',
+      '1',
+      '2': begin
+               if (UpperCase(Func)='AB') or
+                  (UpperCase(Func)='D1') or
+                  (UpperCase(Func)='A1') then
+               begin
+                   H7180_ResultProcess(Temp);
+               end
+               else begin
+                   SendSPMFrame;
+               end;
+           end;
+      ';': SendOrderFrame(Temp);
+      else
+          SendSPMFrame;
+  end;
+end;
+
+procedure TF_Main.H7180_ResultProcess(sData: string);
+var
+  H7180: TH7180If;
+  Temp, ResStr:string;
+  ResCnt, i:integer;
+  IfCode, sResult, Flag,
+  Bcd, Abbr:string;
+  SvrMsg:string;
+begin
+  if sData = '' then exit;
+
+  H7180:= TH7180If.Create;
+  try
+      Bcd:= Trim(Copy(Temp,15, BarCodeLen));
+
+      H7180.BarCode  := Bcd;
+      H7180.FExamDate:= FormatDateTime('yyyymmdd', now);
+      H7180.FExamTime:= FormatDateTime('hhnnss', now);
+      H7180.FExamSeq := DM.GetBarCodeSeq(H7180.FExamDate, H7180.BarCode);
+
+      ResCnt := StrToIntDef(Trim(Copy(Temp,42,2)),0);
+      if ResCnt=0 then begin
+          SendSPMFrame;
+          Exit;
+      end;
+
+      ResStr:=Copy(Temp,45,300);
+
+      for i:=0 to ResCnt -1 do begin
+          IfCode  :=Trim((Copy(ResStr,i*10+1,3)));
+          sResult :=Copy(ResStr,i*10+3,6);
+          Flag    :=Copy(ResStr,i*10+9,1);
+
+          DM.GetExamData(IfCode, H7180.FQCYN, H7180.FExamCode, H7180.fAbbr, H7180.FRefLow, H7180.FRefHigh);
+          DispOneResult(H7180.FExamDate, H7180.FExamSeq, H7180.FAbbr, sResult);
+          DM.SaveResult(H7180);
+      end;
+
+      if DM.UpLoadResult(H7180.FExamDate, H7180.FExamSeq, H7180.BarCode, SvrMsg) then begin
+          DM.ChangeState(H7180.FExamDate, H7180.FExamSeq, 'Y');
+          ChangeUpState(H7180.FExamDate, H7180.FExamSeq, 'Y');
+      end;
+
+      SendSPMFrame;
+  finally
+      H7180.Free;
+  end;
+
+end;
+
+
+{ EPortError }
+
+constructor EPortError.Create;
+begin
+  ShowMessage('Port Error!');
+end;
+
+initialization
+  TGlobal:= TGlobalVar.Create;
+  TConnection:= TDbConnection.Create;
+  TCode:= TCodeInfo.Create;
+
+
+finalization
+
+
+  TCode.Free;
+  TConnection.Free;
+  TGlobal.Free;
+
+end.

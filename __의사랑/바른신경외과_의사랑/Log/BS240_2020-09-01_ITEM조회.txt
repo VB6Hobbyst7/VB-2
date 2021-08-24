@@ -1,0 +1,1 @@
+Select Distinct EXAMCODE AS ITEM         From UB_PATRESULT                     Where BARCODE = '0905H000000001'     And PID     = 'o17853'       And EXAMCODE IN ('hdl','UAP','albumin','bun','cr','tchol','gtp','crp','ALP','ldl','glucose','ast','alt','tg','tbil','gout')   AND SENDFLAG = '0' Order by EXAMCODE                     

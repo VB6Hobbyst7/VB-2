@@ -1,0 +1,659 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{0D452EE1-E08F-101A-852E-02608C4D0BB4}#2.0#0"; "FM20.DLL"
+Begin VB.Form frmRoutine 
+   Caption         =   "Routine Code 관리"
+   ClientHeight    =   7050
+   ClientLeft      =   285
+   ClientTop       =   1275
+   ClientWidth     =   11415
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MDIChild        =   -1  'True
+   ScaleHeight     =   7050
+   ScaleWidth      =   11415
+   WindowState     =   2  '최대화
+   Begin FPSpread.vaSpread ssItem 
+      Height          =   7455
+      Left            =   5880
+      TabIndex        =   15
+      Top             =   180
+      Width           =   5895
+      _Version        =   196608
+      _ExtentX        =   10398
+      _ExtentY        =   13150
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   3
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmRoutine.frx":0000
+      UserResize      =   1
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin FPSpread.vaSpread ssRoutine 
+      Height          =   4095
+      Left            =   120
+      TabIndex        =   7
+      Top             =   3600
+      Width           =   5655
+      _Version        =   196608
+      _ExtentX        =   9975
+      _ExtentY        =   7223
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   4
+      MaxRows         =   50
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmRoutine.frx":02C5
+      UserResize      =   1
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   3195
+      Left            =   120
+      TabIndex        =   8
+      Top             =   180
+      Width           =   5655
+      _Version        =   65536
+      _ExtentX        =   9975
+      _ExtentY        =   5636
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BorderWidth     =   2
+      BevelInner      =   1
+      Begin VB.TextBox txtOrderCD 
+         Height          =   315
+         Left            =   1440
+         TabIndex        =   3
+         Top             =   1260
+         Width           =   1095
+      End
+      Begin MSComCtl2.DTPicker dtCodate 
+         Height          =   315
+         Left            =   4200
+         TabIndex        =   19
+         Top             =   1980
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   556
+         _Version        =   393216
+         CustomFormat    =   "yyyy-MM-dd"
+         Format          =   24444931
+         CurrentDate     =   36301
+      End
+      Begin Threed.SSCommand cmdHelp 
+         Height          =   315
+         Left            =   2940
+         TabIndex        =   16
+         Top             =   540
+         Width           =   255
+         _Version        =   65536
+         _ExtentX        =   450
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "&H"
+         BevelWidth      =   1
+      End
+      Begin VB.ComboBox cmbJangbi 
+         Height          =   300
+         Left            =   1440
+         Style           =   2  '드롭다운 목록
+         TabIndex        =   5
+         Top             =   1980
+         Width           =   2715
+      End
+      Begin VB.TextBox txtYageo 
+         Height          =   315
+         Left            =   1440
+         TabIndex        =   4
+         Top             =   1620
+         Width           =   1155
+      End
+      Begin VB.TextBox txtRoutineName 
+         Height          =   315
+         Left            =   1440
+         TabIndex        =   2
+         Top             =   900
+         Width           =   2715
+      End
+      Begin VB.TextBox txtSlipCode 
+         Height          =   315
+         Left            =   1860
+         MaxLength       =   6
+         TabIndex        =   1
+         Top             =   540
+         Width           =   1035
+      End
+      Begin VB.TextBox txtSlipKey 
+         Height          =   315
+         Left            =   1440
+         Locked          =   -1  'True
+         TabIndex        =   9
+         TabStop         =   0   'False
+         Top             =   540
+         Width           =   435
+      End
+      Begin VB.ComboBox cmbSlip 
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9.75
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   1440
+         Style           =   2  '드롭다운 목록
+         TabIndex        =   0
+         Top             =   180
+         Width           =   3075
+      End
+      Begin VB.Label Label7 
+         Caption         =   "OrderCode"
+         Height          =   195
+         Left            =   300
+         TabIndex        =   20
+         Top             =   1320
+         Width           =   975
+      End
+      Begin MSForms.CommandButton cmdClear 
+         Height          =   555
+         Left            =   3600
+         TabIndex        =   18
+         Top             =   2520
+         Width           =   1455
+         Caption         =   "화면정리"
+         PicturePosition =   327683
+         Size            =   "2566;979"
+         Picture         =   "frmRoutine.frx":1324
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+      Begin MSForms.CommandButton cmdDelete 
+         Height          =   555
+         Left            =   2040
+         TabIndex        =   17
+         Top             =   2520
+         Width           =   1455
+         Caption         =   "삭제확인"
+         PicturePosition =   327683
+         Size            =   "2566;979"
+         Picture         =   "frmRoutine.frx":2AB6
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+      Begin MSForms.CommandButton cmdInsert 
+         Height          =   555
+         Left            =   480
+         TabIndex        =   6
+         Top             =   2520
+         Width           =   1455
+         Caption         =   "입력확인"
+         PicturePosition =   327683
+         Size            =   "2566;979"
+         Picture         =   "frmRoutine.frx":3390
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+      Begin VB.Label Label6 
+         Caption         =   "검사장비"
+         Height          =   195
+         Left            =   300
+         TabIndex        =   14
+         Top             =   2040
+         Width           =   1035
+      End
+      Begin VB.Label Label5 
+         Caption         =   "약어"
+         Height          =   195
+         Left            =   300
+         TabIndex        =   13
+         Top             =   1686
+         Width           =   1035
+      End
+      Begin VB.Label Label3 
+         Caption         =   "RoutineName"
+         Height          =   195
+         Left            =   300
+         TabIndex        =   12
+         Top             =   982
+         Width           =   1035
+      End
+      Begin VB.Label Label2 
+         Caption         =   "RoutineCode"
+         Height          =   195
+         Left            =   300
+         TabIndex        =   11
+         Top             =   630
+         Width           =   1035
+      End
+      Begin VB.Label Label1 
+         Caption         =   "검사종류"
+         Height          =   195
+         Left            =   300
+         TabIndex        =   10
+         Top             =   240
+         Width           =   1035
+      End
+   End
+   Begin VB.Menu mnuQuit 
+      Caption         =   "Quit"
+   End
+End
+Attribute VB_Name = "frmRoutine"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Public Sub TRANS_CLEAR()
+    
+    txtSlipCode.Text = ""
+    txtRoutineName.Text = ""
+    txtYageo.Text = ""
+    cmbJangbi.ListIndex = -1
+    
+    ssRoutine.Row = 1
+    ssRoutine.Row2 = ssRoutine.DataRowCnt
+    ssRoutine.Col = 1
+    ssRoutine.Col2 = ssRoutine.DataColCnt
+    ssRoutine.BlockMode = True
+    ssRoutine.Action = SS_ACTION_CLEAR_TEXT
+    ssRoutine.BlockMode = False
+    
+    
+End Sub
+
+Private Sub cmbSlip_Click()
+    
+    If cmbSlip.ListIndex = -1 Then Exit Sub
+    
+    DoEvents
+    txtSlipKey.Text = Left(cmbSlip.Text, 2)
+    GoSub Get_ITem_Data
+    
+    Call TRANS_CLEAR
+    Exit Sub
+    
+'/__________________________________________________________
+Get_ITem_Data:
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ItemML"
+    strSql = strSql & " WHERE  Codeky LIKE '" & Trim(txtSlipKey.Text) & "%'"
+    strSql = strSql & " ORDER  BY Codeky"
+    
+    ssItem.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    ssItem.MaxRows = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssItem.Row = ssItem.DataRowCnt + 1
+        ssItem.Col = 1: ssItem.Text = Trim(adoSet.Fields("Codeky").Value & "")
+        ssItem.Col = 2: ssItem.Text = Trim(adoSet.Fields("Itemnm").Value & "")
+        ssItem.Col = 3: ssItem.Text = Trim(adoSet.Fields("Sugacd").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    Return
+    
+End Sub
+
+Private Sub cmdClear_Click()
+
+    Call ClearForm(frmRoutine)
+    mdiMain.stbMain.Panels(1).Text = ""
+    
+End Sub
+
+Private Sub cmdDelete_Click()
+    Dim sRoutineCode        As String
+    
+    
+    If Trim(txtSlipKey.Text) = "" Then
+        MsgBox "삭제할 검사종류가 없습니다!..[확인바람]", vbQuestion
+        Exit Sub
+    End If
+    If Trim(txtSlipCode.Text) = "" Then
+        MsgBox "삭제할 RoutineCode 가 없습니다!..[확인바람]", vbQuestion
+        Exit Sub
+    End If
+    
+    sRoutineCode = Trim(txtSlipKey.Text) & Trim(txtSlipCode.Text)
+    
+    sMsg = Trim(sRoutineCode) & " [" & Trim(txtRoutineName.Text) & " ] " & vbCrLf & "를 삭제하시겠습니까?"
+    If vbNo = MsgBox(sMsg, vbYesNo + vbQuestion + vbDefaultButton2, "삭제확인Box") Then
+        Exit Sub
+    End If
+    
+    strSql = ""
+    strSql = strSql & " DELETE "
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Routine1"
+    strSql = strSql & " WHERE  RoutinCD = '" & sRoutineCode & "'"
+    
+    If adoExecute(strSql) Then
+        mdiMain.stbMain.Panels(1).Text = sRoutineCode & " 를 삭제하였습니다!."
+        Call TRANS_CLEAR
+    Else
+        mdiMain.stbMain.Panels(1).Text = sRoutineCode & " 를 어떠한 오류로 인하여 삭제치 못하였습니다!"
+    End If
+    
+    
+End Sub
+
+Private Sub cmdHelp_Click()
+    
+    If txtSlipKey.Text = "" Then Exit Sub
+    
+    DoEvents
+    hWndReturn = txtSlipCode.hwnd
+    frmQryRoutine.Show vbModal
+    If Trim(txtSlipCode.Text) <> "" Then
+        DoEvents
+        Call txtSlipCode_LostFocus
+    End If
+    
+End Sub
+
+Private Sub cmdInsert_Click()
+    Dim sRoutineCd      As String
+    Dim sDelFlag        As String * 1
+    
+    Dim sCodeky         As String
+    Dim sItemName       As String
+    Dim sCodate         As String
+    Dim sSugaCD         As String
+    Dim sJangbi         As String
+    
+    
+    sDelFlag = ""
+    If Trim(txtSlipKey.Text) = "" Then Exit Sub
+    If Trim(txtSlipCode.Text) = "" Then Exit Sub
+    
+    sRoutineCd = Trim(txtSlipKey.Text) & Trim(txtSlipCode.Text)
+    sCodate = Format(dtCodate.Value, "yyyy-MM-dd")
+    If cmbJangbi.ListIndex > -1 Then
+        sJangbi = Trim(Left(cmbJangbi.Text, 4))
+    End If
+
+    
+    GoSub Delete_Routine_Sub
+    
+    For i = 1 To ssRoutine.DataRowCnt
+        ssRoutine.Row = i
+        ssRoutine.Col = 2: sCodeky = ssRoutine.Text
+        ssRoutine.Col = 3: sItemName = ssRoutine.Text
+        ssRoutine.Col = 4: sSugaCD = ssRoutine.Text
+        ssRoutine.Col = 1
+        If ssRoutine.Value = False Then
+            GoSub Insert_Routine_Sub
+        End If
+    Next
+    GoSub RECALL_ROUTINE_CODE
+    
+    Exit Sub
+
+'/______________________________________________________
+Delete_Routine_Sub:
+    strSql = ""
+    strSql = strSql & " DELETE"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Routine1"
+    strSql = strSql & " WHERE  RoutinCD = '" & sRoutineCd & "'"
+    Call adoExecute(strSql)
+    Return
+
+Insert_Routine_Sub:
+    strSql = ""
+    strSql = strSql & " INSERT INTO TW_MIS_EXAM.TWEXAM_Routine1"
+    strSql = strSql & "       (RoutinCD, RoutinNM, Codeky, Itemnm, Sugacd, "
+    strSql = strSql & "        Codate,   OrderCd,  YakCD,  GbCode, Jangbi, OutCode)"
+    strSql = strSql & " VALUES('" & sRoutineCd & "',"
+    strSql = strSql & "        '" & Trim(txtRoutineName.Text) & "',"
+    strSql = strSql & "        '" & sCodeky & "',"
+    strSql = strSql & "        '" & sItemName & "',"
+    strSql = strSql & "        '" & Trim(sSugaCD) & "',"
+    strSql = strSql & "        TO_DATE('" & sCodate & "','YYYY-MM-DD'),"
+    strSql = strSql & "        '" & Trim(txtOrderCD.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtYageo.Text) & "',"
+    strSql = strSql & "        ' ',"
+    strSql = strSql & "        '" & Trim(sJangbi) & "',"
+    strSql = strSql & "        ' ')"
+    If adoExecute(strSql) Then
+        mdiMain.stbMain.Panels(1).Text = sRoutineCd & " 가 입력되었습니다!"
+    Else
+        mdiMain.stbMain.Panels(1).Text = sRoutineCd & " - 입력 오류!"
+        If vbYes = MsgBox("이상황에 끝내시겠습니까?", vbYesNo + vbCritical, "Procedure Stop") Then
+            Exit Sub
+        End If
+    End If
+    Return
+
+RECALL_ROUTINE_CODE:
+    ssRoutine.Row = 1
+    ssRoutine.Row2 = ssRoutine.DataRowCnt
+    ssRoutine.Col = 1
+    ssRoutine.Col2 = ssRoutine.DataColCnt
+    ssRoutine.BlockMode = True
+    ssRoutine.Action = SS_ACTION_CLEAR_TEXT
+    ssRoutine.BlockMode = False
+    
+    Call txtSlipCode_LostFocus
+    
+    Return
+
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+        KeyAscii = 0
+        SendKeys "{TAB}"
+    End If
+    
+End Sub
+
+Private Sub Form_Load()
+    
+    
+    GoSub Get_Data_Specode12
+    GoSub Get_Data_Specode21
+    
+    Exit Sub
+    
+Get_Data_Specode12:
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Specode"
+    strSql = strSql & " WHERE  Codegu = '12'"
+    strSql = strSql & " Order  By  Codeky"
+    
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    
+    Do Until adoSet.EOF
+        cmbSlip.AddItem Trim(adoSet.Fields("Codeky").Value & "") & ". " & _
+                        Trim(adoSet.Fields("Codenm").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+        
+    Return
+    
+Get_Data_Specode21:
+    Dim sJang       As String * 4
+    
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Specode"
+    strSql = strSql & " WHERE  Codegu = '21'"
+    strSql = strSql & " ORDER  BY Codeky"
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    
+    Do Until adoSet.EOF
+        sJang = Trim(adoSet.Fields("Codeky").Value & "")
+        cmbJangbi.AddItem sJang & ". " & Trim(adoSet.Fields("Codenm").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    Return
+    
+End Sub
+
+Private Sub mnuQuit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub ssItem_DblClick(ByVal Col As Long, ByVal Row As Long)
+    Dim sMove(1 To 3)    As String
+    
+    If Row = 0 Then Exit Sub
+    If Trim(txtSlipKey.Text) = "" Then Exit Sub
+    If Trim(txtSlipCode.Text) = "" Then Exit Sub
+    
+    
+    ssItem.Row = Row
+    ssItem.Col = 1: sMove(1) = ssItem.Text
+    ssItem.Col = 2: sMove(2) = ssItem.Text
+    ssItem.Col = 3: sMove(3) = ssItem.Text
+    GoSub LEFT_CHECK
+    
+    ssRoutine.Row = ssRoutine.DataRowCnt + 1
+    ssRoutine.Col = 2: ssRoutine.Text = sMove(1)
+    ssRoutine.Col = 3: ssRoutine.Text = sMove(2)
+    ssRoutine.Col = 4: ssRoutine.Text = sMove(3)
+    Exit Sub
+    
+LEFT_CHECK:
+    For i = 1 To ssRoutine.DataRowCnt
+        ssRoutine.Row = i
+        ssRoutine.Col = 2
+        If Trim(sMove(1)) = Trim(ssRoutine.Text) Then
+            MsgBox "이미 같은 코드가 등록되어 있습니다!.", vbCritical
+            Exit Sub
+        End If
+    Next
+    Return
+    
+End Sub
+
+Private Sub txtSlipCode_LostFocus()
+    Dim sRoutine        As String
+    
+    If Trim(txtSlipKey.Text) = "" Then Exit Sub
+    If Trim(txtSlipCode.Text) = "" Then Exit Sub
+    
+    DoEvents
+    sRoutine = Trim(txtSlipKey.Text) & Trim(txtSlipCode.Text)
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.*"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Routine1 a "
+    strSql = strSql & " WHERE  a.RoutinCD  = '" & sRoutine & "'"
+    strSql = strSql & " ORDER  BY a.Codeky    "
+   
+    GoSub Spread_Clear
+    If False = adoSetOpen(strSql, adoSet) Then
+        txtRoutineName.Text = ""
+        txtYageo.Text = ""
+        txtOrderCD.Text = ""
+        cmbJangbi.ListIndex = -1
+        dtCodate.Value = Dual_Date_Get("yyyy-MM-dd")
+        Exit Sub
+    End If
+    
+    
+    ssRoutine.Row = 1
+    ssRoutine.Col = 1
+    ssRoutine.Action = SS_ACTION_ACTIVE_CELL
+    
+    Do Until adoSet.EOF
+        ssRoutine.Row = ssRoutine.DataRowCnt + 1
+        ssRoutine.Col = 2: ssRoutine.Text = adoSet.Fields("Codeky").Value & ""
+        ssRoutine.Col = 3: ssRoutine.Text = adoSet.Fields("ItemNM").Value & ""
+        ssRoutine.Col = 4: ssRoutine.Text = adoSet.Fields("SugaCD").Value & ""
+        txtRoutineName.Text = Trim(adoSet.Fields("RoutinNM").Value & "")
+        txtYageo.Text = Trim(adoSet.Fields("YakCD").Value & "")
+        txtOrderCD.Text = Trim(adoSet.Fields("OrderCD").Value & "")
+        
+        For i = 0 To cmbJangbi.ListCount - 1
+            If Left(cmbJangbi.List(i), 4) = Left(adoSet.Fields("Jangbi").Value & "", 4) Then
+                cmbJangbi.ListIndex = i
+                Exit For
+            End If
+        Next
+        
+        adoSet.MoveNext
+    Loop
+    
+    Call adoSetClose(adoSet)
+    Exit Sub
+    
+Spread_Clear:
+    ssRoutine.Row = 1
+    ssRoutine.Row2 = ssRoutine.DataRowCnt
+    ssRoutine.Col = 1
+    ssRoutine.Col2 = ssRoutine.DataColCnt
+    ssRoutine.BlockMode = True
+    ssRoutine.Action = SS_ACTION_CLEAR_TEXT
+    ssRoutine.BlockMode = False
+    Return
+    
+End Sub

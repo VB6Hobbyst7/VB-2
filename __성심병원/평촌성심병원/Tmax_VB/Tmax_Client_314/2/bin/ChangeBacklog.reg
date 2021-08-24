@@ -1,0 +1,8 @@
+REGEDIT4
+;Subject:       Registry file to enable Dynamic backlog
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AFD\Parameters]
+"EnableDynamicBacklog"=dword:00000001
+"MinimumDynamicBacklog"=dword:00000020
+"MaximumDynamicBacklog"=dword:00000100
+"DynamicBacklogGrowthDelta"=dword:00000070

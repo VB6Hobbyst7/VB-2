@@ -1,0 +1,35 @@
+[DB_A-HBc]
+Time:;15:30:02
+Date:;01/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/650nm
+NCi>0.6995;*****>*****;Removed
+;*****>*****;Removed
+;*****>*****;Removed
+;*****>*****;Removed
+Valid(NC)>=3;0>=3;FAILED
+-0.0105<PCi<0.1005;*****<*****<*****
+;*****<*****<*****
+valid(PC)>=2;2>=2
+If 'Sample>(((NC*0.4)*1.1)+0.0005)' Then Result:='-'
+If 'Sample<(((NC*0.4)*0.9)-0.0005)' Then Result:='+'
+Default result := ?
+Cutoff;(NC*0.4);*****
+Retest range<;(NC*0.4)*1.1;*****
+                     >;(NC*0.4)*0.9;*****
+
+[Results]
+Patient ID;Assay;Raw value;Evaluation;Well Location;Flag
+"";"DB_A-HBc";"*****";"*";"A1";""
+"";"DB_A-HBc";"*****";"*";"B1";""
+"";"DB_A-HBc";"*****";"*";"C1";""
+"";"DB_A-HBc";"*****";"*";"D1";""
+"";"DB_A-HBc";"*****";"*";"E1";""
+"01";"DB_A-HBc";"*****";"*";"F1";""
+"02";"DB_A-HBc";"*****";"*";"G1";""
+"04";"DB_A-HBc";"*****";"*";"H1";""
+"05";"DB_A-HBc";"*****";"*";"A2";""
+"10";"DB_A-HBc";"*****";"*";"B2";""
+"";"DB_A-HBc";"*****";"*";"C2";""
+[End Of Results]

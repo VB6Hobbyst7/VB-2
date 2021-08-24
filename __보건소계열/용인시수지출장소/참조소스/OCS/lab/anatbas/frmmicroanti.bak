@@ -1,0 +1,132 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Begin VB.Form frmMicroanti 
+   Caption         =   "미생물 반응약제 List 관리"
+   ClientHeight    =   5700
+   ClientLeft      =   1155
+   ClientTop       =   1620
+   ClientWidth     =   9555
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   MDIChild        =   -1  'True
+   ScaleHeight     =   5700
+   ScaleWidth      =   9555
+   WindowState     =   2  '최대화
+   Begin Threed.SSCommand cmdQryAll 
+      Height          =   495
+      Left            =   60
+      TabIndex        =   1
+      Top             =   2100
+      Width           =   1995
+      _Version        =   65536
+      _ExtentX        =   3519
+      _ExtentY        =   873
+      _StockProps     =   78
+      Caption         =   "조회확인"
+      BevelWidth      =   1
+      Outline         =   0   'False
+   End
+   Begin FPSpread.vaSpread ssAntiList 
+      Height          =   4695
+      Left            =   60
+      TabIndex        =   0
+      Top             =   2700
+      Width           =   11295
+      _Version        =   196608
+      _ExtentX        =   19923
+      _ExtentY        =   8281
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   10
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmMicroanti.frx":0000
+      Appearance      =   1
+   End
+   Begin VB.Menu mnuQuit 
+      Caption         =   "Quit"
+   End
+End
+Attribute VB_Name = "frmMicroanti"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdQryAll_Click()
+    
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_AntiList"
+    strSql = strSql & " ORDER  By Seqno"
+    
+    ssAntiList.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    ssAntiList.MaxRows = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssAntiList.Row = ssAntiList.DataRowCnt + 1
+        ssAntiList.Col = 1:  ssAntiList.Text = adoSet.Fields("Codeky").Value & ""
+        ssAntiList.Col = 2:  ssAntiList.Text = Trim(adoSet.Fields("Codenm").Value & "")
+        ssAntiList.Col = 3:  ssAntiList.Text = adoSet.Fields("Seqno").Value & ""
+        ssAntiList.Col = 4:  ssAntiList.Text = adoSet.Fields("Letter").Value & ""
+        ssAntiList.Col = 5:  ssAntiList.Text = Trim(adoSet.Fields("Potency").Value & "")
+        ssAntiList.Col = 6:  ssAntiList.Text = adoSet.Fields("LoZone").Value & ""
+        ssAntiList.Col = 7:  ssAntiList.Text = adoSet.Fields("HiZone").Value & ""
+        ssAntiList.Col = 8:  ssAntiList.Text = adoSet.Fields("LoMic").Value & ""
+        ssAntiList.Col = 9:  ssAntiList.Text = adoSet.Fields("HiMic").Value & ""
+        ssAntiList.Col = 10: ssAntiList.Text = Trim(adoSet.Fields("Source").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    
+End Sub
+
+Private Sub Form_Load()
+    ssAntiList.RowHeight(-1) = 12
+End Sub
+
+Private Sub mnuQuit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub ssAntiList_DblClick(ByVal Col As Long, ByVal Row As Long)
+    
+    If Row = 0 Then
+        If Col = 0 Then Exit Sub
+        
+        ssAntiList.SortBy = SS_SORT_BY_ROW
+        ssAntiList.SortKey(1) = Col
+        If ssAntiList.SortKeyOrder(1) = SortKeyOrderDescending Then
+            ssAntiList.SortKeyOrder(1) = SS_SORT_ORDER_ASCENDING
+        Else
+            ssAntiList.SortKeyOrder(1) = SortKeyOrderDescending
+        End If
+        ssAntiList.Col = 1: ssAntiList.Col2 = ssAntiList.DataColCnt
+        ssAntiList.Row = 1: ssAntiList.Row2 = ssAntiList.DataRowCnt
+        ssAntiList.Action = SS_ACTION_SORT
+    ElseIf Row > 0 Then
+    End If
+    
+End Sub

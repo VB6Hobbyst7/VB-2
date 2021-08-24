@@ -1,0 +1,410 @@
+unit U_Inst;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, NumEdit, Buttons, Grids, BaseGrid, AdvGrid, ExtCtrls,
+  ComCtrls, ADODB;
+
+type
+  TF_Inst = class(TForm)
+    StatusBar1: TStatusBar;
+    Panel18: TPanel;
+    Panel11: TPanel;
+    Panel12: TPanel;
+    Panel13: TPanel;
+    btnPAdd: TSpeedButton;
+    btnPSave: TSpeedButton;
+    btnPDel: TSpeedButton;
+    btnPView: TSpeedButton;
+    Panel14: TPanel;
+    Panel15: TPanel;
+    edPSeq: TNumEdit;
+    edPName: TEdit;
+    edPCode: TEdit;
+    Panel19: TPanel;
+    Panel20: TPanel;
+    gdPCode: TAdvStringGrid;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel5: TPanel;
+    btnAdd: TSpeedButton;
+    btnSave: TSpeedButton;
+    btnDel: TSpeedButton;
+    btnView: TSpeedButton;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    edSeq: TNumEdit;
+    edHCode: TEdit;
+    edName: TEdit;
+    edLocation: TEdit;
+    edCode: TEdit;
+    Panel10: TPanel;
+    Panel21: TPanel;
+    gdInst: TAdvStringGrid;
+    ckbxPoct: TCheckBox;
+    procedure btnCloseClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormDestroy(Sender: TObject);
+    procedure gdInstClickCell(Sender: TObject; ARow, ACol: Integer);
+    procedure gdInstClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+    procedure btnDelClick(Sender: TObject);
+    procedure btnViewClick(Sender: TObject);
+    procedure btnPViewClick(Sender: TObject);
+    procedure btnPAddClick(Sender: TObject);
+    procedure btnPSaveClick(Sender: TObject);
+    procedure btnPDelClick(Sender: TObject);
+    procedure gdPCodeClick(Sender: TObject);
+    procedure gdPCodeClickCell(Sender: TObject; ARow, ACol: Integer);
+  private
+    procedure ViewInstPanel(sICode,sIName,sHCode,sLoc,sSeq:string);
+    procedure ClearPanle;
+    procedure ViewInstList;
+    procedure ViewPCode(PCode,PName,Seq:string);
+    procedure ClearPCode;
+    procedure ViewPCodeList;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  F_Inst: TF_Inst;
+
+implementation
+
+uses SetDataBase, U_DM, GlobalVar;
+
+{$R *.dfm}
+
+const
+  C_Seq   = 0;
+  C_ICode = C_SEQ+1;
+  C_Name  = C_ICODE+1;
+  C_HCode = C_Name+1;
+  C_Locat = C_HCode+1;
+  C_POCT  = C_Locat+1;
+
+  P_Seq = 0;
+  P_Code = 1;
+  P_Name = 2;
+
+procedure TF_Inst.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TF_Inst.ClearPanle;
+begin
+  edSeq.Text:='';
+  edCode.Text:='';
+  edName.Text:='';
+  edLocation.Text:='';
+  edHCode.Text:='';
+end;
+
+procedure TF_Inst.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action:= CaFree;
+end;
+
+procedure TF_Inst.FormDestroy(Sender: TObject);
+begin
+  F_Inst:= nil;  
+end;
+
+procedure TF_Inst.ViewInstList;
+var
+  TSql:TQueryInfo;
+  QryEx:TAdoQuery;
+  i:integer;
+begin
+  ClearPanle;
+
+  TSql:= TQueryInfo.Create;
+  QryEx:= TAdoQuery.Create(Self);
+  try
+      with TSql do begin
+          Clear;
+          AddSql(' Select * From TB_Inst Order By DispSeq');
+          RCount:= LocalSelect(QryEx);
+
+          if RCount = 0 then begin
+              ShowMessage('등록된 장비 코드가 없습니다!');
+              exit;
+          end;
+
+          gdInst.RowCount:= RCount+1;
+
+          i:=0;
+          with QryEx do begin
+              While Not Eof do begin
+                  inc(i);
+                  gdInst.Cells[C_Seq, i]  := IntToStr(FieldByName('DispSeq').AsInteger);
+                  gdInst.Cells[C_ICode, i]:= FieldByName('ICode').AsString;
+                  gdInst.Cells[C_Name, i] := FieldByName('IName').AsString;
+                  gdInst.Cells[C_HCode, i]:= FieldByName('HCode').AsString;
+                  gdInst.Cells[C_Locat, i]:= FieldByName('Location').AsString;
+                  gdInst.AddCheckBox(C_POCT, i, False,False);
+                  gdInst.SetCheckBoxState(C_POCT, i, FieldByName('POCT').AsBoolean);
+                  Next;
+              end;
+          end;
+      end;
+
+  finally
+      QryEx.Free;
+      TSql.Free;
+  end;
+end;
+
+procedure TF_Inst.ViewInstPanel(sICode, sIName, sHCode, sLoc,
+  sSeq: string);
+begin
+  edSeq.Text:=sSeq;
+  edCode.Text:=sICode;
+  edName.Text:=sIName;
+  edLocation.Text:=sLoc;
+  edHCode.Text:=sHCode;
+end;
+
+procedure TF_Inst.gdInstClickCell(Sender: TObject; ARow, ACol: Integer);
+var
+  bChecked:boolean;
+begin
+  if ARow > 0 then begin
+      edSeq.Text     := gdInst.Cells[C_Seq, ARow];
+      edCode.Text    := gdInst.Cells[C_ICode, ARow];
+      edName.Text    := gdInst.Cells[C_Name, ARow];
+      edLocation.Text:= gdInst.Cells[C_Locat, ARow];
+      edHCode.Text   := gdInst.Cells[C_HCode, ARow];
+      bChecked:=False;
+      gdInst.GetCheckBoxState(C_POCT, ARow, bChecked);
+      ckbxPoct.Checked:= bChecked;
+  end;
+end;
+
+procedure TF_Inst.gdInstClick(Sender: TObject);
+begin
+  gdInst.OnClickCell(Sender, gdInst.Row, gdInst.Col);
+end;
+
+procedure TF_Inst.FormShow(Sender: TObject);
+begin
+  btnview.Click;
+  btnPView.Click;
+
+  gdInst.HideColumn(C_POCT);
+  //gdInst.OnClickCell(Sender,1,1);
+  //gdPCode.OnClickCell(Sender,1,1);
+  
+end;
+
+procedure TF_Inst.btnSaveClick(Sender: TObject);
+var
+  sSeq,sICode,sIName,
+  sLoc,sHCode,POCT:string;
+begin
+  sSeq:= IntToStr(StrToIntDef(edSeq.Text,0));
+
+  sICode:= Trim(edCode.Text);
+  sHCode:= Trim(edHCode.Text);
+  sIName:= Trim(edName.Text);
+  sLoc  := Trim(edLocation.Text);
+  POCT  := Bool2Str(ckbxPoct.Checked);
+
+  if sICode = '' then begin
+      ShowMessage('장비코드를 입력하세요!');
+      exit;
+  end;
+
+  if sHCode = '' then begin
+      ShowMessage('전송코드를 입력하세요!');
+      exit;
+  end;
+
+  if sLoc = '' then begin
+      ShowMessage('검사부서를 입력하세요');
+      exit;
+  end;
+
+  if DM.SaveOneInst(sICode, sIName, sHCode, sLoc, sSeq, POCT) then
+  begin
+      btnView.Click;
+  end
+  else begin
+      ShowMessage('저장실패! Error.Log를 확인하세요!');
+      exit;
+  end;
+
+end;
+
+procedure TF_Inst.btnDelClick(Sender: TObject);
+var
+  sICode:string;
+begin
+  sICode:= Trim(edCode.Text);
+
+  if sICode = '' then begin
+      ShowMessage('장비코드를 입력하세요!');
+      exit;
+  end;
+
+  if MessageDlg('선택한 장비 데이터를 삭제하시겠습니까?'+#13#10+
+                '장비정보가 없으면 해당 장비 결과를 전송할수없습니다!'+#13#10+
+                '계속 하시겠습니까?', mtWarning, mbOKCancel, 1) = mrOk then
+  begin
+      if DM.DeleteOneInst(sICode) then begin
+          btnView.Click;
+      end
+      else begin
+          ShowMessage('삭제 실패! Error.Log를 확인하세요!');
+      end;
+
+  end;
+
+
+end;
+
+procedure TF_Inst.btnViewClick(Sender: TObject);
+begin
+  ViewInstList;
+end;
+
+procedure TF_Inst.ClearPCode;
+begin
+  edPCode.Text:= '';
+  edPName.Text:= '';
+  edPSeq.Text := '';
+end;
+
+procedure TF_Inst.ViewPCode(PCode,PName,Seq:string);
+begin
+  ClearPCode;
+
+  edPCode.Text:= PCode;
+  edPName.Text:= PName;
+  edPSeq.Text := Seq;
+end;
+
+procedure TF_Inst.ViewPCodeList;
+var
+  TSql:TQueryInfo;
+  QryEx:TAdoQuery;
+  i:integer;
+begin
+  ClearPanle;
+
+  TSql:= TQueryInfo.Create;
+  QryEx:= TAdoQuery.Create(Self);
+  try
+      with TSql do begin
+          Clear;
+          AddSql(' Select * From TB_Panel_M Order By DispSeq');
+          RCount:= LocalSelect(QryEx);
+
+          if RCount = 0 then begin
+              ShowMessage('등록된 판넬 코드가 없습니다!');
+              exit;
+          end;
+
+          gdPCode.RowCount:= RCount+1;
+
+          i:=0;
+          with QryEx do begin
+              While Not Eof do begin
+                  inc(i);
+                  gdPCode.Cells[P_Seq, i]  := IntToStr(FieldByName('DispSeq').AsInteger);
+                  gdPCode.Cells[P_Code, i]:= FieldByName('PCode').AsString;
+                  gdPCode.Cells[P_Name, i] := FieldByName('PName').AsString;
+                  Next;
+              end;
+          end;
+      end;
+
+  finally
+      QryEx.Free;
+      TSql.Free;
+  end;
+
+end;
+
+procedure TF_Inst.btnPViewClick(Sender: TObject);
+begin
+  ViewPCodeList;
+end;
+
+procedure TF_Inst.btnPAddClick(Sender: TObject);
+begin
+  ClearPCode;
+end;
+
+procedure TF_Inst.btnPSaveClick(Sender: TObject);
+var
+  PCode,PName,Seq:string;
+begin
+  PCode:= Trim(edPCode.Text);
+  PName:= Trim(edPName.Text);
+  Seq  := IntToStr(StrToIntDef(Trim(edPSeq.Text),0));
+
+  if PCode = '' then begin
+      ShowMessage('판넬 코드를 입력하세요!');
+      exit;
+  end;
+
+  if DM.SaveOnePanelCode(PCode,PName,Seq) then
+      btnPView.Click
+  else begin
+      ShowMessage('판넬코드 저장 실패! Error.Log를 확인하세요!');
+      exit;
+  end;
+
+end;
+
+procedure TF_Inst.btnPDelClick(Sender: TObject);
+var
+  PCode:string;
+begin
+  PCode:= Trim(edPCode.Text);
+
+  if PCode = '' then begin
+      ShowMessage('판넬 코드를 입력하세요!');
+      exit;
+  end;
+
+  if MessageDlg('코드를 삭제하시겠습니까?', mtWarning, mbOKCancel, 1) = mrOk then
+  begin
+      if DM.DeleteOnePanelCode(PCode) then
+          btnPView.Click
+      else
+          ShowMessage('판넬코드 삭제 실패! Error.Log를 확인하세요!');
+  end;
+
+end;
+
+procedure TF_Inst.gdPCodeClick(Sender: TObject);
+begin
+  gdPCode.OnClickCell(Sender, gdPCode.Row, gdPCode.Col);
+
+end;
+
+procedure TF_Inst.gdPCodeClickCell(Sender: TObject; ARow, ACol: Integer);
+var
+  PCode,PName,PSeq:string;
+begin
+  if ARow > 0 then begin
+      PCode:= gdPCode.Cells[P_Code, ARow];
+      PName:= gdPCode.Cells[P_Name, ARow];
+      PSeq := gdPCode.Cells[P_Seq , ARow];
+
+      ViewPCode(PCode, PName, PSeq);
+  end;
+end;
+
+end.

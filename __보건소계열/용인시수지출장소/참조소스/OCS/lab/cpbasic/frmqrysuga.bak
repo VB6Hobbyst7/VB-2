@@ -1,0 +1,386 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Begin VB.Form frmQrySuga 
+   Caption         =   "수가코드 조회"
+   ClientHeight    =   7875
+   ClientLeft      =   4845
+   ClientTop       =   705
+   ClientWidth     =   7065
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   7875
+   ScaleWidth      =   7065
+   Begin VB.OptionButton Option2 
+      Caption         =   "한글명"
+      Height          =   195
+      Left            =   5700
+      TabIndex        =   11
+      Top             =   540
+      Value           =   -1  'True
+      Width           =   1155
+   End
+   Begin VB.OptionButton Option1 
+      Caption         =   "영문명"
+      Height          =   195
+      Left            =   5700
+      TabIndex        =   10
+      Top             =   240
+      Width           =   1155
+   End
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   615
+      Left            =   120
+      TabIndex        =   8
+      Top             =   180
+      Width           =   5415
+      _Version        =   65536
+      _ExtentX        =   9551
+      _ExtentY        =   1085
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Begin Threed.SSCommand cmdQry 
+         Height          =   315
+         Left            =   3900
+         TabIndex        =   1
+         Top             =   120
+         Width           =   1395
+         _Version        =   65536
+         _ExtentX        =   2461
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "조회확인"
+      End
+      Begin VB.TextBox txtQrySuname 
+         Height          =   315
+         Left            =   1200
+         TabIndex        =   0
+         Top             =   120
+         Width           =   2595
+      End
+      Begin VB.Label Label1 
+         Caption         =   "수가명"
+         Height          =   195
+         Left            =   360
+         TabIndex        =   9
+         Top             =   180
+         Width           =   795
+      End
+   End
+   Begin Threed.SSPanel panelBun 
+      Height          =   5415
+      Left            =   1020
+      TabIndex        =   3
+      Top             =   1440
+      Visible         =   0   'False
+      Width           =   4875
+      _Version        =   65536
+      _ExtentX        =   8599
+      _ExtentY        =   9551
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BevelOuter      =   1
+      BevelInner      =   2
+      Begin VB.TextBox txtBname 
+         BackColor       =   &H00C0E0FF&
+         Height          =   315
+         Left            =   300
+         Locked          =   -1  'True
+         TabIndex        =   7
+         TabStop         =   0   'False
+         Top             =   600
+         Width           =   2895
+      End
+      Begin VB.TextBox txtCgb 
+         BackColor       =   &H00C0E0FF&
+         Height          =   315
+         Left            =   300
+         Locked          =   -1  'True
+         TabIndex        =   6
+         TabStop         =   0   'False
+         Top             =   240
+         Width           =   2055
+      End
+      Begin Threed.SSCommand cmdQryOk 
+         Height          =   735
+         Left            =   3660
+         TabIndex        =   5
+         Top             =   180
+         Width           =   915
+         _Version        =   65536
+         _ExtentX        =   1614
+         _ExtentY        =   1296
+         _StockProps     =   78
+         Caption         =   "조회확인"
+         BevelWidth      =   1
+         RoundedCorners  =   0   'False
+         Outline         =   0   'False
+         Picture         =   "frmQrySuga.frx":0000
+      End
+      Begin MSComctlLib.TreeView tvBun 
+         Height          =   3975
+         Left            =   240
+         TabIndex        =   4
+         Top             =   1080
+         Width           =   4395
+         _ExtentX        =   7752
+         _ExtentY        =   7011
+         _Version        =   393217
+         LineStyle       =   1
+         Style           =   7
+         BorderStyle     =   1
+         Appearance      =   1
+      End
+   End
+   Begin FPSpread.vaSpread ssSuga 
+      Height          =   6735
+      Left            =   120
+      TabIndex        =   2
+      Top             =   900
+      Width           =   6795
+      _Version        =   196608
+      _ExtentX        =   11986
+      _ExtentY        =   11880
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   3
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmQrySuga.frx":0BD2
+      UserResize      =   0
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin VB.Menu mnuExit 
+      Caption         =   "Exit"
+   End
+   Begin VB.Menu mnuBun 
+      Caption         =   "분류별조회"
+   End
+End
+Attribute VB_Name = "frmQrySuga"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdQry_Click()
+    Dim sSucode      As String
+    Dim sSugba       As String * 2
+    
+    If Trim(txtQrySuname.Text) = "" Then
+        Exit Sub
+    End If
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.Sucode, b.Sunamee, b.Sunamek, b.Bcode, a.SugbA"
+    strSql = strSql & " FROM   TW_MIS_PMPA.TWBAS_TSUGA a,"
+    strSql = strSql & "        TW_MIS_PMPA.TWBAS_NSUGA b "
+    strSql = strSql & " WHERE  a.Sunext = b.Sunext(+)"
+    strSql = strSql & " AND   (b.sunamek   Like '" & txtQrySuname.Text & "%'"
+    strSql = strSql & "     Or b.sunamee   Like '" & txtQrySuname.Text & "%')"
+    
+    
+    ssSuga.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    ssSuga.MaxRows = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssSuga.Row = ssSuga.DataRowCnt + 1
+        sSugba = adoSet.Fields("SugbA").Value & ""
+        ssSuga.Col = 1: ssSuga.Text = Trim(adoSet.Fields("Sucode").Value & "")
+        If Option1.Value = True Then
+            ssSuga.Col = 2: ssSuga.Text = sSugba & Trim(adoSet.Fields("Sunamee").Value & "")
+        Else
+            ssSuga.Col = 2: ssSuga.Text = sSugba & Trim(adoSet.Fields("SunameK").Value & "")
+        End If
+        
+        'If Trim(adoSet.Fields("Sunamee").Value & "") = "" Then
+        '    ssSuga.Text = sSugba & Trim(adoSet.Fields("Sunamek").Value & "")
+        'End If
+        
+        ssSuga.Col = 3: ssSuga.Text = Trim(adoSet.Fields("Bcode").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+
+        
+
+    
+End Sub
+
+Private Sub cmdQryOk_Click()
+    Dim sBunCode        As String
+    Dim sSugba       As String * 2
+    
+    panelBun.Visible = False
+    If Trim(txtBname.Text) = "" Then Exit Sub
+
+    sBunCode = Left(txtBname.Text, 2)
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.Sucode, b.Sunamee, b.Sunamek, b.Bcode, a.SugbA"
+    strSql = strSql & " FROM   TW_MIS_PMPA.TWBAS_TSUGA a,"
+    strSql = strSql & "        TW_MIS_PMPA.TWBAS_NSUGA b "
+    strSql = strSql & " WHERE  a.Bun    =  '" & Trim(sBunCode) & "'"
+    strSql = strSql & " AND    a.Sunext = b.Sunext(+)"
+    
+    ssSuga.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    ssSuga.MaxRows = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssSuga.Row = ssSuga.DataRowCnt + 1
+        ssSuga.Col = 1: ssSuga.Text = Trim(adoSet.Fields("Sucode").Value & "")
+        sSugba = adoSet.Fields("SugbA").Value & ""
+        ssSuga.Col = 1: ssSuga.Text = Trim(adoSet.Fields("Sucode").Value & "")
+        If Option1.Value = True Then
+            ssSuga.Col = 2: ssSuga.Text = sSugba & Trim(adoSet.Fields("Sunamee").Value & "")
+        Else
+            ssSuga.Col = 2: ssSuga.Text = sSugba & Trim(adoSet.Fields("SunameK").Value & "")
+        End If
+                                      
+        'If Trim(adoSet.Fields("Sunamee").Value & "") = "" Then
+        '    ssSuga.Text = sSugba & Trim(adoSet.Fields("Sunamek").Value & "")
+        'End If
+        ssSuga.Col = 3: ssSuga.Text = Trim(adoSet.Fields("Bcode").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+
+    
+End Sub
+
+Private Sub Form_Load()
+    
+    Dim sText       As String
+    Dim sRowID      As String
+    Dim NodeX       As Node
+    
+    tvBun.Nodes.Clear
+    
+    strSql = ""
+    strSql = strSql & " SELECT Cgb, MAX(RowID) RwID"
+    strSql = strSql & " FROM   TW_MIS_PMPA.TWBAS_Bun"
+    strSql = strSql & " GROUP  BY Cgb"
+    
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    
+    Do Until adoSet.EOF
+        sRowID = adoSet.Fields("RwID").Value & ""
+        sText = Trim(adoSet.Fields("Cgb").Value & "")
+        Set NodeX = tvBun.Nodes.Add(, , "A1" & sRowID, sText)
+        GoSub Load_SubCode
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    Exit Sub
+    
+Load_SubCode:
+    Dim adoSubCode1     As ADODB.Recordset
+    Dim sSubText1       As String
+    Dim sSubText2       As String
+    
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.*, a.RowID"
+    strSql = strSql & " FROM   TW_MIS_PMPA.TWBAS_Bun a"
+    strSql = strSql & " WHERE  a.cgb = '" & tvBun.Nodes("A1" & sRowID).Text & "'"
+    If False = adoSetOpen(strSql, adoSubCode1) Then Return
+    
+    Do Until adoSubCode1.EOF
+        sSubText1 = "B2" & adoSubCode1.Fields("RowID")
+        sSubText2 = adoSubCode1.Fields("Bun").Value & "." & adoSubCode1.Fields("Bname").Value & ""
+        Set NodeX = tvBun.Nodes.Add("A1" & sRowID, tvwChild, sSubText1, sSubText2)
+        adoSubCode1.MoveNext
+    Loop
+    Call adoSetClose(adoSubCode1)
+    
+    Return
+
+End Sub
+
+Private Sub mnuBun_Click()
+    
+    DoEvents
+    panelBun.Visible = True
+    panelBun.ZOrder 0
+    tvBun.SetFocus
+
+End Sub
+
+Private Sub mnuExit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub ssSuga_DblClick(ByVal Col As Long, ByVal Row As Long)
+    
+    If Row > 0 Then Exit Sub
+    
+    ssSuga.Row = 1
+    ssSuga.Row2 = ssSuga.DataRowCnt
+    ssSuga.Col = 1
+    ssSuga.Col2 = ssSuga.DataColCnt
+    ssSuga.SortBy = SS_SORT_BY_ROW
+    ssSuga.SortKey(1) = Col
+    ssSuga.SortKeyOrder(1) = SS_SORT_ORDER_ASCENDING
+    ssSuga.Action = SS_ACTION_SORT
+    
+End Sub
+
+Private Sub tvBun_NodeClick(ByVal Node As MSComctlLib.Node)
+    
+    If Left(Node.Key, 2) = "B2" Then
+        txtCgb.Text = tvBun.SelectedItem.Parent.Text
+        txtBname.Text = tvBun.SelectedItem.Text
+    Else
+        txtCgb.Text = tvBun.SelectedItem.Text
+        txtBname.Text = ""
+    End If
+    
+
+End Sub

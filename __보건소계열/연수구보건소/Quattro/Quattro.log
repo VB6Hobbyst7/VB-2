@@ -1,0 +1,418 @@
+
+
+
+
+
+
+
+
+
+
+
+[Genedia HIV]
+Time:;18:07:56
+Date:;14/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/620nm
+NC<=0.1995;0.034<=0.1995
+PC>=0.9995;2.7425>=0.9995
+If 'Sample>=NC+0.3005' Then Result:='+'
+If 'Sample<NC+0.2995' Then Result:='-'
+Default result := ?
+Cut-off;(NC+0.30);0.334
+
+[Results]
+Patient ID;Assay;Reader value;Qual. value;Well Location
+"";"Genedia HIV";"0.036";"NC1";"A1"
+"";"Genedia HIV";"0.034";"NC2";"B1"
+"";"Genedia HIV";"0.032";"NC3";"C1"
+"";"Genedia HIV";"2.701";"PC1";"D1"
+"";"Genedia HIV";"2.784";"PC2";"E1"
+"1";"Genedia HIV";"0.035";"-";"F1"
+"2";"Genedia HIV";"0.036";"-";"G1"
+[End Of Results]
+
+[Genedia HIV]
+Time:;18:07:56
+Date:;14/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/620nm
+NC<=0.1995;0.034<=0.1995
+PC>=0.9995;2.7425>=0.9995
+If 'Sample>=NC+0.3005' Then Result:='+'
+If 'Sample<NC+0.2995' Then Result:='-'
+Default result := ?
+Cut-off;(NC+0.30);0.334
+
+[Results]
+Patient ID;Assay;Reader value;Qual. value;Well Location
+"";"Genedia HIV";"0.036";"NC1";"A1"
+"";"Genedia HIV";"0.034";"NC2";"B1"
+"";"Genedia HIV";"0.032";"NC3";"C1"
+"";"Genedia HIV";"2.701";"PC1";"D1"
+"";"Genedia HIV";"2.784";"PC2";"E1"
+"1";"Genedia HIV";"0.035";"-";"F1"
+"2";"Genedia HIV";"0.036";"-";"G1"
+[End Of Results]
+[Genedia HIV]
+Time:;18:07:56
+Date:;14/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/620nm
+NC<=0.1995;0.034<=0.1995
+PC>=0.9995;2.7425>=0.9995
+If 'Sample>=NC+0.3005' Then Result:='+'
+If 'Sample<NC+0.2995' Then Result:='-'
+Default result := ?
+Cut-off;(NC+0.30);0.334
+
+[Results]
+Patient ID;Assay;Reader value;Qual. value;Well Location
+"";"Genedia HIV";"0.036";"NC1";"A1"
+"";"Genedia HIV";"0.034";"NC2";"B1"
+"";"Genedia HIV";"0.032";"NC3";"C1"
+"";"Genedia HIV";"2.701";"PC1";"D1"
+"";"Genedia HIV";"2.784";"PC2";"E1"
+"1";"HIV COMBO";"0.035";"-";"F1"
+"2";"HIV COMBO";"0.036";"-";"G1"
+[End Of Results]
+
+
+
+
+
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+[HIV COMBO]
+Time:,05:24:06 PM
+Date:,11/02/2005
+OVER limit:,3.500
+Operator:,
+Wavelengths:,450nm/620nm
+If 'Sample>=NC1+0.2' Then Result:='POS'
+If 'Sample<NC1+0.2' Then Result:='neg'
+Default result := ?
+Cutoff,NC1+0.3,1.458
+
+[Results]
+Patient ID,Assay,Reader value,Qual. value,Well Location
+"","HIV COMBO","0.020","NC1","A1"
+"","HIV COMBO","3.433","NC1","B1"
+"","HIV COMBO","0.021","NC1","C1"
+"","HIV COMBO","1.495","PC1","D1"
+"","HIV COMBO","1.759","aGC1","E1"
+"01","HIV COMBO","0.020","neg","F1"
+"02","HIV COMBO","0.051","neg","G1"
+"03","HIV COMBO","0.020","neg","H1"
+"04","HIV COMBO","0.021","neg","A2"
+"05","HIV COMBO","3.453","POS","B2"
+"06","HIV COMBO","0.021","neg","C2"
+"07","HIV COMBO","0.021","neg","D2"
+"08","HIV COMBO","0.020","neg","E2"
+"09","HIV COMBO","0.020","neg","F2"
+"10","HIV COMBO","0.020","neg","G2"
+"11","HIV COMBO","0.021","neg","H2"
+"12","HIV COMBO","0.021","neg","A3"
+"13","HIV COMBO","3.485","POS","B3"
+"14","HIV COMBO","0.022","neg","C3"
+"15","HIV COMBO","0.021","neg","D3"
+"16","HIV COMBO","0.021","neg","E3"
+"17","HIV COMBO","0.021","neg","F3"
+"18","HIV COMBO","0.022","neg","G3"
+"19","HIV COMBO","0.022","neg","H3"
+"20","HIV COMBO","0.022","neg","A4"
+"21","HIV COMBO","3.475","POS","B4"
+"22","HIV COMBO","0.022","neg","C4"
+[End Of Results]
+
+

@@ -1,0 +1,33 @@
+#
+#
+#TMAXDIR	= c:\tmax
+SDLDIR  = $(TMAXDIR)\sample\sdl
+LIBS	= /link ws2_32.lib $(TMAXDIR)\lib\tmaxsvr.lib 
+CFLAGS	= /D _DEBUG /D _USE_SDL /I $(TMAXDIR) /Gd /MD /nologo
+
+#
+#
+SDLFILE = demo.s
+SDLOBJ  = $(SDLFILE:.s=_sdl.obj)
+SDLC    = $(SDLFILE:.s=_sdl.c)
+APOBJ	= $(TARGET:.exe=.obj)
+SVCTSRC	= $(TARGET:.exe=_svctab.c)
+SVCTOBJ	= $(TARGET:.exe=_svctab.obj)
+OBJS	= $(APOBJ) $(SVCTOBJ) $(SDLOBJ) 
+
+#
+#
+$(TARGET): svct sdl $(OBJS)
+	cl $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+	copy $@ $(TMAXDIR)\appbin
+
+svct:
+	copy $(TMAXDIR)\svct\$(SVCTSRC)
+
+sdl:
+	sdlc -i $(SDLDIR)\$(SDLFILE)
+	copy $(SDLDIR)\$(SDLC)
+#
+clean:
+	-del $(OBJS) $(TARGET)
+

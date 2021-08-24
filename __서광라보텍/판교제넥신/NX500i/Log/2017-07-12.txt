@@ -1,0 +1,12 @@
+[SQL]UPDATE PATRESULT SET HOSPDATE = '' 
+,BARCODE = '1' 
+,CHARTNO = '' 
+,PID = '' 
+,PNAME = 'Mouse(C57BL/6)' 
+,INOUT = '' 
+,PSEX = 'MALE' 
+,PAGE = '' 
+ WHERE EQUIPNO = 'NX500i' 
+   AND SAVESEQ = 1
+   AND MID(EXAMDATE,1,8) = '20170711' 
+

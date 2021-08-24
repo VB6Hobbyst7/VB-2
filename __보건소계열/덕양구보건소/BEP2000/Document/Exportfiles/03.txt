@@ -1,0 +1,43 @@
+[DB_A-HBsII-alpha]
+Time:;15:30:07
+Date:;01/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/650nm
+-0.0105<NCi<0.1205;*****<*****<*****
+;*****<*****<*****
+;*****<*****<*****
+;*****<*****<*****
+valid(NC)>=3;4>=3
+S100i>0.6995;*****>*****;Removed
+;*****>*****;Removed
+valid(S100)=2;0=2;FAILED
+(Lower margin-0.0005)<S100i<(Upper margin+0.0005);*****<*****<*****
+;*****<*****<*****
+valid(S100)=2;0=2;FAILED
+((0.8*S100)-0.0005)<S100i<((1.2*S100)+0.0005);*****<*****<*****;Removed
+;*****<*****<*****;Removed
+valid(S100)=2;0=2;FAILED
+If 'Sample<(NC+0.0795)' Then Result:='-'
+If 'Sample>(NC+0.0805)' Then Result:='+'
+Default result := ?
+
+[Results]
+Patient ID;Assay;Raw value;Corrected OD;Evaluation;IU/l;Well Location;Flag
+"";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"A1";""
+"";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"B1";""
+"";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"C1";""
+"";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"D1";""
+"";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"E1";""
+"01";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"F1";""
+"02";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"G1";""
+"03";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"H1";""
+"04";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"A2";""
+"05";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"B2";""
+"06";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"C2";""
+"07";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"D2";""
+"08";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"E2";""
+"09";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"F2";""
+"10";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"G2";""
+"";"DB_A-HBsII-alpha";"*****";"*****";"*";"*****";"H2";""
+[End Of Results]

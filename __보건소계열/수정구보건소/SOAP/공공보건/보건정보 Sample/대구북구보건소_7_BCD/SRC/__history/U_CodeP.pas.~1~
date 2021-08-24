@@ -1,0 +1,367 @@
+unit U_CodeP;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, NumEdit, Buttons, Grids, BaseGrid, AdvGrid, ExtCtrls,
+  ComCtrls, ADODB;
+
+type
+  TF_Panel = class(TForm)
+    Panel1: TPanel;
+    Panel4: TPanel;
+    StatusBar1: TStatusBar;
+    Panel8: TPanel;
+    Panel10: TPanel;
+    btnAdd: TSpeedButton;
+    btnRemove: TSpeedButton;
+    Panel12: TPanel;
+    gdAll: TAdvStringGrid;
+    btnClose: TSpeedButton;
+    Panel3: TPanel;
+    gdPanel: TAdvStringGrid;
+    Panel2: TPanel;
+    Panel5: TPanel;
+    Panel7: TPanel;
+    Panel9: TPanel;
+    gdSet: TAdvStringGrid;
+    pb1: TProgressBar;
+    btnViewPCode: TSpeedButton;
+    btnViewSet: TSpeedButton;
+    btnViewAll: TSpeedButton;
+    edPCode: TEdit;
+
+    procedure btnViewPCodeClick(Sender: TObject);
+    procedure btnViewAllClick(Sender: TObject);
+    procedure btnViewSetClick(Sender: TObject);
+    procedure gdPanelClickCell(Sender: TObject; ARow, ACol: Integer);
+    procedure gdPanelClick(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnRemoveClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormDestroy(Sender: TObject);
+    procedure gdSetCanEditCell(Sender: TObject; ARow, ACol: Integer;
+      var CanEdit: Boolean);
+    procedure gdAllCanEditCell(Sender: TObject; ARow, ACol: Integer;
+      var CanEdit: Boolean);
+  private
+    function CheckEquilCode(ECode:string):boolean;
+    procedure AddECode(ECode,EName:string);
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  F_Panel: TF_Panel;
+
+
+implementation
+
+uses SetDataBase, U_DM;
+
+{$R *.dfm}
+
+procedure TF_Panel.btnViewPCodeClick(Sender: TObject);
+var
+  TSql:TQueryInfo;
+  QryEx:TAdoQuery;
+  i:integer;
+begin
+
+  gdPanel.ClearNormalCells;
+  gdPanel.RowCount:=2;
+
+  TSql:= TQueryInfo.Create;
+  QryEx:= TAdoQuery.Create(Self);
+  try
+      with TSql do begin
+          Clear;
+          AddSql(' Select * From TB_Panel_M Order By DispSeq');
+          RCount:= LocalSelect(QryEx);
+
+          if RCount = 0 then begin
+              ShowMessage('등록된 판넬 코드가 없습니다!');
+              exit;
+          end;
+
+          gdPanel.RowCount:= RCount+1;
+
+          i:=0;
+          with QryEx do begin
+              While Not Eof do begin
+                  inc(i);
+                  gdPanel.Cells[0, i]  := IntToStr(FieldByName('DispSeq').AsInteger);
+                  gdPanel.Cells[1, i]  := FieldByName('PCode').AsString;
+                  gdPanel.Cells[2, i]  := FieldByName('PName').AsString;
+                  Next;
+              end;
+          end;
+      end;
+
+      gdPanel.OnClickCell(nil,1,1);
+
+  finally
+      QryEx.Free;
+      TSql.Free;
+  end;
+
+end;
+
+procedure TF_Panel.btnViewAllClick(Sender: TObject);
+var
+  TSql:TQueryInfo;
+  QryEx:TAdoQuery;
+  i:integer;
+begin
+  TSql:= TQueryInfo.Create;
+  QryEx:= TAdoQuery.Create(Self);
+  try
+      with TSql do begin
+          Clear;
+          AddSql(' Select * From TB_Code Order By DispSeq');
+          RCount:= LocalSelect(QryEx);
+
+          if RCount = 0 then begin
+              ShowMessage('등록된 검사 코드가 없습니다!');
+              exit;
+          end;
+
+          gdAll.RowCount:= RCount+1;
+
+          i:=0;
+          with QryEx do begin
+              While Not Eof do begin
+                  inc(i);
+                  gdAll.AddCheckBox(0,i,False,False);
+                  gdAll.Cells[1, i]:= FieldByName('ExamCode').AsString;
+                  gdAll.Cells[2, i]:= FieldByName('ExamName').AsString;
+                  Next;
+              end;
+          end;
+      end;
+
+  finally
+      QryEx.Free;
+      TSql.Free;
+  end;
+
+end;
+
+procedure TF_Panel.btnViewSetClick(Sender: TObject);
+var
+  TSql:TQueryInfo;
+  QryEx:TAdoQuery;
+  i:integer;
+begin
+  gdSet.ClearNormalCells;
+  gdSet.RowCount:=2;
+
+  TSql:= TQueryInfo.Create;
+  QryEx:= TAdoQuery.Create(Self);
+  try
+      with TSql do begin
+          Clear;
+          AddSql(' Select P.PCode,P.ECode,P.DispSeq,E.ExamName ');
+          AddSql(' From TB_Panel_D P Inner Join TB_Code E on (P.ECode=E.ExamCode) ');
+          AddSql(' Where P.PCode = '''+edPCode.Text+''' ');
+          AddSql(' Order By P.DispSeq');
+
+          RCount:= LocalSelect(QryEx);
+
+          if RCount = 0 then begin
+              exit;
+          end;
+
+          gdSet.RowCount:= RCount+1;
+
+          i:=0;
+          with QryEx do begin
+              While Not Eof do begin
+                  inc(i);
+                  gdSet.AddCheckBox(0,i,False,False);
+                  gdSet.Cells[1, i]:= FieldByName('ECode').AsString;
+                  gdSet.Cells[2, i]:= FieldByName('ExamName').AsString;
+                  Next;
+              end;
+          end;
+      end;
+
+  finally
+      QryEx.Free;
+      TSql.Free;
+  end;
+
+end;
+
+procedure TF_Panel.gdPanelClickCell(Sender: TObject; ARow, ACol: Integer);
+begin
+  if ARow > 0 then begin
+      edPCode.Text:= gdPanel.Cells[1, ARow];
+      btnViewSet.Click;
+  end;
+end;
+
+procedure TF_Panel.gdPanelClick(Sender: TObject);
+begin
+  gdPanel.OnClickCell(Sender, gdPanel.Row, gdPanel.Col);
+end;
+
+function TF_Panel.CheckEquilCode(ECode: string): boolean;
+var
+  i:integer;
+begin
+  Result:= True;
+
+  for i:=1 to gdSet.RowCount -1 do begin
+      if gdSet.Cells[1,i] = ECode then begin
+          exit;
+      end;
+  end;
+
+  Result:= False;
+
+end;
+
+procedure TF_Panel.btnAddClick(Sender: TObject);
+var
+  PCode,ECode,EName:string;
+  i,nSeq:integer;
+  bCheck:boolean;
+begin
+  PCode:= Trim(edPCode.Text);
+
+  if PCode = '' then begin
+      ShowMessage('판넬코드를 선택하세요!');
+      exit;
+  end;
+
+  For i:=1 to gdAll.RowCount -1 do begin
+      bCheck:=False;
+      gdAll.GetCheckBoxState(0,i,bCheck);
+
+      if bCheck then begin
+          ECode:= Trim(gdAll.Cells[1,i]);
+          EName:= Trim(gdAll.Cells[2,i]);
+
+          if (gdSet.RowCount=2) and (gdSet.Cells[1,1]='') then
+              nSeq:= 1
+          else
+              nSeq := gdSet.RowCount;
+
+          if Not CheckEquilCode(ECode) then begin
+              if DM.SetCodePanel(PCode,ECode,IntToStr(nSeq)) then begin
+                  gdAll.SetCheckBoxState(0,i,False);
+                  AddECode(ECode,EName);
+              end
+              else begin
+                  ShowMessage('검사코드 -> 판넬 등록 실패! Error.Log를 확인하세요!');
+                  exit;
+              end;
+          end;
+      end;
+  end;
+
+end;
+
+procedure TF_Panel.AddECode(ECode, EName: string);
+var
+  nRow:integer;
+begin
+  if (gdSet.RowCount =2) and (Trim(gdSet.Cells[1,1])='') then
+  begin
+     gdSet.AddCheckBox(0,1,False,False);
+     gdSet.Cells[1, 1]:= ECode;
+     gdSet.Cells[2, 1]:= EName;
+  end
+  else begin
+      gdSet.AddRow;
+      nRow:= gdSet.RowCount-1;
+      gdSet.AddCheckBox(0,nRow,False,False);
+      gdSet.Cells[1, nRow]:= ECode;
+      gdSet.Cells[2, nRow]:= EName;
+  end;
+end;
+
+procedure TF_Panel.FormShow(Sender: TObject);
+begin
+  gdSet.HideColumn(3);
+  btnViewPCode.Click;
+  btnViewSet.Click;
+  btnViewAll.Click;
+end;
+
+procedure TF_Panel.btnRemoveClick(Sender: TObject);
+var
+  i:integer;
+  bCheck:boolean;
+  PCode,ECode:string;
+begin
+  PCode:= Trim(edPCode.Text);
+  if PCode = '' then begin
+      ShowMessage('판넬코드를 선택하세요!');
+      exit;
+  end;
+
+  for i:=gdSet.RowCount-1 downto 1 do begin
+      bCheck:=False;
+      gdSet.GetCheckBoxState(0,i,bCheck);
+      if bCheck = True then begin
+          ECode:= gdSet.Cells[1,i];
+
+          if DM.DelCodePanel(PCode, ECode) then begin
+              if gdSet.RowCount = 2 then begin
+                  gdSet.ClearNormalCells;
+              end
+              else begin
+                  gdSet.RemoveRows(i, 1);
+              end;
+          end
+          else begin
+              ShowMessage('검사코드 -> 판넬코드 삭제 실패! Error.Log를 확인하세요!');
+              exit;
+          end;
+      end;
+  end;
+
+end;
+
+procedure TF_Panel.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TF_Panel.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action:= CaFree;
+end;
+
+procedure TF_Panel.FormDestroy(Sender: TObject);
+begin
+  F_Panel:= nil;
+end;
+
+
+procedure TF_Panel.gdSetCanEditCell(Sender: TObject; ARow, ACol: Integer;
+  var CanEdit: Boolean);
+begin
+  if (ARow > 0) and (ACol = 0) then
+      CanEdit:= True
+  else
+      CanEdit:= False;
+end;
+
+procedure TF_Panel.gdAllCanEditCell(Sender: TObject; ARow, ACol: Integer;
+  var CanEdit: Boolean);
+begin
+  if (ARow > 0) and (ACol = 0) then
+      CanEdit:= True
+  else
+      CanEdit:= False;
+end;
+
+
+end.

@@ -1,0 +1,30 @@
+program H7180_IF;
+
+uses
+  FastMM4,
+  Forms,
+  U_Main in 'U_Main.pas' {F_Main},
+  GlobalVar in 'GlobalVar.pas',
+  SetDataBase in 'SetDataBase.pas',
+  U_DM in 'U_DM.pas' {DM: TDataModule},
+  U_CodeInfo in 'U_CodeInfo.pas',
+  U_IFClass in 'U_IFClass.pas',
+  U_CodeM in 'U_CodeM.pas' {F_CodeM},
+  U_Inst in 'U_Inst.pas' {F_Inst},
+  U_CodeP in 'U_CodeP.pas' {F_Panel},
+  U_InstPanel in 'U_InstPanel.pas' {F_InstPanel},
+  U_SetQC in 'U_SetQC.pas' {F_Code_QC},
+  U_QCM in 'U_QCM.pas' {F_QCM},
+  U_Server in 'U_Server.pas',
+  WebService in 'WebService.pas',
+  U_CommSet in 'U_CommSet.pas' {F_CommSet},
+  U_MsCommSet_Class in 'U_MsCommSet_Class.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TF_Main, F_Main);
+  Application.Run;
+end.

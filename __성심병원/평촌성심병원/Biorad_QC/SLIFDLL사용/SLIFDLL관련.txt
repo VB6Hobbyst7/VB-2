@@ -1,0 +1,88 @@
+ 1. 인터페이스PC에 RMX가 설치되어야 함.
+  (RMX: 한림대병원 OCS시스템-전산실에서 설치)
+
+2. DLL파일 위치: C:\RMX\DLL\SLIF.DLL
+
+3. DLL함수 설명
+
+// Tmax 접속, client IP로 접속할 서버 판단.
+// EnvSection-> DEV:개발접속, '':운영접속
+function TmaxInit(ENVSECTION:string): Integer;stdcall;
+
+// Tmax 접속종료
+function TmaxTerm(): Integer;stdcall;
+
+// 서버에서 날짜를 가져옴
+function GetSysdate(): String;stdcall;
+
+//사용자 확인
+// 리턴값: 1(성공), -1(실패)
+function UserChk(in_userid, in_passwd:string; var out_usernm: variant):Integer;stdcall;
+
+//한림 혈액학 LH-750 장비전용 ------------------------------------------------┐
+function ExaminfoList_LHR(var out_order: variant):integer;stdcall;
+
+// I/F PC에서 장비에 검사정보 전송을 완료했을 때 호출한다.
+function InterfaceYn(in_spcid: string):integer;stdcall;
+//----------------------------------------------------------------------------┘
+
+//검체번호로 검사정보를 조회 (slxworkt)
+function ExaminfoList(in_spcid: string; var out_order: variant):integer;stdcall;
+//out_order  'sPatno'     + |  --환자번호
+//        +  'sPatname'   + |  --환자명
+//        +  'sSex'       + |  --성별
+//        +  'sAge'       + |  --나이
+//        +  'sOrdseqno'  + |  --처방순번
+//        +  ''           + |  --
+//        +  'sOrddate'   + |  --처방일
+//        +  'sExamcode'  + |  --검사코드
+//        +  'sAcptdate'  + |  --수거일시
+//        +  'sAreano'    + |  --areano
+//        +  'sRslttext'  + |  --결과값
+//        +  'sPastrslt'  + |  --직전결과
+//        +  'sPastdate'  + |  --직전결과검사일시
+//        +  'sWardno'    + |  --wardno
+
+
+//장비 검사결과를 저장한다.
+function ResultList(in_result: variant):integer;stdcall;
+//VB에서는 Variant 마지막에 null이 넘어온다.
+in_result    v_spcid     + |   --검체번호
+          +  v_ordseqno  + |   --처방순번 
+          +  v_examcode  + |   --검사코드
+          +  v_rslttext  + |   --검사결과
+          +  s_eqipcode  + |   --장비코드
+          +  v_spctext   + |   --검체특기사항
+
+// 미생물검사 리스트 조회
+// in_fromdt, in_todt: yyyymmdd,  -- 실시일자 from,to
+// in_stat: E(실시), N(보고),     -- E로 넘기면 됩니다.
+// in_examcode:검사코드           -- 검사코드 또는 작업코드 하나만 입력하면 됩니다.
+// in_workcd:작업코드
+// out_order 의 형태 : "|"를 구분자로 해서 스트링의 형태입니다.
+// out_order[ii] := 'sPatno'   +'|'   --환자번호
+//                + 'sPatname' +'|'   --환자명
+//                + 'sSex'     +'|'   --성별
+//                + 'sAge'     +'|'   --나이
+//                + 'sExecdate'+'|'   --실시일자(yyyymmdd)
+//                + 'sMicrno'  +'|'   --Micrno
+//                + 'sSpcid'   +'|'   --검체번호
+//                + 'sExamcode'+'|'   --검사코드
+//                + 'sExamname'+'|'   --검사명
+//                + 'sMiddate' +'|'   --중간보고일시
+//                + 'sOrddate' +'|'   --오더일자                 
+function SelMicrList(in_fromdt, in_todt, in_stat, in_examcode, in_workcd: string;
+                    var out_order: variant):integer;stdcall;
+                    
+// 미생물검사 I/F결과 저장
+// in_micrno:Micrno
+// in_rslttext:검사결과
+// in_examtext:검사특기사항(필요시), in_examcomm:자체특기사항(필요시)
+function UpdMicrResult(in_micrno, in_rslttext, in_examtext, in_examcomm: string):integer;stdcall;  
+ 
+
+
+ 
+ 
+ 
+ 

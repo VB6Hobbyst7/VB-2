@@ -1,0 +1,436 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Begin VB.Form frmMicroOrg 
+   Caption         =   "세균코드 관리"
+   ClientHeight    =   7410
+   ClientLeft      =   240
+   ClientTop       =   855
+   ClientWidth     =   10875
+   ControlBox      =   0   'False
+   LinkTopic       =   "Form1"
+   MDIChild        =   -1  'True
+   ScaleHeight     =   7410
+   ScaleWidth      =   10875
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   1155
+      Left            =   180
+      TabIndex        =   1
+      Top             =   60
+      Width           =   9915
+      _Version        =   65536
+      _ExtentX        =   17489
+      _ExtentY        =   2037
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BorderWidth     =   0
+      BevelInner      =   1
+      Begin VB.ComboBox cmbStatus 
+         Appearance      =   0  '평면
+         Height          =   300
+         Left            =   7200
+         TabIndex        =   6
+         Top             =   615
+         Width           =   795
+      End
+      Begin VB.TextBox txtGroup 
+         Height          =   270
+         Left            =   5460
+         TabIndex        =   5
+         Top             =   615
+         Width           =   1035
+      End
+      Begin VB.ComboBox cmbGram 
+         Appearance      =   0  '평면
+         Height          =   300
+         Left            =   3540
+         TabIndex        =   4
+         Top             =   615
+         Width           =   675
+      End
+      Begin VB.TextBox txtOrgNm 
+         Height          =   270
+         Left            =   3540
+         TabIndex        =   3
+         Top             =   240
+         Width           =   4755
+      End
+      Begin VB.TextBox txtOrgCode 
+         Height          =   270
+         Left            =   1020
+         TabIndex        =   2
+         Top             =   240
+         Width           =   1335
+      End
+      Begin Threed.SSCommand cmdInsert 
+         Height          =   375
+         Left            =   8400
+         TabIndex        =   7
+         Top             =   240
+         Width           =   1335
+         _Version        =   65536
+         _ExtentX        =   2355
+         _ExtentY        =   661
+         _StockProps     =   78
+         Caption         =   "입력확인"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdClear 
+         Height          =   375
+         Left            =   8400
+         TabIndex        =   8
+         Top             =   660
+         Width           =   1335
+         _Version        =   65536
+         _ExtentX        =   2355
+         _ExtentY        =   661
+         _StockProps     =   78
+         Caption         =   "화면정리"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin VB.Label Label6 
+         Appearance      =   0  '평면
+         BackColor       =   &H80000004&
+         Caption         =   "Status"
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   6600
+         TabIndex        =   13
+         Top             =   660
+         Width           =   555
+      End
+      Begin VB.Label Label5 
+         Appearance      =   0  '평면
+         BackColor       =   &H80000004&
+         Caption         =   "약제그룹코드"
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   4320
+         TabIndex        =   12
+         Top             =   675
+         Width           =   1155
+      End
+      Begin VB.Label Label4 
+         Appearance      =   0  '평면
+         BackColor       =   &H80000004&
+         Caption         =   "GramData"
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   2580
+         TabIndex        =   11
+         Top             =   645
+         Width           =   855
+      End
+      Begin VB.Label Label3 
+         Appearance      =   0  '평면
+         BackColor       =   &H80000004&
+         Caption         =   "세균명"
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   2580
+         TabIndex        =   10
+         Top             =   270
+         Width           =   675
+      End
+      Begin VB.Label Label2 
+         Appearance      =   0  '평면
+         BackColor       =   &H80000004&
+         Caption         =   "세균코드"
+         ForeColor       =   &H80000008&
+         Height          =   195
+         Left            =   120
+         TabIndex        =   9
+         Top             =   300
+         Width           =   735
+      End
+   End
+   Begin FPSpread.vaSpread ssOrgList 
+      Height          =   6015
+      Left            =   180
+      TabIndex        =   0
+      Top             =   1260
+      Width           =   9915
+      _Version        =   196608
+      _ExtentX        =   17489
+      _ExtentY        =   10610
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   5
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmMicroOrg.frx":0000
+      UserResize      =   0
+      VisibleCols     =   5
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin VB.Menu mnuQuit 
+      Caption         =   "Quit"
+   End
+   Begin VB.Menu mnuQryMain 
+      Caption         =   "세균조회"
+   End
+End
+Attribute VB_Name = "frmMicroOrg"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdHelpName_Click()
+    
+    If panelAlphabet.Visible = False Then
+        DoEvents
+        panelAlphabet.Visible = True
+        panelAlphabet.ZOrder 0
+    Else
+        panelAlphabet.Visible = False
+    End If
+    
+    
+End Sub
+
+Private Sub cmdQry_Click()
+        
+    ProgressBar1.Value = 0
+    
+    GoSub Get_OrgList_Data
+    Exit Sub
+    
+'/----------------------------------------------------------
+Get_OrgList_Data:
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ORGLIST"
+    If Trim(txtOrgname.Text) <> "" Then
+        strSql = strSql & " WHERE  ORG_NAME LIKE '" & txtOrgname.Text & "%'"
+    End If
+    strSql = strSql & " ORDER  BY ORG_name"
+    
+    ssOrgList.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    ssOrgList.MaxRows = adoSet.RecordCount
+    ProgressBar1.Min = 0
+    ProgressBar1.Max = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssOrgList.Row = ssOrgList.DataRowCnt + 1
+        ssOrgList.Col = 1: ssOrgList.Text = adoSet.Fields("Org_Code").Value & ""
+        ssOrgList.Col = 2: ssOrgList.Text = adoSet.Fields("Org_Name").Value & ""
+        ssOrgList.Col = 3: ssOrgList.Text = adoSet.Fields("Org_Gram").Value & ""
+        ssOrgList.Col = 5: ssOrgList.Text = adoSet.Fields("Org_Status").Value & ""
+        adoSet.MoveNext
+        ProgressBar1.Value = ProgressBar1.Value + 1
+        panelPercent = ProgressBar1.Value & "/" & ProgressBar1.Max & " "
+    Loop
+    Call adoSetClose(adoSet)
+    Return
+    
+    
+    
+End Sub
+
+Private Sub cmdQry1_Click()
+    ProgressBar1.Value = 0
+    
+    GoSub Get_OrgList_Data
+    Exit Sub
+    
+'/----------------------------------------------------------
+Get_OrgList_Data:
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ORGLIST"
+    If Trim(txtCodeQry.Text) <> "" Then
+        strSql = strSql & " WHERE  ORG_Code LIKE '" & txtCodeQry.Text & "%'"
+    End If
+    strSql = strSql & " ORDER  BY ORG_Code"
+    
+    ssOrgList.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    ssOrgList.MaxRows = adoSet.RecordCount
+    ProgressBar1.Min = 0
+    ProgressBar1.Max = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssOrgList.Row = ssOrgList.DataRowCnt + 1
+        ssOrgList.Col = 1: ssOrgList.Text = adoSet.Fields("Org_Code").Value & ""
+        ssOrgList.Col = 2: ssOrgList.Text = adoSet.Fields("Org_Name").Value & ""
+        ssOrgList.Col = 3: ssOrgList.Text = adoSet.Fields("Org_Gram").Value & ""
+        ssOrgList.Col = 5: ssOrgList.Text = adoSet.Fields("Org_Status").Value & ""
+        adoSet.MoveNext
+        ProgressBar1.Value = ProgressBar1.Value + 1
+        panelPercent = ProgressBar1.Value & "/" & ProgressBar1.Max & " "
+    Loop
+    Call adoSetClose(adoSet)
+    Return
+    
+End Sub
+
+Private Sub cmdSearch_Click(Index As Integer)
+    
+    DoEvents
+    
+    Select Case vaTabPro1.ActiveTab
+        Case 0
+            txtCodeQry.Text = LCase(cmdSearch(Index).Caption)
+            Call cmdQry1_Click '세균코드 조회
+        Case 1
+            txtOrgname.Text = cmdSearch(Index).Caption
+            Call cmdQry_Click  '세균명 조회
+        Case Else
+    End Select
+    
+    panelAlphabet.Visible = False
+    
+End Sub
+
+Private Sub cmdSearch_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    
+    For i = 0 To cmdSearch.Count - 1
+        cmdSearch(i).ForeColor = RGB(0, 0, 0)
+    Next
+    cmdSearch(Index).ForeColor = RGB(255, 0, 0)
+    
+End Sub
+
+Private Sub Form_Load()
+    
+    Me.Left = 1
+    Me.Top = 1
+    Me.Height = 7900
+    Me.Width = 11000
+    
+    GoSub SET_Gram_Data
+    GoSub SET_Status_Data
+    
+    Exit Sub
+    
+        
+'/----------------------------------
+
+SET_Gram_Data:
+    cmbGram.Clear
+    
+    cmbGram.AddItem "-"
+    cmbGram.AddItem "+"
+    cmbGram.AddItem "a"
+    cmbGram.AddItem "b"
+    cmbGram.AddItem "f"
+    cmbGram.AddItem "m"
+    cmbGram.AddItem "o"
+    cmbGram.AddItem "w"
+    
+    Return
+    
+    
+SET_Status_Data:
+    cmbStatus.Clear
+    cmbStatus.AddItem "C"
+    cmbStatus.AddItem "O"
+    Return
+End Sub
+
+Private Sub mnuQryMain_Click()
+    frmMicroQryOrg.Show vbModal
+    
+End Sub
+
+Private Sub mnuQuit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub SSCommand3_Click()
+    
+    If panelAlphabet.Visible = False Then
+        DoEvents
+        panelAlphabet.Visible = True
+        panelAlphabet.ZOrder 0
+    Else
+        panelAlphabet.Visible = False
+    End If
+
+End Sub
+
+Private Sub ssOrgList_DblClick(ByVal Col As Long, ByVal Row As Long)
+    
+    If Row > 0 And Col = 0 Then
+        GoSub OrgList_Delete
+        Exit Sub
+    End If
+    
+    ssOrgList.Row = Row
+    ssOrgList.Col = 1: txtOrgCode.Text = ssOrgList.Text
+    ssOrgList.Col = 2: txtOrgNm.Text = ssOrgList.Text
+    ssOrgList.Col = 3: cmbGram.Tag = ssOrgList.Text
+                       GoSub SET_GramListIndex
+    ssOrgList.Col = 4: txtGroup.Text = ssOrgList.Text
+    ssOrgList.Col = 5: cmbStatus.Tag = ssOrgList.Text
+                       GoSub SET_StatusIndex
+    Exit Sub
+    
+OrgList_Delete:
+    Dim cCode       As String
+    Dim cName       As String
+    
+    ssOrgList.Row = Row
+    ssOrgList.Col = 1: cCode = Trim(ssOrgList.Text)
+    ssOrgList.Col = 2: cName = Trim(ssOrgList.Text)
+    
+    sMsg = cName & vbCrLf & " 의 Data 를 삭제하시겠습니까?"
+    
+    If vbNo = MsgBox(sMsg, vbYesNo + vbQuestion, "삭제 확인 Box") Then
+        Exit Sub
+    End If
+    
+    strSql = ""
+    strSql = strSql & " DELETE "
+    strSql = strSql & " FROM  TW_MIS_EXAM.TWEXAM_OrgList"
+    strSql = strSql & " WHERE Codeky = '" & cCode & "'"
+    Call adoExecute(strSql)
+    Return
+    
+    
+SET_GramListIndex:
+    For i = 0 To cmbGram.ListCount - 1
+        If Trim(cmbGram.List(i)) = Trim(cmbGram.Tag) Then
+            cmbGram.ListIndex = i
+            Exit For
+        End If
+    Next
+    Return
+
+SET_StatusIndex:
+    For i = 0 To cmbStatus.ListCount - 1
+        If Trim(cmbStatus.List(i)) = Trim(cmbStatus.Tag) Then
+            cmbStatus.ListIndex = i
+            Exit For
+        End If
+    Next
+    Return
+    
+End Sub
+

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{9793d9f2-ee70-4360-9d69-c292ac24c2af}</ProjectGuid>
+    <MainSource>H7180_IF.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>..\exe\H7180_IF.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_ExeOutput>..\exe</DCC_ExeOutput>
+    <DCC_UnitSearchPath>..\server</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\server</DCC_ResourcePath>
+    <DCC_ObjPath>..\server</DCC_ObjPath>
+    <DCC_IncludePath>..\server</DCC_IncludePath>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_ExeOutput>..\exe</DCC_ExeOutput>
+    <DCC_UnitSearchPath>..\LIB;..\Lib\FastMM4;..\SVR</DCC_UnitSearchPath>
+    <DCC_ResourcePath>..\LIB;..\Lib\FastMM4;..\SVR</DCC_ResourcePath>
+    <DCC_ObjPath>..\LIB;..\Lib\FastMM4;..\SVR</DCC_ObjPath>
+    <DCC_IncludePath>..\LIB;..\Lib\FastMM4;..\SVR</DCC_IncludePath>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType>VCLApplication</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><Language><Language Name="RootDir">C:\Program Files\Borland\Delphi7\Bin\</Language></Language><VersionInfo><VersionInfo Name="IncludeVerInfo">True</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">7</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">4</VersionInfo><VersionInfo Name="Build">453</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">True</VersionInfo><VersionInfo Name="Locale">1033</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName">Borland Software Corporation</VersionInfoKeys><VersionInfoKeys Name="FileDescription">Borland User's Components</VersionInfoKeys><VersionInfoKeys Name="FileVersion">7.0.4.453</VersionInfoKeys><VersionInfoKeys Name="InternalName">DCLUSR70</VersionInfoKeys><VersionInfoKeys Name="LegalCopyright">Copyright ⓒ 1997-2001 Borland Corporation</VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename">DCLUSR70.BPL</VersionInfoKeys><VersionInfoKeys Name="ProductName">Borland Package Library</VersionInfoKeys><VersionInfoKeys Name="ProductVersion">7.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Source><Source Name="MainSource">H7180_IF.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="H7180_IF.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="GlobalVar.pas" />
+    <DCCReference Include="SetDataBase.pas" />
+    <DCCReference Include="U_CodeInfo.pas" />
+    <DCCReference Include="U_CodeM.pas">
+      <Form>F_CodeM</Form>
+    </DCCReference>
+    <DCCReference Include="U_CommSet.pas">
+      <Form>F_CommSet</Form>
+    </DCCReference>
+    <DCCReference Include="U_DM.pas">
+      <Form>DM</Form>
+    </DCCReference>
+    <DCCReference Include="U_IFClass.pas" />
+    <DCCReference Include="U_Main.pas">
+      <Form>F_Main</Form>
+    </DCCReference>
+    <DCCReference Include="U_Server.pas" />
+  </ItemGroup>
+</Project>

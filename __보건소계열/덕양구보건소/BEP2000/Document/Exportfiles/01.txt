@@ -1,0 +1,36 @@
+[Db_a-hav]
+Time:;15:31:01
+Date:;01/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/650nm
+NCi>0.6995;*****>*****;Removed
+;*****>*****;Removed
+;*****>*****;Removed
+;*****>*****;Removed
+valid(NC)>=3;0>=3;FAILED
+-0.0105<PCi<0.3005;*****<*****<*****
+;*****<*****<*****
+valid(PC)=2;2=2
+If 'Sample<(((NC*0.5)*0.9)-0.0005)' Then Result:='+'
+If 'Sample>(((NC*0.5)*1.1)+0.0005)' Then Result:='-'
+Default result := ?
+Cutoff;(NC*0.5);*****
+Retest range<;(NC*0.5)*0.9;*****
+                     >;(NC*0.5)*1.1;*****
+
+[Results]
+Patient ID;Assay;Raw value;Qualitative data;Well Location;Flag
+"";"Db_a-hav";"*****";"*";"A1";""
+"";"Db_a-hav";"*****";"*";"B1";""
+"";"Db_a-hav";"*****";"*";"C1";""
+"";"Db_a-hav";"*****";"*";"D1";""
+"";"Db_a-hav";"*****";"*";"E1";""
+"01";"Db_a-hav";"*****";"*";"F1";""
+"04";"Db_a-hav";"*****";"*";"G1";""
+"05";"Db_a-hav";"*****";"*";"H1";""
+"07";"Db_a-hav";"*****";"*";"A2";""
+"08";"Db_a-hav";"*****";"*";"B2";""
+"09";"Db_a-hav";"*****";"*";"C2";""
+"";"Db_a-hav";"*****";"*";"D2";""
+[End Of Results]

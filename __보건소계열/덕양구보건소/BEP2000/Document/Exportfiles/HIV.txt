@@ -1,0 +1,34 @@
+[Genedia HIV]
+Time:;17:27:21
+Date:;02/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/620nm
+NC<=0.1995;0.0823333<=0.1995
+PC>=0.9995;2.737>=0.9995
+If 'Sample>=NC+0.3005' Then Result:='+'
+If 'Sample<NC+0.2995' Then Result:='-'
+Default result := ?
+Cut-off;(NC+0.30);0.382
+
+[Results]
+Patient ID;Assay;Reader value;Qual. value;Well Location
+"";"Genedia HIV";"0.092";"NC1";"A1"
+"";"Genedia HIV";"0.074";"NC2";"B1"
+"";"Genedia HIV";"0.081";"NC3";"C1"
+"";"Genedia HIV";"2.756";"PC1";"D1"
+"";"Genedia HIV";"2.718";"PC2";"E1"
+"01";"Genedia HIV";"0.087";"-";"F1"
+"02";"Genedia HIV";"0.085";"-";"G1"
+"03";"Genedia HIV";"0.083";"-";"H1"
+"04";"Genedia HIV";"0.070";"-";"A2"
+"05";"Genedia HIV";"0.088";"-";"B2"
+"06";"Genedia HIV";"0.092";"-";"C2"
+"08";"Genedia HIV";"0.096";"-";"D2"
+"09";"Genedia HIV";"0.094";"-";"E2"
+"10";"Genedia HIV";"0.101";"-";"F2"
+"13";"Genedia HIV";"0.087";"-";"G2"
+"14";"Genedia HIV";"0.078";"-";"H2"
+"15";"Genedia HIV";"0.086";"-";"A3"
+"16";"Genedia HIV";"0.079";"-";"B3"
+[End Of Results]

@@ -1,0 +1,97 @@
+AVL OMNI
+ 
+ 
+ 
+
+--------------------------------------------------------------------------------
+ 
+1. RS 232C Connection 
+ 
+ 
+ AVL OMNI
+ Yeungnam Interfacer
+ 
+9 Pin (Female)
+ 9 Pin
+ 25 Pin
+ 
+2
+ 3
+ 2
+ 
+3
+ 2
+ 3
+ 
+5
+ 5
+ 7
+ 
+ 
+ 
+ 
+ 2. AVL OMNI Configuration (ASTM Protocol)
+ 
+ 
+ 1. "System - Setup - Interface"
+ 
+ 
+ 1. Select RS 232C PORT to be communicated with Yeungnam Interfacer(COM 3 - COM6)
+ 
+ 
+ 2. Select  function as "ASTM Host".
+ 
+ 
+ 3. Press "Change Setting" Button.
+ 
+ 
+  
+ Parameters recommanded
+ 
+ 
+  
+  
+ Baud Rate 
+ 9600
+ 
+Data Bits
+ 8
+ 
+Parity 
+ None
+ 
+Stop bits
+ 1
+ 
+Hand Shake
+ OFF
+ 
+ 
+  
+  
+  
+ 
+2. "Select Parameter" Button. Select the parameters to be transmitted in your lab.
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+  
+ 
+3. Yeungnam Interfacer Configuration
+ 
+ 
+ Download Protocol and extract zip file. 
+Execute Yeungnam Config. 
+Configure/Protocol Format/Import....  import Omni.ynu 
+Configure/Parsing protocol ---- modify protocol for your lab and save it. 
+Other Configure Setting 
+Execute Yeungnam. 
+ 
+ 
+ If Including raw data in zip file is not compatible to your lab, you can receive raw data from your instruments using "Yeungnam Acquisition", and modify raw data with same procedures above described.
+ 

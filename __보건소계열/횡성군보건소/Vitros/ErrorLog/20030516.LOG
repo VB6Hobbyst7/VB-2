@@ -1,0 +1,54 @@
+    Procedure : clsCommon - Public Function Get_InstrumentList() As ADODB.Recordset
+
+ Error Number : -2147217865
+
+  Description : 개체 이름 'LIMAS032'이(가) 잘못되었습니다.
+
+       Source : Microsoft OLE DB Provider for SQL Server
+
+    SQL State : 42S02
+
+ Native Error : 208
+
+   SQL String : SELECT CDVAL1 AS EQPCD , FIELD1 AS EQPNM FROM LIMAS032 WHERE CDDIV = 'C209' ORDER BY FIELD1
+
+         Date : 2003년 5월 16일 월요일
+
+         Time : 오후 2:15:56
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    Procedure : clsCommon - Public Function Get_InstrumentList() As ADODB.Recordset
+
+ Error Number : -2147217865
+
+  Description : 개체 이름 'LIMAS032'이(가) 잘못되었습니다.
+
+       Source : Microsoft OLE DB Provider for SQL Server
+
+    SQL State : 42S02
+
+ Native Error : 208
+
+   SQL String : SELECT CDVAL1 AS EQPCD , FIELD1 AS EQPNM FROM LIMAS032 WHERE CDDIV = 'C209' ORDER BY FIELD1
+
+         Date : 2003년 5월 16일 월요일
+
+         Time : 오후 2:16:26
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    Procedure : clsCommon - Public Function Get_TestItem() As ADODB.Recordset
+
+ Error Number : -2147217865
+
+  Description : 개체 이름 'LIMAS002'이(가) 잘못되었습니다.
+
+       Source : Microsoft OLE DB Provider for SQL Server
+
+    SQL State : 42S02
+
+ Native Error : 208
+
+   SQL String : SELECT DISTINCT LIMAS002.TESTCD, LIMAS001.ABBRNM AS TESTNM FROM LIMAS001, LIMAS002 WHERE  LIMAS001.TESTCD =  LIMAS002.TESTCD AND LIMAS002.EQUIPCD = '' AND LIMAS002.DELDT = ''
+
+         Date : 2003년 5월 16일 월요일
+
+         Time : 오후 2:17:35
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

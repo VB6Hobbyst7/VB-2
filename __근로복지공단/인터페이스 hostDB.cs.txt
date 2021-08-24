@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Data;
+using Host.kcomweb;
+using System.ServiceModel;
+using CnsUtils;
+
+namespace Host
+{
+    public partial class HostDB
+    {
+        BasicHttpBinding binding = null;
+        EndpointAddress endpoint = null;
+        LabWebServiceSoapClient client = null;
+
+        public HostDB()
+        {
+            RunServiceMethod();
+            string DnsName = IniFile.ReadRegistry("CNS", "DnsName");
+            if (DnsName != "")
+            {
+                //endpoint = new EndpointAddress("http://" + DnsName + "/SUP/WEBSERVICE/LAB/LabWebService.asmx");
+                endpoint = new EndpointAddress("http://" + DnsName + "/SUP/WEBSERVICE/LAB/LabWebService.asmx");
+            }
+            else
+            {
+                endpoint = new EndpointAddress("http://localhost/SUP/WEBSERVICE/LAB/LabWebService.asmx");
+                IniFile.SaveRegistry("CNS", "DnsName", "localhost");
+            }
+            client = new LabWebServiceSoapClient(binding, endpoint);
+            SysFunc.SaveSystemLog(string.Format("Open Host {0} ", endpoint));
+        }
+
+        public DataSet XmlToDataSet(string xml)
+        {
+            DataSet dsParam = new DataSet();
+            TextReader trXml = null;
+            trXml = new StringReader(xml);
+            try
+            {
+                dsParam.ReadXml(trXml);
+            }
+            catch 
+            {
+                throw ;
+            }
+            return dsParam;
+        }
+
+
+        /************************************************************************************
+       *    서비스이름  : GetEncodeString
+       *    Description :  암호화
+       ************************************************************************************/
+        public string GetEncodeString(string code)
+        {
+            return Convert.ToBase64String(Encoding.GetEncoding(949).GetBytes(code)).ToString();
+        }
+        /************************************************************************************
+        *    서비스이름  : GetDecodeString
+        *    Description : 암호화 풀기
+        ************************************************************************************/
+        protected string GetDecodeString(string code)
+        {
+            return System.Text.Encoding.Default.GetString(System.Convert.FromBase64String(code));
+        }
+
+
+        public void RunServiceMethod()
+        {
+            binding = new BasicHttpBinding();
+            binding.Name = "basicHttpBinding";
+            binding.CloseTimeout = System.TimeSpan.Parse("00:01:00");
+
+            binding.OpenTimeout = System.TimeSpan.Parse("00:01:00");
+            binding.ReceiveTimeout = System.TimeSpan.Parse("00:10:00");
+            binding.SendTimeout = System.TimeSpan.Parse("00:01:00");
+
+            binding.AllowCookies = false;
+            binding.BypassProxyOnLocal = false;
+            binding.HostNameComparisonMode = System.ServiceModel.HostNameComparisonMode.StrongWildcard;
+
+            binding.MaxBufferSize = 2147483646;
+            binding.MaxBufferPoolSize = 524288;
+            binding.MaxReceivedMessageSize = 2147483646;
+
+            binding.MessageEncoding = System.ServiceModel.WSMessageEncoding.Text;
+            binding.TextEncoding = System.Text.Encoding.UTF8;
+            binding.TransferMode = System.ServiceModel.TransferMode.Buffered;
+
+            binding.UseDefaultWebProxy = true;
+            binding.ReaderQuotas.MaxDepth = 32;
+            binding.ReaderQuotas.MaxStringContentLength = 2147483647;
+
+            binding.ReaderQuotas.MaxArrayLength = 16384;
+            binding.ReaderQuotas.MaxBytesPerRead = 4096;
+            binding.ReaderQuotas.MaxNameTableCharCount = 16384;
+
+            binding.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.None;
+            binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
+            binding.Security.Transport.ProxyCredentialType = HttpProxyCredentialType.None;
+
+            binding.Security.Transport.Realm = "";
+            binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
+            binding.Security.Message.AlgorithmSuite = System.ServiceModel.Security.SecurityAlgorithmSuite.Default;
+        }
+
+    }
+}

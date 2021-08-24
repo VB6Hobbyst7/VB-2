@@ -1,0 +1,42 @@
+[Genedia A-HBs3.0]
+Time:;12:10:11
+Date:;09/07/03
+OVER limit:;3.000
+Operator:;
+Wavelengths:;450nm/620nm
+If 'Sample>=NC+0.0505' Then Result:='+'
+If 'Sample<NC+0.0495' Then Result:='-'
+Default result := ?
+Cutoff;(NC+0.05);0.060
+
+[Results]
+Patient ID;Assay;Reader value;Qual. value;Well Location
+"";"Genedia A-HBs3.0";"0.010";"NC1";"A1"
+"";"Genedia A-HBs3.0";"0.009";"NC2";"B1"
+"";"Genedia A-HBs3.0";"0.010";"NC3";"C1"
+"";"Genedia A-HBs3.0";"0.008";"PC1";"D1"
+"";"Genedia A-HBs3.0";"0.007";"PC2";"E1"
+"20030707-L-00038";"Genedia A-HBs3.0";"0.008";"-";"F1"
+"20030707-L-00069";"Genedia A-HBs3.0";"0.008";"-";"G1"
+"20030707-L-00070";"Genedia A-HBs3.0";"0.008";"-";"H1"
+"20030707-L-00073";"Genedia A-HBs3.0";"0.009";"-";"A2"
+"20030707-T-00019";"Genedia A-HBs3.0";"0.007";"-";"B2"
+"20030708-L-00001";"Genedia A-HBs3.0";"0.007";"-";"C2"
+"20030708-L-00002";"Genedia A-HBs3.0";"0.006";"-";"D2"
+"20030708-L-00004";"Genedia A-HBs3.0";"0.006";"-";"E2"
+"20030708-L-00008";"Genedia A-HBs3.0";"0.006";"-";"F2"
+"20030708-L-00009";"Genedia A-HBs3.0";"0.006";"-";"G2"
+"20030708-L-00014";"Genedia A-HBs3.0";"0.006";"-";"H2"
+"20030708-L-00019";"Genedia A-HBs3.0";"0.008";"-";"A3"
+"20030708-L-00026";"Genedia A-HBs3.0";"0.006";"-";"B3"
+"20030708-L-00027";"Genedia A-HBs3.0";"0.006";"-";"C3"
+"20030708-L-00031";"Genedia A-HBs3.0";"0.007";"-";"D3"
+"20030708-L-00038";"Genedia A-HBs3.0";"0.006";"-";"E3"
+"20030708-L-00050";"Genedia A-HBs3.0";"0.007";"-";"F3"
+"20030708-L-00051";"Genedia A-HBs3.0";"0.008";"-";"G3"
+"20030708-T-00001";"Genedia A-HBs3.0";"0.204";"+";"H3"
+"20030709-T-00001";"Genedia A-HBs3.0";"0.010";"-";"A4"
+"20030709-T-00002";"Genedia A-HBs3.0";"0.012";"-";"B4"
+"20030709-T-00003";"Genedia A-HBs3.0";"0.014";"-";"C4"
+"20030709-T-00004";"Genedia A-HBs3.0";"0.032";"-";"D4"
+[End Of Results]

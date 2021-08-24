@@ -1,0 +1,215 @@
+Attribute VB_Name = "CONST"
+'*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+'*                                                              *
+'*  H0CONST  = 공통상수 선언 Library                            *
+'*                                                              *
+'*  System    : 공통정보 시스템                                 *
+'*  Subsystem : 공통코드 관리                                   *
+'*  Function  : 공통상수 정의                                   *
+'*                                                              *
+'*  Designed  :                                                 *
+'*  Coded     :                                                 *
+'*  Modified  :                                                 *
+'*                                                              *
+'*  < Attentation Please !! >                                   *
+'*                                                              *
+'*    본 화일 상수의 등록, 수정, 삭제는 반드시 공통 담당인에게  *
+'*    의뢰하도록 할 것 !!                                       *
+'*    임의 수정은 모두를 위하여 삼가합시다 !!                   *
+'*    그리고 상수는 모두 대문자를 사용합시다 !!! (프로젝트 표준)*
+'*                                                              *
+'*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+'**================================================**
+'**                                                **
+'**          CONSTANT.TXT   정의 상수              **
+'**                                                **
+'**================================================**
+'*****************************************
+'*** GRID  Alignment
+'*****************************************
+Public Const LEFT_JUSTIFY = 0   ' 0 - Left Justify
+Public Const RIGHT_JUSTIFY = 1  ' 1 - Right Justify
+Public Const CENTER = 2         ' 2 - Center
+
+'*****************************************
+'*** Show parameters
+'*****************************************
+Public Const MODAL = 1
+Public Const MODELESS = 0
+
+'*****************************************
+'*** MousePointer
+'*****************************************
+Public Const DEFAULT = 0        ' 0 - Default
+Public Const ARROW = 1          ' 1 - Arrow
+Public Const CROSSHAIR = 2      ' 2 - Cross
+Public Const IBEAM = 3          ' 3 - I-Beam
+Public Const ICON_POINTER = 4   ' 4 - Icon
+Public Const SIZE_POINTER = 5   ' 5 - Size
+Public Const SIZE_NE_SW = 6     ' 6 - Size NE SW
+Public Const SIZE_N_S = 7       ' 7 - Size N S
+Public Const SIZE_NW_SE = 8     ' 8 - Size NW SE
+Public Const SIZE_W_E = 9       ' 9 - Size W E
+Public Const UP_ARROW = 10      ' 10 - Up Arrow
+Public Const HOURGLASS = 11     ' 11 - Hourglass
+Public Const NO_DROP = 12       ' 12 - No drop
+
+'*****************************************
+'*** Keyboard value define
+'*****************************************
+Public Const KEY_LBUTTON = &H1
+Public Const KEY_RBUTTON = &H2
+Public Const KEY_CANCEL = &H3
+Public Const KEY_MBUTTON = &H4    ' NOT contiguous with L & RBUTTON
+Public Const KEY_BACK = &H8
+Public Const KEY_TAB = &H9
+Public Const KEY_CLEAR = &HC
+Public Const KEY_RETURN = &HD
+Public Const KEY_SHIFT = &H10
+Public Const KEY_CONTROL = &H11
+Public Const KEY_MENU = &H12
+Public Const KEY_PAUSE = &H13
+Public Const KEY_CAPITAL = &H14
+Public Const KEY_ESCAPE = &H1B
+Public Const KEY_SPACE = &H20
+Public Const KEY_PRIOR = &H21
+Public Const KEY_NEXT = &H22
+Public Const KEY_END = &H23
+Public Const KEY_HOME = &H24
+Public Const KEY_LEFT = &H25
+Public Const KEY_UP = &H26
+Public Const KEY_RIGHT = &H27
+Public Const KEY_DOWN = &H28
+Public Const KEY_SELECT = &H29
+Public Const KEY_PRINT = &H2A
+Public Const KEY_EXECUTE = &H2B
+Public Const KEY_SNAPSHOT = &H2C
+Public Const KEY_INSERT = &H2D
+Public Const KEY_DELETE = &H2E
+Public Const KEY_HELP = &H2F
+Public Const KEY_NUMPAD0 = &H60
+Public Const KEY_NUMPAD1 = &H61
+Public Const KEY_NUMPAD2 = &H62
+Public Const KEY_NUMPAD3 = &H63
+Public Const KEY_NUMPAD4 = &H64
+Public Const KEY_NUMPAD5 = &H65
+Public Const KEY_NUMPAD6 = &H66
+Public Const KEY_NUMPAD7 = &H67
+Public Const KEY_NUMPAD8 = &H68
+Public Const KEY_NUMPAD9 = &H69
+Public Const KEY_MULTIPLY = &H6A
+Public Const KEY_ADD = &H6B
+Public Const KEY_SEPARATOR = &H6C
+Public Const KEY_SUBTRACT = &H6D
+Public Const KEY_DECIMAL = &H6E
+Public Const KEY_DIVIDE = &H6F
+Public Const KEY_F1 = &H70
+Public Const KEY_F2 = &H71
+Public Const KEY_F3 = &H72
+Public Const KEY_F4 = &H73
+Public Const KEY_F5 = &H74
+Public Const KEY_F6 = &H75
+Public Const KEY_F7 = &H76
+Public Const KEY_F8 = &H77
+Public Const KEY_F9 = &H78
+Public Const KEY_F10 = &H79
+Public Const KEY_F11 = &H7A
+Public Const KEY_F12 = &H7B
+Public Const KEY_F13 = &H7C
+Public Const KEY_F14 = &H7D
+Public Const KEY_F15 = &H7E
+Public Const KEY_F16 = &H7F
+Public Const KEY_NUMLOCK = &H90
+Public Const KEY_ASCII = 9999
+
+'*****************************************
+'*** Colors
+'*****************************************
+Public Const BLACK = &H0&
+Public Const RED = &HFF&
+Public Const GREEN = &HFF00&
+Public Const YELLOW = &HFFFF&
+Public Const BLUE = &HFF0000
+Public Const MAGENTA = &HFF00FF
+Public Const CYAN = &HFFFF00
+Public Const WHITE = &HFFFFFF
+
+'*****************************************
+'*** Function Parameters
+'*** PnlMsgBarBox parameters
+'*****************************************
+Public Const MB_OK = 0                  ' OK button only
+Public Const MB_OKCANCEL = 1            ' OK AND Cancel buttons
+Public Const MB_ABORTRETRYIGNORE = 2    ' Abort, Retry, AND Ignore buttons
+Public Const MB_YESNOCANCEL = 3         ' Yes, No, AND Cancel buttons
+Public Const MB_YESNO = 4               ' Yes AND No buttons
+Public Const MB_RETRYCANCEL = 5         ' Retry AND Cancel buttons
+
+Public Const MB_ICONSTOP = 16           ' Critical message
+Public Const MB_ICONQUESTION = 32       ' Warning query
+Public Const MB_ICONEXCLAMATION = 48    ' Warning message
+Public Const MB_ICONINFORMATION = 64    ' Information message
+
+Public Const MB_APPLMODAL = 0           ' Application Modal Message Box
+Public Const MB_DEFBUTTON1 = 0          ' First button is default
+Public Const MB_DEFBUTTON2 = 256        ' Second button is default
+Public Const MB_DEFBUTTON3 = 512        ' Third button is default
+Public Const MB_SYSTEMMODAL = 4096      'System Modal
+
+'*****************************************
+'*** PnlMsgBarbox return value
+'*****************************************
+Public Const IDOK = 1                   ' OK button press
+Public Const IDCANCEL = 2               ' Cancel button press
+Public Const IDABORT = 3                ' Abort button press
+Public Const IDRETRY = 4                ' Retry button press
+Public Const IDIGNORE = 5               ' Ignore button press
+Public Const IDYES = 6                  ' Yes button press
+Public Const IDNO = 7                   ' No button press
+
+'*****************************************
+'*** Key Status Control
+'*****************************************
+Public Const KEYSTAT_CAPSLOCK = 0
+Public Const KEYSTAT_NUMLOCK = 1
+Public Const KEYSTAT_INSERT = 2
+Public Const KEYSTAT_SCROLLLOCK = 3
+
+'*****************************************
+'*** ZOrder Method
+'*****************************************
+Public Const BRINGTOFRONT = 0
+Public Const SENDTOBACK = 1
+
+'*****************************************
+'*** Report 관련 상수
+'*****************************************
+Public Const PRT_ENDX = 2337
+Public Const PRT_ENDY = 3381
+Public Const PRT_LEFT = 0
+Public Const PRT_RIGHT = 1
+
+'**================================================**
+'**                                                **
+'**         사용자(개발팀) 정의 상수               **
+'**                                                **
+'**================================================**
+'*****************************************
+'*** 문자(1 Byte) size 지정
+'*****************************************
+Public Const TWIPS_110 = 110
+Public Const TWIPS_120 = 120
+Public Const TWIPS_130 = 130
+
+'*****************************************
+'*** Color군 코드
+'*****************************************
+Public Const COLOR_WHITE = "0"
+Public Const COLOR_YELLOW = "1"
+Public Const COLOR_BLUE = "2"
+Public Const COLOR_GRAY = "3"
+Public Const COLOR_BLACK = "4"
+Public Const COLOR_RED = "6"
+Public Const COLOR_BROWN = "8"
+

@@ -1,0 +1,96 @@
+0. connect
+   - env위치 : c:\rmx\env\rmx.env
+   - ip로 병원구분
+       [190.65]    /* 한림 */
+       [190.1]     /* 강동 */  <--
+       [190.50]    /* 강남 */
+       [190.20]    /* 한강 */
+       [190.90]    /* 춘천 */
+       [DEV]       /* 개발 */
+   - fdlfile : c:\rmx\env\tmax.fdl
+
+1. login
+   - service : SL_USERM_L1 ==> 운영:X 개발:O
+     input   : S_IDNUM1     /* 사번                   char(6)                (s) */
+     output  : S_NAME1      /* 성명                                          (s) */
+             : S_TEXT1      /* 비밀번호                                      (s) */
+
+DEV : 020487
+박제정|1|
+
+
+2. download (양방향용)
+   - service : SL_INTFC_L2  ==> 운영:O 개발:O
+     input   : S_IDNUM1     /* 검체번호               char(10)               (s) */
+     output  : S_DATE1      /* 검사일자 (yyyymmdd)                           (m) */
+               S_NUMVAL2    /* 수거번호                                      (m) */
+               S_NO1        /* 처방순번                                      (m) */
+               S_CODE2      /* 검사코드                                      (m) */
+               S_NAME1      /* 검사명                                        (m) */
+               S_CODE3      /* 검체코드                                      (m) */
+               S_NAME2      /* 검체명                                        (m) */
+               S_PATNO      /* 등록번호                                      (m) */
+               S_PATNAME    /* 성명                                          (m) */
+               S_STRING1    /* 성별                                          (m) */
+               S_STRING2    /* 나이                                          (m) */
+               S_CODE4      /* 진료과                                        (m) */
+               S_TEXT1      /* 직전결과                                      (m) */
+               S_TEXT2      /* 검사결과                                      (m) */
+               S_DATE2      /* 직전결과보고일시 (yyyymmdd hh24:mi:ss)        (m) */
+
+DEV : 2110000983
+20110503|1|2001|C3700AA|Total Hb|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700BB|Oxyhemoglobin|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700CC|Carboxyhemo (CO-Hb)|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700DD|Methemoglobin|01|Whole blood|080157623|박용완|M|21|OS|| |
+20110503|1|2001|C3700EE|O2 saturation|01|Whole blood|080157623|박용완|M|21|OS|| |
+
+ 운영 : 2114478947 
+20110607|190|2014|C2200C|Protein(정량, urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2014|C2200C|Protein(정량, urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2014|C3750AE|Creatinine(urine,응급)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2014|C2200CBB|Protein/Cr ratio|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2015|C3800A|Osmolality(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2011|C3791A|Na(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2013|C3792A|K(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+20110607|190|2012|C3793A|Cl(urine)|03|Urine|030365437|이인성|F|75|MC|| ||
+
+
+3. upload
+   - service : SL_RSLTUP_M1 ==> 운영:미테스트 개발:미테스트
+     input   : S_STRING1    /* 장비코드 : OCS와 같게  varchar(10)            (s) */
+               S_IDNUM1     /* 검체번호 : 필수        char(10)               (m) */
+               S_CODE1      /* 검사코드 : 필수        varchar(10)            (m) */
+               S_NO1        /* 처방순번 : 필수        varchar(10)            (m) */
+               S_TEXT1      /* 검사결과               varchar(1000)          (m) */
+               LOG_USERID   /* 사번                   char(6)                (s) */
+               LOG_CLTNAME  /* IP                     varchar(15)            (s) */
+     output  : N/A
+
+4. timeout
+   - 30분간 service call 없으면 자동으로 session kill됨.
+     20분에 한번씩 dummy service call해서 session유지필요.
+   - service : CC_SYSDATE_S
+     input   : N/A
+     output  : S_DATETIME1  /* system time (yyyy-mm-dd hh24:mi:ss)           (s) */
+
+
+5. 접수 상태
+service : SL_SPCMD_L12	==> 운영:X 개발:O
+GET (S_FLAG1   , 0, in_flag     ); 	==> 'SPC'
+GET (S_IDNUM1  , 0, in_spcid    );	==> '검체번호'
+   
+SPUT (S_STAT1   , sProcstat  [iy]);	==> 상태 B:채취/접수,C:수거,E:검사,N:보고
+
+
+AP_PATBA_S7
+AP_MEDLIST_S1
+AC_PAYLIST_S1
+AC_OPCAL_S2
+AC_OPPAY_S11
+
+
+
+
+
+010 5651 2404 031 380 9460 성만근

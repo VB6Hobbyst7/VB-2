@@ -1,0 +1,53 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="VariantII_1.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"VariantII_1.exe"
+"MSVBVM60.DLL"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"VB6KO.DLL"
+"tmax4gl.dll"
+"scrrun.dll"
+"msado26.tlb"
+"msjro.dll"
+"MSSTDFMT.DLL"
+"STDFTKO.DLL"
+"MSCOMCTL.OCX"
+"MSCMCKO.DLL"
+"MSCOMCT2.OCX"
+"MSCC2KO.DLL"
+"Comdlg32.ocx"
+"CMDLGKO.DLL"
+"GTCotrol.ocx"
+"MSCOMM32.OCX"
+"MSCOMKO.DLL"
+"TABCTL32.OCX"
+"TABCTKO.DLL"
+"MSMASK32.OCX"
+"MSMSKKO.DLL"
+"SPR32X30.ocx"
+"mfc42.dll"
+"MSVCRT.DLL"
+"MSVCRT40.DLL"
+"THREED32.OCX"
+"MFC40.DLL"
+"BHButton.ocx"
+"MSWINSCK.OCX"
+"WINSKKO.DLL"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"

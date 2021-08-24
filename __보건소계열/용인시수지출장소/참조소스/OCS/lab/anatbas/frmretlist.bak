@@ -1,0 +1,479 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Object = "{0D452EE1-E08F-101A-852E-02608C4D0BB4}#2.0#0"; "FM20.DLL"
+Begin VB.Form frmRetList 
+   Caption         =   "결과Data 관리화면"
+   ClientHeight    =   6315
+   ClientLeft      =   975
+   ClientTop       =   1635
+   ClientWidth     =   9885
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   6315
+   ScaleWidth      =   9885
+   Begin Threed.SSPanel SSPanel2 
+      Height          =   555
+      Left            =   3720
+      TabIndex        =   9
+      Top             =   180
+      Width           =   5175
+      _Version        =   65536
+      _ExtentX        =   9128
+      _ExtentY        =   979
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Begin VB.TextBox txtItemCode 
+         Appearance      =   0  '평면
+         BackColor       =   &H00C0E0FF&
+         Height          =   315
+         Left            =   120
+         Locked          =   -1  'True
+         TabIndex        =   11
+         TabStop         =   0   'False
+         Top             =   120
+         Width           =   1215
+      End
+      Begin VB.TextBox txtItemName 
+         Appearance      =   0  '평면
+         BackColor       =   &H00C0E0FF&
+         Height          =   315
+         Left            =   1380
+         Locked          =   -1  'True
+         TabIndex        =   10
+         TabStop         =   0   'False
+         Top             =   120
+         Width           =   3615
+      End
+   End
+   Begin FPSpread.vaSpread ssRet 
+      Height          =   4155
+      Left            =   3720
+      TabIndex        =   2
+      Top             =   1680
+      Width           =   5475
+      _Version        =   196608
+      _ExtentX        =   9657
+      _ExtentY        =   7329
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   6
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmRetList.frx":0000
+      UserResize      =   1
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   5715
+      Left            =   60
+      TabIndex        =   6
+      Top             =   180
+      Width           =   3555
+      _Version        =   65536
+      _ExtentX        =   6271
+      _ExtentY        =   10081
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BorderWidth     =   2
+      BevelInner      =   1
+      Begin VB.TextBox txtSlipno 
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFFFF&
+         Height          =   315
+         Left            =   120
+         Locked          =   -1  'True
+         TabIndex        =   8
+         TabStop         =   0   'False
+         Top             =   120
+         Width           =   435
+      End
+      Begin VB.TextBox txtSlipname 
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFFFF&
+         Height          =   315
+         Left            =   840
+         Locked          =   -1  'True
+         TabIndex        =   7
+         TabStop         =   0   'False
+         Top             =   120
+         Width           =   2595
+      End
+      Begin VB.ListBox lstItemList 
+         Appearance      =   0  '평면
+         BackColor       =   &H00FFFFFF&
+         Height          =   5070
+         Left            =   120
+         TabIndex        =   1
+         Top             =   540
+         Width           =   3315
+      End
+      Begin Threed.SSCommand cmdHelp 
+         Height          =   315
+         Left            =   600
+         TabIndex        =   0
+         ToolTipText     =   "Slip 종류를 조회선택할수 있습니다."
+         Top             =   120
+         Width           =   255
+         _Version        =   65536
+         _ExtentX        =   450
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "&H"
+      End
+   End
+   Begin MSForms.CommandButton cmdClear 
+      Height          =   495
+      Left            =   7200
+      TabIndex        =   5
+      Top             =   960
+      Width           =   1635
+      Caption         =   "화면정리"
+      PicturePosition =   327683
+      Size            =   "2884;873"
+      Picture         =   "frmRetList.frx":1111
+      FontName        =   "굴림체"
+      FontHeight      =   180
+      FontCharSet     =   129
+      FontPitchAndFamily=   18
+      ParagraphAlign  =   3
+   End
+   Begin MSForms.CommandButton cmdSave 
+      Height          =   495
+      Left            =   5460
+      TabIndex        =   4
+      Top             =   960
+      Width           =   1635
+      Caption         =   "Data 저장"
+      PicturePosition =   327683
+      Size            =   "2884;873"
+      Picture         =   "frmRetList.frx":28A3
+      FontName        =   "굴림체"
+      FontHeight      =   180
+      FontCharSet     =   129
+      FontPitchAndFamily=   18
+      ParagraphAlign  =   3
+   End
+   Begin MSForms.CommandButton cmdAdd 
+      Height          =   495
+      Left            =   3720
+      TabIndex        =   3
+      Top             =   960
+      Width           =   1635
+      Caption         =   "Data 추가"
+      PicturePosition =   327683
+      Size            =   "2884;873"
+      FontName        =   "굴림체"
+      FontHeight      =   180
+      FontCharSet     =   129
+      FontPitchAndFamily=   18
+      ParagraphAlign  =   3
+   End
+   Begin VB.Menu mnuQuit 
+      Caption         =   "Quit"
+   End
+End
+Attribute VB_Name = "frmRetList"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdAdd_Click()
+    Dim nTmpSeqno       As Integer
+    
+    If Trim(txtItemCode.Text) = "" Then
+        MsgBox "선택된 ItemCode 가 없습니다", vbInformation
+        Exit Sub
+    End If
+    
+    ssRet.MaxRows = ssRet.MaxRows + 1
+    
+    ssRet.Row = ssRet.DataRowCnt + 1
+    ssRet.Col = 3
+    ssRet.Text = txtSlipno.Text
+    ssRet.Col = 4
+    ssRet.Text = txtItemCode.Text
+    
+    nTmpSeqno = 0
+    For i = 1 To ssRet.DataRowCnt
+        ssRet.Row = i
+        ssRet.Col = 6
+        If nTmpSeqno < Val(ssRet.Text) Then
+            nTmpSeqno = Val(ssRet.Text)
+        End If
+    Next
+
+    ssRet.Row = ssRet.DataRowCnt
+    ssRet.Col = 6
+    ssRet.Text = nTmpSeqno + 1
+    
+    ssRet.SetFocus
+    ssRet.Row = ssRet.DataRowCnt
+    ssRet.Col = 5
+    ssRet.Action = SS_ACTION_ACTIVE_CELL
+    
+    
+End Sub
+
+Private Sub cmdClear_Click()
+    
+    ssRet.Row = 1
+    ssRet.Row2 = ssRet.DataRowCnt
+    ssRet.Col = 1
+    ssRet.Col2 = ssRet.DataColCnt
+    ssRet.BlockMode = True
+    ssRet.Action = SS_ACTION_CLEAR_TEXT
+    ssRet.BlockMode = False
+    
+End Sub
+
+Private Sub cmdHelp_Click()
+    Dim sCode       As String * 8
+    
+    mdiMain.stbMain.Panels(1).Text = ""
+    
+    gCallWin = 2
+    
+    frmSlipQry.Show vbModal
+    If Trim(txtSlipname.Text) <> "" Then
+        txtSlipno.SetFocus
+    End If
+
+    If txtSlipno.Text = "" Then Exit Sub
+    
+    strSql = ""
+    strSql = strSql & " SELECT Codeky, ItemNM"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ItemML"
+    strSql = strSql & " WHERE  Codeky  LIKE '" & txtSlipno.Text & "%'"
+    strSql = strSql & " ORDER  BY Codeky"
+    
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    lstItemList.Clear
+    
+    Do Until adoSet.EOF
+        sCode = adoSet.Fields("Codeky").Value & ""
+        lstItemList.AddItem sCode & " " & adoSet.Fields("ItemNM").Value & ""
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    lstItemList.SetFocus
+    
+    
+End Sub
+
+Private Sub cmdSave_Click()
+    Dim sRowID      As String
+    Dim bValue      As Boolean
+    
+    Screen.MousePointer = vbHourglass
+    GoSub Renumber_Set
+    
+    For i = 1 To ssRet.DataRowCnt
+        ssRet.Row = i
+        ssRet.Col = 1: sRowID = ssRet.Text
+        ssRet.Col = 2:
+        If ssRet.Value = True Then
+            bValue = True
+        Else
+            bValue = False
+        End If
+        
+        If sRowID <> "" And bValue = True Then
+            GoSub RET_Delete_Sub
+        ElseIf sRowID <> "" And bValue = False Then
+            GoSub RET_Update_Sub
+        ElseIf sRowID = "" And bValue = False Then
+            GoSub RET_Insert_Sub
+        End If
+    Next
+    
+    GoSub ReRead_Sub
+    Screen.MousePointer = vbDefault
+    
+    Exit Sub
+    
+'/-------------------------------------------------------
+Renumber_Set:
+    Dim nSeq        As Integer
+    
+    nSeq = 1
+    For i = 1 To ssRet.DataRowCnt
+        ssRet.Row = i
+        ssRet.Col = 2
+        If ssRet.Value = False Then
+            ssRet.Col = 6
+            ssRet.Text = nSeq
+            nSeq = nSeq + 1
+        End If
+    Next
+    Return
+
+'@
+RET_Delete_Sub:
+    strSql = ""
+    strSql = strSql & " DELETE "
+    strSql = strSql & " FROM    TW_MIS_EXAM.TWEXAM_RET"
+    strSql = strSql & " WHERE   RowID  =  '" & sRowID & "'"
+    Call adoExecute(strSql)
+    Return
+
+'@
+RET_Update_Sub:
+    ssRet.Col = 5
+    
+    strSql = ""
+    strSql = strSql & " UPDATE  TW_MIS_EXAM.TWEXAM_RET"
+    strSql = strSql & " SET     Ret    = '" & Trim(ssRet.Text) & "'"
+    strSql = strSql & " WHERE   RowID  =  '" & sRowID & "'"
+    Call adoExecute(strSql)
+    Return
+
+'@
+RET_Insert_Sub:
+    Dim sSlipno     As String
+    Dim sItemCD     As String
+    Dim sRet        As String
+    Dim nPutSeq     As Integer
+    
+    ssRet.Col = 3: sSlipno = Trim(ssRet.Text)
+    ssRet.Col = 4: sItemCD = Trim(ssRet.Text)
+    ssRet.Col = 5: sRet = Trim(ssRet.Text)
+    ssRet.Col = 6: nPutSeq = Val(ssRet.Text)
+    
+    strSql = ""
+    strSql = strSql & " INSERT  INTO  TW_MIS_EXAM.TWEXAM_RET"
+    strSql = strSql & "       (Slipno, ItemCd, Ret, Seqno)"
+    strSql = strSql & " VALUES('" & sSlipno & "',"
+    strSql = strSql & "        '" & sItemCD & "',"
+    strSql = strSql & "        '" & sRet & "',"
+    strSql = strSql & "         " & nPutSeq & ")"
+    Call adoExecute(strSql)
+    
+    Return
+
+ReRead_Sub:
+    strSql = ""
+    strSql = strSql & " SELECT a.*, a.RowID"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Ret a"
+    strSql = strSql & " WHERE  a.Slipno = '" & Trim(txtSlipno.Text) & "'"
+    strSql = strSql & " AND    a.ItemCd = '" & Trim(txtItemCode.Text) & "'"
+    strSql = strSql & " Order  by a.Seqno"
+    
+    ssRet.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    ssRet.MaxRows = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssRet.Row = ssRet.DataRowCnt + 1
+        ssRet.Col = 1: ssRet.Text = adoSet.Fields("RowID").Value & ""
+        ssRet.Col = 2: ssRet.Value = False
+        ssRet.Col = 3: ssRet.Text = adoSet.Fields("Slipno").Value & ""
+        ssRet.Col = 4: ssRet.Text = adoSet.Fields("itemCD").Value & ""
+        ssRet.Col = 5: ssRet.Text = adoSet.Fields("Ret").Value & ""
+        ssRet.Col = 6: ssRet.Text = adoSet.Fields("Seqno").Value & ""
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    Return
+    
+End Sub
+
+Private Sub Form_Load()
+    Me.Top = 1
+    Me.Left = 1
+    Me.Height = 7000
+    Me.Width = 10000
+    
+
+End Sub
+
+Private Sub lstItemList_DblClick()
+    Dim sCode       As String * 8
+    
+    sCode = Left(lstItemList.Text, 8)
+    txtItemCode.Text = sCode
+    txtItemName.Text = Mid(Trim(lstItemList.Text), 10, Len(Trim(lstItemList.Text)) - 9)
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.*, a.RowID"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Ret a"
+    strSql = strSql & " WHERE  a.Slipno = '" & Trim(txtSlipno.Text) & "'"
+    strSql = strSql & " AND    a.ItemCd = '" & sCode & "'"
+    strSql = strSql & " ORDER  BY Seqno"
+    
+    ssRet.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    ssRet.MaxRows = adoSet.RecordCount
+    
+    Do Until adoSet.EOF
+        ssRet.Row = ssRet.DataRowCnt + 1
+        ssRet.Col = 1: ssRet.Text = adoSet.Fields("RowID").Value & ""
+        ssRet.Col = 2: ssRet.Value = False
+        ssRet.Col = 3: ssRet.Text = adoSet.Fields("Slipno").Value & ""
+        ssRet.Col = 4: ssRet.Text = adoSet.Fields("itemCD").Value & ""
+        ssRet.Col = 5: ssRet.Text = adoSet.Fields("Ret").Value & ""
+        ssRet.Col = 6: ssRet.Text = adoSet.Fields("Seqno").Value & ""
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+End Sub
+
+Private Sub lstItemList_KeyDown(KeyCode As Integer, Shift As Integer)
+    
+    If KeyCode = vbKeyReturn Then
+        Call lstItemList_DblClick
+    End If
+    
+End Sub
+
+Private Sub mnuQuit_Click()
+    Unload Me
+    
+End Sub
+

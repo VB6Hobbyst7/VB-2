@@ -1,0 +1,15 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , EXAMCODE        AS ITEM 
+  From UB_PATRESULT                        
+ Where BARCODE = '210324154933'      
+   And EXAMCODE IN ('1300','1311','1312','2010-1','2010-2','2010-3','D0002010','D0002030','D0002040','D0002050','D0002070')    
+   AND SENDFLAG = '0' Order by SAVESEQ,HOSPDATE,PNAME           

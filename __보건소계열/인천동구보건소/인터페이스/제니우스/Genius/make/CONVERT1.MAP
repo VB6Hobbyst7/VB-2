@@ -1,0 +1,436 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 0082DH 0082EH _TEXT              CODE
+ 0082EH 00ED0H 006A3H CONVERT1_TEXT      CODE
+ 00EE0H 012F6H 00417H E87_PROG           CODE
+ 012F7H 013ADH 000B7H FPERR_TEXT         CODE
+ 013AEH 013B3H 00006H FPRESET_TEXT       CODE
+ 013B4H 0147BH 000C8H POW10_TEXT         CODE
+ 0147CH 0162BH 001B0H REALCVT_TEXT       CODE
+ 0162CH 017F6H 001CBH XCVT_TEXT          CODE
+ 017F7H 01831H 0003BH IOERROR_TEXT       CODE
+ 01832H 01865H 00034H EXIT_TEXT          CODE
+ 01866H 01866H 00000H STKLEN_TEXT        CODE
+ 01866H 01894H 0002FH ATEXIT_TEXT        CODE
+ 01895H 01BA4H 00310H FMALLOC_TEXT       CODE
+ 01BA5H 01CF6H 00152H FBRK_TEXT          CODE
+ 01CF7H 01D16H 00020H SETBLOCK_TEXT      CODE
+ 01D17H 01FE1H 002CBH FOPEN_TEXT         CODE
+ 01FE2H 02181H 001A0H OPEN_TEXT          CODE
+ 02182H 021CEH 0004DH OPENA_TEXT         CODE
+ 021CFH 021CFH 00000H FILES_TEXT         CODE
+ 021CFH 021CFH 00000H FILES2_TEXT        CODE
+ 021CFH 021CFH 00000H FMODE_TEXT         CODE
+ 021CFH 0231BH 0014DH FSEEK_TEXT         CODE
+ 0231CH 02348H 0002DH IOCTL_TEXT         CODE
+ 02349H 02360H 00018H ISATTY_TEXT        CODE
+ 02361H 024A2H 00142H SETVBUF_TEXT       CODE
+ 024A3H 02572H 000D0H FCLOSE_TEXT        CODE
+ 02573H 025A3H 00031H CLOSE_TEXT         CODE
+ 025A4H 025C9H 00026H CLOSEA_TEXT        CODE
+ 025CAH 02601H 00038H XFCLOSE_TEXT       CODE
+ 02602H 0263BH 0003AH XFFLUSH_TEXT       CODE
+ 0263CH 027A1H 00166H WRITE_TEXT         CODE
+ 027A2H 027EDH 0004CH WRITEA_TEXT        CODE
+ 027EEH 0282CH 0003FH ACCESS_TEXT        CODE
+ 0282DH 02859H 0002DH LSEEK_TEXT         CODE
+ 0285AH 02955H 000FCH LTOA_TEXT          CODE
+ 02956H 02A05H 000B0H TMPNAM_TEXT        CODE
+ 02A06H 02A21H 0001CH UNLINK_TEXT        CODE
+ 02A22H 02A63H 00042H STRCAT_TEXT        CODE
+ 02A64H 02AA8H 00045H MEMSET_TEXT        CODE
+ 02AA9H 02AC9H 00021H CHMODA_TEXT        CODE
+ 02ACAH 02BB1H 000E8H FFLUSH_TEXT        CODE
+ 02BB2H 02BD5H 00024H PRINTF_TEXT        CODE
+ 02BD6H 02EA0H 002CBH PUTC_TEXT          CODE
+ 02EA1H 033F2H 00552H VPRINTER_TEXT      CODE
+ 033F3H 03716H 00324H FFREE_TEXT         CODE
+ 03717H 0373BH 00025H FPRINTF_TEXT       CODE
+ 0373CH 0375EH 00023H GETVECT_TEXT       CODE
+ 0375FH 03776H 00018H OUTPORT_TEXT       CODE
+ 03777H 03777H 00000H SIGDATA_TEXT       CODE
+ 03780H 03CBBH 0053CH _DATA              DATA
+ 03CBCH 03CBFH 00004H _EMUSEG            DATA
+ 03CC0H 03CC1H 00002H _CRTSEG            DATA
+ 03CC2H 03CC9H 00008H _CVTSEG            DATA
+ 03CCAH 03CD5H 0000CH _SCNSEG            DATA
+ 03CD6H 07DEDH 04118H _BSS               BSS
+ 07DEEH 07DEEH 00000H _BSSEND            STACK
+ 07DF0H 07ED5H 000E6H _STACK             STACK
+
+  Address         Publics by Name
+
+ 0000:01C7       DGROUP@
+ 00EE:02EB       e087_Entry
+ 00EE:036B       e087_Shortcut
+ 07DF:00E6       emuTop@
+ 07DF:00DA       emws_adjust
+ 07DF:00DE       emws_BPsafe
+ 07DF:00D6       emws_control
+ 07DF:00DC       emws_fixSeg
+ 07DF:00C0       emws_initialSP
+ 07DF:0000       emws_limitSP
+ 07DF:00D0       emws_nmiVector
+ 07DF:00CC       emws_saveVector
+ 07DF:00E0       emws_stamp
+ 07DF:00D4       emws_status
+ 07DF:00D8       emws_TOS
+ 07DF:00E4       emws_version
+ 0000:0000  Abs  FIARQQ
+ 0000:0000  Abs  FICRQQ
+ 0000:0000  Abs  FIDRQQ
+ 0000:0000  Abs  FIERQQ
+ 0000:0000  Abs  FISRQQ
+ 0000:0000  Abs  FIWRQQ
+ 0000:0000  Abs  FJARQQ
+ 0000:0000  Abs  FJCRQQ
+ 0000:0000  Abs  FJSRQQ
+ 0000:052C       FPE1st
+ 0000:0547       FPElast
+ 0000:0554       FTOL@
+ 0000:076C       LDIV@
+ 0000:0775       LMOD@
+ 0000:0770       LUDIV@
+ 0000:077A       LUMOD@
+ 0000:080F       LXURSH@
+ 0000:06C9       PADD@
+ 0000:0724       PCMP@
+ 0000:06F6       PSUB@
+ 0000:01AF       _abort
+ 027E:000E       _access
+ 0186:0006       _atexit
+ 0082:03FE       _BccChk
+ 0082:01FC       _BufAdd
+ 0082:02B8       _BufEmpty
+ 0082:01BE       _clearBuffer
+ 0257:0003       _close
+ 0378:455F       _Data
+ 0378:0071       _environ
+ 0378:007F       _errno
+ 0183:0003       _exit
+ 033F:02DD       _farfree
+ 0189:0206       _farmalloc
+ 024A:0003       _fclose
+ 01D1:0290       _fdopen
+ 02AC:000A       _fflush
+ 01D1:021F       _fopen
+ 0371:0007       _fprintf
+ 02BD:0025       _fputc
+ 02BD:01C7       _fputchar
+ 033F:0003       _free
+ 01D1:0255       _freopen
+ 021C:005D       _fseek
+ 021C:00EB       _ftell
+ 0082:02E2       _GetBuf
+ 0373:000C       _getvect
+ 0082:037E       _Initialize
+ 0231:000C       _ioctl
+ 0234:0009       _isatty
+ 0285:008E       _itoa
+ 0282:000D       _lseek
+ 0285:00DB       _ltoa
+ 0082:04DB       _main
+ 0189:0005       _malloc
+ 02A6:002A       _memset
+ 01FE:0035       _open
+ 0082:0359       _OutPort
+ 0375:000F       _outport
+ 0375:001B       _outportb
+ 013B:0004       _pow10
+ 02BB:0002       _printf
+ 0082:000E       _setBaud
+ 01CF:0007       _setblock
+ 0082:006F       _setLine
+ 02A6:0004       _setmem
+ 0082:00A3       _setModem
+ 0236:0001       _setvbuf
+ 0373:001E       _setvect
+ 02A2:0002       _strcat
+ 0082:03F5       _SysClose
+ 0378:45C3       _tic
+ 0082:04A1       _TimeKill
+ 0295:006D       _tmpnam
+ 0285:00BB       _ultoa
+ 02A0:0006       _unlink
+ 0082:0346       _WhatCom
+ 0263:000C       _write
+ 0378:0081       __8087
+ 0378:006B       __argc
+ 0378:006D       __argv
+ 0378:02B6       __atexitcnt
+ 0378:45DA       __atexittbl
+ 01BA:0095       __brk
+ 0378:008B       __brklvl
+ 02AA:0009       __chmod
+ 025A:0004       __close
+ 0000:0000  Abs  __cvtfak
+ 0378:024C       __doserrno
+ 0378:024E       __dosErrorToSV
+ 0000:023B       __EMURESET
+ 0378:0075       __envLng
+ 0378:0077       __envseg
+ 0378:0079       __envSize
+ 0000:010D       __exit
+ 0378:02A8       __exitbuf
+ 0378:02AC       __exitfopen
+ 0378:02B0       __exitopen
+ 0378:02B8       __first
+ 0378:047E       __fmode
+ 012F:0007       __fperr
+ 0000:02F4       __FPExcep
+ 013A:000E       __fpreset
+ 02BD:0006       __fputc
+ 02BD:01E0       __FPUTN
+ 0378:0087       __heapbase
+ 0378:008F       __heaptop
+ 0378:005B       __Int0Vector
+ 0378:005F       __Int4Vector
+ 0378:0063       __Int5Vector
+ 0378:0067       __Int6Vector
+ 017F:0007       __IOERROR
+ 0378:02BC       __last
+ 0285:000A       __LONGTOA
+ 0295:0006       __MKNAME
+ 0378:0480       __notUmask
+ 0218:0002       __open
+ 0378:0456       __openfd
+ 0378:007D       __osmajor
+ 0378:007E       __osminor
+ 0378:007B       __psp
+ 0189:001A       __pull_free_block
+ 0000:0768       __REALCVT
+ 0378:0542       __RealCvtVector
+ 0000:0172       __restorezero
+ 0378:02C0       __rover
+ 01BA:00DC       __sbrk
+ 0378:054A       __ScanTodVector
+ 0000:0587       __setargv
+ 0000:0685       __setenvp
+ 0378:0083       __StartTime
+ 0378:0482       __stdinStarted
+ 0378:0484       __stdoutStarted
+ 0378:02B4       __stklen
+ 0378:02C6       __streams
+ 0378:465A       __tmpnum
+ 0000:0000  Abs  __turboCvt
+ 0378:007D       __version
+ 02EA:002C       __VPRINTER
+ 027A:0002       __write
+ 0162:000C       __XCVT
+ 025C:000A       __xfclose
+ 0260:0002       __xfflush
+ 0378:466A       ___SignalPtr
+
+  Address         Publics by Value
+
+ 0000:0000  Abs  FISRQQ
+ 0000:0000  Abs  FJSRQQ
+ 0000:0000  Abs  FJARQQ
+ 0000:0000  Abs  FIDRQQ
+ 0000:0000  Abs  FIERQQ
+ 0000:0000  Abs  __cvtfak
+ 0000:0000  Abs  FIWRQQ
+ 0000:0000  Abs  FICRQQ
+ 0000:0000  Abs  FJCRQQ
+ 0000:0000  Abs  FIARQQ
+ 0000:0000  Abs  __turboCvt
+ 0000:010D       __exit
+ 0000:0172       __restorezero
+ 0000:01AF       _abort
+ 0000:01C7       DGROUP@
+ 0000:023B       __EMURESET
+ 0000:02F4       __FPExcep
+ 0000:052C       FPE1st
+ 0000:0547       FPElast
+ 0000:0554       FTOL@
+ 0000:0587       __setargv
+ 0000:0685       __setenvp
+ 0000:06C9       PADD@
+ 0000:06F6       PSUB@
+ 0000:0724       PCMP@
+ 0000:0768       __REALCVT
+ 0000:076C       LDIV@
+ 0000:0770       LUDIV@
+ 0000:0775       LMOD@
+ 0000:077A       LUMOD@
+ 0000:080F       LXURSH@
+ 0082:000E       _setBaud
+ 0082:006F       _setLine
+ 0082:00A3       _setModem
+ 0082:01BE       _clearBuffer
+ 0082:01FC       _BufAdd
+ 0082:02B8       _BufEmpty
+ 0082:02E2       _GetBuf
+ 0082:0346       _WhatCom
+ 0082:0359       _OutPort
+ 0082:037E       _Initialize
+ 0082:03F5       _SysClose
+ 0082:03FE       _BccChk
+ 0082:04A1       _TimeKill
+ 0082:04DB       _main
+ 00EE:02EB       e087_Entry
+ 00EE:036B       e087_Shortcut
+ 012F:0007       __fperr
+ 013A:000E       __fpreset
+ 013B:0004       _pow10
+ 0162:000C       __XCVT
+ 017F:0007       __IOERROR
+ 0183:0003       _exit
+ 0186:0006       _atexit
+ 0189:0005       _malloc
+ 0189:001A       __pull_free_block
+ 0189:0206       _farmalloc
+ 01BA:0095       __brk
+ 01BA:00DC       __sbrk
+ 01CF:0007       _setblock
+ 01D1:021F       _fopen
+ 01D1:0255       _freopen
+ 01D1:0290       _fdopen
+ 01FE:0035       _open
+ 0218:0002       __open
+ 021C:005D       _fseek
+ 021C:00EB       _ftell
+ 0231:000C       _ioctl
+ 0234:0009       _isatty
+ 0236:0001       _setvbuf
+ 024A:0003       _fclose
+ 0257:0003       _close
+ 025A:0004       __close
+ 025C:000A       __xfclose
+ 0260:0002       __xfflush
+ 0263:000C       _write
+ 027A:0002       __write
+ 027E:000E       _access
+ 0282:000D       _lseek
+ 0285:000A       __LONGTOA
+ 0285:008E       _itoa
+ 0285:00BB       _ultoa
+ 0285:00DB       _ltoa
+ 0295:0006       __MKNAME
+ 0295:006D       _tmpnam
+ 02A0:0006       _unlink
+ 02A2:0002       _strcat
+ 02A6:0004       _setmem
+ 02A6:002A       _memset
+ 02AA:0009       __chmod
+ 02AC:000A       _fflush
+ 02BB:0002       _printf
+ 02BD:0006       __fputc
+ 02BD:0025       _fputc
+ 02BD:01C7       _fputchar
+ 02BD:01E0       __FPUTN
+ 02EA:002C       __VPRINTER
+ 033F:0003       _free
+ 033F:02DD       _farfree
+ 0371:0007       _fprintf
+ 0373:000C       _getvect
+ 0373:001E       _setvect
+ 0375:000F       _outport
+ 0375:001B       _outportb
+ 0378:005B       __Int0Vector
+ 0378:005F       __Int4Vector
+ 0378:0063       __Int5Vector
+ 0378:0067       __Int6Vector
+ 0378:006B       __argc
+ 0378:006D       __argv
+ 0378:0071       _environ
+ 0378:0075       __envLng
+ 0378:0077       __envseg
+ 0378:0079       __envSize
+ 0378:007B       __psp
+ 0378:007D       __version
+ 0378:007D       __osmajor
+ 0378:007E       __osminor
+ 0378:007F       _errno
+ 0378:0081       __8087
+ 0378:0083       __StartTime
+ 0378:0087       __heapbase
+ 0378:008B       __brklvl
+ 0378:008F       __heaptop
+ 0378:024C       __doserrno
+ 0378:024E       __dosErrorToSV
+ 0378:02A8       __exitbuf
+ 0378:02AC       __exitfopen
+ 0378:02B0       __exitopen
+ 0378:02B4       __stklen
+ 0378:02B6       __atexitcnt
+ 0378:02B8       __first
+ 0378:02BC       __last
+ 0378:02C0       __rover
+ 0378:02C6       __streams
+ 0378:0456       __openfd
+ 0378:047E       __fmode
+ 0378:0480       __notUmask
+ 0378:0482       __stdinStarted
+ 0378:0484       __stdoutStarted
+ 0378:0542       __RealCvtVector
+ 0378:054A       __ScanTodVector
+ 0378:455F       _Data
+ 0378:45C3       _tic
+ 0378:45DA       __atexittbl
+ 0378:465A       __tmpnum
+ 0378:466A       ___SignalPtr
+ 07DF:0000       emws_limitSP
+ 07DF:00C0       emws_initialSP
+ 07DF:00CC       emws_saveVector
+ 07DF:00D0       emws_nmiVector
+ 07DF:00D4       emws_status
+ 07DF:00D6       emws_control
+ 07DF:00D8       emws_TOS
+ 07DF:00DA       emws_adjust
+ 07DF:00DC       emws_fixSeg
+ 07DF:00DE       emws_BPsafe
+ 07DF:00E0       emws_stamp
+ 07DF:00E4       emws_version
+ 07DF:00E6       emuTop@
+
+Line numbers for C:\TC\MAKE\CONVERT1.OBJ(CONVERT1.C) segment CONVERT1_TEXT
+
+    80 0082:000E    85 0082:0013    86 0082:001E    87 0082:0027
+    88 0082:0033    89 0082:0048    90 0082:0063    91 0082:006C
+    93 0082:006F    95 0082:0073    96 0082:0077    97 0082:007D
+    98 0082:0086    99 0082:008F   100 0082:00A1   102 0082:00A3
+   104 0082:00A6   105 0082:00B7   107 0082:00B9   109 0082:00BC
+   110 0082:00CB   111 0082:00DA   112 0082:00E9   113 0082:00F8
+   115 0082:00FA   119 0082:00FE   120 0082:010A   121 0082:010F
+   122 0082:0116   124 0082:0128   125 0082:0134   126 0082:0139
+   127 0082:0140   129 0082:0152   130 0082:0153   132 0082:0155
+   134 0082:0158   135 0082:015E   136 0082:0164   137 0082:016A
+   138 0082:0170   140 0082:0172   142 0082:0182   143 0082:018A
+   144 0082:018E   146 0082:0198   148 0082:01A8   149 0082:01B0
+   150 0082:01B4   154 0082:01BE   156 0082:01C1   157 0082:01DF
+   158 0082:01EB   159 0082:01FA   161 0082:01FC   165 0082:01FF
+   166 0082:020E   168 0082:020E   171 0082:0255   172 0082:0286
+   173 0082:0294   175 0082:02B6   177 0082:02B8   179 0082:02BB
+   180 0082:02D9   181 0082:02DE   182 0082:02E0   184 0082:02E2
+   186 0082:02E6   187 0082:02F4   188 0082:0329   189 0082:0343
+   191 0082:0346   193 0082:0349   194 0082:0354   195 0082:0357
+   197 0082:0359   199 0082:035C   200 0082:036E   201 0082:037C
+   203 0082:037E   208 0082:0382   209 0082:0388   210 0082:038E
+   211 0082:0394   213 0082:039E   214 0082:03A4   215 0082:03B4
+   216 0082:03CA   218 0082:03DB   219 0082:03DC   220 0082:03E0
+   221 0082:03E4   222 0082:03EB   223 0082:03F2   224 0082:03F3
+   226 0082:03F5   228 0082:03F8   229 0082:03FC   231 0082:03FE
+   233 0082:0403   235 0082:0405   236 0082:0419   237 0082:041B
+   242 0082:041F   244 0082:0422   245 0082:042B   246 0082:043A
+   248 0082:0449   249 0082:044B   251 0082:044E   252 0082:0457
+   253 0082:0469   255 0082:0475   257 0082:0477   259 0082:0487
+   260 0082:048C   261 0082:0493   263 0082:0497   265 0082:04A1
+   267 0082:04A4   268 0082:04A8   269 0082:04C3   270 0082:04D5
+   271 0082:04D9   273 0082:04DB   276 0082:04E1   278 0082:04E6
+   301 0082:04EB   303 0082:04EF   308 0082:050A   309 0082:0511
+   310 0082:0521   311 0082:052C   312 0082:0535   313 0082:0546
+   314 0082:054B   315 0082:0550   317 0082:0559   318 0082:0569
+   319 0082:0575   320 0082:057C   321 0082:0581   322 0082:0586
+   323 0082:058C   324 0082:05A5   325 0082:05B0   326 0082:05B3
+   327 0082:05B5   328 0082:05B7   330 0082:05C2   333 0082:05C4
+   334 0082:05D0   335 0082:05D1   337 0082:05DF   338 0082:05ED
+   339 0082:05F0   340 0082:05F6   341 0082:0602   342 0082:0607
+   343 0082:0609   316 0082:060B   346 0082:0614   347 0082:0619
+   348 0082:0643   354 0082:0653   355 0082:0656   356 0082:065C
+   357 0082:0668   358 0082:066D   359 0082:066F   361 0082:0671
+   362 0082:067E   307 0082:0695   365 0082:069E   367 0082:06AB
+   368 0082:06AD
+Program entry point at 0000:0000
+

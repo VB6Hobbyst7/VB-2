@@ -1,0 +1,610 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Begin VB.Form frmQryGeom 
+   Caption         =   "검체코드 조회"
+   ClientHeight    =   7410
+   ClientLeft      =   2880
+   ClientTop       =   885
+   ClientWidth     =   6450
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   7410
+   ScaleWidth      =   6450
+   Begin FPSpread.vaSpread ssSample 
+      Height          =   6735
+      Left            =   1020
+      TabIndex        =   0
+      Top             =   540
+      Width           =   5355
+      _Version        =   196608
+      _ExtentX        =   9446
+      _ExtentY        =   11880
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   2
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmQryGeom.frx":0000
+      UserResize      =   1
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   435
+      Left            =   0
+      TabIndex        =   3
+      Top             =   60
+      Width           =   6375
+      _Version        =   65536
+      _ExtentX        =   11245
+      _ExtentY        =   767
+      _StockProps     =   15
+      BackColor       =   12582912
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BorderWidth     =   2
+      BevelOuter      =   1
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   0
+         Left            =   60
+         TabIndex        =   4
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   432
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "A"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   1
+         Left            =   300
+         TabIndex        =   5
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "B"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   2
+         Left            =   540
+         TabIndex        =   6
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "C"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   3
+         Left            =   780
+         TabIndex        =   7
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "D"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   4
+         Left            =   1020
+         TabIndex        =   8
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "E"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   5
+         Left            =   1260
+         TabIndex        =   9
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "F"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   6
+         Left            =   1500
+         TabIndex        =   10
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "G"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   7
+         Left            =   1740
+         TabIndex        =   11
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "H"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   8
+         Left            =   1980
+         TabIndex        =   12
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "I"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   9
+         Left            =   2220
+         TabIndex        =   13
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "J"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   10
+         Left            =   2460
+         TabIndex        =   14
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "K"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   11
+         Left            =   2700
+         TabIndex        =   15
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "L"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   12
+         Left            =   2940
+         TabIndex        =   16
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "M"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   13
+         Left            =   3180
+         TabIndex        =   17
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "N"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   14
+         Left            =   3420
+         TabIndex        =   18
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "O"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   15
+         Left            =   3660
+         TabIndex        =   19
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "P"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   16
+         Left            =   3900
+         TabIndex        =   20
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "Q"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   17
+         Left            =   4140
+         TabIndex        =   21
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "R"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   18
+         Left            =   4380
+         TabIndex        =   22
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "S"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   19
+         Left            =   4620
+         TabIndex        =   23
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "T"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   20
+         Left            =   4860
+         TabIndex        =   24
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "U"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   21
+         Left            =   5100
+         TabIndex        =   25
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "V"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   22
+         Left            =   5340
+         TabIndex        =   26
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "W"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   23
+         Left            =   5580
+         TabIndex        =   27
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "X"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   24
+         Left            =   5820
+         TabIndex        =   28
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "Y"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+      Begin Threed.SSCommand cmdSearch 
+         Height          =   300
+         Index           =   25
+         Left            =   6060
+         TabIndex        =   29
+         Top             =   60
+         Width           =   240
+         _Version        =   65536
+         _ExtentX        =   423
+         _ExtentY        =   538
+         _StockProps     =   78
+         Caption         =   "Z"
+         BevelWidth      =   1
+         Outline         =   0   'False
+      End
+   End
+   Begin Threed.SSCommand cmdExit 
+      Height          =   975
+      Left            =   60
+      TabIndex        =   2
+      Top             =   1680
+      Width           =   855
+      _Version        =   65536
+      _ExtentX        =   1508
+      _ExtentY        =   1720
+      _StockProps     =   78
+      Caption         =   "종료"
+      BevelWidth      =   1
+      Picture         =   "frmQryGeom.frx":028F
+   End
+   Begin Threed.SSCommand cmdSelect 
+      Height          =   975
+      Left            =   60
+      TabIndex        =   1
+      Top             =   600
+      Width           =   855
+      _Version        =   65536
+      _ExtentX        =   1508
+      _ExtentY        =   1720
+      _StockProps     =   78
+      Caption         =   "선택확인"
+      BevelWidth      =   1
+      Picture         =   "frmQryGeom.frx":0B69
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H80000007&
+      Caption         =   "Label1"
+      Height          =   975
+      Index           =   1
+      Left            =   120
+      TabIndex        =   31
+      Top             =   1740
+      Width           =   855
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H80000007&
+      Caption         =   "Label1"
+      Height          =   975
+      Index           =   0
+      Left            =   120
+      TabIndex        =   30
+      Top             =   660
+      Width           =   855
+   End
+End
+Attribute VB_Name = "frmQryGeom"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdExit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub cmdSearch_Click(Index As Integer)
+    
+    For i = 1 To ssSample.DataRowCnt
+        ssSample.Row = i
+        ssSample.Col = 2
+        If cmdSearch(Index).Caption = Left(UCase(Trim(ssSample.Text)), 1) Then
+            ssSample.Col = 1
+            ssSample.Action = SS_ACTION_ACTIVE_CELL
+            ssSample.Action = SS_ACTION_GOTO_CELL
+            Exit For
+        End If
+    Next
+
+
+End Sub
+
+Public Sub cmdSelect_Click()
+    
+    ssSample.Row = ssSample.ActiveRow
+    ssSample.Col = 1:
+    Call SetWindowText(hWndReturn, ssSample.Text)
+    
+    Unload Me
+    
+    
+End Sub
+
+Private Sub Form_Load()
+    Dim sSampleCode     As String * 8
+    Dim sSampleName     As String
+    
+    Me.Top = (Screen.Height - Me.Height) / 2
+    Me.Left = (Screen.Width - Me.Width) / 2
+    
+    strSql = ""
+    strSql = strSql & " SELECT Codeky, Codenm"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Specode"
+    strSql = strSql & " WHERE  Codegu = '13'"
+    strSql = strSql & " Order  by Codenm"
+    
+    ssSample.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    ssSample.MaxRows = adoSet.RecordCount
+        
+    Do Until adoSet.EOF
+        ssSample.Row = ssSample.DataRowCnt + 1
+        ssSample.Col = 1: ssSample.Text = adoSet.Fields("Codeky").Value & ""
+        ssSample.Col = 2: ssSample.Text = adoSet.Fields("Codenm").Value & ""
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+End Sub
+
+Private Sub mnuQuit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub ssSample_DblClick(ByVal Col As Long, ByVal Row As Long)
+    
+    If Row = 0 Then
+        GoSub ssSample_Sort_Sub
+    End If
+    If Row > 0 Then
+        Call cmdSelect_Click
+    End If
+    
+    Exit Sub
+    
+    
+ssSample_Sort_Sub:
+    ssSample.Row = 1
+    ssSample.Col = 1
+    ssSample.Row2 = ssSample.DataRowCnt
+    ssSample.Col2 = ssSample.DataColCnt
+    ssSample.SortBy = SS_SORT_BY_ROW
+    ssSample.SortKey(1) = Col
+    ssSample.SortKeyOrder(1) = SS_SORT_ORDER_ASCENDING
+    ssSample.Action = SS_ACTION_SORT
+    Return
+End Sub

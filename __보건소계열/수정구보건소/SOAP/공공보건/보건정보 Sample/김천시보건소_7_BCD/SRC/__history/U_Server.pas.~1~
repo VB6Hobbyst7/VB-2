@@ -1,0 +1,328 @@
+unit U_Server;
+
+interface
+
+uses SysUtils, Variants, Dialogs, Windows, Messages, Forms,
+     sl_p_dp_c,
+     sl_d_poct_c,
+     sl_p_02_c,
+     sl_p_01_c,
+     sl_p_00_c,
+     sl_d_26_c,
+     sl_p_88_c;
+
+type
+  TServerReturn = record
+     OutMsg:string;
+     OutCount:LongInt;
+  end;
+
+//오더생성
+function SvrCreateOrder(PatId, Sect, Dept, UserId, OrderCode:string):TServerReturn;
+
+//채혈접수
+function ExcuteSvrSpecnum(PatId, OrderCode, Dept, Sect, UserId, ExDate, Location:string;
+                          var BarCode:string):TServerReturn;
+
+//접수확인
+function CheckSvrReception(BarCode:string; var ReceptionState:string):TServerReturn;
+
+//검체접수 바코드를 여기서 저장한다.
+function ExcuteSvrReception(BarCode, PatId, UserId:string):TServerReturn;
+
+//델타패닉
+function CheckSvrDeltaPanic(Spcid, ExamCode, sResult:string;
+                         var PanicOut:string;
+                         var DeltaOut:string;
+                         var CriticalOut:string):TServerReturn;
+
+//POCT인경우 환자번호 이용해 환자정보 가져온다.
+function GetSvrDeptorDrorSect(PatId, Location:string;
+                              var PatIdOut:string;
+                              var DeptOut:string;
+                              var DrOut:string;
+                              var SectOut:string):TServerReturn;
+
+//바코드번호로 검체접수 확인하기위해 데이터 가져오는 부분.
+function GetSvrPatIdorState(BarCode:string; var PatIdOut:string; var StateOut:string):TServerReturn;
+
+function SvrUploadHost_QC(ICode, LotNo, ExamCode, sResult, BarCode, UserId:string):TServerReturn;
+
+function SvrUploadHost_Poct(vBcd,vCode,vResult,vFlag,vICode,vIUser:variant;
+                            sDate,sUser,sLoc:string): TServerReturn;
+
+function SvrUploadHost_Normal(vBcd,vCode,vResult,vFlag,vICode:variant;
+                              sDate,sUser,sLoc:string): TServerReturn;
+
+implementation
+
+function SvrUploadHost_Poct(vBcd,vCode,vResult,vFlag,vICode,vIUser:variant;
+                            sDate,sUser,sLoc:string): TServerReturn;
+var
+  sOutMsg:string;
+begin
+  Result.OutMsg:='';
+
+  Result.OutCount:= sl_online_result_poct(sOutMsg, vBcd, vCode, vResult, vFlag, vICode, vIUser);
+  if Result.OutCount < 1 then
+      Result.OutMsg:= 'sl_online_result_poct(결과등록) Error! -> '+sOutMsg;
+end;
+
+function SvrUploadHost_Normal(vBcd,vCode,vResult,vFlag,vICode:variant;
+                              sDate,sUser,sLoc:string): TServerReturn;
+var
+  sOutMsg:string;
+begin
+  Result.OutMsg:='';
+
+  Result.OutCount:= sl_online_result_ul_4(sOutMsg, vBcd, vCode, vResult, vFlag, vICode, '');
+  if Result.OutCount < 1 then
+      Result.OutMsg:= 'sl_online_result_ul_4(결과등록) Error! -> '+sOutMsg;
+end;
+
+function SvrUploadHost_QC(ICode, LotNo, ExamCode, sResult, BarCode, UserId:string):TServerReturn;
+begin
+  Result.OutCount:= sl_d_26_ins_abga_slxeqrdt(ICode, LotNo, ExamCode, sResult, BarCode, UserId);
+  if Result.OutCount < 1 then
+      Result.OutMsg:= 'QC Upload OutMsg -> '+IntToStr(Result.OutCount);
+end;
+
+
+function SvrCreateOrder(PatId, Sect, Dept, UserId, OrderCode:string):TServerReturn;
+var
+  vPtNo_In, vOrdDt_In, vHspcl_In,
+  vPatSect_In, vFrctcd_In, vTstcd_in,
+  vDpcd_in, vInscls_In, vSpcNo_Out:Variant;
+  sUser_In:string;
+  sOutMsg:string;
+  ExDate:string;
+begin
+  Result.OutMsg:='';
+  ExDate:= FormatDateTime('yyyymmdd', now);
+
+  vPtno_in      :=VarArrayCreate([0, 0], VarOleStr);
+  vOrdDt_In     :=VarArrayCreate([0, 0], VarOleStr);
+  vHspcl_in     :=VarArrayCreate([0, 0], VarOleStr);
+  vPatsect_in   :=VarArrayCreate([0, 0], VarOleStr);
+  vFrctcd_in    :=VarArrayCreate([0, 0], VarOleStr);
+  vTstcd_in     :=VarArrayCreate([0, 0], VarOleStr);
+  vDpcd_in      :=VarArrayCreate([0, 0], VarOleStr);
+  vInscls_in    :=VarArrayCreate([0, 0], VarOleStr);
+  vSpcno_out    :=VarArrayCreate([0, 0], VarOleStr);
+
+  vPtno_in  [0] := PatId;
+  vOrdDt_In[0]  := ExDate; //FormatDateTime('yyyymmdd',Now);
+  vHspcl_In [0] := '1';
+  vPatSect_In[0]:= Sect;    //'E'
+  vFrctcd_In[0] := 'L80';    //"L8110"
+  vTstcd_in[0]  := OrderCode;
+  vDpcd_in[0]   := Dept;
+  sUser_in      := UserId;
+  vInscls_In[0] := '';
+
+  Result.OutCount:= sl_p_00_main( vPtno_in,
+                                  vOrdDt_In,
+                                  vHspcl_in,
+                                  vPatSect_In,
+                                  vFrctcd_In,
+                                  vTstcd_in,
+                                  vDpcd_in,
+                                  sUser_in,
+                                  vInscls_In,
+                                  vSpcno_out,
+                                  sOutMsg);
+
+  if Result.OutCount < 0 then
+      Result.OutMsg:= 'sl_p_00_main(오더 생성) Error -> '+sOutMsg
+  else
+      Result.OutMsg:= sOutMsg;
+
+end;
+
+function ExcuteSvrSpecnum(PatId, OrderCode, Dept, Sect, UserId, ExDate, Location:string;
+                          var BarCode:string):TServerReturn;
+var
+  vPT_NO,vMEDDEPT,vCHADR,vPATSECT: Variant;
+  PT_NO,SPCID1,TST_STAT:variant;
+  ptno_in, orddte_in,hspcl_in,frctcd_in,frctcd_extra_in,
+  spccd_in,wkgrp_in,ordsite_in,dpcd_in,rsvdte_in,iogb_in,
+  remk_in,job_in: Variant;
+  spcno:Variant;
+  day_yn_in:Variant;
+  user_in,place_in: string;
+  count_in,acptno_out: Longint;
+  sOutMsg:string;
+begin
+  Result.OutMsg:='';
+  Result.OutCount:= -1;
+
+  try //~Except
+      ptno_in   := VarArrayCreate([0, 0], VarOleStr);
+      orddte_in := VarArrayCreate([0, 0], VarOleStr);
+      hspcl_in  := VarArrayCreate([0, 0], VarOleStr);
+      frctcd_in := VarArrayCreate([0, 0], VarOleStr);
+      frctcd_extra_in:=VarArrayCreate([0, 0], VarOleStr);
+      spccd_in  := VarArrayCreate([0, 0], VarOleStr);
+      wkgrp_in  := VarArrayCreate([0, 0], VarOleStr);
+      ordsite_in:= VarArrayCreate([0, 0], VarOleStr);
+      dpcd_in   := VarArrayCreate([0, 0], VarOleStr);
+      rsvdte_in := VarArrayCreate([0, 0], VarOleStr);
+      iogb_in   := VarArrayCreate([0, 0], VarOleStr);
+      day_yn_in := VarArrayCreate([0, 0], VarOleStr);
+      remk_in   := VarArrayCreate([0, 0], VarOleStr);
+      job_in    := VarArrayCreate([0, 0], VarOleStr);
+      spcno     := VarArrayCreate([0, 0], VarOleStr);
+
+      ptno_in  [0] := PatId;
+      orddte_in[0] := ExDate;       //FormatDateTime('yyyy-mm-dd',Now);
+      hspcl_in [0] := '1';
+      frctcd_in[0] := OrderCode;         //frctcd_in(1) = TmpChkflag
+      frctcd_extra_in[0]:= 'L80';
+      spccd_in[0]  := '1HPB';        //spccd_in(1) = "1HPB"
+      wkgrp_in[0]  := '1';           //wkgrp_in(1) = "1"
+      ordsite_in[0]:= Dept;
+      dpcd_in[0]   := Dept;         //ordsite_in(1) = MEDDEPT(0)
+      rsvdte_in[0] := ExDate;       //rsvdte_in(1) = Format(Now, "yyyy-mm-dd")
+      iogb_in[0]   := Sect;         //iogb_in(1) = "E"  iogb_in(1) = PATSECT(0)
+      remk_in[0]   := '';            //remk_in(1) = ""
+      job_in[0]    := '1';           //job_in(1) = "1"
+      day_yn_in[0] := 'N';            //day_yn_in(1) = "N"
+
+      Result.OutCount :=sl_p_01_spcnum_poct(ptno_in
+                             , orddte_in
+                             , hspcl_in
+                             , frctcd_in
+                             , frctcd_extra_in
+                             , spccd_in
+                             , wkgrp_in
+                             , ordsite_in
+                             , dpcd_in
+                             , rsvdte_in
+                             , iogb_in
+                             , remk_in
+                             , job_in
+                             , day_yn_in
+                             , UserId       //Urse id
+                             , '0'          //채혈처        place_in = "0"
+                             , 1            // count_in = 1
+                             , SpcNo
+                             , sOutMsg);
+
+      if Result.OutCount < 1 then
+          Result.OutMsg:= 'sl_p_01_spcnum_poct(채혈접수) Error -> '+sOutMsg
+      else
+          BarCode:=Trim(spcno[0]);
+
+  except
+      Result.OutMsg:= '채혈접수시 로직 에러!';
+  end;
+end;
+
+function ExcuteSvrReception(BarCode, PatId, UserId:string):TServerReturn;
+var
+  AcptNo:integer;
+  ExDate:string;
+  sOutMsg:string;
+begin
+  ExDate:=FormatDateTime('yyyymmdd', now);
+
+  Result.OutCount:= sl_p_02_acpt(BarCode            //SampleId
+                                , ExDate       //ExamDate(yyyymmdd)
+                                , '1'           //hspcl_in
+                                , 'L80'         //frctcd_in
+                                , '1HPB'        //spccd_in
+                                , PatId         //PatNo
+                                , '24'          //Time_in
+                                , '0'           //Volume
+                                , UserId         //Operator Id
+                                , ''            //Micro_in
+                                , ''            //Remark_in
+                                , AcptNo        //Out ActpNo
+                                , sOutMsg);     //Out Msg
+
+
+  if Result.OutCount < 0 then
+      Result.OutMsg:='sl_p_02_acpt(접수) Error -> '+sOutMsg;
+
+end;
+
+function CheckSvrReception(BarCode:string; var ReceptionState:string):TServerReturn;
+var
+  vPtNo,vStat:variant;
+begin
+  Result.OutCount:= sl_d_poct_ptno(BarCode, vPtNo, vStat);
+
+  if Result.OutCount < 0 then begin
+      Result.OutMsg:= 'sl_d_poct_ptno(접수정보) Error->'+IntToStr(Result.OutCount);
+  end
+  else
+      ReceptionState:= vStat[0];
+
+end;
+
+function CheckSvrDeltaPanic(Spcid, ExamCode, sResult:string;
+                         var PanicOut:string;
+                         var DeltaOut:string;
+                         var CriticalOut:string):TServerReturn;
+var
+  sOutMsg:string;
+begin
+  Result.OutCount:= sl_p_dp_main(Spcid, ExamCode, sResult,PanicOut, DeltaOut, CriticalOut, sOutMsg);
+  Result.OutMsg:= sOutMsg;
+end;
+
+function GetSvrDeptorDrorSect(PatId, Location:string;
+                           var PatIdOut:string;   //이걸로 에러 체크. ''이면 정보없음.
+                           var DeptOut:string;
+                           var DrOut:string;
+                           var SectOut:string):TServerReturn;
+var
+  sOutMsg:string;
+  vPT_NO,vMEDDEPT,vCHADR,vPATSECT:Variant;
+begin
+  vPT_No   := VarArrayCreate([0, 0], VarOleStr);
+  vMEDDEPT := VarArrayCreate([0, 0], VarOleStr);
+  vCHADR   := VarArrayCreate([0, 0], VarOleStr);
+  vPATSECT := VarArrayCreate([0, 0], VarOleStr);
+
+  //MICU, SICU등이 추가되는경우 어찌할지..
+  
+  if Location = 'ER' then
+      Result.OutCount:= sl_d_poct_apemgrct(PatId,vPT_NO,vMEDDEPT,vCHADR,vPATSECT)
+  else
+  if Location = 'NICU' then
+      Result.OutCount:= sl_d_poct_apiplist(PatId,vPT_NO,vMEDDEPT,vCHADR,vPATSECT)
+  else
+      Result.OutCount:= sl_d_poct_moporeqt(PatId,vPT_NO,vMEDDEPT,vCHADR,vPATSECT);
+
+  if Result.OutCount > 0 then begin
+      PatIdOut:= vPT_No[0];
+      DeptOut := vMEDDEPT[0];
+      DrOut   := vCHADR[0];
+      SectOut := vPATSECT[0];
+  end
+  else begin
+      if Location = 'ER' then
+          Result.OutMsg:= 'sl_d_poct_apemgrct(환자정보) Error -> '+IntToStr(Result.OutCount)
+      else
+          Result.OutMsg:= 'sl_d_poct_moporeqt(환자정보) Error -> '+IntToStr(Result.OutCount);
+  end;
+end;
+
+function GetSvrPatIdorState(BarCode:string; var PatIdOut:string; var StateOut:string):TServerReturn;
+var
+  vPtNo,vStat:variant;
+begin
+  Result.OutCount:= sl_d_poct_ptno(BarCode, vPtNo, vStat);
+
+  if Result.OutCount > 0 then begin
+      PatIdOut:= vPtNo[0];
+      StateOut:= vStat[0];
+  end
+  else
+      Result.OutMsg:= 'sl_d_poct_ptno Error -> '+ IntToStr(Result.OutCount);
+
+end;
+
+
+end.

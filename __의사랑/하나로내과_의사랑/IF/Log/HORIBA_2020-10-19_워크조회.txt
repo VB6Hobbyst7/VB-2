@@ -1,0 +1,17 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , COUNT(EXAMCODE) AS CNT  
+  From UB_PATRESULT                                            
+ Where HOSPDATE Between '20201019' AND '20201019'      
+   And EXAMCODE IN ('201','402','4020','403','4030','438','442','501','B014','B0140','b1010','B1020','b1020','B1040','b1040','b1050','b1060','B1060','B1220','BMCH','BMCHC','BMCV','BRDW','h201','lym','mch','mchc','mcv','mono','seg','zB1010')                        
+ Group By SAVESEQ,HOSPDATE,INOUT,CHARTNO,BARCODE,PID,PNAME,PSEX,PAGE,PJUMIN 
+ Order by HOSPDATE,PID,PNAME,BARCODE                               
+

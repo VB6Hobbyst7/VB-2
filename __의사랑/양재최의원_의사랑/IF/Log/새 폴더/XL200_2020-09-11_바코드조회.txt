@@ -1,0 +1,19 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , EXAMCODE        AS ITEM 
+  From UB_PATRESULT                        
+ Where BARCODE = '09110000068752'      
+   And PID     = 'a324'    
+   And EXAMCODE IN ('D1830','D1840','D1850','D1860','D1870','D1880','D1890','D2263','D2280','D2300','D2310','D2510010','D2510050','D2611','D2613','D2614','D3022/2hr','D3022/30','D3022/F')    
+   And (RESULT = '' OR RESULT IS NULL) 
+   AND SENDFLAG = '0'                  
+ Order by SAVESEQ,HOSPDATE,PNAME           
+

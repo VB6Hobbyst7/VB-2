@@ -1,0 +1,379 @@
+procedure DoG1200(const sData:string);
+var
+  i:integer;
+  cStr,cBuffer:string;
+  sTmp:string;
+begin
+   // 전역변수로 보관한 자료를 읽음
+   cStr:='';
+   cBuffer:= sData;
+   for i:= 1 to Length(cBuffer) do begin
+     case cBuffer[i] of
+     ACK:begin
+             AddDebugLine(TGlobal.InstName+'->[ACK]');
+             SendG1200_Order;
+             sTmp:='';
+         end;
+     NAK:begin
+             AddDebugLine(TGlobal.InstName+'->[NAK]');
+             SendStr(EOT);
+             sTmp:='';
+         end;
+     ENQ:begin
+             AddDebugLine(TGlobal.InstName+'->[ENQ]');
+             SendStr(ACK); //ENQ
+             vcTxData:='';
+             sTmp:='';
+         end;
+     STX:begin
+             sTmp:= vcTxData+'[STX]';
+         end;
+     ETB:begin
+             sTmp:= vcTxData+'[ETB]';
+             //AddDebugLine('TRIAGE->'+sTmp);
+             sTmp:='';
+             SendStr(ACK);
+         end;
+
+     ETX:begin
+             sTmp:= vcTxData+'[ETX]';
+             //AddDebugLine('TRIAGE->'+sTmp);
+             sTmp:='';
+             vcTxData:= vcTxData+ETX;
+             SendStr(ACK);
+         end;
+     EOT:begin
+             sTmp:= vcTxData+'[EOT]';
+             AddDebugLine(TGlobal.InstName+'->'+sTmp);
+             try
+                 SetCommData(vcTxData);
+                 G1200_Rcv;
+             finally
+                 sTmp:='';
+                 vcTxData:='';
+                 //ClearCommData;
+             end;
+         end;
+         else begin
+            vcTxData:=vcTxData+cBuffer[i];
+         end;
+     end;
+   end;
+
+end;      
+
+
+procedure G1200_Rcv;
+var
+  Temp:string;
+  Func, sSend:string;
+begin
+  Temp:= TokenStr(mmTemp.Text,ETX,1);
+
+  Func  := UpperCase(copy(Temp, 1, 1));
+  if Func = '' then Exit;
+
+  case Func[1] of
+      'D': begin     //Represents assay result messages.
+               G1200_ResultProcess(Temp);
+           end;
+      'R': begin     //Represents assay request query messages.
+               G1200_OrderProcess(Temp);
+           end;
+      'Q': begin     //Represents system status query messages.
+               
+           end;
+      'S': begin     //Represents system status messages.
+           end;
+  end;
+end;
+
+procedure G1200_ResultProcess(sData:string);
+var
+  TMaster: TIfMaster;
+  ResStr, SmpGbn, SInfo:string;
+  ResCnt, i, GrdIdx:integer;
+begin
+  if sData = '' then exit;
+
+  TGlobal.DataLog:= 'G1200-> '+sData; //Log
+  sData:= mmTemp.Text;
+
+  SmpGbn:= Trim(Copy(sData,3,1));
+  SInfo:= Copy(sData,4,52);
+
+  TMaster:= TIfMaster.Create;
+  try
+      TMaster.FWork:='IMM';
+      TMaster.FExamDate:= FormatDateTime('yyyymmdd', now);
+      TMaster.FRcvTime := FormatDateTime( 'hhnnss', now );
+      TMaster.FOrdState:= 'N';
+
+      TMaster.FExamPos:= Trim(Copy(SInfo,1,4));
+      TMaster.FRack:= Trim(Copy(SInfo,35, 4));
+      TMaster.FPosi := Trim(Copy(SInfo,39, 1));
+      TMaster.FBarCode:= Trim(Copy(SInfo,9, 26));
+
+      GrdIdx:= FindPat_Grid_PAT(TMaster);
+      if TMaster.FExamSeq = '' then
+          TMaster.FExamSeq := DM.GetExamSeq(TMaster.FExamDate);
+
+      DispOnePat(TMaster, GrdIdx);
+      DM.SaveMaster(TMaster);
+
+      ResStr:=Copy(sData,56,69);
+      TMaster.FResult:= Trim(Copy(ResStr,12,10));
+      TMaster.FIfCode:= Trim(Copy(ResStr,1,2));
+
+      UploadOneExam(TMaster, GrdIdx);
+
+  finally
+      TMaster.Free;
+  end;
+end;
+
+procedure G1200_OrderProcess(sData:string);
+var
+  TMaster:TIfMaster;
+  GrdIdx:integer;
+  sSender:string;
+  Bcd,BcdStr,GBN,ICD, Seq, RPos, Cmt:string;
+begin
+  gACK:= 0;
+  slSender.Clear;
+
+  TGlobal.DataLog:= 'G1200->'+sData; //Log
+
+  ICD:= Trim(Copy(sData, 2, 1));
+  BcdStr:= Copy(sData, 3, 26);
+  Bcd:= Trim(BcdStr);
+  GBN:= Copy(sData, 29, 1);
+
+  TMaster:= TIfMaster.Create;
+  try
+      TMaster.FExamPos:= Bcd;
+
+      GrdIdx:= GetGridIndex_iPos(gdIf, TMaster.FExamPos, True);
+
+      if GrdIdx > 0 then begin
+          GetPatData(TMaster, grdIdx);
+          GetGridOrder(TMaster, grdIdx);
+      end;
+
+      //Cmt:= PadRightStr(TMaster.FPatNm, ' ', 80);
+      //W(1)+ICD(1)+GBN(1)+SampleNo(4)+BCD(26)+RACK(4)+POS(1)+SPC(1)+LOT(8)+Dil(4)
+      //sSender:= 'W'+ICD+GBN+'    '+BcdStr+'     '+'S'+'            ';
+
+      //sSender:= 'W1N    '+BcdStr+'00011S'+'        1   ';
+      Seq:= PadLeftStr(TMaster.FExamPos,' ', 4);
+      RPos:= PadLeftStr(TMaster.FRack, '0', 4) + TMaster.FPosi;
+      sSender:= 'W1N'+Seq+PadLeftStr(TMaster.FPatId,' ', 26)+RPos+'S'+'        1   ';
+
+      sSender:= sSender + MakeG1200_OrderStr(TMaster.vOrder);
+
+      slSender.Add(sSender);
+
+      DispOnePat_Order(TMaster, GrdIdx);
+
+      SendStr(ENQ);
+  finally
+      TMaster.Free;
+  end;
+
+end;
+
+function MakeG1200_OrderStr(vOrder:Variant):string;
+var
+  VC, i, iCnt:integer;
+  sO, OrdList:string;
+begin
+  Result:= '';
+  OrdList:='';
+
+  iCnt:= 0;
+
+  VC:= VarArrayDimCount(vOrder);
+  if VC > 0 then begin
+      for i:=0 to VarArrayHighBound(vOrder,1) do begin
+         sO:= Trim(vOrder[i]);
+         if sO <> '' then begin
+             Inc(iCnt);
+             sO:= PadRightStr(sO,' ',2) + '1'; //희석배율
+             OrdList:= OrdList + sO;
+         end;
+      end;
+  end;
+
+  Result:= PadRightStr(IntToStr(iCnt),' ',2) + OrdList + ETX;
+
+end;
+
+procedure SendG1200_Order;
+var
+  sOrder:string;
+begin
+  Inc(gACK);
+
+  if (gACK = 1) and (slSender.Count > 0) then begin
+      sOrder:= slSender.Strings[0];
+
+      sOrder:= STX + sOrder + BCCCheckSum(sOrder);
+
+      TGlobal.DataLog:= 'IF_PC-> '+sOrder; //Log
+
+      slSender.Clear;
+      
+      SendStr(sOrder);
+  end
+  else begin
+      SendStr(EOT);
+  end;
+
+end;
+
+function BCCCheckSum(cStr: string): string;
+var
+  i, ll_asc : integer;
+begin
+  ll_asc:=0;
+  
+    for i := 1 to Length(cStr) do
+    begin
+        if i = 1 then
+        begin
+           ll_asc := ord(cStr[1]) xor ord(cStr[2]);
+        end
+        else if i = 2 then
+        begin
+           //1번째 * 2번째 처리
+        end
+        else
+        begin
+           ll_asc := ll_asc xor ord(cStr[i]);
+        end;
+    end;
+    //result := chr(ll_asc);
+    Result:= StringReplace( Copy(Format('%4x', [ll_asc]), 3, 2), ' ', '0', [rfReplaceAll]);
+
+
+end;
+
+
+
+
+2018-10-05 13:55:56
+G1200->R1                         1N
+2018-10-05 13:55:56
+IF_PC-> W1N   1                      924200011S        1   3 5916515616B
+2018-10-05 13:55:58
+G1200->R1                         2N
+2018-10-05 13:55:58
+IF_PC-> W1N   2                     2283000012S        1   3 5916515617D
+2018-10-05 13:56:00
+G1200->R1                         3N
+2018-10-05 13:56:00
+IF_PC-> W1N   3                      863300013S        1   3 59165156168
+2018-10-05 13:56:01
+G1200->R1                         4N
+2018-10-05 13:56:02
+IF_PC-> W1N   4                     2178800014S        1   3 59165156172
+2018-10-05 13:56:03
+G1200->R1                         5N
+2018-10-05 13:56:03
+IF_PC-> W1N   5                     1998100015S        1   3 5916515617E
+2018-10-05 13:56:05
+G1200->R1                         6N
+2018-10-05 13:56:05
+IF_PC-> W1N   6                     2305200021S        1   3 59165156174
+2018-10-05 13:56:07
+G1200->R1                         7N
+2018-10-05 13:56:07
+IF_PC-> W1N   7                     2252600022S        1   3 59165156171
+2018-10-05 13:56:08
+G1200->R1                         8N
+2018-10-05 13:56:09
+IF_PC-> W1N   8                     1971800023S        1   3 59165156178
+2018-10-05 13:56:10
+G1200->R1                         9N
+2018-10-05 13:56:10
+IF_PC-> W1N   9                       70900024S        1   3 59165156176
+2018-10-05 13:56:12
+G1200->R1                        10N
+2018-10-05 13:56:12
+IF_PC-> W1N  10                     1644100025S        1   3 59165156167
+2018-10-05 13:56:14
+G1200->R1                        11N
+2018-10-05 13:56:14
+IF_PC-> W1N  11                     2315900031S        1   3 59165156169
+2018-10-05 13:56:16
+G1200->R1                        12N
+2018-10-05 13:56:16
+IF_PC-> W1N  12                     2316000032S        1   3 59165156163
+2018-10-05 13:56:17
+G1200->R1                        13N
+2018-10-05 13:56:18
+IF_PC-> W1N  13                     1516700033S        1   3 59165156161
+2018-10-05 13:56:19
+G1200->R1                        14N
+2018-10-05 13:56:19
+IF_PC-> W1N  14                     2057600034S        1   3 59165156163
+2018-10-05 13:56:21
+G1200->R1                        15N
+2018-10-05 13:56:21
+IF_PC-> W1N  15                     2261500035S        1   3 59165156167
+2018-10-05 13:56:23
+G1200->R1                        16N
+2018-10-05 13:56:23
+IF_PC-> W1N  16                     1565500041S        1   3 59165156167
+2018-10-05 13:56:25
+G1200->R1                        17N
+2018-10-05 13:56:25
+IF_PC-> W1N  17                     2306500042S        1   3 59165156165
+2018-10-05 13:56:26
+G1200->R1                        18N
+2018-10-05 13:56:27
+IF_PC-> W1N  18                     2292500043S        1   3 59165156167
+2018-10-05 14:31:31
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:32:01
+G1200-> D1N   1   19242                      00011S           165   45279     0.977                          19043812520181005143255
+2018-10-05 14:32:31
+G1200-> D1N   1   19242                      00011S           156  313281      0.88          000000000040000018121812520181005143325
+2018-10-05 14:33:00
+G1200-> D1N   2   222830                     00012S           159  121769      1.03                          18122812520181005143354
+2018-10-05 14:33:30
+G1200-> D1N   2   222830                     00012S           165     353     0.003          000000000800000019043812520181005143424
+2018-10-05 14:34:00
+G1200-> D1N   2   222830                     00012S           156  302068      0.95          000000000040000018121812520181005143454
+2018-10-05 14:34:31
+G1200-> D1N   3   38633                      00013S           159  106366      1.20                          18122812520181005143525
+2018-10-05 14:35:00
+G1200-> D1N   3   38633                      00013S           165   18206     0.381                          19043812520181005143554
+2018-10-05 14:35:30
+G1200-> D1N   3   38633                      00013S           156  282117      1.07          000000000040000018121812520181005143624
+2018-10-05 14:36:00
+G1200-> D1N   4   421788                     00014S           159  132018      0.94                          18122812520181005143655
+2018-10-05 14:36:30
+G1200-> D1N   4   421788                     00014S           165   57300     1.246                          19043812520181005143724
+2018-10-05 14:37:00
+G1200-> D1N   4   421788                     00014S           156  250231      1.30          000000000040000018121812520181005143754
+2018-10-05 14:40:36
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:42:02
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:42:42
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:43:13
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:44:03
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:45:51
+G1200-> D1N   1   19242                      00011S           165   45279     0.977                          19043812520181005143255
+2018-10-05 14:46:27
+G1200-> D1N   1   19242                      00011S           159   94949      1.36                          18122812520181005143225
+2018-10-05 14:46:39
+G1200-> D1N   1   19242                      00011S           156  313281      0.88          000000000040000018121812520181005143325
+2018-10-05 14:47:14
+G1200-> D1N   1   19242                      00011S           156  313281      0.88          000000000040000018121812520181005143325
+2018-10-05 14:47:41
+G1200-> D1N   1   19242                      00011S           156  313281      0.88          000000000040000018121812520181005143325

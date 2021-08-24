@@ -1,0 +1,23 @@
+SELECT DISTINCT        1                       AS SORT 
+     , A.ORD_DATE              AS HOSPDATE 
+     , A.PT_NO                 AS PID  
+     , A.SPC_NO                AS BARCODE  
+     , A.ACPNO_1               AS CHARTNO      
+     , C.PT_NAME               AS PNAME    
+     , FC_SUP_AGE(C.BIRTH_DATE) AS AGE      
+     , C.SEX                   AS SEX      
+     , B.DEPT_CD               AS DEPT     
+  FROM SLAXWORKT A, SLA1COLMT B, ARRPATBAMV C Where A.pt_no = C.pt_no   AND A.SPC_NO = B.SPC_NO   and A.ORD_DATE BETWEEN  '2020-06-15' AND '2020-06-16'
+   and A.EXAM_CD IN ('L5300I','L5300J','L9084','L9085')
+   AND A.RPT_YN <> 'Y'   AND B.EXAM_PROSS_STS IN ('C', 'D', 'M') Union All SELECT DISTINCT        2                       AS SORT 
+     , A.ORD_DATE              AS HOSPDATE 
+     , A.PT_NO                 AS PID  
+     , A.SPC_NO                AS BARCODE  
+     , A.ACPNO_1               AS CHARTNO      
+     , C.PT_NAME               AS PNAME    
+     , FC_SUP_AGE(C.BIRTH_DATE) AS AGE      
+     , C.SEX                   AS SEX      
+     , B.DEPT_CD               AS DEPT     
+  FROM SLAXWORKT A, SLA1COLMT B, ARRPATBAMV C Where A.pt_no = C.pt_no   AND A.SPC_NO = B.SPC_NO   and A.ORD_DATE BETWEEN  '2020-06-15' AND '2020-06-16'
+   and A.EXAM_CD IN ('L1202','L1203')
+   AND A.RPT_YN <> 'Y'   AND B.EXAM_PROSS_STS IN ('C', 'D', 'M') ORDER BY SORT, A.ORD_DATE, (A.ACPNO_1 * 10) 

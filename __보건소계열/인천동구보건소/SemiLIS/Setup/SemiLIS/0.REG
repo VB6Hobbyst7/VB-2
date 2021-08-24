@@ -1,0 +1,122 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config]
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\DSN]
+@="SemiLIS"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\UpperMain.View]
+"Left"="0"
+"Top"="-20"
+"Height"="630"
+"Width"="12000"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\App.Title]
+@="동의의료원 Laboratory Information System"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\App.Cfg]
+"RegNo.Digit"="15"
+"UserCd.Digit"="8"
+"RefCfmYN"="Y"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Part.Setting]
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Part.Setting\Part.Cnt]
+@="4"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Part.Setting\Part.1]
+"Init"="C"
+"PartNm"="생화학"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Part.Setting\Part.2]
+"Init"="H"
+"PartNm"="생화학"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Part.Setting\Part.3]
+"Init"="S"
+"PartNm"="혈청학"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Part.Setting\Part.4]
+"Init"="U"
+"PartNm"="뇨화학"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Cur.Cfg]
+"MsgHwnd"="3168"
+"UserNmHwnd"="3172"
+"WndTitle"=""
+"PartCd"="H"
+"PartNm"="생화학"
+"SlipCd"="H01"
+"SlipNm"="일반생화학"
+"SpecimenCd"="001"
+"SpecimenNm"="Serum"
+"UserCd"="1"
+"UserNm"="동의의료원"
+"UserLevel"="SS"
+"UserSchOpt"="0"
+"TestItemNm Config"="T"
+"PrintFlag Config"="|P|D|"
+"PrintPriority"="R"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\MsgTimerInterval]
+"Sec"="7"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\LogIn.Title]
+@="동의의료원 임상병리과"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\System.Manager]
+"DB.SerialNo"="12345"
+"AdminID"="JCE SA"
+"AdminPWD"="sksmssk"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting]
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\B]
+@="09111110011"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\J]
+@="011"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\R]
+@="011"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\S]
+@="041100"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\O]
+@="03111"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\T]
+@="011"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\I]
+@="0200"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\Q]
+@="040000"
+
+[HKEY_CURRENT_USER\SOFTWARE\SemiLIS\Program Config\Menu.Setting\D]
+@="03000"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources]
+"SemiLIS"="Microsoft Access Driver (*.mdb)"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\SemiLIS]
+"Driver"="C:\\WINDOWS\\SYSTEM\\odbcjt32.dll"
+"DBQ"="C:\\Program Files\\SemiLIS\\SemiLIS.mdb"
+"DriverId"=dword:00000019
+"FIL"="MS Access;"
+"SafeTransactions"=dword:00000000
+"UID"=""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\SemiLIS\Engines]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\SemiLIS\Engines\Jet]
+"ImplicitCommitSync"="Yes"
+"MaxBufferSize"=dword:00000200
+"PageTimeout"=dword:00000005
+"Threads"=dword:00000003
+"UserCommitSync"="Yes"
+

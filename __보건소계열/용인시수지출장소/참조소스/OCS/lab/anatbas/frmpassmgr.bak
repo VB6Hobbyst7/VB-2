@@ -1,0 +1,723 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Begin VB.Form frmPassmgr 
+   Caption         =   "사용자관리(Password)"
+   ClientHeight    =   6810
+   ClientLeft      =   420
+   ClientTop       =   1485
+   ClientWidth     =   11085
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MDIChild        =   -1  'True
+   MinButton       =   0   'False
+   ScaleHeight     =   6810
+   ScaleWidth      =   11085
+   Begin FPSpread.vaSpread ssPass 
+      Height          =   5835
+      Left            =   3360
+      TabIndex        =   11
+      Top             =   360
+      Width           =   7575
+      _Version        =   196608
+      _ExtentX        =   13361
+      _ExtentY        =   10292
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   8
+      MaxRows         =   100
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmPassmgr.frx":0000
+      UserResize      =   1
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   5775
+      Left            =   120
+      TabIndex        =   12
+      Top             =   360
+      Width           =   3135
+      _Version        =   65536
+      _ExtentX        =   5530
+      _ExtentY        =   10186
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Begin VB.ComboBox cmbSlip 
+         Height          =   300
+         Left            =   1320
+         TabIndex        =   9
+         Top             =   3060
+         Width           =   1695
+      End
+      Begin Threed.SSOption SSOption2 
+         Height          =   195
+         Left            =   2220
+         TabIndex        =   7
+         Top             =   2520
+         Width           =   795
+         _Version        =   65536
+         _ExtentX        =   1402
+         _ExtentY        =   344
+         _StockProps     =   78
+         Caption         =   "퇴사=Y"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin Threed.SSOption SSOption1 
+         Height          =   195
+         Left            =   1320
+         TabIndex        =   6
+         Top             =   2520
+         Width           =   795
+         _Version        =   65536
+         _ExtentX        =   1402
+         _ExtentY        =   344
+         _StockProps     =   78
+         Caption         =   "재직=N"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Value           =   -1  'True
+      End
+      Begin VB.ComboBox cmbDeptCode 
+         Height          =   300
+         Left            =   1320
+         Style           =   2  '드롭다운 목록
+         TabIndex        =   4
+         Top             =   1860
+         Width           =   1695
+      End
+      Begin VB.ComboBox cmbRank 
+         Appearance      =   0  '평면
+         Height          =   300
+         Left            =   1320
+         Style           =   2  '드롭다운 목록
+         TabIndex        =   5
+         Top             =   2160
+         Width           =   1695
+      End
+      Begin Threed.SSCommand cmdQry 
+         Height          =   555
+         Left            =   120
+         TabIndex        =   0
+         Top             =   120
+         Width           =   2835
+         _Version        =   65536
+         _ExtentX        =   5001
+         _ExtentY        =   979
+         _StockProps     =   78
+         Caption         =   "                 조회확인 ▶"
+         BevelWidth      =   1
+         RoundedCorners  =   0   'False
+         Outline         =   0   'False
+         Picture         =   "frmPassmgr.frx":03A5
+      End
+      Begin VB.TextBox txtUserId 
+         Height          =   300
+         Left            =   1320
+         MaxLength       =   6
+         TabIndex        =   1
+         Top             =   960
+         Width           =   1695
+      End
+      Begin VB.TextBox txtUsername 
+         Height          =   300
+         Left            =   1320
+         TabIndex        =   2
+         Top             =   1260
+         Width           =   1695
+      End
+      Begin VB.TextBox txtPassword 
+         Height          =   300
+         IMEMode         =   3  '사용 못함
+         Left            =   1320
+         PasswordChar    =   "*"
+         TabIndex        =   3
+         Top             =   1560
+         Width           =   1695
+      End
+      Begin VB.TextBox txtDspOrder 
+         Height          =   300
+         Left            =   1320
+         TabIndex        =   8
+         Top             =   2760
+         Width           =   1695
+      End
+      Begin Threed.SSCommand cmdClear 
+         Height          =   1155
+         Left            =   2160
+         TabIndex        =   13
+         Top             =   3780
+         Width           =   795
+         _Version        =   65536
+         _ExtentX        =   1402
+         _ExtentY        =   2037
+         _StockProps     =   78
+         Caption         =   "화면정리"
+         BevelWidth      =   1
+         Outline         =   0   'False
+         Picture         =   "frmPassmgr.frx":0F77
+      End
+      Begin Threed.SSCommand cmdDel 
+         Height          =   1155
+         Left            =   1260
+         TabIndex        =   14
+         Top             =   3780
+         Width           =   795
+         _Version        =   65536
+         _ExtentX        =   1402
+         _ExtentY        =   2037
+         _StockProps     =   78
+         Caption         =   "삭제확인"
+         BevelWidth      =   1
+         Outline         =   0   'False
+         Picture         =   "frmPassmgr.frx":2709
+      End
+      Begin Threed.SSCommand cmdInsert 
+         Height          =   1155
+         Left            =   300
+         TabIndex        =   10
+         Top             =   3780
+         Width           =   855
+         _Version        =   65536
+         _ExtentX        =   1508
+         _ExtentY        =   2037
+         _StockProps     =   78
+         Caption         =   "입력확인"
+         BevelWidth      =   1
+         Outline         =   0   'False
+         Picture         =   "frmPassmgr.frx":2FE3
+      End
+      Begin VB.Label Label9 
+         BackColor       =   &H80000007&
+         Caption         =   "Label9"
+         Height          =   555
+         Index           =   3
+         Left            =   180
+         TabIndex        =   26
+         Top             =   180
+         Width           =   2835
+      End
+      Begin VB.Label Label9 
+         BackColor       =   &H80000007&
+         Caption         =   "Label9"
+         Height          =   1155
+         Index           =   2
+         Left            =   2220
+         TabIndex        =   25
+         Top             =   3840
+         Width           =   795
+      End
+      Begin VB.Label Label9 
+         BackColor       =   &H80000007&
+         Caption         =   "Label9"
+         Height          =   1155
+         Index           =   1
+         Left            =   1320
+         TabIndex        =   24
+         Top             =   3840
+         Width           =   795
+      End
+      Begin VB.Label Label9 
+         BackColor       =   &H80000007&
+         Caption         =   "Label9"
+         Height          =   1155
+         Index           =   0
+         Left            =   420
+         TabIndex        =   23
+         Top             =   3840
+         Width           =   795
+      End
+      Begin VB.Label Label8 
+         Caption         =   "근무Part"
+         Height          =   195
+         Left            =   180
+         TabIndex        =   22
+         Top             =   3120
+         Width           =   975
+      End
+      Begin VB.Label Label1 
+         Caption         =   "UserID"
+         Height          =   195
+         Left            =   180
+         TabIndex        =   21
+         Top             =   1020
+         Width           =   1035
+      End
+      Begin VB.Label Label2 
+         Caption         =   "사용자 이름"
+         Height          =   255
+         Left            =   180
+         TabIndex        =   20
+         Top             =   1290
+         Width           =   1035
+      End
+      Begin VB.Label Label3 
+         Caption         =   "비밀번호"
+         Height          =   195
+         Left            =   180
+         TabIndex        =   19
+         Top             =   1620
+         Width           =   1035
+      End
+      Begin VB.Label Label4 
+         Caption         =   "진료과"
+         Height          =   195
+         Left            =   180
+         TabIndex        =   18
+         Top             =   1920
+         Width           =   1035
+      End
+      Begin VB.Label Label5 
+         Caption         =   "권한"
+         Height          =   195
+         Left            =   180
+         TabIndex        =   17
+         Top             =   2220
+         Width           =   1035
+      End
+      Begin VB.Label Label6 
+         Caption         =   "퇴사구분"
+         Height          =   255
+         Left            =   180
+         TabIndex        =   16
+         Top             =   2520
+         Width           =   1035
+      End
+      Begin VB.Label Label7 
+         Caption         =   "Display순서"
+         Height          =   255
+         Left            =   180
+         TabIndex        =   15
+         Top             =   2820
+         Width           =   1035
+      End
+   End
+   Begin VB.Menu mnuQuit 
+      Caption         =   "Quit"
+   End
+End
+Attribute VB_Name = "frmPassmgr"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdClear_Click()
+    
+    For i = 0 To Me.Count - 1
+        If TypeOf Me.Controls(i) Is TextBox Then
+            Me.Controls(i).Text = ""
+        ElseIf TypeOf Me.Controls(i) Is ComboBox Then
+            If Me.Controls(i).Style = vbComboDropdownList Then
+                Me.Controls(i).ListIndex = -1
+            Else
+                Me.Controls(i).Text = ""
+            End If
+        ElseIf TypeOf Me.Controls(i) Is vaSpread Then
+            Me.Controls(i).Row = 1
+            Me.Controls(i).Row2 = Me.Controls(i).DataRowCnt
+            Me.Controls(i).Col = 1
+            Me.Controls(i).Col2 = Me.Controls(i).DataColCnt
+            Me.Controls(i).BlockMode = True
+            Me.Controls(i).Text = ""
+            Me.Controls(i).BlockMode = False
+        End If
+    Next
+    
+    mdiMain.stbMain.Panels(1).Text = ""
+    
+
+End Sub
+
+Private Sub cmdDel_Click()
+    
+    If Trim(txtUserId.Text) = "" Then
+        MsgBox "삭제할 UserID 가 없습니다!.", vbInformation + vbOKOnly, "Please Data Check..."
+        Exit Sub
+    End If
+
+    sMsg = Trim$(txtUserId.Text) & " = " & Trim(txtUsername.Text) & vbCrLf & "의 Data 를 삭제하시겠습니까?"
+    If vbNo = MsgBox(sMsg, vbYesNo + vbQuestion, "삭제 확인 Box") Then
+        Exit Sub
+    End If
+    
+    strSql = ""
+    strSql = strSql & " DELETE"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Password"
+    strSql = strSql & " WHERE  UserID = '" & Trim(txtUserId.Text) & "'"
+    
+    If adoExecute(strSql) = True Then
+        mdiMain.stbMain.Panels(1).Text = "Data를 삭제하였습니다!.."
+        GoSub Left_Clear
+    Else
+        mdiMain.stbMain.Panels(1).Text = "Data 삭제시 오류가 났습니다!..."
+    End If
+    
+    Call cmdQry_Click
+    Exit Sub
+    
+    
+Left_Clear:
+    txtUserId.Text = ""
+    txtUsername.Text = ""
+    txtPassword.Text = ""
+    cmbDeptCode.ListIndex = -1
+    cmbRank.ListIndex = -1
+    SSOption1.Value = True
+    txtDspOrder.Text = ""
+    Return
+
+    
+    
+End Sub
+
+Private Sub cmdInsert_Click()
+    Dim sToisaGb        As String * 1
+    
+    
+    If Trim(txtUserId.Text) = "" Then
+        MsgBox "입력할 자료가 없습니다!", vbOKOnly, "입력Data Not Found"
+        Exit Sub
+    End If
+    
+    
+    If SSOption1.Value = True Then sToisaGb = "N"
+    If SSOption2.Value = True Then sToisaGb = "Y"
+        
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Password"
+    strSql = strSql & " WHERE  UserID  =  '" & Trim(txtUserId.Text) & "'"
+
+    If False = adoSetOpen(strSql, adoSet) Then
+        GoSub Password_Insert_Sub
+    Else
+        Call adoSetClose(adoSet)
+        GoSub Password_Update_Sub
+    End If
+    
+    
+    Exit Sub
+    
+
+
+Password_Insert_Sub:
+    strSql = ""
+    strSql = strSql & " INSERT INTO TW_MIS_EXAM.TWEXAM_Password"
+    strSql = strSql & "       ( UserID,  Username, Password, Deptcode, Rank,"
+    strSql = strSql & "         ToisaGb, DspOrder ) "
+    strSql = strSql & " VALUES('" & Trim(txtUserId.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtUsername.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtPassword.Text) & "',"
+    strSql = strSql & "        '" & Left(cmbDeptCode.Text, 4) & "',"
+    strSql = strSql & "         " & Val(Left(cmbRank.Text, 1)) & ","
+    strSql = strSql & "        '" & sToisaGb & "',"
+    strSql = strSql & "         " & Val(txtDspOrder.Text) & ")"
+    
+    If adoExecute(strSql) Then
+        mdiMain.stbMain.Panels(1).Text = "Data 가 신규 입력 되었습니다!.."
+        GoSub Left_Clear
+        Call cmdQry_Click
+    Else
+        mdiMain.stbMain.Panels(1).Text = "신규 입력시 오류가 났습니다!..."
+    End If
+    Return
+    
+Password_Update_Sub:
+    strSql = ""
+    strSql = strSql & " UPDATE TW_MIS_EXAM.TWEXAM_Password"
+    strSql = strSql & " SET    Username  =  '" & Trim(txtUsername.Text) & "',"
+    strSql = strSql & "        Password  =  '" & Trim(txtPassword.Text) & "',"
+    strSql = strSql & "        DeptCode  =  '" & Left(cmbDeptCode.Text, 4) & "',"
+    strSql = strSql & "        Rank      =   " & Val(Left(cmbRank.Text, 1)) & ","
+    strSql = strSql & "        Toisagb   =  '" & sToisaGb & "',"
+    strSql = strSql & "        Dsporder  =   " & Val(txtDspOrder.Text) & ""
+    strSql = strSql & " WHERE  UserID    =  '" & Trim(txtUserId.Text) & "'"
+    If adoExecute(strSql) = True Then
+        mdiMain.stbMain.Panels(1).Text = "Data 가 수정 되었습니다!.."
+        GoSub Left_Clear
+        Call cmdQry_Click
+    Else
+        mdiMain.stbMain.Panels(1).Text = "Data 수정시 오류가 났습니다!..."
+    End If
+    
+    Return
+    
+    
+Left_Clear:
+    txtUserId.Text = ""
+    txtUsername.Text = ""
+    txtPassword.Text = ""
+    cmbDeptCode.ListIndex = -1
+    cmbRank.ListIndex = -1
+    SSOption1.Value = True
+    txtDspOrder.Text = ""
+    Return
+End Sub
+
+Private Sub cmdQry_Click()
+    
+    mdiMain.stbMain.Panels(1).Text = ""
+    
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Password"
+    strSql = strSql & " ORDER  BY DspOrder"
+    
+    ssPass.ReDraw = False
+    
+    ssPass.MaxRows = 0
+    If False = adoSetOpen(strSql, adoSet) Then Exit Sub
+    
+    ssPass.MaxRows = adoSet.RecordCount
+    Do Until adoSet.EOF
+        ssPass.Row = ssPass.DataRowCnt + 1
+        ssPass.Col = 1: ssPass.Text = adoSet.Fields("UserID").Value & ""
+        ssPass.Col = 2: ssPass.Text = adoSet.Fields("Username").Value & ""
+        ssPass.Col = 3: ssPass.Text = adoSet.Fields("Password").Value & ""
+        ssPass.Col = 4: ssPass.Text = adoSet.Fields("Deptcode").Value & ""
+        ssPass.Col = 5: ssPass.Text = adoSet.Fields("Rank").Value & ""
+        ssPass.Col = 6: ssPass.Text = adoSet.Fields("ToisaGb").Value & ""
+        ssPass.Col = 7: ssPass.Text = adoSet.Fields("DspOrder").Value & ""
+        adoSet.MoveNext
+    Loop
+    ssPass.ReDraw = True
+    ssPass.SetFocus
+    Call adoSetClose(adoSet)
+    
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+    
+    If KeyAscii = 13 Then
+        KeyAscii = 0
+        SendKeys "{TAB}"
+    End If
+    
+End Sub
+
+Private Sub Form_Load()
+    Me.Top = 1
+    Me.Left = 1
+    Me.Height = 7000
+    Me.Width = 11200
+    
+    
+    GoSub Rank_Data_Set         '사용 권한 Setting
+    GoSub DeptCode_Set          '원내 근무 부서
+    GoSub SlipNo_Set            '임상병리과 내 근무 Part Code Get
+    
+    Exit Sub
+    
+Rank_Data_Set:
+    cmbRank.AddItem "0.관리자"
+    cmbRank.AddItem "1.Super User"
+    cmbRank.AddItem "2.일반사용자"
+    cmbRank.AddItem "3.그외(타부서)"
+    Return
+    
+DeptCode_Set:
+    Dim sDeptCode       As String * 4
+    
+    strSql = ""
+    strSql = strSql & " SELECT * "
+    strSql = strSql & " FROM   TW_MIS_PMPA.TWBAS_DEPT"
+    strSql = strSql & " Order  By PrintRanking"
+    
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    
+    Do Until adoSet.EOF
+        sDeptCode = adoSet.Fields("DeptCode").Value & ""
+        cmbDeptCode.AddItem sDeptCode & " " & adoSet.Fields("DeptNamek").Value & ""
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    Return
+    
+SlipNo_Set:
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_SPECODE"
+    strSql = strSql & " WHERE  CODEGU = '12'"
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    
+    Do Until adoSet.EOF
+        cmbSlip.AddItem Trim(adoSet.Fields("Codeky").Value & "") & " " & _
+                        Trim(adoSet.Fields("Codenm").Value & "")
+        adoSet.MoveNext
+    Loop
+    Call adoSetClose(adoSet)
+    
+    Return
+
+End Sub
+
+Private Sub mnuQuit_Click()
+    
+    Unload Me
+    
+End Sub
+
+
+Private Sub ssPass_DblClick(ByVal Col As Long, ByVal Row As Long)
+    
+    If Row = 0 Then
+        ssPass.Row = 1
+        ssPass.Col = 1
+        ssPass.Row2 = ssPass.DataRowCnt
+        ssPass.Col2 = ssPass.DataColCnt
+        ssPass.SortBy = SS_SORT_BY_ROW
+        ssPass.SortKey(1) = Col
+        ssPass.SortKeyOrder(1) = SS_SORT_ORDER_ASCENDING
+        ssPass.Action = SS_ACTION_SORT
+    End If
+    
+    If Row > 0 Then
+        ssPass.Row = Row
+        ssPass.Col = 1: txtUserId.Text = Trim(ssPass.Text)
+        Call txtUserId_KeyDown(vbKeyReturn, 0)
+    End If
+
+    
+End Sub
+
+
+Private Sub txtPassword_GotFocus()
+    txtPassword.SelStart = 0
+    txtPassword.SelLength = Len(txtPassword.Text)
+    
+End Sub
+
+Private Sub txtToisaGb_GotFocus()
+    txtToisaGb.SelStart = 0
+    txtToisaGb.SelLength = Len(txtToisaGb.Text)
+    
+End Sub
+
+Private Sub txtToisaGb_LostFocus()
+    If Trim(txtToisaGb.Text) = "" Then txtToisaGb.Text = "N"
+    
+End Sub
+
+Public Sub txtUserId_KeyDown(KeyCode As Integer, Shift As Integer)
+    
+    If KeyCode = vbKeyReturn Then
+        GoSub GET_Password_Data
+    End If
+    
+    Exit Sub
+    
+
+GET_Password_Data:
+    Dim sDeptCode   As String * 4
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.*, b.DeptNamek"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Password a,"
+    strSql = strSql & "        TW_MIS_PMPA.TWBAS_Dept      b"
+    strSql = strSql & " WHERE  a.UserID  =  '" & Trim(txtUserId.Text) & "'"
+    strSql = strSql & " AND    a.DeptCode = b.DeptCode(+)"
+    
+    If False = adoSetOpen(strSql, adoSet) Then
+        txtUserId.Tag = txtUserId.Text
+        For i = 0 To Me.Count - 1
+            If TypeOf Me.Controls(i) Is TextBox Then
+                Me.Controls(i).Text = ""
+            ElseIf TypeOf Me.Controls(i) Is ComboBox Then
+                If Me.Controls(i).Style = vbComboDropdownList Then
+                    Me.Controls(i).ListIndex = -1
+                Else
+                    Me.Controls(i).Text = ""
+                End If
+            End If
+        Next
+        txtUserId.Text = Trim(txtUserId.Tag)
+        Return
+    End If
+    
+    txtUsername.Text = Trim(adoSet.Fields("Username").Value & "")
+    txtPassword.Text = Trim(adoSet.Fields("Password").Value & "")
+    
+    sDeptCode = adoSet.Fields("DeptCode").Value & ""
+    'cmbDeptCode.Text = sDeptCode & " " & adoSet.Fields("Deptnamek").Value & ""
+    For i = 0 To cmbDeptCode.ListCount - 1
+        If cmbDeptCode.List(i) = sDeptCode & " " & adoSet.Fields("Deptnamek").Value & "" Then
+            cmbDeptCode.ListIndex = i
+            Exit For
+        Else
+            cmbDeptCode.ListIndex = -1
+        End If
+    Next
+    
+    'cmbRank.Text = Trim(adoSet.Fields("Rank").Value & "")
+    cmbRank.ListIndex = Val(adoSet.Fields("Rank").Value & "")
+    
+    If Trim(adoSet.Fields("ToisaGb").Value & "") = "Y" Then
+        SSOption2.Value = True
+    Else
+        SSOption1.Value = True
+    End If
+    
+    
+    'txtToisaGb.Text = Trim(adoSet.Fields("ToisaGb").Value & "")
+    txtDspOrder.Text = adoSet.Fields("DspOrder").Value & ""
+    
+    Call adoSetClose(adoSet)
+    Return
+
+End Sub
+
+Private Sub txtUsername_GotFocus()
+    txtUsername.SelStart = 0
+    txtUsername.SelLength = Len(txtUsername.Text)
+    
+End Sub

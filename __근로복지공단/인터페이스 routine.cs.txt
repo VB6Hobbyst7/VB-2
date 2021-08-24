@@ -1,0 +1,854 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using CnsUtils;
+
+
+namespace Host
+{
+    public partial class HostDB
+    {
+        public DataTable Download_Worklist(string from_date, string to_date, string work_code)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("spc_no", typeof(string));
+            table.Columns.Add("lab_no", typeof(string));
+            table.Columns.Add("exam_code", typeof(string));
+            table.Columns.Add("spc_code", typeof(string));
+            table.Columns.Add("pat_no", typeof(string));
+            table.Columns.Add("pat_name", typeof(string));
+            table.Columns.Add("sex", typeof(string));
+            table.Columns.Add("age", typeof(string));
+            table.Columns.Add("dept", typeof(string));
+            table.Columns.Add("exam_date", typeof(string));
+            table.Columns.Add("test_no", typeof(string));
+            table.Columns.Add("exam_name", typeof(string));
+            table.Columns.Add("ord_code", typeof(string));
+            table.Columns.Add("rst_code", typeof(string));
+            table.Columns.Add("rack_pos", typeof(string));
+            table.Columns.Add("stat", typeof(string));
+            table.Columns.Add("spc_name", typeof(string));
+            table.Columns.Add("io_code", typeof(string));
+            table.Columns.Add("dept_code", typeof(string));
+
+            DataSet dsRet = new DataSet();
+            string ret_xml = "";
+
+            string[] sex_age;
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[selectIfList_Order2]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + from_date + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + to_date + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + work_code + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA["+"]]>" + "</P3>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+                if (dsRet == null || dsRet.Tables.Count == 0)
+                {
+                    return table;
+                }
+                foreach (DataRow row in dsRet.Tables[0].Rows)
+                {
+                    DataRow newrow = table.NewRow();
+                    newrow["spc_no"] = row["BCNO"].ToString();
+                    newrow["lab_no"] = row["LABNO"].ToString();
+                    newrow["exam_code"] = row["TCLSCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["pat_no"] = row["PT_NO"].ToString();
+                    newrow["pat_name"] = row["PATNAME"].ToString();
+                    if (row["SEXAGE"].ToString().IndexOf('/') > -1)
+                    {
+                        sex_age = row["SEXAGE"].ToString().Split('/');
+
+                        newrow["sex"] = sex_age[0];
+                        newrow["age"] = sex_age[1];
+                    }
+                    newrow["dept"] = row["DPNM"].ToString() + " " + row["WARDNM"].ToString();
+                    newrow["exam_date"] = DateTime.Today.ToString("yyyyMMdd");
+                    newrow["test_no"] = "";
+                    newrow["exam_name"] = row["TNMD"].ToString();
+                    newrow["rst_code"] = "";
+                    newrow["ord_code"] = "";
+                    newrow["io_code"] = "";     //row["IOCLS"].ToString();
+                    newrow["dept_code"] = "";   //row["DPCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["spc_name"] = row["SPCNMD"].ToString();
+
+                    newrow["stat"] = "N";
+                    table.Rows.Add(newrow);
+                }
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_Worklist {0} {1} ", sxml, ex.Message));
+                
+            }
+            return table;
+        }
+
+
+        public DataTable Download_Worklist_SPC(string from_date, string to_date, string work_code)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("spc_no", typeof(string));
+            table.Columns.Add("lab_no", typeof(string));
+            table.Columns.Add("exam_code", typeof(string));
+            table.Columns.Add("spc_code", typeof(string));
+            table.Columns.Add("pat_no", typeof(string));
+            table.Columns.Add("pat_name", typeof(string));
+            table.Columns.Add("sex", typeof(string));
+            table.Columns.Add("age", typeof(string));
+            table.Columns.Add("dept", typeof(string));
+            table.Columns.Add("exam_date", typeof(string));
+            table.Columns.Add("test_no", typeof(string));
+            table.Columns.Add("exam_name", typeof(string));
+            table.Columns.Add("ord_code", typeof(string));
+            table.Columns.Add("rst_code", typeof(string));
+            table.Columns.Add("rack_pos", typeof(string));
+            table.Columns.Add("stat", typeof(string));
+            table.Columns.Add("spc_name", typeof(string));
+            table.Columns.Add("io_code", typeof(string));
+            table.Columns.Add("dept_code", typeof(string));
+
+            DataSet dsRet = new DataSet();
+            string ret_xml = "";
+
+            string[] sex_age;
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[selectIfList_Order2]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + from_date + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + to_date + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + work_code + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + "]]>" + "</P3>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+                if (dsRet == null || dsRet.Tables.Count == 0)
+                {
+                    return table;
+                }
+                foreach (DataRow row in dsRet.Tables[0].Rows)
+                {
+                    DataRow newrow = table.NewRow();
+                    newrow["spc_no"] = row["BCNO"].ToString();
+                    newrow["lab_no"] = row["LABNO"].ToString();
+                    newrow["exam_code"] = row["TCLSCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["pat_no"] = row["PT_NO"].ToString();
+                    newrow["pat_name"] = row["PATNAME"].ToString();
+                    if (row["SEXAGE"].ToString().IndexOf('/') > -1)
+                    {
+                        sex_age = row["SEXAGE"].ToString().Split('/');
+
+                        newrow["sex"] = sex_age[0];
+                        newrow["age"] = sex_age[1];
+                    }
+                    newrow["dept"] = row["DPNM"].ToString() + " " + row["WARDNM"].ToString();
+                    newrow["exam_date"] = DateTime.Today.ToString("yyyyMMdd");
+                    newrow["test_no"] = "";
+                    newrow["exam_name"] = row["TNMD"].ToString();
+                    newrow["rst_code"] = "";
+                    newrow["ord_code"] = "";
+                    newrow["io_code"] = "";     //row["IOCLS"].ToString();
+                    newrow["dept_code"] = "";   //row["DPCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["spc_name"] = row["SPCNMD"].ToString();
+
+                    newrow["stat"] = "N";
+                    table.Rows.Add(newrow);
+                }
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_Worklist {0} {1} ", sxml, ex.Message));
+
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// His.Com.Sup.Lab.LabRslt
+        /// </summary>
+        /// 입력할 혹은 입력된 결과 리스트를 조회
+        /// <returns></returns>
+        ///pc_rstList
+
+        public DataTable Download(string spc_no,ref string errmsg)
+        {
+            string PackageName = "selectIfList_GEN";
+            if (spc_no.Length > 5 && spc_no.Substring(1, 1) == "7")
+            {
+                PackageName = "selectIfList_QC";
+            }
+            DataTable table = new DataTable();
+            table.Columns.Add("spc_no", typeof(string));
+            table.Columns.Add("lab_no", typeof(string));
+            table.Columns.Add("exam_code", typeof(string));
+            table.Columns.Add("spc_code", typeof(string));
+            table.Columns.Add("pat_no", typeof(string));
+            table.Columns.Add("pat_name", typeof(string));
+            table.Columns.Add("sex", typeof(string));
+            table.Columns.Add("age", typeof(string));
+            table.Columns.Add("dept", typeof(string));
+            table.Columns.Add("exam_date", typeof(string));
+            table.Columns.Add("test_no", typeof(string));
+            table.Columns.Add("exam_name", typeof(string));
+            table.Columns.Add("ord_code", typeof(string));
+            table.Columns.Add("rst_code", typeof(string));
+            table.Columns.Add("rack_pos", typeof(string));
+            table.Columns.Add("stat", typeof(string));
+
+            DataSet dsRet = new DataSet();
+            string ret_xml = "";
+
+            string[] sex_age;
+
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA["+PackageName+"]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + spc_no + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[]]>" + "</P1>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+                if (dsRet == null || dsRet.Tables.Count == 0)
+                {
+                    return table;
+                }
+                foreach (DataRow row in dsRet.Tables[0].Rows)
+                {
+                    DataRow newrow = table.NewRow();
+                    newrow["spc_no"] = row["BCNO"].ToString();
+                    newrow["lab_no"] = row["LABNO"].ToString();
+                    newrow["exam_code"] = row["TCLSCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["pat_no"] = row["PT_NO"].ToString();
+                    newrow["pat_name"] = row["PATNAME"].ToString();
+                    if (row["SEXAGE"].ToString().IndexOf('/') > -1)
+                    {
+                        sex_age = row["SEXAGE"].ToString().Split('/');
+
+                        newrow["sex"] = sex_age[0];
+                        newrow["age"] = sex_age[1];
+                    }
+                    newrow["dept"] = row["DPNM"].ToString() + " " + row["WARDNM"].ToString();
+                    newrow["exam_date"] = DateTime.Today.ToString("yyyyMMdd");
+                    newrow["test_no"] = "";
+                    newrow["exam_name"] = "";
+                    newrow["rst_code"] = "";
+                    newrow["ord_code"] = "";
+                    newrow["stat"] = "N";
+                    table.Rows.Add(newrow);
+                }
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download {0} {1} ", sxml, ex.Message));
+                
+            }
+            return table;
+        }
+
+
+        public DataTable QCDownload(string spc_no, ref string errmsg)
+        {
+            string PackageName = "selectIfList_QC";
+            
+            DataTable table = new DataTable();
+            table.Columns.Add("spc_no", typeof(string));
+            table.Columns.Add("exam_code", typeof(string));
+            table.Columns.Add("spc_code", typeof(string));
+            table.Columns.Add("pat_no", typeof(string));
+            table.Columns.Add("pat_name", typeof(string));
+            table.Columns.Add("dept", typeof(string));
+            table.Columns.Add("exam_date", typeof(string));
+            table.Columns.Add("exam_name", typeof(string));
+            table.Columns.Add("ord_code", typeof(string));
+            table.Columns.Add("rst_code", typeof(string));
+            table.Columns.Add("rack_pos", typeof(string));
+            table.Columns.Add("stat", typeof(string));
+
+            DataSet dsRet = new DataSet();
+            string ret_xml = "";
+
+            
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[" + PackageName + "]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + spc_no + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[]]>" + "</P1>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+                if (dsRet == null || dsRet.Tables.Count == 0)
+                {
+                    return table;
+                }
+                foreach (DataRow row in dsRet.Tables[0].Rows)
+                {
+                    DataRow newrow = table.NewRow();
+                    newrow["spc_no"] = row["BCNO"].ToString();
+                    newrow["exam_code"] = row["TCLSCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["pat_no"] = row["PTNO"].ToString();
+                    newrow["exam_date"] = DateTime.Today.ToString("yyyyMMdd");
+                    newrow["exam_name"] = row["TNMD"].ToString();
+                    newrow["rst_code"] = row["TCLSCD"].ToString();
+                    newrow["ord_code"] = row["TCLSCD"].ToString();
+                    newrow["stat"] = "N";
+                    table.Rows.Add(newrow);
+                }
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download {0} {1} ", sxml, ex.Message));
+
+            }
+            return table;
+        }
+
+
+        /// <summary>
+        /// His.Com.Sup.Lab.LabRslt
+        /// </summary>
+        /// 입력할 혹은 입력된 결과 리스트를 조회
+        /// <returns></returns>
+        ///pc_rstList
+
+        //O.PT_NO,
+        //O.SLIP_CD,
+        //P.PATNAME,
+        //SEX,
+        //FC_AGE_BIRTH(SYSDATE,P.BIRTHDAY) AGE,
+        //O.ORD_DTE,
+        //O.ORD_SEQ,
+        //O.ORDCD,
+        //O.SUGACODE,
+        //O.DPCD,
+        //O.WD_NO,
+        //O.RMNO,
+        //S.ORDNAME
+        public DataSet Download_CDIS(string slip_code, string from_date, string to_date, string pat_no)
+        {
+            DataSet dsRet = new DataSet();
+            if (slip_code == "")
+            {
+                return dsRet;
+            }
+           
+            string ret_xml = "";
+
+            
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[CDIS_GET_ORDER_BY_SLIPCD]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[SELECT]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + pat_no + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + from_date + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + to_date + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + slip_code + "]]>" + "</P3>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_CDIS {0} {1} ", sxml, ex.Message));
+            }
+            return dsRet;
+        }
+
+        public DataSet Download_CDIS_COMP(string slip_code, string from_date, string to_date, string pat_no)
+        {
+            DataSet dsRet = new DataSet();
+            if (slip_code == "")
+            {
+                return dsRet;
+            }
+
+            string ret_xml = "";
+
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[CDIS_GET_ORDER_COMPLE]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[SELECT]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + pat_no + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + from_date + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + to_date + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + slip_code + "]]>" + "</P3>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_CDIS_COMP {0} {1} ", sxml, ex.Message));
+            }
+            return dsRet;
+        }
+
+        public void Upload_CIDS_EXAM(
+                 string in_type
+	            ,string in_pt_no 		
+    	        ,string in_ord_dte 	
+	            ,string in_ord_seq 	
+	            ,string in_img_url
+                , string in_user_id)
+        {
+            string o_msg = "", o_error_yn = "";
+            DataSet dsRet = new DataSet();
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[PC_CDIS_INF_EXAM]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + in_type + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + in_pt_no + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + in_ord_dte + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + in_ord_seq + "]]>" + "</P3>";
+            sxml += "<P4>" + "<![CDATA[" + in_img_url + "]]>" + "</P4>";
+            sxml += "<P5>" + "<![CDATA[" + in_user_id + "]]>" + "</P5>";
+            sxml += "<P6>" + "<![CDATA[" + o_error_yn + "]]>" + "</P6>";
+            sxml += "<P7>" + "<![CDATA[" + o_msg + "]]>" + "</P7>";
+            sxml += "</table>";
+            try
+            {
+                sxml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(sxml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_CDIS {0} {1} ", o_error_yn, ex.Message));
+            }
+        }
+
+        //CDIS 다중 전송 프로시저
+        public void Upload_CDIS_Multi(
+                  string in_pt_no
+                , string in_ord_dte
+                , string in_ord_seq
+                , string in_read_no)
+        {
+            string o_msg = "", o_error_yn = "";
+            DataSet dsRet = new DataSet();
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[PC_CDIS_INF_EXAM_SERIES]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + in_pt_no + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + in_ord_dte + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + in_ord_seq + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + in_read_no + "]]>" + "</P3>";
+            sxml += "<P4>" + "<![CDATA[" + o_error_yn + "]]>" + "</P4>";
+            sxml += "<P5>" + "<![CDATA[" + o_msg + "]]>" + "</P5>";
+            sxml += "</table>";
+            try
+            {
+                sxml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(sxml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_CDIS {0} {1} ", o_error_yn, ex.Message));
+            }
+        }
+
+       
+
+
+        public DataSet Download_CDIS_PATNO(string slip_code, string from_date, string to_date,string pat_no)
+        {
+            DataSet dsRet = new DataSet();
+            if (slip_code == "")
+            {
+                return dsRet;
+            }
+
+            string ret_xml = "";
+
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[CDIS_GET_ORDER_BY_PATNO]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[SELECT]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + slip_code + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + from_date + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + to_date + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + pat_no + "]]>" + "</P3>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_CDIS_PATNO {0} {1} ", sxml, ex.Message));
+            }
+            return dsRet;
+        }
+
+
+        
+       
+
+        /// <summary>
+        /// His.Com.Sup.Lab.LabRslt
+        /// </summary>
+        /// 입력할 혹은 입력된 결과 리스트를 조회
+        /// <returns></returns>
+        ///pc_rstList
+
+        public DataTable Download_Spcno(string spc_no)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("spc_no", typeof(string));
+            table.Columns.Add("lab_no", typeof(string));
+            table.Columns.Add("exam_code", typeof(string));
+            table.Columns.Add("spc_code", typeof(string));
+            table.Columns.Add("pat_no", typeof(string));
+            table.Columns.Add("pat_name", typeof(string));
+            table.Columns.Add("sex", typeof(string));
+            table.Columns.Add("age", typeof(string));
+            table.Columns.Add("dept", typeof(string));
+
+
+            DataSet dsRet = new DataSet();
+            string ret_xml = "";
+
+            string[] sex_age;
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[selectIfList]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + spc_no + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[]]>" + "</P1>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+                if (dsRet == null || dsRet.Tables.Count==0)
+                {
+                    return table;
+                }
+                foreach (DataRow row in dsRet.Tables[0].Rows)
+                {
+                    DataRow newrow = table.NewRow();
+                    newrow["spc_no"] = row["BCNO"].ToString();
+                    newrow["lab_no"] = row["LABNO"].ToString();
+                    newrow["exam_code"] = row["TCLSCD"].ToString();
+                    newrow["spc_code"] = row["SPCCD"].ToString();
+                    newrow["pat_no"] = row["PT_NO"].ToString();
+                    newrow["pat_name"] = row["PATNAME"].ToString();
+                    if (row["SEXAGE"].ToString().IndexOf('/') > -1)
+                    {
+                        sex_age = row["SEXAGE"].ToString().Split('/');
+
+                        newrow["sex"] = sex_age[0];
+                        newrow["age"] = sex_age[1];
+                    }
+                    newrow["dept"] = row["DPNM"].ToString() + " " + row["WARDNM"].ToString();
+                    table.Rows.Add(newrow);
+                }
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_Spcno {0} {1} ", sxml, ex.Message));
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// 일반결과 저장
+        ///pc_EqRstSave
+        /// </summary>
+        /// <param name="sBcno"></param>
+        /// <param name="sTestDt"></param>
+        /// <param name="sCnt"></param>
+        /// <param name="sTclscd"></param>
+        /// <param name="sEqRst"></param>
+        /// <param name="sEqFlagCd"></param>
+        /// <param name="sEqFlagNm"></param>
+        /// <param name="sEqState"></param>
+        /// <param name="sEqSeqNo"></param>
+        /// <param name="sEqCd"></param>
+        /// <param name="sRackPos"></param>
+        /// <param name="sLowHigh"></param>
+        /// <param name="sUserIp"></param>
+        /// <param name="sUserPg"></param>
+        /// <param name="sUserId"></param>
+        /// <param name="sEqSpcFlag"></param>
+        /// <returns>ex.Message</returns>
+        public string UploadResult(
+             string sBcno
+            , string sTestDt
+            , string sCnt
+            , string sTclscd
+            , string sEqRst
+            , string sEqFlagCd
+            , string sEqCd
+            , string sRackPos
+            , string sLowHigh
+            , string sUserIp
+            , string sUserId
+            )
+        {
+            if (sRackPos.Length > 10)
+            {
+                sRackPos = sRackPos.Substring(0, 6);
+            }
+            string erryn = "";
+            string io_errmsg = "";
+            string _ret = "";
+            string ret_xml = "";
+            if (sTestDt == "")
+                sTestDt = DateTime.Now.ToString("yyyyMMdd");
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[pc_EqRstSave]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + sBcno + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + sTestDt + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[1]]>1</P2>";
+            sxml += "<P3>" + "<![CDATA[" + sTclscd + "]]>" + "</P3>";
+            sxml += "<P4>" + "<![CDATA[" + sEqRst + "]]>" + "</P4>";
+            sxml += "<P5>" + "<![CDATA[" + sEqFlagCd + "]]>" + "</P5>";
+            sxml += "<P6>" + "<![CDATA[]]></P6>";
+            sxml += "<P7>" + "<![CDATA[]]></P7>";
+            sxml += "<P8>" + "<![CDATA[" + sEqCd + "]]></P8>";
+            sxml += "<P9>" + "<![CDATA[]]></P9>";
+            sxml += "<P10>" + "<![CDATA[" + sRackPos + "]]></P10>";
+            sxml += "<P11>" + "<![CDATA[" + sLowHigh + "]]>" + "</P11>";
+            sxml += "<P12>" + "<![CDATA[]]></P12>";
+            sxml += "<P13>" + "<![CDATA[" + sUserIp + "]]>" + "</P13>";
+            sxml += "<P14>" + "<![CDATA[" + sUserId + "]]></P14>";
+            sxml += "<P15>" + "<![CDATA[]]></P15>";
+            sxml += "<P16>" + "<![CDATA[" + erryn + "]]>" + "</P16>";
+            sxml += "<P17>" + "<![CDATA[" + io_errmsg + "]]>" + "</P17>";
+            sxml += "</table>";
+
+            try
+            {
+                ret_xml = client.SupWebService("SETQUERY", sxml);
+                _ret = erryn + io_errmsg;
+            }
+            catch (Exception ex)
+            {
+                _ret = ex.Message;
+                SysFunc.SaveSystemLog(string.Format("UploadResult {0}", ex.Message));
+            }
+            return _ret;
+        }
+
+        /// <summary>
+        /// QC결과 저장
+        ///sld51_qcrsl_interface
+        /// </summary>
+        /// <param name="sBcno"></param>
+        /// <param name="sSeqNo"></param>
+        /// <param name="sTclscd"></param>
+        /// <param name="sTestDt"></param>
+        /// <param name="sUserId"></param>
+        /// <param name="sUserIp"></param>
+        public string UploadQCResult(
+             string sBcno
+            , string sCnt
+            , string sTclscd
+            , string sEqRst
+            , string sTestDt
+            , string sUserId
+            , string sUserIp)
+            
+        {
+            string _ret = "";
+
+            string ret_xml = "";
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[sld53_qcrsl_interface]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + sBcno + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + sCnt + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + sTclscd + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + sEqRst + "]]>" + "</P3>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("SETQUERY", sxml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("UploadResult {0} {1} ", sxml, ex.Message));
+            }
+            return _ret;
+        }
+        public string UploadAUQCResult(
+              string sPtno
+            , string sUserId
+            , string sTclscd
+            , string sEqRst
+            , string sOrddt
+            , string sLotlv
+            , string sLotcd
+            , string sEqipcd)
+        {
+            string _ret = "";
+
+            string ret_xml = "";
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[sld54_qcrsl_interface]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + sPtno + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + sUserId + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + sTclscd + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + sEqRst + "]]>" + "</P3>";
+            sxml += "<P4>" + "<![CDATA[" + sOrddt + "]]>" + "</P4>";
+            sxml += "<P5>" + "<![CDATA[" + sLotlv + "]]>" + "</P5>";
+            sxml += "<P6>" + "<![CDATA[" + sLotcd + "]]>" + "</P6>";
+            sxml += "<P7>" + "<![CDATA[" + sEqipcd + "]]>" + "</P7>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("SETQUERY", sxml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("UploadResult {0} {1} ", sxml, ex.Message));
+            }
+            return _ret;
+        }
+
+
+        public void Test()
+        {
+            DataTable table = new DataTable();
+            DataSet dsRet = new DataSet();
+            string ret_xml = "";
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[SP_GET_MYNAME]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[SELECT]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[FILL]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[]]>" + "</P0>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("GETQUERY", sxml);
+                dsRet = XmlToDataSet(ret_xml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_Spcno {0} {1} ", sxml, ex.Message));
+            }
+            return ;
+        }
+
+        public void PMUpload(
+              string type_in  //기록지 정보 100:중환자 200:수술장 300:마취회복실
+            , string loc_in   //현위치 
+            , string pt_no_in  // 환자등록번호
+            , string ent_date_in //입력시간 'YYYYMMDDHHMMSS'
+            , string item_id_in  //Item No
+            , string value_in    //결과값
+            , string cnt_in      //항목건수
+            , string create_in   // 'Y'
+            , string io_error_yn  // ""
+            , string io_error_msg // ""
+            )
+        {
+            DataTable table = new DataTable();
+            DataSet dsRet = new DataSet();
+            //string io_error_yn = "";
+            //string io_error_msg = "";
+            string ret_xml = "";
+
+            string sxml = "<table>";
+            sxml += "<QID>" + "<![CDATA[SP_SRA_PM_ADD_MR3]]>" + "</QID>";
+            sxml += "<QTYPE>" + "<![CDATA[Package]]>" + "</QTYPE>";
+            sxml += "<USERID>" + "<![CDATA[SUA]]>" + "</USERID>";
+            sxml += "<EXECTYPE>" + "<![CDATA[NONQUERY]]>" + "</EXECTYPE>";
+            sxml += "<TABLENAME>" + "<![CDATA[]]>" + "</TABLENAME>";
+            sxml += "<P0>" + "<![CDATA[" + type_in + "]]>" + "</P0>";
+            sxml += "<P1>" + "<![CDATA[" + loc_in + "]]>" + "</P1>";
+            sxml += "<P2>" + "<![CDATA[" + pt_no_in + "]]>" + "</P2>";
+            sxml += "<P3>" + "<![CDATA[" + ent_date_in + "]]>" + "</P3>";
+            sxml += "<P4>" + "<![CDATA[" + item_id_in + "]]>" + "</P4>";
+            sxml += "<P5>" + "<![CDATA[" + value_in + "]]>" + "</P5>";
+            sxml += "<P6>" + "<![CDATA[" + cnt_in + "]]>" + "</P6>";
+            sxml += "<P7>" + "<![CDATA[" + create_in + "]]>" + "</P7>";
+            sxml += "<P8>" + "<![CDATA[" + io_error_yn + "]]>" + "</P8>";
+            sxml += "<P9>" + "<![CDATA[" + io_error_msg + "]]>" + "</P9>";
+            sxml += "</table>";
+            try
+            {
+                ret_xml = client.SupWebService("SETQUERY", sxml);
+            }
+            catch (Exception ex)
+            {
+                SysFunc.SaveSystemLog(string.Format("Download_Spcno {0} {1} ", sxml, ex.Message));
+            }
+            return;
+        }
+
+
+    }
+}

@@ -1,0 +1,1 @@
+Select Distinct EXAMCODE AS ITEM         From UB_PATRESULT                     Where BARCODE = '07020000055919'     And PID     = 'o36398'       And EXAMCODE IN ('hbsag01','hbsag02','hbsag03','hbsab01','hbsab02','bhcg0','bhcg1','vitd')   AND SENDFLAG = '0' Order by EXAMCODE                     

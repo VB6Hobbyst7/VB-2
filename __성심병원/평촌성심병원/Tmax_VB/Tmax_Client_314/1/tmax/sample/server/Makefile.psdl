@@ -1,0 +1,41 @@
+#
+#
+#TMAXDIR= C:\tmax
+SDLDIR  = $(TMAXDIR)\sample\sdl
+LIBS=/link /LIBPATH:"$(TMAXDIR)\lib" tmaxsvr.lib Wintmax.lib tmaxmt.lib ws2_32.lib 
+ORALIBS = $(ORACLE_HOME)\precomp\lib\msvc\oraSQX9.lib  $(ORACLE_HOME)\precomp\lib\msvc\oraSQL9.lib  
+
+CFLAGS=/D _DEBUG /D _USE_XA /I $(TMAXDIR) /Gd /MD /D _USE_SDL 
+PROFLAGS  = include=$(TMAXDIR)
+
+#
+#
+NAME	= $(TARGET:.exe= )
+SRC	= $(TARGET:.exe=.pc)
+SDLFILE = demo.s
+SDLOBJ 	= $(SDLFILE:.s=_sdl.obj)
+SDLC 	= $(SDLFILE:.s=_sdl.c)
+APOBJS	= $(TARGET:.exe=.c)
+SVCTSRC	= $(TARGET:.exe=_svctab.c)
+SVCTOBJ	= $(TARGET:.exe=_svctab.obj)
+ORASOBJ = $(TMAXDIR)/lib/ora_stub.obj
+OBJS	= $(APOBJS) $(SVCTOBJ) $(SDLOBJ)
+
+#
+#
+$(TARGET): svct sdl  $(OBJS) 
+	cl $(CFLAGS) -o $@ $(OBJS) $(ORASOBJ) $(LIBS) $(ORALIBS)
+	copy $@ $(TMAXDIR)\appbin
+
+$(APOBJS): $(SRC)
+	proc iname=$(NAME) include=$(TMAXDIR)
+	cl $(CFLAGS) -c $(SDLC)
+svct:
+	copy $(TMAXDIR)\svct\$(SVCTSRC)
+sdl:
+	sdlc -i $(SDLDIR)\$(SDLFILE)
+	copy $(SDLDIR)\$(SDLC)
+#
+clean:
+	-del $(OBJS) $(TARGET)
+

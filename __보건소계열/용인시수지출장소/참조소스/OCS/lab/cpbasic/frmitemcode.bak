@@ -1,0 +1,1774 @@
+VERSION 5.00
+Object = "{B02F3647-766B-11CE-AF28-C3A2FBE76A13}#3.0#0"; "SPR32X30.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{0D452EE1-E08F-101A-852E-02608C4D0BB4}#2.0#0"; "FM20.DLL"
+Begin VB.Form frmItemCode 
+   Caption         =   "ItemCode 등록화면"
+   ClientHeight    =   7935
+   ClientLeft      =   120
+   ClientTop       =   750
+   ClientWidth     =   11865
+   ControlBox      =   0   'False
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   MDIChild        =   -1  'True
+   ScaleHeight     =   7935
+   ScaleWidth      =   11865
+   WindowState     =   2  '최대화
+   Begin FPSpread.vaSpread ssItem 
+      Height          =   3075
+      Left            =   60
+      TabIndex        =   38
+      Top             =   4620
+      Width           =   11715
+      _Version        =   196608
+      _ExtentX        =   20664
+      _ExtentY        =   5424
+      _StockProps     =   64
+      BackColorStyle  =   1
+      BorderStyle     =   0
+      ColsFrozen      =   5
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   37
+      ScrollBarExtMode=   -1  'True
+      ScrollBars      =   2
+      SpreadDesigner  =   "frmItemCode.frx":0000
+      UserResize      =   1
+      VisibleCols     =   500
+      VisibleRows     =   500
+      Appearance      =   1
+   End
+   Begin Threed.SSPanel SSPanel2 
+      Height          =   615
+      Left            =   60
+      TabIndex        =   71
+      Top             =   3960
+      Width           =   11715
+      _Version        =   65536
+      _ExtentX        =   20664
+      _ExtentY        =   1085
+      _StockProps     =   15
+      Caption         =   "SSPanel2"
+      BackColor       =   0
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Begin Threed.SSPanel panelPg 
+         Height          =   480
+         Left            =   2580
+         TabIndex        =   72
+         Top             =   60
+         Width           =   5175
+         _Version        =   65536
+         _ExtentX        =   9128
+         _ExtentY        =   847
+         _StockProps     =   15
+         BackColor       =   12632256
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         BorderWidth     =   1
+         Alignment       =   1
+         Begin MSComctlLib.ProgressBar pgbSelect 
+            Height          =   360
+            Left            =   840
+            TabIndex        =   73
+            Top             =   60
+            Width           =   4290
+            _ExtentX        =   7567
+            _ExtentY        =   635
+            _Version        =   393216
+            Appearance      =   0
+            Scrolling       =   1
+         End
+      End
+      Begin MSForms.CommandButton cmdQry 
+         Height          =   495
+         Left            =   60
+         TabIndex        =   77
+         Top             =   60
+         Width           =   2475
+         Caption         =   "  조회▼"
+         PicturePosition =   327683
+         Size            =   "4366;873"
+         Picture         =   "frmItemCode.frx":0BAC
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+      Begin MSForms.CommandButton cmdClear 
+         Height          =   495
+         Left            =   10320
+         TabIndex        =   76
+         Top             =   60
+         Width           =   1275
+         Caption         =   "화면정리"
+         PicturePosition =   327683
+         Size            =   "2249;873"
+         Picture         =   "frmItemCode.frx":177E
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+      Begin MSForms.CommandButton cmdDelete 
+         Height          =   490
+         Left            =   9060
+         TabIndex        =   75
+         Top             =   60
+         Width           =   1275
+         Caption         =   "삭제확인"
+         PicturePosition =   327683
+         Size            =   "2249;864"
+         Picture         =   "frmItemCode.frx":2F10
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+      Begin MSForms.CommandButton cmdInsert 
+         Height          =   495
+         Left            =   7800
+         TabIndex        =   74
+         Top             =   60
+         Width           =   1275
+         Caption         =   "입력확인"
+         PicturePosition =   327683
+         Size            =   "2249;873"
+         Picture         =   "frmItemCode.frx":37EA
+         FontName        =   "굴림체"
+         FontHeight      =   180
+         FontCharSet     =   129
+         FontPitchAndFamily=   18
+         ParagraphAlign  =   3
+      End
+   End
+   Begin Threed.SSPanel SSPanel1 
+      Height          =   3855
+      Left            =   60
+      TabIndex        =   39
+      Top             =   60
+      Width           =   11715
+      _Version        =   65536
+      _ExtentX        =   20664
+      _ExtentY        =   6800
+      _StockProps     =   15
+      BackColor       =   12632256
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Begin Threed.SSCommand cmdHelpSuga 
+         Height          =   300
+         Left            =   2760
+         TabIndex        =   86
+         Top             =   1700
+         Width           =   315
+         _Version        =   65536
+         _ExtentX        =   556
+         _ExtentY        =   529
+         _StockProps     =   78
+         Caption         =   "&S"
+         BevelWidth      =   1
+         RoundedCorners  =   0   'False
+      End
+      Begin Threed.SSCommand cmdRset 
+         Height          =   260
+         Left            =   2580
+         TabIndex        =   85
+         Top             =   2300
+         Width           =   230
+         _Version        =   65536
+         _ExtentX        =   406
+         _ExtentY        =   459
+         _StockProps     =   78
+         Caption         =   "c"
+         BevelWidth      =   1
+      End
+      Begin VB.ComboBox cmbGeomsaW2 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":4FAC
+         Left            =   1980
+         List            =   "frmItemCode.frx":4FC5
+         Style           =   2  '드롭다운 목록
+         TabIndex        =   84
+         Top             =   2280
+         Width           =   615
+      End
+      Begin VB.ComboBox cmbGeomsaW1 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":4FE5
+         Left            =   1380
+         List            =   "frmItemCode.frx":4FFE
+         Style           =   2  '드롭다운 목록
+         TabIndex        =   83
+         Top             =   2280
+         Width           =   615
+      End
+      Begin Threed.SSCommand cmdHelpJan 
+         Height          =   315
+         Index           =   0
+         Left            =   6480
+         TabIndex        =   80
+         Top             =   420
+         Width           =   255
+         _Version        =   65536
+         _ExtentX        =   450
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "&3"
+         BevelWidth      =   1
+      End
+      Begin VB.TextBox txtGeomjan3 
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   8
+         TabIndex        =   15
+         Top             =   1020
+         Width           =   855
+      End
+      Begin VB.TextBox txtGeomjan2 
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   8
+         TabIndex        =   14
+         Top             =   720
+         Width           =   855
+      End
+      Begin VB.TextBox txtGeomjan1 
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   8
+         TabIndex        =   13
+         Top             =   420
+         Width           =   855
+      End
+      Begin Threed.SSCommand cmdHgeomch 
+         Height          =   300
+         Index           =   1
+         Left            =   3480
+         TabIndex        =   79
+         Top             =   2900
+         Width           =   195
+         _Version        =   65536
+         _ExtentX        =   344
+         _ExtentY        =   529
+         _StockProps     =   78
+         Caption         =   "&2"
+         BevelWidth      =   1
+         RoundedCorners  =   0   'False
+      End
+      Begin Threed.SSCommand cmdHgeomch 
+         Height          =   300
+         Index           =   0
+         Left            =   2340
+         TabIndex        =   78
+         Top             =   2900
+         Width           =   195
+         _Version        =   65536
+         _ExtentX        =   344
+         _ExtentY        =   529
+         _StockProps     =   78
+         Caption         =   "&1"
+         BevelWidth      =   1
+         RoundedCorners  =   0   'False
+      End
+      Begin VB.TextBox txtItemCode 
+         Height          =   305
+         Left            =   1380
+         MaxLength       =   6
+         TabIndex        =   3
+         Top             =   480
+         Width           =   1395
+      End
+      Begin VB.TextBox txtItemNM 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   50
+         TabIndex        =   4
+         Top             =   780
+         Width           =   2655
+      End
+      Begin VB.TextBox txtItemKO 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   50
+         TabIndex        =   5
+         Top             =   1080
+         Width           =   2655
+      End
+      Begin VB.TextBox txtYageo 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   20
+         TabIndex        =   6
+         Top             =   1380
+         Width           =   1695
+      End
+      Begin VB.TextBox txtSugacd 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   8
+         TabIndex        =   7
+         Top             =   1680
+         Width           =   1395
+      End
+      Begin VB.TextBox txtGeomsaTm 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   3
+         TabIndex        =   8
+         Top             =   1980
+         Width           =   795
+      End
+      Begin VB.TextBox txtChwhYg 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   3
+         TabIndex        =   9
+         Top             =   2580
+         Width           =   1395
+      End
+      Begin VB.TextBox txtGeomchc1 
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   8
+         TabIndex        =   10
+         Top             =   2880
+         Width           =   975
+      End
+      Begin VB.TextBox txtGeomchc2 
+         Height          =   315
+         Left            =   2520
+         MaxLength       =   8
+         TabIndex        =   11
+         Top             =   2880
+         Width           =   975
+      End
+      Begin VB.TextBox txtChunit 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   1380
+         MaxLength       =   6
+         MultiLine       =   -1  'True
+         TabIndex        =   12
+         Top             =   3180
+         Width           =   1215
+      End
+      Begin VB.TextBox txtDanwi 
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   10
+         TabIndex        =   16
+         Top             =   1320
+         Width           =   1395
+      End
+      Begin VB.ComboBox cmbResultW 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":501E
+         Left            =   5580
+         List            =   "frmItemCode.frx":502B
+         TabIndex        =   17
+         Top             =   1620
+         Width           =   1635
+      End
+      Begin VB.TextBox txtMinCham 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   9
+         MultiLine       =   -1  'True
+         TabIndex        =   18
+         Top             =   1920
+         Width           =   855
+      End
+      Begin VB.TextBox txtMaxCham 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   6420
+         MaxLength       =   9
+         MultiLine       =   -1  'True
+         TabIndex        =   19
+         Top             =   1920
+         Width           =   795
+      End
+      Begin VB.TextBox txtDangerMin 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   9
+         MultiLine       =   -1  'True
+         TabIndex        =   20
+         Top             =   2220
+         Width           =   855
+      End
+      Begin VB.TextBox txtDangerMax 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   6420
+         MaxLength       =   9
+         MultiLine       =   -1  'True
+         TabIndex        =   21
+         Top             =   2220
+         Width           =   795
+      End
+      Begin VB.TextBox txtDiffStart 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   2
+         MultiLine       =   -1  'True
+         TabIndex        =   22
+         Top             =   2520
+         Width           =   855
+      End
+      Begin VB.TextBox txtDiffEnd 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   6420
+         MaxLength       =   2
+         MultiLine       =   -1  'True
+         TabIndex        =   23
+         Top             =   2520
+         Width           =   795
+      End
+      Begin VB.TextBox txtChcmt 
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   8
+         TabIndex        =   24
+         Top             =   2820
+         Width           =   1395
+      End
+      Begin VB.TextBox txtCgcmt 
+         Height          =   315
+         Left            =   5580
+         MaxLength       =   8
+         TabIndex        =   25
+         Top             =   3120
+         Width           =   1395
+      End
+      Begin VB.TextBox txtGeomsaAb 
+         Height          =   315
+         Left            =   9240
+         MaxLength       =   1
+         TabIndex        =   27
+         Top             =   720
+         Width           =   735
+      End
+      Begin VB.TextBox txtDeltaMin 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   9240
+         MultiLine       =   -1  'True
+         TabIndex        =   29
+         Top             =   1320
+         Width           =   735
+      End
+      Begin VB.TextBox txtDeltaMax 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   9960
+         MultiLine       =   -1  'True
+         TabIndex        =   30
+         Top             =   1320
+         Width           =   735
+      End
+      Begin VB.TextBox txtDeltaQc 
+         Height          =   315
+         Left            =   9240
+         MaxLength       =   1
+         TabIndex        =   31
+         Top             =   1620
+         Width           =   735
+      End
+      Begin VB.TextBox txtPanicmin 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   9240
+         MultiLine       =   -1  'True
+         TabIndex        =   32
+         Top             =   1920
+         Width           =   735
+      End
+      Begin VB.TextBox txtPanicmax 
+         Alignment       =   1  '오른쪽 맞춤
+         Height          =   315
+         Left            =   9960
+         MultiLine       =   -1  'True
+         TabIndex        =   33
+         Top             =   1920
+         Width           =   735
+      End
+      Begin VB.TextBox txtOrderCode 
+         Height          =   315
+         Left            =   9240
+         MaxLength       =   8
+         TabIndex        =   34
+         Top             =   2220
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbCheck 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":5054
+         Left            =   9240
+         List            =   "frmItemCode.frx":505E
+         TabIndex        =   36
+         Top             =   2820
+         Width           =   1455
+      End
+      Begin VB.ComboBox cmbInput 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":5079
+         Left            =   9240
+         List            =   "frmItemCode.frx":5083
+         TabIndex        =   37
+         Top             =   3120
+         Width           =   1455
+      End
+      Begin VB.TextBox txtSlipNo 
+         Appearance      =   0  '평면
+         BackColor       =   &H00C0E0FF&
+         Height          =   315
+         Left            =   1380
+         TabIndex        =   1
+         Top             =   120
+         Width           =   375
+      End
+      Begin VB.TextBox txtSlipName 
+         Appearance      =   0  '평면
+         BackColor       =   &H00C0E0FF&
+         Enabled         =   0   'False
+         Height          =   315
+         Left            =   1980
+         TabIndex        =   2
+         Top             =   120
+         Width           =   2055
+      End
+      Begin VB.ComboBox cmbGeomsaGb 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":509F
+         Left            =   9240
+         List            =   "frmItemCode.frx":50A9
+         TabIndex        =   26
+         Top             =   420
+         Width           =   1455
+      End
+      Begin VB.ComboBox cmbRoutine 
+         Height          =   300
+         ItemData        =   "frmItemCode.frx":50BF
+         Left            =   9240
+         List            =   "frmItemCode.frx":50C9
+         TabIndex        =   35
+         Top             =   2520
+         Width           =   1455
+      End
+      Begin Threed.SSCommand cmdHelpSlip 
+         Height          =   315
+         Left            =   1740
+         TabIndex        =   0
+         Top             =   120
+         Width           =   255
+         _Version        =   65536
+         _ExtentX        =   450
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "&H"
+         BevelWidth      =   1
+      End
+      Begin MSComCtl2.DTPicker dtCodate 
+         Height          =   315
+         Left            =   9240
+         TabIndex        =   28
+         Top             =   1020
+         Width           =   1455
+         _ExtentX        =   2566
+         _ExtentY        =   556
+         _Version        =   393216
+         CustomFormat    =   "yyyy-MM-dd"
+         Format          =   24444931
+         CurrentDate     =   36299
+      End
+      Begin Threed.SSCommand cmdHelpJan 
+         Height          =   315
+         Index           =   1
+         Left            =   6480
+         TabIndex        =   81
+         Top             =   720
+         Width           =   255
+         _Version        =   65536
+         _ExtentX        =   450
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "&4"
+         BevelWidth      =   1
+      End
+      Begin Threed.SSCommand cmdHelpJan 
+         Height          =   315
+         Index           =   2
+         Left            =   6480
+         TabIndex        =   82
+         Top             =   1020
+         Width           =   255
+         _Version        =   65536
+         _ExtentX        =   450
+         _ExtentY        =   556
+         _StockProps     =   78
+         Caption         =   "&5"
+         BevelWidth      =   1
+      End
+      Begin VB.Label Label1 
+         Caption         =   "ItemCode"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   70
+         Top             =   540
+         Width           =   1155
+      End
+      Begin VB.Label Label2 
+         Caption         =   "Item영문명"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   69
+         Top             =   855
+         Width           =   1155
+      End
+      Begin VB.Label Label3 
+         Caption         =   "Item한글명"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   68
+         Top             =   1140
+         Width           =   1155
+      End
+      Begin VB.Label Label4 
+         Caption         =   "약어"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   67
+         Top             =   1440
+         Width           =   1155
+      End
+      Begin VB.Label Label5 
+         Caption         =   "수가코드"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   66
+         Top             =   1740
+         Width           =   1155
+      End
+      Begin VB.Label Label6 
+         Caption         =   "검사소요시간"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   65
+         Top             =   2040
+         Width           =   1155
+      End
+      Begin VB.Label Label7 
+         Caption         =   "미검사일1,2"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   64
+         Top             =   2340
+         Width           =   1155
+      End
+      Begin VB.Label Label9 
+         Caption         =   "채혈용기"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   63
+         Top             =   2640
+         Width           =   1155
+      End
+      Begin VB.Label Label10 
+         Caption         =   "검체1,2"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   62
+         Top             =   2940
+         Width           =   1155
+      End
+      Begin VB.Label Label12 
+         Caption         =   "채혈량"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   61
+         Top             =   3240
+         Width           =   1155
+      End
+      Begin VB.Label Label13 
+         Caption         =   "검사장비1"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   60
+         Top             =   480
+         Width           =   1155
+      End
+      Begin VB.Label Label14 
+         Caption         =   "검사장비2"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   59
+         Top             =   780
+         Width           =   1155
+      End
+      Begin VB.Label Label15 
+         Caption         =   "검사장비3"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   58
+         Top             =   1080
+         Width           =   1155
+      End
+      Begin VB.Label Label16 
+         Caption         =   "단위"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   57
+         Top             =   1380
+         Width           =   1155
+      End
+      Begin VB.Label Label17 
+         Caption         =   "결과형태"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   56
+         Top             =   1680
+         Width           =   1155
+      End
+      Begin VB.Label Label18 
+         Caption         =   "기준값(Mn/Mx)"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   55
+         Top             =   1980
+         Width           =   1215
+      End
+      Begin VB.Label Label20 
+         Caption         =   "Danger(Mn/Mx)"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   54
+         Top             =   2280
+         Width           =   1155
+      End
+      Begin VB.Label Label22 
+         Caption         =   "Diff.c/Diffmax"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   53
+         Top             =   2580
+         Width           =   1275
+      End
+      Begin VB.Label Label24 
+         Caption         =   "채취Comment"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   52
+         Top             =   2880
+         Width           =   1275
+      End
+      Begin VB.Label Label25 
+         Caption         =   "참고Comment"
+         Height          =   195
+         Left            =   4200
+         TabIndex        =   51
+         Top             =   3180
+         Width           =   1275
+      End
+      Begin VB.Label Label26 
+         Caption         =   "검사구분"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   50
+         Top             =   480
+         Width           =   1275
+      End
+      Begin VB.Label Label27 
+         Caption         =   "검사방법"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   49
+         Top             =   776
+         Width           =   1275
+      End
+      Begin VB.Label Label28 
+         Caption         =   "등록일"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   48
+         Top             =   1072
+         Width           =   1275
+      End
+      Begin VB.Label Label29 
+         Caption         =   "Delta/min-max"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   47
+         Top             =   1368
+         Width           =   1275
+      End
+      Begin VB.Label Label31 
+         Caption         =   "Delta(QC)"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   46
+         Top             =   1664
+         Width           =   1275
+      End
+      Begin VB.Label Label32 
+         Caption         =   "Panic(min-max)"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   45
+         Top             =   1960
+         Width           =   1275
+      End
+      Begin VB.Label Label34 
+         Caption         =   "OrderCode"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   44
+         Top             =   2256
+         Width           =   1275
+      End
+      Begin VB.Label Label35 
+         Caption         =   "Routine구분"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   43
+         Top             =   2552
+         Width           =   1275
+      End
+      Begin VB.Label Label36 
+         Caption         =   "Check유무"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   42
+         Top             =   2848
+         Width           =   1275
+      End
+      Begin VB.Label Label37 
+         Caption         =   "Return값 유무"
+         Height          =   195
+         Left            =   7860
+         TabIndex        =   41
+         Top             =   3150
+         Width           =   1215
+      End
+      Begin VB.Label labSlipTitle 
+         Caption         =   "검사종류"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   40
+         Top             =   180
+         Width           =   1155
+      End
+   End
+   Begin VB.Menu mnuQuit 
+      Caption         =   "Quit"
+   End
+End
+Attribute VB_Name = "frmItemCode"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Explicit
+
+Private Sub cmdClear_Click()
+    
+    Call ClearForm(Me)
+    mdiMain.stbMain.Panels(1).Text = ""
+    cmdHelpSlip.SetFocus
+    
+End Sub
+
+Private Sub cmdDelete_Click()
+    Dim sItemCode       As String
+    
+    
+    If Trim(txtSlipno.Text) = "" Then
+        MsgBox "삭제할 SLIP 구분을 먼저 선택하세요!"
+        Exit Sub
+    End If
+    
+    If Trim(txtItemCode.Text) = "" Then
+        MsgBox "삭제할 Item Code 가 없습니다!.."
+        Exit Sub
+    End If
+    
+    sItemCode = Trim(txtSlipno.Text) & Trim(txtItemCode.Text)
+
+    
+    strSql = ""
+    strSql = strSql & " SELECT Codeky"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ItemML1"
+    strSql = strSql & " WHERE  Codeky = '" & Trim(sItemCode) & "'"
+    If False = adoSetOpen(strSql, adoSet) Then
+        MsgBox "Database 에 삭제할ItemCode 가 없습니다. 확인바람"
+        Exit Sub
+    Else
+        Call adoSetClose(adoSet)
+        GoSub Delete_ItemCode
+        Call ClearForm(Me)
+        cmdHelpSlip.SetFocus
+    End If
+    
+    Exit Sub
+    
+    
+Delete_ItemCode:
+    sMsg = sItemCode & " 를 삭제하시겠습니까?"
+    If vbNo = MsgBox(sMsg, vbYesNo + vbQuestion + vbDefaultButton2, "삭제확인 Box") Then
+        Exit Sub
+    End If
+    
+    strSql = ""
+    strSql = strSql & " DELETE "
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ItemML1"
+    strSql = strSql & " WHERE  Codeky = '" & Trim(sItemCode) & "'"
+    If adoExecute(strSql) Then
+        mdiMain.stbMain.Panels(1).Text = "삭제가 되었습니다!.."
+    Else
+        mdiMain.stbMain.Panels(1).Text = "어떠한 오류로 인하여 삭제되지 않았습니다!"
+    End If
+    
+    Return
+    
+End Sub
+
+Private Sub cmdHelpJan_Click(Index As Integer)
+    
+    Select Case Index
+        Case 0: hWndReturn = txtGeomjan1.hwnd
+        Case 1: hWndReturn = txtGeomjan2.hwnd
+        Case 2: hWndReturn = txtGeomjan3.hwnd
+    End Select
+    
+    frmQryJangbi.Show vbModal
+    
+    
+End Sub
+
+Private Sub cmdHelpSlip_Click()
+    
+    mdiMain.stbMain.Panels(1).Text = ""
+    
+    gCallWin = 1
+    
+    frmSlipQry.Show vbModal
+    If Trim(txtSlipname.Text) <> "" Then
+        txtItemCode.SetFocus
+    End If
+    
+End Sub
+
+Private Sub cmdHelpSuga_Click()
+    
+    hWndReturn = txtSugacd.hwnd
+    frmQrySuga.Show vbModal
+    
+End Sub
+
+Private Sub cmdHgeomch_Click(Index As Integer)
+    
+    
+    Select Case Index
+        Case 0: hWndReturn = txtGeomchc1.hwnd
+        Case 1: hWndReturn = txtGeomchc2.hwnd
+    End Select
+    
+    frmQryGeom.Show vbModal
+    
+    
+End Sub
+
+Private Sub cmdInsert_Click()
+    Dim sItemCode       As String
+    
+    
+    If Trim(txtSlipno.Text) = "" Then
+        MsgBox "입력할 SLIP 구분을 먼저 선택하세요!"
+        Exit Sub
+    End If
+    
+    If Trim(txtItemCode.Text) = "" Then
+        MsgBox "입력할 Item Code 가 없습니다!.."
+        Exit Sub
+    End If
+    
+    sItemCode = Trim(txtSlipno.Text) & Trim(txtItemCode.Text)
+
+    
+    strSql = ""
+    strSql = strSql & " SELECT Codeky"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ItemML1"
+    strSql = strSql & " WHERE  Codeky = '" & Trim(sItemCode) & "'"
+    If False = adoSetOpen(strSql, adoSet) Then
+        GoSub Main_Insert_Sub
+    Else
+        Call adoSetClose(adoSet)
+        GoSub Main_Update_Sub
+    End If
+
+    GoSub Form_Reset
+    
+    Exit Sub
+    
+'/_____________________________________________________________________________
+Main_Insert_Sub:
+    strSql = ""
+    strSql = strSql & " INSERT INTO TW_MIS_EXAM.TWEXAM_ItemML1"
+    strSql = strSql & "       (     Codeky,    Itemnm,    ItemKo,    Yageo,     Sugacd,    GeomsaTm, "
+    strSql = strSql & "             GeomsaW1,  GeomsaW2,  ChwhYg,    GeomChc1,  GeomChc2,  ChUnit,   "
+    strSql = strSql & "             GeomJan1,  GeomJan2,  GeomJan3,  Danwi,     ResultW,             "
+    strSql = strSql & "             MinCham,   MaxCham,   MinDanger, MaxDanger, DiffCount, MaxDiffc, "
+    strSql = strSql & "             ChComment, CgComment, GeomsaGb,  GeomsaAb,  Codate,              "
+    strSql = strSql & "             DeltaMin,  DeltaMax,  DeltaQC,   PanicMin,  PanicMax,  OrderCD,  "
+    strSql = strSql & "             GbRoutine, GbCheck,   GbInput   )"
+    strSql = strSql & " VALUES('" & sItemCode & "',"
+    strSql = strSql & "        '" & Quot_Conv(Trim(txtItemNM.Text)) & "',"
+    strSql = strSql & "        '" & Quot_Conv(Trim(txtItemKO.Text)) & "',"
+    strSql = strSql & "        '" & Trim(txtYageo.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtSugacd.Text) & "',"
+    strSql = strSql & "         " & Val(txtGeomsaTm.Text) & ","
+    strSql = strSql & "        '" & Trim(cmbGeomsaW1.Text) & "',"
+    strSql = strSql & "        '" & Trim(cmbGeomsaW2.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtChwhYg.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtGeomchc1.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtGeomchc2.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtChunit.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtGeomjan1.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtGeomjan2.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtGeomjan3.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtDanwi.Text) & "',"
+    strSql = strSql & "        '" & Left(Trim(cmbResultW.Text), 1) & "',"
+    strSql = strSql & "         " & Val(txtMinCham.Text) & ","
+    strSql = strSql & "         " & Val(txtMaxCham.Text) & ","
+    strSql = strSql & "         " & Val(txtDangerMin.Text) & ","
+    strSql = strSql & "         " & Val(txtDangerMax.Text) & ","
+    strSql = strSql & "         " & Val(txtDiffStart.Text) & ","
+    strSql = strSql & "         " & Val(txtDiffEnd.Text) & ","
+    strSql = strSql & "        '" & Trim(txtChcmt.Text) & "',"
+    strSql = strSql & "        '" & Trim(txtCgcmt.Text) & "',"
+    strSql = strSql & "        '" & Left(Trim(cmbGeomsaGb.Text), 1) & "',"
+    strSql = strSql & "        '" & Left(Trim(txtGeomsaAb.Text), 1) & "',"
+    strSql = strSql & "        TO_DATE('" & Format(dtCodate.Value, "yyyy-MM-dd") & "','YYYY-MM-DD'),"
+    strSql = strSql & "         " & Val(txtDeltaMin.Text) & ","
+    strSql = strSql & "         " & Val(txtDeltaMax.Text) & ","
+    strSql = strSql & "        '" & Trim(txtDeltaQc.Text) & "',"
+    strSql = strSql & "         " & Val(txtPanicmin.Text) & ","
+    strSql = strSql & "         " & Val(txtPanicmax.Text) & ","
+    strSql = strSql & "        '" & Trim(txtOrderCode.Text) & "',"
+    strSql = strSql & "        '" & Left(Trim(cmbRoutine.Text), 1) & "',"
+    strSql = strSql & "        '" & Left(Trim(cmbCheck.Text), 1) & "',"
+    strSql = strSql & "        '" & Left(Trim(cmbInput.Text), 1) & "')"
+    If adoExecute(strSql) Then
+        mdiMain.stbMain.Panels(1).Text = sItemCode & " 가 입력 되었습니다!"
+    Else
+        mdiMain.stbMain.Panels(1).Text = sItemCode & " 가 어떤오류로 인하여 입력되지 않았습니다!."
+        Exit Sub
+    End If
+    
+    Return
+    
+    
+    
+Main_Update_Sub:
+    strSql = ""
+    strSql = strSql & " UPDATE  TW_MIS_EXAM.TWEXAM_ItemML1"
+    strSql = strSql & " SET     Itemnm     =  '" & Quot_Conv(Trim(txtItemNM.Text)) & "',"
+    strSql = strSql & "         ItemKo     =  '" & Quot_Conv(Trim(txtItemKO.Text)) & "',"
+    strSql = strSql & "         Yageo      =  '" & Trim(txtYageo.Text) & "',"
+    strSql = strSql & "         Sugacd     =  '" & Trim(txtSugacd.Text) & "',"
+    strSql = strSql & "         GeomsaTm   =   " & Val((txtGeomsaTm.Text)) & ","
+    strSql = strSql & "         GeomsaW1   =  '" & Trim(cmbGeomsaW1.Text) & "',"
+    strSql = strSql & "         GeomsaW2   =  '" & Trim(cmbGeomsaW2.Text) & "',"
+    strSql = strSql & "         ChwhYg     =  '" & Trim(txtChwhYg.Text) & "',"
+    strSql = strSql & "         GeomChc1   =  '" & Trim(txtGeomchc1.Text) & "',"
+    strSql = strSql & "         GeomChc2   =  '" & Trim(txtGeomchc2.Text) & "',"
+    strSql = strSql & "         ChUnit     =  '" & Trim(txtChunit.Text) & "',"
+    strSql = strSql & "         GeomJan1   =  '" & Trim(txtGeomjan1.Text) & "',"
+    strSql = strSql & "         GeomJan2   =  '" & Trim(txtGeomjan2.Text) & "',"
+    strSql = strSql & "         GeomJan3   =  '" & Trim(txtGeomjan3.Text) & "',"
+    strSql = strSql & "         Danwi      =  '" & Trim(txtDanwi.Text) & "',"
+    strSql = strSql & "         ResultW    =  '" & Left(Trim(cmbResultW.Text), 1) & "',"
+    strSql = strSql & "         MinCham    =   " & Val(txtMinCham.Text) & ","
+    strSql = strSql & "         MaxCham    =   " & Val(txtMaxCham.Text) & ","
+    strSql = strSql & "         MinDanger  =   " & Val(txtDangerMin.Text) & ","
+    strSql = strSql & "         MaxDanger  =   " & Val(txtDangerMax.Text) & ","
+    strSql = strSql & "         DiffCount  =   " & Val(txtDiffStart.Text) & ","
+    strSql = strSql & "         MaxDiffc   =   " & Val(txtDiffEnd.Text) & ","
+    strSql = strSql & "         ChComment  =  '" & Trim(txtChcmt.Text) & "',"
+    strSql = strSql & "         CgComment  =  '" & Trim(txtCgcmt.Text) & "',"
+    strSql = strSql & "         GeomsaGb   =  '" & Left(Trim(cmbGeomsaGb.Text), 1) & "',"
+    strSql = strSql & "         GeomsaAb   =  '" & Left(Trim(txtGeomsaAb.Text), 1) & "',"
+    strSql = strSql & "         Codate     =  TO_DATE('" & Format(dtCodate.Value, "yyyy-MM-dd") & "','YYYY-MM-DD'),"
+    strSql = strSql & "         DeltaMin   =   " & Val(txtDeltaMin.Text) & ","
+    strSql = strSql & "         DeltaMax   =   " & Val(txtDeltaMax.Text) & ","
+    strSql = strSql & "         DeltaQC    =  '" & Trim(txtDeltaQc.Text) & "',"
+    strSql = strSql & "         PanicMin   =   " & Val(txtPanicmin.Text) & ","
+    strSql = strSql & "         PanicMax   =   " & Val(txtPanicmax.Text) & ","
+    strSql = strSql & "         OrderCD    =  '" & Trim(txtOrderCode.Text) & "',"
+    strSql = strSql & "         GbRoutine  =  '" & Left(Trim(cmbRoutine.Text), 1) & "',"
+    strSql = strSql & "         GbCheck    =  '" & Left(Trim(cmbCheck.Text), 1) & "',"
+    strSql = strSql & "         GbInput    =  '" & Left(Trim(cmbInput.Text), 1) & "'"
+    strSql = strSql & " WHERE   Codeky  =  '" & Trim(sItemCode) & "'"
+    If adoExecute(strSql) Then
+        mdiMain.stbMain.Panels(1).Text = sItemCode & " 가 수정 되었습니다!"
+    Else
+        mdiMain.stbMain.Panels(1).Text = sItemCode & " 가 어떤오류로 인하여 수정되지 않았습니다!."
+        Exit Sub
+    End If
+    
+        
+    Return
+    
+Form_Reset:
+    txtSlipno.Tag = txtSlipno.Text
+    txtSlipname.Tag = txtSlipname.Text
+    
+    For i = 0 To Me.Count - 1
+        If TypeOf Me.Controls(i) Is TextBox Then
+            Me.Controls(i).Text = ""
+        ElseIf TypeOf Me.Controls(i) Is ComboBox Then
+            If Me.Controls(i).Style = vbComboDropdownList Then
+                Me.Controls(i).ListIndex = -1
+            Else
+                Me.Controls(i).Text = ""
+            End If
+        End If
+    Next
+    txtSlipno.Text = txtSlipno.Tag
+    txtSlipname.Text = txtSlipname.Tag
+    Return
+    
+    
+End Sub
+
+Private Sub cmdQry_Click()
+    
+    If Trim(txtSlipno.Text) = "" Then
+        frmSlipQry.Show vbModal
+    End If
+    
+    Screen.MousePointer = vbHourglass
+    
+    GoSub ITEMCode_Get_Proc
+    
+    Screen.MousePointer = vbDefault
+    Exit Sub
+    
+'/______________________________________________
+ITEMCode_Get_Proc:
+    strSql = ""
+    strSql = strSql & " SELECT a.*, TO_CHAR(a.Codate, 'yyyy-MM-dd') Codate"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ITEMML1 a"
+    strSql = strSql & " WHERE  SUBSTR(a.CODEKY, 1, 2) = '" & Trim(txtSlipno.Text) & "'"
+    strSql = strSql & " ORDER  BY Codeky"
+    
+    ssItem.ReDraw = False
+    ssItem.MaxRows = 0:
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    ssItem.MaxRows = adoSet.RecordCount
+    
+    panelPg.Visible = True
+    pgbSelect.Max = adoSet.RecordCount
+    pgbSelect.Min = 0
+    pgbSelect.Value = 0
+    
+    DoEvents
+    pgbSelect.ZOrder 0
+    Do Until adoSet.EOF
+        ssItem.Row = ssItem.DataRowCnt + 1
+        ssItem.Col = 1:  ssItem.Text = adoSet.Fields("Codeky").Value & ""
+        ssItem.Col = 2:  ssItem.Text = adoSet.Fields("Itemnm").Value & ""
+        ssItem.Col = 3:  ssItem.Text = adoSet.Fields("Itemko").Value & ""
+        ssItem.Col = 4:  ssItem.Text = adoSet.Fields("Yageo").Value & ""
+        ssItem.Col = 5:  ssItem.Text = adoSet.Fields("Sugacd").Value & ""
+        ssItem.Col = 6:  ssItem.Text = adoSet.Fields("GeomsaTm").Value & ""
+        ssItem.Col = 7:  ssItem.Text = adoSet.Fields("GeomsaW1").Value & ""
+        ssItem.Col = 8:  ssItem.Text = adoSet.Fields("GeomsaW2").Value & ""
+        ssItem.Col = 9:  ssItem.Text = adoSet.Fields("ChwhYg").Value & ""
+        ssItem.Col = 10: ssItem.Text = adoSet.Fields("GeomchC1").Value & ""
+        ssItem.Col = 11: ssItem.Text = adoSet.Fields("GeomchC2").Value & ""
+        ssItem.Col = 12: ssItem.Text = adoSet.Fields("ChUnit").Value & ""
+        ssItem.Col = 13: ssItem.Text = adoSet.Fields("GeomJan1").Value & ""
+        ssItem.Col = 14: ssItem.Text = adoSet.Fields("GeomJan2").Value & ""
+        ssItem.Col = 15: ssItem.Text = adoSet.Fields("GeomJan3").Value & ""
+        ssItem.Col = 16: ssItem.Text = adoSet.Fields("Danwi").Value & ""
+        ssItem.Col = 17: ssItem.Text = adoSet.Fields("ResultW").Value & ""
+        ssItem.Col = 18: ssItem.Text = adoSet.Fields("MinCham").Value & ""
+        ssItem.Col = 19: ssItem.Text = adoSet.Fields("MaxCham").Value & ""
+        ssItem.Col = 20: ssItem.Text = adoSet.Fields("MinDanger").Value & ""
+        ssItem.Col = 21: ssItem.Text = adoSet.Fields("MaxDanger").Value & ""
+        ssItem.Col = 22: ssItem.Text = adoSet.Fields("DiffCount").Value & ""
+        ssItem.Col = 23: ssItem.Text = adoSet.Fields("maxdiffc").Value & ""
+        ssItem.Col = 24: ssItem.Text = adoSet.Fields("ChComment").Value & ""
+        ssItem.Col = 25: ssItem.Text = adoSet.Fields("CgComment").Value & ""
+        ssItem.Col = 26: ssItem.Text = adoSet.Fields("GeomsaGb").Value & ""
+        ssItem.Col = 27: ssItem.Text = adoSet.Fields("GeomsaAb").Value & ""
+        If Not IsNull(adoSet.Fields("Codate").Value) Then
+            ssItem.Col = 28: ssItem.Text = adoSet.Fields("Codate").Value
+        End If
+        ssItem.Col = 29: ssItem.Text = adoSet.Fields("DeltaMin").Value & ""
+        ssItem.Col = 30: ssItem.Text = adoSet.Fields("DeltaMax").Value & ""
+        ssItem.Col = 31: ssItem.Text = adoSet.Fields("DeltaQC").Value & ""
+        ssItem.Col = 32: ssItem.Text = adoSet.Fields("PanicMin").Value & ""
+        ssItem.Col = 33: ssItem.Text = adoSet.Fields("PanicMax").Value & ""
+        ssItem.Col = 34: ssItem.Text = adoSet.Fields("OrderCD").Value & ""
+        ssItem.Col = 35: ssItem.Text = adoSet.Fields("GbRoutine").Value & ""
+        ssItem.Col = 36: ssItem.Text = adoSet.Fields("GbCheck").Value & ""
+        ssItem.Col = 37: ssItem.Text = adoSet.Fields("GbInput").Value & ""
+        pgbSelect.Value = pgbSelect.Value + 1
+        panelPg.Caption = " " & pgbSelect.Value & "/" & adoSet.RecordCount
+        adoSet.MoveNext
+    Loop
+    ssItem.ReDraw = True
+    'panelPg.Visible = False
+    Call adoSetClose(adoSet)
+    
+    ssItem.Row = 1
+    ssItem.Col = 16
+    ssItem.Action = SS_ACTION_GOTO_CELL
+    Return
+    
+End Sub
+
+Private Sub cmdRset_Click()
+    cmbGeomsaW1.ListIndex = -1
+    cmbGeomsaW2.ListIndex = -1
+End Sub
+
+Private Sub Form_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+        KeyAscii = 0
+        SendKeys "{TAB}"
+    End If
+    
+End Sub
+
+Private Sub Form_Load()
+    
+    pgbSelect.Value = 0
+    
+End Sub
+
+Private Sub mnuQuit_Click()
+    Unload Me
+    
+End Sub
+
+Private Sub ssItem_DblClick(ByVal Col As Long, ByVal Row As Long)
+    If Row = 0 Then Exit Sub
+    
+    ssItem.Row = Row
+    ssItem.Col = 1
+    txtItemCode.Text = Mid(ssItem.Text, 3, Len(ssItem.Text) - 3)
+    Call txtItemCode_KeyDown(vbKeyReturn, 0)
+    
+End Sub
+
+Private Sub txtCgcmt_GotFocus()
+    txtCgcmt.SelStart = 0
+    txtCgcmt.SelLength = Len(txtCgcmt.Text)
+    
+End Sub
+
+Private Sub txtChcmt_GotFocus()
+    txtChcmt.SelStart = 0
+    txtChcmt.SelLength = Len(txtChcmt.Text)
+    
+End Sub
+
+Private Sub txtChunit_GotFocus()
+    
+    txtChunit.Alignment = 0
+    txtChunit.SelStart = 0
+    txtChunit.SelLength = Len(txtChunit.Text)
+        
+
+End Sub
+
+Private Sub txtChunit_LostFocus()
+    txtChunit.Text = Format(txtChunit.Text, "###0.0")
+    txtChunit.Alignment = 1
+End Sub
+
+Private Sub txtChwhYg_GotFocus()
+    txtChwhYg.SelStart = 0
+    txtChwhYg.SelLength = Len(txtChwhYg.Text)
+
+End Sub
+
+Private Sub txtDangerMax_GotFocus()
+    
+    txtDangerMax.Alignment = 0
+    txtDangerMax.SelStart = 0
+    txtDangerMax.SelLength = Len(txtDangerMax.Text)
+    
+End Sub
+
+Private Sub txtDangerMax_LostFocus()
+    txtDangerMax.Text = Format(txtDangerMax.Text, "######0.00")
+    txtDangerMax.Alignment = 1
+
+End Sub
+
+Private Sub txtDangerMin_GotFocus()
+    
+    txtDangerMin.Alignment = 0
+    txtDangerMin.SelStart = 0
+    txtDangerMin.SelLength = Len(txtDangerMin.Text)
+    
+End Sub
+
+Private Sub txtDangerMin_LostFocus()
+    
+    txtDangerMin.Text = Format(txtDangerMin.Text, "######0.00")
+    txtDangerMin.Alignment = 1
+
+End Sub
+
+Private Sub txtDanwi_GotFocus()
+    txtDanwi.SelStart = 0
+    txtDanwi.SelLength = Len(txtDanwi.Text)
+    
+    
+End Sub
+
+Private Sub txtDeltaMax_GotFocus()
+    
+    txtDeltaMax.Alignment = 0
+    txtDeltaMax.SelStart = 0
+    txtDeltaMax.SelLength = Len(txtDeltaMax.Text)
+    
+End Sub
+
+Private Sub txtDeltaMax_LostFocus()
+    
+    txtDeltaMax.Alignment = 1
+    
+End Sub
+
+Private Sub txtDeltaMin_GotFocus()
+    
+    txtDeltaMin.Alignment = 0
+    txtDeltaMin.SelStart = 0
+    txtDeltaMin.SelLength = Len(txtDeltaMin.Text)
+    
+End Sub
+
+Private Sub txtDeltaMin_LostFocus()
+    txtDeltaMin.Text = Format(txtDeltaMin.Text, "######0.00")
+    txtDeltaMin.Alignment = 1
+    
+End Sub
+
+Private Sub txtDeltaQc_GotFocus()
+    txtDeltaQc.SelStart = 0
+    txtDeltaQc.SelLength = Len(txtDeltaQc.Text)
+    
+End Sub
+
+Private Sub txtDiffEnd_GotFocus()
+    
+    txtDiffEnd.Alignment = 0
+    txtDiffEnd.SelStart = 0
+    txtDiffEnd.SelLength = Len(txtDiffEnd.Text)
+
+End Sub
+
+Private Sub txtDiffEnd_LostFocus()
+    
+    txtDiffEnd.Alignment = 1
+
+End Sub
+
+Private Sub txtDiffStart_GotFocus()
+    
+    txtDiffStart.Alignment = 0
+    txtDiffStart.SelStart = 0
+    txtDiffStart.SelLength = Len(txtDiffStart.Text)
+    
+End Sub
+
+Private Sub txtDiffStart_LostFocus()
+
+    txtDiffStart.Alignment = 1
+
+End Sub
+
+Private Sub txtGeomchc1_GotFocus()
+    
+    txtGeomchc1.SelStart = 0
+    txtGeomchc1.SelLength = Len(txtGeomchc1.Text)
+    
+End Sub
+
+Private Sub txtGeomchc2_GotFocus()
+    
+    txtGeomchc2.SelStart = 0
+    txtGeomchc2.SelLength = Len(txtGeomchc2.Text)
+
+End Sub
+
+Private Sub txtGeomjan1_GotFocus()
+    
+    txtGeomjan1.SelLength = Len(txtGeomjan1.Text)
+    txtGeomjan1.SelStart = 0
+    
+
+End Sub
+
+Private Sub txtGeomjan2_GotFocus()
+    
+    txtGeomjan2.SelStart = 0
+    txtGeomjan2.SelLength = Len(txtGeomjan2.Text)
+    
+    
+End Sub
+
+Private Sub txtGeomjan3_GotFocus()
+    
+    txtGeomjan3.SelStart = 0
+    txtGeomjan3.SelLength = Len(txtGeomjan3.Text)
+
+End Sub
+
+Private Sub txtGeomsaAb_GotFocus()
+    
+    txtGeomsaAb.SelStart = 0
+    txtGeomsaAb.SelLength = Len(txtGeomsaAb.Text)
+    
+End Sub
+
+Private Sub txtGeomsaTm_GotFocus()
+    
+    txtGeomsaTm.SelStart = 0
+    txtGeomsaTm.SelLength = Len(txtGeomsaTm.Text)
+    
+End Sub
+
+Private Sub txtGeomsaW1_GotFocus()
+    
+    txtGeomsaW1.SelStart = 0
+    txtGeomsaW1.SelLength = Len(txtGeomsaW1.Text)
+
+End Sub
+
+Private Sub txtGeomsaW2_GotFocus()
+    
+    txtGeomsaW2.SelStart = 0
+    txtGeomsaW2.SelLength = Len(txtGeomsaW2.Text)
+
+End Sub
+
+Private Sub txtItemCode_GotFocus()
+    
+    txtItemCode.SelStart = 0
+    txtItemCode.SelLength = Len(txtItemCode.Text)
+    
+End Sub
+
+Public Sub txtItemCode_KeyDown(KeyCode As Integer, Shift As Integer)
+    
+    If KeyCode = vbKeyReturn Then
+        mdiMain.stbMain.Panels(1).Text = ""
+        GoSub Check_Slip_Gubun
+        GoSub Get_ItemCodeData
+    End If
+    Exit Sub
+    
+'/____________________________________________
+
+Check_Slip_Gubun:
+    If Trim(txtSlipno.Text) = "" Then
+        MsgBox "처리할 SlipNumber 가 없습니다!.."
+        frmSlipQry.Show vbModal
+    End If
+    Return
+    
+    
+Get_ItemCodeData:
+    Dim sItemCode       As String
+    
+    sItemCode = Trim(txtSlipno.Text) & Trim(txtItemCode.Text)
+    
+    strSql = ""
+    strSql = strSql & " SELECT a.*, "
+    strSql = strSql & "        TO_CHAR(a.Codate,'YYYY-MM-DD') Codate"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_ItemML1 a"
+    strSql = strSql & " WHERE  Codeky = '" & Trim(sItemCode) & "'"
+    If False = adoSetOpen(strSql, adoSet) Then Return
+    
+    txtItemNM.Text = Trim(adoSet.Fields("itemNm").Value & "")
+    txtItemKO.Text = Trim(adoSet.Fields("itemKo").Value & "")
+    txtYageo.Text = Trim(adoSet.Fields("Yageo").Value & "")
+    txtSugacd.Text = Trim(adoSet.Fields("Sugacd").Value & "")
+    txtGeomsaTm.Text = Trim(adoSet.Fields("GeomsaTm").Value & "")
+    
+    Select Case Trim(adoSet.Fields("Geomsaw1").Value & "")
+        Case "월": cmbGeomsaW1.ListIndex = 0
+        Case "화": cmbGeomsaW1.ListIndex = 1
+        Case "수": cmbGeomsaW1.ListIndex = 2
+        Case "목": cmbGeomsaW1.ListIndex = 3
+        Case "금": cmbGeomsaW1.ListIndex = 4
+        Case "토": cmbGeomsaW1.ListIndex = 5
+        Case "일": cmbGeomsaW1.ListIndex = 6
+        Case Else: cmbGeomsaW1.ListIndex = -1
+    End Select
+    Select Case Trim(adoSet.Fields("Geomsaw2").Value & "")
+        Case "월": cmbGeomsaW2.ListIndex = 0
+        Case "화": cmbGeomsaW2.ListIndex = 1
+        Case "수": cmbGeomsaW2.ListIndex = 2
+        Case "목": cmbGeomsaW2.ListIndex = 3
+        Case "금": cmbGeomsaW2.ListIndex = 4
+        Case "토": cmbGeomsaW2.ListIndex = 5
+        Case "일": cmbGeomsaW2.ListIndex = 6
+        Case Else: cmbGeomsaW2.ListIndex = -1
+    End Select
+    
+    'txtGeomsaW1.Text = Trim(adoSet.Fields("GeomsaW1").Value & "")
+    'txtGeomsaW2.Text = Trim(adoSet.Fields("GeomsaW2").Value & "")
+    
+    
+    
+    txtChwhYg.Text = Trim(adoSet.Fields("ChwhYg").Value & "")
+    txtGeomchc1.Text = Trim(adoSet.Fields("Geomchc1").Value & "")
+    txtGeomchc2.Text = Trim(adoSet.Fields("Geomchc2").Value & "")
+    txtChunit.Text = Trim(adoSet.Fields("Chunit").Value & "")
+    txtGeomjan1.Text = Trim(adoSet.Fields("Geomjan1").Value & "")
+    txtGeomjan2.Text = Trim(adoSet.Fields("Geomjan2").Value & "")
+    txtGeomjan3.Text = Trim(adoSet.Fields("Geomjan3").Value & "")
+    txtDanwi.Text = Trim(adoSet.Fields("Danwi").Value & "")
+    txtMinCham.Text = Trim(adoSet.Fields("MinCham").Value & "")
+    txtMaxCham.Text = Trim(adoSet.Fields("MaxCham").Value & "")
+    txtDangerMin.Text = Trim(adoSet.Fields("MinDanger").Value & "")
+    txtDangerMax.Text = Trim(adoSet.Fields("MaxDanger").Value & "")
+    
+    Select Case Trim(adoSet.Fields("Resultw").Value & "")
+        Case "C": cmbResultW.ListIndex = 0
+        Case "N": cmbResultW.ListIndex = 1
+        Case "D": cmbResultW.ListIndex = 2
+        Case Else: cmbResultW.ListIndex = -1
+    End Select
+    
+    txtDiffStart.Text = Trim(adoSet.Fields("DiffCount").Value & "")
+    txtDiffEnd.Text = Trim(adoSet.Fields("MaxDiffc").Value & "")
+    txtChcmt.Text = Trim(adoSet.Fields("ChComment").Value & "")
+    txtCgcmt.Text = Trim(adoSet.Fields("CgComment").Value & "")
+    
+    Select Case Trim(adoSet.Fields("GeomsaGb").Value & "")
+        Case "J": cmbGeomsaGb.ListIndex = 0
+        Case "W": cmbGeomsaGb.ListIndex = 1
+        Case Else: cmbGeomsaGb.ListIndex = -1
+    End Select
+    txtGeomsaAb.Text = Trim(adoSet.Fields("GeomsaAb").Value & "")
+    
+    If Not IsNull(adoSet.Fields("Codate").Value) Then
+        dtCodate.Value = adoSet.Fields("Codate").Value
+    Else
+        dtCodate.Value = Format(Now, "yyyy-MM-dd")
+    End If
+    
+    txtDeltaMin.Text = Trim(adoSet.Fields("DeltaMin").Value & "")
+    txtDeltaMax.Text = Trim(adoSet.Fields("DeltaMax").Value & "")
+    txtDeltaQc.Text = Trim(adoSet.Fields("DeltaQc").Value & "")
+    txtPanicmin.Text = Trim(adoSet.Fields("PanicMin").Value & "")
+    txtPanicmax.Text = Trim(adoSet.Fields("PanicMax").Value & "")
+    txtOrderCode.Text = Trim(adoSet.Fields("OrderCD").Value & "")
+    
+    Select Case Trim(adoSet.Fields("gbRoutine").Value & "")
+        Case "O": cmbRoutine.ListIndex = 0
+        Case "I": cmbRoutine.ListIndex = 1
+        Case Else: cmbRoutine.ListIndex = -1
+    End Select
+    
+    Select Case Trim(adoSet.Fields("GbCheck").Value & "")
+        Case "O": cmbCheck.ListIndex = 0
+        Case "I": cmbCheck.ListIndex = 1
+        Case Else: cmbCheck.ListIndex = -1
+    End Select
+        
+    Select Case Trim(adoSet.Fields("GbInput").Value & "")
+        Case "O": cmbInput.ListIndex = 0
+        Case "I": cmbInput.ListIndex = 1
+        Case Else: cmbInput.ListIndex = -1
+    End Select
+    
+    Call adoSetClose(adoSet)
+    
+    Return
+    
+End Sub
+
+Private Sub txtItemKO_GotFocus()
+    txtItemKO.SelStart = 0
+    txtItemKO.SelLength = Len(txtItemKO.Text)
+
+End Sub
+
+Private Sub txtItemNM_GotFocus()
+    txtItemNM.SelStart = 0
+    txtItemNM.SelLength = Len(txtItemNM.Text)
+    
+End Sub
+
+Private Sub txtMaxCham_GotFocus()
+    
+    txtMaxCham.Alignment = 0
+    txtMaxCham.SelStart = 0
+    txtMaxCham.SelLength = Len(txtMaxCham.Text)
+    
+End Sub
+
+Private Sub txtMaxCham_LostFocus()
+    
+    txtMaxCham.Text = Format(txtMaxCham.Text, "######0.00")
+    txtMaxCham.Alignment = 1
+    
+End Sub
+
+Private Sub txtMinCham_GotFocus()
+    
+    txtMinCham.SelStart = 0
+    txtMinCham.SelLength = Len(txtMinCham.Text)
+    txtMinCham.Alignment = 0
+
+End Sub
+
+Private Sub txtMinCham_LostFocus()
+    
+    txtMinCham.Text = Format(txtMinCham.Text, "######0.00")
+    txtMinCham.Alignment = 1
+    
+End Sub
+
+Private Sub txtOrderCode_GotFocus()
+    txtOrderCode.SelStart = 0
+    txtOrderCode.SelLength = Len(txtOrderCode.Text)
+    
+End Sub
+
+Private Sub txtPanicmax_GotFocus()
+    
+    txtPanicmax.Alignment = 0
+    txtPanicmax.SelStart = 0
+    txtPanicmax.SelLength = Len(txtPanicmax.Text)
+
+End Sub
+
+Private Sub txtPanicmax_LostFocus()
+    txtPanicmax.Text = Format(txtPanicmax.Text, "######0.00")
+    txtPanicmax.Alignment = 1
+    
+End Sub
+
+Private Sub txtPanicmin_GotFocus()
+    
+    txtPanicmin.Alignment = 0
+    txtPanicmin.SelStart = 0
+    txtPanicmin.SelLength = Len(txtPanicmin.Text)
+    
+End Sub
+
+Private Sub txtPanicmin_LostFocus()
+    
+    txtPanicmin.Text = Format(txtPanicmin.Text, "######0.00")
+    txtPanicmin.Alignment = 1
+    
+End Sub
+
+Private Sub txtSlipNo_GotFocus()
+    txtSlipno.SelStart = 0
+    txtSlipno.SelLength = Len(txtSlipno.Text)
+    
+End Sub
+
+Private Sub txtSlipNo_LostFocus()
+    
+    mdiMain.stbMain.Panels(1).Text = ""
+    txtSlipno.Tag = txtSlipno.Text
+    txtSlipname.Tag = txtSlipname.Text
+    Call ClearForm(Me)
+    txtSlipno.Text = txtSlipno.Tag
+    txtSlipname.Text = txtSlipname.Tag
+    
+    GoSub Get_SLIPName_Data
+    
+    Exit Sub
+    
+    
+Get_SLIPName_Data:
+    strSql = ""
+    strSql = strSql & " SELECT *"
+    strSql = strSql & " FROM   TW_MIS_EXAM.TWEXAM_Specode1"
+    strSql = strSql & " WHERE  Codegu = '12'"
+    strSql = strSql & " AND    Codeky = '" & Trim(txtSlipno.Text) & "'"
+    If False = adoSetOpen(strSql, adoSet) Then
+        Return
+    End If
+    
+    txtSlipname.Text = adoSet.Fields("Codenm").Value & ""
+    Call adoSetClose(adoSet)
+    txtItemCode.SetFocus
+    
+    Return
+    
+    
+End Sub
+
+Private Sub txtSugacd_GotFocus()
+    txtSugacd.SelStart = 0
+    txtSugacd.SelLength = Len(txtSugacd.Text)
+    
+End Sub
+
+Private Sub txtYageo_GotFocus()
+    txtYageo.SelStart = 0
+    txtYageo.SelLength = Len(txtYageo.Text)
+    
+End Sub
