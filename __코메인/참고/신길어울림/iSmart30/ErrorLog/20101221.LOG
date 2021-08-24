@@ -1,0 +1,30 @@
+    Procedure : clsCommon - Public Function Get_TestItem() As ADODB.Recordset
+
+ Error Number : -2147217865
+
+  Description : 개체 이름 'N_Mother'이(가) 잘못되었습니다.
+
+       Source : Microsoft OLE DB Provider for SQL Server
+
+    SQL State : 42S02
+
+ Native Error : 208
+
+   SQL String : SELECT ls.Coda, SubCoda,  m.LName AS LabEName, Isnull(ls.LabSubEName, '' ) AS LabSubEName FROM lalas ls LEFT JOIN N_Mother m ON ls.Coda = m.Coda WHERE ls.Coda LIKE 'B0030' AND ls. UseYn = '1' AND DeletedYn = '0' AND DYN = '1'
+
+         Date : 2010년 12월 21일 월요일
+
+         Time : 오후 1:58:02
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        Procedure : clsCommon - Public Function Get_TestItem() As ADODB.Recordset
+
+     Error Source : ADODB.Recordset
+
+     Error Number : 3704
+
+Error Description : 개체가 닫혀있으면 작업이 허용되지 않습니다.
+
+             Date : 2010년 12월 21일 월요일
+
+             Time : 오후 1:58:14
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

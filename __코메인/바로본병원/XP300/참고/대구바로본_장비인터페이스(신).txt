@@ -1,0 +1,35 @@
+0. DB연결정보(대구바로본병원)
+Server   : emr-server
+DataBase : neolis
+UserID   : emr
+PassWord : emr 
+
+1. 대상환자조회
+AP_INF_Bar_Order 	@InstNo varchar(3), 	'장비코드(Advia120 = '008')
+			@From  varchar(10), 	'시작일자(예:'2013-01-02')
+			@To  varchar(10) 	'끝일자(예:'2013-01-03')
+
+조회내용
+BCID, HCode, Serial, PtName, Orderdate, ErYN 
+검체번호, 병록번호, 원무일련번호, 환자명, 처방일자, 응급여부(0:일반,1:응급)
+
+2. 대상검사항목조회
+AP_INF_Bar_Order_Coda   @InstNo varchar(3),	'장비코드(Cobas 6000 = '008')
+		        @BCID varchar(20)	'검체번호(바코드)
+
+조회내용
+Coda, .SubCoda, Sys_Code, HCode, PtName, Serial, Orderdate, BCID, ErYn
+검사코드, 검사부코드, 장비코드(무시), 병록번호, 환자명, 원무일련번호, 처방일자, 검체번호, 응급항목여부
+
+다른 필드는 무시하고 검사코드, 검사부코드, 검체번호 필드만
+
+3. 결과입력
+AP_INF_Bar_Result  @BCID varchar(20),		'검체번호(바코드)
+		   @InstNo  varchar(3), 	'장비코드(Advia120 = '008')
+		   @Coda    varchar(30),        '검사코드
+		   @SubCoda varchar(20),	'검사부코드
+		   @Result  varchar(100)	'검사결과
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Coda	SubCoda	Name
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

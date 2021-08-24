@@ -1,0 +1,2699 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{4BD5DFC7-B668-44E0-A002-C1347061239D}#1.0#0"; "HSCotrol.ocx"
+Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
+Object = "{0BA686C6-F7D3-101A-993E-0000C0EF6F5E}#1.0#0"; "THREED32.OCX"
+Object = "{FDAC2480-F4ED-4632-AA78-DCA210A74E49}#6.0#0"; "SPR32X60.ocx"
+Begin VB.Form frmComm 
+   Caption         =   "Interface"
+   ClientHeight    =   11115
+   ClientLeft      =   60
+   ClientTop       =   345
+   ClientWidth     =   15240
+   LinkTopic       =   "Form2"
+   MDIChild        =   -1  'True
+   ScaleHeight     =   11115
+   ScaleWidth      =   15240
+   WindowState     =   2  '최대화
+   Begin VB.CheckBox chkRSH 
+      Alignment       =   1  '오른쪽 맞춤
+      Appearance      =   0  '평면
+      Caption         =   "RSH"
+      BeginProperty Font 
+         Name            =   "굴림"
+         Size            =   8.25
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   210
+      Left            =   14310
+      TabIndex        =   13
+      ToolTipText     =   $"frmComm.frx":0000
+      Top             =   9870
+      Value           =   1  '확인
+      Visible         =   0   'False
+      Width           =   720
+   End
+   Begin VB.CheckBox chkRCP 
+      Alignment       =   1  '오른쪽 맞춤
+      Appearance      =   0  '평면
+      Caption         =   "RCP"
+      BeginProperty Font 
+         Name            =   "굴림"
+         Size            =   8.25
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H80000008&
+      Height          =   210
+      Left            =   13590
+      TabIndex        =   12
+      ToolTipText     =   $"frmComm.frx":008E
+      Top             =   9870
+      Value           =   1  '확인
+      Visible         =   0   'False
+      Width           =   720
+   End
+   Begin VB.Timer tmrReceive 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   13650
+      Top             =   10200
+   End
+   Begin VB.Timer tmrSend 
+      Enabled         =   0   'False
+      Interval        =   100
+      Left            =   14070
+      Top             =   10200
+   End
+   Begin MSComctlLib.ImageList imlList 
+      Left            =   12510
+      Top             =   10200
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   6
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":011C
+            Key             =   "ITM"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":06B6
+            Key             =   "ERR"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":0C50
+            Key             =   "NOF"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":11EA
+            Key             =   "LST"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":1784
+            Key             =   "LSE"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":1D1E
+            Key             =   "LSN"
+         EndProperty
+      EndProperty
+   End
+   Begin MSCommLib.MSComm comEQP 
+      Left            =   14490
+      Top             =   10200
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      _Version        =   393216
+      DTREnable       =   -1  'True
+      RThreshold      =   1
+      SThreshold      =   1
+   End
+   Begin MSComctlLib.ImageList imlStatus 
+      Left            =   13080
+      Top             =   10200
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      BackColor       =   -2147483643
+      ImageWidth      =   16
+      ImageHeight     =   16
+      MaskColor       =   12632256
+      _Version        =   393216
+      BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
+         NumListImages   =   7
+         BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":22B8
+            Key             =   "RUN"
+         EndProperty
+         BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":2852
+            Key             =   "NOT"
+         EndProperty
+         BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":2DEC
+            Key             =   "STOP"
+         EndProperty
+         BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":3386
+            Key             =   "LST"
+         EndProperty
+         BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":3C18
+            Key             =   "ITM"
+         EndProperty
+         BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":3D72
+            Key             =   "ERR"
+         EndProperty
+         BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
+            Picture         =   "frmComm.frx":3ECC
+            Key             =   "NOF"
+         EndProperty
+      EndProperty
+   End
+   Begin VB.Frame fraCmdBar 
+      BeginProperty Font 
+         Name            =   "굴림"
+         Size            =   1.5
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   580
+      Left            =   30
+      TabIndex        =   1
+      Top             =   10500
+      Width           =   15180
+      Begin HSCotrol.CButton cmdAction 
+         Height          =   360
+         Index           =   0
+         Left            =   6375
+         TabIndex        =   2
+         Top             =   135
+         Width           =   1305
+         _ExtentX        =   2302
+         _ExtentY        =   635
+         Caption         =   "Run"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MaskColor       =   0
+         BorderStyle     =   1
+         BorderColor     =   -2147483632
+      End
+      Begin HSCotrol.CButton cmdAction 
+         Height          =   360
+         Index           =   1
+         Left            =   7740
+         TabIndex        =   3
+         Top             =   135
+         Width           =   1305
+         _ExtentX        =   2302
+         _ExtentY        =   635
+         Caption         =   "Stop"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MaskColor       =   0
+         BorderStyle     =   1
+         BorderColor     =   -2147483632
+      End
+      Begin HSCotrol.CButton cmdAction 
+         Height          =   360
+         Index           =   2
+         Left            =   9120
+         TabIndex        =   4
+         Top             =   135
+         Width           =   1305
+         _ExtentX        =   2302
+         _ExtentY        =   635
+         Caption         =   "Clear"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MaskColor       =   0
+         BorderStyle     =   1
+         BorderColor     =   -2147483632
+      End
+      Begin HSCotrol.CButton cmdAction 
+         Height          =   360
+         Index           =   3
+         Left            =   10485
+         TabIndex        =   5
+         Top             =   135
+         Width           =   1305
+         _ExtentX        =   2302
+         _ExtentY        =   635
+         Caption         =   "Close"
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MaskColor       =   0
+         BorderStyle     =   1
+         BorderColor     =   -2147483632
+      End
+      Begin VB.Label lblStatus 
+         AutoSize        =   -1  'True
+         Caption         =   "작업대기 중.."
+         BeginProperty Font 
+            Name            =   "굴림"
+            Size            =   9
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H000000C0&
+         Height          =   180
+         Left            =   960
+         TabIndex        =   10
+         Top             =   225
+         Width           =   1200
+      End
+      Begin VB.Label Label9 
+         AutoSize        =   -1  'True
+         Caption         =   " 상태 :"
+         BeginProperty Font 
+            Name            =   "굴림"
+            Size            =   9
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   180
+         Left            =   210
+         TabIndex        =   9
+         Top             =   225
+         Width           =   615
+      End
+   End
+   Begin HSCotrol.CaptionBar CaptionBar1 
+      Align           =   1  '위 맞춤
+      Height          =   555
+      Left            =   0
+      TabIndex        =   0
+      Top             =   0
+      Width           =   15240
+      _ExtentX        =   26882
+      _ExtentY        =   979
+      Border          =   1
+      CaptionBackColor=   16777215
+      Caption         =   " Communication"
+      SubCaption      =   "검사 장비와 통신하여 결과를 저장 합니다."
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림"
+         Size            =   9.75
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BeginProperty SubCaptionFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Begin VB.Label Label3 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Receive : "
+         Height          =   180
+         Left            =   10140
+         TabIndex        =   8
+         Top             =   285
+         Width           =   855
+      End
+      Begin VB.Label Label2 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Send : "
+         Height          =   180
+         Left            =   9105
+         TabIndex        =   7
+         Top             =   285
+         Width           =   615
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "Port : "
+         Height          =   180
+         Left            =   8040
+         TabIndex        =   6
+         Top             =   285
+         Width           =   510
+      End
+      Begin VB.Image imgReceive 
+         Height          =   240
+         Left            =   11010
+         Picture         =   "frmComm.frx":4026
+         Top             =   255
+         Width           =   240
+      End
+      Begin VB.Image imgSend 
+         Height          =   240
+         Left            =   9780
+         Picture         =   "frmComm.frx":45B0
+         Top             =   255
+         Width           =   240
+      End
+      Begin VB.Image imgPort 
+         Height          =   240
+         Left            =   8640
+         Picture         =   "frmComm.frx":4B3A
+         Top             =   255
+         Width           =   240
+      End
+   End
+   Begin FPSpread.vaSpread spdResult1 
+      Height          =   6285
+      Left            =   90
+      TabIndex        =   11
+      Top             =   810
+      Width           =   15075
+      _Version        =   393216
+      _ExtentX        =   26591
+      _ExtentY        =   11086
+      _StockProps     =   64
+      BackColorStyle  =   1
+      ColHeaderDisplay=   0
+      ColsFrozen      =   3
+      EditEnterAction =   2
+      EditModePermanent=   -1  'True
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MaxCols         =   14
+      MaxRows         =   20
+      RetainSelBlock  =   0   'False
+      SelectBlockOptions=   0
+      SpreadDesigner  =   "frmComm.frx":50C4
+      UserResize      =   0
+   End
+   Begin Threed.SSCommand cmdSel 
+      Height          =   360
+      Index           =   1
+      Left            =   270
+      TabIndex        =   14
+      Top             =   0
+      Width           =   285
+      _Version        =   65536
+      _ExtentX        =   503
+      _ExtentY        =   644
+      _StockProps     =   78
+      BevelWidth      =   1
+      Picture         =   "frmComm.frx":5857
+   End
+   Begin Threed.SSCommand cmdSel 
+      Height          =   360
+      Index           =   0
+      Left            =   0
+      TabIndex        =   15
+      Top             =   0
+      Width           =   285
+      _Version        =   65536
+      _ExtentX        =   503
+      _ExtentY        =   644
+      _StockProps     =   78
+      BevelWidth      =   1
+      Picture         =   "frmComm.frx":5CD9
+   End
+End
+Attribute VB_Name = "frmComm"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+Option Explicit
+
+Private Const COL_KEY       As String = "K"
+Private Const COL_EQP_NUM   As String = "EQP_ID"
+
+Private Const KEY_SEQ       As String = "KEY_SEQ"   ' "순서"
+Private Const KEY_PTID      As String = "KEY_PTID"  ' "등록번호"
+Private Const KEY_PTNM      As String = "KEY_PTNM"  ' "성  명"
+Private Const KEY_SPCNO     As String = "KEY_SPCNO" ' "검체번호"
+Private Const KEY_EQPNO     As String = "KEY_EQPNO" ' "검체번호"
+Private Const KEY_STAT      As String = "KEY_STAT"  ' "상 태"
+Private Const KEY_TEST      As String = "KEY_TEST"  ' "검사항목"
+
+Private Const TEST_NM_EQP   As String = "EQP_NM"    '장비 코드
+Private Const TEST_CD_LIS   As String = "LIS_CD"    '검사실 코드
+Private Const TEST_NM_LIS   As String = "LIS_NM"    '검사실 이름
+Private Const TEST_VALUES   As String = "VALUES"    '결과
+
+Const STX As String = ""
+Const ETX As String = ""
+Const ENQ As String = ""
+Const ACK As String = ""
+Const NAK As String = ""
+Const EOT As String = ""
+Const ETB As String = ""
+Const FS  As String = ""
+Const RS  As String = ""
+
+Public WithEvents Result As clsMsg_Result
+Attribute Result.VB_VarHelpID = -1
+Public WithEvents Order  As clsMsg_Query
+Attribute Order.VB_VarHelpID = -1
+Public Result1 As clsResult
+Attribute Result1.VB_VarHelpID = -1
+
+Private mAdoRs      As ADODB.Recordset
+Private mAdoRs1     As ADODB.Recordset
+Private CallForm    As String
+Private IS_SET      As Boolean
+
+Private f_strBuffer     As String
+Private f_strJOB_FLAG   As String
+Private f_strOrdList    As String
+Private f_intSampleNo   As Integer
+
+Private f_blnWorkList   As Boolean
+Private f_lngWork_Row   As Long
+Dim ReceiveData      As String
+Dim SendFlg          As Boolean
+Dim Patiant_Recevid As Integer
+
+Private MSG_STX     As String
+Private MSG_ETX     As String
+Private MSG_ENQ     As String
+Private MSG_EOT     As String
+Private MSG_ACK     As String
+Private MSG_NAK     As String
+Private MSG_CR      As String
+Private MSG_LF      As String
+Private MSG_CRLF    As String
+
+Private Type typeNOVA
+    TestDate      As String
+    TestTime      As String
+    RunType       As String 'N, E, R, C, S, B
+    SampleNo      As String
+    SID           As String 'Sid
+    SampleTy      As String '1~5
+    RackNo        As String
+    Position      As String '1~5
+    Priority      As String
+    TestId(100)   As String
+    Result(100)   As String
+    Status(100)   As String
+    Rerun(100)    As String
+End Type
+
+Dim NOVA As typeNOVA
+Dim flgETB As Boolean
+Dim fAxsym(100) As String
+Dim fAxsymCfg(100) As Integer
+Dim fAxsymSize(100, 1) As Integer
+Dim fChannel() As String
+   
+Dim SeqNo As String
+
+
+Private Type TYPE_CD
+    strEqpCd    As String
+    intCnt      As Integer
+    strTestcd(100) As String
+End Type
+
+Private f_typCode() As TYPE_CD
+
+Dim OrderCnt As Integer
+Dim SendCount As Integer
+
+Private Function f_funGet_ConvertResult(ByVal strRstval As String) As String
+
+    Dim intPos  As Integer
+    Dim strTmp1 As String, strTmp2  As String
+    
+    intPos = InStr(strRstval, "E")
+    If intPos > 0 Then
+        strTmp1 = Mid$(strRstval, 1, intPos - 1)
+        strTmp2 = Mid$(strRstval, intPos + 1)
+        
+        If Mid$(strTmp2, 1, 1) = "-" Then
+            f_funGet_ConvertResult = Round(Val(strTmp1) * (0.1 ^ Val(Mid$(strTmp2, 2))), 2)
+        Else
+            f_funGet_ConvertResult = Round(Val(strTmp1) * (10 ^ Val(Mid$(strTmp2, 2))), 2)
+        End If
+    Else
+        f_funGet_ConvertResult = strRstval
+    End If
+    
+End Function
+
+Private Function MakeCS(Source As String) As String
+    Dim x      As Long
+    Dim ChkCS  As String
+    Dim SumCS  As String
+    Dim AddCS  As Long
+    
+    For x = 1 To Len(Source)
+        AddCS = AddCS + Asc(Mid(Source, x, 1))
+    Next x
+    AddCS = AddCS + Asc(Chr(13)) + Asc(ETX)
+    AddCS = AddCS Mod &H100
+    SumCS = Hex(AddCS)
+    If Len(SumCS) = 1 Then
+        ChkCS = "0" & SumCS
+    Else
+        ChkCS = Mid(SumCS, Len(SumCS) - 1, 1)
+        ChkCS = ChkCS & Right(SumCS, 1)
+    End If
+    MakeCS = ChkCS
+End Function
+
+Private Function f_funGet_SpreadRow(ByVal objSpd As vaSpread, ByVal intCol As Integer, _
+                                    ByVal strPara As String) As Integer
+
+    Dim varTmp  As Variant
+    Dim intRow  As Integer
+    
+    f_funGet_SpreadRow = 0
+    
+    With objSpd
+        For intRow = 1 To .MaxRows
+            .GetText intCol, intRow, varTmp
+            If Trim$(varTmp) = strPara Then
+                f_funGet_SpreadRow = intRow
+                Exit For
+            End If
+        Next
+    End With
+    
+End Function
+
+Private Sub f_subGet_JobList(ByVal strKeyno As String, ByRef strOrder As String, _
+                             ByRef intOrdCnt As Integer, ByRef strSpec As String, _
+                             ByRef strPcFlag As String)
+
+    Dim adoRS1  As New ADODB.Recordset
+    Dim adoRS2  As New ADODB.Recordset
+    Dim sqlDoc  As String
+    
+    strOrder = "":  strPcFlag = "  ":   strSpec = "SE": intOrdCnt = 0
+    sqlDoc = "select ORD_CODE, CHART_NO From L3A01" & _
+             " where SAMPLE_DATE = '" & Mid$(strKeyno, 1, 8) & "'" & _
+             "   and SAMPLE_SEQ  = " & Format(Mid$(strKeyno, 9, 3), "##0") & "" & _
+             "   and PART        = '" & Mid$(strKeyno, 12, 2) & "'"
+    adoRS1.CursorLocation = adUseClient
+    adoRS1.Open sqlDoc, AdoCn_SQL
+    If adoRS1.RecordCount > 0 Then adoRS1.MoveFirst
+    
+    sqlDoc = "select TESTCD_EQP, TESTCD, REMARK, AUTOVERIFY from INTERFACE002 where (EQP_CD = " & STS(INS_CODE) & ") AND (TESTCD <> '')"
+    adoRS2.CursorLocation = adUseClient
+    adoRS2.Open sqlDoc, AdoCn_Jet
+    If adoRS2.RecordCount > 0 Then adoRS2.MoveFirst
+    Do While Not adoRS2.EOF
+        If adoRS1.RecordCount > 0 Then adoRS1.MoveFirst
+        adoRS1.Find "ORD_CODE = " & STS(Trim(adoRS2("TESTCD") & ""))
+        If Not adoRS1.EOF Then
+            Select Case Trim(adoRS2(2) & "")
+                Case "128": strSpec = "PL"
+                Case Else:  strSpec = "SE"
+            End Select
+            
+            If Trim(adoRS2("TESTCD_EQP") & "") = "XXX" Then
+                strOrder = strOrder + "06A ," + Trim$(adoRS2("AUTOVERIFY") & "") + ",": strPcFlag = "PC"
+            Else
+                strOrder = strOrder + Trim(adoRS2("TESTCD_EQP") & "") + " ," + Trim$(adoRS2("AUTOVERIFY") & "") + ","
+            End If
+            intOrdCnt = intOrdCnt + 1
+        End If
+        adoRS2.MoveNext
+    Loop
+    adoRS2.Close:   Set adoRS2 = Nothing
+    adoRS1.Close:   Set adoRS1 = Nothing
+    
+    If strOrder <> "" Then strOrder = Mid$(strOrder, 1, Len(strOrder) - 1)
+    
+End Sub
+
+Private Sub f_subGet_WorkList(ByRef strOrder As String, ByRef intOrdCnt As Integer, _
+                              ByRef strSpec As String, ByRef strPcFlag As String, _
+                              ByVal intRow As Integer)
+
+    Dim adoRS   As New ADODB.Recordset
+    Dim sqlDoc  As String
+
+    Dim varTmp  As Variant
+    Dim intCol  As Integer
+    
+    Dim itemX   As ListItems
+    
+    Set itemX = lvwCuData.ListItems
+    
+    strOrder = "":  strPcFlag = "  ": strSpec = "SE":   intOrdCnt = 0
+    With spdWorkList
+        For intCol = 5 To .MaxCols
+            .Row = intRow:  .Col = intCol
+            If .BackColor = &HC6FEFF Then
+                Select Case itemX.Item(intCol - 4).SubItems(11)
+                    Case "128": strSpec = "PL"
+                    Case Else:  strSpec = "SE"
+                End Select
+                .GetText intCol, 0, varTmp
+                
+                If itemX.Item(intCol - 4).Tag = "XXX" Then
+                    strOrder = strOrder + "06A ," + itemX.Item(intCol - 4).SubItems(10) + ",": strPcFlag = "PC"
+                Else
+                    strOrder = strOrder + itemX.Item(intCol - 4).Tag + " ," & itemX.Item(intCol - 4).SubItems(10) + ","
+                End If
+                intOrdCnt = intOrdCnt + 1
+            End If
+        Next
+    End With
+    
+    If strOrder <> "" Then strOrder = Mid$(strOrder, 1, Len(strOrder) - 1)
+   
+End Sub
+
+Private Sub f_subSet_ComCharacter()
+
+    MSG_STX = Chr(COM_STX)
+    MSG_ETX = Chr(COM_ETX)
+    MSG_ENQ = Chr(COM_ENQ)
+    MSG_EOT = Chr(COM_EOT)
+    MSG_ACK = Chr(COM_ACK)
+    MSG_NAK = Chr(COM_NACK)
+    MSG_CR = Chr(COM_CR)
+    MSG_LF = Chr(COM_LF)
+    MSG_CRLF = Chr(COM_CR) & Chr(COM_LF)
+    
+End Sub
+
+'Private Sub f_subSet_ItemHeader()
+'
+'    '검사코드 테이블
+'    With lvwCuData
+'        .View = lvwReport
+'        Set .ColumnHeaderIcons = imlList
+'        Set .SmallIcons = imlList
+'        .FullRowSelect = True
+'        .LabelEdit = lvwManual
+'        .HideSelection = False
+'        .HideColumnHeaders = True
+'        With .ColumnHeaders
+'            .Clear
+'            Call .Add(, TEST_NM_EQP, "ID", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, TEST_CD_LIS, "검사코드", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, TEST_NM_LIS, "검 사 명", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, TEST_VALUES, "검사결과", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "DELTA", "DELTA", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "DELTAGBN", "DELTAGBN", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "PANICL", "PANIC(L)", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "PANICH", "PANIC(H)", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "REFL", "참고치(L)", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "REFH", "참고치(H)", (lvwCuData.Width - 310) * 0.2)
+'            Call .Add(, "AUTOVERIFY", "재검", (lvwCuData.Width - 310) * 0.1)
+'            Call .Add(, "REMARK", "검체코드", (lvwCuData.Width - 310) * 0.1)
+'        End With
+'        .HideColumnHeaders = False
+'    End With
+'
+'
+'End Sub
+
+Private Sub f_subSet_ItemComplete(lvw As Listview)
+
+    Dim adoRS   As New ADODB.Recordset
+    Dim sqlDoc  As String
+    
+    Dim itemH           As ColumnHeader
+    Dim objHeadeItem    As clsCommon
+    
+    Dim intCol  As Integer
+    
+    lvw.ColumnHeaders.Clear
+    Call lvw.ColumnHeaders.Add(, "EQP_ID", "검체 번호")
+    
+    intCol = 4
+    sqlDoc = "select RTRIM(LTRIM(TESTCD_EQP)) AS TESTCD_EQP, TESTNM_EQP, OUT_SEQ, TESTCD, TESTNM, AUTOVERIFY, REMARK," & _
+             "       REFL, REFH, DELTA, DELTAGBN, PANICL, PANICH" & _
+             "  from INTERFACE002" & _
+             " where (EQP_CD = '" & INS_CODE & "') AND ((TESTCD <> '') AND (TESTCD IS NOT NULL))" & _
+             " order by OUT_SEQ, TESTCD_EQP"
+    adoRS.CursorLocation = adUseClient
+    adoRS.Open sqlDoc, AdoCn_Jet
+    If adoRS.RecordCount > 0 Then adoRS.MoveFirst
+    Do While Not adoRS.EOF
+        With lvw
+            .Enabled = True
+            Set itemH = .ColumnHeaders.Add
+            With itemH
+                '컬럽 헤더키를 장비검사 코드로
+                .Key = COL_KEY & Trim(adoRS.Fields("TESTCD_EQP") & "")
+                '컬럽명은 검사 항목 이름
+                .Text = Trim(adoRS.Fields("TESTNM") & "")
+                '테그는 검사 코드로
+                .Tag = Trim(adoRS.Fields("TESTCD") & "")
+                .Width = 700
+                .Alignment = lvwColumnCenter
+            End With
+            Set itemH = Nothing
+        End With
+        
+        With spdWorkList
+            intCol = intCol + 1
+            If intCol > .MaxCols Then .MaxCols = .MaxCols + 1:  .ColWidth(.MaxCols) = 6.5
+            
+            .SetText intCol, 0, adoRS.Fields("TESTNM")
+        End With
+        adoRS.MoveNext
+    Loop
+    adoRS.Close:    Set adoRS = Nothing
+    
+End Sub
+
+Private Sub f_subSet_ItemList()
+
+    Dim itemX   As ListItem
+    Dim itemA   As ListItem
+    
+    Dim adoRS   As New ADODB.Recordset
+    Dim sqlDoc  As String
+    
+    Dim strTest As String, intPos   As Integer
+    Dim strTmp  As String, intCol   As Integer, intCnt  As Integer
+    
+'On Error GoTo ErrRoutine
+    CallForm = "frmInterface - Private Sub f_subSet_ItemList()"
+    
+    'lvwCuData.ListItems.Clear:  f_strOrdList = ""
+    
+    intCol = 7
+'    With spdWorkList
+'        .Col = 1:   .Col2 = .MaxCols
+'        .Row = 1:   .Row2 = .MaxRows
+'        .MaxRows = 14
+'        .BlockMode = True
+'        .Action = ActionClearText
+'        .BlockMode = False
+'        .RowHeight(-1) = 12
+'    End With
+    
+    With spdResult1
+        .Col = 1:   .Col2 = .MaxCols
+        .Row = 1:   .Row2 = .MaxRows
+        '.MaxRows = 15
+        .BlockMode = True
+        .Action = ActionClearText
+        .BlockMode = False
+        .RowHeight(-1) = 12
+    End With
+    
+'    With spdResult2
+'        .Col = 1:   .Col2 = .MaxCols
+'        .Row = 1:   .Row2 = .MaxRows
+'        .MaxRows = 15
+'        .BlockMode = True
+'        .Action = ActionClearText
+'        .BlockMode = False
+'        .RowHeight(-1) = 12
+'    End With
+    
+    sqlDoc = "select RTRIM(LTRIM(TESTCD_EQP)) as TEST_EQP, TESTNM_EQP, OUT_SEQ, TESTCD, TESTNM, AUTOVERIFY, REMARK," & _
+             "       REFL, REFH, DELTA, DELTAGBN, PANICL, PANICH" & _
+             "  from INTERFACE002" & _
+             " where (EQP_CD = " & STS(INS_CODE) & ") AND ((TESTCD <> '') AND (TESTCD IS NOT NULL))" & _
+             " order by OUT_SEQ, TESTCD_EQP"
+'             " order by TESTCD_EQP, TESTCD"
+             
+    adoRS.CursorLocation = adUseClient
+    adoRS.Open sqlDoc, AdoCn_Jet
+    If adoRS.RecordCount > 0 Then adoRS.MoveFirst: ReDim fChannel(adoRS.RecordCount + 7)
+    Do While Not adoRS.EOF
+'        Set itemX = lvwCuData.ListItems.Add(, , Trim(adoRS.Fields("TEST_EQP") & ""), , "LST")
+'            itemX.SubItems(1) = Trim(adoRS.Fields("TESTCD") & "")
+'            itemX.SubItems(2) = Trim(adoRS.Fields("TESTNM") & "")
+'            itemX.SubItems(3) = Trim(adoRS.Fields("OUT_SEQ") & "")
+'            itemX.SubItems(4) = Trim(adoRS.Fields("DELTA") & "")
+'            itemX.SubItems(5) = Trim(adoRS.Fields("DELTAGBN") & "")
+'            itemX.SubItems(6) = Trim(adoRS.Fields("PANICL") & "")
+'            itemX.SubItems(7) = Trim(adoRS.Fields("PANICH") & "")
+'            itemX.SubItems(8) = Trim(adoRS.Fields("REFL") & "")
+'            itemX.SubItems(9) = Trim(adoRS.Fields("REFH") & "")
+'            itemX.SubItems(10) = Trim(adoRS.Fields("AUTOVERIFY") & "")
+'            itemX.SubItems(11) = Trim(adoRS.Fields("REMARK") & "")
+'            itemX.Tag = Trim(adoRS.Fields("TEST_EQP") & "")
+'            itemX.Text = Trim(adoRS.Fields("TESTCD") & "")
+'        Set itemX = Nothing
+        
+'        With spdWorkList
+'            If intCol > .MaxCols Then .MaxCols = .MaxCols + 1
+'            .SetText intCol, 0, Trim$(adoRS("TESTNM") & "")
+'            .Col = intCol:  .ColHidden = True
+'        End With
+        
+        With spdResult1
+            If intCol > .MaxCols Then .MaxCols = .MaxCols + 1
+            .SetText intCol, 0, Trim$(adoRS("TESTNM") & "")
+        End With
+        
+'        With spdResult2
+'            If intCol > .MaxCols Then .MaxCols = .MaxCols + 1
+'            .SetText intCol, 0, Trim$(adoRS("TESTNM") & "")
+'        End With
+        
+        fChannel(intCol - 4) = adoRS.Fields("TEST_EQP")
+        
+        intCnt = intCnt + 1
+        ReDim Preserve f_typCode(1 To intCnt) As TYPE_CD
+        
+        f_typCode(intCnt).strEqpCd = Trim$(adoRS.Fields("TEST_EQP"))
+        f_typCode(intCnt).intCnt = 0
+        
+        strTmp = Trim$(adoRS.Fields("TESTCD"))
+        intPos = InStr(strTmp, ",")
+        Do While intPos > 0
+            f_strOrdList = f_strOrdList + "'" + Mid$(strTmp, 1, intPos - 1) + "',"
+            
+            f_typCode(intCnt).intCnt = f_typCode(intCnt).intCnt + 1
+            f_typCode(intCnt).strTestcd(f_typCode(intCnt).intCnt) = Mid$(strTmp, 1, intPos - 1)
+            
+            strTmp = Mid$(strTmp, intPos + 1)
+            
+            intPos = InStr(strTmp, ",")
+        Loop
+        f_strOrdList = f_strOrdList + "'" + strTmp + "',"
+        f_typCode(intCnt).intCnt = f_typCode(intCnt).intCnt + 1
+        f_typCode(intCnt).strTestcd(f_typCode(intCnt).intCnt) = strTmp
+        
+        intCol = intCol + 1
+        
+        adoRS.MoveNext
+    Loop
+    Set adoRS = Nothing
+    f_strOrdList = Mid$(f_strOrdList, 1, Len(f_strOrdList) - 1)
+    
+'    With spdResult2
+'        If intCol > .MaxCols Then .MaxCols = .MaxCols + 1
+'        .SetText intCol, 0, ""
+'        .Col = intCol:  .ColHidden = True
+'    End With
+
+Exit Sub
+ErrRoutine:
+    Set adoRS = Nothing
+    Call ErrMsgProc(CallForm)
+    
+End Sub
+Private Function f_funGet_CODE(ByVal strOrdcd As String) As String
+
+    Dim intIdx1 As Integer, intIdx2 As Integer
+    
+    f_funGet_CODE = ""
+    
+    For intIdx1 = 1 To UBound(f_typCode)
+        For intIdx2 = 1 To f_typCode(intIdx1).intCnt
+            If Trim$(strOrdcd) = Trim$(f_typCode(intIdx1).strTestcd(intIdx2)) Then
+                f_funGet_CODE = f_typCode(intIdx1).strEqpCd
+                Exit Function
+            End If
+        Next
+    Next
+    
+End Function
+
+Private Sub cboOrder_Change()
+
+    '-- 해당일자의 차수불러오기
+'    Call f_subSet_DateOrder
+
+End Sub
+
+Private Sub cboOrder_Click()
+    '-- 해당일자의 차수불러오기
+'    Call f_subSet_DateOrder
+
+End Sub
+
+Private Sub cmdACK_Click()
+'
+'    Call COM_OUTPUT(charCOM_Convert(COM_ACK))
+Call COM_OUTPUT(Chr(1))
+End Sub
+
+Private Sub cmdAction_Click(Index As Integer)
+    
+    Select Case Index
+        Case 0:     Call cmdRun
+        Case 1:     Call cmdStop
+        Case 2:     Call cmdClear
+        Case 3:     Call cmdExit
+        Case Else
+    End Select
+
+End Sub
+
+Private Sub cmdClear()
+    
+    f_strJOB_FLAG = "1"
+    f_intSampleNo = 0
+    
+'    With spdWorkList
+'        .MaxRows = 14
+'        .Col = 1:   .Col2 = .MaxCols
+'        .Row = 1:   .Row2 = .MaxRows
+'        .BlockMode = True
+'        .Action = ActionClearText
+'        .BlockMode = False
+'        .RowHeight(-1) = 12
+'    End With
+    
+    With spdResult1
+        '.MaxRows = 15
+        .Col = 1:   .Col2 = .MaxCols
+        .Row = 1:   .Row2 = .MaxRows
+        .BlockMode = True
+        .Action = ActionClearText
+        '.BackColor = vbWhite
+        .BlockMode = False
+        .RowHeight(-1) = 12
+    End With
+
+'    With spdResult2
+'        .MaxRows = 15
+'        .Col = 1:   .Col2 = .MaxCols
+'        .Row = 1:   .Row2 = .MaxRows
+'        .BlockMode = True
+'        .Action = ActionClearText
+'        .BlockMode = False
+'        .RowHeight(-1) = 12
+'    End With
+
+End Sub
+
+Private Sub cmdExit()
+    
+    Unload Me
+
+End Sub
+
+Private Sub cmdRun()
+    
+    Dim itemX As ListItem
+    
+On Error GoTo ErrRoutine
+    CallForm = "frmInterface - Private Sub cmdRun()"
+    
+    If Not comEQP.PortOpen Then comEQP.PortOpen = True
+    If comEQP.PortOpen Then
+        Call ShowMessage("연결 되었습니다.")
+        imgPort.Picture = imlStatus.ListImages("RUN").ExtractIcon
+        imgSend.Picture = imlStatus.ListImages("STOP").ExtractIcon
+        imgReceive.Picture = imlStatus.ListImages("STOP").ExtractIcon
+        lblStatus = "작업중.."
+    Else
+        Call ShowMessage("연결 되지 않았습니다.")
+        imgPort.Picture = imlStatus.ListImages("STOP").ExtractIcon
+        imgSend.Picture = imlStatus.ListImages("NOT").ExtractIcon
+        imgReceive.Picture = imlStatus.ListImages("NOT").ExtractIcon
+        lblStatus = "작업 대기중.."
+    End If
+        
+Exit Sub
+ErrRoutine:
+    Call ErrMsgProc(CallForm)
+End Sub
+
+Private Sub cmdStop()
+On Error GoTo ErrRoutine
+    CallForm = "frmInterface - Private Sub cmdRun()"
+    
+    If comEQP.PortOpen Then comEQP.PortOpen = False
+    If comEQP.PortOpen Then
+        Call ShowMessage("중지 되지 않았습니다.")
+        imgPort.Picture = imlStatus.ListImages("RUN").ExtractIcon
+        imgSend.Picture = imlStatus.ListImages("STOP").ExtractIcon
+        imgReceive.Picture = imlStatus.ListImages("STOP").ExtractIcon
+        lblStatus = "작업중.."
+    Else
+        imgPort.Picture = imlStatus.ListImages("STOP").ExtractIcon
+        imgSend.Picture = imlStatus.ListImages("NOT").ExtractIcon
+        imgReceive.Picture = imlStatus.ListImages("NOT").ExtractIcon
+        lblStatus = "작업 대기중.."
+    End If
+Exit Sub
+ErrRoutine:
+    Call ErrMsgProc(CallForm)
+End Sub
+
+Private Sub cmdAppend_Click(Index As Integer)
+   
+    Dim adoRS   As New ADODB.Recordset
+    Dim sqlDoc  As String
+        
+    Dim varTmp  As Variant, strErrMsg   As String
+    Dim strSampleno()   As String, strBarno     As String, strTime      As String
+    Dim strOrdcd()      As String, strRstval()  As String, intCnt       As Integer
+    Dim strTmp1()       As String, strTmp2()    As String
+    Dim intPos          As String, strTestcd    As String, strTestRst   As String
+    
+    Dim strOrdLst()     As String, strPid()    As String, strPnm() As String
+    
+    Dim intRow  As Integer, intCol  As Integer, intIdx  As Integer, blnFlag As Boolean
+    Dim itemX   As ListItem
+    Dim objSpd  As vaSpread
+    Dim sqlRet  As Integer
+    Dim flgSave As Boolean
+    Dim gSql    As String
+    Dim sTxt    As String
+    Dim tTxt    As String
+    Dim CntsTxt As Integer
+    
+    CallForm = "frmComm - Private Sub cmdAppend_Click()"
+    
+On Error GoTo ErrorRoutine
+    
+    Me.MousePointer = 11
+    
+    If Index = 0 Then
+        Set objSpd = spdResult1
+    Else
+        Set objSpd = spdResult2
+    End If
+    
+    CntsTxt = 0:    sTxt = "":  tTxt = ""
+    
+    With objSpd
+        For intRow = 1 To .MaxRows
+            .GetText 2, intRow, varTmp:         strBarno = Trim$(varTmp)
+            .GetText .MaxCols, intRow, varTmp:  strTime = Trim$(varTmp)
+            
+            .GetText 1, intRow, varTmp
+            
+            If strBarno = "" Then Exit For
+            
+            intCnt = 0: Erase strOrdcd: Erase strRstval
+            If Trim$(varTmp) = "1" Then
+                For intCol = 7 To .MaxCols
+                    .GetText intCol, intRow, varTmp
+                    If Trim$(varTmp) <> "" Then
+                        .GetText intCol, 0, varTmp
+                        Set itemX = lvwCuData.FindItem(Trim$(varTmp), lvwSubItem, , lvwWhole)
+                        If Not itemX Is Nothing Then
+                            .GetText intCol, intRow, varTmp
+                            strTestcd = itemX.ListSubItems(1)
+                            intPos = InStr(strTestcd, ",")
+                                
+                            blnFlag = False
+                            Set mAdoRs = f_subSet_TestList(strBarno)
+                            Do Until mAdoRs.EOF
+                                If mAdoRs("품목코드") = strTestcd Then blnFlag = True: Exit Do
+                                mAdoRs.MoveNext
+                            Loop
+                            Set adoRS = Nothing: mAdoRs.Close
+                            
+                            If blnFlag Then
+                                CntsTxt = CntsTxt + 1
+                                sTxt = sTxt + itemX.ListSubItems(3) + "," + varTmp + ","
+                            End If
+                        End If
+                                                
+                        Set itemX = Nothing
+                    End If
+                Next
+                
+                spdResult1.SetText 1, intRow, "0"
+                spdResult1.Row = intRow
+                spdResult1.Col = -1: spdResult1.BackColor = &HFFF8F0
+                
+                If strErrMsg = "" Then
+                    If Index = 1 Then
+                        sqlDoc = "Update INTERFACE003 set SERVERGBN = 'Y'" & _
+                                 " where SPCNO   = '" & strBarno & "'" & _
+                                 "   and TRANSDT = '" & mskRstDate.Text & "'" & _
+                                 "   and TRANSTM = '" & strTime & "'"
+                        AdoCn_Jet.Execute sqlDoc
+                    End If
+                Else
+                    MsgBox strErrMsg, vbInformation, Me.Caption
+                End If
+                
+                sTxt = "ax2004," + strBarno + "," + CStr(CntsTxt) + "," + sTxt + vbLf
+                tTxt = tTxt + sTxt
+                CntsTxt = 0:    sTxt = ""
+            End If
+            
+        Next
+    End With
+    
+    Open App.Path & "\ax2004.dat" For Output As #2
+
+    Print #2, tTxt
+    
+    tTxt = ""
+    
+    Close #2
+    
+    Dim Ret As Long
+
+    If chkRCP.Value Then
+        Ret = WinExec("rcp.exe -a ax2004.dat med.lab:/usr/tmp/ax2004.dat", 2)
+    End If
+    If chkRSH Then
+        Ret = WinExec("rsh.exe med -l lab -n exp_interface.sh clbdvt02m3 ax2004.dat", 2)
+    End If
+    Me.MousePointer = 0
+    MsgBox "작업이 완료되었습니다.", vbInformation, Me.Caption
+    
+    Exit Sub
+ErrorRoutine:
+    Set itemX = Nothing
+    
+    Me.MousePointer = 0
+    Call ErrMsgProc(CallForm)
+
+End Sub
+
+Private Sub cmdENQ_Click()
+    
+    Call COM_OUTPUT(charCOM_Convert(COM_ENQ))
+
+End Sub
+
+Private Sub cmdOrder_Click()
+    Dim ii As Integer
+                           
+    OrderCnt = 0
+    
+    With spdResult1
+        For ii = 1 To .MaxRows
+            .Col = 1: .Row = ii
+            If .Value = 1 Then
+                .Col = 2
+                If Len(Trim(.Text)) > 0 And .BackColor = vbWhite Then
+                    comEQP.Output = ENQ
+                    Debug.Print "[HOST] " & ENQ
+                    'txtStaCom.Text = txtStaCom.Text + "[HOST] " & ENQ
+                    lblStatus = "오더전송중.."
+                    .BackColor = vbCyan
+                    OrderCnt = ii
+                    .Col = 3
+                    .BackColor = vbCyan
+                    .Col = 4
+                    .BackColor = vbCyan
+                    
+                    Exit For
+                End If
+            End If
+        Next
+    End With
+
+End Sub
+
+Private Sub cmdRstQuery_Click()
+
+    Dim adoRS   As New ADODB.Recordset
+    Dim sqlDoc  As String, intRet   As Integer
+    
+    Dim strSpcno    As String
+    Dim intRow      As Integer, intCol  As Integer
+    Dim strOrdcd()  As String, strPid() As String, strPnm() As String
+    
+    Dim itemX       As ListItem
+
+    intRow = 0
+    With spdResult2
+        .MaxRows = 14
+        .Col = 1:   .Col2 = .MaxCols
+        .Row = 1:   .Row2 = .MaxRows
+        .BlockMode = True
+        .Action = ActionClearText
+        .BlockMode = False
+    End With
+    
+    sqlDoc = "select SPCNO, TESTCD, EQUIPCD, TRANSTM, RSTVAL, REFVAL, TRANSDT, EQPNUM" & _
+             "  from INTERFACE003" & _
+             " where TRANSDT = '" & mskRstDate.Text & "'" & _
+             "   and EQUIPCD = '" & INS_CODE & "'"
+    If cboRstgbn(1).ListIndex = 0 Then
+        sqlDoc = sqlDoc & "   and SERVERGBN = ''"
+    ElseIf cboRstgbn(1).ListIndex = 1 Then
+        sqlDoc = sqlDoc & "   and SERVERGBN = 'Y'"
+    End If
+    sqlDoc = sqlDoc & " order by SPCNO, TRANSTM"
+    
+    adoRS.CursorLocation = adUseClient
+    adoRS.Open sqlDoc, AdoCn_Jet
+    If adoRS.RecordCount > 0 Then adoRS.MoveFirst
+    Do While Not adoRS.EOF
+        With spdResult2
+            If strSpcno <> Trim$(adoRS(0) & "") + Trim$(adoRS(6) & "") Then
+                intRow = intRow + 1
+                If intRow > .MaxRows Then .MaxRows = .MaxRows + 1:  .RowHeight(.MaxRows) = 13
+
+                .SetText 1, intRow, "1"
+                .SetText 2, intRow, Trim$(adoRS(0) & "")
+                
+                Set mAdoRs = f_subSet_TestList(Trim$(adoRS(0)))
+                .SetText 3, intRow, mAdoRs("patientname")
+                .SetText 4, intRow, mAdoRs("patientnumber")
+                .SetText .MaxCols, intRow, Trim$(adoRS(6) & "")
+            End If
+            
+            strSpcno = Trim$(adoRS(0) & "") + Trim$(adoRS(6) & "")
+            Set itemX = lvwCuData.FindItem(Trim$(adoRS(7) & ""), lvwTag, , lvwWhole)
+            If Not itemX Is Nothing Then
+                intCol = itemX.Index + 4
+                .SetText intCol, intRow, Trim$(adoRS(4)) & ""
+                .Col = intCol:  .Row = intRow:  .ForeColor = IIf(Trim$(adoRS(5) & "") <> "", vbRed, vbBlack)
+            End If
+            
+        End With
+        adoRS.MoveNext
+    Loop
+    adoRS.Close:    Set adoRS = Nothing
+'    mAdoRs.Close:   Set mAdoRs = Nothing
+    
+End Sub
+
+Private Sub cmdSel_Click(Index As Integer)
+
+    Dim varTmp  As Variant
+    Dim intRow  As Integer
+    
+    If Index = 2 Or Index = 3 Then
+        With spdResult2
+            For intRow = 1 To .MaxRows
+                .GetText 2, intRow, varTmp
+                If Trim$(varTmp) <> "" Then .SetText 1, intRow, IIf(Index = 2, "1", "")
+            Next
+        End With
+    Else
+        With spdWorkList
+            For intRow = 1 To .MaxRows
+                .GetText 2, intRow, varTmp
+                If Trim$(varTmp) <> "" Then .SetText 1, intRow, IIf(Index = 0, "1", "")
+            Next
+        End With
+    End If
+    
+End Sub
+
+Private Sub cmdStartNo_Click()
+Dim sNo As String, sCnt As Integer, sAdd As Integer
+
+AgainInput:
+    sNo = InputBox("시작 번호를 입력하세요 !")
+    If Len(sNo) > 0 And spdResult1.MaxRows > 0 Then
+        If Not IsNumeric(sNo) Then
+            MsgBox "숫자만 입력하세요.!", vbCritical
+            GoTo AgainInput
+        End If
+        
+        With spdResult1
+            sAdd = 0
+            For sCnt = .ActiveRow To .MaxRows
+                .Row = sCnt
+                .Col = 0:       .Text = Trim(sAdd + Val(sNo))
+                sAdd = sAdd + 1
+            Next sCnt
+        
+            .StartingRowNumber = Val(sNo)
+        End With
+    End If
+
+End Sub
+
+Private Sub cmdWordQuery_Click()
+
+    On Error GoTo ErrRoutine
+    CallForm = "frmInterface - Privete sub cmdWorkQuery_Click()"
+    
+    Dim strKeyno    As String
+    Dim strOrdcd()  As String, strPid() As String, strPnm() As String, strBarno()   As String
+    Dim strTestcd() As String, strTPid()    As String, strTPnm() As String
+    Dim strEqpCd    As String
+    Dim intRow  As String, intIdx  As Integer, intCol   As Integer
+    Dim itemX   As ListItem
+    
+    '-- WorkList조회
+    Set mAdoRs = f_subSet_WorkList
+    
+    With spdWorkList
+        .MaxRows = 14
+        .Col = 1:   .Col2 = .MaxCols
+        .Row = 1:   .Row2 = .MaxRows
+        .BlockMode = True
+        .Action = ActionClearText
+        .BlockMode = False
+        .RowHeight(-1) = 12
+    End With
+    
+    intRow = 0
+    Do Until mAdoRs.EOF
+        intIdx = 0
+        With spdWorkList
+            If strKeyno <> mAdoRs.Fields("검체번호") Then
+                intRow = intRow + 1
+                If intRow > .MaxRows Then .MaxRows = .MaxRows + 1:  .RowHeight(.MaxRows) = 13
+                
+                .SetText 1, intRow, "1"
+                .SetText 2, intRow, mAdoRs("검체번호") '-- 접수번호
+                .SetText 3, intRow, mAdoRs("성명") '-- 환자명
+                .SetText 4, intRow, mAdoRs("병록번호") '-- 병록번호
+                .SetText 5, intRow, mAdoRs("접수일자") '-- 접수일
+                .SetText 6, intRow, mAdoRs("품목코드") '-- 결과번호
+
+                '-- 검사항목조회
+                'Set mAdoRs1 = New Recordset
+                'Set mAdoRs1 = f_subSet_TestList(mAdoRs("품목코드"), mAdoRs("병록번호"))
+                
+                Do Until mAdoRs.EOF
+                    strEqpCd = f_funGet_CODE(mAdoRs("품목코드"))
+                    
+                    Set itemX = lvwCuData.FindItem(strEqpCd, lvwTag, , lvwWhole)
+                    If Not itemX Is Nothing Then .SetText 4 + itemX.Index, intRow, "V"
+                    Set itemX = Nothing
+                    mAdoRs.MoveNext
+                Loop
+            End If
+            'strKeyno = mAdoRs("품목코드")
+        End With
+        intIdx = intIdx + 1
+        'mAdoRs.MoveNext
+    Loop
+    Exit Sub
+    
+ErrRoutine:
+
+    Call ErrMsgProc(CallForm)
+
+End Sub
+
+Private Sub cmdWorkList_Click()
+
+    Dim varTmp  As Variant
+    Dim intRow1 As Integer, intRow2 As Integer
+    Dim intIdx  As Integer
+    Dim Rev     As Long
+    Dim Test_Cd() As String, strPid()   As String, strPnm() As String
+    Dim itemX As ListItem
+    Dim blnFlag As Boolean
+    Dim strBarno    As String, strSPid  As String, strSPnm   As String, strRegDt As String, strRegNo As String
+    
+    Dim strEqpCd    As String
+    Dim fNum1   As Integer, fNum2  As Integer
+    
+    blnFlag = False
+    'fNum1 = 65: fNum2 = 1
+    With spdWorkList
+        For intRow1 = 1 To .MaxRows
+            .GetText 1, intRow1, varTmp
+            If Trim$(varTmp) = "1" Then
+                .GetText 3, intRow1, varTmp:    strSPnm = Trim$(varTmp)  '-- 환자명
+                .GetText 4, intRow1, varTmp:    strSPid = Trim$(varTmp)  '-- 병록번호
+                .GetText 5, intRow1, varTmp:    strRegDt = Trim$(varTmp)  '-- 접수일
+                .GetText 6, intRow1, varTmp:    strRegNo = Trim$(varTmp)  '-- 결과번호
+                .GetText 2, intRow1, varTmp:    strBarno = Trim$(varTmp) '-- 접수번호
+                
+                intRow2 = f_funGet_SpreadRow(spdResult1, 2, strBarno)
+                If intRow2 < 1 Then
+                    intRow2 = f_funGet_SpreadRow(spdResult1, 2, "")
+                    If intRow2 < 1 Then
+                        spdResult1.MaxRows = spdResult1.MaxRows + 1
+                        spdResult1.RowHeight(spdResult1.MaxRows) = 12
+                        intRow2 = spdResult1.MaxRows
+                    End If
+                    
+                    blnFlag = False
+                    Set mAdoRs = f_subSet_TestList(strBarno)
+                    If Len(strBarno) > 0 Then
+                        Do Until mAdoRs.EOF
+                            strEqpCd = f_funGet_CODE(mAdoRs("품목코드"))
+                            Set itemX = lvwCuData.FindItem(strEqpCd, lvwTag, , lvwWhole)
+                            If Not itemX Is Nothing Then
+                                blnFlag = True
+                                spdResult1.Row = intRow2
+                                spdResult1.Col = itemX.Index + 6
+                                spdResult1.BackColor = &HC6FEFF '&H80C0FF
+                                DoEvents
+                            End If
+                            mAdoRs.MoveNext
+                        Loop
+                    End If
+                    
+                    If blnFlag = True Then
+                        spdResult1.SetText 2, intRow2, strBarno
+                        spdResult1.SetText 3, intRow2, strSPnm
+                        spdResult1.SetText 4, intRow2, strSPid
+                        spdResult1.SetText 5, intRow2, strRegDt
+                        spdResult1.SetText 6, intRow2, strRegNo
+                        
+                    Else
+                        spdResult1.MaxRows = spdResult1.MaxRows - 1
+                    End If
+                End If
+                spdResult1.SetText 1, intRow2, "1"
+                spdResult1.MaxRows = intRow2
+
+                .SetText 1, intRow1, ""
+            End If
+        Next
+    End With
+End Sub
+
+Private Sub comEQP_OnComm()
+    
+    Dim strEVMsg    As String
+    Dim strERMsg    As String
+    Dim strDta      As String
+    Dim Arr()       As Byte
+    Dim strdata     As String
+    Dim fRcvString As String
+
+    Select Case comEQP.CommEvent
+        Case comEvReceive
+            imgReceive.Picture = imlStatus.ListImages("RUN").ExtractIcon
+            If tmrReceive.Enabled = False Then
+                tmrReceive.Enabled = True
+            Else
+                tmrReceive.Enabled = False
+                tmrReceive.Enabled = True
+            End If
+
+            strDta = comEQP.Input
+            'Debug.Print strDta
+            Call ComReceive(strDta)
+            
+            'comEQP.Output = ACK
+            
+        Case comEvSend
+        
+            imgSend.Picture = imlStatus.ListImages("RUN").ExtractIcon
+            If tmrSend.Enabled = False Then
+                tmrSend.Enabled = True
+            Else
+                tmrSend.Enabled = False
+                tmrSend.Enabled = True
+            End If
+        Case comEvCTS
+            strEVMsg = " CTS(Clear to Send) 변경 감지"
+        Case comEvDSR
+            strEVMsg = " DSR(Data Set Read) 변경 감지"
+        Case comEvCD
+            strEVMsg = " CD(Carrier Detecr) 변경 감지"
+        Case comEvRing
+            strEVMsg = " 전화 벨이 울리는 중"
+        Case comEvEOF
+            strEVMsg = " EOF(End Of File) 감지"
+
+        ' 오류 메시지
+        Case comBreak
+            strERMsg = " 중단 신호 수신"
+        Case comCDTO
+            strERMsg = " 반송파 검출 시간 초과"
+        Case comCTSTO
+            strERMsg = " CTS(Clear to Send) 시간 초과"
+        Case comDCB
+            strERMsg = " 포트에 대한 장치 제어 블록(DCB) 검색 중 예기치 못한 오류"
+        Case comDSRTO
+            strERMsg = " DSR(Data Set Read) 시간 초과"
+        Case comFrame
+            strERMsg = " 프레이밍 오류"
+        Case comOverrun
+            strERMsg = " 패리티 오류"
+        Case comRxOver
+            strERMsg = " 수신 버퍼 초과"
+        Case comRxParity
+            strERMsg = " 패리티 오류"
+        Case comTxFull
+            strERMsg = " 전송 버퍼에 여유가 없음"
+        Case Else
+            strERMsg = " 알 수 없는 오류 또는 이벤트"
+    End Select
+    If Len(strERMsg) > 0 Then Call ShowMessage(strERMsg)
+End Sub
+
+Private Sub ComReceive(ByRef RecData As String)
+    
+    Dim strRec  As String, strBuff  As String
+    
+    Dim intIdx1     As Integer, intIdx2     As Integer
+    Dim strTmp1     As String, strTmp2      As String
+    Dim intPos1     As Integer, intPos2     As Integer
+    Dim strDta()    As String, intCnt       As Integer
+    
+    strRec = RecData
+    
+    Print #1, strRec;
+'    Call COM_INPUT(strRec)
+    
+    For intIdx1 = 1 To Len(strRec)
+        strBuff = Mid$(strRec, intIdx1, 1)
+        
+        Select Case strBuff
+            Case ENQ
+                    comEQP.Output = ACK
+                    f_strBuffer = ""
+                    Exit Sub
+            Case STX
+                        f_strBuffer = strBuff
+            Case Chr(13) '-- CR
+                        Call psDataDefine(f_strBuffer, fChannel(), spdResult1)
+                        comEQP.Output = ACK
+                        'Debug.Print f_strBuffer
+                        f_strBuffer = ""
+            Case Else
+                        f_strBuffer = f_strBuffer + strBuff
+        End Select
+    Next
+            
+End Sub
+
+Private Sub psDataDefine(ByVal strdata As String, ByRef brChannel() As String, ByVal brspread As Object) ', ByVal brOst As String) ' ByRef brItemdeci() As String)
+
+    On Error GoTo ErrRoutine
+    CallForm = "frmInterface - Privete sub psDataDefine()"
+
+    Dim sqlDoc  As String, sqlRet   As Integer
+    
+    Dim varTmp      As Variant
+    Dim strTmp      As String
+    Dim intRow      As Long, intCol As Integer, intIdx  As Integer
+    Dim strRstval   As String, strRefVal    As String
+    Dim sSeq, sCol, strBarno As String
+    Dim strTime  As String, strDate  As String
+    Dim strSeqno    As String
+    Dim ii          As Integer
+    Dim jj          As Integer
+    
+    Dim strOrdLst() As String, strPid() As String, strPnm() As String
+    Dim intRet      As Integer
+    Dim Channel_No  As String       ' 문자형 변수
+    Dim Result As String
+    Dim itemX   As ListItem
+    Dim iRsltcnt As Integer
+    Dim pDoCount As Integer
+    Dim tmpChannel As String
+    Dim gSql As String
+    
+    Dim varBarno As Variant
+    Dim varSPid  As Variant
+    Dim varSPnm  As Variant
+    Dim varRegDt As Variant
+    Dim varRegNo As Variant
+    
+    pDoCount = 0
+
+    Erase fAxsym
+    
+    ReceiveData = strdata
+    
+    Do While InStr(ReceiveData, Chr$(124)) > 0 '--Chr(29)
+        pDoCount = pDoCount + 1
+        fAxsym(pDoCount) = Text_Redefine(ReceiveData, Chr$(124))
+        ReceiveData = Mid$(ReceiveData, InStr(ReceiveData, Chr$(124)) + 1)
+        If pDoCount > 99 Then
+            ReceiveData = ""
+            Exit Do
+        End If
+        If pDoCount < 10 Then fAxsym(pDoCount) = Text_Change(fAxsym(pDoCount), Chr$(29), "")
+        'Debug.Print fAxsym(pDoCount)
+    Loop
+    
+    Select Case Mid(fAxsym(1), 3, 1)
+        Case "H":  Exit Sub
+        Case "P":  Exit Sub
+        Case "O":  SeqNo = Mid(fAxsym(4), 1, InStr(fAxsym(4), "^") - 1): Exit Sub
+        Case "R"
+                Channel_No = Mid(fAxsym(3), 4, 3)
+                '-- 숫자형 결과
+                'If Len(SeqNo) > 0 And Right(fAxsym(3), 1) = "F" Then
+                If Len(SeqNo) > 0 And Right(fAxsym(3), 1) = "F" And (Channel_No <> "106" Or Channel_No <> "841" Or Channel_No <> "817") Then
+                    intRow = 0
+                    With spdResult1
+                        intRow = SeqSearch(brspread, SeqNo, 2)
+                        If intRow > 0 Then
+                            For intCol = 5 To .MaxCols
+                                .GetText intCol, 0, varTmp
+                                Channel_No = Mid(fAxsym(3), 4, 3)
+                                If Right(Channel_No, 1) = "^" Then Channel_No = Mid(Channel_No, 1, 2)
+                                
+                                If Right(fAxsym(3), 1) = "P" Then Exit Sub
+                                'If Right(fAxsym(3), 1) = "F" And (Channel_No <> "106" Or Channel_No <> "841" Or Channel_No <> "817") Then
+                                
+                                strRstval = fAxsym(4)
+                                Set itemX = lvwCuData.FindItem(Trim$(varTmp), lvwSubItem, , lvwWhole)
+                                If Not itemX Is Nothing Then
+                                    For intIdx = 1 To .MaxCols
+                                        If Len(Channel_No) > 0 Then
+                                            If InStr(UCase(Channel_No), UCase(itemX.Tag)) > 0 Then
+                                                strDate = Format$(Now, "YYYYMMDD"):     strTime = Format$(Now + intCol, "MMSS")
+                                                .SetText intCol, intRow, strRstval
+                                                .Col = intCol:  .Row = intRow
+                                                                .ForeColor = IIf(Trim$(strRefVal) <> "", vbRed, vbBlack)
+            
+                                                .GetText 2, intRow, varTmp
+                                                .GetText 2, intRow, varBarno
+                                                .GetText 3, intRow, varSPid
+                                                .GetText 4, intRow, varSPnm
+                                                .GetText 5, intRow, varRegDt
+                                                .GetText 6, intRow, varRegNo
+                                                
+                                                sqlDoc = "Update INTERFACE003" & _
+                                                         "   set RSTVAL  = '" & strRstval & "', REFVAL = '" & strRefVal & "'" & _
+                                                         " where SPCNO   = '" & varTmp & "'" & _
+                                                         "   and EQPNUM  = '" & itemX.Tag & "'" & _
+                                                         "   and TRANSDT = '" & strDate & "'" & _
+                                                         "   and TRANSTM = '" & strTime & "'"
+                                                AdoCn_Jet.Execute sqlDoc, sqlRet
+
+                                                sqlDoc = "insert into INTERFACE003(" & _
+                                                         "            SPCNO, TESTCD, EQPNUM, TRANSDT, TRANSTM, RSTVAL, REFVAL, EQUIPCD, SERVERGBN)" & _
+                                                         "    values( '" & varTmp & "', '" & itemX.Text & "', '" & itemX.Tag & "'," & _
+                                                         "            '" & strDate & "', '" & strTime + 1 & "'," & _
+                                                         "            '" & strRstval & "', '" & strRefVal & "'," & _
+                                                         "            '" & INS_CODE & "', '')"
+                                                AdoCn_Jet.Execute sqlDoc
+            
+'                                                If sqlRet = 0 And chkAuto.Value = vbChecked Then
+'                                                    'gSql = "Update MLA_ORD_6 " & _
+'                                                           "   Set RESUL_TX = '" & Trim$(varTmp) & "', " & _
+'                                                           "       ENGIN_CD = '" & CurrUser.CuUserID & "', " & _
+'                                                           "       INSPE_DT = '" & Format$(Now, "YYYYMMD") & "', " & _
+'                                                           "       INSST_TM = '" & Format$(Now, "HHMM") & "', " & _
+'                                                           "       ING_KB   = '4', " & _
+'                                                           " Where RECEI_DT = '" & varRegDt & "'" & _
+'                                                           "   and INSPE_KB = 'DL51'" & _
+'                                                           "   and RECEI_NO = '" & varBarno & "'" & _
+'                                                           "   and INSPE_NO = '" & itemX.Tag & "'" & _
+'                                                           "   and RESUL_NO = '" & varRegNo & "'"
+'
+'                                                    'AdoCn_SQL.Execute (gSql)
+'
+'                                                    If sqlRet = 1 Then
+'                                                        lblStatus.Caption = "저장 성공!!"
+'                                                        spdResult1.SetText 1, Patiant_Recevid, "0"
+'                                                        spdResult1.Row = Patiant_Recevid
+'                                                        spdResult1.Col = -1:    spdResult1.BackColor = &HFFF8F0
+'                                                        sqlDoc = "Update INTERFACE003 set SERVERGBN = 'Y'" & _
+'                                                                 " where SPCNO   = '" & varTmp & "'" & _
+'                                                                 "   and TRANSDT = '" & mskRstDate.Text & "'" & _
+'                                                                 "   and TRANSTM = '" & strTime & "'"
+'                                                        AdoCn_Jet.Execute sqlDoc
+'                                                    Else
+'                                                        lblStatus.Caption = "저장 실패!!"
+'                                                    End If
+'                                                End If
+                                            End If
+                                        End If
+                                        Exit For
+                                    Next intIdx
+                                End If
+                                Set itemX = Nothing
+                            Next
+                        End If
+                    End With
+'                 End If
+'                '-- 판정형 결과
+                ElseIf Len(SeqNo) > 0 And Right(fAxsym(3), 1) = "I" And (Channel_No = "106" Or Channel_No = "841" Or Channel_No = "817") Then
+                    intRow = 0
+                    With spdResult1
+                        intRow = SeqSearch(brspread, SeqNo, 2)
+                        If intRow > 0 Then
+                            For intCol = 5 To .MaxCols
+                                .GetText intCol, 0, varTmp
+                                Channel_No = Mid(fAxsym(3), 4, 3)
+
+'                                If Channel_No <> "106" And Channel_No <> "841" And Channel_No <> "817" Then
+'                                    Exit Sub
+'                                End If
+
+                                If Right(Channel_No, 1) = "^" Then Channel_No = Mid(Channel_No, 1, 2)
+                                strRstval = fAxsym(4)
+                                Set itemX = lvwCuData.FindItem(Trim$(varTmp), lvwSubItem, , lvwWhole)
+                                If Not itemX Is Nothing Then
+                                    For intIdx = 1 To .MaxCols
+                                        If Len(Channel_No) > 0 Then
+                                            If InStr(UCase(Channel_No), UCase(itemX.Tag)) > 0 Then
+                                                strDate = Format$(Now, "YYYYMMDD"):     strTime = Format$(Now + intCol, "MMSS")
+                                                .SetText intCol, intRow, strRstval
+                                                .Col = intCol:  .Row = intRow
+                                                                .ForeColor = IIf(Trim$(strRefVal) <> "", vbRed, vbBlack)
+
+                                                .GetText 2, intRow, varTmp
+
+                                                sqlDoc = "Update INTERFACE003" & _
+                                                         "   set RSTVAL  = '" & strRstval & "', REFVAL = '" & strRefVal & "'" & _
+                                                         " where SPCNO   = '" & varTmp & "'" & _
+                                                         "   and EQPNUM  = '" & itemX.Tag & "'" & _
+                                                         "   and TRANSDT = '" & strDate & "'" & _
+                                                         "   and TRANSTM = '" & strTime & "'"
+                                                AdoCn_Jet.Execute sqlDoc, sqlRet
+
+                                                sqlDoc = "insert into INTERFACE003(" & _
+                                                         "            SPCNO, TESTCD, EQPNUM, TRANSDT, TRANSTM, RSTVAL, REFVAL, EQUIPCD, SERVERGBN)" & _
+                                                         "    values( '" & varTmp & "', '" & itemX.Text & "', '" & itemX.Tag & "'," & _
+                                                         "            '" & strDate & "', '" & strTime + 2 & "'," & _
+                                                         "            '" & strRstval & "', '" & strRefVal & "'," & _
+                                                         "            '" & INS_CODE & "', '')"
+'                                                Debug.Print sqlDoc
+                                                AdoCn_Jet.Execute sqlDoc
+
+'                                                If sqlRet = 0 And chkAuto.Value = vbChecked Then
+'                                                    gSql = "Update MLA_CRD_3 " & _
+'                                                           "   Set RESUL_TX = '" & Trim$(varTmp) & "', " & _
+'                                                           "       ENGIN_CD = '" & CurrUser.CuUserID & "', " & _
+'                                                           "       INSST_DT = '" & Format$(Now, "YYYYMMD") & "', " & _
+'                                                           "       INSST_DT = '" & Format$(Now, "HHMM") & "', " & _
+'                                                           "       ING_KB   = '1', " & _
+'                                                           " Where RECEI_DT ='" & varTmp & "'" & _
+'                                                           "   and INSPE_KB ='" & varTmp & "'" & _
+'                                                           "   and RECEI_NO ='" & varTmp & "'" & _
+'                                                           "   and INSPE_NO ='" & varTmp & "'" & _
+'                                                           "   and RESUL_NO ='" & varTmp & "'"
+'
+'                                                    AdoCn_SQL.Execute (gSql)
+'
+'                                                    If sqlRet = 1 Then
+'                                                        lblStatus.Caption = "저장 성공!!"
+'                                                        spdResult1.SetText 1, Patiant_Recevid, "0"
+'                                                        spdResult1.Row = Patiant_Recevid
+'                                                        spdResult1.Col = -1:    spdResult1.BackColor = &HFFF8F0
+'                                                        sqlDoc = "Update INTERFACE003 set SERVERGBN = 'Y'" & _
+'                                                                 " where SPCNO   = '" & varTmp & "'" & _
+'                                                                 "   and TRANSDT = '" & mskRstDate.Text & "'" & _
+'                                                                 "   and TRANSTM = '" & strTime & "'"
+'                                                        AdoCn_Jet.Execute sqlDoc
+'                                                    Else
+'                                                        lblStatus.Caption = "저장 실패!!"
+'                                                    End If
+'                                                End If
+                                            End If
+                                        End If
+                                        Exit For
+                                    Next intIdx
+                                End If
+                                Set itemX = Nothing
+                            Next
+                        End If
+                    End With
+                End If
+        Case "L":  Exit Sub
+        Case "C":  Exit Sub
+        Case Else: Exit Sub
+    End Select
+    
+    
+    Exit Sub
+ErrRoutine:
+    'On Error Resume Next
+    Debug.Print sqlDoc
+    Call ErrMsgProc(CallForm)
+
+End Sub
+
+Private Function f_funAdd_Server(ByVal strBarno As String, ByVal strTestcd As String, _
+                                 ByVal strTestval As String, ByRef strOrdLst() As String) As Boolean
+                                 
+    Dim strErrMsg       As String
+    Dim strSampleno()   As String
+    Dim strOrdcd()      As String, strRstval()  As String
+    Dim strTmp1()       As String, strTmp2()    As String, strTmp   As String
+    Dim intPos          As Integer, intIdx      As Integer
+    Dim blnFlag         As Boolean
+    
+    blnFlag = False
+    f_funAdd_Server = False
+    
+    strTmp = strTestcd: intPos = InStr(strTmp, ",")
+    Do While intPos > 0
+        blnFlag = False
+        For intIdx = 0 To UBound(strOrdLst) - 1
+            If strOrdLst(intIdx) = Mid$(strTmp, 1, intPos - 1) Then
+                blnFlag = True
+                strTmp = Mid$(strTmp, 1, intPos - 1)
+                Exit Do
+            End If
+        Next
+        
+        strTmp = Mid$(strTmp, intPos + 1)
+        intPos = InStr(strTmp, ",")
+    Loop
+    
+    If Not blnFlag Then
+        For intIdx = 0 To UBound(strOrdLst) - 1
+            If strOrdLst(intIdx) = strTmp Then blnFlag = True: Exit For
+        Next
+    End If
+    
+    If blnFlag Then
+        ReDim Preserve strSampleno(1 To 1) As String
+        ReDim Preserve strOrdcd(1 To 1) As String
+        ReDim Preserve strRstval(1 To 1) As String
+        ReDim Preserve strTmp1(1 To 1) As String
+        ReDim Preserve strTmp2(1 To 1) As String
+        
+        strSampleno(1) = strBarno
+        strOrdcd(1) = strTmp
+        strRstval(1) = strTestval
+        
+'        Call sl_online_result_ul_4&(strErrMsg, strSampleno, strOrdcd, strRstval, strTmp1, strTmp2, Chr(0))
+        If strErrMsg = "" Then
+            f_funAdd_Server = True
+        Else
+            Call ErrMsgProc("", strErrMsg)
+        End If
+'    Else
+'        Call ErrMsgProc("", "검체번호 [" + strBarno + "]를 저장하지 못했습니다.")
+    End If
+                                
+End Function
+
+Public Function Text_Redefine(FSend_Str As String, FCheck_Char As String) As String
+    
+    If InStr(FSend_Str, FCheck_Char) > 0 Then
+        Text_Redefine = left$(FSend_Str, InStr(FSend_Str, FCheck_Char) - 1)
+    Else
+        Text_Redefine = FSend_Str
+    End If
+    
+End Function
+
+Public Function Text_Change(FSend_Str As String, FCheck_Char As String, FChange_Char As String) As String
+Dim Pos_point As Integer
+    Do
+        Pos_point = InStr(FSend_Str, FCheck_Char)
+        If Pos_point < 1 Then
+            Exit Do
+        ElseIf Pos_point = 1 Then
+            FSend_Str = FChange_Char + Mid$(FSend_Str, 2)
+        Else
+            FSend_Str = Mid$(FSend_Str, 1, Pos_point - 1) + FChange_Char + Mid$(FSend_Str, Pos_point + 1)
+        End If
+    Loop
+    Text_Change = FSend_Str
+    
+End Function
+
+Private Function SeqNullSearch(ByVal brspread As Object, ByVal brSeq As String, ByVal brCol As Integer) As Long
+Dim sCnt As Long
+
+    SeqNullSearch = 0
+    If brspread.MaxRows <= 0 Then
+        Exit Function
+    End If
+    
+    With brspread
+        For sCnt = 1 To .MaxRows
+            .Row = sCnt
+            .Col = brCol
+            If Trim(.Text) = "" Then
+                SeqNullSearch = sCnt
+                .Action = ActionActiveCell
+                .Refresh
+                Exit For
+            End If
+        Next sCnt
+    End With
+
+End Function
+
+Private Function SeqSearch(ByVal brspread As Object, ByVal brSeq As String, ByVal brCol As Integer) As Long
+
+Dim sCnt As Long
+
+    SeqSearch = 0
+    If brspread.MaxRows <= 0 Then
+        Exit Function
+    End If
+    
+    With brspread
+        If optSeq.Value = False Then
+            For sCnt = 1 To .MaxRows
+                .Row = sCnt
+                .Col = brCol
+                If Trim(.Text) = brSeq Then
+                    SeqSearch = sCnt
+                    .Action = ActionActiveCell
+                    .Refresh
+                    Exit For
+                End If
+            Next sCnt
+        Else
+            For sCnt = 1 To .MaxRows
+                .Row = sCnt
+                .Col = brCol
+                If Val(spdResult1.StartingRowNumber + (Val(sCnt) - 1)) = Val(brSeq) Then
+                    SeqSearch = sCnt 'brSeq
+                    .Action = ActionActiveCell
+                    .Refresh
+                    Exit For
+                End If
+            Next sCnt
+        End If
+    End With
+    
+End Function
+
+Private Sub Command1_Click()
+
+    Dim strDta  As String
+    Dim intIdx          As Integer
+    
+    Dim byeTemp()       As Byte
+
+    Call comEQP_OnComm
+    
+End Sub
+
+Private Sub Form_Activate()
+    
+    If IS_SET = False Then Unload Me
+
+End Sub
+
+Private Sub Form_Load()
+    
+'    Me.Show
+    imgPort.Picture = imlStatus.ListImages("NOT").ExtractIcon
+    imgSend.Picture = imlStatus.ListImages("NOT").ExtractIcon
+    imgReceive.Picture = imlStatus.ListImages("NOT").ExtractIcon
+    
+    CaptionBar1.Caption = INS_NAME & " Communication"
+    
+    Call cmdClear               ' 초기화
+    'Call f_subSet_ItemHeader    ' 리스트해더
+    Call f_subSet_ItemList      ' 검사항목
+    
+    Call f_subSet_ComCharacter  ' 통신문자
+    Call f_subGet_Setting       ' 통신설정
+    
+    Call cmdRun           ' 실행
+    
+'    mskRstDate.Text = Format$(Now, "YYYYMMDD")
+'    mskOrdDate.Text = Format$(Now, "YYYYMMDD")
+'    mskOrdDate1.Text = Format$(Now, "YYYYMMDD")
+    Open App.Path + "\" + "Axsym.log" For Append As #1
+
+    Print #1, Chr(13) + Chr(10);
+    
+    f_strJOB_FLAG = "1":    f_intSampleNo = 0
+'    cboRstgbn(0).ListIndex = 0: cboRstgbn(1).ListIndex = 2
+'    tabWork.Tab = 0
+    
+    DoEvents
+    SendCount = 0
+
+    '-- 해당일자의 차수불러오기
+    'Call f_subSet_DateOrder
+    
+End Sub
+
+Private Function f_subSet_WorkList()
+    Dim sqlRet      As Integer
+    Dim gSql        As String
+    
+On Error GoTo ErrorTrap
+    CallForm = "clsCommon - Public Function f_subSet_WorkList() As ADODB.Recordset"
+    
+    Set AdoRs_ORACLE = New ADODB.Recordset
+    
+    gSql = "select 처방전코드, 처방전명, 검체번호, 검체명, 품목코드, 품목명, 접수일자, 입외구분, 병록번호, 성명, 생년월일, 나이, 성별코드, 검체코드, 과코드, 특기사항, 처리구분코드 " & _
+           "  from cli.검사검체1v " & _
+           " where 처방전코드 = '250' " & _
+           "   and (처리구분코드 <> 'N' or 처리구분코드 <> 'R') " & _
+           "   and 접수일자 Between '" & mskOrdDate.Text & "' And '" & mskOrdDate1.Text & "' " & _
+           " order by 검체번호 "
+            
+    AdoRs_ORACLE.Open gSql, AdoCn_ORACLE, adOpenStatic, adLockReadOnly
+   
+    If AdoRs_ORACLE.RecordCount = 0 Then
+        Set f_subSet_WorkList = Nothing
+    Else
+        Set f_subSet_WorkList = AdoRs_ORACLE
+    End If
+
+    Set AdoRs_ORACLE = Nothing
+
+Exit Function
+
+ErrorTrap:
+    Set AdoRs_ORACLE = Nothing
+    Call ErrMsgProc(CallForm)
+
+    
+End Function
+
+Private Function f_subSet_TestList(ByVal strRecei As String)
+    Dim sqlRet      As Integer
+    Dim gSql        As String
+    
+On Error GoTo ErrorTrap
+    CallForm = "clsCommon - Public Function f_subSet_DateOrder() As ADODB.Recordset"
+    
+    Set AdoRs_ORACLE = New ADODB.Recordset
+    
+    gSql = "select 품목코드 " & _
+           "  from cli.검사검체1v " & _
+           " where 처방전코드 = '250' " & _
+           "   and 검체번호 = '" & strRecei & "'" & _
+           "   and (처리구분코드 <> 'N' or 처리구분코드 <> 'R') " & _
+           "   and 접수일자 Between '" & mskOrdDate.Text & "' And '" & mskOrdDate1.Text & "' " & _
+           " order by 검체번호 "
+    
+'    gSql = "select TESTCD " & _
+           "  from INTERFACE002 " & _
+           " where TESTCD = '" & strRecei & "'"
+    
+    AdoRs_ORACLE.Open gSql, AdoCn_ORACLE, adOpenStatic, adLockReadOnly
+    
+    If AdoRs_ORACLE.RecordCount = 0 Then
+        Set f_subSet_TestList = Nothing
+    Else
+        Set f_subSet_TestList = AdoRs_ORACLE
+    End If
+
+    Set AdoRs_ORACLE = Nothing
+
+Exit Function
+
+ErrorTrap:
+    Set AdoRs_ORACLE = Nothing
+    Call ErrMsgProc(CallForm)
+
+    
+End Function
+
+Private Sub f_subSet_DateOrder()
+    Dim sqlRet      As Integer
+    Dim iCnt        As Integer
+    Dim itemCnt     As Integer
+    
+On Error GoTo ErrorTrap
+    CallForm = "clsCommon - Public Function f_subSet_DateOrder() As ADODB.Recordset"
+    
+    Set AdoRs_SQL = New ADODB.Recordset
+    AdoRs_SQL.CursorLocation = adUseClient
+    AdoRs_SQL.Open AdoCn_SQL.Execute("Exec Interface_WorkListStep_SELECT_sp '" & INS_CODE & "','" & mskOrdDate.FormattedText & "'", sqlRet)
+
+    cboOrder.Clear
+    If sqlRet <> 0 Then
+        iCnt = 0
+        If IsNull(AdoRs_SQL.Fields(0)) Then
+            lblStatus.Caption = "조회차수가 없습니다"
+            Exit Sub
+        Else
+            Do Until AdoRs_SQL.EOF
+                If AdoRs_SQL.Fields(0) > 1 Then
+                    For itemCnt = 1 To AdoRs_SQL.Fields(0)
+                        cboOrder.AddItem itemCnt
+                        iCnt = iCnt + 1
+                    Next
+                Else
+                    cboOrder.AddItem AdoRs_SQL.Fields(0)
+                    iCnt = iCnt + 1
+                End If
+                
+    '            cboOrder.AddItem AdoRs_SQL.Fields(0)
+    '            iCnt = iCnt + 1
+                AdoRs_SQL.MoveNext
+            Loop
+            cboOrder.ListIndex = iCnt - 1
+        End If
+    End If
+
+    Set AdoRs_SQL = Nothing
+
+Exit Sub
+
+ErrorTrap:
+    Set AdoRs_SQL = Nothing
+    Call ErrMsgProc(CallForm)
+
+End Sub
+
+Private Sub f_subGet_Setting()
+    
+    Dim objComSetting As clsCommon
+    Dim Baudratio As String
+    Dim Paritybit As String
+    Dim Databit As String
+    Dim Stopbit As String
+    
+    On Error GoTo ErrRoutine
+    CallForm = "frmInterface - Private Sub f_subGet_Setting()"
+    Set objComSetting = New clsCommon
+    
+    With objComSetting
+        .SetAdoCn AdoCn_Jet
+        Set mAdoRs = .Get_EqpProperty(INS_CODE)
+    End With
+    Set objComSetting = Nothing
+    
+    If mAdoRs Is Nothing Then
+        IS_SET = False
+        MsgBox INS_CODE & " 에 대한 장비 통신 구성이 없습니다. 통신 설정후 다시 시도 하십시오.", vbExclamation
+        Exit Sub
+    Else
+        If mAdoRs.EOF Then
+            IS_SET = False
+            MsgBox INS_CODE & " 에 대한 장비 통신 구성이 없습니다. 통신 설정후 다시 시도 하십시오.", vbExclamation
+            Set mAdoRs = Nothing
+            Exit Sub
+        Else
+            IS_SET = True
+            Baudratio = Trim(mAdoRs.Fields("COM_SPEED") & "")
+            Paritybit = Trim(mAdoRs.Fields("COM_PARITYBIT") & "")
+            Databit = Trim(mAdoRs.Fields("COM_DATABIT") & "")
+            Stopbit = Trim(mAdoRs.Fields("COM_STOPBIT") & "")
+            
+            With comEQP
+                .CommPort = Trim(mAdoRs.Fields("COM_PORT") & "")
+                .Handshaking = Trim(mAdoRs.Fields("COM_HANDSHAK") & "")
+'                .InputMode = Trim(mAdoRs.Fields("COM_INPUTMOD") & "")
+'                .DTREnable = Trim(mAdoRs.Fields("COM_DTR") & "")
+'                .EOFEnable = Trim(mAdoRs.Fields("COM_EOF") & "")
+'                .NullDiscard = Trim(mAdoRs.Fields("COM_NULDIS") & "")
+'                .RTSEnable = Trim(mAdoRs.Fields("COM_RTS") & "")
+'                .InBufferSize = Trim(mAdoRs.Fields("COM_IBS") & "")
+'                .InputLen = Trim(mAdoRs.Fields("COM_INLEN") & "")
+'                .OutBufferSize = Trim(mAdoRs.Fields("COM_OBS") & "")
+'                .ParityReplace = Trim(mAdoRs.Fields("COM_PTR") & "")
+                .RThreshold = Trim(mAdoRs.Fields("COM_RTH") & "")
+                .SThreshold = Trim(mAdoRs.Fields("COM_STH") & "")
+                .Settings = Baudratio & "," & Paritybit & "," & Databit & "," & Stopbit
+            End With
+            Call Del_OldData
+        End If
+    End If
+    
+    Set mAdoRs = Nothing
+Exit Sub
+
+ErrRoutine:
+    Set objComSetting = Nothing
+    Set mAdoRs = Nothing
+    Call ErrMsgProc(CallForm)
+End Sub
+
+Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
+    
+    Call cmdStop
+    Set Result = Nothing
+    
+    Close #1
+
+End Sub
+
+Private Sub imgPort_DblClick()
+    
+    If lvwCuData.Visible Then
+        lvwCuData.Visible = False
+    Else
+        lvwCuData.Visible = True
+        lvwCuData.ZOrder 0
+    End If
+    
+End Sub
+
+Private Sub imgReceive_DblClick()
+
+    If pnlCom2.Visible = True Then
+        chkRCP.Visible = False
+        chkRSH.Visible = False
+        pnlCom2.Visible = False
+    Else
+        chkRCP.Visible = True
+        chkRSH.Visible = True
+        pnlCom2.Visible = True
+        pnlCom2.ZOrder 0
+    End If
+    
+End Sub
+
+Private Sub imgSend_DblClick()
+    
+'    If pnlCom.Visible = True Then
+'        pnlCom.Visible = False
+'    Else
+'        pnlCom.Visible = True
+'        pnlCom.ZOrder 0
+'    End If
+
+End Sub
+
+Private Sub Label9_DblClick()
+
+    If COM_MODE = "1" Then
+        COM_MODE = "0"
+        ShowMessage "인터페이스 내용을 화면에 출력하지 않습니다."
+    Else
+        COM_MODE = "1"
+        ShowMessage "인터페이스 내용을 화면에 출력합니다."
+    End If
+End Sub
+
+
+Private Sub mskOrdDate_Change()
+
+'    If IsDate(mskOrdDate.FormattedText) Then Call f_subSet_DateOrder
+
+End Sub
+
+Private Sub mskOrdDate_GotFocus()
+
+    With mskOrdDate
+        .SelStart = 8
+        .SelLength = Len(.Text)
+    End With
+    
+End Sub
+
+
+Private Sub mskOrdDate_KeyPress(KeyAscii As Integer)
+
+    If Not KeyAscii = vbKeyBack Then mskOrdDate.SelLength = 1
+   
+    If KeyAscii = vbKeyReturn Then Call f_subSet_DateOrder
+    
+End Sub
+
+
+Private Sub mskRstDate_GotFocus()
+
+    With mskRstDate
+        .SelStart = 0
+        .SelLength = Len(.Text) + 2
+    End With '
+    
+End Sub
+
+
+Private Sub mskRstDate_KeyPress(KeyAscii As Integer)
+
+    If Not KeyAscii = vbKeyBack Then mskRstDate.SelLength = 1
+    
+End Sub
+
+
+Private Sub Order_Ready(ByVal ACK As String)
+
+    Static msgIndex As Long
+    
+    Select Case ACK
+        Case Chr(COM_ENQ)
+            msgIndex = 1
+        Case Chr(COM_ACK)
+            msgIndex = msgIndex + 1
+        Case Chr(COM_NACK)
+            msgIndex = msgIndex
+        Case Chr(COM_EOT)
+            msgIndex = 7
+            Set Order = Nothing
+        Case Else
+        
+    End Select
+    
+    Select Case msgIndex
+        Case 1
+            Call COM_OUTPUT(Order.MSG_ENQ)
+        Case 2
+            Call COM_OUTPUT(Order.MSG_HEADER)
+        Case 3
+            Call COM_OUTPUT(Order.MSG_PATIENT)
+        Case 4
+            Call COM_OUTPUT(Order.MSG_ORDER)
+        Case 5
+            Call COM_OUTPUT(Order.MSG_TERMINATION)
+        Case 6
+            Call COM_OUTPUT(Order.MSG_EOT)
+        Case Else
+    End Select
+    
+End Sub
+
+
+
+Private Sub spdResult1_KeyPress(KeyAscii As Integer)
+''    Dim aROW    As Integer, aCOL   As Integer
+''    Dim varChk  As Variant, varBar As Variant, varNum As Variant
+''    Dim iRow    As Integer, iCnt   As Integer
+''
+''    'Debug.Print Col & NewCol & Row & NewRow
+''
+''    If KeyAscii = vbKeyReturn Then
+''        With spdResult1
+''            aCOL = .ActiveCol
+''            aROW = .ActiveRow
+''            If aCOL = 5 Then
+''                iCnt = 0
+''                .GetText 1, aROW, varChk
+''                .GetText 2, aROW, varBar
+''                .GetText aCOL, aROW, varNum
+''                If Trim(varChk) = "1" And Trim(varBar) <> "" Then
+''                    For iRow = aROW To .MaxRows
+''                        .SetText aCOL, iRow, UCase(varNum)
+''                        .SetText aCOL + 1, iRow, (iCnt Mod 15) + 1
+''                        iCnt = iCnt + 1
+''                        If (iCnt Mod 15) = 0 Then varNum = Chr(Asc(varNum) + 1)
+''                    Next
+''                End If
+'''            ElseIf aCOL = 6 Then
+'''                iCnt = 0
+'''                .GetText 1, aROW, varChk
+'''                .GetText 2, aROW, varBar
+'''                .GetText aCOL, aROW, varNum
+'''                If Trim(varChk) = "1" And Trim(varBar) <> "" Then
+'''                    For iRow = aROW To .MaxRows
+'''                        .SetText aCOL - 1, iRow, UCase(varNum)
+'''                        .SetText aCOL, iRow, (iCnt Mod 15) + 1
+'''                        iCnt = iCnt + 1
+'''                        If (iCnt Mod 15) = 0 Then varNum = Chr(Asc(varNum) + 1)
+'''                    Next
+'''                End If
+''
+''            End If
+''        End With
+''    End If
+
+End Sub
+
+Private Sub spdWorkList_Click(ByVal Col As Long, ByVal Row As Long)
+
+    If Col < 3 Then Exit Sub
+    
+    Dim varTmp  As Variant
+    
+    With spdWorkList
+        If Col = 1 Then
+            .GetText 2, Row, varTmp
+            If Trim$(varTmp) = "" Then Exit Sub
+            
+            .SetText 1, Row, IIf(Trim$(varTmp) = "1", "", "1")
+        ElseIf Col > 4 Then
+            .GetText Col, 0, varTmp
+            If Trim$(varTmp) = "" Then Exit Sub
+            
+            .Row = Row: .Col = Col
+            If .BackColor = vbWhite Then
+                .BackColor = &HC6FEFF
+            Else
+                .BackColor = vbWhite
+            End If
+        End If
+    End With
+    
+End Sub
+
+
+Private Sub tmrReceive_Timer()
+    
+    imgReceive.Picture = imlStatus.ListImages("STOP").ExtractIcon
+    tmrReceive.Enabled = False
+
+End Sub
+
+Private Sub tmrSend_Timer()
+    
+    imgSend.Picture = imlStatus.ListImages("STOP").ExtractIcon
+    tmrSend.Enabled = False
+
+End Sub
+
+Private Sub Form_Resize()
+    Dim i As Integer
+    If ScaleHeight < 650 Then Exit Sub
+    If ScaleWidth < 60 Then Exit Sub
+    fraCmdBar.Move ScaleLeft + 30, ScaleHeight - fraCmdBar.Height - 30, ScaleWidth - 60
+    For i = cmdAction.LBound To cmdAction.UBound
+        Call cmdAction(i).Move(fraCmdBar.Width - ((1300 * (cmdAction.Count - i)) + (70 * (cmdAction.UBound - i)) + 100), _
+                               (fraCmdBar.Height - 360) / 2, 1300, 360)
+    Next
+End Sub
+
+Private Sub txtBarCode_Change()
+
+    If txtBarCode.SelStart = txtBarCode.MaxLength Then Call txtBarCode_KeyPress(vbKeyReturn)
+    
+End Sub
+
+Private Sub txtBarCode_GotFocus()
+
+    With txtBarCode
+        .SelStart = 0
+        .SelLength = Len(.Text)
+    End With
+    
+End Sub
+
+
+Private Sub txtBarCode_KeyPress(KeyAscii As Integer)
+    
+    Dim tst_no() As String, strPid()    As String, strPnm() As String
+    Dim TMP() As String
+    Dim rv As Long
+    Dim samChk As Boolean
+    Dim ii As Integer
+    Dim bgetWork As Boolean
+    Dim itemX As ListItem
+    Dim strBarno As String
+    Dim strName  As String
+    Dim strNumber As String
+    Dim strEqpCd As String
+    Dim intRow2 As Integer
+    Dim blnFlag As Boolean
+    
+On Error GoTo ErrorRoutine
+    
+    blnFlag = False
+    samChk = False
+    If KeyAscii = vbKeyReturn Then
+        strBarno = Trim(txtBarCode.Text)
+        Set mAdoRs = f_subSet_TestList(strBarno)
+        If Len(strBarno) = 11 Then
+            Do Until mAdoRs.EOF
+                If psDataExists Then
+                    MsgBox "이미 등록된 검체입니다.!", vbCritical
+                    txtBarCode.Text = ""
+                    Exit Sub
+                End If
+                
+                strEqpCd = f_funGet_CODE(mAdoRs("itemCode"))
+                strName = mAdoRs("PatientName")
+                'strNumber = Trim(cboOrder.Text) + "-" + CStr(mAdoRs("seq_Number"))
+                Set itemX = lvwCuData.FindItem(strEqpCd, lvwTag, , lvwWhole)
+                If Not itemX Is Nothing Then
+                    blnFlag = True
+                    intRow2 = SeqNullSearch(spdResult1, "", 2)
+                    spdResult1.Row = intRow2
+                    spdResult1.Col = itemX.Index + 4
+                    spdResult1.BackColor = &HC6FEFF '&H80C0FF
+                    DoEvents
+                End If
+                mAdoRs.MoveNext
+            Loop
+        End If
+        If blnFlag = True Then
+            spdResult1.SetText 1, intRow2, "1"
+            spdResult1.SetText 2, intRow2, strBarno
+            spdResult1.SetText 3, intRow2, strName
+            spdResult1.SetText 4, intRow2, strNumber
+        Else
+            spdResult1.MaxRows = spdResult1.MaxRows - 1
+        End If
+    End If
+        
+    Exit Sub
+    
+ErrorRoutine:
+    'Close #lngFIleNum
+
+    
+End Sub
+
+Private Function psDataExists() As Boolean
+Dim sCnt As Long
+    
+    psDataExists = False
+    With spdResult1
+        For sCnt = 1 To .MaxRows
+            .Row = sCnt:    .Col = 2
+            If Trim(.Text) = Mid(txtBarCode.Text, 1, 11) Then
+                psDataExists = True
+                Exit For
+            End If
+        Next sCnt
+    End With
+
+End Function
+
+Private Sub txtBarCode_LostFocus()
+
+'    Dim intRow      As Integer
+'    Dim strOrdcd(1 To 100) As String
+'
+'    Call sl_spcid_tstcd_select&(txtBarCode.Text, strOrdcd)
+'    If strOrdcd(1) = "" Then
+'        MsgBox "해당 검사항목이 존재하지 않은 검체입니다.", vbInformation, Me.Caption
+'        Exit Sub
+'    End If
+'
+'    intRow = f_funGet_SpreadRow(spdWorkList, 2, txtBarCode.Text)
+'    If intRow < 1 Then
+'        intRow = f_funGet_SpreadRow(spdWorkList, 2, "")
+'        If intRow < 1 Then
+'            spdWorkList.maxrows = spdWorkList.maxrows + 1
+'            spdWorkList.RowHeight(spdWorkList.maxrows) = 13
+'            intRow = spdWorkList.maxrows
+'        End If
+'        spdWorkList.SetText 2, intRow, txtBarCode.Text
+'    End If
+'    spdWorkList.SetText 1, intRow, "1"
+    
+End Sub
+
+
+' 통신상태 확인 관련이벤트
+' ------------------------------------------------------------------------
+Private Sub txtCom_Change()
+'    txtCom.SelStart = Len(txtCom.Text)
+End Sub
+
+Private Sub cmdCOMLoad_Click()
+    Dim i               As Long
+    Dim lngFIleNum      As Long
+    Dim strTemp         As String
+    Dim strTemp2        As String
+    Dim bteBuffer()     As Byte
+    
+On Error GoTo ErrorRoutine
+    
+    With cdlFile
+        .CancelError = True
+        .FileName = App.Path & "\comm.txt"
+        .ShowOpen
+        lngFIleNum = FreeFile
+        
+        Open .FileName For Binary Access Read As #lngFIleNum
+        
+        txtCOM2.Text = ""
+        ReDim bteBuffer(LOF(lngFIleNum))
+        Get #lngFIleNum, , bteBuffer
+
+        strTemp = StrConv(bteBuffer, vbUnicode)
+        txtCOM2.Text = strTemp
+                
+        Close #lngFIleNum
+    End With
+    Exit Sub
+
+ErrorRoutine:
+    Close #lngFIleNum
+        
+End Sub
+
+Private Sub cmdCOMSave_Click()
+'    Dim lngFIleNum      As Long
+'
+'On Error GoTo ErrorRoutine
+'
+'    With cdlFile
+'        .CancelError = True
+'        .FileName = App.Path & "\comm.txt"
+'        .ShowSave
+'        lngFIleNum = FreeFile
+'
+'        Open .FileName For Append As #lngFIleNum
+'        Print #lngFIleNum, _
+'              Format(Date, "YYYY년 MM월 DD일") & "  "; Time & vbNewLine & _
+'              "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" & vbNewLine & _
+'              txtCom.Text & _
+'              "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" & vbNewLine
+'    Close #lngFIleNum
+'    End With
+'    Exit Sub
+'
+'ErrorRoutine:
+'    Close #lngFIleNum
+
+End Sub
+
+Private Sub cmdCOMOutput_Click()
+    'Call COM_OUTPUT(StrConv(charCOM_Convert(txtCom.SelText), vbFromUnicode))
+'    Call COM_OUTPUT(charCOM_Convert(txtCom.SelText))
+End Sub
+
+Private Sub cmdCOMClear_Click()
+    mlngRecLen = 0
+'    txtCom.Text = ""
+End Sub
+
+Private Sub cmdCOMClear2_Click()
+    txtCOM2.Text = ""
+End Sub
+
+Private Sub cmdCOMInput_Click()
+
+    Dim bytTemp() As Byte
+    
+'    bytTemp = StrConv(charCOM_Convert(txtCom.SelText), vbFromUnicode)
+
+'    Call ComReceive(txtCom.SelText)
+    
+End Sub
+
+Private Sub cmdCOMInput2_Click()
+    
+    Dim bytTemp() As Byte
+    
+    If txtCOM2.SelLength = 0 Then
+        bytTemp = StrConv(charCOM_Convert(txtCOM2.Text), vbFromUnicode)
+    Else
+        bytTemp = StrConv(charCOM_Convert(txtCOM2.SelText), vbFromUnicode)
+    End If
+
+    Call ComReceive(txtCOM2.SelText)
+
+End Sub
+
+Private Sub cmdCOMOutput2_Click()
+    
+    If txtCOM2.SelLength = 0 Then
+        Call COM_OUTPUT(charCOM_Convert(txtCOM2.Text))
+    Else
+        Call COM_OUTPUT(charCOM_Convert(txtCOM2.SelText))
+    End If
+    
+End Sub
+' ------------------------------------------------------------------------
+' 통신상태 확인 관련이벤트
+
+

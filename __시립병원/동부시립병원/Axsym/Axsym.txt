@@ -1,0 +1,35 @@
+Axsym Interface Setting
+1. Power NO
+2. Start up : Select  F3
+3. Main Menu : Select Configuration
+4. Configration Menu : Select General
+	-1. Auto Assign SID :OFF					
+	-1_1. Auto Assign Locations : OFF				
+	-1_2. Segment Type : Tube					
+	-1_3. Positive Sample ID : ON					
+	-2. Release Mode : Manual(F1:EXIT)				
+	-3. Transmit Approved Patient Result To Host :ON		
+	-4. Transmit Approved QC Result To Host :ON			
+	-5. Accept Order Requests From Host : On			
+	-6. Enable Host Order Query Mode : On				
+	-7. Number of seconds to wait for Query Response :10		
+	-8. Sample Collaction Host transmission : ON			
+	-9. Revised result message hierarchy : Off			
+	-10. F6: SAVE,F1: CANCEL					
+5. Configuration Menu: Select Port					
+	-1. Parity : None						
+	-2. Baud Rate : 9600						
+	-3. Data Bits : 8						
+	-4. Stop Bit : 1						
+	-5. F6: SAVE, F1: CANCEL					
+	-6. Port Test							
+6. Return Main Menu
+7. Shutdown(F2)
+ 
+[Order Message]
+<ENQ>
+<STX>Header<ETX>
+<STX>Patient<ETX>
+<STX>Order<ETX>
+<STX>Terminator<ETX>
+<EOT>

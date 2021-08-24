@@ -1,0 +1,31 @@
+
+워크조회
+
+AP_INF_S_ORDER
+	- 장비코드(XP:101,BS240 : 201)
+	- '0'
+	- from  : yyyy-mm-dd
+	- to  : yyyy-mm-dd
+	
+	
+	반환]
+	
+환자조회	
+
+AP_INF_S_GETCODA
+	- 장비코드(XP:101,BS240 : 201)
+  - 검사번호 LID (바코드처럼..)
+  
+  
+Coda, SubCoda, Sys_Code, ROrder, Serial, Hcode, PtName, Orderdate, Lid
+
+
+
+AP_INF_S_UPDATE
+  - 검사번호 LID (바코드처럼..)
+  - serial ==> PID
+	- rorder ==> CHARTNO
+	-	장비코드(XP:101,BS240 : 201)
+  - 검사코드
+  - sub 코드
+  - 결과

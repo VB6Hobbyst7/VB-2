@@ -1,0 +1,1122 @@
+VERSION 5.00
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{C9460280-3EED-11D0-A647-00A0C91EF7B9}#1.0#0"; "ImageViewer2.OCX"
+Object = "{FDAC2480-F4ED-4632-AA78-DCA210A74E49}#6.0#0"; "SPR32X60.ocx"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
+Begin VB.Form frmVPM_Main 
+   Caption         =   "Hi Interface EMR(VPM)"
+   ClientHeight    =   10110
+   ClientLeft      =   1575
+   ClientTop       =   1875
+   ClientWidth     =   15030
+   BeginProperty Font 
+      Name            =   "굴림체"
+      Size            =   9
+      Charset         =   129
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   Icon            =   "frmVPM_Main.frx":0000
+   KeyPreview      =   -1  'True
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   10110
+   ScaleWidth      =   15030
+   Begin SCRIBBLELib.ImageViewer imvTif 
+      Height          =   2055
+      Left            =   7800
+      TabIndex        =   42
+      Top             =   11640
+      Visible         =   0   'False
+      Width           =   1815
+      _Version        =   65536
+      _ExtentX        =   3201
+      _ExtentY        =   3625
+      _StockProps     =   0
+      LicenseKey      =   "12595"
+   End
+   Begin MSCommLib.MSComm MSComm1 
+      Left            =   10560
+      Top             =   420
+      _ExtentX        =   1005
+      _ExtentY        =   1005
+      _Version        =   393216
+      CommPort        =   5
+      DTREnable       =   -1  'True
+      InputLen        =   1
+      RThreshold      =   1
+   End
+   Begin FPSpread.vaSpread sprEQ_INFO 
+      Height          =   1335
+      Left            =   1740
+      TabIndex        =   47
+      Top             =   12300
+      Visible         =   0   'False
+      Width           =   2415
+      _Version        =   393216
+      _ExtentX        =   4260
+      _ExtentY        =   2355
+      _StockProps     =   64
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      SpreadDesigner  =   "frmVPM_Main.frx":9F8A
+   End
+   Begin MSComctlLib.ProgressBar prgPatient 
+      Height          =   75
+      Left            =   5040
+      TabIndex        =   46
+      Top             =   1080
+      Width           =   9915
+      _ExtentX        =   17489
+      _ExtentY        =   132
+      _Version        =   393216
+      Appearance      =   0
+      Scrolling       =   1
+   End
+   Begin VB.CommandButton cmdSave 
+      Caption         =   "전송(&S)"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   13980
+      TabIndex        =   13
+      Top             =   60
+      Width           =   975
+   End
+   Begin VB.Frame fraLimageList 
+      Caption         =   "[Image List]"
+      Height          =   3975
+      Left            =   60
+      TabIndex        =   37
+      Top             =   5700
+      Width           =   4875
+      Begin VB.PictureBox Picture1 
+         Appearance      =   0  '평면
+         ForeColor       =   &H80000008&
+         Height          =   315
+         Index           =   1
+         Left            =   960
+         ScaleHeight     =   285
+         ScaleWidth      =   3825
+         TabIndex        =   48
+         Top             =   240
+         Width           =   3855
+         Begin VB.OptionButton optImage전송여부 
+            Caption         =   "전송완료"
+            Height          =   300
+            Index           =   1
+            Left            =   1440
+            TabIndex        =   50
+            Top             =   0
+            Width           =   1095
+         End
+         Begin VB.OptionButton optImage전송여부 
+            Caption         =   "미전송"
+            Height          =   300
+            Index           =   0
+            Left            =   60
+            TabIndex        =   49
+            ToolTipText     =   "Double Click 하면 Image 파일로 전환됩니다."
+            Top             =   0
+            Value           =   -1  'True
+            Width           =   975
+         End
+      End
+      Begin VB.PictureBox picImageList미전송 
+         Appearance      =   0  '평면
+         ForeColor       =   &H80000008&
+         Height          =   3255
+         Left            =   60
+         ScaleHeight     =   3225
+         ScaleWidth      =   4725
+         TabIndex        =   52
+         Top             =   660
+         Width           =   4755
+         Begin VB.CommandButton cmdViewLocal 
+            Caption         =   "자료불러오기"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   60
+            TabIndex        =   55
+            Top             =   2880
+            Width           =   1695
+         End
+         Begin VB.CommandButton cmdDeleteLocal 
+            Caption         =   "삭제"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   3720
+            TabIndex        =   54
+            Top             =   2880
+            Width           =   975
+         End
+         Begin VB.CommandButton cmd미전송폴더변경 
+            Caption         =   "미전송폴더변경"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   1800
+            TabIndex        =   53
+            Top             =   2880
+            Width           =   1875
+         End
+         Begin FPSpread.vaSpread spr미전송 
+            Height          =   2775
+            Left            =   60
+            TabIndex        =   61
+            Top             =   60
+            Width           =   4635
+            _Version        =   393216
+            _ExtentX        =   8176
+            _ExtentY        =   4895
+            _StockProps     =   64
+            ColsFrozen      =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            MaxCols         =   3
+            MaxRows         =   20
+            OperationMode   =   3
+            SpreadDesigner  =   "frmVPM_Main.frx":A1AB
+         End
+      End
+      Begin VB.PictureBox picImageList전송완료 
+         Appearance      =   0  '평면
+         ForeColor       =   &H80000008&
+         Height          =   3255
+         Left            =   60
+         ScaleHeight     =   3225
+         ScaleWidth      =   4725
+         TabIndex        =   56
+         Top             =   660
+         Width           =   4755
+         Begin VB.CommandButton cmdViewFTP 
+            Caption         =   "자료불러오기"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   60
+            TabIndex        =   59
+            Top             =   2880
+            Width           =   1695
+         End
+         Begin VB.CommandButton cmdDeleteFTP 
+            Caption         =   "삭제"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   3720
+            TabIndex        =   58
+            Top             =   2880
+            Width           =   975
+         End
+         Begin VB.CommandButton cmd전송완료폴더변경 
+            Caption         =   "전송완료폴더변경"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   1800
+            TabIndex        =   57
+            Top             =   2880
+            Width           =   1875
+         End
+         Begin FPSpread.vaSpread spr전송완료 
+            Height          =   2775
+            Left            =   60
+            TabIndex        =   62
+            Top             =   60
+            Width           =   4635
+            _Version        =   393216
+            _ExtentX        =   8176
+            _ExtentY        =   4895
+            _StockProps     =   64
+            ColsFrozen      =   1
+            BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   129
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            MaxCols         =   3
+            MaxRows         =   20
+            OperationMode   =   3
+            SpreadDesigner  =   "frmVPM_Main.frx":A592
+         End
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "전송여부"
+         Height          =   180
+         Index           =   10
+         Left            =   120
+         TabIndex        =   51
+         Top             =   300
+         Width           =   720
+      End
+   End
+   Begin VB.Frame Frame1 
+      Caption         =   "[수진자내역]"
+      Height          =   4995
+      Left            =   60
+      TabIndex        =   33
+      Top             =   600
+      Width           =   4875
+      Begin VB.PictureBox Picture1 
+         Appearance      =   0  '평면
+         ForeColor       =   &H80000008&
+         Height          =   315
+         Index           =   0
+         Left            =   960
+         ScaleHeight     =   285
+         ScaleWidth      =   3825
+         TabIndex        =   36
+         Top             =   240
+         Width           =   3855
+         Begin VB.OptionButton opt전송여부 
+            Caption         =   "미전송"
+            Height          =   300
+            Index           =   0
+            Left            =   60
+            TabIndex        =   0
+            ToolTipText     =   "Double Click 하면 Image 파일로 전환됩니다."
+            Top             =   0
+            Value           =   -1  'True
+            Width           =   975
+         End
+         Begin VB.OptionButton opt전송여부 
+            Caption         =   "전송완료"
+            Height          =   300
+            Index           =   1
+            Left            =   1440
+            TabIndex        =   1
+            Top             =   0
+            Width           =   1095
+         End
+      End
+      Begin VB.CommandButton cmdView 
+         Caption         =   "조회(&V)"
+         BeginProperty Font 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   2340
+         TabIndex        =   3
+         Top             =   600
+         Width           =   975
+      End
+      Begin MSComCtl2.DTPicker dtp접수일자 
+         Height          =   315
+         Left            =   960
+         TabIndex        =   2
+         Top             =   600
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   556
+         _Version        =   393216
+         Format          =   21233665
+         CurrentDate     =   40449
+      End
+      Begin FPSpread.vaSpread spr수진자내역 
+         Height          =   3975
+         Left            =   60
+         TabIndex        =   60
+         Top             =   960
+         Width           =   4755
+         _Version        =   393216
+         _ExtentX        =   8387
+         _ExtentY        =   7011
+         _StockProps     =   64
+         ColsFrozen      =   1
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "굴림체"
+            Size            =   9
+            Charset         =   129
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         MaxCols         =   11
+         MaxRows         =   20
+         OperationMode   =   3
+         SpreadDesigner  =   "frmVPM_Main.frx":A983
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "전송여부"
+         Height          =   180
+         Index           =   14
+         Left            =   120
+         TabIndex        =   35
+         Top             =   300
+         Width           =   720
+      End
+      Begin VB.Label Label1 
+         AutoSize        =   -1  'True
+         BackStyle       =   0  '투명
+         Caption         =   "처방일자"
+         Height          =   180
+         Index           =   13
+         Left            =   120
+         TabIndex        =   34
+         Top             =   660
+         Width           =   720
+      End
+   End
+   Begin MSComctlLib.StatusBar staCondition 
+      Align           =   2  '아래 맞춤
+      Height          =   375
+      Left            =   0
+      TabIndex        =   14
+      Top             =   9735
+      Width           =   15030
+      _ExtentX        =   26511
+      _ExtentY        =   661
+      _Version        =   393216
+      BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
+         NumPanels       =   7
+         BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            AutoSize        =   2
+            Object.Width           =   5398
+            MinWidth        =   3528
+            Text            =   "Copyright ⓒ 2010 Medimate Corp."
+            TextSave        =   "Copyright ⓒ 2010 Medimate Corp."
+         EndProperty
+         BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            AutoSize        =   1
+            Object.Width           =   12991
+         EndProperty
+         BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Style           =   1
+            Alignment       =   1
+            Enabled         =   0   'False
+            Object.Width           =   1235
+            MinWidth        =   1235
+            TextSave        =   "CAPS"
+         EndProperty
+         BeginProperty Panel4 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Style           =   2
+            Alignment       =   1
+            Enabled         =   0   'False
+            Object.Width           =   1235
+            MinWidth        =   1235
+            TextSave        =   "NUM"
+         EndProperty
+         BeginProperty Panel5 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Style           =   3
+            Alignment       =   1
+            Enabled         =   0   'False
+            Object.Width           =   1235
+            MinWidth        =   1235
+            TextSave        =   "INS"
+         EndProperty
+         BeginProperty Panel6 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Style           =   6
+            Alignment       =   1
+            Object.Width           =   1940
+            MinWidth        =   1940
+            TextSave        =   "2010-11-04"
+         EndProperty
+         BeginProperty Panel7 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
+            Style           =   5
+            Alignment       =   1
+            Object.Width           =   1764
+            MinWidth        =   1764
+            TextSave        =   "오후 4:24"
+         EndProperty
+      EndProperty
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.PictureBox picImage 
+      Appearance      =   0  '평면
+      ForeColor       =   &H80000008&
+      Height          =   8475
+      Left            =   5040
+      ScaleHeight     =   8445
+      ScaleWidth      =   9885
+      TabIndex        =   43
+      Top             =   1200
+      Width           =   9915
+      Begin SCRIBBLELib.ImageViewer imvResult 
+         Height          =   8295
+         Left            =   1500
+         TabIndex        =   44
+         Top             =   60
+         Width           =   8295
+         _Version        =   65536
+         _ExtentX        =   14631
+         _ExtentY        =   14631
+         _StockProps     =   0
+         LicenseKey      =   "12595"
+      End
+      Begin VB.PictureBox picImgCtrl 
+         Appearance      =   0  '평면
+         ForeColor       =   &H80000008&
+         Height          =   8295
+         Left            =   60
+         ScaleHeight     =   8265
+         ScaleWidth      =   1365
+         TabIndex        =   45
+         Top             =   60
+         Width           =   1395
+         Begin VB.CommandButton Command1 
+            Caption         =   "100%"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   63
+            Top             =   6000
+            Visible         =   0   'False
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdFit 
+            Caption         =   "Fit to Window"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   9
+            Top             =   3600
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdZmWidth 
+            Caption         =   "Zoom to Width"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   10
+            Top             =   4260
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdzoomin 
+            Caption         =   "Zoom In"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            Style           =   1  '그래픽
+            TabIndex        =   4
+            Top             =   60
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdzoomout 
+            Caption         =   "Zoom Out"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            Style           =   1  '그래픽
+            TabIndex        =   5
+            Top             =   720
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdZmHeight 
+            Caption         =   "Zoom to Height"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   11
+            Top             =   4920
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdCenter 
+            Caption         =   "Center Image"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   12
+            Top             =   7620
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmd100 
+            Caption         =   "100%"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   7
+            Top             =   2280
+            Width           =   1275
+         End
+         Begin VB.CommandButton cmdRotate 
+            Caption         =   "Rotate"
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   9
+               Charset         =   0
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   60
+            TabIndex        =   8
+            Top             =   2940
+            Width           =   1275
+         End
+         Begin VB.ComboBox cboZoomValue 
+            BeginProperty Font 
+               Name            =   "굴림체"
+               Size            =   14.25
+               Charset         =   129
+               Weight          =   400
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   405
+            Left            =   60
+            TabIndex        =   6
+            Text            =   "cboZoomValue"
+            Top             =   1680
+            Width           =   1275
+         End
+      End
+   End
+   Begin VB.Label lbl처방코드 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "1234567890"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   5940
+      TabIndex        =   41
+      Top             =   600
+      Width           =   1050
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "처방명"
+      Height          =   180
+      Index           =   6
+      Left            =   7380
+      TabIndex        =   40
+      Top             =   600
+      Width           =   540
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "처방SEQ"
+      Height          =   180
+      Index           =   5
+      Left            =   11940
+      TabIndex        =   39
+      Top             =   600
+      Width           =   630
+   End
+   Begin VB.Label lbl처방SEQ 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "1234567890"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   12840
+      TabIndex        =   38
+      Top             =   600
+      Width           =   1050
+   End
+   Begin VB.Label lbl장비명 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "검사장비명"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   18
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   435
+      Left            =   180
+      TabIndex        =   32
+      Top             =   60
+      Width           =   1800
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "병록번호"
+      Height          =   180
+      Index           =   0
+      Left            =   5100
+      TabIndex        =   31
+      Top             =   360
+      Width           =   720
+   End
+   Begin VB.Label lbl병록번호 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "1234567890"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   5940
+      TabIndex        =   30
+      Top             =   360
+      Width           =   1050
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "수진자명"
+      Height          =   180
+      Index           =   1
+      Left            =   7380
+      TabIndex        =   29
+      Top             =   360
+      Width           =   720
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "연령/성별"
+      Height          =   180
+      Index           =   2
+      Left            =   9420
+      TabIndex        =   28
+      Top             =   360
+      Width           =   810
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "진료과"
+      Height          =   180
+      Index           =   3
+      Left            =   5100
+      TabIndex        =   27
+      Top             =   840
+      Width           =   540
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "환자구분"
+      Height          =   180
+      Index           =   4
+      Left            =   7380
+      TabIndex        =   26
+      Top             =   840
+      Width           =   720
+   End
+   Begin VB.Label lbl수진자명 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "홍길동"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   8340
+      TabIndex        =   25
+      Top             =   360
+      Width           =   585
+   End
+   Begin VB.Label lbl연령성별 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "40/남"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   10380
+      TabIndex        =   24
+      Top             =   360
+      Width           =   510
+   End
+   Begin VB.Label lbl진료과 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "IM"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   5940
+      TabIndex        =   23
+      Top             =   840
+      Width           =   210
+   End
+   Begin VB.Label lbl입외구분 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "외래"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   8340
+      TabIndex        =   22
+      Top             =   840
+      Width           =   390
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "Patient/Image Information"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   240
+      Index           =   9
+      Left            =   5160
+      TabIndex        =   21
+      Top             =   60
+      Width           =   2640
+   End
+   Begin VB.Label lbl결과일자 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "1234567890"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   12840
+      TabIndex        =   20
+      Top             =   840
+      Width           =   1050
+   End
+   Begin VB.Label lbl처방일자 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "1234567890"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   12840
+      TabIndex        =   19
+      Top             =   360
+      Width           =   1050
+   End
+   Begin VB.Label lbl처방명 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0FFC0&
+      BackStyle       =   0  '투명
+      Caption         =   "1234567890"
+      BeginProperty Font 
+         Name            =   "굴림체"
+         Size            =   9
+         Charset         =   129
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   8340
+      TabIndex        =   18
+      Top             =   600
+      Width           =   1050
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "결과일자"
+      Height          =   180
+      Index           =   11
+      Left            =   11940
+      TabIndex        =   17
+      Top             =   840
+      Width           =   720
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "처방코드"
+      Height          =   180
+      Index           =   8
+      Left            =   5100
+      TabIndex        =   16
+      Top             =   600
+      Width           =   720
+   End
+   Begin VB.Label Label1 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  '투명
+      Caption         =   "처방일자"
+      Height          =   180
+      Index           =   7
+      Left            =   11940
+      TabIndex        =   15
+      Top             =   360
+      Width           =   720
+   End
+   Begin VB.Shape shpPatientInfo 
+      BackColor       =   &H00808000&
+      BackStyle       =   1  '투명하지 않음
+      BorderColor     =   &H00000000&
+      FillColor       =   &H00FFC0C0&
+      FillStyle       =   5  '하향 대각선
+      Height          =   255
+      Left            =   5040
+      Shape           =   4  '둥근 사각형
+      Top             =   60
+      Width           =   8835
+   End
+   Begin VB.Shape Shape1 
+      BackColor       =   &H00808000&
+      BackStyle       =   1  '투명하지 않음
+      BorderColor     =   &H00000000&
+      FillColor       =   &H0000C000&
+      FillStyle       =   5  '하향 대각선
+      Height          =   495
+      Index           =   3
+      Left            =   60
+      Shape           =   4  '둥근 사각형
+      Top             =   60
+      Width           =   4875
+   End
+   Begin VB.Menu mnuFile 
+      Caption         =   "File    "
+      Begin VB.Menu mnuExit 
+         Caption         =   "E&xit"
+      End
+   End
+   Begin VB.Menu mnuSetting 
+      Caption         =   "구성    "
+      Begin VB.Menu mnuSettingSub 
+         Caption         =   "DataBase Info Setting"
+         Index           =   0
+      End
+      Begin VB.Menu mnuSettingSub 
+         Caption         =   "Target Equipment Setting"
+         Index           =   1
+      End
+      Begin VB.Menu mnuSettingSub 
+         Caption         =   "Printer Setting"
+         Index           =   2
+      End
+   End
+   Begin VB.Menu mnuInfo 
+      Caption         =   "정보"
+   End
+End

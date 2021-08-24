@@ -2,10 +2,10 @@ VERSION 5.00
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Object = "{648A5603-2C6E-101B-82B6-000000000014}#1.1#0"; "MSCOMM32.OCX"
 Object = "{FDAC2480-F4ED-4632-AA78-DCA210A74E49}#6.0#0"; "SPR32X60.ocx"
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
-Object = "{48E59290-9880-11CF-9754-00AA00C00908}#1.0#0"; "MSINET.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
+Object = "{48E59290-9880-11CF-9754-00AA00C00908}#1.0#0"; "MSINET.ocx"
 Object = "{D74ED2A2-3650-4720-93BC-FDDD8DCBC769}#1.0#0"; "Han2EngOCX.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmInterface 
    Caption         =   "INPROVE II"
    ClientHeight    =   10590
@@ -24,8 +24,8 @@ Begin VB.Form frmInterface
    Icon            =   "frmInterface.frx":0000
    LinkTopic       =   "Form1"
    Picture         =   "frmInterface.frx":08CA
-   ScaleHeight     =   15315
-   ScaleWidth      =   28560
+   ScaleHeight     =   10590
+   ScaleWidth      =   19710
    StartUpPosition =   1  '소유자 가운데
    Begin VB.Frame fraPatInfo 
       BackColor       =   &H00FFFFFF&
@@ -155,10 +155,10 @@ Begin VB.Form frmInterface
       Height          =   735
       Left            =   0
       ScaleHeight     =   675
-      ScaleWidth      =   28500
+      ScaleWidth      =   19650
       TabIndex        =   42
       Top             =   0
-      Width           =   28560
+      Width           =   19710
       Begin VB.Frame Frame5 
          BackColor       =   &H00FFFFFF&
          Height          =   645
@@ -289,7 +289,7 @@ Begin VB.Form frmInterface
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   127991809
+            Format          =   130220033
             CurrentDate     =   40248
          End
          Begin MSComCtl2.DTPicker dtpStartDt 
@@ -310,7 +310,7 @@ Begin VB.Form frmInterface
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            Format          =   127991809
+            Format          =   130220033
             CurrentDate     =   40248
          End
          Begin VB.Label Label13 
@@ -813,7 +813,7 @@ Begin VB.Form frmInterface
                Strikethrough   =   0   'False
             EndProperty
             MaxCols         =   9
-            SpreadDesigner  =   "frmInterface.frx":0D94
+            SpreadDesigner  =   "frmInterface.frx":0DBB
          End
          Begin FPSpread.vaSpread vasPrintBuf 
             Height          =   975
@@ -834,7 +834,7 @@ Begin VB.Form frmInterface
                Italic          =   0   'False
                Strikethrough   =   0   'False
             EndProperty
-            SpreadDesigner  =   "frmInterface.frx":11FA
+            SpreadDesigner  =   "frmInterface.frx":12E9
          End
       End
       Begin VB.CheckBox chkBar 
@@ -876,7 +876,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         SpreadDesigner  =   "frmInterface.frx":141C
+         SpreadDesigner  =   "frmInterface.frx":1532
       End
       Begin FPSpread.vaSpread vasTemp1 
          Height          =   945
@@ -897,7 +897,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         SpreadDesigner  =   "frmInterface.frx":163E
+         SpreadDesigner  =   "frmInterface.frx":177B
       End
       Begin VB.PictureBox picLogin 
          Appearance      =   0  '평면
@@ -905,7 +905,7 @@ Begin VB.Form frmInterface
          ForeColor       =   &H80000008&
          Height          =   285
          Left            =   1530
-         Picture         =   "frmInterface.frx":1860
+         Picture         =   "frmInterface.frx":19C4
          ScaleHeight     =   255
          ScaleWidth      =   255
          TabIndex        =   15
@@ -1041,31 +1041,31 @@ Begin VB.Form frmInterface
             BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
                NumListImages   =   7
                BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":1DEA
+                  Picture         =   "frmInterface.frx":1F4E
                   Key             =   "RUN"
                EndProperty
                BeginProperty ListImage2 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":2384
+                  Picture         =   "frmInterface.frx":24E8
                   Key             =   "NOT"
                EndProperty
                BeginProperty ListImage3 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":291E
+                  Picture         =   "frmInterface.frx":2A82
                   Key             =   "STOP"
                EndProperty
                BeginProperty ListImage4 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":2EB8
+                  Picture         =   "frmInterface.frx":301C
                   Key             =   "LST"
                EndProperty
                BeginProperty ListImage5 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":374A
+                  Picture         =   "frmInterface.frx":38AE
                   Key             =   "ITM"
                EndProperty
                BeginProperty ListImage6 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":38A4
+                  Picture         =   "frmInterface.frx":3A08
                   Key             =   "ERR"
                EndProperty
                BeginProperty ListImage7 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-                  Picture         =   "frmInterface.frx":39FE
+                  Picture         =   "frmInterface.frx":3B62
                   Key             =   "NOF"
                EndProperty
             EndProperty
@@ -1090,7 +1090,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         SpreadDesigner  =   "frmInterface.frx":3B58
+         SpreadDesigner  =   "frmInterface.frx":3CBC
       End
       Begin FPSpread.vaSpread vasResTemp 
          Height          =   1035
@@ -1111,7 +1111,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         SpreadDesigner  =   "frmInterface.frx":3D7A
+         SpreadDesigner  =   "frmInterface.frx":3F05
       End
       Begin FPSpread.vaSpread vasTemp 
          Height          =   975
@@ -1132,7 +1132,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         SpreadDesigner  =   "frmInterface.frx":3F9C
+         SpreadDesigner  =   "frmInterface.frx":414E
       End
       Begin HAN2ENGOCXLib.Han2EngOCX Han2Eng 
          Height          =   225
@@ -1171,7 +1171,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   127991808
+         Format          =   130220032
          CurrentDate     =   40457
       End
       Begin VB.Label Label1 
@@ -1386,7 +1386,7 @@ Begin VB.Form frmInterface
       MaxRows         =   20
       MoveActiveOnFocus=   0   'False
       RetainSelBlock  =   0   'False
-      SpreadDesigner  =   "frmInterface.frx":41BE
+      SpreadDesigner  =   "frmInterface.frx":4397
    End
    Begin FPSpread.vaSpread vasRes 
       Height          =   9075
@@ -1414,7 +1414,7 @@ Begin VB.Form frmInterface
       MaxRows         =   10
       RetainSelBlock  =   0   'False
       ScrollBars      =   2
-      SpreadDesigner  =   "frmInterface.frx":4BF7
+      SpreadDesigner  =   "frmInterface.frx":4FB7
    End
    Begin VB.Menu MnMain 
       Caption         =   "Main"
@@ -3513,28 +3513,16 @@ On Error Resume Next
                     For i = 1 To .DataRowCnt
                         strDate = GetText(vasID, i, colHOSPDATE)
                         strChart = GetText(vasID, i, colPID)
-                        If Len(mGetP(varPetData(0), 2, ":")) = 5 Then
-                            If mGetP(varPetData(8), 2, ":") = strDate And Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 5, "0") = strChart Then
-                                blnSame = True
-                            End If
-                        Else
-                            If mGetP(varPetData(8), 2, ":") = strDate And Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 6, "0") = strChart Then
-                                blnSame = True
-                            End If
+                        If mGetP(varPetData(8), 2, ":") = strDate And Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 5, "0") = strChart Then
+                            blnSame = True
                         End If
-
                     Next
                     
                     If blnSame = False Then
                         .MaxRows = .MaxRows + 1
                         SetText vasID, "1", .MaxRows, colCheckBox
                         SetText vasID, Trim(mGetP(varPetData(8), 2, ":")), .MaxRows, colHOSPDATE
-                        'SetText vasID, Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 5, "0"), .MaxRows, colBARCODE
-                        If Len(mGetP(varPetData(0), 2, ":")) = 5 Then
-                            SetText vasID, Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 5, "0"), .MaxRows, colBARCODE
-                        Else
-                            SetText vasID, Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 6, "0"), .MaxRows, colBARCODE
-                        End If
+                        SetText vasID, Format(mGetP(varPetData(8), 2, ":"), "yymmdd") & PedLeftStr(mGetP(varPetData(0), 2, ":"), 5, "0"), .MaxRows, colBARCODE
                         SetText vasID, Trim(mGetP(varPetData(6), 2, ":")), .MaxRows, colCHARTNO
                         'SetText vasID, Trim(mGetP(varPetData(9), 2, ":")), .MaxRows, colPID
                         SetText vasID, Trim(mGetP(varPetData(0), 2, ":")), .MaxRows, colPID
@@ -3939,15 +3927,15 @@ On Error GoTo Err
     End If
     
 '    -- osw 추가
-'    For i = 1 To 1
-'        If Not Connect_PRServer Then
-'            MsgBox "연결되지 않았습니다."
-'            cn_Server_Flag = False
-'            Exit Sub
-'        Else
+    For i = 1 To 1
+        If Not Connect_PRServer Then
+            MsgBox "연결되지 않았습니다."
+            cn_Server_Flag = False
+            Exit Sub
+        Else
             cn_Server_Flag = True
-'        End If
-'    Next
+        End If
+    Next
     
     '-- osw 추가
 '    For i = 1 To 1
@@ -4068,7 +4056,7 @@ Private Sub Form_Unload(Cancel As Integer)
         comEqp.PortOpen = False
     End If
 
-'    DisConnect_Server
+    DisConnect_Server
     DisConnect_Local
     Unload Me
     End

@@ -1,0 +1,50 @@
+D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+D2    dce_setenv          | version is < ReleaseTag: librpc Entera Packages V5.0 TCP Build_K on Windows
+>
+D3    dce_setenv          | Host Name = <mm>
+D4    dce_setenv          | Broker host = <192.9.8.60>
+D5    dce_setenv          | Broker port = <13000>
+D6    dce_setenv          | Server Port = <To be chosen by the operating system>
+D7    dce_setenv          | Thu Jan 26 22:02:57 2006
+D8    dce_setenv          | Finished setting environment =======================
+
+D9    dce_findserver      | current time is <Thu Jan 26 22:02:57 2006>
+W10   soc_ready           | could not connect to <192.9.8.60>:<13000>, <Unknown error(10065)>
+E11   dce_seterr          | Thu Jan 26 22:02:57 2006
+E11   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <10> Could not connect to socket> from <soc_ready>
++++++++++++ Thu Jan 26 22:02:57 2006 ++++++++++++++
++++++++++++ An ERROR has occurred. +++++++++++++++++
++++++++++++ Switching to <DEBUG> debug level. ++++++
++++++++++++ Replay upto last <40> message.   +++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+DCE_RINGSIZE=<40>
+-D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+-D2    dce_setenv          | version is < ReleaseTag: librpc Entera Packages V5.0 TCP Build_K on Windows
+>
+-D3    dce_setenv          | Host Name = <mm>
+-D9    dce_findserver      | current time is <Thu Jan 26 22:02:57 2006>
+-W10   soc_ready           | could not connect to <192.9.8.60>:<13000>, <Unknown error(10065)>
+-E11   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <10> Could not connect to socket> from <soc_ready>
++++++++++++ End of saved messages +++++++++++++++++++++
++++++++++++ Remain in <DEBUG> mode until end of RPC +++
+W12   connect_broker_insta| Broker at <192.9.8.60:13000> could not be reached
+E13   dce_seterr          | Thu Jan 26 22:02:57 2006
+E13   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W14   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W15   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D16   dce_pop_long        | got <dce_result>=0
+D17   dce_table_destroy   | about to clear <0>
+D18   dce_table_destroy   | current time is <Thu Jan 26 22:02:57 2006>
+D19   dce_findserver      | current time is <Thu Jan 26 22:03:10 2006>
+W20   soc_ready           | could not connect to <192.9.8.60>:<13000>, <Unknown error(10065)>
+E21   dce_seterr          | Thu Jan 26 22:03:10 2006
+E21   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <10> Could not connect to socket> from <soc_ready>
+W22   connect_broker_insta| Broker at <192.9.8.60:13000> could not be reached
+E23   dce_seterr          | Thu Jan 26 22:03:10 2006
+E23   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W24   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W25   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D26   dce_pop_long        | got <dce_result>=0
+D27   dce_table_destroy   | about to clear <0>
+D28   dce_table_destroy   | current time is <Thu Jan 26 22:03:10 2006>
+D29   dce_release         | Releasing <0> pointers

@@ -138,7 +138,6 @@ Type JsonParameter
     WORKLIST    As String
     PATLIST     As String
     PATSAVE     As String
-    PRIFILE     As String
 End Type
 
 Public gURL        As JsonParameter
@@ -453,7 +452,7 @@ Public Sub SetMenu()
     
 End Sub
 
-Public Sub SetCommStatus(ByVal pSRflag As String, ByVal pBarno As String, ByVal SPD As Object)
+Public Sub SetCommStatus(ByVal pSRflag As String, ByVal pBarNo As String, ByVal SPD As Object)
     
 '    With SPD
 '        .MaxRows = .MaxRows + 1
@@ -487,7 +486,7 @@ Public Sub SetCommStatus(ByVal pSRflag As String, ByVal pBarno As String, ByVal 
     With SPD
         '.MaxRows = .MaxRows + 1
         If pSRflag = "S" Then
-            .AddItem "Send" & vbTab & pBarno & vbTab & "장비전송"
+            .AddItem "Send" & vbTab & pBarNo & vbTab & "장비전송"
             'Call SetText(SPD, "Send", .MaxRows, 1)
             'Call SetText(SPD, pBarNo, .MaxRows, 2)
             'Call SetText(SPD, "오더전송", .MaxRows, 3)
@@ -497,13 +496,13 @@ Public Sub SetCommStatus(ByVal pSRflag As String, ByVal pBarno As String, ByVal 
             'Call SetText(SPD, pBarNo, .MaxRows, 2)
             'Call SetText(SPD, "오더요청", .MaxRows, 3)
             
-            .AddItem "Recv" & vbTab & pBarno & vbTab & "오더요청"
+            .AddItem "Recv" & vbTab & pBarNo & vbTab & "오더요청"
         
         ElseIf pSRflag = "R" Then
             'Call SetText(SPD, "Recv", .MaxRows, 1)
             'Call SetText(SPD, pBarNo, .MaxRows, 2)
             'Call SetText(SPD, "결과수신", .MaxRows, 3)
-            .AddItem "Recv" & vbTab & pBarno & vbTab & "결과수신"
+            .AddItem "Recv" & vbTab & pBarNo & vbTab & "결과수신"
         End If
             
         '.Row = .MaxRows
@@ -1141,13 +1140,6 @@ Public Sub GetSetup()
     strSetUp1 = Mid(strSetUp1, 1, Len(strSetUp1) - 1)
     gURL.PATSAVE = Trim(strSetUp1)
     
-    strSetup = "":    strSetUp1 = ""
-    Call GetPrivateProfileString("URL", "PROFILE", "", strSetup, 100, App.PATH & "\INI\" & gMACH & ".ini")
-    strSetUp1 = Trim(strSetup)
-    strSetUp1 = Mid(strSetUp1, 1, Len(strSetUp1) - 1)
-    gURL.PRIFILE = Trim(strSetUp1)
-    
-
     '-- 보건소
     strSetup = "":    strSetUp1 = ""
     Call GetPrivateProfileString("URL", "INITURL", "", strSetup, 100, App.PATH & "\INI\" & gMACH & ".ini")

@@ -1,0 +1,4 @@
+Select equipcode, examcode, examname, resprec, seqno 
+  From EQPMASTER 
+ Where equipno = 'NX700i' 
+ Order by  seqno * 10 

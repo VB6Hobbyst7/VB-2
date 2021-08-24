@@ -1,0 +1,25 @@
+select distinct m.workarea             
+     , m.accdt AS HOSPDATE             
+     , m.accseq                        
+     , m.spcyy                         
+     , m.spcno                         
+     , m.ptid AS PID                   
+     , p.ptnm AS PNAME                 
+     , m.rcvdt                         
+     , m.rcvtm                         
+     , COUNT(r.testcd) AS CNT          
+  from plis..s2lab201 m                
+     , his001_new_v p                  
+     , plis..s2lab302 r                
+     , plis..s2lab001 e                
+ where SUBSTRING(m.accdt,1,8) BETWEEN '20190703' AND '20190703'
+   and r.testcd IN ('B1050/1','B1040/1','B1010/1','B1020/1','B1020/2','B1020/3','B1020/4','B1060/1','RDW','PDW','MPV','B1091/1','B1091/2','B1091/3')                                
+   and (r.vfydt IS NULL OR r.vfydt='')                                 
+   and m.ptid      = p.ptid COLLATE Korean_Wansung_CS_AS               
+   and m.workarea  = r.workarea                                        
+   and m.accdt     = r.accdt                                           
+   and m.accseq    = r.accseq                                          
+   and r.testcd    = e.testcd                                          
+  Group by m.workarea, m.accdt, m.spcyy,m.spcno,m.accseq, m.ptid,p.ptnm,m.rcvdt, m.rcvtm 
+  Order by m.rcvdt, m.rcvtm                                            
+

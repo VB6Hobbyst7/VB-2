@@ -1,0 +1,78 @@
+0. DB연결정보
+Server   : emr_server (192.168.100.203)
+DataBase : neoemr
+UserID   : emr
+PassWord : emr 
+
+
+CA270 = 202
+HORIBA = 101
+
+1. 대상환자및항목조회(바코드 사용시)
+AP_INF_L_GetOrder @InstNo varchar(3),	'장비코드('202' = CA270 )
+		  @Lid Int 		'접수번호
+
+조회내용
+Coda, SubCoda, Sys_Code, ROrder, Lid, Serial, HCode, PtName
+검사코드, 검사부코드, 장비코드(무시), 처방순번, 접수(검체)번호, 원무일련번호, 환자차트번호, 환자성명
+
+
+2. 결과입력
+AP_INF_L_Update @barCode int,		'접수번호(Lid)
+		@MCode   varchar(3), 	'장비코드('202')
+		@Coda    varchar(30),   '검사코드
+		@SubCoda varchar(20),	'검사부코드
+		@Result  varchar(1000)	'검사결과
+
+
+3. 관련항목코드
+
+Coda	SubCoda Name
+=======================================CA270
+B2570	1	GOT
+B2580	1	GPT
+B2602	1	ALP
+B2710	1	r-GTP(GGT)
+C2200	1	T-Protein
+C2210	1	Albumin
+C2411	1	T-CHO
+C2420	1	HDL
+C2430	1	LDL
+C2443	1	TG
+C3711	1	FBS
+C3720	1	T-bilirubin
+C3721	1	D-bilirubin
+C3730	1	BUN
+C3750	1	Creatinine
+C3780	1	Uric acid
+=======================================HORIBA
+B1050	1	WBC
+B1040	1	RBC(M)
+B1040	2	RBC(F)
+B1040	3	MCV
+B1040	4	MCH
+B1040	5	MCHC
+B1020	1	Hct(M)
+B1020	2	Hct(F)
+B1010	1	Hb(M)
+B1010	2	Hb(F)
+B1230	1	PDW
+B1060	1	PLT
+B1091	1	Neu
+B1091	2	Lymp
+B1091	3	Mono
+=======================================
+
+4. 대상환자및항목조회(바코드 사용안하고 워크리스트 조회)
+AP_INF_S_Order 	@InstNo varchar(3), 	'장비코드('202')
+		@ConfirmYN char(1), 	'결과확인여부(무조건 '0')
+		@From  varchar(10), 	'시작일자(예:'2015-01-29')
+		@To  varchar(10) 	'끝일자(예:'2015-01-30')
+
+조회내용
+LID, Hcode, Serial, PtName, ROrder, Orderdate, ErYN 
+접수번호, 병록번호, 원무일련번호, 환자명, 처방순번, 처방일자, 응급여부(0:일반,1:응급)
+
+
+
+

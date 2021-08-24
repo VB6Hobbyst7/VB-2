@@ -5006,28 +5006,15 @@ On Error Resume Next
     
     'sURL = "https://dev.pnv.co.kr/PnV_Lab/api/selectLabList"
     'sURL = "https://elab.pnv.co.kr//api/selectLabList"
-    'https://elab.pnv.co.kr///api/selectLabProfileList
-    
     sURL = gURL.WORKLIST
     
               sHeader = "X-LAB-SECURITY: AGASGBggFASVfg42ASFV5255GGSAVNJJKPQOWDKVM4fiFHDoWFmqSGHYASDksapqmdm2DASFASfyomsFASGAS==" & vbCrLf
     sHeader = sHeader & "X-LAB-Client: allergy" & vbCrLf
     sHeader = sHeader & "X-LAB-MACHINE: TEST002" & vbCrLf
     sHeader = sHeader & "Content-Type: application/x-www-form-urlencoded" & vbCrLf
-              
+    
     sBody = "startIndex=1&cutCount=100"
 
-    
-'    sURL = gURL.PRIFILE
-'
-'              sHeader = "X-LAB-SECURITY: AGASGBggFASVfg42ASFV5255GGSAVNJJKPQOWDKVM4fiFHDoWFmqSGHYASDksapqmdm2DASFASfyomsFASGAS==" & vbCrLf
-'    sHeader = sHeader & "X-LAB-Client: X-LAB-Client" & vbCrLf
-'    sHeader = sHeader & "X-LAB-MACHINE: X-LAB-MACHINE" & vbCrLf
-'    sHeader = sHeader & "Content-Type: application/x-www-form-urlencoded" & vbCrLf
-'
-'    sBody = "id=1"
-    
-    
     sRcvData = OpenURLWithIE2(sURL, sHeader, sBody, frmInterface.Inet1)
     
     sRcvData = Replace(sRcvData, """", "")

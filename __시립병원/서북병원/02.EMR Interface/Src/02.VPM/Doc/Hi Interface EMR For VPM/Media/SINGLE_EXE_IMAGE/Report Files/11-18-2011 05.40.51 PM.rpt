@@ -1,0 +1,445 @@
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////// Summary //////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+		Features:  			        18
+		Components:			        26
+		Number of Files:		        61
+		Size of Files:   		      11162275
+		Size in Library:		       5090541
+
+
+		<Support>
+			Engine
+				Log
+				Kernel
+			Main Installation
+				Script
+				Setup
+				StrTbl
+				RunTime
+				Resource
+				<ISUS>Update Service Support Files
+		<Data>
+			Disk<1>
+			<ISUS>Update Service Executables
+				<ISUS>Update Agent
+				<ISUS>Update Manager
+			DefaultFeature
+			ScannedProject1
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// Features ///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+*<Support>*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine\Log*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Engine\Kernel*
+
+		Component
+		------------------------------------------------------
+		"<Engine>Kernel Placeholder"
+		"<Engine>EngineCommonPlaceHolder"
+
+*<Support>\Main Installation*
+
+		Component
+		------------------------------------------------------
+
+*<Support>\Main Installation\Script*
+
+		Component
+		------------------------------------------------------
+		"<Support>Script"
+
+*<Support>\Main Installation\Setup*
+
+		Component
+		------------------------------------------------------
+		"<Support>Language Independent OS Independent Files"
+		"<Support>English OS Independent Files"
+		"<Support>Misc Support Files"
+		"<Support>Build Generated Support Files"
+
+*<Support>\Main Installation\StrTbl*
+
+		Component
+		------------------------------------------------------
+		"<Support>English String Tables"
+
+*<Support>\Main Installation\RunTime*
+
+		Component
+		------------------------------------------------------
+		"<Support>Non-SelfRegistering"
+
+*<Support>\Main Installation\Resource*
+
+		Component
+		------------------------------------------------------
+		"<Support>English Files"
+
+*<Support>\Main Installation\<ISUS>Update Service Support Files*
+
+		Component
+		------------------------------------------------------
+		"<Support>ISUS Configuration File"
+
+*<Data>*
+
+		Component
+		------------------------------------------------------
+
+*<Data>\Disk<1>*
+
+		Component
+		------------------------------------------------------
+		"<Disk1>Disk1 Files(1)"
+		"<Disk1>Disk1 Files(2)"
+		"<Disk1>Disk1 Files(3)"
+		"<Disk1>Disk1 Files(4)"
+
+*<Data>\<ISUS>Update Service Executables*
+
+		Component
+		------------------------------------------------------
+
+*<Data>\<ISUS>Update Service Executables\<ISUS>Update Agent*
+
+		Component
+		------------------------------------------------------
+		"<ISUS>Agent - Reg Shared"
+		"<ISUS>Web Agent - Reg"
+		"<ISUS>Player - Reg Shared"
+		"<ISUS>Player Stub - Reg Shared"
+		"<ISUS>Agent - Non Reg"
+
+*<Data>\<ISUS>Update Service Executables\<ISUS>Update Manager*
+
+		Component
+		------------------------------------------------------
+		"<ISUS>Scheduler"
+		"<ISUS>Applet"
+
+*<Data>\DefaultFeature*
+
+		Component
+		------------------------------------------------------
+		"DefaultComponent"
+		"TARGETDIRSharedFiles1"
+		"WINSYSDIRSharedFiles"
+
+*<Data>\ScannedProject1*
+
+		Component
+		------------------------------------------------------
+		"WINSYSDIRSharedSelfRegFiles"
+
+
+//////////////////////////////////////////////////////////////////////
+///////////////////////////// Components ////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+><Engine>Kernel Placeholder<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"ikernel.dll"                                           2002-04-26오후 06:48:38            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\ikernel.dll"
+		"setup.dll"                                             2002-03-25오후 04:11:12            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\setup.dll"
+		"dotnetinstaller.exe"                                   2002-03-25오후 04:11:28            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\dotnetinstaller.exe"
+		"iscript.dll"                                           2002-04-09오후 09:24:12            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\iscript.dll"
+		"ctor.dll"                                              2002-04-09오후 09:24:40            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\ctor.dll"
+		"iuser.dll"                                             2002-04-09오후 09:24:54            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\iuser.dll"
+		"igdi.dll"                                              2002-04-25오후 08:21:50            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\igdi.dll"
+
+><Engine>EngineCommonPlaceHolder<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isprobe.tlb"                                           2001-11-26오전 09:13:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\isprobe.tlb"
+		"objectps.dll"                                          1999-07-12오후 12:45:30            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\objectps.dll"
+
+><Support>Script<
+
+		Size of Files:   		        216764
+		Size in Library:		        216764
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.inx"                                             2011-11-18오후 05:40:50       216764  ""                 "A"           "3dc0b04a-b865-1409-7419-cd1a92514f20"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\doc\hi interface emr for vpm\script files\setup.inx"
+
+><Support>Language Independent OS Independent Files<
+
+		Size of Files:   		         11493
+		Size in Library:		          2605
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"license.rtf"                                           2004-02-18오후 06:04:28        11493  ""                 "A"           "e845ebe7-c877-80cb-f56e-9dbc9504e757"  "c:\program files\installshield 10.5\redist\0409\license.rtf"
+
+><Support>English OS Independent Files<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+
+><Support>Misc Support Files<
+
+		Size of Files:   		         65503
+		Size in Library:		         12414
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"corecomp.ini"                                          2002-04-15오후 04:04:36        65503  ""                 "A"           "ec8cd309-a0a6-f412-ce5b-54f03db9b21a"  "c:\program files\installshield 10.5\redist\compressed files\language independent\os independent\corecomp.ini"
+
+><Support>Build Generated Support Files<
+
+		Size of Files:   		            40
+		Size in Library:		            44
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"fontdata.ini"                                          2011-11-18오후 05:40:50           40  ""                 "A"           "3727ed57-b92f-ddc3-52a8-e90b1c6727b0"  "c:\docume~1\admini~1\locals~1\temp\fontdata.ini"
+
+><Support>English String Tables<
+
+		Size of Files:   		          1361
+		Size in Library:		           495
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"stringtable-0009-english.ips"                          2011-11-18오후 05:40:50         1361  ""                 "A"           "a9c2cc2e-5af1-8c6a-4168-4a9fbbdc0cf0"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\doc\hi interface emr for vpm\string tables\stringtable-0009-english.ips"
+
+><Support>Non-SelfRegistering<
+
+		Size of Files:   		        414864
+		Size in Library:		        206850
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isrt.dll"                                              2004-10-22오전 01:18:38       413696  "10.50.0.125"      "A"           "9ce63a98-bbe1-3b1c-4b95-fe4a3d36f7be"  "c:\program files\installshield 10.5\redist\compressed files\language independent\intel 32\isrt.dll"
+		"default.pal"                                           1999-09-16오전 09:24:10         1168  ""                 "A"           "3ffeba0a-d069-4953-4405-061de2629c82"  "c:\program files\installshield 10.5\redist\compressed files\language independent\intel 32\default.pal"
+
+><Support>English Files<
+
+		Size of Files:   		        380928
+		Size in Library:		         92514
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"_isres.dll"                                            2004-10-22오전 02:50:56       380928  "10.50.0.125"      "A"           "13eb0e1d-4815-9b34-5eeb-ae50e41abffb"  "c:\program files\installshield 10.5\redist\0409\i386\skins\_isres.dll"
+
+><Disk1>Disk1 Files(1)<
+
+		Size of Files:   		             0
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"layout.bin"                                            1999-06-28오후 05:30:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\layout.bin"
+		"data1.hdr"                                             1999-06-28오후 05:30:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\data1.hdr"
+		"data1.cab"                                             1999-06-28오후 05:30:10            0  ""                 "A"           "d98c1dd4-008f-04b2-e980-0998ecf8427e"  "c:\program files\installshield 10.5\support\build\data1.cab"
+
+><Disk1>Disk1 Files(2)<
+
+		Size of Files:   		        149840
+		Size in Library:		        149840
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.exe"                                             2004-10-22오전 03:16:58       118736  "10.50.0.125"      "A"           "8ca31bb0-0b12-1f8b-5963-e6b47ff12a1e"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\doc\hi interface emr for vpm\media\single_exe_image\disk images\disk1\setup.exe"
+		"setup.isn"                                             2004-10-22오전 03:17:22        31104  ""                 "A"           "62b934c5-3774-d9aa-c5d0-94a0e323c1ed"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\doc\hi interface emr for vpm\media\single_exe_image\disk images\disk1\setup.isn"
+
+><Disk1>Disk1 Files(3)<
+
+		Size of Files:   		        216764
+		Size in Library:		        216764
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.inx"                                             2011-11-18오후 05:40:50       216764  ""                 "A"           "3dc0b04a-b865-1409-7419-cd1a92514f20"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\doc\hi interface emr for vpm\script files\setup.inx"
+
+><Disk1>Disk1 Files(4)<
+
+		Size of Files:   		           482
+		Size in Library:		           482
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"setup.ini"                                             2011-11-18오후 05:40:50          482  ""                 "A"           "9088e409-2c1f-6543-f672-6972ba228e5f"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\doc\hi interface emr for vpm\media\single_exe_image\disk images\disk1\setup.ini"
+
+><ISUS>Agent - Reg Shared<
+
+		Size of Files:   		        729088
+		Size in Library:		        331955
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"agent.exe"                                             2004-08-09오전 05:03:28       512000  "3.20.100.1123"    "A"           "be5acb2d-9860-0147-af96-a76b6749148a"  "c:\program files\installshield 10.5\redist\update service\agent.exe"
+		"isdm.exe"                                              2004-08-09오전 05:02:16       217088  "3.20.100.1123"    "A"           "b4db67ec-b529-72ae-eddc-f2ef8b0c2547"  "c:\program files\installshield 10.5\redist\update service\isdm.exe"
+
+><ISUS>Web Agent - Reg<
+
+		Size of Files:   		        327680
+		Size in Library:		        144335
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isusweb.dll"                                           2004-08-09오전 05:02:38       327680  "3.20.100.1123"    "A"           "3dc3cd68-f131-2c95-80a9-15677d7b7796"  "c:\program files\installshield 10.5\redist\update service\isusweb.dll"
+
+><ISUS>Player - Reg Shared<
+
+		Size of Files:   		        196608
+		Size in Library:		         87554
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"dwusplay.exe"                                          2002-07-25오후 05:13:12       196608  "1.20.100.1203"    "A"           "ea35becd-bc59-2392-e4f8-00bd1db82d27"  "c:\program files\installshield 10.5\redist\update service\dwusplay.exe"
+
+><ISUS>Player Stub - Reg Shared<
+
+		Size of Files:   		         24576
+		Size in Library:		          1530
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"dwusplay.dll"                                          2002-07-25오후 05:13:18        24576  "1.20.100.1203"    "A"           "2e9dea3f-23df-28b0-3c7a-66c8dea380bd"  "c:\program files\installshield 10.5\redist\update service\dwusplay.dll"
+
+><ISUS>Agent - Non Reg<
+
+		Size of Files:   		        450560
+		Size in Library:		        110050
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"issch.exe"                                             2004-08-09오전 05:03:38        81920  "3.20.100.1123"    "A"           "fbc4f351-f6ee-eb6c-a7ab-e43f4f5c1b69"  "c:\program files\installshield 10.5\redist\update service\issch.exe"
+		"_isusres.dll"                                          2004-08-09오전 05:03:32       368640  "3.20.100.1123"    "A"           "3fc3eca1-f680-2542-296a-1bd4acd23408"  "c:\program files\installshield 10.5\redist\update service\_isusres.dll"
+
+><ISUS>Scheduler<
+
+		Size of Files:   		        649954
+		Size in Library:		        198710
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isuspm.exe"                                            2004-08-09오전 05:03:58       221184  "3.20.100.1123"    "A"           "248d3d05-1851-a6be-e21e-1812871f67ba"  "c:\program files\installshield 10.5\redist\update service\isuspm.exe"
+		"pm.css"                                                2004-08-09오전 05:01:12         3176  ""                 "A"           "a5d43bd7-8148-2705-8a50-0f4d5731bfff"  "c:\program files\installshield 10.5\redist\update service\pm.css"
+		"pm.html"                                               2004-08-09오전 05:01:12         4235  ""                 "A"           "18030883-490d-a7da-8e39-8075bc23bc4b"  "c:\program files\installshield 10.5\redist\update service\pm.html"
+		"_ispmres.dll"                                          2004-08-09오전 05:03:42       385024  "3.20.100.1123"    "A"           "78dc9b7b-c949-e34a-02b2-9688fe14d90f"  "c:\program files\installshield 10.5\redist\update service\_ispmres.dll"
+		"isuspm.exe.manifest"                                   2004-08-09오전 05:01:14          586  ""                 "A"           "70f9edf6-2b3c-6f93-9632-4dc366e19c22"  "c:\program files\installshield 10.5\redist\update service\isuspm.exe.manifest"
+		"images\background.jpg"                                 2004-08-09오전 05:01:12        18725  ""                 "A"           "1416325c-ddc6-99aa-aa00-421356732f7f"  "c:\program files\installshield 10.5\redist\update service\images\background.jpg"
+		"images\file16.gif"                                     2004-08-09오전 05:01:12          961  ""                 "A"           "16ee5f30-e7f0-5689-5bd2-9496e1d852a7"  "c:\program files\installshield 10.5\redist\update service\images\file16.gif"
+		"images\helpdoc16.gif"                                  2004-08-09오전 05:01:12          987  ""                 "A"           "3ab42385-fa08-f66d-aefd-1a33318e9ea6"  "c:\program files\installshield 10.5\redist\update service\images\helpdoc16.gif"
+		"images\left_task.gif"                                  2004-08-09오전 05:01:12         7753  ""                 "A"           "8c54f777-9d85-5733-49ff-2bdf350aa613"  "c:\program files\installshield 10.5\redist\update service\images\left_task.gif"
+		"images\left_task2.gif"                                 2004-08-09오전 05:01:12         7323  ""                 "A"           "062a108e-1f3f-5cd9-10b5-07406226aa3d"  "c:\program files\installshield 10.5\redist\update service\images\left_task2.gif"
+
+><ISUS>Applet<
+
+		Size of Files:   		         73728
+		Size in Library:		         32139
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isuspm.cpl"                                            2004-08-09오전 05:04:02        73728  "3.20.100.1123"    "A"           "840fba1b-3c5f-9c60-ebae-b8f19522f207"  "c:\program files\installshield 10.5\redist\update service\isuspm.cpl"
+
+><Support>ISUS Configuration File<
+
+		Size of Files:   		           491
+		Size in Library:		           266
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"isusrt.ini"                                            2011-11-18오후 05:40:50          491  ""                 "A"           "d38f0be4-ec32-ab5a-8e85-d8cfc5d50b80"  "c:\docume~1\admini~1\locals~1\temp\isusrt.ini"
+
+>DefaultComponent<
+
+		Size of Files:   		       1287168
+		Size in Library:		        324152
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"login1.avi"                                            2005-02-25오후 01:15:42       283648  ""                 "RA"          "c8ccdbd8-5850-4717-b01f-558a0e2dcd04"  "c:\a4.서북병원\02.emr interface\src\02.vpm\src\login1.avi"
+		"prjvpm.exe"                                            2011-11-18오후 05:39:34      1003520  "2.0.0.0"          "A"           "5d5262ec-43a5-4ff6-305e-fcf44a26ed53"  "c:\a4.서북병원\02.emr interface\src_넷파인더\02.vpm\src\prjvpm.exe"
+
+>TARGETDIRSharedFiles1<
+
+		Size of Files:   		         81920
+		Size in Library:		         25254
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"msado25.tlb"                                           2010-11-08오후 09:41:00        81920  "2.81.3012.0"      "A"           "495ad8ee-f2d4-d4b3-983a-769fb5333140"  "c:\program files\common files\system\ado\msado25.tlb"
+
+>WINSYSDIRSharedFiles<
+
+		Size of Files:   		       2311471
+		Size in Library:		       1183922
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"vb6ko.dll"                                             2000-10-02오전 12:00:00       102160  "6.0.89.88"        "A"           "572b7484-6954-d60e-6737-2be561cf518d"  "c:\windows\system32\vb6ko.dll"
+		"vb6stkit.dll"                                          2000-07-15오전 12:00:00       101888  "6.0.84.50"        "A"           "e4588f0e-e13d-bbfc-cc52-8f8f510ec3e0"  "c:\windows\system32\vb6stkit.dll"
+		"asycfilt.dll"                                          2010-03-05오후 11:37:40        65536  "5.1.2600.5949"    "A"           "ac494163-b5b7-dfb9-164f-054495d25f79"  "c:\windows\system32\asycfilt.dll"
+		"comcat.dll"                                            2008-05-17오전 11:40:30         3584  "5.0.2600.1"       "A"           "d74a9fc1-5c6b-92b9-aa1a-8a540058bbda"  "c:\windows\system32\comcat.dll"
+		"msvbvm60.dll"                                          2008-04-14오전 07:56:50      1384479  "6.0.98.2"         "A"           "461f7c97-b164-f43e-d52a-493ab740a582"  "c:\windows\system32\msvbvm60.dll"
+		"oleaut32.dll"                                          2008-04-14오전 07:56:56       551936  "5.1.2600.5512"    ""            "25a077dc-c13c-e428-9635-46f5123d394f"  "c:\windows\system32\oleaut32.dll"
+		"olepro32.dll"                                          2008-04-14오전 07:56:56        84992  "5.1.2600.5512"    "A"           "12e55e35-23ab-aa08-20b4-a83e65199330"  "c:\windows\system32\olepro32.dll"
+		"stdole2.tlb"                                           2008-04-13오후 09:12:08        16896  "5.1.2600.5512"    "A"           "c4b3fe93-8897-b6c4-e858-5787bfaca673"  "c:\windows\system32\stdole2.tlb"
+
+>WINSYSDIRSharedSelfRegFiles<
+
+		Size of Files:   		       3570992
+		Size in Library:		       1751902
+
+
+		File                                                    Date        Time         Size         Version            Attributes    MD5                                     Source file
+		------------------------------------------------------  ----------  -----------  -----------  -----------------  ------------  --------------------------------------  ------------------------------------------------
+		"spr32x60.ocx"                                          2002-08-11오전 10:18:00      1402528  "6.0.0.11"         "A"           "c534bf2c-34df-8a36-4cbb-11d4ee8386e7"  "c:\program files\spread60\bin\spr32x60.ocx"
+		"comdlg32.ocx"                                          2004-03-09오전 12:00:00       152848  "6.1.97.82"        "A"           "292441ab-e5f1-97fb-08a8-cdea07479099"  "c:\windows\system32\comdlg32.ocx"
+		"mscomct2.ocx"                                          2004-03-09오전 12:00:00       662288  "6.1.97.82"        "A"           "a5a847ae-81fe-bb93-84ff-cd338115d8ef"  "c:\windows\system32\mscomct2.ocx"
+		"mscomctl.ocx"                                          2004-03-09오전 12:00:00      1081616  "6.1.97.82"        ""            "f0d7c7ec-44d3-e36d-6045-d1d9e964fafe"  "c:\windows\system32\mscomctl.ocx"
+		"mscomm32.ocx"                                          1998-06-24오전 12:00:00       103744  "6.0.81.69"        "A"           "da19612c-9339-10f4-e74b-15112f840cb0"  "c:\windows\system32\mscomm32.ocx"
+		"msmask32.ocx"                                          2004-03-09오전 12:00:00       167968  "6.0.84.18"        "A"           "c9f9d42f-34c0-cf98-e539-7c44a6e9db25"  "c:\windows\system32\msmask32.ocx"
