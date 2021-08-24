@@ -1,0 +1,815 @@
+D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+D3    dce_setenv          | Host Name = <balbali>
+D4    dce_setenv          | Broker host = <150.191.201.76>
+D5    dce_setenv          | Broker port = <9300>
+D6    dce_setenv          | Server Port = <To be chosen by the operating system>
+D7    dce_setenv          | Fri Aug 29 22:50:36 2003
+D8    dce_setenv          | Finished setting environment =======================
+
+D9    dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+D10   connect_broker_insta| Connected to broker <150.191.201.76:9300> at socket <1876>
+D11   dce_push_char_Nstr  | sending <interface>="sl_d_m05"
+D12   dce_submit_ext      | about to submit RPC to <OECbroker:>
+D13   dce_submit_ext      |    :function<dce_get_serverlist>:socket<1876>
+D14   dce_push_long       | sending <dce_rpccount>=0
+D15   dce_pop_long        | got <dce_rpccount>=933506
+D16   dce_pop_int         | got <dce_svr_pid>=87400
+D17   dce_submit_ext      | data transferred, Socket <1876> closed
+D18   dce_table_destroy   | about to clear <90417f0>
+D19   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D20   dce_cache_refresh   | The broker sent an updated serverlist: <150.191.201.76/KNUH1:4250:0|>
+
+W22   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D23   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D24   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D25   dce_push_long       | sending <dce_rpccount>=0
+D26   dce_pop_long        | got <dce_rpccount>=484
+D27   dce_pop_int         | got <dce_svr_pid>=212042
+D28   dce_submit_ext      | data transferred, Socket <1876> closed
+D29   dce_pop_long        | got <dce_result>=3
+D30   dce_table_destroy   | about to clear <90419a0>
+D31   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D32   dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W34   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D35   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D36   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D37   dce_push_long       | sending <dce_rpccount>=0
+D38   dce_pop_long        | got <dce_rpccount>=485
+D39   dce_pop_int         | got <dce_svr_pid>=212042
+D40   dce_submit_ext      | data transferred, Socket <1876> closed
+D41   dce_pop_long        | got <dce_result>=10
+D42   dce_table_destroy   | about to clear <9042710>
+D43   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D44   dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W46   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D47   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D48   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D49   dce_push_long       | sending <dce_rpccount>=0
+D50   dce_pop_long        | got <dce_rpccount>=486
+D51   dce_pop_int         | got <dce_svr_pid>=212042
+D52   dce_submit_ext      | data transferred, Socket <1876> closed
+D53   dce_pop_long        | got <dce_result>=1
+D54   dce_table_destroy   | about to clear <9042f80>
+D55   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D56   dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W58   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D59   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D60   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D61   dce_push_long       | sending <dce_rpccount>=0
+D62   dce_pop_long        | got <dce_rpccount>=487
+D63   dce_pop_int         | got <dce_svr_pid>=212042
+D64   dce_submit_ext      | data transferred, Socket <1876> closed
+D65   dce_pop_long        | got <dce_result>=5
+D66   dce_table_destroy   | about to clear <9042ab0>
+D67   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D68   dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W70   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D71   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D72   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D73   dce_push_long       | sending <dce_rpccount>=0
+D74   dce_pop_long        | got <dce_rpccount>=488
+D75   dce_pop_int         | got <dce_svr_pid>=212042
+D76   dce_submit_ext      | data transferred, Socket <1876> closed
+D77   dce_pop_long        | got <dce_result>=1
+D78   dce_table_destroy   | about to clear <9042100>
+D79   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D80   dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W82   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D83   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D84   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D85   dce_push_long       | sending <dce_rpccount>=0
+D86   dce_pop_long        | got <dce_rpccount>=489
+D87   dce_pop_int         | got <dce_svr_pid>=212042
+D88   dce_submit_ext      | data transferred, Socket <1876> closed
+D89   dce_pop_long        | got <dce_result>=3
+D90   dce_table_destroy   | about to clear <9043400>
+D91   dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D92   dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W94   dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D95   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D96   dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D97   dce_push_long       | sending <dce_rpccount>=0
+D98   dce_pop_long        | got <dce_rpccount>=490
+D99   dce_pop_int         | got <dce_svr_pid>=212042
+D100  dce_submit_ext      | data transferred, Socket <1876> closed
+D101  dce_pop_long        | got <dce_result>=5
+D102  dce_table_destroy   | about to clear <9043a70>
+D103  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D104  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W106  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D107  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D108  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D109  dce_push_long       | sending <dce_rpccount>=0
+D110  dce_pop_long        | got <dce_rpccount>=491
+D111  dce_pop_int         | got <dce_svr_pid>=212042
+D112  dce_submit_ext      | data transferred, Socket <1876> closed
+D113  dce_pop_long        | got <dce_result>=5
+D114  dce_table_destroy   | about to clear <90434f0>
+D115  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D116  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W118  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D119  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D120  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D121  dce_push_long       | sending <dce_rpccount>=0
+D122  dce_pop_long        | got <dce_rpccount>=492
+D123  dce_pop_int         | got <dce_svr_pid>=212042
+D124  dce_submit_ext      | data transferred, Socket <1876> closed
+D125  dce_pop_long        | got <dce_result>=5
+D126  dce_table_destroy   | about to clear <9043dc0>
+D127  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D128  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W130  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D131  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D132  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D133  dce_push_long       | sending <dce_rpccount>=0
+D134  dce_pop_long        | got <dce_rpccount>=493
+D135  dce_pop_int         | got <dce_svr_pid>=212042
+D136  dce_submit_ext      | data transferred, Socket <1876> closed
+D137  dce_pop_long        | got <dce_result>=8
+D138  dce_table_destroy   | about to clear <9043eb0>
+D139  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D140  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W142  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D143  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D144  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D145  dce_push_long       | sending <dce_rpccount>=0
+D146  dce_pop_long        | got <dce_rpccount>=494
+D147  dce_pop_int         | got <dce_svr_pid>=212042
+D148  dce_submit_ext      | data transferred, Socket <1876> closed
+D149  dce_pop_long        | got <dce_result>=1
+D150  dce_table_destroy   | about to clear <90431e0>
+D151  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D152  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W154  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D155  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D156  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D157  dce_push_long       | sending <dce_rpccount>=0
+D158  dce_pop_long        | got <dce_rpccount>=495
+D159  dce_pop_int         | got <dce_svr_pid>=212042
+D160  dce_submit_ext      | data transferred, Socket <1876> closed
+D161  dce_pop_long        | got <dce_result>=1
+D162  dce_table_destroy   | about to clear <9043300>
+D163  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D164  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W166  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D167  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D168  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D169  dce_push_long       | sending <dce_rpccount>=0
+D170  dce_pop_long        | got <dce_rpccount>=496
+D171  dce_pop_int         | got <dce_svr_pid>=212042
+D172  dce_submit_ext      | data transferred, Socket <1876> closed
+D173  dce_pop_long        | got <dce_result>=3
+D174  dce_table_destroy   | about to clear <9044290>
+D175  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D176  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W178  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D179  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D180  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D181  dce_push_long       | sending <dce_rpccount>=0
+D182  dce_pop_long        | got <dce_rpccount>=497
+D183  dce_pop_int         | got <dce_svr_pid>=212042
+D184  dce_submit_ext      | data transferred, Socket <1876> closed
+D185  dce_pop_long        | got <dce_result>=1
+D186  dce_table_destroy   | about to clear <9044960>
+D187  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D188  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W190  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D191  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D192  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D193  dce_push_long       | sending <dce_rpccount>=0
+D194  dce_pop_long        | got <dce_rpccount>=498
+D195  dce_pop_int         | got <dce_svr_pid>=212042
+D196  dce_submit_ext      | data transferred, Socket <1876> closed
+D197  dce_pop_long        | got <dce_result>=6
+D198  dce_table_destroy   | about to clear <9044290>
+D199  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D200  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W202  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D203  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D204  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D205  dce_push_long       | sending <dce_rpccount>=0
+D206  dce_pop_long        | got <dce_rpccount>=499
+D207  dce_pop_int         | got <dce_svr_pid>=212042
+D208  dce_submit_ext      | data transferred, Socket <1876> closed
+D209  dce_pop_long        | got <dce_result>=6
+D210  dce_table_destroy   | about to clear <9044bc0>
+D211  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D212  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W214  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D215  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D216  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D217  dce_push_long       | sending <dce_rpccount>=0
+D218  dce_pop_long        | got <dce_rpccount>=500
+D219  dce_pop_int         | got <dce_svr_pid>=212042
+D220  dce_submit_ext      | data transferred, Socket <1876> closed
+D221  dce_pop_long        | got <dce_result>=1
+D222  dce_table_destroy   | about to clear <9044bc0>
+D223  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D224  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W226  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D227  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D228  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D229  dce_push_long       | sending <dce_rpccount>=0
+D230  dce_pop_long        | got <dce_rpccount>=501
+D231  dce_pop_int         | got <dce_svr_pid>=212042
+D232  dce_submit_ext      | data transferred, Socket <1876> closed
+D233  dce_pop_long        | got <dce_result>=5
+D234  dce_table_destroy   | about to clear <9044bc0>
+D235  dce_table_destroy   | current time is <Fri Aug 29 22:50:40 2003>
+D236  dce_findserver      | current time is <Fri Aug 29 22:50:40 2003>
+W238  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D239  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D240  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D241  dce_push_long       | sending <dce_rpccount>=0
+D242  dce_pop_long        | got <dce_rpccount>=502
+D243  dce_pop_int         | got <dce_svr_pid>=212042
+D244  dce_submit_ext      | data transferred, Socket <1876> closed
+D245  dce_pop_long        | got <dce_result>=1
+D246  dce_table_destroy   | about to clear <90441d0>
+D247  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D248  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W250  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D251  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D252  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D253  dce_push_long       | sending <dce_rpccount>=0
+D254  dce_pop_long        | got <dce_rpccount>=503
+D255  dce_pop_int         | got <dce_svr_pid>=212042
+D256  dce_submit_ext      | data transferred, Socket <1876> closed
+D257  dce_pop_long        | got <dce_result>=9
+D258  dce_table_destroy   | about to clear <9044c10>
+D259  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D260  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W262  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D263  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D264  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D265  dce_push_long       | sending <dce_rpccount>=0
+D266  dce_pop_long        | got <dce_rpccount>=504
+D267  dce_pop_int         | got <dce_svr_pid>=212042
+D268  dce_submit_ext      | data transferred, Socket <1876> closed
+D269  dce_pop_long        | got <dce_result>=2
+D270  dce_table_destroy   | about to clear <9045400>
+D271  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D272  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W274  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D275  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D276  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D277  dce_push_long       | sending <dce_rpccount>=0
+D278  dce_pop_long        | got <dce_rpccount>=505
+D279  dce_pop_int         | got <dce_svr_pid>=212042
+D280  dce_submit_ext      | data transferred, Socket <1876> closed
+D281  dce_pop_long        | got <dce_result>=0
+D282  dce_table_destroy   | about to clear <9045a50>
+D283  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D284  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W286  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D287  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D288  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D289  dce_push_long       | sending <dce_rpccount>=0
+D290  dce_pop_long        | got <dce_rpccount>=506
+D291  dce_pop_int         | got <dce_svr_pid>=212042
+D292  dce_submit_ext      | data transferred, Socket <1876> closed
+D293  dce_pop_long        | got <dce_result>=0
+D294  dce_table_destroy   | about to clear <9045f40>
+D295  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D296  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W298  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D299  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D300  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D301  dce_push_long       | sending <dce_rpccount>=0
+D302  dce_pop_long        | got <dce_rpccount>=507
+D303  dce_pop_int         | got <dce_svr_pid>=212042
+D304  dce_submit_ext      | data transferred, Socket <1876> closed
+D305  dce_pop_long        | got <dce_result>=0
+D306  dce_table_destroy   | about to clear <90457e0>
+D307  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D308  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W310  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D311  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D312  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D313  dce_push_long       | sending <dce_rpccount>=0
+D314  dce_pop_long        | got <dce_rpccount>=508
+D315  dce_pop_int         | got <dce_svr_pid>=212042
+D316  dce_submit_ext      | data transferred, Socket <1876> closed
+D317  dce_pop_long        | got <dce_result>=0
+D318  dce_table_destroy   | about to clear <9045300>
+D319  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D320  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W322  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D323  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D324  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D325  dce_push_long       | sending <dce_rpccount>=0
+D326  dce_pop_long        | got <dce_rpccount>=509
+D327  dce_pop_int         | got <dce_svr_pid>=212042
+D328  dce_submit_ext      | data transferred, Socket <1876> closed
+D329  dce_pop_long        | got <dce_result>=0
+D330  dce_table_destroy   | about to clear <9045af0>
+D331  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D332  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W334  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D335  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D336  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D337  dce_push_long       | sending <dce_rpccount>=0
+D338  dce_pop_long        | got <dce_rpccount>=510
+D339  dce_pop_int         | got <dce_svr_pid>=212042
+D340  dce_submit_ext      | data transferred, Socket <1876> closed
+D341  dce_pop_long        | got <dce_result>=0
+D342  dce_table_destroy   | about to clear <9045af0>
+D343  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D344  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W346  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D347  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D348  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D349  dce_push_long       | sending <dce_rpccount>=0
+D350  dce_pop_long        | got <dce_rpccount>=511
+D351  dce_pop_int         | got <dce_svr_pid>=212042
+D352  dce_submit_ext      | data transferred, Socket <1876> closed
+D353  dce_pop_long        | got <dce_result>=0
+D354  dce_table_destroy   | about to clear <9045760>
+D355  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D356  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W358  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D359  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D360  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D361  dce_push_long       | sending <dce_rpccount>=0
+D362  dce_pop_long        | got <dce_rpccount>=512
+D363  dce_pop_int         | got <dce_svr_pid>=212042
+D364  dce_submit_ext      | data transferred, Socket <1876> closed
+D365  dce_pop_long        | got <dce_result>=0
+D366  dce_table_destroy   | about to clear <9045280>
+D367  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D368  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W370  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D371  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D372  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D373  dce_push_long       | sending <dce_rpccount>=0
+D374  dce_pop_long        | got <dce_rpccount>=513
+D375  dce_pop_int         | got <dce_svr_pid>=212042
+D376  dce_submit_ext      | data transferred, Socket <1876> closed
+D377  dce_pop_long        | got <dce_result>=0
+D378  dce_table_destroy   | about to clear <9045760>
+D379  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D380  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W382  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D383  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D384  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D385  dce_push_long       | sending <dce_rpccount>=0
+D386  dce_pop_long        | got <dce_rpccount>=514
+D387  dce_pop_int         | got <dce_svr_pid>=212042
+D388  dce_submit_ext      | data transferred, Socket <1876> closed
+D389  dce_pop_long        | got <dce_result>=0
+D390  dce_table_destroy   | about to clear <90457a0>
+D391  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D392  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W394  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D395  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D396  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D397  dce_push_long       | sending <dce_rpccount>=0
+D398  dce_pop_long        | got <dce_rpccount>=515
+D399  dce_pop_int         | got <dce_svr_pid>=212042
+D400  dce_submit_ext      | data transferred, Socket <1876> closed
+D401  dce_pop_long        | got <dce_result>=0
+D402  dce_table_destroy   | about to clear <9045830>
+D403  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D404  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W406  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D407  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D408  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D409  dce_push_long       | sending <dce_rpccount>=0
+D410  dce_pop_long        | got <dce_rpccount>=516
+D411  dce_pop_int         | got <dce_svr_pid>=212042
+D412  dce_submit_ext      | data transferred, Socket <1876> closed
+D413  dce_pop_long        | got <dce_result>=0
+D414  dce_table_destroy   | about to clear <90458c0>
+D415  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D416  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W418  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D419  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D420  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D421  dce_push_long       | sending <dce_rpccount>=0
+D422  dce_pop_long        | got <dce_rpccount>=517
+D423  dce_pop_int         | got <dce_svr_pid>=212042
+D424  dce_submit_ext      | data transferred, Socket <1876> closed
+D425  dce_pop_long        | got <dce_result>=0
+D426  dce_table_destroy   | about to clear <9045ad0>
+D427  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D428  dce_findserver      | current time is <Fri Aug 29 22:50:41 2003>
+W430  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D431  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D432  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<1876>
+D433  dce_push_long       | sending <dce_rpccount>=0
+D434  dce_pop_long        | got <dce_rpccount>=518
+D435  dce_pop_int         | got <dce_svr_pid>=212042
+D436  dce_submit_ext      | data transferred, Socket <1876> closed
+D437  dce_pop_long        | got <dce_result>=0
+D438  dce_table_destroy   | about to clear <9046410>
+D439  dce_table_destroy   | current time is <Fri Aug 29 22:50:41 2003>
+D440  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W442  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D443  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D444  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D445  dce_push_long       | sending <dce_rpccount>=0
+D446  dce_pop_long        | got <dce_rpccount>=519
+D447  dce_pop_int         | got <dce_svr_pid>=212042
+D448  dce_submit_ext      | data transferred, Socket <2208> closed
+D449  dce_pop_long        | got <dce_result>=3
+D450  dce_table_destroy   | about to clear <9046990>
+D451  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D452  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W454  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D455  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D456  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D457  dce_push_long       | sending <dce_rpccount>=0
+D458  dce_pop_long        | got <dce_rpccount>=520
+D459  dce_pop_int         | got <dce_svr_pid>=212042
+D460  dce_submit_ext      | data transferred, Socket <2208> closed
+D461  dce_pop_long        | got <dce_result>=10
+D462  dce_table_destroy   | about to clear <9046410>
+D463  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D464  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W466  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D467  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D468  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D469  dce_push_long       | sending <dce_rpccount>=0
+D470  dce_pop_long        | got <dce_rpccount>=521
+D471  dce_pop_int         | got <dce_svr_pid>=212042
+D472  dce_submit_ext      | data transferred, Socket <2208> closed
+D473  dce_pop_long        | got <dce_result>=1
+D474  dce_table_destroy   | about to clear <90461a0>
+D475  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D476  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W478  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D479  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D480  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D481  dce_push_long       | sending <dce_rpccount>=0
+D482  dce_pop_long        | got <dce_rpccount>=522
+D483  dce_pop_int         | got <dce_svr_pid>=212042
+D484  dce_submit_ext      | data transferred, Socket <2208> closed
+D485  dce_pop_long        | got <dce_result>=5
+D486  dce_table_destroy   | about to clear <9046350>
+D487  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D488  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W490  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D491  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D492  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D493  dce_push_long       | sending <dce_rpccount>=0
+D494  dce_pop_long        | got <dce_rpccount>=523
+D495  dce_pop_int         | got <dce_svr_pid>=212042
+D496  dce_submit_ext      | data transferred, Socket <2208> closed
+D497  dce_pop_long        | got <dce_result>=1
+D498  dce_table_destroy   | about to clear <9046e00>
+D499  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D500  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W502  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D503  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D504  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D505  dce_push_long       | sending <dce_rpccount>=0
+D506  dce_pop_long        | got <dce_rpccount>=524
+D507  dce_pop_int         | got <dce_svr_pid>=212042
+D508  dce_submit_ext      | data transferred, Socket <2208> closed
+D509  dce_pop_long        | got <dce_result>=3
+D510  dce_table_destroy   | about to clear <9046480>
+D511  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D512  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W514  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D515  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D516  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D517  dce_push_long       | sending <dce_rpccount>=0
+D518  dce_pop_long        | got <dce_rpccount>=525
+D519  dce_pop_int         | got <dce_svr_pid>=212042
+D520  dce_submit_ext      | data transferred, Socket <2208> closed
+D521  dce_pop_long        | got <dce_result>=5
+D522  dce_table_destroy   | about to clear <9047490>
+D523  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D524  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W526  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D527  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D528  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D529  dce_push_long       | sending <dce_rpccount>=0
+D530  dce_pop_long        | got <dce_rpccount>=526
+D531  dce_pop_int         | got <dce_svr_pid>=212042
+D532  dce_submit_ext      | data transferred, Socket <2208> closed
+D533  dce_pop_long        | got <dce_result>=5
+D534  dce_table_destroy   | about to clear <9047bc0>
+D535  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D536  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W538  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D539  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D540  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D541  dce_push_long       | sending <dce_rpccount>=0
+D542  dce_pop_long        | got <dce_rpccount>=527
+D543  dce_pop_int         | got <dce_svr_pid>=212042
+D544  dce_submit_ext      | data transferred, Socket <2208> closed
+D545  dce_pop_long        | got <dce_result>=5
+D546  dce_table_destroy   | about to clear <90475c0>
+D547  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D548  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W550  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D551  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D552  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D553  dce_push_long       | sending <dce_rpccount>=0
+D554  dce_pop_long        | got <dce_rpccount>=528
+D555  dce_pop_int         | got <dce_svr_pid>=212042
+D556  dce_submit_ext      | data transferred, Socket <2208> closed
+D557  dce_pop_long        | got <dce_result>=8
+D558  dce_table_destroy   | about to clear <9047f10>
+D559  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D560  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W562  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D563  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D564  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D565  dce_push_long       | sending <dce_rpccount>=0
+D566  dce_pop_long        | got <dce_rpccount>=529
+D567  dce_pop_int         | got <dce_svr_pid>=212042
+D568  dce_submit_ext      | data transferred, Socket <2208> closed
+D569  dce_pop_long        | got <dce_result>=1
+D570  dce_table_destroy   | about to clear <9047610>
+D571  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D572  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W574  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D575  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D576  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D577  dce_push_long       | sending <dce_rpccount>=0
+D578  dce_pop_long        | got <dce_rpccount>=530
+D579  dce_pop_int         | got <dce_svr_pid>=212042
+D580  dce_submit_ext      | data transferred, Socket <2208> closed
+D581  dce_pop_long        | got <dce_result>=1
+D582  dce_table_destroy   | about to clear <9047190>
+D583  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D584  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W586  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D587  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D588  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D589  dce_push_long       | sending <dce_rpccount>=0
+D590  dce_pop_long        | got <dce_rpccount>=531
+D591  dce_pop_int         | got <dce_svr_pid>=212042
+D592  dce_submit_ext      | data transferred, Socket <2208> closed
+D593  dce_pop_long        | got <dce_result>=3
+D594  dce_table_destroy   | about to clear <9047700>
+D595  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D596  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W598  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D599  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D600  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D601  dce_push_long       | sending <dce_rpccount>=0
+D602  dce_pop_long        | got <dce_rpccount>=532
+D603  dce_pop_int         | got <dce_svr_pid>=212042
+D604  dce_submit_ext      | data transferred, Socket <2208> closed
+D605  dce_pop_long        | got <dce_result>=1
+D606  dce_table_destroy   | about to clear <9048400>
+D607  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D608  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W610  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D611  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D612  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D613  dce_push_long       | sending <dce_rpccount>=0
+D614  dce_pop_long        | got <dce_rpccount>=533
+D615  dce_pop_int         | got <dce_svr_pid>=212042
+D616  dce_submit_ext      | data transferred, Socket <2208> closed
+D617  dce_pop_long        | got <dce_result>=6
+D618  dce_table_destroy   | about to clear <9048ae0>
+D619  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D620  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W622  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D623  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D624  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D625  dce_push_long       | sending <dce_rpccount>=0
+D626  dce_pop_long        | got <dce_rpccount>=534
+D627  dce_pop_int         | got <dce_svr_pid>=212042
+D628  dce_submit_ext      | data transferred, Socket <2208> closed
+D629  dce_pop_long        | got <dce_result>=6
+D630  dce_table_destroy   | about to clear <9048530>
+D631  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D632  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W634  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D635  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D636  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D637  dce_push_long       | sending <dce_rpccount>=0
+D638  dce_pop_long        | got <dce_rpccount>=535
+D639  dce_pop_int         | got <dce_svr_pid>=212042
+D640  dce_submit_ext      | data transferred, Socket <2208> closed
+D641  dce_pop_long        | got <dce_result>=1
+D642  dce_table_destroy   | about to clear <9048ec0>
+D643  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D644  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W646  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D647  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D648  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D649  dce_push_long       | sending <dce_rpccount>=0
+D650  dce_pop_long        | got <dce_rpccount>=536
+D651  dce_pop_int         | got <dce_svr_pid>=212042
+D652  dce_submit_ext      | data transferred, Socket <2208> closed
+D653  dce_pop_long        | got <dce_result>=5
+D654  dce_table_destroy   | about to clear <9048f50>
+D655  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D656  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W658  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D659  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D660  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D661  dce_push_long       | sending <dce_rpccount>=0
+D662  dce_pop_long        | got <dce_rpccount>=537
+D663  dce_pop_int         | got <dce_svr_pid>=212042
+D664  dce_submit_ext      | data transferred, Socket <2208> closed
+D665  dce_pop_long        | got <dce_result>=1
+D666  dce_table_destroy   | about to clear <90481e0>
+D667  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D668  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W670  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D671  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D672  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D673  dce_push_long       | sending <dce_rpccount>=0
+D674  dce_pop_long        | got <dce_rpccount>=538
+D675  dce_pop_int         | got <dce_svr_pid>=212042
+D676  dce_submit_ext      | data transferred, Socket <2208> closed
+D677  dce_pop_long        | got <dce_result>=9
+D678  dce_table_destroy   | about to clear <90485d0>
+D679  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D680  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W682  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D683  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D684  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D685  dce_push_long       | sending <dce_rpccount>=0
+D686  dce_pop_long        | got <dce_rpccount>=539
+D687  dce_pop_int         | got <dce_svr_pid>=212042
+D688  dce_submit_ext      | data transferred, Socket <2208> closed
+D689  dce_pop_long        | got <dce_result>=2
+D690  dce_table_destroy   | about to clear <90493f0>
+D691  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D692  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W694  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D695  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D696  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D697  dce_push_long       | sending <dce_rpccount>=0
+D698  dce_pop_long        | got <dce_rpccount>=540
+D699  dce_pop_int         | got <dce_svr_pid>=212042
+D700  dce_submit_ext      | data transferred, Socket <2208> closed
+D701  dce_pop_long        | got <dce_result>=0
+D702  dce_table_destroy   | about to clear <9049ae0>
+D703  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D704  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W706  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D707  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D708  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D709  dce_push_long       | sending <dce_rpccount>=0
+D710  dce_pop_long        | got <dce_rpccount>=541
+D711  dce_pop_int         | got <dce_svr_pid>=212042
+D712  dce_submit_ext      | data transferred, Socket <2208> closed
+D713  dce_pop_long        | got <dce_result>=0
+D714  dce_table_destroy   | about to clear <9049100>
+D715  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D716  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W718  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D719  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D720  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D721  dce_push_long       | sending <dce_rpccount>=0
+D722  dce_pop_long        | got <dce_rpccount>=542
+D723  dce_pop_int         | got <dce_svr_pid>=212042
+D724  dce_submit_ext      | data transferred, Socket <2208> closed
+D725  dce_pop_long        | got <dce_result>=0
+D726  dce_table_destroy   | about to clear <90497d0>
+D727  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D728  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W730  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D731  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D732  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D733  dce_push_long       | sending <dce_rpccount>=0
+D734  dce_pop_long        | got <dce_rpccount>=543
+D735  dce_pop_int         | got <dce_svr_pid>=212042
+D736  dce_submit_ext      | data transferred, Socket <2208> closed
+D737  dce_pop_long        | got <dce_result>=0
+D738  dce_table_destroy   | about to clear <9049340>
+D739  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D740  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W742  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D743  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D744  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D745  dce_push_long       | sending <dce_rpccount>=0
+D746  dce_pop_long        | got <dce_rpccount>=544
+D747  dce_pop_int         | got <dce_svr_pid>=212042
+D748  dce_submit_ext      | data transferred, Socket <2208> closed
+D749  dce_pop_long        | got <dce_result>=0
+D750  dce_table_destroy   | about to clear <9049b80>
+D751  dce_table_destroy   | current time is <Fri Aug 29 22:51:16 2003>
+D752  dce_findserver      | current time is <Fri Aug 29 22:51:16 2003>
+W754  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D755  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D756  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D757  dce_push_long       | sending <dce_rpccount>=0
+D758  dce_pop_long        | got <dce_rpccount>=545
+D759  dce_pop_int         | got <dce_svr_pid>=212042
+D760  dce_submit_ext      | data transferred, Socket <2208> closed
+D761  dce_pop_long        | got <dce_result>=0
+D762  dce_table_destroy   | about to clear <9049b80>
+D763  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D764  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W766  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D767  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D768  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D769  dce_push_long       | sending <dce_rpccount>=0
+D770  dce_pop_long        | got <dce_rpccount>=546
+D771  dce_pop_int         | got <dce_svr_pid>=212042
+D772  dce_submit_ext      | data transferred, Socket <2208> closed
+D773  dce_pop_long        | got <dce_result>=0
+D774  dce_table_destroy   | about to clear <9049600>
+D775  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D776  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W778  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D779  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D780  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D781  dce_push_long       | sending <dce_rpccount>=0
+D782  dce_pop_long        | got <dce_rpccount>=547
+D783  dce_pop_int         | got <dce_svr_pid>=212042
+D784  dce_submit_ext      | data transferred, Socket <2208> closed
+D785  dce_pop_long        | got <dce_result>=0
+D786  dce_table_destroy   | about to clear <9049710>
+D787  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D788  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W790  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D791  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D792  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D793  dce_push_long       | sending <dce_rpccount>=0
+D794  dce_pop_long        | got <dce_rpccount>=548
+D795  dce_pop_int         | got <dce_svr_pid>=212042
+D796  dce_submit_ext      | data transferred, Socket <2208> closed
+D797  dce_pop_long        | got <dce_result>=0
+D798  dce_table_destroy   | about to clear <9049c00>
+D799  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D800  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W802  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D803  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D804  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D805  dce_push_long       | sending <dce_rpccount>=0
+D806  dce_pop_long        | got <dce_rpccount>=549
+D807  dce_pop_int         | got <dce_svr_pid>=212042
+D808  dce_submit_ext      | data transferred, Socket <2208> closed
+D809  dce_pop_long        | got <dce_result>=0
+D810  dce_table_destroy   | about to clear <904a2e0>
+D811  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D812  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W814  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D815  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D816  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D817  dce_push_long       | sending <dce_rpccount>=0
+D818  dce_pop_long        | got <dce_rpccount>=550
+D819  dce_pop_int         | got <dce_svr_pid>=212042
+D820  dce_submit_ext      | data transferred, Socket <2208> closed
+D821  dce_pop_long        | got <dce_result>=0
+D822  dce_table_destroy   | about to clear <904a810>
+D823  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D824  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W826  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D827  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D828  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D829  dce_push_long       | sending <dce_rpccount>=0
+D830  dce_pop_long        | got <dce_rpccount>=551
+D831  dce_pop_int         | got <dce_svr_pid>=212042
+D832  dce_submit_ext      | data transferred, Socket <2208> closed
+D833  dce_pop_long        | got <dce_result>=0
+D834  dce_table_destroy   | about to clear <904ace0>
+D835  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D836  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W838  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D839  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D840  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D841  dce_push_long       | sending <dce_rpccount>=0
+D842  dce_pop_long        | got <dce_rpccount>=552
+D843  dce_pop_int         | got <dce_svr_pid>=212042
+D844  dce_submit_ext      | data transferred, Socket <2208> closed
+D845  dce_pop_long        | got <dce_result>=0
+D846  dce_table_destroy   | about to clear <904a460>
+D847  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D848  dce_findserver      | current time is <Fri Aug 29 22:51:17 2003>
+W850  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D851  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D852  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D853  dce_push_long       | sending <dce_rpccount>=0
+D854  dce_pop_long        | got <dce_rpccount>=553
+D855  dce_pop_int         | got <dce_svr_pid>=212042
+D856  dce_submit_ext      | data transferred, Socket <2208> closed
+D857  dce_pop_long        | got <dce_result>=0
+D858  dce_table_destroy   | about to clear <904ae30>
+D859  dce_table_destroy   | current time is <Fri Aug 29 22:51:17 2003>
+D860  dce_findserver      | current time is <Fri Aug 29 22:51:29 2003>
+W862  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D863  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D864  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D865  dce_push_long       | sending <dce_rpccount>=0
+D866  dce_pop_long        | got <dce_rpccount>=554
+D867  dce_pop_int         | got <dce_svr_pid>=212042
+D868  dce_submit_ext      | data transferred, Socket <2208> closed
+D869  dce_pop_long        | got <dce_result>=3
+D870  dce_table_destroy   | about to clear <904a870>
+D871  dce_table_destroy   | current time is <Fri Aug 29 22:51:29 2003>
+D872  dce_findserver      | current time is <Fri Aug 29 22:51:31 2003>
+W874  dce_findserver      | =======<sl_d_m05>@<150.191.201.76/KNUH1>:<4250>=======
+D875  dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D876  dce_submit_ext      |    :function<sl_spcid_tstcd_select>:socket<2208>
+D877  dce_push_long       | sending <dce_rpccount>=0
+D878  dce_pop_long        | got <dce_rpccount>=555
+D879  dce_pop_int         | got <dce_svr_pid>=212042
+D880  dce_submit_ext      | data transferred, Socket <2208> closed
+D881  dce_pop_long        | got <dce_result>=3
+D882  dce_table_destroy   | about to clear <904a100>
+D883  dce_table_destroy   | current time is <Fri Aug 29 22:51:31 2003>
+D884  dce_release         | Releasing <1> pointers

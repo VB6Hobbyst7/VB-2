@@ -1,0 +1,10 @@
+SELECT SUPT_DEPT_RCPN_DT                               AS HOSPDATE 
+     , PID                                             AS PID      
+     , PT_NM                                           AS PNAME    
+     , SPCM_RCPN_NO                                    AS BARCODE  
+     , DEPT_HNM                                        AS DEPTNM   
+     , EXMN_CD                                      AS ITEM     
+  FROM LIME.VW_READ_LSMACIF                                        
+ WHERE SPCM_RCPN_NO = '19O0030251'                         
+   AND EXMN_CD   IN ('CZ394A-A','CZ394A-B','CZ394A')                        
+

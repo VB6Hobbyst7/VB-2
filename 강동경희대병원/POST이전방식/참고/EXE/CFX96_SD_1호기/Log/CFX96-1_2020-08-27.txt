@@ -1,0 +1,1365 @@
+SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'ICA'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'RdRP'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'E'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      SELECT EQPMASTER.SENDCHANNEL, EQPMASTER.TESTCODE,TESTNAME,ABBRNAME,EQPMASTER.SEQNO,REFMLOW,REFMHIGH,REFFLOW,REFFHIGH,RESPRECUSE,RESPREC,RESTYPE   
+     , AMRLimit1,  AMRLimit2,  AMRLimit3,  AMRLimit4,  AMRLimit5,  AMRLimit6,  AMRLimit7               
+     , AMRResult1, AMRResult2, AMRResult3, AMRResult4, AMRResult5, AMRResult6, AMRResult7              
+     , AMRLimit8,  AMRLimit9,  AMRLimit10,  AMRLimit11,  AMRLimit12,  AMRLimit13,  AMRLimit14          
+     , AMRResult8, AMRResult9, AMRResult10, AMRResult11, AMRResult12, AMRResult13, AMRResult14         
+     , AMRINResult                                                                                     
+  FROM EQPMASTER , AMRMASTER                                                                           
+ WHERE EQPMASTER.EQUIPCD     = 'R04'                                                            
+   AND EQPMASTER.RSLTCHANNEL = 'COVID19'                                                                
+   AND EQPMASTER.EQUIPCD     = AMRMASTER.EQUIPCD                                                       
+   AND EQPMASTER.RSLTCHANNEL = AMRMASTER.RSLTCHANNEL                                                   
+   AND EQPMASTER.TESTCODE    = AMRMASTER.TESTCODE                                                      

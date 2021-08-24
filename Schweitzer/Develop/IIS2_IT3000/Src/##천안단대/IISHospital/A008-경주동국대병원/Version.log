@@ -1,0 +1,47 @@
+## IISHospital(동국대학교 경주병원) Version History ##
+
+## 버  전: 1.0.0
+## 작성일: 2004-05-28
+
+## 버  전: 1.0.0
+## 적용일: 2004-09-30
+
+## 버  전: 1.1.0
+## 수정일: 2005-01-27
+## 내  용:
+   1. BN II 검사장비 추가
+      - frmIISHospital Form Design
+      - clsIISInstrShow - InstrShow
+      - clsIISHopMenu - Class_Initialize
+
+## 버  전: 1.1.0
+## 적용일: 2005-01-28
+
+## 버  전: 1.2.0
+## 수정일: 2005-02-23
+## 내  용:
+   1. ACL 9000 검사장비 추가
+      - frmIISHospital Form Design
+      - clsIISInstrShow - InstrShow
+      - clsIISHopMenu - Class_Initialize
+
+## 버  전: 1.2.1 [적용]
+## 수정일: 2005-03-25
+## 내  용:
+   1. 풀다운 메뉴에서 "검사대상 조회"를 안보이도록 수정
+      - clsIISHopMenu - GetFullMenu
+
+## 버  전: 1.2.2
+## 수정일: 2005-04-13
+## 내  용:
+   1. 레지의 장비키가 목록에 없는 경우 보여주지 않도록 수정
+      - clsIISHopMenu - GetMachine
+
+## 버  전: 1.2.2
+## 적용일: 2005-05-27
+
+## 버  전: 1.3.0 [적용]
+## 수정일: 2005-07-28
+## 내  용:
+   1. 결과등록 메뉴추가
+      - clsIISHopMenu - GetFullMenu, Class_Initialize

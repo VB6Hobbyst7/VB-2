@@ -1,0 +1,138 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=D:\강원대부속병원\Package\Elecsys2010
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+odet30.lib=
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\WINDOWS\SYSTEM32\SPR32X30.ocx=
+C:\WINDOWS\SYSTEM32\TABCTL32.OCX=
+D:\건대민중병원\CX7\HSCotrol.ocx=
+C:\WINDOWS\SYSTEM32\COMDLG32.OCX=
+C:\WINDOWS\SYSTEM32\COMCT332.OCX=
+C:\WINDOWS\SYSTEM32\MSCOMCT2.OCX=
+C:\WINDOWS\SYSTEM32\MSCOMCTL.OCX=
+C:\Program Files\Common Files\SYSTEM\ADO\msjro.dll=
+C:\Program Files\Common Files\SYSTEM\ADO\msado26.tlb=
+C:\WINDOWS\SYSTEM32\scrrun.dll=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 1|Files Added]
+D:\강원대부속병원\Database\Interface.mdb=
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+D:\강원대부속병원\ExeModule\Elecsys2010.exe=Yes
+C:\WINDOWS\SYSTEM32\msvbvm60.dll=Yes
+C:\WINDOWS\SYSTEM32\OLEAUT32.DLL=Yes
+C:\WINDOWS\SYSTEM32\OLEPRO32.DLL=Yes
+C:\WINDOWS\SYSTEM32\ASYCFILT.DLL=Yes
+C:\WINDOWS\SYSTEM32\STDOLE2.TLB=Yes
+C:\WINDOWS\SYSTEM32\COMCAT.DLL=Yes
+C:\WINDOWS\SYSTEM32\VB6KO.DLL=Yes
+D:\강원대부속병원\Elecsys2010\ODET30.DLL=Yes
+C:\WINDOWS\SYSTEM32\scrrun.dll=Yes
+C:\Program Files\Common Files\SYSTEM\ADO\msado26.tlb=Yes
+C:\Program Files\Common Files\SYSTEM\ADO\msjro.dll=Yes
+C:\WINDOWS\SYSTEM32\MSCOMCTL.OCX=Yes
+C:\WINDOWS\SYSTEM32\MSCOMCT2.OCX=Yes
+C:\WINDOWS\SYSTEM32\COMCT332.OCX=Yes
+C:\WINDOWS\SYSTEM32\COMDLG32.OCX=Yes
+D:\건대민중병원\CX7\HSCotrol.ocx=Yes
+C:\WINDOWS\SYSTEM32\MSCOMM32.OCX=Yes
+C:\WINDOWS\SYSTEM32\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM32\MSMASK32.OCX=Yes
+C:\WINDOWS\SYSTEM32\SPR32X30.ocx=Yes
+C:\WINDOWS\SYSTEM32\THREED32.OCX=Yes
+C:\WINDOWS\SYSTEM32\mfc40.dll=Yes
+C:\WINDOWS\SYSTEM32\msvcrt40.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+D:\강원대부속병원\Database\Interface.mdb=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+D:\강원대부속병원\ExeModule\Elecsys2010.exe=$(AppPath)
+C:\WINDOWS\SYSTEM32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\VB6KO.DLL=$(WinSysPath)
+D:\강원대부속병원\Elecsys2010\ODET30.DLL=$(AppPath)
+C:\WINDOWS\SYSTEM32\scrrun.dll=$(WinSysPath)
+C:\Program Files\Common Files\SYSTEM\ADO\msado26.tlb=$(WinSysPath)
+C:\Program Files\Common Files\SYSTEM\ADO\msjro.dll=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\MSCOMCTL.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\COMCT332.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\COMDLG32.OCX=$(WinSysPath)
+D:\건대민중병원\CX7\HSCotrol.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\SPR32X30.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\THREED32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM32\mfc40.dll=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM32\msvcrt40.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+D:\강원대부속병원\Database\Interface.mdb=$(AppPath)\database
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+D:\강원대부속병원\ExeModule\Elecsys2010.exe=No
+D:\강원대부속병원\Elecsys2010\ODET30.DLL=No
+D:\강원대부속병원\Database\Interface.mdb=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=Elecsys2010 Interface
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=Elecsys2010 Interface
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|Elecsys2010 Interface]
+Icon1=Elecsys2010.exe
+Title1=Elecsys2010 Interface
+StartIn1=$(AppPath)
+Key1=Icon1
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=D:\강원대부속병원\Package\Elecsys2010
+ProjectFolder=D:\강원대부속병원\Elecsys2010
+ServerSideCab=
+File1=D:\강원대부속병원\Package\Elecsys2010\setup.exe
+File2=D:\강원대부속병원\Package\Elecsys2010\Setup.Lst
+File3=D:\강원대부속병원\Package\Elecsys2010\Elecsys2010.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

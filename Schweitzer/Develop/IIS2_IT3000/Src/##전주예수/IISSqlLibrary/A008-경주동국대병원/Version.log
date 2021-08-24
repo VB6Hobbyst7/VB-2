@@ -1,0 +1,70 @@
+## IISSqlLibrary(동국대학교 경주병원) Version History ##
+
+## 버  전: 1.0.0
+## 작성일: 2004-02-20
+
+## 버  전: 1.0.0
+## 적용일: 2004-10-01
+
+## 버  전: 1.1.0
+## 수정일: 2005-01-26
+## 내  용:
+   1. 접수정보 조회시 검체명, 진료과코드, 병동코드, 채혈일시, 접수일시도 조회하도록 수정
+      - clsIISLibrarySql - SelectAccInfo
+   2. 미생물 결과내역 조회시 한개의 접수번호가 여러개의 Worksheet에 포함될수 있어 Sensi에 대한 
+      결과내역만 조회 하도록 쿼리 수정
+      - clsIISMicroSql - SelectMICResultInfo
+   3. 미생물 결과내역 조회시 장비별 검사항목에 등록된 검사코드에 해당되는것만 조회
+      - clsIISMicroSql - SelectMICResultInfo
+   4. 결과등록시 결과유형이 감수성결과인것만 업데이트 하도록 쿼리수정
+      - clsIISMicroSql - UpdateMicroResult
+   5. 결과내역 조회시 잘못된 쿼리수정
+      - clsIISLibrarySql - SelectResultInfo
+   6. 해당장비의 검사대상을 조회하는 함수 추가
+      - clsIISLibrarySql - SelectTargetSpcs
+   7. Vitek No를 이용해 AccDt를 조회하는 함수 추가
+      - clsIISMicroSql - SelectAccDt
+
+## 버  전: 1.1.0
+## 적용일: 2005-01-28
+
+## 버  전: 1.1.1
+## 수정일: 2005-04-06
+## 내  용:
+   1. 결과유형(rsttype) LAB001에 조회하도록 수정
+      - clsIISLibrarySql - SelectResultInfo
+
+## 버  전: 1.1.2
+## 수정일: 2005-04-11
+## 내  용:
+   1. RstVal의 자료형을 Long에서 Single로 수정
+      - clsIISLibrarySql - UpdateIISResultNumeric, UpdateIISVfy
+
+## 버  전: 1.1.3
+## 수정일: 2005-05-18
+## 내  용:
+   1. 해당 검사코드, 결과의 Alpha결과 판정치 조회하는 함수 추가
+      - clsIISMasterSql - SelectAlphaRef
+   2. 기존병원에서도 사용할수 있도록 프로그램 수정중 Library.Dll의 소스를 수정할수 없어 
+      기존병원에서 사용하는 함수의 골격만 유지
+      - clsIISMasterSql - 기존병원에서 사용하는 함수추가
+
+## 버  전: 1.1.4 [적용]
+## 수정일: 2005-05-27
+## 내  용:
+   1. 해당장비의 검사대상리스트 조회 함수추가
+      - clsIISLibrarySql - SelectTargetSpcsX
+   2. 검사대상 리스트 조회후 조회 Flag 업데이트 함수추가
+      - clsIISLibrarySql - UpdateTargetSpc
+
+## 버  전: 1.1.5
+## 수정일: 2005-06-01
+## 내  용:
+   1. Alpha 결과 참고치 조회쿼리 수정
+      - clsIISMasterSql - SelectAlphaRef
+
+## 버  전: 1.1.6 [적용]
+## 수정일: 2005-07-28
+## 내  용:
+   1. 자동재검 사용할때 결과내역을 조회하는 함수 추가
+      - clsIISLibrarySql - SelectAutoRerunResultInfo

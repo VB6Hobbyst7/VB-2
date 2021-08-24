@@ -1,0 +1,536 @@
+로그인: USP_SP_LAB_IF_UserDA_SelectUserInfo
+ 환자정보 오더: USP_SP_LAB_IF_GnlRsltDA_SelectOrdDimen
+
+             결과: USP_SP_LAB_IF_EqupRsltDA_InsertEqupRslt
+
+  QC오더: USP_SP_LAB_IF_QcRsltDA_SelectQcRsltLstDimen
+
+      결과: USP_SP_LAB_QC_QcRsltDA_UpdateQcRslt
+
+
+
+    //신촌 세브란스 C#
+    
+    클래스
+    
+    namespace YUHS_LabInterface
+{
+    public class LabInterface
+    {
+        public LabInterface();
+
+        public static DataSet convertDataReaderToDataSet(OleDbDataReader reader);
+        public DataSet LabConn(string DB_name, string SPKey, string param);
+        public DataSet LabConnHashRetun(string DB_name, string param);
+        public DataSet LabConnUserInfo(string DB_name, string SPKey, byte[] param);
+    }
+}
+
+
+    public string DownLoadOrder(ref COMMON.TMasterInfo TMaster, ref int OrdCnt)
+        {
+            if (COMMON.SERVER_CONYN == false) return "";
+
+            LabInterface labif = new LabInterface();
+
+            //실제 데이터 조회용
+
+            DataSet ds = new DataSet();
+1
+            string Site = SiteName(COMMON.Site);
+            if (Site == "") return "";
+
+            //QC여부
+            if (TMaster.BarCode.Substring(2, 1) == "9")
+                TMaster.QCYN = "Y";
+
+            if (TMaster.QCYN == "Y")
+                ds = labif.LabConn(Site, "A0031", "''" + TMaster.BarCode + "'',''" + COMMON.FInstCode + "'',''0''");
+            else
+                ds = labif.LabConn(Site, "A0029", "''" + TMaster.BarCode + "'',''" + COMMON.FInstCode + "''");
+
+COMMON.FInstCode="장비코드"
+Site ="운영"
+
+            //레코드 체크
+            if (ErrCheck(ds) == false) return "";
+
+            string ExList = "";
+
+            DataTable dt = new DataTable();
+
+            dt = ds.Tables[0];
+
+            for (int i = 0; i < dt.Rows.Count; i++)                
+            {
+                if (i == 0)
+                {
+                    if (TMaster.QCYN == "Y")
+                    {
+                        TMaster.PId = Convert.ToString(dt.Rows[i]["LotNo"]);
+                        TMaster.PNm = Convert.ToString(dt.Rows[i]["QcSpcNm"]);
+
+                        TMaster.Sex = "";
+                        TMaster.Age = "";
+                    }
+                    else
+                    {
+                    //환자용 필드
+                        TMaster.PId = Convert.ToString(dt.Rows[i]["UnitNo"]);
+                        TMaster.PNm = Convert.ToString(dt.Rows[i]["PatNm"]);
+                        TMaster.Sex = Convert.ToString(dt.Rows[i]["Sex"]);
+                        TMaster.Age = Convert.ToString(dt.Rows[i]["Age"]);
+                    }
+                }
+                string ECD = Convert.ToString(dt.Rows[i]["OrdCd"]);
+                    
+                if (DM.IsUseCode(ECD) == true)
+                    {
+                        ExList = ExList + ECD + ",";
+                        OrdCnt++;
+                    }
+            }
+
+            return ExList;
+        }
+
+        // 결과를 등록하는곳.                                                 
+        public int UploadHospOne(ref COMMON.TMasterInfo TMaster, int iSeq)
+        {
+            if (COMMON.SERVER_CONYN == false) return 0;
+
+            if (TMaster.BarCode.Substring(2, 1) == "9")
+                TMaster.QCYN = "Y";
+
+            if (TMaster.QCYN == "Y")
+            {
+                int Res = UploadHospOne_QC(ref TMaster, iSeq);
+                return Res;
+            }
+
+            string NowDt = DateTime.Now.ToString("yyyyMMddhhmmss");
+            string NDT = NowDt.Substring(0, 8);
+            string NTM = NowDt.Substring(8, 6); 
+
+            LabInterface labif = new LabInterface();
+
+            DataSet ds = new DataSet();
+
+            string UpParam = "''" + TMaster.BarCode + "''" +        //바코드
+                              ",''" + TMaster.ExamCode + "''" +     //검사코드
+                              ",''" + COMMON.FInstCode + "''" +     //장비코드
+                              ",''" + TMaster.UpCode + "''" +       //장비채널
+                              ",''" + TMaster.Result + "''" +       //결과
+                              ",''" + "" + "''" +
+                              ",''" + "" + "''" +
+                              ",''" + TMaster.Rack + "''" +         
+                              ",''" + TMaster.Posi + "''" +
+                              ",''" + iSeq.ToString() + "''" +     //결과순서
+                              ",''" + "" + "''" +
+                              ",''" + "Y" + "''" +
+                              ",''" + NDT + "''" +
+                              ",''" + NTM + "''" +
+                              ",''" + NDT + "''" +
+                              ",''" + NTM + "''" +
+                              ",''" + COMMON.gUserID + "''" +      //로그인 아이디
+                              ",''" + COMMON.gUserID + "''";
+
+            string Site = SiteName(COMMON.Site);
+            if (Site == "") return 0;
+
+            ds = labif.LabConn(Site, "A0030", UpParam);
+
+            return 1;
+        }
+
+        // QC결과를 등록하는곳.                                                 
+        public int UploadHospOne_QC(ref COMMON.TMasterInfo TMaster, int iSeq)
+        {
+            if (COMMON.SERVER_CONYN == false) return 0;
+
+            string NowDt = DateTime.Now.ToString("yyyyMMddhhmmss");
+            string NDT = NowDt.Substring(0, 8);
+            string NTM = NowDt.Substring(8, 6);
+
+            LabInterface labif = new LabInterface();
+
+            DataSet ds = new DataSet();
+
+            string UpParam = "''" + TMaster.BarCode + "''" +
+                              ",''" + COMMON.FInstCode + "''" +
+                              ",''" + "0" + "''" +
+                              ",''" + TMaster.ExamCode + "''" +
+                              ",''" + TMaster.Result + "''" +
+                              ",''" + NDT + "''" +
+                              ",''" + NTM + "''" +
+                              ",''" + COMMON.gUserID + "''";
+
+            string Site = SiteName(COMMON.Site);
+            if (Site == "") return 0;
+
+            ds = labif.LabConn(Site, "A0018", UpParam);
+
+            return 1;
+        }
+
+        //사용하는 검사코드 - 병원 서버에 등록되어있는것 불러옴.
+        public int GetExamInfo(ref CodeInfo TCode, string ICode)
+        {
+            if (COMMON.SERVER_CONYN == false) return 0;
+
+            LabInterface labif = new LabInterface();
+
+            //실제 데이터 조회용
+
+            DataSet ds = new DataSet();
+
+            string Site = SiteName(COMMON.Site);
+
+            //MessageBox.Show(Site);
+
+            if (Site == "") return 0;
+
+            ds = labif.LabConn(Site, "A0028", "''" + ICode + "''");
+
+            //레코드 체크
+            if (ErrCheck(ds) == false) return 0;
+
+            //MessageBox.Show((ds.Tables[0].Rows.Count.ToString()));
+
+            if (ds.Tables[0].Rows.Count == 0) return 0;
+
+            int Count = 0;
+
+            TCode.Abbr = new string[ds.Tables[0].Rows.Count];
+            TCode.ExamCode = new string[ds.Tables[0].Rows.Count];
+            TCode.ExamName = new string[ds.Tables[0].Rows.Count];
+            TCode.UpCode = new string[ds.Tables[0].Rows.Count];
+            TCode.IFCode = new string[ds.Tables[0].Rows.Count];
+            TCode.DispSeq = new string[ds.Tables[0].Rows.Count];
+            TCode.RefLow = new string[ds.Tables[0].Rows.Count];
+            TCode.RefHigh = new string[ds.Tables[0].Rows.Count];
+
+            // For each table in the DataSet, print the row values.
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    TCode.Abbr[Count] = row["ExamNm"].ToString();
+                    TCode.ExamCode[Count] = row["OrdCd"].ToString();
+                    TCode.ExamName[Count] = row["ExamNm"].ToString();
+                    TCode.UpCode[Count] = row["RetEqupExamCd"].ToString();
+                    TCode.IFCode[Count] = row["EqupExamCd"].ToString();
+                    TCode.DispSeq[Count] = (Count + 1).ToString();
+                    TCode.RefLow[Count] = "";
+                    TCode.RefHigh[Count] = "";
+                    Count++;
+                }
+            }           
+
+            return ds.Tables[0].Rows.Count;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+-----이전 델파이 사용--------
+function TDM.DownLoadOrder_SSVR_SP(TMaster: TIfMaster): boolean;
+var
+  ECD:string;
+  vAgeSex:Variant;
+  ADT, SLP, LNO:string;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  //QC
+  if TMaster.FQCYN = 'Y' then begin
+      Result:= DownLoadOrder_SSVR_QC_SP(TMaster);
+      exit;
+  end;
+
+  //SAMPLE
+  with qrySOrder do begin
+      Close;
+      SQL.Text:=' exec USP_SP_LAB_IF_GnlRsltDA_SelectOrdDimen :SpcNo, :ExamEqupCd ';
+      Parameters.ParamByName('SpcNo').Value:= TMaster.FBarCode;
+      Parameters.ParamByName('ExamEqupCd').Value:= TGlobal.FICode;
+
+      try
+          if SvrTEST then
+              sql.SaveToFile('오더테스트.sql');
+
+          Open;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= '오더체크 에러 입니다! 에러메세지->'+ e.Message+' SQL=>'+
+              SQL.Text;
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          TMaster.FPID := FieldByName('UnitNo').AsString;
+          TMaster.FPNM := FieldByName('PatNm').AsString;
+          //vAgeSex:= GetAgeSex(FieldByName('jno').AsString);
+          TMaster.FAge := FieldByName('AGE').AsString;
+          TMaster.FSex := FieldByName('SEX').AsString;
+
+          while Not Eof do begin
+              ECD:= FieldByName('OrdCd').AsString;
+              if CheckSetCode(ECD) then begin
+
+                  Result:= True;
+                  TMaster.FOrdState:= 'Y';
+                  Exit;
+              end;
+              Next;
+          end;
+      end;
+  end;
+end;
+
+function TDM.UploadHost_One_SSVR_SP(TMaster: TIfMaster;
+  ISeq: integer): boolean;
+var
+  NowDt:string;
+  slDev:TStringList;
+begin
+  Result:= False;
+
+  if TMaster.FQCYN = 'Y' then begin
+      Result:= UploadHost_One_SSVR_QC_SP(TMaster, ISeq);
+      exit;
+  end;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:= 'Local 테스트중입니다!';
+      exit;
+  end;
+
+  if TMaster.FResult = '' then exit;
+
+  NowDt:= FormatDateTime('yyyymmddhhnn', now);
+
+  with qrySUp do begin
+      Close;
+      SQL.Text:=' exec USP_SP_LAB_IF_EqupRsltDA_InsertEqupRslt '+
+                '   :SpcNo           '+
+                ' , :OrdCd           '+
+                ' , :ExamEqupCd      '+
+                ' , :RetEqupExamCd   '+
+                ' , :EqupRslt        '+
+                ' , :FlagCdLst       '+
+                ' , :ErrCdLst        '+
+                ' , :RackNo          '+
+                ' , :PosNo           '+
+                ' , :EqupSeq         '+
+                ' , :Rmk             '+
+                ' , :CommCdYn        '+
+                ' , :ExamStrYmd      '+
+                ' , :ExamStrHms      '+
+                ' , :RsltInsYmd      '+
+                ' , :RsltInsHms      '+
+                ' , :ExamId01        '+
+                ' , :ExamId02        ';
+      Parameters.ParamByName('SpcNo').Value:= TMaster.FBarCode;
+      Parameters.ParamByName('OrdCd').Value:= TMaster.FExamCode;
+      Parameters.ParamByName('ExamEqupCd').Value:= TGlobal.FICode;
+      Parameters.ParamByName('RetEqupExamCd').Value:= TMaster.FIfCode;
+      Parameters.ParamByName('EqupRslt').Value:= TMaster.FResult;
+      Parameters.ParamByName('FlagCdLst').Value:= '';
+      Parameters.ParamByName('ErrCdLst').Value:= '';
+      Parameters.ParamByName('RackNo').Value:= TMaster.FRck;
+      Parameters.ParamByName('PosNo').Value:= TMaster.FPos;
+      Parameters.ParamByName('EqupSeq').Value:= ISeq;
+      Parameters.ParamByName('Rmk').Value:= '';
+      Parameters.ParamByName('CommCdYn').Value:= 'Y';
+      Parameters.ParamByName('ExamStrYmd').Value:= Copy(NowDt,1,8);
+      Parameters.ParamByName('ExamStrHms').Value:= Copy(NowDt,9,6);
+      Parameters.ParamByName('RsltInsYmd').Value:= Copy(NowDt,1,8);
+      Parameters.ParamByName('RsltInsHms').Value:= Copy(NowDt,9,6);
+      Parameters.ParamByName('ExamId01').Value:= TGlobal.FUID;
+      Parameters.ParamByName('ExamId02').Value:= TGlobal.FUID;
+
+      if SvrTEST then begin
+          sql.SaveToFile('결과업로드.sql');
+          slDev:= TStringList.Create;
+          try
+              slDev.Add(' exec USP_SP_LAB_IF_EqupRsltDA_InsertEqupRslt ');
+              slDev.Add('   '''+TMaster.FBarCode+'''    ');
+              slDev.Add(' , '''+TMaster.FExamCode+'''   ');
+              slDev.Add(' , '''+TGlobal.FICode+'''      ');
+              slDev.Add(' , '''+TMaster.FIfCode+'''     ');
+              slDev.Add(' , '''+TMaster.FResult+'''     ');
+              slDev.Add(' , ''''     ');
+              slDev.Add(' , ''''     ');
+              slDev.Add(' , '''+TMaster.FRck+'''     ');
+              slDev.Add(' , '''+TMaster.FPos+'''     ');
+              slDev.Add(' , '+IntToStr(ISeq)+'          ');
+              slDev.Add(' , ''''     ');
+              slDev.Add(' , ''Y''     ');
+              slDev.Add(' , '''+Copy(NowDt,1,8)+'''     ');
+              slDev.Add(' , '''+Copy(NowDt,9,6)+'''     ');
+              slDev.Add(' , '''+Copy(NowDt,1,8)+'''     ');
+              slDev.Add(' , '''+Copy(NowDt,9,6)+'''     ');
+              slDev.Add(' , '''+TGlobal.FUID+'''        ');
+              slDev.Add(' , '''+TGlobal.FUID+'''        ');
+              
+              slDev.SaveToFile('결과'+TMaster.FBarCode+'_'+IntToStr(ISeq)+'.txt');
+          finally
+              slDev.Free;
+          end;
+      end;
+
+      try
+          ExecSQL;
+          Result:= True;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= 'SL_EqupRslt 결과전송 에러 입니다! 에러메세지->'+ e.Message+#13#10+
+                               ' SQL=>'+SQL.Text;
+          end;
+      end;
+  end;
+end;
+
+function TDM.DownLoadOrder_SSVR_QC_SP(TMaster: TIfMaster): boolean;
+var
+  ECD:string;
+  vAgeSex:Variant;
+  ADT, SLP, LNO:string;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  with qrySOrder do begin
+      Close;
+      SQL.Text:=' exec USP_SP_LAB_IF_QcRsltDA_SelectQcRsltLstDimen :SpcNo, :ExamEqupCd, ''0'' ';
+      Parameters.ParamByName('SpcNo').Value:= TMaster.FBarCode;
+      Parameters.ParamByName('ExamEqupCd').Value:= TGlobal.FICode;
+
+      try
+          if SvrTEST then
+              sql.SaveToFile('QC오더테스트.sql');
+
+          Open;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= 'QC오더체크 에러 입니다! 에러메세지->'+ e.Message+' SQL=>'+
+              SQL.Text;
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          while Not Eof do begin
+              ECD:= FieldByName('OrdCd').AsString;
+              if CheckSetCode(ECD) then begin
+                  TMaster.FPID := FieldByName('LotNo').AsString;
+                  TMaster.FPNM := FieldByName('QcSpcNm').AsString;
+                  //vAgeSex:= GetAgeSex(FieldByName('jno').AsString);
+                  TMaster.FAge := ''; //FieldByName('AGE').AsString;
+                  TMaster.FSex := ''; //FieldByName('SEX').AsString;
+                  Result:= True;
+                  TMaster.FOrdState:= 'Y';
+                  Exit;
+              end;
+              Next;
+          end;
+      end;
+  end;
+end;
+
+function TDM.UploadHost_One_SSVR_QC_SP(TMaster: TIfMaster;
+  ISeq: integer): boolean;
+var
+  NowDt:string;
+  slDev:TStringList;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:= 'Local 테스트중입니다!';
+      exit;
+  end;
+
+  if TMaster.FResult = '' then exit;
+
+  NowDt:= FormatDateTime('yyyymmddhhnn', now);
+
+  with qrySUp do begin
+      Close;
+      SQL.Text:=' exec USP_SP_LAB_QC_QcRsltDA_UpdateQcRslt '+
+                '   :SpcNo           '+
+                ' , :ExamEqupCd      '+
+                ' , :EqupSeq         '+
+                ' , :OrdCd           '+
+                ' , :EqupRslt        '+
+                ' , :RsltInsYmd      '+
+                ' , :RsltInsHms      '+
+                ' , :ExamId01        ';
+      Parameters.ParamByName('SpcNo').Value:= TMaster.FBarCode;
+      Parameters.ParamByName('ExamEqupCd').Value:= TGlobal.FICode;
+      Parameters.ParamByName('EqupSeq').Value:= 0; //오더요청할때..
+      Parameters.ParamByName('OrdCd').Value:= TMaster.FExamCode;
+      Parameters.ParamByName('EqupRslt').Value:= TMaster.FResult;
+      Parameters.ParamByName('RsltInsYmd').Value:= Copy(NowDt,1,8);
+      Parameters.ParamByName('RsltInsHms').Value:= Copy(NowDt,9,6);
+      Parameters.ParamByName('ExamId01').Value:= TGlobal.FUID;
+
+      if SvrTEST then begin
+          sql.SaveToFile('QC결과업로드.sql');
+          slDev:= TStringList.Create;
+          try
+              slDev.Add(' exec USP_SP_LAB_QC_QcRsltDA_UpdateQcRslt ');
+              slDev.Add('   '''+TMaster.FBarCode+'''    ');
+              slDev.Add(' , '''+TGlobal.FICode+'''      ');
+              slDev.Add(' , 0          ');
+              slDev.Add(' , '''+TMaster.FExamCode+'''   ');
+              slDev.Add(' , '''+TMaster.FResult+'''     ');
+              slDev.Add(' , '''+Copy(NowDt,1,8)+'''     ');
+              slDev.Add(' , '''+Copy(NowDt,9,6)+'''     ');
+              slDev.Add(' , '''+TGlobal.FUID+'''        ');
+              slDev.SaveToFile('QC결과'+TMaster.FBarCode+'_'+IntToStr(ISeq)+'.txt');
+          finally
+              slDev.Free;
+          end;
+      end;
+
+      try
+          ExecSQL;
+          Result:= True;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= 'SL_EqupRslt 결과전송 에러 입니다! 에러메세지->'+ e.Message+#13#10+
+                               ' SQL=>'+SQL.Text;
+          end;
+      end;
+  end;
+end;
+
+function TDM.DownLoadCode_SP(ICd: string): TDataSet;
+begin
+  with qrySECD do begin
+      Close;
+      SQL.Text:= ' EXEC USP_SP_LAB_IF_EqupRsltDA_SelectEqupExamConv '''+ICD+''' ';
+      Open;
+      Result:= qrySECD;
+  end;
+end;

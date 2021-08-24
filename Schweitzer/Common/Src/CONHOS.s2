@@ -1,0 +1,311 @@
+[FIELD]
+'전주 예수병원
+    PROJECT_HOSCD = 07
+'
+'his001(appatbat) : 환자기본마스터
+    F_PTID = patno
+    F_PTNM = patname
+    F_SSN = resno1 || resno2
+    F_AGE = to_char(sysdate,'yyyy')-to_char(birtdate,'yyyy')+'1'
+    F_SEX = sex
+    F_PTDIV = pattype
+    F_DOB = birtdate
+    F_TMPDIV = "''"
+    F_ZIPCODE = zipcd
+    F_ADDRESS = address
+    F_TEL = telno1
+
+'his002(apipdlst) : 재원마스터 --> h7lab501 사용하기로 함. 2001.1.17 kmk
+    F_INPTID = patno
+    F_BEDOUTDT = dschdate
+    F_BEDOUTTM =dschtime
+    F_BEDINDT =admdate
+    F_BEDINTM = admtime
+    F_PTDEPTCD = meddept
+    F_PTWARDID = wardno
+    F_PTROOMID = roomno
+    F_PTBEDID =	bedno
+    F_PTDISEASE = diagcd
+    F_MAJDOCT = chadr
+
+'his003(ccdeptcd) : 부서마스터
+    F_DEPTCD = dpcd
+    F_DEPTNM = deptnm
+    F_DEPTDIV = "''"
+    F_BLDGB = "''"
+    
+'his004(adrmcdct) : 병상마스터
+    F_WARDID = dpcd
+    F_WARDNM = deptnm
+    F_ROOMID = "''"
+    F_BEDID = "''"
+
+'his005(ccusermt) : 의사마스터(jikjong 의사:'HAA', 간호사: 'HAB')
+    F_DOCTID = userid
+    F_DOCTNM = username
+     
+    F_EMPID = userid
+    F_EMPNM = username
+    F_EMPDIV = jikjong
+    F_EXPDT = enddt
+    
+'his006(siicdtct) : 상병마스터
+    F_ICD = diagcode
+    F_IENM = diagennm
+    F_IKNM = diagkrnm
+
+'his007(sioptrct) : 수술마스터
+    F_OCD = treacode
+    F_ONM = treaennm
+    F_ODIV = "''"
+
+'his008(adprilst) : 수가마스터
+    F_AMTCD = sugacode
+    F_AMTNM = korname
+    F_MATCD = sugacode
+    
+    FUNC_SUBSTR = substr
+    FUNC_CONCAT = ||
+
+[TABLE]
+    T_COM001 = s2com001
+    T_COM002 = s2com002
+    T_COM003 = s2com003
+    T_COM004 = s2com004
+    T_COM005 = s2com005
+    T_COM006 = s2com006
+    T_COM007 = s2com007
+    T_COM008 = s2com008
+    T_COM009 = s2com009
+    T_COM010 = s2com010
+    T_COM011 = s2com011
+    T_COM012 = s2com012
+    T_COM013 = s2com013
+    T_COM014 = s2com014
+    T_COM015 = s2com015
+    T_COM016 = s2com016
+    T_COM017 = s2com017 
+    T_COM099 = s2com099
+    T_COM101 = s2com101
+    
+    T_HIS001 = ORAA1.APPATBAT
+    T_HIS002 = ORAA1.APIPDLST
+    T_HIS003 = ORAC1.CCDEPTCT
+    T_HIS004 = ORAA1.CCDEPTCT
+    T_HIS005 = ORAC1.CCUSERMT
+    T_HIS006 = ORAS1.SIICDTCT
+    T_HIS007 = ORAS1.SIOPTRCT
+    T_HIS008 = ORAA1.ADPRICST
+    T_HIS009 = his009
+    T_HIS010 = his010
+
+    T_LAB001 = s2lab001
+    T_LAB002 = s2lab002
+    T_LAB003 = s2lab003
+    T_LAB004 = s2lab004
+    T_LAB005 = s2lab005
+    T_LAB006 = s2lab006
+    T_LAB007 = s2lab007
+    T_LAB008 = s2lab008
+    T_LAB009 = s2lab009
+    T_LAB011 = s2lab011
+    T_LAB012 = s2lab012
+    T_LAB013 = s2lab013
+    T_LAB014 = s2lab014
+    T_LAB015 = s2com006
+
+    T_LAB021 = s2lab021
+    T_LAB022 = s2lab022
+    T_LAB023 = s2lab023
+    T_LAB024 = s2lab024
+    T_LAB025 = s2lab025
+    T_LAB026 = s2lab026
+    T_LAB027 = s2lab027
+    T_LAB028 = s2lab028
+    T_LAB029 = s2lab029
+    T_LAB030 = s2lab030
+
+    T_LAB031 = s2lab031
+    T_LAB032 = s2lab032
+    T_LAB033 = s2lab033
+    T_LAB034 = s2lab034
+    T_LAB035 = s2lab035
+    T_LAB036 = s2lab036
+    T_LAB041 = s2lab041
+
+    T_LAB099 = s2lab099
+
+    T_LAB101 = ORAS1.S2ORD101_V
+    T_LAB102 = ORAS1.S2ORD102_V
+    T_LAB103 = s2ord103
+    T_LAB104 = s2lab104
+    T_LAB105 = ORAS1.S2ORD105_V
+    T_LAB106 = ORAS1.S2ORD106_V
+
+    T_LAB195 = s2lab195
+
+    T_LAB201 = s2lab201
+    T_LAB202 = s2lab202
+    T_LAB203 = s2lab203
+    T_LAB204 = s2lab204
+    T_LAB205 = s2lab205
+
+    T_LAB301 = s2lab301
+    T_LAB302 = s2lab302
+    T_LAB303 = s2lab303
+    T_LAB304 = s2lab304
+    T_LAB305 = s2lab305
+    T_LAB306 = s2lab306
+    T_LAB307 = s2lab307
+    T_LAB308 = s2lab308
+    T_LAB309 = s2lab309
+    T_LAB310 = s2lab310
+
+    T_LAB350 = s2lab350
+    T_LAB351 = s2lab351
+    T_LAB352 = s2lab352
+    T_LAB353 = s2lab353
+    T_LAB354 = s2lab354
+    T_LAB360 = s2lab360
+    T_LAB361 = s2lab361
+	
+    T_LAB401 = s2lab401
+    T_LAB402 = s2lab402
+    T_LAB403 = s2lab403
+    T_LAB404 = s2lab404
+    T_LAB405 = s2lab405
+    T_LAB406 = s2lab406
+    T_LAB407 = s2lab407
+
+    T_LAB501 = s2lab501
+    T_LAB502 = s2lab502
+    T_LAB503 = s2lab503
+    T_LAB504 = s2lab504
+    T_LAB505 = s2lab505
+    T_LAB506 = s2lab506
+
+    T_LAB601 = s2lab601
+    T_LAB602 = s2lab602
+    T_LAB603 = s2lab603
+    T_LAB604 = s2lab604
+
+    T_LAB701 = s2lab701
+    T_LAB702 = s2lab702
+    T_LAB703 = s2lab703
+    T_LAB704 = s2lab704
+
+    T_LAB901 = s2lab901
+    T_LAB902 = s2lab902
+    T_LAB903 = s2lab903
+    T_LAB904 = s2lab904
+
+    T_LAB999 = s2lab999
+    
+    T_INT001 = s2int001
+    T_INT002 = s2int002
+    T_INT003 = s2int003
+    
+'-- APS
+    T_APS001 = s2aps001
+    T_APS002 = s2aps002
+    T_APS003 = s2aps003
+    T_APS004 = s2aps004
+    T_APS005 = s2aps005
+    T_APS006 = s2aps006
+    T_APS007 = s2aps007
+    T_APS008 = s2aps008
+    T_APS009 = s2aps009
+    T_APS011 = s2aps011
+    
+    T_APS101 = s2ord101
+    T_APS102 = s2ord102
+    T_APS103 = s2aps103
+    T_APS106 = s2aps106
+    
+    T_APS201 = s2aps201
+    T_APS202 = s2aps202
+    T_APS203 = S2aps203
+    T_APS204 = s2lab204
+    T_APS205 = s2aps205
+    T_APS206 = s2aps206
+    T_APS207 = s2aps207
+
+    T_APS301 = s2aps301
+    T_APS302 = s2aps302
+    T_APS303 = s2aps303
+    T_APS304 = s2aps304
+    T_APS305 = s2aps305
+    T_APS306 = s2aps306
+    T_APS307 = s2aps307
+    T_APS308 = s2aps308
+    T_APS309 = s2aps309
+    T_APS310 = s2aps310
+    T_APS311 = s2aps311
+    T_APS312 = s2aps312
+    T_APS313 = s2aps313
+    T_APS317 = s2aps317
+    T_APS318 = s2aps318
+    T_APS319 = s2aps319
+    T_APS320 = s2aps320
+    T_APS321 = s2aps321
+    
+    T_APS401 = s2aps401
+    T_APS402 = s2aps402
+    T_APS403 = s2aps403
+    
+    T_APS901 = s2aps901
+    
+'-- BBS
+    T_BBS001 = s2bbs001
+    T_BBS002 = s2bbs002
+    T_BBS003 = s2bbs003
+    T_BBS004 = s2bbs004
+    T_BBS005 = s2bbs005
+    T_BBS006 = s2bbs006
+    T_BBS007 = s2bbs007
+    T_BBS008 = s2bbs008
+    T_BBS009 = s2bbs009
+    T_BBS010 = s2bbs010
+    
+    T_BBS101 = s2bbs101
+    T_BBS102 = s2bbs102
+    T_BBS103=  s2bbs103
+
+    T_BBS201 = s2bbs201
+    T_BBS202 = s2bbs202
+    T_BBS203 = s2bbs203
+    T_BBS204 = s2bbs204
+    T_BBS206 = s2bbs206
+    T_BBS207 = s2bbs207
+
+    T_BBS302 = s2bbs302
+    T_BBS303 = s2bbs303
+    T_BBS304 = s2bbs304
+
+    T_BBS401 = s2bbs401
+    T_BBS402 = s2bbs402
+    T_BBS403 = s2bbs403
+    T_BBS404 = s2bbs404
+    T_BBS405 = s2bbs405
+    T_BBS411 = s2bbs411
+    T_BBS412 = s2bbs412
+    T_BBS413 = s2bbs413
+    T_BBS414 = s2bbs414
+
+    T_BBS501 = s2bbs501
+    T_BBS502 = s2bbs502
+    T_BBS503 = s2bbs503
+    T_BBS504 = s2bbs504
+    T_BBS505 = s2bbs505
+    T_BBS506 = s2bbs506
+    T_BBS601 = s2bbs601
+    T_BBS602 = s2bbs602
+    T_BBS603 = s2bbs603
+    T_BBS604 = s2bbs604
+    T_BBS605 = s2bbs605
+    T_BBS606 = s2bbs606
+    T_BBS607 = s2bbs607
+    T_BBS901 = s2bbs901
+    T_BBS902 = s2bbs902
+
+    T_ICS103 = s2ics103

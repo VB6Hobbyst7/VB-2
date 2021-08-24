@@ -1,0 +1,63 @@
+D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+D3    dce_setenv          | Host Name = <fc0ef392e0ae4df>
+D4    dce_setenv          | Broker host = <150.191.201.75>
+D5    dce_setenv          | Broker port = <9300>
+D6    dce_setenv          | Server Port = <To be chosen by the operating system>
+D7    dce_setenv          | Mon Jul 04 18:35:08 2016
+D8    dce_setenv          | Finished setting environment =======================
+
+D9    dce_findserver      | current time is <Mon Jul 04 18:38:13 2016>
+W10   soc_ready           | could not connect to <150.191.201.75>:<9300>, <Unknown error(10061)>
+W11   soc_ready           | connection refused 
+W12   connect_broker_insta| Broker at <150.191.201.75:9300> could not be reached
+E13   dce_seterr          | Mon Jul 04 18:38:34 2016
+E13   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
++++++++++++ Mon Jul 04 18:38:34 2016 ++++++++++++++
++++++++++++ An ERROR has occurred. +++++++++++++++++
++++++++++++ Switching to <DEBUG> debug level. ++++++
++++++++++++ Replay upto last <40> message.   +++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+DCE_RINGSIZE=<40>
+-D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+-D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+-D3    dce_setenv          | Host Name = <fc0ef392e0ae4df>
+-D9    dce_findserver      | current time is <Mon Jul 04 18:38:13 2016>
+-W10   soc_ready           | could not connect to <150.191.201.75>:<9300>, <Unknown error(10061)>
+-W11   soc_ready           | connection refused 
+-W12   connect_broker_insta| Broker at <150.191.201.75:9300> could not be reached
+-E13   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
++++++++++++ End of saved messages +++++++++++++++++++++
++++++++++++ Remain in <DEBUG> mode until end of RPC +++
+W14   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W15   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D16   dce_pop_long        | got <dce_result>=0
+D17   dce_table_destroy   | about to clear <0>
+D18   dce_table_destroy   | current time is <Mon Jul 04 18:38:43 2016>
+D19   dce_findserver      | current time is <Mon Jul 04 18:40:11 2016>
+W20   soc_ready           | could not connect to <150.191.201.75>:<9300>, <Unknown error(10060)>
+E21   dce_seterr          | Mon Jul 04 18:40:32 2016
+E21   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <10> Could not connect to socket> from <soc_ready>
+W22   connect_broker_insta| Broker at <150.191.201.75:9300> could not be reached
+E23   dce_seterr          | Mon Jul 04 18:40:32 2016
+E23   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W24   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W25   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D26   dce_pop_long        | got <dce_result>=0
+D27   dce_table_destroy   | about to clear <0>
+D28   dce_table_destroy   | current time is <Mon Jul 04 18:40:32 2016>
+D29   dce_findserver      | current time is <Mon Jul 04 18:40:54 2016>
+W30   soc_ready           | could not connect to <150.191.201.75>:<9300>, <Unknown error(10060)>
+E31   dce_seterr          | Mon Jul 04 18:41:15 2016
+E31   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <10> Could not connect to socket> from <soc_ready>
+W32   connect_broker_insta| Broker at <150.191.201.75:9300> could not be reached
+E33   dce_seterr          | Mon Jul 04 18:41:15 2016
+E33   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W34   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W35   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D36   dce_pop_long        | got <dce_result>=0
+D37   dce_table_destroy   | about to clear <0>
+D38   dce_table_destroy   | current time is <Mon Jul 04 18:41:15 2016>
+D39   dce_release         | Releasing <0> pointers

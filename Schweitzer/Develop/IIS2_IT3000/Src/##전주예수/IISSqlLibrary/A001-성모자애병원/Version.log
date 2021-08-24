@@ -1,0 +1,47 @@
+## IISSqlLibrary(성모자애병원) Version History ##
+
+## 버  전: 1.0.0
+## 작성일: 2005-03-11
+
+## 버  전: 1.0.1
+## 수정일: 2005-04-06
+## 내  용:
+   1. 결과유형(rsttype) LAB001에 조회하도록 수정
+      - clsIISLibrarySql - SelectResultInfo
+
+## 버  전: 1.0.2
+## 수정일: 2005-04-11
+## 내  용:
+   1. RstVal의 자료형을 Long에서 Single로 수정
+      - clsIISLibrarySql - UpdateIISResultNumeric, UpdateIISVfy
+
+## 버  전: 1.0.3
+## 수정일: 2005-05-08
+## 내  용:
+   1. 해당 검사코드, 결과의 Alpha결과 판정치 조회하는 함수 추가
+      - clsIISMasterSql - SelectAlphaRef
+
+## 버  전: 1.0.3
+## 적용일: 2005-05-12
+
+## 버  전: 1.0.4
+## 수정일: 2005-05-25 [적용]
+## 내  용:
+   1. 검사대상리스트를 조회하는 함수추가
+      - clsIISLibrarySql - SelectTargetSpcsX
+   2. 이미 조회한 검체에 대해 업데이트를 하는 함수추가
+      - clsIISLibrarySql - UpdateTargetSpc
+   3. 성모자애 오라클(8.0.6)에서는 인라인뷰의 ORDER BY문이 적용되지 않어 쿼리 수정
+      - clsIISQcSql - SelectHistoryResult
+
+## 버  전: 1.0.5
+## 수정일: 2005-06-01
+## 내  용:
+   1. Alpha 결과 참고치 조회쿼리 수정
+      - clsIISMasterSql - SelectAlphaRef
+
+## 버  전: 1.0.6
+## 수정일: 2005-06-15
+## 내  용:
+   1. 이전 방식으로 결과내역 조회
+      - clsIISLibrarySql - SelectResultInfo

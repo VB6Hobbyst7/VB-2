@@ -1,0 +1,20 @@
+SELECT DISTINCT        A.MDCL_DAY      AS HOSPDATE 
+     , A.MDCL_TIME                 
+     , B.CARE_ORG_ID   AS BARCODE  
+     , B.CUST_NO       AS CHARTNO  
+     , C.NAME          AS PNAME    
+     , C.SEX           AS SEX      
+     , C.CTZN_NO       AS JUMIN    
+     , C.CTZN_NO       AS JUMIN    
+  FROM MDCL_INFO A, SPRT_ROOM_PRSC_CNTN B, CUST_INFO C 
+ WHERE A.CARE_ORG_ID   = b.CARE_ORG_ID                 
+   AND A.CUST_NO       = B.CUST_NO                     
+   AND A.INSR_SEQNO    = B.INSR_SEQNO                  
+   AND A.MDCL_SEQNO    = B.MDCL_SEQNO                  
+   AND B.CARE_ORG_ID   = C.CARE_ORG_ID                 
+   AND B.CUST_NO       = C.CUST_NO                     
+   AND A.MDCL_DAY BETWEEN '20191008' AND '20191008'
+   AND b.USE_PRSC_CD   IN ('SGOT3*!@','SGOT3*!!','SGOT3!!','SGOT3','SGOT1*!!','SGOT1!!','SGOT1','SGOT','SGPT3*!!','SGPT3!!','sgpt1*!!','SGPT1!!','SGPT1','SGPT','GTP','GAMMA3*!!','GAMMA3!!','GAMMA3','GAMMA1*!!','GAMMA1!!','GAMMA1','GAMMA','B2710','TC3!!','TC10!!','TC1*!!','TC1','TC','CHOL','TG3!!','TG3','TG1!!','TG1','TG','HDLCHOL3!!','HDLCHOL3','HDLCHOL1!!','HDLCHOL1','HDLCHOL','HDL','BUN','BUN','TB1-1','TB-1','TB','BIL!!','BIL','CR3*!!','CR3!!','CR3','CR1!!','CR1','CR','FBS3*!!','FBS3!!','FBS3','FBS10!!','FBS1*!!','FBS1','FBS','180105B2521','TP','ALB-2','ALB','ALP-1','ALKP')             
+   AND (b.INSP_RSLT is null or b.INSP_RSLT = '' )          
+ Order by PNAME, CHARTNO
+

@@ -1,0 +1,75 @@
+[IT1000]
+'- IT1000 서버(파일서버) 경로(네트워크드라이브로 연결)
+'- 소스내에서는 ServerPath경로를 사용
+'- 파일서버는 IT1000서버로 연결
+'- 채혈실은 파일서버로 연결
+ServerPath=\\172.16.81.68\ADTfile
+
+'- IT1000 서버(파일서버) 경로(실제 네트워크 경로)
+'ServerBPath=\\172.16.10.179\DataForwardingDir\
+ServerBPath=C:\ADTfile\Log\
+'- IT1000 서버(파일서버) 데이터 가져오는 주기 (1000 = 1 sec)
+Interval=1000
+
+'- IT10001 Serial number
+IT1000_1=Lab1
+
+'- IT10002 Serial number
+IT1000_2=Lab2
+
+'- IT10003 Serial number
+IT1000_3=Lab3
+
+'- IT10004 Serial number
+IT1000_4=Lab4
+
+'- IT10004 Serial number
+IT1000_5=Lab5
+
+'- IT10004 Serial number
+IT1000_6=Lab6
+
+'- IT10004 Serial number
+IT1000_7=Lab7
+
+'- IT10004 Serial number
+IT1000_8=Lab8
+
+'- IT10001 IIS 장비코드
+Lab1=E067
+
+'- IT10002 IIS 장비코드
+Lab2=E068
+
+'- IT10003 IIS 장비코드
+Lab3=E069
+
+'- IT10004 IIS 장비코드
+Lab4=E070
+
+'- IT10001 IIS 장비코드
+Lab5=E071
+
+'- IT10002 IIS 장비코드
+Lab6=E072
+
+'- IT10003 IIS 장비코드
+Lab7=E073
+
+'- IT10004 IIS 장비코드
+Lab8=E074
+
+'- IT1000 결과저장 유무(채혈실 사용시 View만 한다)
+'- 0=non save, 1=save
+IT1000SaveFlag=1
+
+
+'-- IT1000 Viewer 용
+MDBPath=C:\ClientDb\ClientDb\ClientDb.mdb
+MDBUser=admin
+MDBPass=plis
+IT1000Count=3
+IT1000Names=IT1000-1|IT1000-2|IT1000-3|IT1000-4
+ViewInterval=5000
+
+PopupDelay=20000

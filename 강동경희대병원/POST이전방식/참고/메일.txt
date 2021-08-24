@@ -1,0 +1,127 @@
+안녕하세요. 차재범입니다.
+
+인터페이스 하는 방식 알려드립니다.
+
+ 
+
+----------------------------------------
+
+[1] 처방 조회
+
+운영서버 주소: medhis.khnmc.or.kr
+
+개발서버 주소: testdev.khnmc.or.kr
+
+ 
+
+http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFPCR&Data1=R04&Data2=20200810
+
+ 
+
+Data1: 장비 코드
+
+Data2: 접수일자.
+
+ 
+
+# 장비코드?
+
+ - 현재 검사 장비가 2대 있으면
+
+ - R04, R05로 등록 되었음.
+
+ 
+
+# 결과는? xml로 리턴함.
+
+ 
+
+ <?xml version="1.0" encoding="euc-kr" ?>
+<root>
+ <List>
+      <pid>08558428</pid> 
+      <kornm>박길례</kornm> 
+      <gsno>신종corona-20-13636</gsno> 
+      <bcno>2533416I0</bcno> 
+      <ifcode>corona</ifcode>
+  </List>
+  <List>
+      <pid>08599614</pid> 
+      <kornm>김태남</kornm> 
+      <gsno>신종corona-20-13637</gsno> 
+      <bcno>253350VE0</bcno> 
+      <ifcode>corona</ifcode>
+  </List>
+
+...
+((중략))
+
+...
+</root>
+
+ 
+
+pid: 등록번호
+
+kornm: 환자이름
+
+gsno: 검사 특수번호
+
+bcno: 검사 바코드 번호
+
+ifcode: 인터페이스 code
+
+ 
+
+# 인터페이스 코드는 파일로 첨부함. (한글로 되어 있는 부분은 추후 수정할 예정임)
+
+ 
+
+ 
+
+----------------------------------------
+
+[2] 결과 전송
+
+http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&Data1=2512500105809.1120200113145420&Data2=S14
+
+ 
+
+
+구분자:  ("\u0003"),  ("\u0017")
+
+ 
+
+Data1 = 바코드번호   [결과1]  [결과2]  ...(중량) 
+
+[결가1]: if code  결과값  코멘트  검사일시
+
+ 
+
+Data2 = 장비코드
+
+ 
+
+ 
+
+ 
+
+------------------------------
+
+이상입니다. 확인 해보시고 문의 사항이 있으시면
+
+440-6461로 전화주세요.
+
+ 
+
+참고로 제가 하계 휴가가 13일~17일까지 입니다.
+
+수고하세요.
+
+ 
+
+ 
+
+ 
+
+ 

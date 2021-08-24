@@ -1,0 +1,1599 @@
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430010COVID19Negative20200821093300COVID19Negative20200821093300&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430010COVID19Negative20200821093937COVID19Negative20200821093937&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430020COVID19Negative20200821093952COVID19Negative20200821093952&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430010COVID19Negative20200821094854COVID19Negative20200821094854&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430010COVID19Negative20200821095720COVID19Negative20200821095720&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430020COVID19Negative20200821095721COVID19Negative20200821095721&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430030COVID19Inconclusive Result20200821095721COVID19Negative20200821095721&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=253430010COVID19Negative20200821095728COVID19Negative20200821095728&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=253430020COVID19Negative20200821095729COVID19Inconclusive Result20200821095729&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=253430030COVID19Negative20200821095730COVID19Negative20200821095730&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=253430040COVID19Negative20200821095730COVID19Inconclusive Result20200821095730&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=253430050COVID19Negative20200821095731COVID19Negative20200821095731&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+
+Param>>http://testdev.khnmc.or.kr/lis/jindangeomsaweb/GyeolGwaIF.live?Mode=reqGetIFGyeolGwaDR&&Data1=153430040COVID19Negative20200821095731COVID19Negative20200821095731&Data2=R04
+Return:<?xml version="1.0" encoding="euc-kr" ?>
+
+
+
+
+
+
+
+
+<root>
+
+    
+        
+        
+        
+    
+
+    
+
+    
+
+    
+
+    
+        <resultKM error="yes"
+                  type="status"
+                  clear="true"
+                  source="COM_AppError.jsp"
+                  description="[E]중복된 키를 갖는 레코드가 이미 존재합니다.▩중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+
+
+-------------FullStackTrace----------------
+
+kr.co.hit.live.exception.LiveException: 중복된 키를 갖는 레코드가 이미 존재합니다.|java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa() at line 126 in InterfaceDAO.java
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:222)
+	at kr.co.hit.his.lis.jindaninterfacemgr.dao.InterfaceDAO.insIFGyeolGwa(InterfaceDAO.java:126)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.IInterfaceMgtBean.insIFGyeolGwa(IInterfaceMgtBean.java:464)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.__insIFGyeolGwa(interfacemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrObjectImpl.java:1224)
+	at kr.co.hit.his.lis.jindaninterfacemgr.ejb.facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.insIFGyeolGwa(facemgr_ejb_IInterfaceMgtBean_jindaninterfacemgrLocalObjectImpl.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:973)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callLocalService(EJBBizDelegator.java:924)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.IInTerFaceGwanRiBean.reqSetIFGyeolGwaJeoJang(IInTerFaceGwanRiBean.java:145)
+	at kr.co.hit.his.lis.jindangeomsaapp.ejb.dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.reqSetIFGyeolGwaJeoJang(dangeomsaapp_ejb_IInTerFaceGwanRiBean_jindangeomsaappObjectImpl.java:1151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.delegator.EJBBizDelegator.dispatchMethod(EJBBizDelegator.java:715)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:888)
+	at kr.co.hit.live.delegator.EJBBizDelegator.callRemoteService(EJBBizDelegator.java:822)
+	at kr.co.hit.his.lis.jindangeomsaweb.action.GyeolGwaIFAction.reqGetIFGyeolGwaDR(GyeolGwaIFAction.java:136)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at kr.co.hit.live.web.controller.WebDispatchAction.dispatchMethod(Unknown Source)
+	at kr.co.hit.live.web.controller.WebDispatchAction.execute(Unknown Source)
+	at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:431)
+	at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:236)
+	at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1196)
+	at kr.co.hit.live.web.controller.WebController.process(WebController.java:89)
+	at org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:212)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:269)
+	at jeus.servlet.engine.ServletWrapper.executeServlet(ServletWrapper.java:168)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:76)
+	at kr.co.hit.live.web.logon.LogOnFilter.doFilter(LogOnFilter.java:281)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at com.pnpsecure.sugarloaf.ServletFilter2.doFilter(Unknown Source)
+	at jeus.servlet.filter.FilterWrapper.doFilter(FilterWrapper.java:34)
+	at jeus.servlet.filter.FilterChainImpl.doFilter(FilterChainImpl.java:67)
+	at jeus.servlet.engine.ServletWrapper.execute(ServletWrapper.java:133)
+	at jeus.servlet.engine.WebtobRequestProcessor.run(WebtobRequestProcessor.java:201)
+Caused by: com.ibatis.common.jdbc.exception.NestedSQLException:   
+--- The error occurred in kr/co/hit/his/lis/jindaninterfacemgr/dao/maps/InterfaceMap.xml.  
+--- The error occurred while applying a parameter map.  
+--- Check the insIFGyeolGwa2-InlineParameterMap.  
+--- Check the statement (update failed).  
+--- Cause: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:91)
+	at com.ibatis.sqlmap.engine.impl.SqlMapExecutorDelegate.update(SqlMapExecutorDelegate.java:505)
+	at com.ibatis.sqlmap.engine.impl.SqlMapSessionImpl.update(SqlMapSessionImpl.java:90)
+	at com.ibatis.sqlmap.engine.impl.SqlMapClientImpl.update(SqlMapClientImpl.java:67)
+	at kr.co.hit.live.dao.SQLMapsDAO.insert(SQLMapsDAO.java:210)
+	... 44 more
+Caused by: java.sql.SQLException: ORA-00001: 무결성 제약 조건(LISDBA.PK_LLIEEQIDH)에 위배됩니다
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:113)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:754)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:219)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:972)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1192)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3415)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3521)
+	at sun.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:324)
+	at com.ibatis.common.jdbc.logging.PreparedStatementLogProxy.invoke(PreparedStatementLogProxy.java:62)
+	at $Proxy1.execute(Unknown Source)
+	at com.ibatis.sqlmap.engine.execution.SqlExecutor.executeUpdate(SqlExecutor.java:81)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.sqlExecuteUpdate(GeneralStatement.java:200)
+	at com.ibatis.sqlmap.engine.mapping.statement.GeneralStatement.executeUpdate(GeneralStatement.java:78)
+	... 48 more
+"/>
+    
+
+    
+</root>
+

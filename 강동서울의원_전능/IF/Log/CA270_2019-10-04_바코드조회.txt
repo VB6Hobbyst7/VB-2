@@ -1,0 +1,14 @@
+SELECT DISTINCT        READING_YMD     AS HOSPDATE         
+     , BCODE_NO        AS BARCODE          
+     , PTNT_NO         AS PID              
+     , PTNT_NM         AS PNAME            
+     , AGE             AS AGE              
+     , SEX             AS SEX              
+     , IO_GB           AS INOUT            
+     , ORD_CD          AS ITEM             
+     , SP_CD           AS SPCCD            
+  FROM LIS_INTERFACE1_V                    
+ WHERE BCODE_NO    = '97000002'  
+   AND ORD_CD IN ('SGOT3*!@','SGOT3*!!','SGOT3!!','SGOT3','SGOT1*!!','SGOT1!!','SGOT1','SGOT','SGPT3*!!','SGPT3!!','sgpt1*!!','SGPT1!!','SGPT1','SGPT','GTP','GAMMA3*!!','GAMMA3!!','GAMMA3','GAMMA1*!!','GAMMA1!!','GAMMA1','GAMMA','B2710','TC3!!','TC10!!','TC1*!!','TC1','TC','CHOL','TG3!!','TG3','TG1!!','TG1','TG','HDLCHOL3!!','HDLCHOL3','HDLCHOL1!!','HDLCHOL1','HDLCHOL','HDL','BUN','BUN','TB1-1','TB-1','TB','BIL!!','BIL','CR3*!!','CR3!!','CR3','CR1!!','CR1','CR','FBS3*!!','FBS3!!','FBS3','FBS10!!','FBS1*!!','FBS1','FBS','180105B2521','TP','ALB-2','ALB','ALP-1','ALKP')      
+ ORDER BY ORD_CD                           
+

@@ -1,0 +1,34 @@
+[DB_A-HBsII-NEW]
+Time:;13:23:03
+Date:;15/11/2007
+OVER limit:;3.000
+Operator:;service
+Wavelengths:;450nm/650nm
+-0.0105<Negi<0.1205;-0.0105<0.046<0.1205
+;-0.0105<0.044<0.1205
+;-0.0105<0.049<0.1205
+;-0.0105<0.05<0.1205
+valid(Neg)>=3;4>=3
+RPi>0.6995;1.042>0.6995
+;0.997>0.6995
+valid(RP)=2;2=2
+(Lower margin-0.0005)<RPi<(Upper margin+0.0005);0.6995<1.042<2.0005
+;0.6995<0.997<2.0005
+valid(RP)=2;2=2
+((0.8*RP)-0.0005)<RPi<((1.2*RP)+0.0005);0.8151<1.042<1.2239
+;0.8151<0.997<1.2239
+valid(RP)=2;2=2
+If 'Sample<(Neg+0.0795)' Then Result:='-'
+If 'Sample>(Neg+0.0805)' Then Result:='+'
+Default result := ?
+
+[Results]
+Patient ID;Assay;Raw value;Corrected OD;Evaluation;IU/l;Well Location;Flag
+"";"DB_A-HBsII-NEW";"0.046";"0.046";"Neg1";"<6";"A1";""
+"";"DB_A-HBsII-NEW";"0.044";"0.044";"Neg2";"<6";"B1";""
+"";"DB_A-HBsII-NEW";"0.049";"0.049";"Neg3";"<6";"C1";""
+"";"DB_A-HBsII-NEW";"0.050";"0.050";"Neg4";"<6";"D1";""
+"";"DB_A-HBsII-NEW";"1.042";"1.042";"RP1";"58.0";"E1";""
+"170007609978";"DB_A-HBsII-NEW";"3.000";"overflow";"*";"*****";"F1";""
+"";"DB_A-HBsII-NEW";"0.997";"0.997";"RP2";"55.0";"G1";""
+[End Of Results]

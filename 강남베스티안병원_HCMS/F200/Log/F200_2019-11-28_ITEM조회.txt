@@ -1,0 +1,7 @@
+SELECT EXMN_CD              AS ITEM                 
+  FROM LIME.VW_READ_LSMACIF                            
+ WHERE SPCM_RCPN_NO            = '19O0029540'  
+   AND SUPT_DEPT_RCPN_DT   = '20191127234726'  
+   AND LAB_MAC_CODE            = 'C2'
+   AND EXMN_CD              IN ('CZ394A','CZ394A-B','CZ394A-A') 
+

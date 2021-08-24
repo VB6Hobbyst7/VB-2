@@ -1,0 +1,57 @@
+D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+D3    dce_setenv          | Host Name = <ÀÛ¾÷³ëÆ®ºÏ>
+D4    dce_setenv          | Broker host = <150.191.201.76>
+D5    dce_setenv          | Broker port = <9300>
+D6    dce_setenv          | Server Port = <To be chosen by the operating system>
+D7    dce_setenv          | Sat Jul 19 16:26:15 2003
+D8    dce_setenv          | Finished setting environment =======================
+
+D9    dce_findserver      | current time is <Sat Jul 19 16:26:23 2003>
+D10   connect_broker_insta| Connected to broker <150.191.201.76:9300> at socket <1124>
+D11   dce_push_char_Nstr  | sending <interface>="sl_d_m05"
+D12   dce_submit_ext      | about to submit RPC to <OECbroker:>
+D13   dce_submit_ext      |    :function<dce_get_serverlist>:socket<1124>
+D14   dce_push_long       | sending <dce_rpccount>=0
+D15   dce_pop_long        | got <dce_rpccount>=22027
+D16   dce_pop_int         | got <dce_svr_pid>=1285
+D17   dce_submit_ext      | data transferred, Socket <1124> closed
+D18   dce_table_destroy   | about to clear <bac18f0>
+D19   dce_table_destroy   | current time is <Sat Jul 19 16:26:23 2003>
+D20   dce_cache_refresh   | The broker sent an updated serverlist: <>
+
+E21   dce_seterr          | Sat Jul 19 16:26:23 2003
+E21   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <5> Could not connect to server> from <dce_findserver>
++++++++++++ Sat Jul 19 16:26:23 2003 ++++++++++++++
++++++++++++ An ERROR has occurred. +++++++++++++++++
++++++++++++ Switching to <DEBUG> debug level. ++++++
++++++++++++ Replay upto last <50> message.   +++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+DCE_RINGSIZE=<50>
+-D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+-D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+-D3    dce_setenv          | Host Name = <ÀÛ¾÷³ëÆ®ºÏ>
+-D9    dce_findserver      | current time is <Sat Jul 19 16:26:23 2003>
+-D10   connect_broker_insta| Connected to broker <150.191.201.76:9300> at socket <1124>
+-D11   dce_push_char_Nstr  | sending <interface>="sl_d_m05"
+-D12   dce_submit_ext      | about to submit RPC to <OECbroker:>
+-D13   dce_submit_ext      |    :function<dce_get_serverlist>:socket<1124>
+-D14   dce_push_long       | sending <dce_rpccount>=0
+-D15   dce_pop_long        | got <dce_rpccount>=22027
+-D16   dce_pop_int         | got <dce_svr_pid>=1285
+-D17   dce_submit_ext      | data transferred, Socket <1124> closed
+-D18   dce_table_destroy   | about to clear <bac18f0>
+-D19   dce_table_destroy   | current time is <Sat Jul 19 16:26:23 2003>
+-D20   dce_cache_refresh   | The broker sent an updated serverlist: <>
+
+-E21   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <5> Could not connect to server> from <dce_findserver>
++++++++++++ End of saved messages +++++++++++++++++++++
++++++++++++ Remain in <DEBUG> mode until end of RPC +++
+W22   dce_findserver      | ERROR: No servers of type <sl_d_m05> available
+W23   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D24   dce_pop_long        | got <dce_result>=0
+D25   dce_table_destroy   | about to clear <0>
+D26   dce_table_destroy   | current time is <Sat Jul 19 16:26:28 2003>
+D27   dce_release         | Releasing <1> pointers

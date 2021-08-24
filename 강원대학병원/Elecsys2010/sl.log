@@ -1,0 +1,34 @@
+D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+D3    dce_setenv          | Host Name = <majestic>
+D4    dce_setenv          | Broker host = <192.168.1.51>
+D5    dce_setenv          | Broker port = <9300>
+D6    dce_setenv          | Server Port = <To be chosen by the operating system>
+D7    dce_setenv          | Wed Oct 20 15:07:26 2004
+D8    dce_setenv          | Finished setting environment =======================
+
+D9    dce_findserver      | current time is <Wed Oct 20 15:07:32 2004>
+D10   connect_broker_insta| Connected to broker <192.168.1.51:9300> at socket <1304>
+D11   dce_push_char_Nstr  | sending <interface>="sl_d_m05"
+D12   dce_submit_ext      | about to submit RPC to <OECbroker:>
+D13   dce_submit_ext      |    :function<dce_get_serverlist>:socket<1304>
+D14   dce_push_long       | sending <dce_rpccount>=0
+D15   dce_pop_long        | got <dce_rpccount>=2490128
+D16   dce_pop_int         | got <dce_svr_pid>=21442
+D17   dce_submit_ext      | data transferred, Socket <1304> closed
+D18   dce_table_destroy   | about to clear <91f1730>
+D19   dce_table_destroy   | current time is <Wed Oct 20 15:07:32 2004>
+D20   dce_cache_refresh   | The broker sent an updated serverlist: <192.168.1.51/ocs1:37196:0|>
+
+W22   dce_findserver      | =======<sl_d_m05>@<192.168.1.51/ocs1>:<37196>=======
+D23   dce_submit_ext      | about to submit RPC to <sl_d_m05:>
+D24   dce_submit_ext      |    :function<sl_tstcd_spcid_select>:socket<1304>
+D25   dce_push_long       | sending <dce_rpccount>=0
+D26   dce_pop_long        | got <dce_rpccount>=1495
+D27   dce_pop_int         | got <dce_svr_pid>=162456
+D28   dce_submit_ext      | data transferred, Socket <1304> closed
+D29   dce_pop_long        | got <dce_result>=-1000040
+D30   dce_table_destroy   | about to clear <91f1800>
+D31   dce_table_destroy   | current time is <Wed Oct 20 15:07:32 2004>
+D32   dce_release         | Releasing <1> pointers

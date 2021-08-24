@@ -1,0 +1,72 @@
+2015-06-16 14:11:04 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01124018',TO_DATE('20150612', 'yyyymmdd'),2001,'B4062','L41','No growth 2 day (최종결과)','','','','','',TO_DATE('20150612131139', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01124018' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2001
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01124018' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2001
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141103',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 50436
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ET' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 50436
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:11:04 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01124018',TO_DATE('20150612', 'yyyymmdd'),2002,'B4062','L41','No growth 2 day (최종결과)','','','','','',TO_DATE('20150612131140', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01124018' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2002
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141103', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01124018' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2002
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141103',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 50437
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ET' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 50437
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:12:35 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01262051',TO_DATE('20150612', 'yyyymmdd'),2055,'B4062','L41','No VRE','','','','','',TO_DATE('20150612135755', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141235', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141235', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141235', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01262051' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2055
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141235', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01262051' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2055
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141235',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 50447
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ET' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 50447
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:13:09 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01356891',TO_DATE('20150610', 'yyyymmdd'),2010,'B4062','L41','NoSalmonellaShigella,orCampylobacter,etc,isolated','','','','','',TO_DATE('20150611112626', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141309', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141309', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141309', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01356891' AND   orddate = TO_DATE('20150610', 'yyyymmdd')  AND   ordseqno = 2010
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141309', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01356891' AND   orddate = TO_DATE('20150610', 'yyyymmdd')  AND   ordseqno = 2010
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141309',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 70121
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ST' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 70121
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:13:41 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('00621581',TO_DATE('20150611', 'yyyymmdd'),2007,'B4062','L41','NoSalmonellaShigella,orCampylobacter,etc,isolated','','','','','',TO_DATE('20150612112604', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '00621581' AND   orddate = TO_DATE('20150611', 'yyyymmdd')  AND   ordseqno = 2007
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '00621581' AND   orddate = TO_DATE('20150611', 'yyyymmdd')  AND   ordseqno = 2007
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141341',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 70128
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ST' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 70128
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:13:42 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01397442',TO_DATE('20150611', 'yyyymmdd'),2050,'B4062','L41','NoSalmonellaShigella,orCampylobacter,etc,isolated','','','','','',TO_DATE('20150612112559', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01397442' AND   orddate = TO_DATE('20150611', 'yyyymmdd')  AND   ordseqno = 2050
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01397442' AND   orddate = TO_DATE('20150611', 'yyyymmdd')  AND   ordseqno = 2050
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141341',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 70130
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ST' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 70130
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:13:42 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('00590878',TO_DATE('20150612', 'yyyymmdd'),2007,'B4062','L41','NoSalmonellaShigella,orCampylobacter,etc,isolated','','','','','',TO_DATE('20150612144135', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '00590878' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2007
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '00590878' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2007
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141341',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 70132
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ST' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 70132
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:13:43 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01204058',TO_DATE('20150612', 'yyyymmdd'),2016,'B4062','L41','NoSalmonellaShigella,orCampylobacter,etc,isolated','','','','','',TO_DATE('20150612140337', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01204058' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2016
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01204058' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2016
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141341',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 70134
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ST' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 70134
+ << ------------------------------ END LOG ------------------------------ >> 
+2015-06-16 14:13:44 
+ << ------------------------------ START LOG ------------------------------ >> 
+ insert into mdresult (patno, orddate, ordseqno, examcode, slipcd, rslt1, rslt2, rsltupp, rsltlow, rsltunit,   examtext, execdate, rsltdate, reptdr, readdate, readdr, chngdate, rslttype, editid, editip, editdate)  values ('01394244',TO_DATE('20150612', 'yyyymmdd'),2005,'B4062','L41','NoSalmonellaShigella,orCampylobacter,etc,isolated','','','','','',TO_DATE('20150612140342', 'yyyymmdd hh24:mi:ss'),TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065',TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss'),'005065','','W','','','')
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01394244' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2005
+ UPDATE mdexmort  SET    stscd = '5',  rsltdate = TO_DATE('20150616141341', 'yyyymmdd hh24:mi:ss') , cofmdr = '005065' WHERE patno = '01394244' AND   orddate = TO_DATE('20150612', 'yyyymmdd')  AND   ordseqno = 2005
+ UPDATE s2lab201  SET     stscd = '4', reqinputcnt = 1, vfydt = '20150616',  vfytm = '141341',  vfyid = '005065'  WHERE   workarea = '04' AND     accdt = '201506' AND     accseq = 70135
+ UPDATE s2lab402 SET     genfg = '4' WHERE   wscd = 'ST' AND     workarea = '04' AND     accdt = '201506' AND     accseq = 70135
+ << ------------------------------ END LOG ------------------------------ >> 

@@ -1,0 +1,8 @@
+dce_close_env;
+       rv := dce_setenv('..\env\moi.env',nil,nil);
+       if (rv = 0 ) then
+       begin
+            rv := dce_error(msg);
+            MessageDlg('TCP Error: ' + msg, mtInformation,[mbOK],0);
+            //exit;
+       end;

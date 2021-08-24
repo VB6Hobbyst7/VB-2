@@ -1,0 +1,105 @@
+'====================================================
+'[DB CONNECTION : ORACLE]
+    cString = "Provider=MSDAORA;Data Source = LIME_SEOUL;User ID=hcms;Password=iamhcms"
+
+'====================================================
+'[검사대상자 조회]
+    OraSql = "         SELECT SUPT_DEPT_RCPN_DT, PID, PT_NM, SPCM_RCPN_NO, MDCR_DEPT_CD, DEPT_HNM, LAB_MAC_CODE FROM LIME.VW_READ_LSMACIF " & vbCrLf
+    OraSql = OraSql & "WHERE  1 = 1 " & vbCrLf
+    OraSql = OraSql & "AND    SUPT_DEPT_RCPN_DT BETWEEN '" & strDf & "' AND '" & strDT & "' " & vbCrLf
+    If strEnd <> "%" Then OraSql = OraSql & "AND    STATUS = '" & strEnd & "' " & vbCrLf
+    OraSql = OraSql & "AND    LAB_MAC_CODE = '" & frm!GUMPART & "' " & vbCrLf
+   
+    OraSql = OraSql & "GROUP BY SUPT_DEPT_RCPN_DT, PID, PT_NM, SPCM_RCPN_NO, MDCR_DEPT_CD, DEPT_HNM, LAB_MAC_CODE "
+    OraSql = OraSql & "ORDER BY SUPT_DEPT_RCPN_DT "
+
+    FIN_LSMACIF.Open OraSql, Ora_cn, adOpenForwardOnly, adLockReadOnly
+   
+    If Not FIN_LSMACIF.EOF() And Not FIN_LSMACIF.BOF() Then
+       FIN_LSMACIF.MoveFirst
+       Do While Not FIN_LSMACIF.EOF()
+          With frm!Ac_INJ
+            .MaxRows = .MaxRows + 1
+            .Row = .MaxRows
+           
+            .Col = 1: .Text = "0"
+            .Col = 2: .Text = Trim(FIN_LSMACIF!PID & "")
+            .Col = 3: .Text = FIN_LSMACIF!PT_NM
+            .Col = 5: .Text = FIN_LSMACIF!SPCM_RCPN_NO
+            .Col = 6: .Text = FIN_LSMACIF!DEPT_HNM
+            .Col = 8: .Text = Left(FIN_LSMACIF!SUPT_DEPT_RCPN_DT, 8)
+            .Col = 9: .Text = .Row
+          End With
+          FIN_LSMACIF.MoveNext
+       Loop
+    End If
+    FIN_LSMACIF.Close: Set FIN_LSMACIF = Nothing
+    Ora_cn.Close: Set Ora_cn = Nothing
+
+
+' STATUS (상태) 구분 -> strEnd 변수
+    Select Case frm!framGBN
+     Case "1"   '최종
+          strEnd = "32"
+     Case "2"   '입력
+          strEnd = "24"
+     Case "3"   '접수
+          strEnd = "12"
+     Case Else '전체
+          strEnd = "%"
+    End Select
+
+ 
+
+'====================================================
+'[결과저장]
+
+Dim strSql          As String
+Dim strLH           As String
+Dim strEnd          As String
+Dim sDate           As String
+Dim sTime           As String
+Dim strDate         As String
+Dim strDateTime     As String
+Dim strUID          As String
+Dim BitResInf       As New ADODB.Recordset
+Dim v1, v2, v3      As Long
+   
+    Set frm = Forms!G1_RES001FM1
+    
+    sTime = Format(Time, "HHMMSS")
+    sDate = Format(Date, "YYYYMMDD")
+    strDate = sDate & sTime
+   
+    If Oracle_Connect() = 1 Then
+       MsgBox "DataBase Connect Error !!!"
+       Exit Function
+    End If
+   
+    '============================2011 07 28 저장프로시져 사용하기위한 변수 선언
+    Set gCMD.ActiveConnection = Ora_cn
+    Set Rs = New ADODB.Recordset
+    '============================
+
+    With gCMD
+        .CommandType = adCmdStoredProc
+        .Prepared = True
+        .CommandTimeout = 15                                        '<--- Timeout 시간지정
+        .CommandText = "LIME.PR_LS_PRC_LAB_MAC_RSLT"                '<--- 프로시저 이름
+        .CommandType = adCmdStoredProc
+        .Parameters.Refresh
+        .Parameters("IV_RSLT_VALUE").Value = Trim(argResult & "")   ' <--- 검사결과
+        .Parameters("IV_RSLT_DD").Value = sDate                     ' <--- 입력일자
+        .Parameters("IV_RSLT_TIME").Value = sTime                   ' <--- 입력시간
+        '.Parameters("IV_RSLT_INPS_ID").Value = "17421201"           ' <--- 결과입력자
+        .Parameters("IV_RSLT_INPS_ID").Value = frm!txtUID          ' <--- 결과입력자
+        .Parameters("IV_SPCM_RCPN_NO").Value = argNWNO              ' <--- 바코드
+        .Parameters("IV_EXMN_CD").Value = argOrdCD                  ' <--- 오더코드
+       
+        Set Rs = gCMD.Execute
+        Set Rs = Nothing
+    End With
+             
+    Ora_cn.Close: Set Ora_cn = Nothing
+
+ 

@@ -1,0 +1,27 @@
+[DB_HBsAg5-0]
+Time:;13:58:14
+Date:;15/11/2007
+OVER limit:;3.000
+Operator:;service
+Wavelengths:;450nm/650nm
+-0.0105<NCi<0.1505;-0.0105<0.036<0.1505
+;-0.0105<0.04<0.1505
+;-0.0105<0.038<0.1505
+Valid(NC)>=2;3>=2
+PCi>0.6995;0.958>0.6995
+;0.86>0.6995
+valid(PC)=2;2=2
+If 'Sample<NC+0.0495' Then Result:='-'
+If 'Sample>NC+0.0495' Then Result:='+'
+Default result := ?
+Cutoff;(NC + 0.05);0.088
+
+[Results]
+Patient ID;Assay;Raw value;Evaluation;Well Location;Flag
+"";"DB_HBsAg5-0";"0.036";"NC1";"A1";""
+"";"DB_HBsAg5-0";"0.040";"NC2";"B1";""
+"";"DB_HBsAg5-0";"0.038";"NC3";"C1";""
+"";"DB_HBsAg5-0";"0.958";"PC1";"D1";""
+"170007609978";"DB_HBsAg5-0";"0.019";"-";"E1";""
+"";"DB_HBsAg5-0";"0.860";"PC2";"F1";""
+[End Of Results]

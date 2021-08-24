@@ -1,0 +1,288 @@
+        Procedure : frmInterface - Private Sub cmdRun_Click()
+
+     Error Source : MSComm
+
+     Error Number : 8002
+
+Error Description : Æ÷Æ® ¹øÈ£°¡ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÀü 9:44:03
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+    Procedure : clsCommon - Public Function Get_TestItem() As ADODB.Recordset
+
+ Error Number : -2147217900
+
+  Description : 'AND' Å°¿öµå ±ÙÃ³ÀÇ ±¸¹®ÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+       Source : Microsoft OLE DB Provider for SQL Server
+
+    SQL State : 42000
+
+ Native Error : 156
+
+   SQL String : SELECT DISTINCT LIMAS002.TESTCD, LIMAS001.ABBRNM AS TESTNM FROM LIMAS001, LIMAS002 WHERE  LIMAS001.TESTCD =  LIMAS002.TESTCD AND LIMAS002.EQUIPCD =  AND LIMAS002.DELDT = ''
+
+         Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+         Time : ¿ÀÀü 9:45:03
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+    Procedure : clsCommon - Public Function Get_TestItem() As ADODB.Recordset
+
+ Error Number : -2147217900
+
+  Description : ÁÙ 1: ')' ±ÙÃ³ÀÇ ±¸¹®ÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+       Source : Microsoft OLE DB Provider for SQL Server
+
+    SQL State : 42000
+
+ Native Error : 170
+
+   SQL String : select distinct ORD_CODE, ORD_NAME as TESTNM, SPEC_CODE from SUBOR where PART in ('ER', 'GC', LD')
+
+         Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+         Time : ¿ÀÀü 10:33:48
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdOk_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:14:26
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdOk_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:41:21
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:42:05
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:42:50
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:52:13
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:52:52
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 380
+
+Error Description : ¼Ó¼º°ªÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:54:06
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : Microsoft OLE DB Provider for SQL Server
+
+     Error Number : -2147217900
+
+Error Description : ÁÙ 1: ')' ±ÙÃ³ÀÇ ±¸¹®ÀÌ Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:55:08
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : Microsoft OLE DB Provider for SQL Server
+
+     Error Number : -2147217900
+
+Error Description : ÀúÀå ÇÁ·Î½ÃÀú 'p_l3a01interface'À»(¸¦) Ã£À» ¼ö ¾ø½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 1:55:51
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : Microsoft OLE DB Provider for SQL Server
+
+     Error Number : -2147217865
+
+Error Description : °³Ã¼ ÀÌ¸§ 'LPART'ÀÌ(°¡) Àß¸øµÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 2:03:35
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : Cx7
+
+     Error Number : 91
+
+Error Description : °³Ã¼ º¯¼ö ¶Ç´Â With ¹®ÀÇ º¯¼ö°¡ ¼³Á¤µÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 2:04:53
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : Cx7
+
+     Error Number : 438
+
+Error Description : °³Ã¼°¡ ÀÌ ¼Ó¼º ¶Ç´Â ¸Þ¼­µå¸¦ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 2:23:59
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : Cx7
+
+     Error Number : 438
+
+Error Description : °³Ã¼°¡ ÀÌ ¼Ó¼º ¶Ç´Â ¸Þ¼­µå¸¦ Áö¿øÇÏÁö ¾Ê½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 2:24:37
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+    Procedure : clsEqpResult - Private Sub Set_EqpResoult(ByVal EqpRst As Collection)
+
+ Error Number : -2147467259
+
+  Description : ÀÎµ¦½º, ±âº» Å° ¶Ç´Â °ü°è¿¡¼­ Áßº¹µÈ °ªÀ» ¸¸µé¾ú±â ¶§¹®¿¡ Å×ÀÌºí¿¡ ¿äÃ»µÈ º¯°æ »çÇ×ÀÌ Àû¿ëµÇÁö ¾Ê¾Ò½À´Ï´Ù. ÇÊµåÀÇ µ¥ÀÌÅÍ ¶Ç´Â Áßº¹ µ¥ÀÌÅÍ°¡ ÀÖ´Â ÇÊµå¸¦ º¯°æÇÏ°Å³ª ÀÎµ¦½º¸¦ Á¦°ÅÇÏ°Å³ª Áßº¹ÀÌ °¡´ÉÇÑ ÀÎµ¦½º·Î ´Ù½Ã Á¤ÀÇÇÏ¿© ´Ù½Ã ½ÃµµÇÏ½Ê½Ã¿À.
+
+       Source : Microsoft JET Database Engine
+
+    SQL State : 3022
+
+ Native Error : -105121349
+
+   SQL String : INSERT INTO INTERFACE003 (SPCNO, TESTCD, EQPNUM, TRANSDT, TRANSTM, RSTVAL, EQUIPCD) VALUES('0610002ER', 'LERGC013', '0610002ER', '20030611', '1427', '26', 'CX7')
+
+         Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+         Time : ¿ÀÈÄ 2:27:42
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+    Procedure : clsEqpResult - Private Sub Set_EqpResoult(ByVal EqpRst As Collection)
+
+ Error Number : -2147467259
+
+  Description : ÀÎµ¦½º, ±âº» Å° ¶Ç´Â °ü°è¿¡¼­ Áßº¹µÈ °ªÀ» ¸¸µé¾ú±â ¶§¹®¿¡ Å×ÀÌºí¿¡ ¿äÃ»µÈ º¯°æ »çÇ×ÀÌ Àû¿ëµÇÁö ¾Ê¾Ò½À´Ï´Ù. ÇÊµåÀÇ µ¥ÀÌÅÍ ¶Ç´Â Áßº¹ µ¥ÀÌÅÍ°¡ ÀÖ´Â ÇÊµå¸¦ º¯°æÇÏ°Å³ª ÀÎµ¦½º¸¦ Á¦°ÅÇÏ°Å³ª Áßº¹ÀÌ °¡´ÉÇÑ ÀÎµ¦½º·Î ´Ù½Ã Á¤ÀÇÇÏ¿© ´Ù½Ã ½ÃµµÇÏ½Ê½Ã¿À.
+
+       Source : Microsoft JET Database Engine
+
+    SQL State : 3022
+
+ Native Error : -105121349
+
+   SQL String : INSERT INTO INTERFACE003 (SPCNO, TESTCD, EQPNUM, TRANSDT, TRANSTM, RSTVAL, EQUIPCD) VALUES('0610002ER', 'LERGC014', '0610002ER', '20030611', '1427', '31', 'CX7')
+
+         Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+         Time : ¿ÀÈÄ 2:27:49
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 35602
+
+Error Description : ÄÃ·º¼Ç¿¡¼­ À¯ÀÏÇÑ Å°°¡ ¾Æ´Õ´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 11:43:08
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 35602
+
+Error Description : ÄÃ·º¼Ç¿¡¼­ À¯ÀÏÇÑ Å°°¡ ¾Æ´Õ´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 11:44:40
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 35605
+
+Error Description : ÀÌ Ç×¸ñÀÇ ÄÁÆ®·ÑÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 11:45:48
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
+        Procedure : frmComm - Private Sub cmdServer_Click()
+
+     Error Source : ListItem
+
+     Error Number : 35605
+
+Error Description : ÀÌ Ç×¸ñÀÇ ÄÁÆ®·ÑÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.
+
+             Date : 2003³â 6¿ù 11ÀÏ ¿ù¿äÀÏ
+
+             Time : ¿ÀÈÄ 11:46:09
+¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬

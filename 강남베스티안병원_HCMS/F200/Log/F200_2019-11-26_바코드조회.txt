@@ -1,0 +1,12 @@
+SELECT SUPT_DEPT_RCPN_DT                               AS HOSPDATE 
+     , PID                                             AS PID      
+     , PT_NM                                           AS PNAME    
+     , SPCM_RCPN_NO                                    AS BARCODE  
+     , DEPT_HNM                                        AS DEPTNM   
+     , IV_EXMN_CD                                      AS ITEM     
+  FROM LIME.VW_READ_LSMACIF                                        
+ WHERE SPCM_RCPN_NO = '20191126150136'                         
+   AND STATUS = '12'                             
+   AND LAB_MAC_CODE = 'C2'                       
+   AND IV_EXMN_CD   IN ('TEST_A','TEST_B')                        
+
