@@ -1,0 +1,12 @@
+SELECT DISTINCT        SUBSTRING(R.RESACPDTM,1,8)  AS HOSPDATE     
+     , R.RESSPMNUM                 AS BARCODE      
+     , R.RESCHTNUM                 AS CHARTNO      
+     , P.PBSPATNAM                 AS PNAME        
+     , R.RESLABCOD                 AS ITEM         
+  FROM RESINF R                                    
+     , PBSINF P                                    
+WHERE R.RESSPMNUM  = '211030300029'          
+  AND R.RESCHTNUM  = P.PBSCHTNUM                   
+  AND R.RESLABCOD IN ('B1030')          
+  AND (R.RESREPTYP IS NULL OR R.RESREPTYP <> 'F')  
+

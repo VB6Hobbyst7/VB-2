@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application xmlns="http://schemas.microsoft.com/windows/2009/Ribbon">
+  <Application.Commands>
+    <Command Name="ActionGroupAppMenu" Id="32" LabelTitle="File">
+      <Command.SmallImages>
+        <Image>Res/ER_16x16_1.bmp</Image>
+        <Image MinDPI="144">Res/ER_24x24_1.bmp</Image>
+        <Image MinDPI="192">Res/ER_32x32_2.bmp</Image>
+        <Image MinDPI="120">Res/ER_24x24_1.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/ER_32x32_2.bmp</Image>
+        <Image MinDPI="120">Res/ER_44x44_4.bmp</Image>
+        <Image MinDPI="144">Res/ER_48x48_4.bmp</Image>
+        <Image MinDPI="192">Res/ER_64x64_6.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionRecentTest" Id="20" LabelTitle="Recent test"/>
+    <Command Name="ActionOpen" Id="5" LabelTitle="Open" TooltipTitle="Open" TooltipDescription="Open an existing Test.">
+      <Command.SmallImages>
+        <Image>Res/Open16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Open20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Open32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Open32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Open40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Open48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Open64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionSave" Id="6" TooltipDescription="Save the current test.">
+      <Command.LabelTitle>
+        <String Id="2">Save</String>
+      </Command.LabelTitle>
+      <Command.SmallImages>
+        <Image>Res/Save16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Save20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Save32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Save32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Save40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Save48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Save64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionSaveAs" Id="21" LabelTitle="Save As" TooltipTitle="Save As" TooltipDescription="Saves test under another name.">
+      <Command.SmallImages>
+        <Image>Res/SaveAs16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/SaveAs20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/SaveAs32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/SaveAs32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/SaveAs40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/SaveAs48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/SaveAs64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionSdb" Id="43" LabelTitle="SD BIOSENSOR">
+      <Command.SmallImages>
+        <Image>Res/CI Logo_16.bmp</Image>
+        <Image MinDPI="120">Res/CI Logo_24.bmp</Image>
+        <Image MinDPI="192">Res/CI Logo_32.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/CI Logo_32.bmp</Image>
+        <Image MinDPI="144">Res/CI Logo_48.bmp</Image>
+        <Image MinDPI="192">Res/CI Logo_64.bmp</Image>
+        <Image MinDPI="120">Res/CI Logo_44.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionAbout" Id="19" LabelTitle="About">
+      <Command.SmallImages>
+        <Image>Res/About16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/About20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/About32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/About32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/About40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/About48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/About64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionOption" Id="23" LabelTitle="Option" TooltipDescription="Change options">
+      <Command.SmallImages>
+        <Image>Res/Option16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Option20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Option32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Option32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Option40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Option48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Option64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionExit" Id="8" LabelTitle="Exit">
+      <Command.SmallImages>
+        <Image>Res/Close16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Close20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Close32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Close32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Close40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Close48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Close64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionTabTest" Id="25" LabelTitle="Test"/>
+    <Command Name="ActionGroupData" Id="7">
+      <Command.LabelTitle>
+        <String Id="3">Data</String>
+      </Command.LabelTitle>
+      <Command.SmallImages>
+        <Image>Res/Test16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Test20x20_2.bmp</Image>
+        <Image MinDPI="144">Res/Test24x24_3.bmp</Image>
+        <Image MinDPI="192">Res/Test32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Test32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Test40x40_4.bmp</Image>
+        <Image MinDPI="144">Res/Test48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Test64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionPaste" Id="4" LabelTitle="Paste" TooltipTitle="Paste" TooltipDescription="Insert clipboard contents">
+      <Command.SmallImages>
+        <Image>Res/Paste16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Paste20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Paste32x32_4.bmp</Image>
+        <Image MinDPI="144">Res/Paste24x24_3.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Paste32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Paste40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Paste48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Paste64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionNewTest" Id="38" LabelTitle="New test" TooltipTitle="Create new test">
+      <Command.SmallImages>
+        <Image>Res/Document New-01-WF_16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Document New-01-WF_20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Document New-01-WF_32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Document New-01-WF_32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Document New-01-WF_40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Document New-01-WF_48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Document New-01-WF_64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionManualTest" Id="45" LabelTitle="Write-in test" TooltipTitle="Enter the test manually">
+      <Command.SmallImages>
+        <Image>Res/Document Edit-WF 16x1.bmp</Image>
+        <Image MinDPI="120">Res/Document Edit-WF 20x2.bmp</Image>
+        <Image MinDPI="192">Res/Document Edit-WF 32x4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Document Edit-WF 32x4.bmp</Image>
+        <Image MinDPI="120">Res/Document Edit-WF 40x6.bmp</Image>
+        <Image MinDPI="144">Res/Document Edit-WF 48x6.bmp</Image>
+        <Image MinDPI="192">Res/Document Edit-WF 64x10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionClearTest" Id="37" LabelTitle="Clear All" TooltipTitle="Clear all cells" TooltipDescription="The contents of all cells are cleared.">
+      <Command.SmallImages>
+        <Image>Res/New16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/New20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/New32x32_4.bmp</Image>
+        <Image MinDPI="144">Res/New24x24_3.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/New32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/New40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/New48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/New64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionTestProperty" Id="35" LabelTitle="Property" TooltipDescription="Shows the properties of the current test.">
+      <Command.SmallImages>
+        <Image>Res/Note information-WF_16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Note information-WF_20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Note information-WF_32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Note information-WF_32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Note information-WF_40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Note information-WF_48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Note information-WF_64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionManualDataEntry" Id="12" LabelTitle="Manual Data Entry">
+      <Command.SmallImages>
+        <Image>Res/ManualDataEntry16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/ManualDataEntry20x20_2.bmp</Image>
+        <Image MinDPI="144">Res/ManualDataEntry24x24_3.bmp</Image>
+        <Image MinDPI="192">Res/ManualDataEntry32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/ManualDataEntry32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/ManualDataEntry40x40_4.bmp</Image>
+        <Image MinDPI="144">Res/ManualDataEntry48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/ManualDataEntry64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionGroupDataFmt" Id="27">
+      <Command.LabelTitle>
+        <String Id="2">Format</String>
+      </Command.LabelTitle>
+      <Command.SmallImages>
+        <Image>Res/Data Format16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Data Format20x20_2.bmp</Image>
+        <Image MinDPI="144">Res/Data Format24x24_3.bmp</Image>
+        <Image MinDPI="192">Res/Data Format32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Data Format32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Data Format40x40_4.bmp</Image>
+        <Image MinDPI="144">Res/Data Format48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Data Format64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmtDefault" Id="10" LabelTitle="Default" TooltipTitle="Default Format" TooltipDescription="Converts a cells to a table with its format.">
+      <Command.SmallImages>
+        <Image>Res/DefaultFmt16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/DefaultFmt20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/DefaultFmt32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/DefaultFmt32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/DefaultFmt40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/DefaultFmt48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/DefaultFmt64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmt2Item" Id="29" LabelTitle="In-Tube (Nil, Antigen)">
+      <Command.SmallImages>
+        <Image>Res/Award -0516x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Award -0520x20_2.bmp</Image>
+        <Image MinDPI="144">Res/Award -0524x24_3.bmp</Image>
+        <Image MinDPI="192">Res/Award -0532x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Award -0532x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Award -0540x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Award -0548x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Award -0564x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmt3Item" Id="30" LabelTitle="In-Tubu (nil, Antigen, Mitogen)">
+      <Command.SmallImages>
+        <Image>Res/Award -0416x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Award -0420x20_2.bmp</Image>
+        <Image MinDPI="144">Res/Award -0424x24_3.bmp</Image>
+        <Image MinDPI="192">Res/Award -0432x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Award -0432x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Award -0440x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Award -0448x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Award -0464x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmtManual" Id="11" LabelTitle="Manual" TooltipDescription="Converts a cells to a table with its own format.">
+      <Command.SmallImages>
+        <Image>Res/ManualFmt16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/ManualFmt20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/ManualFmt32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/ManualFmt32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/ManualFmt40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/ManualFmt48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/ManualFmt64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmtLoad" Id="9" LabelTitle="Load">
+      <Command.SmallImages>
+        <Image>Res/FmtLoad16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/FmtLoad20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/FmtLoad32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/FmtLoad32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/FmtLoad40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/FmtLoad48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/FmtLoad64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmtSave" Id="13" LabelTitle="Save">
+      <Command.SmallImages>
+        <Image>Res/SaveFmt16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/SaveFmt20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/SaveFmt32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/SaveFmt32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/SaveFmt40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/SaveFmt48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/SaveFmt64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionFmtViewNames" Id="14" LabelTitle="View Names">
+      <Command.SmallImages>
+        <Image>Res/ViewNames16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/ViewNames20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/ViewNames32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/ViewNames32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/ViewNames40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/ViewNames48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/ViewNames64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionTabResults" Id="36" LabelTitle="Results"/>
+    <Command Name="ActionGroupAnalyze" Id="26">
+      <Command.LabelTitle>
+        <String Id="2">Analyze</String>
+      </Command.LabelTitle>
+      <Command.SmallImages>
+        <Image>Res/Analyze16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Analyze20x20_2.bmp</Image>
+        <Image MinDPI="144">Res/Analyze24x24_3.bmp</Image>
+        <Image MinDPI="192">Res/Analyze32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Analyze32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Analyze40x40_4.bmp</Image>
+        <Image MinDPI="144">Res/Analyze48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Analyze64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionCalc" Id="15" LabelTitle="Calculate">
+      <Command.SmallImages>
+        <Image>Res/Calculate16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Calculate20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Calculate32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Calculate32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Calculate40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Calculate48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Calculate64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionPrint" Id="16" LabelTitle="Print">
+      <Command.SmallImages>
+        <Image>Res/Print16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Print20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Print32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Print32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Print40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Print48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Print64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionExportResult" Id="17" LabelTitle="Results Export">
+      <Command.SmallImages>
+        <Image>Res/ResultExport16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/ResultExport20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/ResultExport32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/ResultExport32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/ResultExport40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/ResultExport48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/ResultExport64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionResultToClipboard" Id="44" LabelTitle="To Clipboard">
+      <Command.SmallImages>
+        <Image>Res/Clipboard16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Clipboard20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Clipboard32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Clipboard32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Clipboard40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Clipboard48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Clipboard64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionResultToCsv" Id="40" LabelTitle="To CSV File">
+      <Command.SmallImages>
+        <Image>Res/Csv16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Csv20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Csv32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Csv32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Csv40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Csv48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Csv64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionExportData" Id="18" LabelTitle="Data Export">
+      <Command.SmallImages>
+        <Image>Res/DataExport16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/DataExport20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/DataExport32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/DataExport32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/DataExport40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/DataExport48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/DataExport64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionDataToClipboard" Id="41" LabelTitle="To Clipboard">
+      <Command.SmallImages>
+        <Image>Res/Clipboard16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Clipboard20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Clipboard32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Clipboard32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Clipboard40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Clipboard48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Clipboard64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+    <Command Name="ActionDataToCsv" Id="42" LabelTitle="To CSV File">
+      <Command.SmallImages>
+        <Image>Res/Csv16x16_1.bmp</Image>
+        <Image MinDPI="120">Res/Csv20x20_2.bmp</Image>
+        <Image MinDPI="192">Res/Csv32x32_4.bmp</Image>
+      </Command.SmallImages>
+      <Command.LargeImages>
+        <Image>Res/Csv32x32_4.bmp</Image>
+        <Image MinDPI="120">Res/Csv40x40_6.bmp</Image>
+        <Image MinDPI="144">Res/Csv48x48_6.bmp</Image>
+        <Image MinDPI="192">Res/Csv64x64_10.bmp</Image>
+      </Command.LargeImages>
+    </Command>
+  </Application.Commands>
+  <Application.Views>
+    <Ribbon GroupSpacing="Large">
+      <Ribbon.ApplicationMenu>
+        <ApplicationMenu CommandName="ActionGroupAppMenu">
+          <MenuGroup>
+            <Button CommandName="ActionClearTest"/>
+            <Button CommandName="ActionOpen"/>
+            <Button CommandName="ActionSave"/>
+            <Button CommandName="ActionSaveAs"/>
+          </MenuGroup>
+          <MenuGroup>
+            <Button CommandName="ActionOption"/>
+          </MenuGroup>
+          <MenuGroup>
+            <Button CommandName="ActionAbout"/>
+            <Button CommandName="ActionSdb"/>
+          </MenuGroup>
+          <MenuGroup>
+            <Button CommandName="ActionExit"/>
+          </MenuGroup>
+        </ApplicationMenu>
+      </Ribbon.ApplicationMenu>
+      <Ribbon.QuickAccessToolbar>
+        <QuickAccessToolbar>
+          <QuickAccessToolbar.ApplicationDefaults>
+            <Button CommandName="ActionClearTest" ApplicationDefaults.IsChecked="true"/>
+            <Button CommandName="ActionOpen" ApplicationDefaults.IsChecked="true"/>
+            <Button CommandName="ActionSave" ApplicationDefaults.IsChecked="true"/>
+            <Button CommandName="ActionSaveAs" ApplicationDefaults.IsChecked="true"/>
+            <Button CommandName="ActionOption" ApplicationDefaults.IsChecked="true"/>
+          </QuickAccessToolbar.ApplicationDefaults>
+        </QuickAccessToolbar>
+      </Ribbon.QuickAccessToolbar>
+      <Ribbon.Tabs>
+        <Tab CommandName="ActionTabTest">
+          <Tab.ScalingPolicy>
+            <ScalingPolicy>
+              <ScalingPolicy.IdealSizes>
+                <Scale Group="ActionGroupData" Size="Large"/>
+                <Scale Group="ActionGroupDataFmt" Size="Large"/>
+                <Scale Group="ActionGroupAnalyze" Size="Large"/>
+              </ScalingPolicy.IdealSizes>
+              <Scale Group="ActionGroupData" Size="Popup"/>
+              <Scale Group="ActionGroupDataFmt" Size="Popup"/>
+              <Scale Group="ActionGroupAnalyze" Size="Popup"/>
+            </ScalingPolicy>
+          </Tab.ScalingPolicy>
+          <Group CommandName="ActionGroupData">
+            <SizeDefinition>
+              <ControlNameMap>
+                <ControlNameDefinition Name="ActionPaste"/>
+                <ControlNameDefinition Name="ActionTestInfo"/>
+                <ControlNameDefinition Name="ActionNewTest"/>
+                <ControlNameDefinition Name="ActionManualTest"/>
+                <ControlNameDefinition Name="ActionClearTest"/>
+              </ControlNameMap>
+              <GroupSizeDefinition Size="Large">
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionPaste"/>
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionTestInfo"/>
+                <ColumnBreak/>
+                <ControlSizeDefinition ControlName="ActionNewTest"/>
+                <ControlSizeDefinition ControlName="ActionManualTest"/>
+                <ControlSizeDefinition ControlName="ActionClearTest"/>
+              </GroupSizeDefinition>
+            </SizeDefinition>
+            <Button CommandName="ActionPaste"/>
+            <ToggleButton CommandName="ActionTestProperty"/>
+            <Button CommandName="ActionNewTest"/>
+            <Button CommandName="ActionManualTest"/>
+            <Button CommandName="ActionClearTest"/>
+          </Group>
+          <Group CommandName="ActionGroupDataFmt">
+            <SizeDefinition>
+              <ControlNameMap>
+                <ControlNameDefinition Name="ActionFmtDefault"/>
+                <ControlNameDefinition Name="ActionFmtManual"/>
+                <ControlNameDefinition Name="ActionFmtLoad"/>
+                <ControlNameDefinition Name="ActionFmtSave"/>
+                <ControlNameDefinition Name="ActionFmtViewNames"/>
+              </ControlNameMap>
+              <GroupSizeDefinition Size="Large">
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionFmtDefault"/>
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionFmtManual"/>
+                <ControlSizeDefinition ControlName="ActionFmtLoad"/>
+                <ControlSizeDefinition ControlName="ActionFmtSave"/>
+                <ControlSizeDefinition ControlName="ActionFmtViewNames"/>
+              </GroupSizeDefinition>
+            </SizeDefinition>
+            <DropDownButton CommandName="ActionFmtDefault">
+              <Button CommandName="ActionFmt3Item"/>
+              <Button CommandName="ActionFmt2Item"/>
+            </DropDownButton>
+            <ToggleButton CommandName="ActionFmtManual"/>
+            <Button CommandName="ActionFmtLoad"/>
+            <Button CommandName="ActionFmtSave"/>
+            <Button CommandName="ActionFmtViewNames"/>
+          </Group>
+          <Group CommandName="ActionGroupAnalyze">
+            <SizeDefinition>
+              <ControlNameMap>
+                <ControlNameDefinition Name="ActionCalc"/>
+                <ControlNameDefinition Name="ActionPrint"/>
+                <ControlNameDefinition Name="ActionExportResult"/>
+                <ControlNameDefinition Name="ActionExportData"/>
+              </ControlNameMap>
+              <GroupSizeDefinition Size="Large">
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionCalc"/>
+                <ColumnBreak/>
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionPrint"/>
+                <ColumnBreak/>
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionExportResult"/>
+                <ControlSizeDefinition ImageSize="Large" ControlName="ActionExportData"/>
+              </GroupSizeDefinition>
+            </SizeDefinition>
+            <Button CommandName="ActionCalc"/>
+            <Button CommandName="ActionPrint"/>
+            <DropDownButton CommandName="ActionExportResult">
+              <Button CommandName="ActionResultToClipboard"/>
+              <Button CommandName="ActionResultToCsv"/>
+            </DropDownButton>
+            <DropDownButton CommandName="ActionExportData">
+              <Button CommandName="ActionDataToClipboard"/>
+              <Button CommandName="ActionDataToCsv"/>
+            </DropDownButton>
+          </Group>
+        </Tab>
+      </Ribbon.Tabs>
+    </Ribbon>
+    <ContextPopup/>
+  </Application.Views>
+</Application>

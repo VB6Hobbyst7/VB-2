@@ -1,0 +1,37 @@
+[DB_Integral-II]
+Time:;18:48:48
+Date:;11/09/2007
+OVER limit:;3.000
+Operator:;service
+Wavelengths:;450nm/650nm
+0.500 <= PCi <= 2.6;0.5<=0.004<=2.6;Removed
+;0.5<=0.002<=2.6;Removed
+valid(PC)=2;0=2;FAILED
+-0.01<= NCi<= 0.2;-0.01<=0.003<=0.2
+;-0.01<=0.003<=0.2
+valid(NC)=2;2=2
+NCi < ((PC*0.23)-0.0005);*****<*****;Removed
+;*****<*****;Removed
+valid(NC)=2;0=2;FAILED
+If 'Sample<((PC*0.23)-0.0005)' Then Result:='-'
+If 'Sample>=((PC*0.23)+0.0005)' Then Result:='+'
+Default result := ?
+cut off;(PC*0.23);*****
+
+[Results]
+Patient ID;Assay;Raw value;Evaluation;Well Location;Flag
+"";"DB_Integral-II";"0.003";"*";"A1";""
+"";"DB_Integral-II";"0.003";"*";"B1";""
+"";"DB_Integral-II";"0.004";"*";"C1";""
+"001";"DB_Integral-II";"0.003";"*";"D1";""
+"002";"DB_Integral-II";"0.013";"*";"E1";""
+"003";"DB_Integral-II";"0.002";"*";"F1";""
+"004";"DB_Integral-II";"0.003";"*";"G1";""
+"005";"DB_Integral-II";"0.003";"*";"H1";""
+"006";"DB_Integral-II";"0.003";"*";"A2";""
+"007";"DB_Integral-II";"0.003";"*";"B2";""
+"008";"DB_Integral-II";"0.008";"*";"C2";""
+"009";"DB_Integral-II";"0.003";"*";"D2";""
+"010";"DB_Integral-II";"0.018";"*";"E2";""
+"";"DB_Integral-II";"0.002";"*";"F2";""
+[End Of Results]

@@ -1,0 +1,8 @@
+Update TW_HSP_OCS.TWEXAM_RESULTC    
+  Set STATUS     = '4',       
+      RESULT     = '5.1',       
+      RESULTDATE = TRUNC(SYSDATE) 
+ Where SPECNO     = '03636662'   
+   And MASTERCODE = 'HR01'   
+   And SUBCODE = 'B1050'   
+   And STATUS     <= '3' 

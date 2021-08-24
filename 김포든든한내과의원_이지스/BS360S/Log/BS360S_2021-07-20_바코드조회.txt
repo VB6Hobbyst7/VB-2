@@ -1,0 +1,18 @@
+SELECT DISTINCT        a.ACC_YMD   AS HOSPDATE 
+     , a.RECEPT_NO AS BARCODE  
+     , a.PTNT_NO   AS PID      
+     , c.PTNT_NM   AS PNAME    
+     , c.BIRTH_YMD AS AGE      
+     , c.SEX       AS SEX      
+     , a.ORD_CD    AS ITEM     
+  FROM H3LAB_RESULT a          
+     , H1OPDIN b               
+     , HZ_MST_PTNT c           
+ WHERE a.RECEPT_NO = '194107'  
+   AND a.ORD_CD IN ('B2570','B2580','B2590','B2602','B2611','B2621','B2630','B2710','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','D2614','D2614','EGFR','LDL-C')
+   AND a.STS_CD    = 'A'                   
+   AND a.SUTAK_CD  = ''                    
+   AND a.RECEPT_NO = b.RECEPT_NO           
+   AND a.PTNT_NO    = c.PTNT_NO            
+ ORDER BY a.ORD_CD                         
+

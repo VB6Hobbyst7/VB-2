@@ -1,0 +1,38 @@
+Attribute VB_Name = "TuxConst"
+Option Explicit
+
+Global Const INITMSK = 167772161
+Global Const CURSID = 33554434
+Global Const CURSOC = 33554435
+Global Const LEVKEY = 167772164
+Global Const STATLIN = 167772165
+Global Const FORMNAM = 167772166
+Global Const UPDTMOD = 7
+Global Const SRVCNM = 167772168
+Global Const NEWFORM = 167772169
+Global Const CHGATTS = 201326602
+Global Const USYS1FLD = 167772171
+Global Const USYS2FLD = 167772172
+Global Const USYS3FLD = 167772173
+Global Const USYS4FLD = 201326606
+Global Const USYS5FLD = 201326607
+Global Const USYS6FLD = 201326608
+Global Const DESTSRVC = 167772177
+Global Const MODS = 201326610
+Global Const VALONENTRY = 167772179
+Global Const BQCMD = 167772241
+
+
+Global Const F_LONG = 33554633
+Global Const F_DOUBLE = 134217931
+Global Const F_FLOAT = 100663501
+Global Const F_STRING = 167772367
+Global Const F_CARRAY = 201326800
+Global Const F_NAME = 167772369
+Global Const F_SEX = 67109074
+Global Const F_AGE = 33554643
+Global Const F_HEIGHT = 134217940
+Global Const F_TELNO = 167772373
+Global Const F_BONBU = 167772374
+Global Const F_DEPT = 167772375
+

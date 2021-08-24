@@ -1,0 +1,29 @@
+[DB_A-HIV-P]
+Time:;15:08:17
+Date:;15/11/2007
+OVER limit:;3.000
+Operator:;service
+Wavelengths:;450nm/650nm
+-0.0105<NCi<0.1505;-0.0105<0.057<0.1505
+;-0.0105<0.061<0.1505
+;-0.0105<0.062<0.1505
+;-0.0105<0.058<0.1505
+Valid(NC)>=3;4>=3
+PCi>0.6995;1.679>0.6995
+;1.725>0.6995
+valid(PC)=2;2=2
+If 'Sample<((NC+0.4)*0.9)-0.0005' Then Result:='-'
+If 'Sample>(NC+0.4)+0.0005' Then Result:='+'
+Default result := ?
+Cutoff;(NC+0.4);0.460
+
+[Results]
+Patient ID;Assay;Raw value;Evaluation;Well Location;Flag
+"";"DB_A-HIV-P";"0.057";"NC1";"A1";""
+"";"DB_A-HIV-P";"0.061";"NC2";"B1";""
+"";"DB_A-HIV-P";"0.062";"NC3";"C1";""
+"";"DB_A-HIV-P";"0.058";"NC4";"D1";""
+"";"DB_A-HIV-P";"1.679";"PC1";"E1";""
+"170007609978";"DB_A-HIV-P";"0.055";"-";"F1";""
+"";"DB_A-HIV-P";"1.725";"PC2";"G1";""
+[End Of Results]

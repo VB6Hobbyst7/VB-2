@@ -1,0 +1,118 @@
+//MTB결과가 NOT DETECT 인경우 RIF 결과가 없는 경우가 있음.(버전별로 다른듯)
+//버전별로 결과에 MTB NOT DETECTED 처럼 MTB가 붙는 경우가 있고, NOT DETECTED 만 나오는경우 있음.
+
+//CARBA-R 인경우에
+//POSITIVE인경우 SPC의 결과가 'PASS' or 'NA'면 정상.
+//마찬가지로 결과에 명칭이 붙는경우와 안붙는 경우 있음.
+//IMP NOT DETECTED 인경우와 그냥 NOT DETECTED 인경우가 프로그램 버전별로 다름.
+
+//세팅값
+//오더전송코드: MTB-RIF
+//개별결과코드: MTB: 1, RIF: 2, QC:3 
+1H|@^\|URM-6+aR1yUA-01||GeneXpert PC^GeneXpert^4.4a|||||host||P|1394-97|20150413171305
+P|1|||9633857
+O|1|091504140241||^^^MTB|R|20150413151300|||||||||ORH||||||||||F
+R|1|^MTB^^1^Xpert MTB-RIF Assay G4^5^MTB^|MTB NOT DETECTED^|||||F||<None>|20150413151300|20150413165506|Cepheid-321BY5Y^804105^639560^437032345^07502^20161127
+R|2|^MTB^^1^^^Probe D^|NEG^|||
+R|3|^MTB^^1^^^Probe D^Ct|^0|||
+R|4|^MTB^^1^^^Probe D^EndPt|^-6.0|||
+R|5|^MTB^^1^^^Probe C^|NEG^|||
+R|6|^MTB^^1^^^Probe C^Ct|^0|||
+R|7|^MTB^^1^^^Probe C^EndPt|^-10.0|||
+R|8|^MTB^^1^^^Probe E^|NEG^|||
+R|9|^MTB^^1^^^Probe E^Ct|^0|||
+R|10|^MTB^^1^^^Probe E^EndPt|^-11.0|||
+R|11|^MTB^^1^^^Probe B^|NEG^|||
+R|12|^MTB^^1^^^Probe B^Ct|^0|||
+R|13|^MTB^^1^^^Probe B^EndPt|^-1.0|||
+R|14|^MTB^^1^^^Probe A^|NEG^|||
+R|15|^MTB^^1^^^Probe A^Ct|^0|||
+R|16|^MTB^^1^^^Probe A^EndPt|^-2.0|||
+R|17|^MTB^^1^^^SPC^|PASS^|||
+R|18|^MTB^^1^^^SPC^Ct|^26.8|||
+R|19|^MTB^^1^^^SPC^EndPt|^196.0|||
+R|20|^MTB^^2^Xpert MTB-RIF Assay G4^5^Rif Resistance^|^|||||F||<None>|20150413151300|20150413165506|Cepheid-321BY5Y^804105^639560^437032345^07502^20161127
+R|21|^MTB^^2^^^Probe D^|NEG^|||
+R|22|^MTB^^2^^^Probe D^Ct|^0|||
+R|23|^MTB^^2^^^Probe D^EndPt|^-6.0|||
+R|24|^MTB^^2^^^Probe C^|NEG^|||
+R|25|^MTB^^2^^^Probe C^Ct|^0|||
+R|26|^MTB^^2^^^Probe C^EndPt|^-10.0|||
+R|27|^MTB^^2^^^Probe E^|NEG^|||
+R|28|^MTB^^2^^^Probe E^Ct|^0|||
+R|29|^MTB^^2^^^Probe E^EndPt|^-11.0|||
+R|30|^MTB^^2^^^Probe B^|NEG^|||
+R|31|^MTB^^2^^^Probe B^Ct|^0|||
+R|32|^MTB^^2^^^Probe B^EndPt|^-1.0|||
+R|33|^MTB^^2^^^Probe A^|NEG^|||
+R|34|^MTB^^2^^^Probe A^Ct|^0|||
+R|35|^MTB^^2^^^Probe A^EndPt|^-2.0|||
+R|36|^MTB^^2^^^SPC^|PASS^|||
+R|37|^MTB^^2^^^SPC^Ct|^26.8|||
+R|38|^MTB^^2^^^SPC^EndPt|^196.0|||
+R|39|^MTB^^3^Xpert MTB-RIF Assay G4^5^QC Check^|^|||||F||<None>|20150413151300|20150413165506|Cepheid-321BY5Y^804105^639560^437032345^07502^20161127
+R|40|^MTB^^3^^^QC-1^|NEG^|||
+R|41|^MTB^^3^^^QC-1^Ct|^0|||
+R|42|^MTB^^3^^^QC-1^EndPt|^0|||
+R|43|^MTB^^3^^^QC-2^|NEG^|||
+R|44|^MTB^^3^^^QC-2^Ct|^0|||
+R|45|^MTB^^3^^^QC-2^EndPt|^0|||
+L|1|N
+
+
+//오더전송코드: CARBA-R
+//개별결과코드: IMP1, VIM, NDM, KPC, OXA48
+2017-06-15 11:14:24
+1H|@^\|URM-kA2PpyVA-01||GeneXpert PC^GeneXpert^4.8|||||LIS||P|1394-97|20170614175521
+P|1||||^^^^|||||||||||||||||||||
+O|1|17115109111||^^^CARBA-R|R|20170614170548|||||||||ORH||||||||||F
+R|1|^CARBA-R^^IMP1^Xpert Carba-R^2^IMP1^|NOT DETECTED^|||||F||<None>|20170614170548|20170614175600|Cepheid-64261T2^806109^631650^484991735^06402^20180415
+R|2|^CARBA-R^^IMP1^^^IMP1^|NEG^|||
+R|3|^CARBA-R^^IMP1^^^IMP1^Ct|^0.0|||
+R|4|^CARBA-R^^IMP1^^^IMP1^EndPt|^0.0|||
+R|5|^CARBA-R^^IMP1^^^SPC^|NA^|||
+R|6|^CARBA-R^^IMP1^^^SPC^Ct|^34.8|||
+R|7|^CARBA-R^^IMP1^^^SPC^EndPt|^57.0|||
+R|8|^CARBA-R^^VIM^Xpert Carba-R^2^VIM^|NOT DETECTED^|||||F||<None>|20170614170548|20170614175600|Cepheid-64261T2^806109^631650^484991735^06402^20180415
+R|9|^CARBA-R^^VIM^^^VIM^|NEG^|||
+R|10|^CARBA-R^^VIM^^^VIM^Ct|^0.0|||
+R|11|^CARBA-R^^VIM^^^VIM^EndPt|^1.0|||
+R|12|^CARBA-R^^VIM^^^SPC^|NA^|||
+R|13|^CARBA-R^^VIM^^^SPC^Ct|^34.8|||
+R|14|^CARBA-R^^VIM^^^SPC^EndPt|^57.0|||
+R|15|^CARBA-R^^NDM^Xpert Carba-R^2^NDM^|NOT DETECTED^|||||F||<None>|20170614170548|20170614175600|Cepheid-64261T2^806109^631650^484991735^06402^20180415
+R|16|^CARBA-R^^NDM^^^NDM^|NEG^|||
+R|17|^CARBA-R^^NDM^^^NDM^Ct|^0.0|||
+R|18|^CARBA-R^^NDM^^^NDM^EndPt|^-2.0|||
+R|19|^CARBA-R^^NDM^^^SPC^|NA^|||
+R|20|^CARBA-R^^NDM^^^SPC^Ct|^34.8|||
+R|21|^CARBA-R^^NDM^^^SPC^EndPt|^57.0|||
+R|22|^CARBA-R^^KPC^Xpert Carba-R^2^KPC^|DETECTED^|||||F||<None>|20170614170548|20170614175600|Cepheid-64261T2^806109^631650^484991735^06402^20180415
+R|23|^CARBA-R^^KPC^^^KPC^|POS^|||
+R|24|^CARBA-R^^KPC^^^KPC^Ct|^30.3|||
+R|25|^CARBA-R^^KPC^^^KPC^EndPt|^410.0|||
+R|26|^CARBA-R^^KPC^^^SPC^|NA^|||
+R|27|^CARBA-R^^KPC^^^SPC^Ct|^34.8|||
+R|28|^CARBA-R^^KPC^^^SPC^EndPt|^57.0|||
+R|29|^CARBA-R^^OXA48^Xpert Carba-R^2^OXA48^|NOT DETECTED^|||||F||<None>|20170614170548|20170614175600|Cepheid-64261T2^806109^631650^484991735^06402^20180415
+R|30|^CARBA-R^^OXA48^^^OXA48^|NEG^|||
+R|31|^CARBA-R^^OXA48^^^OXA48^Ct|^0.0|||
+R|32|^CARBA-R^^OXA48^^^OXA48^EndPt|^4.0|||
+R|33|^CARBA-R^^OXA48^^^SPC^|NA^|||
+R|34|^CARBA-R^^OXA48^^^SPC^Ct|^34.8|||
+R|35|^CARBA-R^^OXA48^^^SPC^EndPt|^57.0|||
+L|1|N
+
+//오더전송코드: EV
+//개별결과코드: EV
+1H|@^\|URM-K6motZVA-27||GeneXpert PC^GeneXpert^4.7b|||||LIS||P|1394-97|20160809134936
+P|1|||20160800-L5200-A-0922|^^^^
+O|1|16141823111||^^^EV|R|20160809111934|||||||||ORH|||^^|||||||F
+R|1|^^^EV^Xpert EV^3^^|NEGATIVE^|||||F||<None>|20160809111934|20160809135022|s04276r826q1^806109^653357^75225033^06602^20170212
+R|2|^^^EV^^^EV^|NEG^|||
+R|3|^^^EV^^^EV^Ct|^0.0|||
+R|4|^^^EV^^^EV^EndPt|^2.0|||
+R|5|^^^EV^^^CIC^|PASS^|||
+R|6|^^^EV^^^CIC^Ct|^34.9|||
+R|7|^^^EV^^^CIC^EndPt|^229.0|||
+L|1|N

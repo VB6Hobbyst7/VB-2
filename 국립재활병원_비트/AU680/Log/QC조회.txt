@@ -1,0 +1,9 @@
+SELECT LABLOT, LABAVE, LABLOW, LABMAX  FROM labqcmst   WHERE labqccod   = 'AU680'
+   and labnab     = ''
+   and labcod     = 'C2210'
+   and labadpdte <= '20161205'
+   and labadpdte = (select max(labadpdte) from labqcmst  
+                    where labqccod = 'AU680'
+                      and labnab = ''
+                      and labcod = 'C2210'
+                      and labadpdte <= '20161205')

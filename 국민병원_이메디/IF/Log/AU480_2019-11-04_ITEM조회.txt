@@ -1,0 +1,10 @@
+Select DISTINCT        R.RESULTITEMCODE  AS ITEM 
+  From RESULTOFNUM R, REGISTINFOS L, PATMST P 
+ Where R.SPCMNO = '1911040081'
+   And R.RESULTITEMCODE IN ('XC0021','XC0022','LC120','XC0038','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0062','XC0025','XC0047','XC0048','XC0049','XC1008')            
+   And R.ACPTDATE  =   L.ACPTDATE                          
+   And R.ACPTSEQ   =   L.ACPTSEQ                           
+   And R.PATID     =   P.PATID                             
+   And (R.TEXTRESULTVAL = '' OR R.TEXTRESULTVAL IS NULL)   
+ ORDER BY R.RESULTITEMCODE                                 
+

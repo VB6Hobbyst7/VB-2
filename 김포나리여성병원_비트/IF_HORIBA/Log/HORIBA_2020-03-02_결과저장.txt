@@ -1,0 +1,21 @@
+UPDATE RESINF                                                      
+   SET ResRltVal = '13.9'                               
+     , RESUPDDTM = '202003021450'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848185063'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'B10101' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '14.8'                               
+     , RESUPDDTM = '202003021514'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848185078'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'B10101' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '13.8'                               
+     , RESUPDDTM = '202003021517'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848184958'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'B10101' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      

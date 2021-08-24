@@ -1,0 +1,144 @@
+'Provider=MSDAORA.1;Password=LISDIE0112;User ID=LISDIE;Data Source=HIS;Persist Security Info=True';
+                             
+function TDM.DownLoadOrder_ICH_CMC(TMaster: TIfMaster): boolean;
+var
+  ECD, ABR, IFCD, UPCD:string;
+  k:integer;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  with qrySOrder do begin
+      Close;
+      SQL.Text:=' Select ORDER_INPUT   '+#13#10+
+                '      , JUBSU_DATE    '+#13#10+    //Index
+                '      , ORDER_DATE    '+#13#10+    //Index
+                '      , GUMSA_CODE    '+#13#10+
+                '      , SUB_HANGMOG_CODE    '+#13#10+
+                '      , GUMSA_NAME    '+#13#10+
+                '      , SPECIMEN_CODE '+#13#10+
+                '      , SPECIMEN_NAME '+#13#10+
+                '      , BUNHO         '+#13#10+    //Index
+                '      , SUNAME        '+#13#10+
+                '      , AGE           '+#13#10+
+                '      , SEX           '+#13#10+
+                '      , ORDER_STATUS  '+#13#10+
+                '      , JANGBI_CODE   '+#13#10+
+                //'  From VW_IHIS_LISDIE_GUMSA_INFO        '+#13#10+
+                '  From VW_IHIS_LISDIE_GUMSA_INFO_SUB        '+#13#10+
+                '  Where SPECIMEN_SER  = '''+TMaster.FBarCode+''' ';  //Index
+      try
+          if SvrTEST = True then
+              SQL.SaveToFile('.\order.sql');
+
+          Open;
+      except
+          on e:exception do
+          begin
+              ShowMessage(e.Message);
+              TGlobal.ErrMsg:= '오더체크 에러 입니다! 에러메세지->'+ e.Message+#13#10+SQL.Text;
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          TMaster.vOrder:= VarArrayCreate([0,RecordCount-1], varVariant);
+          TMaster.vAbbr := VarArrayCreate([0,RecordCount-1], varVariant);
+          TMaster.vEcdList:= VarArrayCreate([0,RecordCount-1], varVariant);
+          TMaster.vUpCode:=  VarArrayCreate([0,RecordCount-1], varVariant);
+          k:= -1;
+
+          while Not Eof do begin
+
+              ECD:= Trim(FieldByName('GUMSA_CODE').AsString);
+              if TCode.SetCode_ECode(ECD) = False then
+                  ECD:= Trim(FieldByName('SUB_HANGMOG_CODE').AsString);
+
+              if TCode.SetCode_ECode(ECD) then begin
+                  Inc(k);
+                  TMaster.vEcdList[k]:= ECD;
+
+                  ABR := TCode.GetAbbr(ECD);
+                  TMaster.vAbbr[k]:= ABR;
+
+                  IFCD:= TCode.GetIfCode(ECD);
+                  TMaster.vOrder[k]:= IFCD;
+
+                  UPCD:= TCode.GetUpCode(ECD);
+                  TMaster.vUpCode[k]:= UPCD;
+
+                  if Result = False then begin
+                      TMaster.FPID:= FieldByName('BUNHO').AsString;
+                      TMaster.FPNM:= FieldByName('SUNAME').AsString;
+                      TMaster.FADT:= FormatDateTime('yyyymmdd', FieldByName('JUBSU_DATE').AsDateTime);
+                      TMaster.FDept:= FieldByName('ORDER_INPUT').AsString;
+                      Result:= True;
+                      TMaster.FOrdState:= 'Y';
+                  end;
+              end;
+
+              Next;
+          end;
+      end;
+  end;
+end;
+
+function TDM.UploadHost_One_ICH_CMC_One(TMaster: TIfMaster): boolean;
+var
+  sDebug:string;
+  vOutErr:Variant;
+begin
+  Result:= False;
+
+  if SvrConnection = False then exit;
+
+  with DM.SpUpload do begin
+      Close;
+      Parameters.ParamByName('I_USER_ID').Value := TGlobal.FICode;
+      Parameters.ParamByName('I_SPECIMEN_SER').Value   := TMaster.FBarCode;
+      Parameters.ParamByName('I_HANGMOG_CODE').Value := TMaster.FExamCode;
+      Parameters.ParamByName('I_CPL_RESULT').Value:= TMaster.FResult;
+      //Parameters.ParamByName('IO_FLAG').Value  := vOutErr;
+      Parameters.ParamByName('I_JANGBI_CODE').Value:= TGlobal.FICode;
+      Parameters.ParamByName('I_FROM_STANDARD').Value  := '';     //참고치 하
+      Parameters.ParamByName('I_TO_STANDARD').Value:= '';         //참고치상
+
+      sDebug:= 'I_USER_ID -> '+ TGlobal.FICode +#13#10+
+               'I_SPECIMEN_SER -> '+ TMaster.FBarCode+#13#10+
+               'I_HANGMOG_CODE -> '+ TMaster.FExamCode+#13#10+
+               'I_CPL_RESULT -> '+ TMaster.FResult +#13#10+
+               'I_JANGBI_CODE -> '+ TGlobal.FICode;
+
+      if SvrTEST = True then begin
+          TGlobal.ErrMsg:= sDebug;
+          //exit;
+      end;
+
+      try
+          ExecProc;
+
+          //TMaster.FslLog.Add('결과등록 완료->'+ FormatDateTime('yyyy-mm-dd hh:nn:ss', now));
+          vOutErr:= Parameters.ParamByName('IO_FLAG').Value;
+
+          if VarIsNull(vOutErr) = False then begin
+              //ShowMessage(vOutErr);
+
+              if vOutErr = '0' then
+                  Result:= True
+              else
+                  TGlobal.ErrMsg:= vOutErr;
+          end;
+
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message;
+              TMaster.FslLog.Add('결과등록 에러->'+ FormatDateTime('yyyy-mm-dd hh:nn:ss', now));
+          end;
+      end;
+  end;
+
+end;

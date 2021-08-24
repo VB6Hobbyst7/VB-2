@@ -1,0 +1,59 @@
+
+if i < (TMaster.slIf.Count -1) then
+    OrdList:= OrdList + Format('^^^%s\',[IfCd])        //희석넣어줄때 //|^^^HCG^D^200
+else
+    OrdList:= OrdList + Format('^^^%s',[IfCd]);
+
+
+if sOrder <> '' then begin
+    sSender:= 'H|\^&||||||||||P|1'+CR;
+    sSender:= sSender + 'P|1||||^^||||||||||||||||||||'+CR;
+    sSender:= sSender + 'O|1|'+TMaster.FBarCode+'^||'+sOrder+'|'+SmpGbn+'||||||||||'+Spc+'||||||||||O\Q'+CR;        //F
+    sSender:= sSender + 'L|1|F'+CR;
+end
+else begin
+    sSender:= 'H|\^&' + CR;
+    sSender:= sSender + 'L|1|I'+CR;
+end;
+
+
+
+
+//길이 체크
+if Length(sSender) > 230 then begin
+    a:= Length(sSender) div 230;
+    b:= Length(sSender) mod 230;
+
+    if b > 0 then
+        OrdDivCnt:= a+1
+    else
+        OrdDivCnt:= a;
+
+    sLastSender:= '';
+
+    //CR+LF는 실제 오더 보내는데서 추가해준다.
+    for i:=0 to OrdDivCnt -1 do begin
+        if i < (OrdDivCnt -1) then
+            sLastSender:= IntToStr(i+1) + Copy(sSender, (i * 230)+1, 230 ) + ETB
+        else
+            sLastSender:= IntToStr(i+1) + Copy(sSender, (i * 230)+1, 230 ) + ETX;
+
+        slSender.Add(STX + sLastSender + ASTMChkSum(sLastSender));
+    end;
+end
+else begin
+    sLastSender:= '1' + sSender + ETX;
+    slSender.Add(STX + sLastSender + ASTMChkSum(sLastSender));
+end;
+
+//체크섬
+// FN 에서 CR,ETX ETB 포함하여 256 Modula          
+function TF_Main.ASTMChkSum(s:string):string;      
+var                                                
+   i, iSum : integer;                              
+begin                                              
+   iSum := 0;                                      
+   for i := 1 to Length(s) do                      
+      iSum := iSum + Ord(s[i]);                    
+   ASTMChkSum := Copy(Format('%4x', [iSum]), 3, 2);
+end;                                               

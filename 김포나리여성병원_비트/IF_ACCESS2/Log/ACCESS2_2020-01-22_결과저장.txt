@@ -1,0 +1,49 @@
+UPDATE RESINF                                                      
+   SET ResRltVal = '1.011'                               
+     , RESUPDDTM = '202001221423'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174651'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3360-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '15.06'                               
+     , RESUPDDTM = '202001221428'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174651'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3510-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '215'                               
+     , RESUPDDTM = '202001221434'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174651'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3260-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '2.67'                               
+     , RESUPDDTM = '202001221450'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174651'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3500-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '6.23'                               
+     , RESUPDDTM = '202001221451'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174651'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3480-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '0.00'                               
+     , RESUPDDTM = '202001221756'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174813'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3520-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '194.81'                               
+     , RESUPDDTM = '202001221756'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848174810'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3520-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      

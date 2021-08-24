@@ -1,0 +1,26 @@
+ select       P.PbsPatNam AS PNAME                                     
+    , P.PbsResNum AS PJUMIN                                    
+    , W.OcmAcpDtm AS HOSPDATE                                  
+    , R.ResOcmNum AS BARCODE                                   
+    , W.OcmChtNum AS CHARTNO                                   
+    , R.RESOCMNUM  AS PID     , COUNT(R.ResLabCod) AS CNT                                   
+    From OcmInf AS W                                           
+       , OdrInf AS O                                           
+       , ResInf AS R                                           
+       , PbsInf AS P                                           
+       , depmst AS D                                           
+       , LabMst AS E                                           
+    where W.OcmNum    = R.ResOcmNum                            
+      and W.OcmChtNum = P.PbsChtNum                            
+      and W.OcmNum    = O.OdrOcmNum                            
+      and W.OcmDepCod = D.DepCod                               
+      and D.DepExpDte  >= (Select Convert(varchar(10),Getdate(),112)) 
+      And O.Odrdelflg = 'N'                                    
+      and O.OdrSeq = R.ResOdrSeq                               
+      and R.ResLabCod = E.LabCod                               
+      and Upper(R.ResLabCod) IN ('B25701','B25801','B27101','C37111','C24111','C24431','C37501','C24201')           
+      and W.OcmComStt Not In ('CN', 'CR','VC')                 
+      and O.odrdtm Between '20191108000001' and '20191108235959'   
+      and (R.ResRltVal is null or R.ResRltVal = '')            
+ GROUP BY P.PbsPatNam, P.PbsResNum , W.OcmAcpDtm, R.ResOcmNum, W.OcmChtNum 
+ ORDER BY W.OcmChtNum  

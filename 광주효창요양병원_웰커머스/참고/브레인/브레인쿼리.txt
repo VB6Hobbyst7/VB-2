@@ -1,0 +1,41 @@
+
+//접수리스트
+WF:= FormatDateTime('yyyymmdd', dtpWf.Date);
+WT:= FormatDateTime('yyyymmdd', dtpWt.Date);
+
+ Select distinct a.slabw_date       -- 접수일(ADT)                       
+               , a.slabw_cnt        -- 접수번호(BCD)                      
+               , a.slabw_cham       -- 이름                       
+               , a.slabw_status     -- 0:대기, 1:진행(조회시 where 절에 넣어야 합니다)
+               , c.cham_whanja      -- 차트번호                                      
+from AspCham C
+   , AspsLabw a
+   , AspsLabws  b                  
+ Where b.slabws_date BETWEEN  '+WF+' AND '+WF+'    
+   and b.slabws_momu in '+EList 
+   and a.slabw_hid = 150000           --병원코드                     
+   and a.slabw_hid  = b.slabws_hid                         
+   and a.slabw_date = b.slabws_date                        
+   and a.slabw_cnt  = b.slabws_cnt                         
+   and c.cham_Key   = a.slabw_cham                         
+   Order by a.slabw_date , a.slabw_cnt      
+   
+   
+//검체별 조회
+  select sLabws_momu   --검사코드
+       , slabws_scnt   --검사순번? (Sub코드로 사용)                                                      
+  From AspsLabws                  
+  where sLabws_cnt = '+BCD+'      
+    and sLabws_date = '+ADT+' 
+    and slabws_momu in '+EList    
+    and sLabws_hid  = 150000      
+    
+    
+//결과저장
+ Update AspsLabws                                    
+    set sLabws_result = '+RES+'  
+  where sLabws_date = '+ADT+'    
+    and sLabws_cnt  = '+BCD+'        
+    and sLabws_momu = '+ECD+'    
+    and sLabws_sCnt = '+SUB+'        
+    and sLabws_Hid  = 150000        

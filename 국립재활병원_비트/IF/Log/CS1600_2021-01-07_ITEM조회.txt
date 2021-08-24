@@ -1,0 +1,6 @@
+ SELECT DISTINCT R.ResLabCod AS ITEM                   
+   FROM RESINF R                                    
+ WHERE LTRIM(RTRIM(R.RESSPMNUM)) = '210010700018'
+   AND R.RESLABCOD IN ('B1530','B1540a','B1540b','B1540c')             
+   AND (R.RESREPTYP IS NULL OR R.RESREPTYP <> 'F')     
+

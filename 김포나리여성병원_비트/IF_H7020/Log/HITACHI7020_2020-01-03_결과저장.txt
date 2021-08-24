@@ -1,0 +1,35 @@
+UPDATE RESINF                                                      
+   SET ResRltVal = '32'                               
+     , RESUPDDTM = '202001031514'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848168156'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'B25801' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '32'                               
+     , RESUPDDTM = '202001031514'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848168156'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'B27101' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '75'                               
+     , RESUPDDTM = '202001031514'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848168156'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C37111' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '0.9'                               
+     , RESUPDDTM = '202001031514'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848168156'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C37501' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '24'                               
+     , RESUPDDTM = '202001031514'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848168156'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'B25701' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      

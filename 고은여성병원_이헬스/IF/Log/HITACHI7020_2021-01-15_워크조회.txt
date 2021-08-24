@@ -1,0 +1,21 @@
+SELECT DISTINCT        b.OBODORDT          as HOSPDATE 
+     , b.OBODMRNO          as BARCODE  
+     , b.OBODCASE          as CHARTNO  
+     , b.OBODIOGB          as INOUT    
+     , a.APATNAME          as PNAME    
+     , a.APATPSEX          as SEX      
+     , a.APATJMN1          as JUMIN1   
+     , a.APATJMN2          as JUMIN2   
+     , COUNT(b.OBODCODE)   as CNT      
+  FROM ABPATMST a      ,OBODRMTM b      ,OBSURSTM c                      
+ WHERE a.APATMRNO  = b.OBODMRNO        
+   AND a.APATMRNO  = c.OBSUMRNO        
+   AND b.OBODCASE  = c.OBSUCASE        
+   AND b.OBODORNO  = c.OBSUORNO        
+   AND b.OBODORSQ  = c.OBSUORSQ        
+   AND b.OBODORDT BETWEEN '20210115' AND '20210115'
+   AND LTRIM(RTRIM(b.OBODCODE)) IN ('23AD','23AE','23AG','23AH','23AI','23AJ','23AM','23AM2','23AN','23BB','23BI','23BK','24AB1','33B13','33BI1','ALTSGP','ASTSGO','CHONG','CZ246','GAMMA','GONG','HDLCOL','HULCH','LDLLDL') 
+   AND b.OBODSTAT = 'AC' 
+ GROUP BY b.OBODORDT, b.OBODMRNO, b.OBODCASE, b.OBODIOGB, a.APATNAME, a.APATPSEX, a.APATJMN1, a.APATJMN2
+ Order by b.OBODORDT, b.OBODMRNO
+

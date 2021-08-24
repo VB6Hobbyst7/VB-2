@@ -1,0 +1,77 @@
+            
+            :: 오더 
+            
+            sqlDoc = ""
+            sqlDoc = sqlDoc & vbCrLf & " SELECT  L.[검체번호], J.[진료지원ID], L.[진료검사ID], A.[챠트번호], A.[환자이름], A.[환자나이], A.[환자성별], A.[보험나이],J.[접수일자], J.[접수번호], L.[처방코드], L.[서브코드], L.[검사명칭], L.[검사결과], L.[하이로우], L.[검사상태], L.[연동구분], L.[수정자], L.[수정일자]"
+            sqlDoc = sqlDoc & vbCrLf & " FROM    [TB_진료검사] L                                                                                   "
+            sqlDoc = sqlDoc & vbCrLf & " INNER JOIN [TB_진료지원] J ON (L.진료지원ID=J.진료지원ID)                                                 "
+            sqlDoc = sqlDoc & vbCrLf & " INNER JOIN [TB_진료일반] A ON (J.진료일자=A.진료일자 AND J.챠트번호=A.챠트번호 AND J.진료번호=A.진료번호) "
+            sqlDoc = sqlDoc & vbCrLf & " Where 1 = 1                                                                                               "
+            sqlDoc = sqlDoc & vbCrLf & " AND      J.[접수일자] Between '" & strDate & "' and '" & strDate1 & "'                                    "
+            sqlDoc = sqlDoc & vbCrLf & " AND      L.[검사종류] = '" & gDept_Code & "'                                                              "
+            sqlDoc = sqlDoc & vbCrLf & " AND      L.[검사상태]     < 5                                                                             "
+            sqlDoc = sqlDoc & vbCrLf & " ORDER BY J.[접수일자], J.[접수번호]"
+
+
+
+            :: 결과 
+            sqlDoc = " Update  TB_진료검사                                     " & _
+                     "    Set       검사결과   = '" & Trim$(varTmp) & "'       " & _
+                     "          , 하이로우     = '" & strREF & "'              " & _
+                     "          , 검사상태     = '2'                           " & _
+                     "          , 연동구분     = '1'                           " & _
+                     "          ,   수정자     = 'IIS'                         " & _
+                     "    Where   진료검사ID   = '" & p진료검사ID & "'         " & _
+                     "      and   진료지원ID   = '" & p진료지원ID & "'         "
+
+
+
+TB_진료검사
+
+ 
+
+진료검사ID int Unchecked
+진료지원ID int Unchecked
+진료처방ID int Unchecked
+챠트번호 varchar(20) Checked
+검사종류 varchar(2) Checked
+검사순서 int Checked
+처방코드 varchar(12) Checked
+서브코드 varchar(6) Checked
+검사명칭 nvarchar(200) Checked
+검사결과 nvarchar(50) Checked
+서술결과 nvarchar(MAX) Checked
+검사이미지ID int Checked
+단위 nvarchar(30) Checked
+참고치 nvarchar(500) Checked
+하이로우 varchar(1) Checked
+이상유무 tinyint Checked
+검사상태 tinyint Checked
+연동구분 tinyint Checked
+접수자 varchar(12) Checked
+접수일자 datetime Checked
+수정자 varchar(12) Checked
+수정일자 datetime Checked
+시행시간 varchar(20) Checked
+완료시간 varchar(20) Checked
+연락유무 tinyint Checked
+검체종류 varchar(20) Checked
+검체번호 varchar(20) Checked
+수탁기관기호 varchar(8) Checked
+수탁의뢰일자 varchar(12) Checked
+수탁의뢰번호 varchar(20) Checked
+수탁결과일자 varchar(20) Checked
+참고치0 varchar(20) Checked
+참고치1 varchar(20) Checked
+참고치2 varchar(20) Checked
+참고치3 varchar(20) Checked
+참고치4 varchar(20) Checked
+참고치5 varchar(20) Checked
+참고치6 varchar(20) Checked
+참고치7 varchar(20) Checked
+검사결과설정 varchar(200) Checked
+결과주소 varchar(200) Checked
+
+
+
+Global Const gDept_Code     As String = "06"

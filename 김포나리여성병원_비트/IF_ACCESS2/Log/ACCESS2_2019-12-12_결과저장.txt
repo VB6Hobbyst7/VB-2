@@ -1,0 +1,35 @@
+UPDATE RESINF                                                      
+   SET ResRltVal = '294.48'                               
+     , RESUPDDTM = '201912121317'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848159641'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3520-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '185.04'                               
+     , RESUPDDTM = '201912121332'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848159591'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3510-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '53'                               
+     , RESUPDDTM = '201912121336'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848159793'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3260-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '6.46'                               
+     , RESUPDDTM = '201912121354'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848159793'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3500-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '1026.10'                               
+     , RESUPDDTM = '201912121445'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848159272'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3520-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      

@@ -1,0 +1,24 @@
+SELECT W.SPCID                         AS BARCODE  
+     , to_char(W.ORDDATE, 'yyyymmdd')  AS HOSPDATE 
+     , W.ORDSEQNO                                  
+     , W.EXAMCODE                                  
+     , to_char(W.WORKNO)                           
+     , to_char(W.AREANO)                           
+     , W.RSLTTEXT                                  
+     , S.SPCCODE                                   
+     , W.MEDDEPT                                   
+     , S.PATNO                         AS PID      
+     , P.PATNAME                       AS PNAME    
+     , P.SEX                           AS SEX      
+     , to_char(P.BIRTdate, 'yyyymmdd') AS AGE      
+     , W.EXECID                                    
+     , W.EXAMCODE                      AS ITEM     
+ FROM SLXWORKT W,                                  
+      SLSPCMDT S,                                  
+ORAA1.APPATBAT P
+WHERE W.SPCID    = '2200087199'            
+  AND W.PROCSTAT = 'E'                         
+  AND S.SPCID    = W.SPCID                         
+  AND W.PATNO    = P.PATNO                         
+ORDER BY W.WORKNO, W.SPCID, W.EXAMCODE             
+

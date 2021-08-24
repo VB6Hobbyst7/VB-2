@@ -1,0 +1,8 @@
+Update TB_H141_LISTAKEBODY                        SET H141_RSLTYN    ='Y'                      WHERE H141_TSAMPLENO = '2020013765'      AND H141_SUGACD    = 'D0002050'    
+UPDATE TB_H131_SPPRESULT                          SET H131_RESULT  = '16.2'         WHERE H131_SPPTYPE = 'L010'      AND H131_SEQNO   = '202009170000605'     
+UPDATE TB_H130_SPPRECEIVE                                 SET H130_RSLTDAT = TO_CHAR(SYSDATE, 'YYYYMMDD')           ,H130_RSLTTM  = TO_CHAR(SYSDATE, 'HH24:MI:SS')    WHERE H130_SPPTYPE = 'L010'              AND H130_SEQNO   = '202009170000605'             
+UPDATE TB_H140_LISTAKEHEAD                        SET H140_RSLTYN    = 'Y'                     WHERE H140_TSAMPLENO = '2020013765'   
+Update TB_H141_LISTAKEBODY                        SET H141_RSLTYN    ='Y'                      WHERE H141_TSAMPLENO = '2020013764'      AND H141_SUGACD    = 'D0002050'    
+UPDATE TB_H131_SPPRESULT                          SET H131_RESULT  = '14.8'         WHERE H131_SPPTYPE = 'L010'      AND H131_SEQNO   = '202009170000559'     
+UPDATE TB_H130_SPPRECEIVE                                 SET H130_RSLTDAT = TO_CHAR(SYSDATE, 'YYYYMMDD')           ,H130_RSLTTM  = TO_CHAR(SYSDATE, 'HH24:MI:SS')    WHERE H130_SPPTYPE = 'L010'              AND H130_SEQNO   = '202009170000559'             
+UPDATE TB_H140_LISTAKEHEAD                        SET H140_RSLTYN    = 'Y'                     WHERE H140_TSAMPLENO = '2020013764'   

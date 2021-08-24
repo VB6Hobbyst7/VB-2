@@ -1,0 +1,159 @@
+결과덤프
+
+[RX]1H|\^&|||DT6B132115^|||||||P||20161111172222
+P|1||||^^^^|||U
+O|1|1160608798^004^6||^^^4|R|||||||||||||||||||1
+R|1|^^^A1c^AREA|6.7|% NGSP||||F||^Admin||20161111152628|1 
+R|2|^^^TOTAL^AREA|155381|||||F||^Admin||20161111152628|1
+L|1|N
+A3
+
+
+
+1H|\^&|||DT6B132115^|||||||P||20161111172222
+P|1||||^^^^|||U
+O|1|1160608798^004^6||^^^4|R|||||||||||||||||||1
+R|1|^^^A1c^AREA|6.7|% NGSP||||F||^Admin||20161111152628|1 
+R|2|^^^TOTAL^AREA|155381|||||F||^Admin||20161111152628|1
+L|1|N
+A3
+
+
+
+1H|\^&|||DT6B132115^|||||||P||20161111172224
+P|1||||^^^^|||U
+O|1|1160608859^004^5||^^^4|R|||||||||||||||||||1
+R|1|^^^A1c^AREA|6.4|% NGSP||||F||^Admin||20161111152543|1 
+R|2|^^^TOTAL^AREA|168896|||||F||^Admin||20161111152543|1
+L|1|N
+A6
+
+
+
+결과채널 : A1c^AREA
+
+검사코드 : BM3825
+
+1.
+If strEquipCode = "A1c^AREA" And IsNumeric(strResult) = True Then
+    sIFCC = CStr((CCur(strResult) * 10.93) - 23.5)   
+    sIFCC = Format(sIFCC, "##0")
+    
+    sEAG = CStr((CCur(strResult) * 28.7) - 46.7) 
+    sEAG = Format(sEAG, "##0.0")
+    
+    If CCur(strResult) < 3.5 Or CCur(strResult) > 19 Then
+        gA1c = True
+        If CCur(strResult) > 19 Then
+            giTotalRes = 2
+        ElseIf CCur(strResult) < 3.5 Then
+            giTotalRes = 1
+        End If
+    End If
+End If
+
+
+2.         
+If strEquipCode = "E^AREA" Or strEquipCode = "D^AREA" Or strEquipCode = "S^AREA" Or strEquipCode = "C^AREA" Then    'E.D.S 항목 추가해야 함
+    If IsNumeric(strResult) = True Then
+        If CCur(strResult) > 40 Then
+            gEDS = True
+            strgVRes = strResult
+        End If
+    End If
+End If
+
+3.
+If strEquipCode = "TOTAL^AREA" Then
+    gAreaRes = ""
+    gAreaRes = strResult
+    If IsNumeric(strResult) = True Then
+        If CCur(strResult) > 350000 Or CCur(strResult) < 50000 Then
+            gTotalRes = True
+            strgTotalRes = strResult
+        End If
+    End If
+end if
+
+4.
+If strEquipCode = "P3^AREA" Then
+    If IsNumeric(strResult) = True Then
+        If CCur(strResult) >= 10 Then
+            gP3Res = True        
+            strgP3Res = strResult
+        End If
+    End If
+endif
+
+5.
+If strEquipCode = "LA1c^AREA" Then
+    If IsNumeric(strResult) = True Then
+        If CCur(strResult) > 7 Then
+            gLA1cRes = True
+        End If
+    End If
+end if
+
+6.
+If strEquipCode = "F^AREA" Then
+    If IsNumeric(strResult) = True Then
+        If CCur(strResult) >= 30 Then
+            gFArea = True
+            strgFRes = strResult
+        End If
+    End If
+end if
+
+7.
+If strEquipCode = "Unknown^AREA" Then
+    If IsNumeric(strResult) = True Then
+        If CCur(strResult) >= 10 Then
+            gUnknown = True
+            strgUnknown = strResult
+        End If
+    End If
+End If
+
+'-- 종합
+If gEDS = True Then
+    gRemark = gRemark & "Variant Windows,"
+End If
+
+If gTotalRes = True Then    
+    gRemark = gRemark & "Total Area,"
+End If
+
+If gA1c = True Then
+    If giTotalRes = 1 Then
+        gRemark = gRemark & "Low Area,"
+    Else
+        gRemark = gRemark & "High Area,"
+    End If
+End If
+
+If gFArea = True Then
+    gRemark = gRemark & "F Peak,"
+End If
+
+If gP3Res = True Then
+    gRemark = gRemark & "P3 Area,"
+End If
+
+If gUnknown = True Then
+    gRemark = gRemark & "Unknown Area,"
+End If
+
+If gLA1cRes = True Then
+    gRemark = gRemark & "LA1c Area,"
+End If
+        
+If gRemark <> "" Then
+    gRemark = Mid(gRemark, 1, Len(gRemark) - 1)
+End If
+        
+If gRemark <> "" Then
+	장비플래그 = "*"
+End If
+
+'검체번호|환자번호|처방일자|처방순번|검사코드|결과|검사특기사항|DeltaYn|PanicYn|정상치Flag|장비플래그|
+																																														  *

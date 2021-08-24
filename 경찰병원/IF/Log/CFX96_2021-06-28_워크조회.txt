@@ -1,0 +1,31 @@
+SELECT DISTINCT                
+  J2.BRCD_LABL_NO  AS BARCODE  
+, J1.PID           AS PID      
+, J1.SPCM_NO       AS CHARTNO  
+, J1.PT_NM         AS PNAME    
+, J1.SEX           AS SEX      
+, J1.AGE           AS AGE      
+, J1.DOBR          AS BIRTH    
+, R1.RCPN_DT       AS HOSPDATE 
+, R1.RSLT_NO       AS WrkSeq   
+, J1.SPCM_CD       AS SpcNm    
+, R1.PRSC_CD       AS ITEM     
+, D1.ENGL_CD       AS DEPTCD   
+  FROM SPSLMJBBI J1            
+     , SPSLMJBDI J2            
+     , SPSLHRRST R1            
+     , SPSLMFBIF F1            
+     , AZCMMDEPT D1            
+ Where J1.SPCM_NO      = J2.SPCM_NO    
+   AND R1.RSLT_STAT    <> '3'          
+   AND J1.MED_DP       = D1.DEPT_CD    
+   AND J2.SPCM_NO      = R1.SPCM_NO    
+   AND R1.EXMN_CD      = F1.EXMN_CD (+)
+   AND R1.RCPN_DT      >= F1.USE_STR_DY (+)
+   AND R1.RCPN_DT      < F1.USE_END_DY (+) 
+   AND R1.RCPN_DT BETWEEN to_date('20210628000000' , 'YYYYMMDDHH24MISS') AND to_date ('20210628235959', 'YYYYMMDDHH24MISS')
+   AND F1.MNDT_YN      <> 'Y'
+   AND J1.SLIP_CD in ('D1')  
+   AND SUBSTR(R1.PRSC_CD, 1, 6) IN ('YYYYY','NNNNN','NNNNN','ZZZZZ','ZZZZZ','XXXXX','XXXXX','L73109','L73109','L73110','L73110','Comment','Commen')
+ ORDER BY R1.RCPN_DT, J1.PT_NM  
+

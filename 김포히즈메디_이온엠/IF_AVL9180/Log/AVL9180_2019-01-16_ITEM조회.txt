@@ -1,0 +1,1 @@
+SELECT DISTINCT O.H141_SUGACD AS ITEM                FROM TB_H141_LISTAKEBODY O, TB_A110_PATINFO P     Where P.A110_ChartNo = O.H141_CHARTNO                AND O.H141_TSAMPLENO  = '1019000160'       AND O.H141_NOTYYN = 'N'                            And O.H141_SUGACD in ('D2800020','D2800060','D2800030')        ORDER BY O.H141_SUGACD                            

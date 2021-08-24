@@ -1,0 +1,15 @@
+SELECT DISTINCT        O.H141_ODRDAT        AS HOSPDATE 
+      ,O.H141_TSAMPLENO     AS BARCODE  
+      ,P.A110_CHARTNO       AS CHARTNO  
+      ,P.A110_PATNM         AS PNAME    
+      ,P.A110_JUMIN1        AS AGE      
+      ,P.A110_SEX           AS SEX      
+      ,O.H141_SUGACD        AS ITEM     
+      ,O.H141_SEQNO         AS SUBITEM  
+  FROM TB_H141_LISTAKEBODY O, TB_A110_PATINFO P, TB_H131_SPPRESULT R  
+ Where P.A110_ChartNo      = O.H141_CHARTNO        
+   AND O.H141_TSAMPLENO    = '2020003822'  
+   And O.H141_SUGACD in ('D1003','LSB154002','LSB154001','LSB154003','D1004')       
+   And O.H141_SEQNO = R.H131_SEQNO                 
+ Order By O.H141_SUGACD                          
+

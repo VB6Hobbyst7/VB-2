@@ -1,0 +1,14 @@
+Select DISTINCT        R.RESULTDATE        AS HOSPDATE 
+     , P.PATID             AS PID      
+     , P.PATNAME           AS PNAME    
+     , R.SPCMNO            AS BARCODE  
+     , R.RESULTITEMCODE    AS ITEM     
+  From RESULTOFNUM R, REGISTINFOS L, PATMST P  
+ Where R.SPCMNO        = '1911050032'  
+   And R.ACPTDATE      =   L.ACPTDATE          
+   And R.ACPTSEQ       =   L.ACPTSEQ           
+   And R.PATID         =   P.PATID             
+   And R.RESULTITEMCODE IN ('XU000209','XU000208','XU000210','XU000207','XU000205','XU000211','XU000206','XU000204','XU000203','XU000301')
+   And (R.TEXTRESULTVAL = '' OR R.TEXTRESULTVAL IS NULL)   
+ ORDER BY R.RESULTDATE,P.PATID                             
+

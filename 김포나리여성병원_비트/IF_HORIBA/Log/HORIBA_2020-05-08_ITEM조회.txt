@@ -1,0 +1,5 @@
+ SELECT DISTINCT R.ResLabCod AS ITEM                   
+   FROM RESINF AS R                                    
+ WHERE LTRIM(RTRIM(R.RESOCMNUM)) = '848203314'
+   AND R.RESLABCOD IN ('208-1','207-1','B10101','204-1','205-1','b1060-1')             
+

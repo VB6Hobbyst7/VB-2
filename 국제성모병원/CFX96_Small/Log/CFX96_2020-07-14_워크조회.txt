@@ -1,0 +1,14 @@
+SELECT DISTINCT   JUBSU_DATE           AS HOSPDATE         
+, SPECIMEN_SER         AS BARCODE          
+, BUNHO                AS PID              
+, SUNAME               AS PNAME            
+, AGE                  AS AGE              
+, SEX                  AS SEX              
+, ORDER_INPUT          AS DEPTNM           
+, GUMSA_CODE                               
+, COUNT(GUMSA_CODE)    AS CNT       
+  FROM VW_IHIS_LISDIE_GUMSA_INFO   
+ WHERE JUBSU_DATE BETWEEN '20200714' AND '20200714' 
+   AND GUMSA_CODE IN ('ZZZZZ','YYYYY','XXXXX','LPD228','LPD116')
+ GROUP BY JUBSU_DATE, SPECIMEN_SER,BUNHO,SUNAME,AGE,SEX,ORDER_INPUT,GUMSA_CODE  
+ ORDER BY JUBSU_DATE, GUMSA_CODE, SPECIMEN_SER, BUNHO       

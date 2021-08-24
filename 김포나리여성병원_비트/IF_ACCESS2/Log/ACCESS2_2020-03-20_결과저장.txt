@@ -1,0 +1,14 @@
+UPDATE RESINF                                                      
+   SET ResRltVal = '10'                               
+     , RESUPDDTM = '202003201502'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848189764'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3260-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+UPDATE RESINF                                                      
+   SET ResRltVal = '72.17'                               
+     , RESUPDDTM = '202003201513'           
+     , RESREPTYP = 'M'                                             
+ WHERE RESOCMNUM = ' 848189764'                           
+   AND Upper(LTRIM(RTRIM(RESLABCOD))) = 'C3500-1' 
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      

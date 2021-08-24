@@ -1,0 +1,16 @@
+SELECT DISTINCT        a.ACC_YMD   AS HOSPDATE 
+     , a.RECEPT_NO AS BARCODE  
+     , a.PTNT_NO   AS PID      
+     , c.PTNT_NM   AS PNAME    
+     , c.BIRTH_YMD AS AGE      
+     , c.SEX       AS SEX      
+     , a.ORD_CD    AS ITEM     
+  FROM H3LAB_RESULT a          
+     , H1OPDIN b               
+     , HZ_MST_PTNT c           
+ WHERE a.RECEPT_NO = '302945'  
+   AND a.ORD_CD IN ('B1060','B1091-1-1','B1091-1-10','B1091-1-15','B1091-1-16','B1091-1-4','LEB1050','LYB1010','LYB1020','LYB1040','LYB1050','LYB1060','MCH','MCHC','MCV')
+   AND a.RECEPT_NO = b.RECEPT_NO           
+   AND a.PTNT_NO    = c.PTNT_NO            
+ ORDER BY a.ORD_CD                         
+

@@ -1,0 +1,40 @@
+[CONFIG]
+Equip=EVOL3
+EquipNo=340
+EquipName=EVOLIS_3
+ComPort=4
+BaudRate=9600
+Parity=N
+DataBit=8
+StopBit=1
+RTSEnable=False
+DTREnable=False
+UID=431
+gPort=1
+gSpeed=9600
+gParity=N
+gDataBit=8
+gStopBit=1
+gStartBit=1
+gRTSEnable=T
+gDTREnable=T
+
+[DATABASE]
+driver=
+server=LABMCH
+uid=LABMCH
+pwd=LABMCH
+database=
+
+[DATABASELOCAL]
+driver = {SQL Server}
+server = localhost\SQLEXPRESS
+uid = sa
+pwd = medimate
+database = BioRad
+hostname = 
+expdate = 30
+
+
+[SerialNum]
+HOSPCD=40

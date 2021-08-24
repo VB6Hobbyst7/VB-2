@@ -1,0 +1,47 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="IF_SP1000i.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"IF_SP1000i.exe"
+"msvbvm60.dll"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"VB6KO.DLL"
+"EXCEL.EXE"
+"THREED32.OCX"
+"MFC40.DLL"
+"MSVCRT40.DLL"
+"MSCOMCT2.OCX"
+"MSCC2KO.DLL"
+"MSCOMM32.OCX"
+"MSCOMKO.DLL"
+"MSMASK32.OCX"
+"MSMSKKO.DLL"
+"SPR32X60.ocx"
+"COMDLG32.OCX"
+"CMDLGKO.DLL"
+"MSCOMCTL.OCX"
+"MSCMCKO.DLL"
+"TABCTL32.OCX"
+"TABCTKO.DLL"
+"MDAC_TYP.EXE"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"
+"interface.ini"
+"Interface.mdb"
+"Cfx4032.ocx"
+"SfxBar.dll"

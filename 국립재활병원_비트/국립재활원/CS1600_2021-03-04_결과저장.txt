@@ -1,0 +1,45 @@
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '1' , 'B1540a' , '12.4' , 'CS' , '202103041132' , '548066' , '11.7' , '10.2' , '13.2')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '1' , 'B1540c' , '83.3' , 'CS' , '202103041132' , '' , '' , '' , '')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '1' , 'B1540b' , '1.10' , 'CS' , '202103041132' , '' , '' , '' , '')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '1' , '' , '27.4' , 'CS' , '202103041132' , '' , '' , '' , '')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '2' , 'B1540a' , '36.8' , 'CS' , '202103041133' , '548276' , '37.3' , '32.0' , '43.4')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '2' , 'B1540c' , '15.5' , 'CS' , '202103041133' , '' , '' , '' , '')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '2' , 'B1540b' , '3.37' , 'CS' , '202103041133' , '' , '' , '' , '')
+
+Insert Into LABQCINF (  LABADPDTE , LABQCCOD , LABNAB , LABCOD , LABMZH , LABUID , LABDTM , LABLOT , LABAVE , LABLOW , LABMAX)
+ Values (   '20210304' , 'CS1600' , '2' , '' , '48.5' , 'CS' , '202103041133' , '' , '' , '' , '')
+
+UPDATE RESINF                                              
+   SET RESMZHMNT = '28.0'                       
+     , RESUPDDTM = '202103041135'   
+     , RESREPTYP = 'M'                                     
+ WHERE RESSPMNUM = '211030400019'                    
+   AND RESLABCOD = 'B1540a'                     
+   AND RESREPTYP = 'N'                                     
+UPDATE RESINF                                              
+   SET RESMZHMNT = '22.5'                       
+     , RESUPDDTM = '202103041135'   
+     , RESREPTYP = 'M'                                     
+ WHERE RESSPMNUM = '211030400019'                    
+   AND RESLABCOD = 'B1540c'                     
+   AND RESREPTYP = 'N'                                     
+UPDATE RESINF                                              
+   SET RESMZHMNT = '2.55'                       
+     , RESUPDDTM = '202103041135'   
+     , RESREPTYP = 'M'                                     
+ WHERE RESSPMNUM = '211030400019'                    
+   AND RESLABCOD = 'B1540b'                     
+   AND RESREPTYP = 'N'                                     

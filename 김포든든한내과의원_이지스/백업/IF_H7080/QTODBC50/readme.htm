@@ -1,0 +1,3010 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./readme_files/filelist.xml">
+<link rel=Edit-Time-Data href="./readme_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Query Tool (using ODBC) 5.0 Readme</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>George Poulose</o:Author>
+  <o:LastAuthor>George Poulose</o:LastAuthor>
+  <o:Revision>526</o:Revision>
+  <o:TotalTime>896</o:TotalTime>
+  <o:Created>2002-01-19T05:45:00Z</o:Created>
+  <o:LastSaved>2005-09-05T01:20:00Z</o:LastSaved>
+  <o:Pages>12</o:Pages>
+  <o:Words>4524</o:Words>
+  <o:Characters>25788</o:Characters>
+  <o:Company>George Poulose</o:Company>
+  <o:Lines>214</o:Lines>
+  <o:Paragraphs>51</o:Paragraphs>
+  <o:CharactersWithSpaces>31669</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	color:navy;
+	mso-font-kerning:0pt;
+	font-weight:normal;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	font-weight:bold;}
+span.MsoCommentReference
+	{mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+	mso-layout-grid-align:none;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Courier New";}
+p.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+address
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-style:italic;}
+code
+	{mso-style-parent:"";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+pre
+	{mso-style-update:auto;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:46.1pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+tt
+	{mso-style-parent:"";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in .5in 1.0in .5in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:167990553;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-181892276 -1623979850 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-start-at:6;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:322203292;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1604466392 -1776387770 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2
+	{mso-list-id:552740373;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1972014212 -1565478540 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-start-at:7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:790242848;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-2114030870 -996399122 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l3:level1
+	{mso-level-start-at:3;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4
+	{mso-list-id:791174519;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-710089224 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:1404258679;
+	mso-list-type:hybrid;
+	mso-list-template-ids:606926022 -1027848218 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l6
+	{mso-list-id:1774671004;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1005728568 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:1810707365;
+	mso-list-type:hybrid;
+	mso-list-template-ids:324022628 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:1852716929;
+	mso-list-type:hybrid;
+	mso-list-template-ids:76816268 -1776387770 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l9
+	{mso-list-id:2140144541;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1710565610 708459706 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l9:level1
+	{mso-level-start-at:9;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.25in'>
+
+<div class=Section1>
+
+<p class=MsoPlainText align=center style='text-align:center'><b><span
+style='font-size:11.0pt;mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Query Tool (using ODBC) 5.0 Readme</span></b><span
+style='font-size:11.0pt;mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText align=center style='text-align:center'><span
+style='font-size:11.0pt;mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>Thank you for using Query Tool (using ODBC) 5.0.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+
+<div class=MsoNormal><span style='mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-bidi-font-family:"Courier New"'>
+
+<hr size=2 width="100%" align=left>
+
+</span></div>
+
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><b><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>Contents<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#QTODBC50">Query Tool (using ODBC) 5.0</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#SystemReqs">System Requirements</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#CmdLineOptsUsage">Command Line Options and Usage</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#Batches">Batches</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#Transactions">Transactions</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#Scalar_Functions">Scalar Functions</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#KProbs">Known Problems and Workarounds</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#KLimitations">Known Limitations and Workarounds</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#UnsupportedFeatures">Unsupported Features</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#SiteLicences">Site Licenses, Pricing, and Ordering Information</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#CommentsBug">Comments and Bug Report</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in left 591.75pt'><span style='font-family:Symbol;mso-fareast-font-family:
+"MS Mincho"'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman";
+mso-fareast-font-family:"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#LicenseAgreement">License Agreement</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in left 591.75pt'><span style='font-family:Symbol;mso-fareast-font-family:
+"MS Mincho"'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman";
+mso-fareast-font-family:"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#Warranty">Warranty</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;tab-stops:
+list .5in'><span style='font-family:Symbol;mso-fareast-font-family:"MS Mincho"'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"MS Mincho"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="Readme.htm#Acknowledgements">Acknowledgements</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+
+<div class=MsoNormal><span style='mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-bidi-font-family:"Courier New"'>
+
+<hr size=2 width="100%" align=left>
+
+</span></div>
+
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=QTODBC50></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Query Tool (using ODBC) 5.0<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Query Tool (using ODBC) 5.0 is a Universal
+Data Access (UDA) tool. It lets you query ODBC data sources, author SQL scripts
+and queries, return query results to a grid or free-form text, retrieve ODBC
+driver information, execute multiple SQL scripts or stored procedures
+simultaneously, and more.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>[A separate ADO version is also available.
+Please visit <a href="http://gpoulose.home.att.net/"><span style='mso-bidi-font-size:
+12.0pt;mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman"'>http://gpoulose.home.att.net/</span></a>
+for more information.]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='mso-fareast-font-family:
+"MS Mincho"'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=SystemReqs></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>System Requirements<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Windows XP or later<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Windows 2000 Professional w/ sp3 or later<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=CmdLineOptsUsage></a><b><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Command Line Options and Usage<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>Usage:
+QTODBC50.EXE<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>[-C &lt;ODBC connect string&gt;]<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>[-f &lt;filename to open&gt;]</span></code><code><span
+style='font-family:Verdana;color:navy;font-style:normal'>¹</span></code><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+color:navy;font-style:normal'><o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>[-F &lt;file list to load
+separated by pipe (|)&gt;]</span></code><code><span style='font-family:Verdana;
+color:navy;font-style:normal'>¹</span></code><code><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman";color:navy;font-style:
+normal'><o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>[-e &lt;filename to open and
+execute&gt;]</span></code><code><span style='font-family:Verdana;color:navy;
+font-style:normal'>²</span></code><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>[-E &lt;file list to load and
+execute separated by pipe (|)&gt;]</span></code><code><span style='font-family:
+Verdana;color:navy;font-style:normal'>²</span></code><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+color:navy;font-style:normal'><o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>Examples:
+..\QTODBC50.EXE <o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>/C &quot;DSN=&lt;MY_DSN&gt;&quot;
+-f &quot;&lt;..\test.sql&gt;&quot;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>/C &quot;DSN=&lt;MY_DSN&gt;&quot;
+-E &quot;&lt;..\1.sql|..\2.sql|..\3.sql&gt;&quot;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">           </span><span style="mso-spacerun:
+yes"> </span>-C &quot;DSN=&lt;MY_DSN&gt;;UID=&lt;UID&gt;;PWD=&lt;PWD&gt;&quot;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>/C &quot;Driver={SQL
+Server};Server=&lt;Server&gt;&quot;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>/C &quot;Driver={Oracle ODBC
+Driver};DBQ=&lt;Server&gt;&quot;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>/C &quot;Driver={IBM DB2 ODBC
+Driver};DBALIAS=&lt;DBALIAS&gt;&quot;</span></code><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+font-style:normal'><o:p></o:p></span></code></address>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><span style="mso-spacerun: yes"> </span></span><tt><o:p></o:p></tt></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Tip: Connection String may be copied from
+within the application by right clicking on the Schema window pane root node
+and choosing Connection String.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>¹</span><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Analogus
+to dropping of file(s) onto the application.<br>
+</span><span style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>²</span><span
+style='font-size:8.5pt;mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Application runs in minimized state once
+the file(s) is/are loaded and exits after the query execution, </span><code><span
+style='font-size:8.5pt;mso-bidi-font-size:10.0pt;font-family:Verdana'>if: 1.
+The autocommit transaction mode is on; 2.</span></code><span style='font-size:
+8.5pt;mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'> There are no errors; 3. The contents of the loaded file(s) is/are
+not modified; and 4. The application maintains the minimized state.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><code><span style='font-size:
+8.5pt;mso-bidi-font-size:10.0pt;font-family:Verdana'>Note: Command line options
+cannot be combined with application startup options
+(Tools-&gt;Customize-&gt;Application Startup).</span></code><span
+style='font-size:8.5pt;mso-bidi-font-size:10.0pt;font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=Batches></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Batches<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Query Tool recognizes the keyword </span><code><span
+style='mso-fareast-font-family:"MS Mincho";color:navy'>GO</span></code><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'> as the default
+batch separator. Users can change this value by choosing Current Connection
+Options from the Query menu or by choosing Options and New Connections from the
+Tools menu. The latter option is persistent for new connections.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Users must follow the rules for batches.
+For example: The scope of a local (user-defined) variable is limited to a batch
+and cannot be referenced after a query batch separator or in another batch, and
+so forth. Note that a SQL statement or a comment cannot occupy the same line as
+a query batch separator. Also note that comments such as '/**/' cannot span
+across multiple batches.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><code><u><span style='font-family:
+Verdana'>Oracle scenario:</span></u></code><code><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></u></code></p>
+
+<p class=MsoNormal style='margin-left:.25in;text-indent:.25in'><code><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho";color:navy'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+TABLE t1 (c1 NUMBER(10,2))<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>DECLARE<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>var1
+NUMBER(10,2);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">   </span>var1 := 7000; /*yields an error. var1 is
+out of scope*/<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">   </span>INSERT INTO t1 VALUES (var1);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>END;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT c1
+FROM t1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>&nbsp;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>/*demonstrates
+invoking Oracle procedures<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>using
+Oracle native syntax and ODBC syntax*/<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+TABLE proc_test (c1 NUMBER(1,0))<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>INSERT INTO proc_test VALUES (1);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>INSERT INTO proc_test VALUES (2);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>INSERT INTO proc_test VALUES (3);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>END;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+PROCEDURE del_proc_test (id IN NUMBER)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>AS<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>DELETE FROM proc_test WHERE c1 = id;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>END
+del_proc_test;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>/*use
+Oracle native syntax to invoke the procedure*/<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>del_proc_test (1);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>END;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>/*use ODBC
+escape sequence CALL to invoke the procedure*/<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>{CALL
+del_proc_test (2)}<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT *
+FROM proc_test<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT
+'Only one row is left out' FROM dual<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>DROP TABLE
+proc_test<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>DROP
+PROCEDURE del_proc_test<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></address>
+
+<p class=MsoBodyTextIndent style='margin-left:.5in'>The following example
+demonstrates how to use an Oracle PL/SQL package to retrieve result sets from an
+Oracle stored procedure using Microsoft ODBC Driver for Oracle version 2.0 or
+higher.</p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'>The PL/SQL code
+below defines a package containing two procedures that return different result
+sets, and then provides two ways to return result sets from the package.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'>To invoke the
+procedure, use the following syntax:</span><span style='mso-bidi-font-size:
+10.0pt;font-family:"Courier New"'><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>{CALL &lt;package-name&gt;.&lt;proc-or-func&gt;;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>(..., {RESULTSET &lt;max-records-requested&gt;,
+&lt;formal-array-param_1&gt;,;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun:
+yes"> </span>&lt;formal-array-param_2&gt;,...,&lt;formal-array-param_n&gt;},
+...)}</span><span style='font-family:"Courier New";font-style:normal'><o:p></o:p></span></address>
+
+<p class=MsoNormal style='margin-left:.25in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'>Note: The </span><span
+style='font-family:"Courier New";color:navy'>&lt;max-records-requested&gt;</span><span
+style='mso-bidi-font-size:10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'>
+parameter must be greater than or equal to the number of rows present in the
+result set. Otherwise, Oracle returns an error that is passed to the user by
+the driver.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'>PL/SQL records
+cannot be used as array parameters. Each array parameter can represent only one
+column of a database table.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='tab-stops:24.0pt 48.0pt 1.0in 96.0pt 120.0pt 2.0in 168.0pt 192.0pt 3.0in 240.0pt 264.0pt 4.0in 312.0pt 336.0pt 5.0in 384.0pt 408.0pt 6.0in 456.0pt 480.0pt 7.0in 528.0pt 552.0pt 8.0in 600.0pt 624.0pt 9.0in 672.0pt 696.0pt 10.0in 744.0pt 768.0pt;
+mso-layout-grid-align:none;text-autospace:none'><span style='mso-bidi-font-size:
+10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>CREATE OR REPLACE PACKAGE test_package AS<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>TYPE t_id IS TABLE OF NUMBER(5) INDEX BY
+BINARY_INTEGER;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>TYPE t_course IS TABLE OF VARCHAR2(10) INDEX BY
+BINARY_INTEGER;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>TYPE t_dept IS TABLE OF VARCHAR2(5) INDEX BY BINARY_INTEGER;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PROCEDURE proc1<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>(<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>o_id OUT
+t_id,<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>ao_course
+OUT t_course,<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>ao_dept
+OUT t_dept<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>);<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>TYPE t_pk1type1 IS TABLE OF VARCHAR2(100) INDEX
+BY BINARY_INTEGER;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>TYPE t_pk1type2 IS TABLE OF NUMBER INDEX BY
+BINARY_INTEGER;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PROCEDURE proc2<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>(<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>i_arg1 IN
+number,<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>ao_arg2
+OUT t_pk1type1,<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>ao_arg3
+OUT t_pk1type2<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>);<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>END test_package;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>CREATE OR REPLACE PACKAGE BODY test_package AS<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PROCEDURE proc1 (o_id OUT t_id, ao_course OUT
+t_course, ao_dept OUT t_dept) AS<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">    </span>BEGIN<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">         
+</span>o_id(1) := 200;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">          </span>ao_course(1)
+:= 'M101';<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">         
+</span>ao_dept(1) := 'EEE';<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">         
+</span>o_id(2) := 201;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">         
+</span>ao_course(2) := 'PHY320';<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">         
+</span>ao_dept(2) := 'ECE';<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">     </span>END
+proc1;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PROCEDURE proc2 (i_arg1 IN NUMBER, ao_arg2 OUT
+t_pk1type1, ao_arg3 OUT t_pk1type2) AS<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style="mso-spacerun: yes">   </span>i
+NUMBER;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>BEGIN<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span><span
+style="mso-spacerun: yes">   </span>FOR i in 1 .. i_arg1 LOOP<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span><span
+style="mso-spacerun: yes">      </span>ao_arg2(i) := 'row number ' ||
+TO_CHAR(i);<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span><span
+style="mso-spacerun: yes">   </span>END LOOP;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span><span
+style="mso-spacerun: yes">   </span>FOR i in 1 .. i_arg1 LOOP<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span><span
+style="mso-spacerun: yes">      </span>ao_arg3(i) := i;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span><span
+style="mso-spacerun: yes">   </span>END LOOP;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>END proc2;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>END test_package;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>{CALL test_package.proc1({RESULTSET 3, o_id, ao_course,
+ao_dept})} /*return all the columns in a single result set*/<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>{CALL test_package.proc1({RESULTSET 3, o_id},
+{RESULTSET 3, ao_course}, {RESULTSET 3, ao_dept})} /*this returns three result
+sets, one for each column*/<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>{CALL test_package.proc2(5, {RESULTSET 5,
+ao_arg2, ao_arg3})} /*return all the columns in a single result set*/<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>{CALL test_package.proc2(5, {RESULTSET 5,
+ao_arg2}, {RESULTSET 5, ao_arg3})} /*return each column as a single result
+set*/<o:p></o:p></span></address>
+
+<p style='margin-left:.5in'><code><span style='font-size:10.0pt;font-family:
+Verdana'>Note that the Microsoft ODBC driver for Oracle 2.0 or higher does have
+a special feature of returning multiple result sets from packages/procedures.</span></code><span
+style='font-size:10.0pt;font-family:Verdana;mso-bidi-font-family:Tahoma'> <span
+style='color:black'>The driver itself does not support returning multiple
+result sets on a single statement. <o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='margin-left:.25in'><code><u><span style='font-family:
+Verdana'>DB2 scenario:<o:p></o:p></span></u></code></p>
+
+<p class=MsoNormal style='margin-left:.25in'><code><i><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman";color:navy'><span
+style="mso-spacerun: yes"> </span><o:p></o:p></span></i></code></p>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>-- DB2
+supports multiple result sets<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in;text-indent:.25in'><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+color:navy;font-style:normal'>CREATE TABLE t1 (c1 INT);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.25in;text-indent:.25in'><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+color:navy;font-style:normal'>INSERT INTO t1 VALUES (7);</span></code><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+font-style:normal'><o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT c1
+FROM t1;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+VIEW myView<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>AS<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT c1
+FROM t1;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT *
+FROM myView;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+PROCEDURE my_procedure<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>(IN value_param INT)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>LANGUAGE SQL <o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">   </span><span style="mso-spacerun:
+yes"> </span>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">        </span>INSERT INTO t1 VALUES (value_param);<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>END<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>{CALL
+my_procedure (7)} -- execute the procedure<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+PROCEDURE t1_result_set()<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>LANGUAGE SQL<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>RESULT SETS 1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">        </span>DECLARE c1 CURSOR WITH RETURN FOR <o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">            </span>SELECT * FROM t1;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">        </span>OPEN c1;<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>END<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>{CALL
+t1_result_set ()} -- execute the procedure<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>&nbsp;<o:p></o:p></span></code></address>
+
+<p class=MsoNormal style='margin-left:.25in'><code><u><span style='font-family:
+Verdana'>SQL Server scenario:<o:p></o:p></span></u></code></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>-- SQL
+Server supports multiple result sets<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>USE tempdb
+-- </span></code><span style='font-family:"Courier New";mso-fareast-font-family:
+"MS Mincho";color:navy;font-style:normal'>also see item #1 in the Known
+Problems and Workarounds section</span><span style='font-size:8.5pt;mso-bidi-font-size:
+12.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>IF EXISTS(SELECT
+name FROM sysobjects WHERE id = OBJECT_ID('t1'))<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>DROP TABLE t1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+TABLE t1 (c1 int)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>INSERT
+INTO t1 VALUES (7)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT c1
+FROM t1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>IF
+EXISTS(SELECT name FROM sysobjects WHERE id = OBJECT_ID('sp_test_proc'))<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>DROP PROC sp_test_proc<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+PROC sp_test_proc<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>(@n int)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>AS<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SET
+NOCOUNT ON<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>DECLARE
+@return_value int<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SET
+@return_value = -1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>INSERT
+INTO t1 VALUES (@n)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>-- test
+the error value<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>IF @@ERROR
+&lt;&gt; 0 <o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>-- return 99 to the calling program to
+indicate failure<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>PRINT 'Error: INSERT operation failed.'<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>SET @return_value = 99<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>END<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>ELSE<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>BEGIN<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>-- return 0 to the calling program to
+indicate success<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>PRINT 'INSERT operation succeeded.'<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style='mso-tab-count:1'>   </span>SET @return_value = 0<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>END<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>RETURN
+@return_value<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SET
+NOCOUNT ON<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>DECLARE @n
+int<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SET @n =
+-1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>EXECUTE @n
+= sp_test_proc 7<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT @n
+return_value<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT
+@@VERSION<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>sp_help t1
+/*yields an error. EXECUTE keyword is required if the<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">           </span>statement is not the first
+statement in the batch*/<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>IF EXISTS(SELECT
+name FROM sysobjects WHERE id = OBJECT_ID('sp_test_proc'))<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><span
+style="mso-spacerun: yes">    </span>DROP PROC sp_test_proc<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<span
+style="mso-spacerun: yes">    </span><o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+PROC sp_test_proc<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>(@n int
+OUTPUT)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>AS<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SET @n =
+7000<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>DECLARE @n
+int<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SET @n =
+-1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>EXEC
+sp_test_proc @n OUTPUT /*yields an error. @n is out of scope*/<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT @n
+output_value<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>&nbsp;<o:p></o:p></span></code></address>
+
+<p class=MsoNormal style='margin-left:.25in'><code><u><span style='font-family:
+Verdana'>Scenario: Data source/driver does not support multiple result sets.<o:p></o:p></span></u></code></p>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>CREATE
+TABLE t1 (c1 int)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>INSERT
+INTO t1 VALUES (7)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>INSERT
+INTO t1 VALUES (8)<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>SELECT c1
+FROM t1<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'>GO<o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></address>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Note that not all data sources and/or drivers
+support '/**/' and/or '--' comment syntaxes.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<address style='margin-left:.25in'><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho";font-style:normal'>Tip: While in the Messages window pane, simply
+double click on the error message to jump to the batch containing the error.</span><code><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman";
+color:navy;font-style:normal'><o:p></o:p></span></code></address>
+
+<address style='margin-left:.5in'><code><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></address>
+
+<address><a name=Transactions></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho";font-style:normal'>Transactions</span></b><span
+style='font-family:Verdana;font-style:normal'><o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>By default Query Tool operates in autocommit
+transaction mode on. Users can override this behavior by initiating a
+transaction programmatically either explicitly or implicitly or by choosing
+Options and New Connections from the Tools menu and unchecking the Autocommit
+check box </span><span style='font-family:Verdana'>found under Transactions</span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'> thereby
+initiating a transaction implicitly.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>SQL Server scenario:</span></u><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>-- Assuming Sybase system 10 or above or
+Microsoft SQL Server 6.5<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>-- or above. For Sybase, replace SET
+IMPLICIT_TRANSACTIONS {ON | OFF}<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>-- with SET CHAINED {ON | OFF} in the code below.<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>USE tempdb -- also see item #1 in the Known
+Problems and Workarounds section<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>CREATE TABLE t1 (a int)<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>INSERT INTO t1 VALUES (1)<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PRINT 'USE EXPLICIT TRANSACTION'<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>BEGIN TRAN<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>INSERT INTO t1 VALUES (2)<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT 'tran count in transaction' = @@TRANCOUNT<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT TRAN<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT 'tran count outside transaction' =
+@@TRANCOUNT<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PRINT 'SETTING IMPLICIT_TRANSACTIONS ON'<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SET IMPLICIT_TRANSACTIONS ON<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PRINT 'USE IMPLICIT TRANSACTIONS'<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>-- no begin tran needed here<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>INSERT INTO t1 VALUES (4)<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT 'tran count in transaction' = @@TRANCOUNT<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT TRAN<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT 'tran count outside transaction' =
+@@TRANCOUNT<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>PRINT 'USE EXPLICIT TRANSACTIONS WITH
+IMPLICIT_TRANSACTIONS ON'<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>BEGIN TRAN<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>INSERT INTO t1 values (5)<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT 'tran count in transaction' = @@TRANCOUNT<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT TRAN<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT 'tran count outside transaction' =
+@@TRANCOUNT<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM t1<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>DROP TABLE t1<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT TRAN<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO</span></address>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='color:navy'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><u><span style='font-family:
+Verdana'>DB2 Scenario:</span></u><span style='font-family:Verdana'><span
+style='mso-tab-count:1'>    </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana'>In
+DB2, a transaction is started implicitly with the first executable SQL
+statement and ends with a </span><span style='mso-bidi-font-size:12.0pt;
+color:navy'>COMMIT</span><span style='font-family:Verdana;color:navy'> </span><span
+style='font-family:Verdana'>or </span><span style='mso-bidi-font-size:12.0pt;
+color:navy'>ROLLBACK</span><span style='font-family:Verdana'> or ends when the
+program terminates and, only when the autocommit transaction mode is off.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana'>Choose
+Options and New Connections from the Tools menu and uncheck the Autocommit check
+box found under Transactions and connect to an DB2 data source to initiate an
+implicit transaction.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>CREATE TABLE test_tran (c1 INT, c2 VARCHAR(12));<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>INSERT INTO test_tran VALUES (1, 'John'), (2,
+'Reji'),<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>(3,
+'Roy'), (4, 'Sherin');<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM test_tran;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>UPDATE test_tran SET c2 = 'Ashley';<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM test_tran;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>ROLLBACK;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>UPDATE test_tran SET c2 = 'Ashley' WHERE c1 = 1;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM test_tran;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>DROP TABLE test_tran;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT;</span></address>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><u><span style='font-family:
+Verdana'>Oracle Scenario:</span></u><span style='font-family:Verdana'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+color:navy'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in'><span style='font-family:Verdana;font-style:
+normal'>In Oracle, as in DB2, a transaction is started implicitly when an
+insert, update, or delete operation is performed, and, only when the autocommit
+transaction mode is off.<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:Verdana;font-style:
+normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:Verdana;font-style:
+normal'>Choose Options and New Connections from the Tools menu</span><span
+style='font-family:Verdana'> </span><span style='font-family:Verdana;
+font-style:normal'>and uncheck the Autocommit check box found under
+Transactions and connect to an Oracle data source to initiate an implicit
+transaction.<o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='font-family:Verdana;font-style:
+normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>CREATE TABLE test_tran (c1 NUMBER(1,0), c2
+VARCHAR2(12))<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>BEGIN<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>INSERT
+INTO test_tran VALUES (1, 'John');<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>INSERT
+INTO test_tran VALUES (2, 'Reji');<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>INSERT
+INTO test_tran VALUES (3, 'Roy');<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><span style='mso-tab-count:1'>   </span>INSERT
+INTO test_tran VALUES (4, 'Sherin');<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>END;<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM test_tran<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>UPDATE test_tran SET c2 = 'Ashley'<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM test_tran<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>ROLLBACK<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>UPDATE test_tran SET c2 = 'Ashley' WHERE c1 = 1<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT * FROM test_tran<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>DROP TABLE test_tran<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>COMMIT</span><span style='font-family:"Courier New";
+font-style:normal'><o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.25in'><span style='font-family:Verdana;font-style:
+normal'>Query Tool uses a default transaction isolation level value of READ
+COMMITED when in autocommit mode off. READ COMMITED permits the following:<o:p></o:p></span></address>
+
+<address><span style='font-family:Verdana;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana'>Non-repeatable Read: Transaction T1 retrieves a
+row; then transaction T2 updates that row and T1 retrieves the &quot;same&quot;
+row again. T1 has now effectively retrieved the &quot;same&quot; row twice and
+has seen two different values for it. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-bidi-font-size:
+10.0pt;font-family:Verdana'>Phantoms: T1 reads a set of rows that satisfy certain
+search conditions. T2 then insert one or more rows that satisfy the same search
+condition. If T1 repeats the read, it will see rows that did not exist
+previously - &quot;phantoms&quot;. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-size:10.0pt;font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='text-indent:.25in'><span style='font-family:Verdana;font-style:
+normal'>READ COMMITED does not permit the following:<o:p></o:p></span></address>
+
+<address style='text-indent:.25in'><span style='font-family:Verdana;font-style:
+normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.5in'><span style='mso-bidi-font-size:10.0pt;
+font-family:Verdana;font-style:normal'>Dirty Read: T1 modifies a row. T2 then
+reads the row. Now T1 performs a rollback - so, T2 has seen a row that never
+really existed.<o:p></o:p></span></address>
+
+<address><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></address>
+
+<address style='margin-left:.25in'><span style='font-family:Verdana;font-style:
+normal'>Note that the application may hang, if there is/are any open
+transaction(s) on a connection or connections and, when attempting to use the
+Schema browser on the same connection or connections on the same data source.
+To workaround the problem, first commit or rollback the transaction on the
+connection or connections on the same data source and then use the Schema
+browser on the same connection or connections on the same data source.
+Alternatively, you can workaround the problem by setting the transaction
+isolation level value to READ UNCOMMITED.<o:p></o:p></span></address>
+
+<address style='margin-left:.25in'><span style='font-family:Verdana;font-style:
+normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<p class=MsoPlainText><b><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><span style="mso-spacerun: yes"> </span><a name="Scalar_Functions"></a>Scalar
+Functions<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbcscalar_functions.asp">Scalar
+Functions</a> are useful if you are writing portable SQL statements across
+different data sources. </span><span style='font-family:Verdana'>ODBC specifies
+the following types of scalar functions:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l6 level1 lfo2;tab-stops:list .75in'><![if !supportLists]><span
+style='mso-bidi-font-size:8.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:8.0pt;font-family:Verdana'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbcstring_functions.asp">String
+Functions</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l6 level1 lfo2;tab-stops:list .75in'><![if !supportLists]><span
+style='mso-bidi-font-size:8.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:8.0pt;font-family:Verdana'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbcnumeric_functions.asp">Numeric
+Functions</a> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l6 level1 lfo2;tab-stops:list .75in'><![if !supportLists]><span
+style='mso-bidi-font-size:8.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:8.0pt;font-family:Verdana'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbctime__date__and_interval_functions.asp">Time,
+Date, and Interval Functions</a> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l6 level1 lfo2;tab-stops:list .75in'><![if !supportLists]><span
+style='mso-bidi-font-size:8.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:8.0pt;font-family:Verdana'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbcsystem_functions.asp">System
+Functions</a> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l6 level1 lfo2;tab-stops:list .75in'><![if !supportLists]><span
+style='mso-bidi-font-size:8.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:8.0pt;font-family:Verdana'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbcexplicit_data_type_conversion.asp">Explicit
+Data Type Conversion Function</a> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l6 level1 lfo2;tab-stops:list .75in'><![if !supportLists]><span
+style='mso-bidi-font-size:8.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='mso-bidi-font-size:8.0pt;font-family:Verdana'><a
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/odbcsql_92_cast_function.asp">SQL-92
+CAST Function</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='mso-bidi-font-size:
+8.0pt;font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='mso-bidi-font-size:
+8.0pt;font-family:Verdana'>The escape sequence for calling a scalar function
+is:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='mso-bidi-font-size:
+8.0pt;font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address><span style='font-family:Verdana;font-style:normal'><span
+style='mso-tab-count:2'>          </span></span><span style='font-family:"Courier New";
+color:navy;font-style:normal'>{fn
+&lt;scalar_function_name&gt;(&lt;argument_list&gt;)}<o:p></o:p></span></address>
+
+<address><span style='font-family:"Courier New";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'>Scalar
+functions operate on the column(s) of a result set and/or the column(s) that
+restrict row(s) of a result set. To determine which scalar functions are
+supported by a driver, choose ODBC Driver Info from the Help menu and go
+through the SQL Functions list found under Functions tab.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'>The
+following two examples illustrate the use of a scalar function </span><span
+style='mso-bidi-font-size:12.0pt;color:navy'>CONVERT</span><span
+style='font-family:Verdana'>. These examples assume the existence of a table
+called </span><span style='mso-bidi-font-size:12.0pt'>employees</span><span
+style='font-family:Verdana'>, with an </span><span style='mso-bidi-font-size:
+12.0pt'>empno</span><span style='font-family:Verdana'> column of type </span><span
+style='mso-bidi-font-size:12.0pt;color:navy'>SQL_SMALLINT</span><span
+style='font-family:Verdana'> and an </span><span style='mso-bidi-font-size:
+12.0pt'>empname</span><i><span style='font-family:Verdana'> </span></i><span
+style='font-family:Verdana'>column of type </span><span style='mso-bidi-font-size:
+12.0pt;color:navy'>SQL_CHAR</span><span style='font-family:Verdana'>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><span
+style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:Verdana'>If
+you specify the following SQL statement:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.25in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SELECT empno FROM employees WHERE
+{fn CONVERT(empno, SQL_CHAR)} LIKE '7%'<o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana'>A driver for ORACLE
+translates the SQL statement to:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SELECT empno FROM employees WHERE
+TO_CHAR(empno) LIKE '7%'<o:p></o:p></span></address>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana'>A driver for SQL
+Server translates the SQL statement to: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SELECT empno FROM employees WHERE
+CONVERT(char, empno) LIKE '7%'<o:p></o:p></span></address>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:Verdana'>If
+you specify the following SQL statement:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'>SELECT {fn ABS(empno)}, {fn CONVERT(empname,
+SQL_SMALLINT)} FROM employees WHERE empno &lt;&gt; 0<o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana'>A driver for ORACLE
+translates the SQL statement to: <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SELECT ABS(empno),
+TO_NUMBER(empname) FROM employees WHERE empno &lt;&gt; 0<o:p></o:p></span></address>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana'>A driver for SQL
+Server translates the SQL statement to:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SELECT ABS(empno),
+CONVERT(smallint, empname) FROM employees WHERE empno &lt;&gt; 0<o:p></o:p></span></address>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 lfo4;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana'>A driver for Ingres translates
+the SQL statement to:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:.25in'><span
+style='color:navy'>SELECT ABS(empno), INT2(empname) FROM employees WHERE empno
+&lt;&gt; 0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:navy'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='color:navy'><span style='mso-tab-count:1'>   </span></span><span
+style='font-family:Verdana'>To return the SQL string as translated by the
+driver without running the query, choose Retrieve Native SQL from the Query
+menu.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'>Users
+can mix calls to scalar functions that use native syntax and calls to scalar
+functions that use ODBC syntax. For example, assume that we have a table called
+</span><span style='mso-bidi-font-size:12.0pt'>customers</span><span
+style='font-family:Verdana'> with a column </span><span style='mso-bidi-font-size:
+12.0pt'>name</span><span style='font-family:Verdana'> and names are stored as a
+last name, a comma, and a first name. The following SQL statement creates a
+result set of last names of customers in the </span><span style='mso-bidi-font-size:
+12.0pt'>customers</span><span style='font-family:Verdana'> table. The statement
+uses the ODBC scalar function </span><span style='mso-bidi-font-size:12.0pt;
+color:navy'>SUBSTRING</span><span style='font-family:Verdana'> and the SQL
+Server scalar function </span><span style='mso-bidi-font-size:12.0pt;
+color:navy'>CHARINDEX</span><span style='font-family:Verdana;color:navy'> </span><span
+style='font-family:Verdana'>and will execute correctly only on SQL Server.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.25in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SELECT {fn SUBSTRING(name, 1, CHARINDEX(',',
+name) - 1)} FROM customers<o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'>For
+maximum interoperability, users should use the </span><span style='mso-bidi-font-size:
+12.0pt;color:navy'>CONVERT</span><span style='font-family:Verdana;color:navy'> </span><span
+style='font-family:Verdana'>scalar function to make sure the output of a scalar
+function is the required type. <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><span
+style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'>Tip:
+To guard against the unintentional use of non-portable SQL extensions, turn on
+the FIPS</span><span style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>¹</span><span
+style='font-family:Verdana'> FLAGGER and go through the messages in the
+Messages window pane.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><u><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>SQL Server
+scenario:</span></u><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.5in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>-- Assuming Microsoft SQL Server
+6.5 or above<o:p></o:p></span></address>
+
+<address style='margin-left:.5in;text-indent:.25in'><span style='font-family:
+"Courier New";color:navy;font-style:normal'>SET FIPS_FLAGGER 'entry' --
+&lt;'entry' | 'full' | 'intermediate' | off&gt;</span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><u><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Oracle
+scenario:</span></u><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>/*Assuming Oracle
+7.1 or above*/<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>ALTER SESSION
+SET FLAGGER = entry /*&lt;entry | intermediate | full | off&gt;*/<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>GO<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>SELECT
+TO_CHAR(2*3) FROM dual<o:p></o:p></span></address>
+
+<address style='margin-left:.75in'><span style='font-family:"Courier New";
+mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>¹</span><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Federal
+Information Processing Standard (FIPS). Standards that apply to computer
+systems purchased by the United States government. Each FIPS standard is
+defined by the <a href="http://www.itl.nist.gov/div897/ctg/dm/contents_sql.htm">National
+Institute of Standards and Technology (NIST)</a>. The current standard for SQL
+products is FIPS 127-2, which is based on the ANSI SQL-92 standard. ANSI SQL-92
+is aligned with ISO/IEC SQL-92.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:8.5pt;mso-bidi-font-size:10.0pt;
+font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana'>ODBC aligns with the following
+specifications and standards that deal with the Call-Level Interface (CLI).
+(The ODBC features are a superset of each of these standards.) <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l7 level1 lfo6;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:8.5pt;mso-bidi-font-size:10.0pt;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:8.5pt;mso-bidi-font-size:10.0pt;
+font-family:Verdana'>The X/Open CAE Specification &quot;Data Management: SQL
+Call-Level Interface (CLI)&quot; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;mso-list:
+l7 level1 lfo6;tab-stops:list .75in'><![if !supportLists]><span
+style='font-size:8.5pt;mso-bidi-font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:
+"MS Mincho"'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:8.5pt;mso-bidi-font-size:10.0pt;
+font-family:Verdana'>ANSI/ISO/IEC 9075-3:1995 (E) Call-Level Interface
+(SQL/CLI)</span><span style='font-size:8.5pt;mso-bidi-font-size:10.0pt;
+font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><b><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><a name=KProbs></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Known Problems and Workarounds<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>In the case of SQL Server, the T-SQL keyword </span><code><span
+style='mso-bidi-font-size:12.0pt;mso-bidi-font-family:"Courier New";color:navy'>USE</span></code><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'> may not switch
+the database context to the specified database. To workaround this problem,
+either use the combo box provided on the toolbar to change the database context
+or place the </span><code><span style='mso-bidi-font-size:12.0pt;mso-bidi-font-family:
+"Courier New";color:navy'>USE &lt;database&gt;</span></code><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'> statement in a
+separate batch.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:3.75pt'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 lfo8;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>In the case of ORACLE, you may get the following error when the
+application is launched from a location that exceed eight characters and/or
+when it contains special characters:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>When using Oracle ODBC driver:<o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>Query
+Tool (using ODBC) 5.0<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>ORA-06413:
+Connection not open.<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>Driver's
+SQLSetConnectAttr failed<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>State:S1000,Native:6413,Origin:[Oracle][ODBC][Ora]<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>State:IM006,Native:0,Origin:[Microsoft][ODBC
+Driver Manager]<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>Retry<span
+style="mso-spacerun: yes">   </span>Cancel<span style="mso-spacerun: yes">  
+</span><o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------</span><span
+style='mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></address>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>When using Microsoft ODBC driver
+for Oracle:<o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>Query
+Tool (using ODBC) 5.0<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>ORA-06413:
+Connection not open.<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>Driver's
+SQLSetConnectAttr failed<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>State:NA000,Native:6413,Origin:[Microsoft][ODBC
+driver for Oracle][Oracle]<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>State:IM006,Native:0,Origin:[Microsoft][ODBC
+Driver Manager]<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------<o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>Retry<span
+style="mso-spacerun: yes">   </span>Cancel<span style="mso-spacerun: yes">  
+</span><o:p></o:p></span></address>
+
+<address style='margin-left:.75in;text-indent:.25in'><span style='font-family:
+"Courier New";mso-fareast-font-family:"MS Mincho";color:navy;font-style:normal'>---------------------------</span><span
+style='mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></address>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>To fix the above problems, choose a short
+location (less than or equal to eight characters) that do not contain any special
+characters besides making sure that Oracle TNS Listener Service is running.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>For better performance, set Include
+SYNONYMS in SQL Columns (found under Performance group box) to False (0) using
+the ODBC administrator for the data source.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><span style="mso-spacerun: yes">   </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo10;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>When you copy grid data and paste it into Excel, Excel may show a
+weird character between each column. To workaround this problem, use a new
+instance of Excel.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:15.0pt'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo10;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>Using very large result set(s) can cause problems when scrolling
+the grid. When you drag the thumbtrack to the bottom of the vertical scrollbar,
+the thumbtrack might jump back to the top. This happens whenever the top row of
+the grid would have been greater than 65,535. To workaround this problem, limit
+the result set to fewer than 65,536 records. While the grid can display more
+rows, you cannot use the thumbtrack to scroll past this number.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo12;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Verdana'>The &quot;DSN-less&quot; logins found under File
+menu and Connect sub-menu is invoked with minimal ODBC driver-specific </span><span
+style='mso-bidi-font-size:12.0pt;color:navy'>&lt;keyword=value&gt;</span><span
+style='font-family:Verdana'> pairs. And, you may not be able to connect to some
+databases using the specified &quot;DSN-less &quot; login. To workaround the
+problem, first define a Data Source Name (DSN) using the ODBC Data Source
+Administrator found under Tools menu and then use the defined DSN by choosing
+Data Source from the File menu and Connect sub-menu.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo14;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana'>7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Verdana'>The Edit Find in Files operation may return
+incorrect results if the file searched contain lines longer than the character
+maximum the application can handle. To workaround the problem, perform the Find
+in Files operation with Output file names only on. Once the results are
+displayed choose Next Error Batch/Tag from the Edit menu or press F4 or double
+click on the filename in the Results window pane, follow the on-screen
+instructions (if, any), and press F3 to find the subsequent occurrence(s)
+within the same file. The Find in Files operation can be invoked by pressing
+Ctrl+Shift+F.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 lfo14;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana'>8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Verdana'>The application may hang, if there is/are any open
+transaction(s) on a connection or connections and, when attempting to use the
+Schema browser on the same connection or connections on the same data source.
+To workaround the problem, first commit or rollback the transaction on the
+connection or connections on the same data source and then use the Schema
+browser on the same connection or connections on the same data source.
+Alternatively, you can workaround the problem by setting the transaction
+isolation level value to READ UNCOMMITED. Also see Transactions.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l9 level1 lfo16;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana'>9.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><![endif]><span
+style='font-family:Verdana'>The comment syntax </span><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>'--'</span><span style='font-family:
+Verdana'> may not work as intended when used within a batch. </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>To workaround
+this problem, use '/**/' comment syntax.</span><span style='font-family:Verdana'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l9 level1 lfo16;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana'>10.<span
+style='font:7.0pt "Times New Roman"'> </span></span><![endif]><span
+style='font-family:Verdana'>When you scroll the contents of the grid control
+using the mouse wheel, the grid control may not respond to scrolling. To
+resolve this issue, please refer to:<br>
+<br>
+<a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;258785">IntelliMouse:
+How to Install an IntelliMouse Pointing Device and the IntelliPoint Software</a><br>
+<br>
+Note: If you are using a third-party mouse, please refer to the
+Product/Installation manual that came with the mouse.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l9 level1 lfo16;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana'>11.<span
+style='font:7.0pt "Times New Roman"'> </span></span><![endif]><span
+style='font-family:Verdana'>The scrolling of the grid may not function properly
+when in Windows XP theme mode.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:3.75pt'><span
+style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=KLimitations></a><b><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Known Limitations and Workarounds<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The Results in Text option found under the Query menu is good only
+for retrieving Procedure/View text. If this option is not selected, results will
+be shown in grid by default.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-228.0pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The maximum number of results grid generated is limited to 1,500.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-228.0pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The total number of connections is limited to 512.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-228.0pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The maximum number of Schema window pane items that can be printed
+is limited to 1,600 (approx.).<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-228.0pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The maximum number of grid rows that can be printed is limited to
+1,700 (approx.)¹.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The grid control used in this application is limited only to
+sorting numeric columns with precision less than 18.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-228.0pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The maximum number of SQL URL links that can be added to the Help
+menu is limited to 512.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-228.0pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The edit control used in this application is limited to 16 MB
+(16,777,215 bytes) of text.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l8 level1 lfo18;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>The maximum number of &quot;DSN-less&quot; Logins is limited to
+512.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Unless otherwise noted, the above
+limitations depend on the available system resources.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:-24.75pt;text-indent:3.75pt'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>¹</span><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Tip:
+To print a result set with more than 2,046 rows, choose Save As from the File
+menu and opt to have the data exported to Excel automatically.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=UnsupportedFeatures></a><b><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Unsupported
+Features<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo20;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>Connection Pooling is not supported. This behavior is by design. If
+a connection fails during a query processing, the Multiple Document Interface
+(MDI) child window that holds the connection is unusable. You can workaround
+this problem by choosing New from the File menu without doing an explicit
+Connect from the File menu.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:3.75pt'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo20;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>Retrieving Unicode data (International characters) is not
+supported currently. To workaround this problem, please consider using Query
+Tool (using ADO) 5.0.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo20;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>Print previewing of Query window pane, Results window pane (in text
+mode), and Messages window pane is not supported currently.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=SiteLicences></a><b><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Site Licenses, Pricing, and
+Ordering Information<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Site Licenses:<o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>A site license for Query Tool (using ODBC)
+5.0 entitles an organization to receive one copy of the distribution package and
+duplicate the software as necessary for use inside or outside an organization
+on the specified number of computers. See the table below for site license
+pricing.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>[Note: </span><span style='font-family:
+Verdana'>Customers who bought version 3.5 on or before February 18, 2002 and
+wishing to upgrade to version 5.0 may contact the author at </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="mailto:gpoulose@att.net?subject=QTODBC%205.0%20Product%20ID%20Request">gpoulose@att.net</a></span><span
+style='font-family:Verdana'> to request a new product ID. Please indicate
+version 3.5 product ID in your e-mail. All other version 3.5 customers please
+see the table below for upgrade pricing.]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Version 4.1 customers may continue to use
+the existing product ID.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Pricing:<o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Single copy: US $50.00 (</span><span
+style='font-family:Verdana'>upgrade price US $36.00) each</span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>2 to 9 computers: $40.00 (</span><span
+style='font-family:Verdana'>upgrade price $30.00) </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>each<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>10 to 49 computers: $32.00 (</span><span
+style='font-family:Verdana'>upgrade price $24.00) </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>each<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>50 to 499 computers: $24.00 (</span><span
+style='font-family:Verdana'>upgrade price $18.00) </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>each<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>500 to 999 computers: $20.00 (</span><span
+style='font-family:Verdana'>upgrade price $16.00) </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>each<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Over 1000 computers: $14.00 (</span><span
+style='font-family:Verdana'>upgrade price $12.00) </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>each<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-bidi-font-family:Arial;color:black'>Unlimited licenses (for </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>use inside an
+organization/company</span><span style='font-family:Verdana;mso-bidi-font-family:
+Arial;color:black'>)</span><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>¹</span><span style='font-family:Verdana;mso-bidi-font-family:
+Arial;color:black'>: $1400.00<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-bidi-font-family:Arial;color:black'>Source code</span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>²</span><span
+style='font-family:Verdana;mso-bidi-font-family:Arial;color:black'> (for </span><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>use inside an
+organization/company</span><span style='font-family:Verdana;mso-bidi-font-family:
+Arial;color:black'>)</span><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>¹</span><span style='font-family:Verdana;mso-bidi-font-family:
+Arial;color:black'>: $3200.00<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-bidi-font-family:Arial;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>¹</span><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Restrictions
+apply.</span><span style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>²</span><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Compiles
+under Microsoft Visual C++ .Net 7.0 or higher.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="http://www.paypal.com/">PayPal</a></span><span style='font-family:Verdana'>
+customers outside the United States, please add 3.9% + US $0.30 fee.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='mso-bidi-font-size:10.0pt;font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><a
+href="http://www.paypal.com/">PayPal</a></span><span style='font-family:Verdana'>
+customers within the United States, please add 2.9% + US $0.30 fee.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana'>New York residents, please add 8.25% sales tax.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Discounts upto
+25% is available for Federal, State, and Local Governments, and Educational
+Institutions (US customers only).<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:.25in'><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Diskette
+order(s) will be shipped within five business days after they are received via
+the US mail.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Ordering Information:<o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>To order, send the completed <a
+href="OrderForm.txt">Order Form</a> and a check or a bank/personal/postal money
+order. Postal money order must be in US dollars only.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Customers outside the United States,
+please use the <a href="http://www.reuters.com/financeCurrencies.jhtml">Currency
+Converter</a> to calculate the foreign equivalent (please add US $10.00 fee)
+and enclose a check for the calculated amount.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a href="http://www.paypal.com/">PayPal</a>
+customers, please use the e-mail ID <a href="mailto:gpoulose@att.net">gpoulose@att.net</a>
+to send the payment. Please make sure that you also send the completed <a
+href="OrderForm.txt">Order Form</a> as an attachment to <a
+href="mailto:gpoulose@att.net?subject=QTODBC%205.0%20--%20Order%20Form">gpoulose@att.net</a>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Payment address:<o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><span style="mso-spacerun: yes"> </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>George Poulose<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>147 Lake Shore Road<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Unit #24-A<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Lake Ronkonkoma, NY 11779-3167<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>USA<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Credit card orders are not accepted. When
+payment is received you will be sent a Product ID.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Customer information is considered confidential
+and will not be shared or distributed to any third party.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=CommentsBug></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Comments and Bug Report</span></b><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>If you have any comments, please send it
+to: <a href="mailto:gpoulose@att.net?subject=Comments%20on%20QTODBC%205.0.1.0">gpoulose@att.net</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>If you encounter a problem, please visit <a
+href="http://gpoulose.home.att.net/"><span style='mso-bidi-font-size:12.0pt;
+mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman"'>http://gpoulose.home.att.net/</span></a>
+to obtain the latest version. If you still have problems, please record all the
+information relevant to the problem, determine if the problem is reproducible,
+and if so, how, and send this information to: <a
+href="mailto:gpoulose@att.net?subject=Bug(s)%20in%20QTODBC%205.0.1.0">gpoulose@att.net</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=LicenseAgreement></a><b><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>License Agreement<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><b><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Unless
+you have a different license agreement signed by the author your use of this
+software indicates your acceptance of this license agreement.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Evaluation Version:</span></u><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>Subject
+to the terms below, you are hereby licensed to use this software for evaluation
+purposes without charge for a period of 70 days. If you use this software after
+the 70-day evaluation period a registration fee of US $50.00 is required.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Terms and Conditions:</span></u><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>You
+are prohibited from distributing the software and/or documentation with other
+products (commercial or otherwise) in any form without prior written permission
+from the author.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></u></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><u><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Registered Version:</span></u><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>One
+registered copy of Query Tool (using ODBC) 5.0 may either be used by a single
+person who uses the software personally on one or more computers, or installed
+on a single workstation used non-simultaneously by multiple people, but not
+both.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-size:8.5pt;
+mso-bidi-font-size:10.0pt;font-family:Verdana;mso-fareast-font-family:"MS Mincho"'>You
+may access the registered version of Query Tool (using ODBC) 5.0 through a
+network, provided that you have obtained individual licenses for the software
+covering all workstations that will access the software through the network.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=Warranty></a><b><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Warranty<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>This software and the accompanying files
+are distributed or sold &quot;as is&quot; without express or implied warranty.
+Use it at your own risk. Any liability of the author will be limited exclusively
+to product replacement or refund of purchase price.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><a name=Acknowledgements></a><b><span style='font-family:
+Verdana;mso-fareast-font-family:"MS Mincho"'>Acknowledgements</span></b><span
+style='font-family:Verdana;mso-fareast-font-family:"MS Mincho"'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>Thanks to the following people:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a
+href="http://msdn.microsoft.com/library/devprods/vs6/visualc/vcsample/_sample_mfc_odbcinfo.htm">Ronald
+Pihlgren, ODBCINFO: Retrieves ODBC Driver Capabilities, MSDN 2002</a>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a
+href="http://www.codeproject.com/docview/windowsmanager.asp">Ivan Zhakov, MDI
+Windows Manager Dialog, Codeproject.com 2000</a>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a
+href="http://codeguru.earthweb.com/listview/sort_generic_callback.shtml">Iuri Apollonio,
+Sort List (numeric/text) using Callback, Codeguru.com 1999</a>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a
+href="http://www.codeguru.com/splitter/show_hide_static_panes.shtml">Oleg G.
+Galkin and Kirk Stowell, Show/Hide Static Panes, Codeguru.com 1999</a></span><span
+style='font-family:Verdana'>.</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a
+href="http://www.codeproject.com/treectrl/prttview.asp">Koay Kah Hoe, A Print
+Enabled Tree View, Codeproject.com 2000</a>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'><a href="http://www.techsoft.no/bendik/">Bendik
+Engebretsen, CTreeCtrlEx - Multiple Selection Tree Control for MFC 2003</a>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+
+<div class=MsoNormal><span style='mso-bidi-font-size:10.0pt;font-family:"Courier New"'>
+
+<hr size=2 width="100%" align=left>
+
+</span></div>
+
+
+<p class=MsoPlainText><span style='font-family:Verdana;mso-fareast-font-family:
+"MS Mincho"'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none'><span style='font-size:
+7.5pt;mso-bidi-font-size:12.0pt;font-family:Verdana;mso-bidi-font-family:"Courier New"'>©</span><span
+style='font-size:7.5pt;mso-bidi-font-size:12.0pt;font-family:Verdana;
+mso-fareast-font-family:"MS Mincho"'> 1999-2005 <a
+href="http://gpoulose.home.att.net/">George Poulose</a>.</span><span
+style='font-size:7.5pt;mso-bidi-font-size:12.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

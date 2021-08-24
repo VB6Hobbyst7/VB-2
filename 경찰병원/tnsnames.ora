@@ -1,0 +1,12 @@
+# 경찰병원
+NPHHISP=
+    (DESCRIPTION=
+          (ADDRESS_LIST =
+             (ADDRESS = (PROTOCOL = TCP)(HOST =10.60.210.14)(PORT = 1521))
+             (ADDRESS = (PROTOCOL = TCP)(HOST =10.60.210.13)(PORT = 1521))
+          )
+         (CONNECT_DATA =
+              (SERVICE_NAME = NPHHISP)
+              (SERVER = DEDICATED)
+          )
+    )

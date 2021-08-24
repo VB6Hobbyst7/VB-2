@@ -1,0 +1,156 @@
+ %% 이 파일을 수정하거나 삭제하지 마십시오! %% 
+ %% 이 파일에는 응용 프로그램 설치에 관한 정보가 있습니다. %% 
+ %% 실행하도록 선택하면 컴퓨터에서 모든 응용 프로그램 구성 요소를 자동으로 제거하는 데 사용됩니다. %% 
+
+
+NOTE: 부트스트랩퍼 구역의 시작
+
+*** 오류: 'C:'(이)라는 디렉터리를 만들 수 없습니다.
+*** 작업 시 준수 사항: CreateDir: "C:"
+
+CONFIG: Title: "IF_SP1000i"
+
+*** 오류: 'C:'(이)라는 디렉터리를 만들 수 없습니다.
+*** 작업 시 준수 사항: CreateDir: "C:"
+
+*** 오류: 'C:'(이)라는 디렉터리를 만들 수 없습니다.
+*** 작업 시 준수 사항: CreateDir: "C:"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "SharedDLLs"
+
+ACTION: SystemFile: "C:\Windows\System32\VB6STKIT.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\COMCAT.DLL"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\MSVCRT40.DLL"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\OLEPRO32.DLL"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+*** 오류: 'C:'(이)라는 디렉터리를 만들 수 없습니다.
+*** 작업 시 준수 사항: CreateDir: "C:"
+
+*** 오류: 'C:'(이)라는 디렉터리를 만들 수 없습니다.
+*** 작업 시 준수 사항: CreateDir: "C:"
+
+ACTION: SystemFile: "C:\Windows\System32\VB6KO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\STDOLE2.TLB"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\ASYCFILT.DLL"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\OLEAUT32.DLL"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: SystemFile: "C:\WINDOWS\SYSTEM32\msvbvm60.dll"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\COMCAT.DLL"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\OLEPRO32.DLL"
+
+ACTION: TLBRegister: "C:\WINDOWS\SYSTEM32\STDOLE2.TLB"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\OLEAUT32.DLL"
+
+ACTION: DllSelfRegister: "C:\WINDOWS\SYSTEM32\msvbvm60.dll"
+
+NOTE: 부트스트랩퍼 구역의 끝
+
+NOTE: Setup1.exe' 주 설치 프로그램을 만드는 중....
+
+ACTION: SharedFile: "C:\Windows\System32\SfxBar.dll"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\Cfx4032.ocx"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: PrivateFile: "C:\IF_H7080\Interface.mdb"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: PrivateFile: "C:\IF_H7080\interface.ini"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\TABCTKO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\TABCTL32.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSCMCKO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSCOMCTL.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\CMDLGKO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\COMDLG32.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\SPR32X60.ocx"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSMSKKO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSMASK32.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSCOMKO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSCOMM32.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSCC2KO.DLL"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\MSCOMCT2.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: SystemFile: "C:\Windows\System32\MFC40.DLL"
+(디스크에 있는 파일은 이미 업데이트되었습니다.)
+
+ACTION: SharedFile: "C:\Windows\System32\THREED32.OCX"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: PrivateFile: "C:\IF_H7080\EXCEL.EXE"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: PrivateFile: "C:\IF_H7080\IF_SP1000i.exe"
+(파일을 찾을 수 없거나 이전 버전입니다. 새 파일이 복사되었습니다.)
+
+ACTION: DllSelfRegister: "C:\Windows\System32\SfxBar.dll"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\Cfx4032.ocx"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\TABCTL32.OCX"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\MSCOMCTL.OCX"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\COMDLG32.OCX"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\SPR32X60.ocx"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\MSMASK32.OCX"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\MSCOMM32.OCX"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\MSCOMCT2.OCX"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\MFC40.DLL"
+
+ACTION: DllSelfRegister: "C:\Windows\System32\THREED32.OCX"
+
+ACTION: RegKey: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion", "App Paths\IF_SP1000i.exe"
+
+ACTION: RegValue: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\IF_SP1000i.exe", ""
+

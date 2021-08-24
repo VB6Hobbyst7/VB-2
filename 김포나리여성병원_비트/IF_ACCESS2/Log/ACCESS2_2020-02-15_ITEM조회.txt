@@ -1,0 +1,7 @@
+ SELECT DISTINCT R.ResLabCod AS ITEM                   
+   FROM RESINF AS R                                    
+ WHERE LTRIM(RTRIM(R.RESOCMNUM)) = '848181209'
+   AND R.RESLABCOD IN ('c3260-1','c3500-1','c3480-1','c3510-1','c3360-1','c3520-1','c3520-1','c3340-1','c3290-1')             
+   AND (R.RESREPTYP IS NULL OR R.RESREPTYP <> 'F')     
+   AND (R.RESRLTVAL = ''  OR R.RESRLTVAL IS NULL)      
+

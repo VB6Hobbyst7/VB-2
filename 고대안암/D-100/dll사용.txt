@@ -1,0 +1,21 @@
+<<<처방 조회>>>
+ExaminfoList2(in_spcid : string ; var out_order: variant) : Integer; StdCall;
+  - in_spcid   : 검체번호(바코드번호) (string) eg) 2120340300
+   - out_order(variant)
+           
+     eg) "2120340300|01696661|장영순|2008|2012-09-05|L2018|100|" 가 n회만큼 반복됨
+         "검체번호|환자번호|이름|처방순번|처방일자|검사코드|검체코드|" 
+       (바코드번호)
+
+ - 함수 Return값은 integer로 조회된 처방의 개수입니다. 
+
+ 
+
+ <<결과 등록>>
+ResultList2(out_eqipcode:string ; out_cnt:integer; out_Result : string) : Integer; StdCall;
+   - out_eqipcode : 장비코드(string) - 10자이내
+   - out_cnt      : 건수(integer)
+   - out_Result   : 결과
+     
+     eg) "2120340300|L2018|24|"
+         "바코드번호|검사코드|결과값|"
