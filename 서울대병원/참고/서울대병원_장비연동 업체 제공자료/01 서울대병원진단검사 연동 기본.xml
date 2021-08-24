@@ -1,0 +1,80 @@
+"http://hisinf.snuh.org/Interface/LISService.svc?wsdl"
+
+서울대병원은 웹서버가 운영/개발로 분리되어 있지 않고, URL은 위에 한 개 입니다.
+
+접속할 때 운영/개발은 구분하는 방법은
+
+XML 파라미터를 만들 때 "USERID" 태크에 값을 가지고 구분합니다.
+
+개발서버접속
+    <USERID><![CDATA[HIS_DEV]]></USERID>
+운영서버접속
+    <USERID><![CDATA[HIS]]></USERID>
+
+ 
+서비스 호출이름
+public string ServiceReturnCustomType(string sType, string sInputType, string sOutputType, string sEncYn, string sParam)
+
+ 
+
+sType 
+
+    "GETQUERY"  - 조회할 때
+
+    "SETQUERY" - 저장할 때
+
+ 
+
+sInputType
+
+    ""   또는 "JSON"  또는   "SPLIT"
+ 
+
+sEncYn
+
+    암호화여부
+
+ 
+
+sParam
+
+    sInputType에 따라 XML로 변환처리할 Query Param Infomation
+    하단 참조
+ 
+
+   
+
+    strXML = ""
+
+    strXML = strXML & "<?xml version='1.0' encoding='UTF-8'?>" & vbCrLf
+
+    strXML = strXML & "<NewDataSet>" & vbCrLf
+
+    strXML = strXML & "<Table>" & vbCrLf
+
+    strXML = strXML & "<QID><![CDATA[PKG_LAB.INTERFACE_I02]]></QID>" & vbCrLf
+
+    strXML = strXML & "<QTYPE><![CDATA[Package]]></QTYPE>" & vbCrLf
+
+    strXML = strXML & "<USERID><![CDATA[" & gsIFVar2 & "]]></USERID>" & vbCrLf
+
+    strXML = strXML & "<EXECTYPE><![CDATA[NONQUERY]]></EXECTYPE>" & vbCrLf
+
+    strXML = strXML & "<TABLENAME><![CDATA[]]></TABLENAME>" & vbCrLf
+
+    strXML = strXML & "<P0><![CDATA[" & gOrderTable.sSampID & "]]></P0>" & vbCrLf
+
+    strXML = strXML & "<P1><![CDATA[" & "" & "]]></P1>" & vbCrLf
+
+    strXML = strXML & "</Table>" & vbCrLf
+
+    strXML = strXML & "</NewDataSet>" & vbCrLf
+
+   
+
+예제]
+this.WcfService.ServiceReturnCustomType(sType, "", "XML", "N", strXML);
+
+
+
+

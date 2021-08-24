@@ -1,0 +1,23 @@
+Update LisiLib.Minterface 
+   Set Result      = '2' 
+     , Rltflag     = 'N'                       
+     , Updtdate    = (select substring(char(curdate()),1,4) || substring(char(curdate()),6,2) || substring(char(curdate()),9,2) || substring(char(curtime()),4,2) || substring(char(curtime()),7,2) || substring(char(curtime()),10,2) from sysibm.sysdummy1) 
+     , Testercode  = '72013'    
+     , Flag        = '2'                       
+     , Updtempl    = '72013'    
+ Where barcodeno   = '915199000220'      
+   And mcode       = 'ZH9'    
+   And itemcode    = '20250'
+
+Update HLISILIB.MINTERFACE  
+   Set Result      = '2' 
+     , Rltflag     = 'N'                       
+     , Updtdate    = (select substring(char(curdate()),1,4) || substring(char(curdate()),6,2) || substring(char(curdate()),9,2) || substring(char(curtime()),4,2) || substring(char(curtime()),7,2) || substring(char(curtime()),10,2) from sysibm.sysdummy1) 
+     , Testercode  = '72013'    
+     , Flag        = '2'                       
+     , Updtempl    = '72013'    
+ Where barcodeno   = '915199000220'      
+   And mcode       = 'B06'    
+   And itemcode    = '20250'
+
+915199000220,B06

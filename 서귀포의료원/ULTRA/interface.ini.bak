@@ -1,0 +1,65 @@
+[CONFIG]
+OCS=MEDIOUS
+Equip=ultra
+EquipCode=ULTRA
+QCEquip=EM017
+gPort=10
+gSpeed=19200
+gParity=N
+gDataBit=8
+gStopBit=1
+gStartBit=1
+gRTSEnable=TRUE
+gDTREnable=TRUE
+WaitTime = 30
+Handshaking=NONE
+InBUFFERSize=1024
+OutBUFFERSize=512
+RThreshold=1
+SThreshold=0
+InputLen=1
+ParityReplace=?
+CDTimeOut=0
+CTSTimeOut=0
+DSRTimeOut=0
+NullDiscard=Y
+ACKUse=0
+ComFormat=5
+;1:ASTM,2:AU,3:XE,4:URIN,5:ABGA
+ASTMFormat=1
+;1:Standard,2:Long
+OPTVersion=1.3
+GumPart=1
+IFMode=Barcode
+AutoSave=True
+IFScreen=통합
+UID=MLS01
+
+[WebServer]
+IP=10.14.1.105
+ID=ack
+PW=ack2003
+
+[DATABASE]
+DBTYPE=1
+server = m2
+uid = cli
+pwd = cli1993
+hostname = 
+
+[TCPIP]
+IP=127.0.0.1
+PORT=5150
+
+[RSTTYPE]
+TYPE=1
+## 1:정량,2:정성
+BARPOS=6
+CHALPOS1=3
+CHALPOS2=4
+QUALPOS=4
+QUANPOS=10
+
+[Server]
+IFUser=ultra
+

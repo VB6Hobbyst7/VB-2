@@ -1,0 +1,15 @@
+SELECT DISTINCT  B.slabw_date as HOSPDATE ,B.slabw_cham as BARCODE      , A.CHAM_WHANJA             AS PNAME    
+     , A.CHAM_JUMIN1             AS JUMIN1   
+     , A.CHAM_JUMIN2             AS JUMIN2   
+     , B.SLABW_INOUT             AS INOUT    
+  FROM BRWONMU..WCHAM  A, OSLABW B, OSLABWS C
+ Where B.SLABW_DATE = C.SLABWS_DATE
+  and A.CHAM_KEY          = B.slabw_cham
+  and B.slabw_status   = '1'
+  AND B.slabw_dept = C.slabws_dept
+  AND B.slabw_cnt = C.slabws_cnt
+  AND B.slabw_slab = C.slabws_slab
+  AND C.slabws_date >= '20210116'    
+  AND C.slabws_date <= '20210116'      
+  and C.slabws_momu IN ('D0100010')
+

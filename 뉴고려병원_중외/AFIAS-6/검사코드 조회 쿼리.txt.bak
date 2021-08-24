@@ -1,0 +1,37 @@
+//ocs 결과조회
+select * from 검사검체1v
+where 검체번호 = '02305365'
+
+//ocs 오더 내용
+select  b.검사기코드, c.품목명,  b.순번, a.* 
+from 검사검체1v a
+ , 검사기품목 b
+  , 진료용수가  c
+where a.검체번호 = '02305365'
+and a.품목코드 = b.품목코드
+and a.품목코드 = c.품목코드
+
+
+//장비코드
+select * from 검사기
+where 검사기코드 = 's02'
+
+
+//등록된 검사명 조회
+select b.품목명, a.* 
+from 검사기품목 a
+  , 진료용수가  b
+where a.검사기코드 = 's02'
+and a.품목코드 = b.품목코드
+
+
+select b.품목명, a.* 
+from 검사기품목 a
+  , 진료용수가  b
+where a.검사기코드 = 's02'
+and a.순번 = '35'
+and a.품목코드 = b.품목코드
+
+//ocs View 내용조회
+SELECT TEXT FROM user_views WHERE view_name = '검사검체1V'
+GO

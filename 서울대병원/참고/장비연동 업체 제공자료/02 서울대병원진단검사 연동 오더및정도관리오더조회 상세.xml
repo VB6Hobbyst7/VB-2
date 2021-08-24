@@ -1,0 +1,87 @@
+1. 검체번호로 오더 조회
+  queryid="PKG_LAB.INTERFACE_S29"
+  
+  첫번째 파라미터 IN_SPC_NO (검체코드)
+  두번째 파라미터 IN_STAT   (상태값)
+    상택밧은 (1 : 접수, 2 : 입력, 3 : 최종보고) 3개 값중 하나이거나 머지 가능 ( 머지할 때 예:   "1,2") 중간에 콤마 붙이고 공백없어야 함
+
+    output 목록 
+    PT_NO       : 환자번호
+    PATNAME     : 환자명
+    TST_CD      : 검사코드
+    AN          : 접수번호
+    DAY_YN      : 당일여부
+    ORD_SITE    : 오더발행처
+    TST_DTE     : 접수일시
+    TST_STAT    : 검사상태 (1 : 접수, 2 : 입력, 3 : 최종보고)
+    BIRTHDAY    : 생일
+    SEX         : 성별
+    RCNT_RSLT   : 이전결과
+
+2. 정도관리 목록조회
+
+    파라미터는 "03 서울대병원진단검사 연동 오더조회.xml" 파일 참조
+    
+    첫번째 파라미터 IN_SPC_NO     (검체코드)
+    두번째 파라미터 IN_EQUIP_CD   (장비코드)
+    세번째 파라미터 IN_TST_CD     (검사코드)
+
+    output 목록 
+    BRCD_SPCM_NO    : 검체번호
+    LOT_NO          : 로트번호
+    EXM_CD          : 검사코드
+    ACPT_DTE        : 일자
+    WRK_UNT         : 단위 (NULL)
+    TST_RSLT        : 결과 (NULL)
+
+
+4. 검사일자, 검사코드로 오더목록 조회
+  queryid="PKG_LAB.INTERFACE_S29"
+  
+  첫번째 파라미터       IN_ACPT_DTE 검사일자 (YYYY-MM-DD)
+  두번째 파라미터       IN_TST_CD   검사코드 (코드1,코드2,...)
+  세번째 파라미터       IN_FACNO    FROM 접수번호  ( 특별히 지정이 안되면 '0000')
+  네번째 파라미터       IN_TACNO    TO   접수번호  ( 특별히 지정이 안되면 '9999')
+  다섯번째 파라미터     IN_STAT     상태값은 (1 : 접수, 2 : 입력, 3 : 최종보고) 3개 값중 하나이거나 머지 가능 ( 머지할 때 예:   "1,2") 중간에 콤마 붙이고 공백없어야 함
+  여섯번째 파라미터     IN_HSPCL    병원코드
+
+    output 목록 
+    ACPT_DTE    : 검사일자
+    SPCM_NO     : 검체번호
+    PT_NO       : 환자번호
+    GNL_ITEM_CD : 접수번호
+    TST_STAT    : 상태
+    PT_NM       : 환자명
+
+5. 검사일자, 검사코드로 오더목록 조회
+  queryid="PKG_LAB.INTERFACE_S23"
+  
+  첫번째 파라미터       IN_FR_ACPT_DTE From 검사일자 (YYYY-MM-DD)
+  첫번째 파라미터       IN_TO_ACPT_DTE To   검사일자 (YYYY-MM-DD)
+  세번째 파라미터       IN_HSPCL         병원코드
+  네번째 파라미터       IN_TST_FRCT_CD   검사분류코드 (L25)
+  다섯번째 파라미터     IN_TST_CD   검사코드 (코드1,코드2,...)
+  여섯번째 파라미터     IN_FACNO    FROM 접수번호  ( 특별히 지정이 안되면 '0000')
+  일곱번째 파라미터     IN_TACNO    TO   접수번호  ( 특별히 지정이 안되면 '9999')
+  여덟번째 파라미터     IN_STAT     상태값은 (1 : 접수, 2 : 입력, 3 : 최종보고) 3개 값중 하나이거나 머지 가능 ( 머지할 때 예:   "1,2") 중간에 콤마 붙이고 공백없어야 함
+  
+
+    output 목록 
+    
+    ACPT_DTE    : 검사일자
+    ACPTNO_1    : 접수번호
+    PT_NO       : 환자번호
+    PATNAME     : 환자명
+    SEX         : 성별
+    AGE         : 나이
+    SPC_NO      : 검체번호
+    ORD_SITE    : 발행처
+    WRK_UNT_CD  : 작업코드
+    TST_CD      : 검사코드
+    TST_SNM     : 검사명
+    SPC_NM      : 검체명
+    TST_STAT    : 상태\
+    ACPT_DTETM  : 접수일시
+    DOCTORNOTE_YN : DOCTORNOTE_YN
+    SND_ARVL_NO_CNTE : SND_ARVL_NO_CNTE
+    DEXM_YENU   : 연번호

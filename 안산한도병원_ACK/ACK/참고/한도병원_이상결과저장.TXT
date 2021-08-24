@@ -1,0 +1,176 @@
+AbNormal 결과 저장 
+                
+                'AbNormal한 결과일 경우 C_AbNormal 테이블에 Insert & Update
+                If strJudge <> "" Or strPanic <> "" Or strDelta <> "" Then
+                    'AbNormalCd 판정
+                    strAbNormal = GetAbNormal(strJudge, strPanic, strDelta, "")
+                    '기존데이터 있는지 확인
+                    '키 : LABDATE, PARTGBN, LABSEQ, SPECIMENCD, TESTITEMSEQ,SUBMCD
+                    SQL = ""
+                    SQL = SQL & "Select COUNT(*) "
+                    SQL = SQL & "  From C_ABNORMAL"
+                    SQL = SQL & " Where LABDATE     = '" & strHospDate & "' " & vbCrLf
+                    SQL = SQL & "   And PARTGBN     = '" & strPartGbn & "'  " & vbCrLf
+                    SQL = SQL & "   And LABSEQ      = '" & strSubCode & "'  " & vbCrLf
+                    SQL = SQL & "   And SPECIMENCD  = '" & strSpcCd & "'    " & vbCrLf
+                    SQL = SQL & "   And TESTITEMSEQ = '" & strTestCd & "'   " & vbCrLf
+                    'SQL = SQL & "   And SUBMCD      = 'NNNN'" & vbCrLf
+                    '-- Record Count 가져옴
+                    AdoCn.CursorLocation = adUseClient
+                    Set RS_S = New ADODB.Recordset
+                    Set RS_S = AdoCn.Execute(SQL, , 1)
+                    If Not RS_S.EOF = True And Not RS_S.BOF = True Then
+                        If IsNull(RS_S.Fields("CNT")) Or RS_S.Fields("CNT") = 0 Then
+                            'Insert
+                            SQL = ""
+                            SQL = SQL & "Insert Into C_ABNORMAL ("
+                            SQL = SQL & " LABDATE"
+                            SQL = SQL & ",PARTGBN"
+                            SQL = SQL & ",LABSEQ"
+                            SQL = SQL & ",SPECIMENCD"
+                            SQL = SQL & ",TESTITEMSEQ"
+                            SQL = SQL & ",SUBMCD" & vbCrLf
+                            SQL = SQL & ",ABNORMALCD"
+                            SQL = SQL & ",RESULT"
+                            SQL = SQL & ",REFLOW"
+                            SQL = SQL & ",REFHIGH" & vbCrLf
+                            SQL = SQL & ",PANICLOW"
+                            SQL = SQL & ",PANICHIGH"
+                            SQL = SQL & ",DELTAGBN"
+                            SQL = SQL & ",DELTALOW"
+                            SQL = SQL & ",DELTAHIGH"
+                            SQL = SQL & ",CURRENTDEPTNM"
+                            SQL = SQL & ",CURRENTWARD"
+                            SQL = SQL & ",CURRENTDOCTOR"
+                            SQL = SQL & ",CURRENTJUBSUGBN"
+                            SQL = SQL & ",BEFORERESULT"
+                            SQL = SQL & ",BEFORELABNO"
+                            SQL = SQL & ",BEFOREDEPTNM"
+                            SQL = SQL & ",BEFOREWARD"
+                            SQL = SQL & ",BEFOREDOCTOR"
+                            SQL = SQL & ",BEFOREJUBSUGBN) " & vbCrLf
+                            SQL = SQL & " Values ("
+                            SQL = SQL & " '" & strHospDate & "'"
+                            SQL = SQL & ",'" & strPartGbn & "'"
+                            SQL = SQL & ",'" & strSubCode & "'"
+                            SQL = SQL & ",'" & strSpcCd & "'"
+                            SQL = SQL & ",'" & strTestCd & "'"
+                            SQL = SQL & ",'NNNN'"
+                            SQL = SQL & ",'" & strAbNormal & "'"
+                            SQL = SQL & ",'" & sResult & "'"
+                            SQL = SQL & ",'" & strRLow & "'"
+                            SQL = SQL & ",'" & strRHigh & "'"
+                            SQL = SQL & ",'" & strPLow & "'"
+                            SQL = SQL & ",'" & strPHigh & "'"
+                            SQL = SQL & ",'" & strDGbn & "'"
+                            SQL = SQL & ",'" & strDLow & "'"
+                            SQL = SQL & ",'" & strDHigh & "'"
+                            SQL = SQL & ",'" & strDept & "'"
+                            SQL = SQL & ",'" & strWard & "'"
+                            SQL = SQL & ",'" & strDoctor & "'"
+                            SQL = SQL & ",'" & strJubsuGbn & "'"
+                            SQL = SQL & ",'" & strBfResult & "'"
+                            SQL = SQL & ",'" & strBfLabNo & "'"
+                            SQL = SQL & ",'" & strBfDept & "'"
+                            SQL = SQL & ",'" & strBfWard & "'"
+                            SQL = SQL & ",'" & strBfDoctor & "'"
+                            SQL = SQL & ",'" & strBfJubsuGbn & "')" & vbCrLf
+                        Else
+                            'Update
+                            SQL = ""
+                            SQL = SQL & "Update C_ABNORMAL Set " & vbCrLf
+                            SQL = SQL & "    ABNORMALCD         = '" & strAbNormal & "'     " & vbCrLf
+                            SQL = SQL & "   ,RESULT             = '" & sResult & "'         " & vbCrLf
+                            SQL = SQL & "   ,REFLOW             = '" & strRLow & "'         " & vbCrLf
+                            SQL = SQL & "   ,REFHIGH            = '" & strRHigh & "'        " & vbCrLf
+                            SQL = SQL & "   ,PANICLOW           = '" & strPLow & "'         " & vbCrLf
+                            SQL = SQL & "   ,PANICHIGH          = '" & strPHigh & "'        " & vbCrLf
+                            SQL = SQL & "   ,DELTAGBN           = '" & strDGbn & "'         " & vbCrLf
+                            SQL = SQL & "   ,DELTALOW           = '" & strDLow & "'         " & vbCrLf
+                            SQL = SQL & "   ,DELTAHIGH          = '" & strDHigh & "'        " & vbCrLf
+                            SQL = SQL & "   ,CURRENTDEPTNM      = '" & strDept & "'         " & vbCrLf
+                            SQL = SQL & "   ,CURRENTWARD        = '" & strWard & "'         " & vbCrLf
+                            SQL = SQL & "   ,CURRENTDOCTOR      = '" & strDoctor & "'       " & vbCrLf
+                            SQL = SQL & "   ,CURRENTJUBSUGBN    = '" & strJubsuGbn & "'     " & vbCrLf
+                            SQL = SQL & "   ,BEFORERESULT       = '" & strBfResult & "'     " & vbCrLf
+                            SQL = SQL & "   ,BEFORELABNO        = '" & strBfLabNo & "'      " & vbCrLf
+                            SQL = SQL & "   ,BEFOREDEPTNM       = '" & strBfDept & "'       " & vbCrLf
+                            SQL = SQL & "   ,BEFOREWARD         = '" & strBfWard & "'       " & vbCrLf
+                            SQL = SQL & "   ,BEFOREDOCTOR       = '" & strBfDoctor & "'     " & vbCrLf
+                            SQL = SQL & "   ,BEFOREJUBSUGBN)    = '" & strBfJubsuGbn & "'   " & vbCrLf
+                            SQL = SQL & " Where LABDATE         = '" & strHospDate & "'     " & vbCrLf
+                            SQL = SQL & "   And PARTGBN         = '" & strPartGbn & "'      " & vbCrLf
+                            SQL = SQL & "   And LABSEQ          = '" & strSubCode & "'      " & vbCrLf
+                            SQL = SQL & "   And SPECIMENCD      = '" & strSpcCd & "'        " & vbCrLf
+                            SQL = SQL & "   And TESTITEMSEQ     = '" & strTestCd & "'       " & vbCrLf
+                            'SQL = SQL & "   And SUBMCD      ='NNNN'                 " & vbCrLf
+                        
+                        End If
+                    End If
+                    RS_S.Close
+                    
+                End If
+                
+                
+'AbNormalCd 판정
+Function GetAbNormal(ByVal pHL As String, ByVal pPanic As String, ByVal pDelta As String, ByVal pPositive As String) As String
+    Dim strHL       As String
+    Dim strPanic    As String
+    Dim strDelta    As String
+    Dim strPositive As String
+    
+    GetAbNormal = ""
+    
+    If pPositive = "Positive" Then
+        GetAbNormal = "16"
+    Else
+        If pHL = "L" Then
+            strHL = "1"
+            GetAbNormal = "1"
+        ElseIf pHL = "H" Then
+            strHL = "2"
+            GetAbNormal = "2"
+        Else
+            strHL = ""
+        End If
+        
+        If pPanic = "P" Then
+            strPanic = "4"
+            GetAbNormal = "4"
+        ElseIf pPanic = "" Then
+            strPanic = ""
+        End If
+        
+        If pDelta = "D" Then
+            strDelta = "8"
+            GetAbNormal = "8"
+        ElseIf pDelta = "" Then
+            strDelta = ""
+        End If
+        
+        If strHL = "L" And strPanic = "P" Then
+            GetAbNormal = "5"
+        End If
+        If strHL = "H" And strPanic = "P" Then
+            GetAbNormal = "6"
+        End If
+        If strDelta = "D" Then
+            GetAbNormal = "8"
+        End If
+        If strHL = "L" And strDelta = "D" Then
+            GetAbNormal = "9"
+        End If
+        If strHL = "H" And strDelta = "D" Then
+            GetAbNormal = "10"
+        End If
+        If strHL = "L" And strPanic = "P" And strDelta = "D" Then
+            GetAbNormal = "13"
+        End If
+        If strHL = "H" And strPanic = "P" And strDelta = "D" Then
+            GetAbNormal = "14"
+        End If
+    
+    End If
+    
+End Function
+                  

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00107">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetNmedWorkList2">
+    </action>
+    <input type="urlencoded">
+        <table id="workgbn" count_ref="nmedworksdd">            
+            <column id="nmedworksdd" 	desc="WL일자" 			ref="nmedworksdd"/>
+            <column id="nmedworkedd"    desc="WL일자"             ref="nmedworkedd"/>            
+            <column id="nmedsno" 		desc="WL번호시작"    		ref="nmedsno"/>
+            <column id="nmedeno"  		desc="WL번호종료"     	ref="nmedeno"/>
+            <column id="divgrupcd"  	desc="분주바코드그룹코드"	value="00"/>
+            <column id="tclscd"  		desc="검사항목코드"      	ref="tclscd"/>
+            <column id="userdeptflagcd"	desc="사용자부서코드" 		value="N"/>
+            <column id="eqmtcd"	desc="장비코드" 		ref="eqmtcd"/>
+            <column id="instcd" desc="기관코드"         ref="instcd"/>
+        </table>	
+    </input> 
+    <output path="root/spcworklist" type="xml">
+        <table id="worklist" count_ref="getNmedWorkList"> 
+        	<column id="workdd"       	type="cdata" 	desc="접수일자" 		ref="getNmedWorkList.workdd"/>
+        	<column id="bcno"   	 	type="cdata" 	desc="검체번호" 		ref="getNmedWorkList.bcno"/>
+        	<column id="pid"   	      	type="cdata" 	desc="등록번호" 		ref="getNmedWorkList.pid"/>
+            <column id="workno"   		type="cdata" 	desc="작업번호" 		ref="getNmedWorkList.workno"/> 
+            <column id="spcacptdt"    	type="cdata" 	desc="접수일시" 		ref="getNmedWorkList.spcacptdt"/>
+            <column id="nmedworkdd"   	type="cdata" 	desc="검체번호" 		ref="getNmedWorkList.nmedworkdd"/>   
+            <column id="nmedworkseq"	type="cdata" 	desc="검체번호" 		ref="getNmedWorkList.nmedworkseq"/>
+            <column id="patnm"   	  	type="cdata" 	desc="환자명" 		ref="getNmedWorkList.patnm"/>
+            <column id="sexage"    		type="cdata" 	desc="성별나이" 		ref="getNmedWorkList.sexage"/>                     
+            <column id="tclsscrnnm"	  	type="cdata" 	desc="검사항목명"		ref="getNmedWorkList.tclsscrnnm"/>
+            <column id="tclscd"			type="cdata" 	desc="검사코드"		ref="getNmedWorkList.tclscd"/>  
+            <column id="urinvol"			type="cdata" 	desc="유린값"		ref="getNmedWorkList.urinextrvol"/> 
+            <column id="testcnt"			type="cdata" 	desc="유린값"		ref="getNmedWorkList.testcnt"/> 
+            <column id="orddeptnm"			type="cdata" 	desc="유린값"		ref="getNmedWorkList.orddeptnm"/> 
+            <column id="bfreptrslt"			type="cdata" 	desc="유린값"		ref="getNmedWorkList.bfreptrslt"/> 
+            <column id="bflastreptdt"			type="cdata" 	desc="유린값"		ref="getNmedWorkList.bflastreptdt"/> 
+            <column id="nmeddilute"			type="cdata" 	desc="유린값(추가)"		ref="getNmedWorkList.nmeddilute"/>
+            <column id="nottest"			type="cdata" 	desc="유린값(추가)"		ref="getNmedWorkList.nottest"/>                  
+        </table>     
+    </output>
+</submit>

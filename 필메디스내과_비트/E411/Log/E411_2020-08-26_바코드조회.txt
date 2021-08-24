@@ -1,0 +1,13 @@
+SELECT DISTINCT        SUBSTRING(R.RESACPDTM,1,8)  AS HOSPDATE     
+     , R.RESSPMNUM                 AS BARCODE      
+     , R.RESCHTNUM                 AS CHARTNO      
+     , P.PBSPATNAM                 AS PNAME        
+     , R.RESLABCOD                 AS ITEM         
+  FROM RESINF AS R                                 
+     , PBSINF AS P                                 
+WHERE R.RESSPMNUM  = '191705-204506'          
+  AND R.RESCHTNUM  = P.PBSCHTNUM                   
+  AND R.RESLABCOD IN ('430','440','AFP','C3340a','C3360','C4712','C4812','C4872','CA19-9','CEA','CZ232','Ferr','HbsAb','T3a')          
+  AND (R.RESREPTYP IS NULL OR R.RESREPTYP <> 'F')  
+  AND (R.RESRLTVAL = ''  OR R.RESRLTVAL IS NULL)   
+

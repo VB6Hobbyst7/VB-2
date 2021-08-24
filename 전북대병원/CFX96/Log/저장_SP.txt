@@ -1,0 +1,2535 @@
+15:44:13 [prm2]20160406G200330
+15:44:13 [prm3]81210^B10▦
+15:44:13 [prm4]1
+15:44:13 [prm5]01756900
+15:44:13 [prm6]2.08X10^4▦
+15:44:13 [prm7]1
+15:44:13 [prm8]G0006
+15:44:13 [prm9]20572
+15:44:13 [prm10]192.1.106.178
+
+
+
+ 
+ 
+select * from lj010m
+ where substr(orddt,1,8) = '20160406'
+ 
+ 
+ 
+
+pkg_ack_exlab.exlabrsltsave
+
+SERVER =CUBISDB1
+DATABASE=
+UID =CUHLIS
+PWD =lisprod001
+
+
+  /**********************************************************************************************
+    *    서비스이름  : exlabrsltsave
+    *    최초 작성일 : 2012.04.24
+    *    최초 작성자 : 박푸름
+    *    수정일시    :
+    *    수정자      :
+    *    수정사유    :
+    *    파라메터    : in_testinfo(검사코드^검체코드|검사코드^검체코드|검사코드^검체코드)
+    *                : in_pid(환자번호)
+    *                : in_rslt(검사결과)
+    *                : in_rstflg(결과상태 : 1(결과저장), 2(중간보고), 3(최종보고)
+    *                : in_id(결과등록자ID)
+    *                : in_ip(결과등록 IP ADDRESS)
+    *    Description : 위탁결과등록 및 수정
+    **********************************************************************************************/
+    PROCEDURE exlabrsltsave (
+        in_hospcd      IN  VARCHAR2
+      , in_bcno        IN  VARCHAR2
+      , in_testinfo    IN  VARCHAR2
+      , in_totalcnt    IN  VARCHAR2
+      , in_pid         IN  VARCHAR2
+      , in_rsltinfo    IN  VARCHAR2
+      , in_rstflg      IN  VARCHAR2
+      , in_custcd      IN  VARCHAR2
+      , in_id          IN  VARCHAR2
+      , in_ip          IN  VARCHAR2
+    )
+    IS
+    wk_lisgbn              VARCHAR(1)           := '';
+    wk_cursor              cur_collector;
+    wk_bcclscd             LF010M.BCCLSCD%TYPE  := '';
+    wk_bcclsgbn            LF010M.BCCLSGBN%TYPE := '';
+    wk_cutopt              LF060M.CUTOPT%TYPE   := '';
+    wk_rsttype             LF060M.RSTTYPE%TYPE  := '';
+    wk_rstulen             LF060M.RSTULEN%TYPE  := 0;
+    wk_rstllen             LF060M.RSTLLEN%TYPE  := 0;
+    wk_numtype             VARCHAR2(1)          := '';
+
+
+
+    wk_addvalue            VARCHAR2(10)         := '';
+    wk_rslttemp            NUMERIC(20,10)       := 0.0;
+    wk_integer             VARCHAR2(50)         := '';        -- 결과값의 정수
+    wk_decimal             VARCHAR2(100)        := '';        -- 결과값의 소수
+    wk_position            NUMERIC(10)          := 0;
+    wk_dummy               VARCHAR2(1)          := '';
+    wk_rslt                LR010M.ORGRST%TYPE   := '';
+
+    wk_sex                 VARCHAR2(1)          := '';
+    wk_dage                NUMBER(10)            := 0;
+    wk_refl                LF061M.REFLM%TYPE    := '';
+    wk_refls               LF061M.REFLMS%TYPE   := '';
+    wk_refh                LF061M.REFHM%TYPE    := '';
+    wk_refhs               LF061M.REFHMS%TYPE   := '';
+    wk_reflt               LF061M.REFLT%TYPE    := '';
+    wk_refgbn              LF060M.REFGBN%TYPE   := '';
+
+    vc_testinfo_rowstr     VARCHAR2(4000)       := '';
+    vc_rsltinfo_rowstr     VARCHAR2(4000)       := '';
+    vc_testcd              LR010M.TESTCD%TYPE   := '';
+    vc_spccd               LR010M.SPCCD%TYPE    := '';
+    vc_rslt                LR010M.ORGRST%TYPE   := '';
+--    vc_vwrslt              LR010M.VIEWRST%TYPE   := '';
+    vc_hlmark              VARCHAR2(1)          := '';
+    vc_panicmark           VARCHAR2(2)          := '';
+    vc_deltamark           VARCHAR2(2)          := '';
+    vc_criticalmark        VARCHAR2(2)          := '';
+    vc_alertmark           VARCHAR2(2)          := '';
+    vc_amrmark             VARCHAR2(2)          := '';
+    vc_crrmark             VARCHAR2(3)          := '';
+
+    wk_panicgbn            LF060M.PANICGBN%TYPE      := '0';
+    wk_panicl              LF060M.PANICL%TYPE        := '0';
+    wk_panich              LF060M.PANICH%TYPE        := '0';
+    wk_deltagbn            LF060M.DELTAGBN%TYPE      := '0';
+    wk_deltal              LF060M.DELTAL%TYPE        := '0';
+    wk_deltah              LF060M.DELTAH%TYPE        := '0';
+    wk_deltaday            LF060M.DELTADAY%TYPE      := 0;
+    wk_criticalgbn         LF060M.CRITICALGBN%TYPE   := '0';
+    wk_criticall           LF060M.CRITICALL%TYPE     := '0';
+    wk_criticalh           LF060M.CRITICALH%TYPE     := '0';
+    wk_alertgbn            LF060M.ALERTGBN%TYPE      := '0';
+    wk_alertl              LF060M.ALERTL%TYPE        := '0';
+    wk_alerth              LF060M.ALERTH%TYPE        := '0';
+    wk_amrgbn              LF060M.AMRGBN%TYPE        := '0';
+    wk_amrl                LF060M.AMRL%TYPE          := '0';
+    wk_amrh                LF060M.AMRH%TYPE          := '0';
+    wk_crrgbn              LF060M.CRRGBN%TYPE        := '0';
+    wk_crrl                LF060M.CRRL%TYPE          := '0';
+    wk_crrh                LF060M.CRRH%TYPE          := '0';
+    wk_alimitgbn           LF060M.ALIMITGBN%TYPE     := '0';
+    wk_alimitl             LF060M.ALIMITL%TYPE       := '0';
+    wk_alimitls            LF060M.ALIMITLS%TYPE      := '0';
+    wk_alimith             LF060M.ALIMITH%TYPE       := '0';
+    wk_alimiths            LF060M.ALIMITHS%TYPE      := '0';
+    wk_grade               LF083M.GRADE%TYPE         := 0;
+    wk_oldgrade            LF083M.GRADE%TYPE         := 0;
+    wk_bffndt              LR010M.BFFNDT%TYPE        := '';
+    wk_bforgrst            LR010M.BFORGRST%TYPE      := '';
+    wk_judgtype            LF060M.JUDGTYPE%TYPE      := '0';
+    wk_ujudglt1            LF060M.UJUDGLT1%TYPE      := '';
+    wk_ujudglt2            LF060M.UJUDGLT2%TYPE      := '';
+    wk_ujudglt3            LF060M.UJUDGLT3%TYPE      := '';
+    wk_rstlvl              LF083M.RSTLVL%TYPE        := '';
+    wk_rstcont             LF083M.RSTCONT%TYPE       := '';
+    wk_numstate            VARCHAR2(01)              := 'N';
+    wk_numstate2           VARCHAR2(01)              := 'N';
+    wk_cmtcd               LF081M.CMTCD%TYPE         := '';
+    wk_cvtform             LF081M.CVTFORM%TYPE       := '';
+    wk_cmtcont             LF080M.CMTCONT%TYPE       := '';
+    wk_partcd              LF080M.PARTCD%TYPE        := '';
+    wk_slipcd              LF080M.SLIPCD%TYPE        := '';
+    wk_rstseq              LR040M.RSTSEQ%TYPE        := 0 ;
+
+    wk_rslttemp2           VARCHAR2(500)             := '';
+    wk_oldrslttemp2        VARCHAR2(500)             := '';
+    wk_datediff            NUMBER                    := 0;
+
+    wk_cvtrstcdseq         LF083M.RSTCDSEQ%TYPE      := 0 ;
+    wk_cvtrstform          LF084M.cvtform%TYPE       := '';
+    wk_cvtrstcont          LF083M.RSTCONT%TYPE       := '';
+    wk_cvttestcd           LF083M.TESTCD%TYPE        := '';
+
+    wk_smscmtcd            LF086M.CMTCD%TYPE         := '';
+    wk_smscvtform          LF086M.CVTFORM%TYPE       := '';
+    wk_smscmtcont          LF086M.CMTCONT%TYPE       := '';
+    wk_smstestcd           LF086M.TESTCD%TYPE        := '';
+    wk_smsmsg              VARCHAR2(4000)            := '';
+    wk_smstnmd             LF060M.TNMD%TYPE          := '';     -- YEJ 2014/03/05
+    wk_smscnt              NUMBER                    := '';     -- YEJ 2014/03/05
+    wk_smsdrid             LJ011M.ORGDOCTORCD%TYPE   := '';     -- YEJ 2014/03/05
+
+    wk_drphone             VARCHAR2(50)              := '';
+    wk_patnm               VARCHAR2(100)             := '';
+    wk_orddt               VARCHAR2(14)              := '';
+    wk_usrnm               VARCHAR2(100)             := '';
+    wk_tclscd              VARCHAR2(10)              := '';
+    wk_rstflg              VARCHAR2(1)               := '';
+
+    wk_minrstflg           VARCHAR2(1)               := '';
+    wk_maxrstflg           VARCHAR2(1)               := '';
+    rs_retval              VARCHAR2(500)             := '';
+    s_bfbcno               VARCHAR2(100)             := '';
+    s_bforgrst             VARCHAR2(500)             := '';
+    s_bfviewrst            VARCHAR2(500)             := '';
+    s_bfdt                 VARCHAR2(500)             := '';
+    s_retval               VARCHAR2(500)             := '';
+    s_eqcd                 VARCHAR2(10)              := '';
+    s_eqflg                VARCHAR2(1000)            := '';
+    vc_custcd              VARCHAR2(4000)            := '';
+    vc_msgerr              VARCHAR2(4000)            := '';
+
+    BEGIN
+
+        BEGIN
+            INSERT INTO LRT10M ( HOSPCD,       BCNO,    TESTINFO,    TOTCNT,                 ROWNO,  RGSTDT,                                RGSTID, RGSTIP, SEQ)
+                        VALUES ( in_rsltinfo,  in_bcno, in_testinfo, to_number(in_rstflg),   0,      TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),  '-',  '-',  SQ_LRT10M.NEXTVAL)
+            ;
+        EXCEPTION WHEN OTHERS THEN
+            BEGIN
+                vc_msgerr := '99'||SQLCODE||':'||SUBSTR(SQLERRM, 1, 100);
+
+                INSERT INTO LRT10M ( HOSPCD,               BCNO,    TESTINFO,    TOTCNT,      ROWNO,  RGSTDT,                                RGSTID, RGSTIP, SEQ)
+                            VALUES ( NVL(in_rsltinfo, 'B'), in_bcno, in_testinfo,   0,           0,      TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),  '-',  '-',  SQ_LRT10M.NEXTVAL)
+                ;
+            END;
+        END;
+
+
+        /* *************************************
+         * 일반결과 및 미생물결과 판단기준 분리
+         * ************************************* */
+        BEGIN
+            wk_bcclscd := SUBSTR(in_bcno, 9, 2);
+
+            /* ************************
+             * 미생물검체인지 판단하기
+             * ************************ */
+            BEGIN
+                SELECT z.bcclsgbn , z.lisgbn
+                  INTO wk_bcclsgbn, wk_lisgbn
+                  FROM (
+                        SELECT bcclsgbn, 'L' as lisgbn
+                          FROM LF010M z
+                         WHERE z.bcclscd = TRIM(wk_bcclscd)
+                         UNION
+                         SELECT bcclsgbn, 'R' as lisgbn
+                           FROM RF010M z
+                          WHERE z.bcclscd  = TRIM(wk_bcclscd)
+                        ) z
+                 ;
+
+                EXCEPTION
+                    WHEN OTHERS THEN
+                        RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(위탁결과등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+            END;
+        END;
+
+        FOR irowno IN 0..TO_NUMBER(in_totalcnt) -1  LOOP
+
+            /* ********************************************************************* */
+            vc_testinfo_rowstr := FN_ACK_COM_ARRAY_SPLITDATA(in_testinfo, irowno, '▦');
+            vc_rsltinfo_rowstr := FN_ACK_COM_ARRAY_SPLITDATA(in_rsltinfo, irowno, '▦');
+
+            /* ***************************************************************** */
+            vc_testcd := FN_ACK_COM_ARRAY_SPLITDATA(vc_testinfo_rowstr,  0, '^');            -- 검사코드
+            vc_spccd  := FN_ACK_COM_ARRAY_SPLITDATA(vc_testinfo_rowstr,  1, '^');            -- 검체코드
+
+            vc_rslt   := FN_ACK_COM_ARRAY_SPLITDATA(vc_rsltinfo_rowstr,  0, '^');            -- 검사결과
+
+           DBMS_OUTPUT.PUT_LINE('vc_testinfo_rowstr  -> ' || vc_testinfo_rowstr );
+           DBMS_OUTPUT.PUT_LINE('vc_testcd  -> ' || vc_testcd );
+           DBMS_OUTPUT.PUT_LINE('vc_rsltinfo_rowstr  -> ' || vc_rsltinfo_rowstr );
+           DBMS_OUTPUT.PUT_LINE('vc_rslt -> ' || vc_rslt);
+           DBMS_OUTPUT.PUT_LINE('wk_rstflg -> ' || wk_rstflg);
+
+
+           /*****************************************************************************/
+           --vc_custcd := FN_ACK_COM_ARRAY_SPLITDATA(in_custcd,  irowno, '▦');
+
+           vc_custcd := in_custcd ;
+
+--           IF irowno = 0 THEN
+--               s_eqcd    := FN_ACK_COM_ARRAY_SPLITDATA(vc_custcd,  0, '^');
+--           END IF;
+--
+--           IF  irowno = 0 THEN
+--               s_eqflg   := FN_ACK_COM_ARRAY_SPLITDATA(vc_custcd,  1, '^');
+--           ELSE
+--               s_eqflg   := vc_custcd;
+--           END IF;
+
+            IF irowno = 0 THEN
+                s_eqcd    := FN_ACK_COM_ARRAY_SPLITDATA(vc_custcd,  0, '^');
+            END IF;
+
+            IF  irowno = 0 THEN
+                s_eqflg := REPLACE(FN_ACK_COM_ARRAY_SPLITDATA(vc_custcd,  1, '^'),'▦',',');
+            ELSE
+                s_eqflg := '';
+            END IF;
+
+
+           /*******************************************************************************/
+            /* ****************************
+             * 결과값 숫자여부 검사
+             * **************************** */
+            BEGIN
+                wk_numstate  := 'N';        -- 초기화
+                wk_numstate2 := 'N';        -- 초기화
+
+                IF NVL(TRIM(TRANSLATE(vc_rslt, '1234567890.,', ' ')), '[null]')  = '[null]' THEN    -- 숫자결과
+                    BEGIN
+                        wk_numstate := 'Y';
+                    END;
+                END IF;
+            END;
+
+            /* *********************
+             * 올림/반올림 체크
+             * ********************* */
+            DBMS_OUTPUT.PUT_LINE('올림/반올림 체크 시작 ');
+            IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN
+                BEGIN
+                    BEGIN
+                        SELECT f060m.cutopt, f060m.rsttype, f060m.rstulen, f060m.rstllen
+                          INTO wk_cutopt,    wk_rsttype,    wk_rstulen,    wk_rstllen
+                          FROM LJ010M j010m
+                               INNER JOIN LM010M m010m
+                                       ON j010m.bcno    = m010m.bcno
+                                      AND m010m.testcd  = vc_testcd
+                                      AND m010m.spccd   = vc_spccd
+                               INNER JOIN LF060M f060m
+                                       ON m010m.testcd  = f060m.testcd
+                                      AND m010m.spccd   = f060m.spccd
+                                      AND j010m.bcprtdt BETWEEN f060m.usdt AND f060m.uedt
+                         WHERE j010m.bcno = in_bcno;
+                        EXCEPTION
+                            WHEN NO_DATA_FOUND THEN
+                                wk_cutopt := '';
+                    END;
+                END;
+            ELSE
+                BEGIN
+                    IF wk_lisgbn = 'L' THEN
+                        BEGIN
+                            DBMS_OUTPUT.PUT_LINE('올림/반올림 SELECT 시작 ');
+                            SELECT f060m.cutopt, f060m.rsttype, f060m.rstulen, f060m.rstllen, r010m.tclscd
+                              INTO wk_cutopt,    wk_rsttype,    wk_rstulen,    wk_rstllen,  wk_tclscd
+                              FROM LJ010M j010m
+                                   INNER JOIN LR010M r010m
+                                           ON j010m.bcno    = r010m.bcno
+                                          AND r010m.testcd  = vc_testcd
+                                          AND r010m.spccd   = vc_spccd
+                                   INNER JOIN LF060M f060m
+                                           ON r010m.testcd  = f060m.testcd
+                                          AND r010m.spccd   = f060m.spccd
+                                          AND j010m.bcprtdt BETWEEN f060m.usdt AND f060m.uedt
+                             WHERE j010m.bcno = in_bcno;
+                            DBMS_OUTPUT.PUT_LINE('올림/반올림 SELECT  끝');
+                            EXCEPTION
+                                WHEN NO_DATA_FOUND THEN
+                                    wk_cutopt := '';
+                        END;
+                    ELSE
+                        BEGIN
+                            DBMS_OUTPUT.PUT_LINE('올림/반올림 SELECT 시작 ');
+                            SELECT f060m.cutopt, f060m.rsttype, f060m.rstulen, f060m.rstllen, r010m.tclscd
+                              INTO wk_cutopt,    wk_rsttype,    wk_rstulen,    wk_rstllen,  wk_tclscd
+                              FROM RJ010M j010m
+                                   INNER JOIN RR010M r010m
+                                           ON j010m.hgbn    = r010m.hgbn
+                                          AND j010m.bcno    = r010m.bcno
+                                          AND r010m.testcd  = vc_testcd
+                                          AND r010m.spccd   = vc_spccd
+                                   INNER JOIN RF060M f060m
+                                           ON r010m.hgbn    = f060m.hgbn
+                                          AND r010m.testcd  = f060m.testcd
+                                          AND r010m.spccd   = f060m.spccd
+                                          AND j010m.bcprtdt BETWEEN f060m.usdt AND f060m.uedt
+                             WHERE j010m.bcno = in_bcno;
+                            DBMS_OUTPUT.PUT_LINE('올림/반올림 SELECT  끝');
+                            EXCEPTION
+                                WHEN NO_DATA_FOUND THEN
+                                    wk_cutopt := '';
+                        END;
+
+                    END IF;
+                END;
+            END IF;
+
+
+            wk_numtype := '-';
+
+            /* ************************************************
+             * 올림/반올림 계산( 결과유형(0:문자+숫자,1:숫자) )
+             * ************************************************ */
+            BEGIN
+                IF NVL(wk_rsttype, '-') = '1' THEN
+                    BEGIN
+                        IF NVL(TRIM(vc_rslt), ' ') = ' ' THEN    -- 결과 없는 경우
+                            BEGIN
+                                wk_dummy := '';
+                            END;
+                        ELSE
+                            BEGIN
+                                 IF  NVL(TRIM(TRANSLATE(vc_rslt, '1234567890.,', ' ')), '[null]')  = '[null]' THEN    -- 숫자결과
+                                     wk_numtype := 'N';
+
+                                     /* **************************************************** */
+                                     IF LENGTH(TRIM(TO_CHAR(FLOOR(vc_rslt)))) > wk_rstulen THEN
+                                         BEGIN
+                                             RAISE_APPLICATION_ERROR(-20553, '결과 정수크기 '||wk_rstulen||' 보다 큰값이 입력되었습니다!(PKG_ACK_EXLAB.exlabrsltsave) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                                         END;
+                                     END IF;
+                                 ELSE
+                                     RAISE_APPLICATION_ERROR(-20553, '숫자 결과만 입력할 수 있습니다!(PKG_ACK_EXLAB.exlabrsltsave) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                                 END IF;
+                            END;
+                        END IF;
+                    END;
+                ELSIF NVL(wk_rsttype, '-') = '0' THEN    -- 문자+숫자
+                    BEGIN
+                        IF NVL(TRIM(vc_rslt), ' ') = ' ' THEN    -- 결과 없는 경우
+                            BEGIN
+                                wk_dummy := '';
+                            END;
+                        ELSE
+                            BEGIN
+                                 IF  NVL(TRIM(TRANSLATE(vc_rslt, '1234567890.,', ' ')), '[null]')  = '[null]' THEN    -- 숫자결과
+                                     BEGIN
+                                         wk_numtype := 'N';
+
+                                     END;
+                                 ELSE
+                                     wk_numtype := 'C';
+                                 END IF;
+                            END;
+                        END IF;
+                    END;
+                END IF;
+            END;
+
+            /* *********** */
+            wk_position := 0;
+            wk_rslt     := vc_rslt;
+
+            DBMS_OUTPUT.PUT_LINE('vc_rslt zz -> ' || vc_rslt);
+            DBMS_OUTPUT.PUT_LINE('wk_rstflg -> ' || wk_rstflg);
+
+            IF NVL(wk_numtype, '-') = 'N' THEN        -- N:숫자, C:문자
+                BEGIN
+                    wk_position := instrb(vc_rslt, '.');
+                    DBMS_OUTPUT.PUT_LINE('vc_rslt 00-> ' || vc_rslt);
+                    IF NVL(wk_position, 0) > 0 THEN        -- 소숫점 문자('.')가 있는 경우
+                        BEGIN
+                            wk_integer  := substrb(vc_rslt, 0, wk_position-1);
+
+                            IF LENGTHB(vc_rslt) > wk_position THEN     -- 소숫점만 있고 소수값은 없는 경우
+                                BEGIN
+                                    wk_decimal  := substrb(vc_rslt, wk_position+1, LENGTHB(vc_rslt) );
+                                END;
+                            ELSE
+                                BEGIN
+                                     wk_decimal  := '';
+                                END;
+                            END IF;
+                        END;
+                    ELSE
+                        BEGIN
+                            wk_integer := vc_rslt;
+                            wk_decimal := '';
+                        END;
+                    END IF;
+                    DBMS_OUTPUT.PUT_LINE('vc_rslt 0-> ' || vc_rslt);
+                    /* ***************************** */
+                    IF NVL(wk_decimal, '-') <> '-' THEN    -- 소숫점값이 있을 경우만 처리
+                        BEGIN
+                            IF NVL(wk_cutopt, '-') = '0' THEN        -- 0.변환없음
+                                BEGIN
+                                    wk_rslttemp := TO_NUMBER(vc_rslt);
+                                END;
+                            ELSIF NVL(wk_cutopt, '-') = '1' THEN    -- 1.올림
+                                BEGIN
+                                    wk_decimal  := SUBSTRB(wk_decimal, 0, wk_rstllen)||'9';
+                                    wk_rslttemp := TO_NUMBER( wk_integer||'.'||wk_decimal, wk_rstllen+1);
+                                END;
+                            ELSIF NVL(wk_cutopt, '-') = '2' THEN    -- 2.반올림
+                                BEGIN
+                                   IF wk_rstllen = 0 THEN
+                                        wk_rslttemp := 0 || ROUND( vc_rslt, wk_rstllen+1);
+                                   ELSE
+                                        wk_rslttemp := ROUND( vc_rslt, wk_rstllen+1);
+                                   END IF;
+                                END;
+                            ELSIF NVL(wk_cutopt, '-') = '3' THEN    -- 3.내림
+                                BEGIN
+                                    wk_decimal := TRUNC(wk_decimal, wk_rstllen);
+                                END;
+                            END IF;
+
+                            /* ************************** */
+
+                            wk_rslt := TO_CHAR(wk_rslttemp);
+
+                            IF SUBSTR(wk_rslt, 1, 1) = '.' THEN
+                                wk_rslt := '0' || wk_rslt;
+                            ELSE
+                                wk_rslt := wk_rslt;
+                            END IF;
+
+                           IF NVL(wk_cutopt, '-') = '0' THEN
+                               wk_rslt :=   vc_rslt;
+                           END IF;
+
+                        END;
+                    ELSE
+                        BEGIN
+                            wk_rslt := wk_integer;
+                        END;
+                    END IF;
+                    DBMS_OUTPUT.PUT_LINE('vc_rslt -> 1 ' || vc_rslt);
+                END;
+            END IF;
+
+
+             /* **************************
+             *   High / Low 값 검색
+             * ************************** */
+            BEGIN
+                IF wk_lisgbn = 'L' THEN
+                    SELECT sex,    dage
+                      INTO wk_sex, wk_dage
+                      FROM LJ010M
+                     WHERE BCNO   = in_bcno;
+                ELSE
+                    SELECT sex,    dage
+                      INTO wk_sex, wk_dage
+                      FROM RJ010M
+                     WHERE BCNO   = in_bcno;
+                END IF;
+
+  --               RAISE_APPLICATION_ERROR (-20553,'AA');
+
+                EXCEPTION
+                    WHEN OTHERS THEN
+                        RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(HIGH/LOW검색오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+            END;
+
+
+            BEGIN
+                IF wk_lisgbn = 'L' THEN
+                    DBMS_OUTPUT.PUT_LINE('wk_dage ' || wk_dage);
+                    SELECT CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.reflf  ELSE f61.reflm  END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.reflfs ELSE f61.reflms END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.refhf  ELSE f61.refhm  END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.refhfs ELSE f61.refhms END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.reflt  ELSE f61.reflt  END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f60.refgbn ELSE f60.refgbn END
+                      INTO wk_refl,     wk_refls,     wk_refh,     wk_refhs,     wk_reflt  , wk_refgbn
+                      FROM lf061m f61
+                           INNER JOIN lf060m f60
+                                   ON f60.testcd  = f61.testcd
+                                  AND f60.spccd   = f61.spccd
+                                  AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                  AND f60.usdt    = f61.usdt
+                     WHERE f61.testcd   = vc_testcd
+                       AND f61.spccd    = vc_spccd
+                       AND ROUND(f61.sagec * 365) + (f61.SAGES * 0.1) <= wk_dage
+                       AND wk_dage <= ROUND(f61.eagec * 365) - (f61.eages * 0.1)
+                        ;
+                ELSE
+                    SELECT CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.reflf  ELSE f61.reflm  END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.reflfs ELSE f61.reflms END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.refhf  ELSE f61.refhm  END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.refhfs ELSE f61.refhms END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f61.reflt  ELSE f61.reflt  END
+                         , CASE WHEN NVL(wk_sex, 'M') = 'F' THEN f60.refgbn ELSE f60.refgbn END
+                      INTO wk_refl,     wk_refls,     wk_refh,     wk_refhs,     wk_reflt  , wk_refgbn
+                      FROM rf061m f61
+                           INNER JOIN rf060m f60
+                                   ON f60.testcd  = f61.testcd
+                                  AND f60.spccd   = f61.spccd
+                                  AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                  AND f60.usdt    = f61.usdt
+                     WHERE f61.testcd   = vc_testcd
+                       AND f61.spccd    = vc_spccd
+                       AND ROUND(f61.sagec * 365) + (f61.SAGES * 0.1) <= wk_dage
+                       AND wk_dage <= ROUND(f61.eagec * 365) - (f61.eages * 0.1)
+                        ;
+
+                END IF;
+
+                    DBMS_OUTPUT.PUT_LINE('wk_refl ' || wk_refl);
+                    DBMS_OUTPUT.PUT_LINE('wk_refls' || wk_refls);
+                    DBMS_OUTPUT.PUT_LINE('wk_refh'  || wk_refh);
+                    DBMS_OUTPUT.PUT_LINE('wk_refhs' || wk_refhs);
+                    DBMS_OUTPUT.PUT_LINE('wk_reflt' || wk_reflt);
+                    DBMS_OUTPUT.PUT_LINE('wk_refgbn' || wk_refgbn);
+
+                EXCEPTION
+                    WHEN NO_DATA_FOUND THEN
+                         wk_refl :='';
+                    WHEN OTHERS THEN
+                        RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(참고치 검색오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+            END;
+
+
+            BEGIN
+                vc_hlmark       := '';
+                vc_panicmark    := '';        -- 초기화
+                vc_deltamark    := '';
+                vc_criticalmark := '';
+                vc_alertmark    := '';
+                vc_amrmark      := '';
+                vc_crrmark      := '';
+            END;
+             DBMS_OUTPUT.PUT_LINE('wk_numstate :' ||wk_numstate);
+             DBMS_OUTPUT.PUT_LINE('wk_refgbn   :' ||wk_refgbn);
+             DBMS_OUTPUT.PUT_LINE('vc_rslt   :' ||vc_rslt);
+             DBMS_OUTPUT.PUT_LINE('wk_rstflg -> ' || wk_rstflg);
+            /* **************************
+             * HIGH/LOW 체크
+             * ************************** */
+            BEGIN
+                IF wk_numstate = 'Y' THEN
+                    BEGIN
+                        IF NVL(wk_refgbn, '-') = '0' THEN
+                            BEGIN
+                                vc_hlmark := '';
+                            END;
+                        ELSIF NVL(wk_refgbn, '-') = '1' THEN    -- 문자
+                            BEGIN
+                                vc_hlmark := '';
+                            END;
+                        ELSE
+                            BEGIN
+                                DBMS_OUTPUT.PUT_LINE('TO_NUMBER vc_rslt   :' ||TO_NUMBER( NVL(vc_rslt, '0') ));
+                                DBMS_OUTPUT.PUT_LINE('wk_refls   :' ||wk_refls);
+                                IF (wk_refls = '0') OR  (wk_refhs='0') THEN
+                                    BEGIN
+                                        IF TO_NUMBER( NVL(vc_rslt, '0') )  < wk_refl THEN
+                                            BEGIN
+                                                vc_hlmark := 'L';
+                                            END;
+                                        END IF;
+
+                                        DBMS_OUTPUT.PUT_LINE('TO_NUMBER vc_rslt   :' ||TO_NUMBER( NVL(vc_rslt, '0') ));
+                                        DBMS_OUTPUT.PUT_LINE('wk_refh   :' ||wk_refh);
+                                        IF TO_NUMBER( NVL(vc_rslt, '0') )  > wk_refh THEN
+                                            BEGIN
+                                                vc_hlmark := 'H';
+                                            END;
+                                        END IF;
+
+                                    END;
+                                ELSIF  (wk_refls = '1') OR  (wk_refhs='1')  THEN
+                                    BEGIN
+                                        IF TO_NUMBER( NVL(vc_rslt, '0') )  <= wk_refl THEN
+                                            BEGIN
+                                                vc_hlmark := 'L';
+                                            END;
+                                        END IF;
+
+                                        IF TO_NUMBER( NVL(vc_rslt, '0') )  >= wk_refh THEN
+                                            BEGIN
+                                                vc_hlmark := 'H';
+                                            END;
+                                        END IF;
+                                    END;
+                                END IF;    -- IF wk_refls = '0' THEN
+                            END;
+                        END IF;    -- IF NVL(wk_refgbn, '-') = '0' THEN
+                    END;
+                ELSE
+                    BEGIN
+                        vc_hlmark := '';
+                    END;
+                END IF;    -- IF wk_numstate = 'Y' THEN
+            END;
+
+
+            /* **************************
+             * PANIC 체크
+             * ************************** */
+            BEGIN
+                IF wk_lisgbn = 'L' THEN
+                    FOR cur_panic IN (
+                                        SELECT f60.panicgbn,       f60.panicl,       f60.panich
+                                             , f60.deltagbn,       f60.deltal,       f60.deltah,      f60.deltaday
+                                             , f60.criticalgbn,    f60.criticall,    f60.criticalh
+                                             , f60.alertgbn,       f60.alertl,       f60.alerth
+                                             , f60.amrgbn,         f60.amrl,         f60.amrh
+                                             , f60.crrgbn,         f60.crrl,         f60.crrh
+                                             , f60.alimitgbn,      f60.alimitl,      f60.alimitls,    f60.alimith, f60.alimiths
+                                             , f83.grade,          f83.rstlvl,       f83.rstcont,     r10.bffndt,  r10.bforgrst
+                                          FROM LF060M f60
+                                               INNER JOIN lr010m r10
+                                                       ON  r10.bcno   = in_bcno
+                                                      AND  r10.testcd = f60.testcd
+                                                      AND  r10.spccd  = f60.spccd
+                                               LEFT OUTER JOIN LF083M f83
+                                                       ON f60.testcd = f83.testcd
+                                                      AND f60.spccd  = f83.spccd
+                                         WHERE f60.testcd = vc_testcd
+                                           AND f60.spccd  = vc_spccd
+                                           AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                         ORDER BY f60.testcd, f60.spccd, f83.rstcdseq
+                                     )
+                    LOOP
+                        BEGIN
+
+--                            IF vc_rslt = cur_panic.rstcont THEN    -- 검사결과가 결과코드(예문)가 같은경우 처리
+                                BEGIN
+                                    wk_panicgbn     := cur_panic.panicgbn;
+                                    wk_panicl       := cur_panic.panicl;
+                                    wk_panich       := cur_panic.panich;
+                                    wk_deltagbn     := cur_panic.deltagbn;
+                                    wk_deltal       := cur_panic.deltal;
+                                    wk_deltah       := cur_panic.deltah;
+                                    wk_deltaday     := to_number(cur_panic.deltaday);
+                                    wk_criticalgbn  := cur_panic.criticalgbn;
+                                    wk_criticall    := cur_panic.criticall;
+                                    wk_criticalh    := cur_panic.criticalh;
+                                    wk_alertgbn     := cur_panic.alertgbn;
+                                    wk_alertl       := cur_panic.alertl;
+                                    wk_alerth       := cur_panic.alerth;
+                                    wk_amrgbn       := cur_panic.amrgbn;
+                                    wk_amrl         := cur_panic.amrl;
+                                    wk_amrh         := cur_panic.amrh;
+                                    wk_crrgbn       := cur_panic.crrgbn;
+                                    wk_crrl         := cur_panic.crrl;
+                                    wk_crrh         := cur_panic.crrh;
+                                    wk_alimitgbn    := cur_panic.alimitgbn;
+                                    wk_alimitl      := cur_panic.alimitl;
+                                    wk_alimitls     := cur_panic.alimitls;
+                                    wk_alimith      := cur_panic.alimith;
+                                    wk_alimiths     := cur_panic.alimiths;
+                                    wk_grade        := cur_panic.grade;
+                                    wk_bffndt       := cur_panic.bffndt;
+                                    wk_bforgrst     := cur_panic.bforgrst;
+                                    wk_grade        := cur_panic.grade;
+                                    wk_rstcont      := cur_panic.rstcont;
+
+                                END;
+--                            END IF;
+                        END;
+
+                    END LOOP;
+
+
+                                        FOR cur_bfrst IN (
+                                                            SELECT f83.grade,          f83.rstlvl,       f83.rstcont,     r10.bffndt,  r10.bforgrst
+                                                              FROM LF060M f60
+                                                                   INNER JOIN lr010m r10
+                                                                           ON  r10.bcno   = in_bcno
+                                                                          AND  r10.testcd = f60.testcd
+                                                                          AND  r10.spccd  = f60.spccd
+                                                                   LEFT OUTER JOIN LF083M f83
+                                                                           ON f60.testcd = f83.testcd
+                                                                          AND f60.spccd  = f83.spccd
+                                                             WHERE f60.testcd = vc_testcd
+                                                               AND f60.spccd  = vc_spccd
+                                                               AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                                             ORDER BY f60.testcd, f60.spccd, f83.rstcdseq
+                                                         )
+                                        LOOP
+                                            BEGIN
+
+                                                IF wk_bforgrst = cur_bfrst.rstcont THEN    -- 이전 검사결과가 결과코드(예문)가 같은경우 처리
+                                                    BEGIN
+                                                        wk_oldgrade := cur_bfrst.grade;
+                                                        EXIT ;
+
+                                                    END;
+                                                END IF;
+                                            END;
+
+                                        END LOOP;
+
+
+                ELSE
+                    FOR cur_panic IN (
+                                        SELECT f60.panicgbn,       f60.panicl,       f60.panich
+                                             , f60.deltagbn,       f60.deltal,       f60.deltah,      f60.deltaday
+                                             , f60.criticalgbn,    f60.criticall,    f60.criticalh
+                                             , f60.alertgbn,       f60.alertl,       f60.alerth
+                                             , f60.amrgbn,         f60.amrl,         f60.amrh
+                                             , f60.crrgbn,         f60.crrl,         f60.crrh
+                                             , f60.alimitgbn,      f60.alimitl,      f60.alimitls,    f60.alimith, f60.alimiths
+                                             , f83.grade,          f83.rstlvl,       f83.rstcont,     r10.bffndt,  r10.bforgrst
+                                          FROM RF060M f60
+                                               INNER JOIN RR010M r10
+                                                       ON  r10.bcno   = in_bcno
+                                                      AND  r10.hgbn   = f60.hgbn
+                                                      AND  r10.testcd = f60.testcd
+                                                      AND  r10.spccd  = f60.spccd
+                                               LEFT OUTER JOIN rF083M f83
+                                                       ON f60.hgbn   = f83.hgbn
+                                                      AND f60.testcd = f83.testcd
+                                                      AND f60.spccd  = f83.spccd
+                                         WHERE f60.hgbn   = (SELECT clscd FROM lf000m where clsgbn ='00')
+                                           AND f60.testcd = vc_testcd
+                                           AND f60.spccd  = vc_spccd
+                                           AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                         ORDER BY f60.testcd, f60.spccd, f83.rstcdseq
+                                     )
+                    LOOP
+                        BEGIN
+
+                            IF vc_rslt = cur_panic.rstcont THEN    -- 검사결과가 결과코드(예문)가 같은경우 처리
+                                BEGIN
+                                    wk_panicgbn     := cur_panic.panicgbn;
+                                    wk_panicl       := cur_panic.panicl;
+                                    wk_panich       := cur_panic.panich;
+                                    wk_deltagbn     := cur_panic.deltagbn;
+                                    wk_deltal       := cur_panic.deltal;
+                                    wk_deltah       := cur_panic.deltah;
+                                    wk_deltaday     := to_number(cur_panic.deltaday);
+                                    wk_criticalgbn  := cur_panic.criticalgbn;
+                                    wk_criticall    := cur_panic.criticall;
+                                    wk_criticalh    := cur_panic.criticalh;
+                                    wk_alertgbn     := cur_panic.alertgbn;
+                                    wk_alertl       := cur_panic.alertl;
+                                    wk_alerth       := cur_panic.alerth;
+                                    wk_amrgbn       := cur_panic.amrgbn;
+                                    wk_amrl         := cur_panic.amrl;
+                                    wk_amrh         := cur_panic.amrh;
+                                    wk_crrgbn       := cur_panic.crrgbn;
+                                    wk_crrl         := cur_panic.crrl;
+                                    wk_crrh         := cur_panic.crrh;
+                                    wk_alimitgbn    := cur_panic.alimitgbn;
+                                    wk_alimitl      := cur_panic.alimitl;
+                                    wk_alimitls     := cur_panic.alimitls;
+                                    wk_alimith      := cur_panic.alimith;
+                                    wk_alimiths     := cur_panic.alimiths;
+                                    wk_grade        := cur_panic.grade;
+                                    wk_bffndt       := cur_panic.bffndt;
+                                    wk_bforgrst     := cur_panic.bforgrst;
+                                    wk_grade        := cur_panic.grade;
+                                    wk_rstcont      := cur_panic.rstcont;
+
+                                END;
+                            END IF;
+                        END;
+
+                    END LOOP;
+
+
+                                        FOR cur_bfrst IN (
+                                                            SELECT f83.grade,          f83.rstlvl,       f83.rstcont,     r10.bffndt,  r10.bforgrst
+                                                              FROM RF060M f60
+                                                                   INNER JOIN  rr010m r10
+                                                                           ON  r10.bcno   = in_bcno
+                                                                          AND  r10.hgbn   = f60.hgbn
+                                                                          AND  r10.testcd = f60.testcd
+                                                                          AND  r10.spccd  = f60.spccd
+                                                                   LEFT OUTER JOIN RF083M f83
+                                                                           ON f60.hgbn   = f83.hgbn
+                                                                          AND f60.testcd = f83.testcd
+                                                                          AND f60.spccd  = f83.spccd
+                                                             WHERE f60.hgbn   = (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                                               AND f60.testcd = vc_testcd
+                                                               AND f60.spccd  = vc_spccd
+                                                               AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                                             ORDER BY f60.testcd, f60.spccd, f83.rstcdseq
+                                                         )
+                                        LOOP
+                                            BEGIN
+
+                                                IF wk_bforgrst = cur_bfrst.rstcont THEN    -- 이전 검사결과가 결과코드(예문)가 같은경우 처리
+                                                    BEGIN
+                                                        wk_oldgrade := cur_bfrst.grade;
+                                                        EXIT ;
+
+                                                    END;
+                                                END IF;
+                                            END;
+
+                                        END LOOP;
+
+
+                END IF;
+
+
+                DBMS_OUTPUT.PUT_LINE('wk_panicgbn -> ' || wk_panicgbn);
+                DBMS_OUTPUT.PUT_LINE('wk_rstflg -> ' || wk_rstflg);
+
+                IF NVL(wk_panicgbn, '-') IN ('4', '5', '6') THEN
+                    BEGIN
+
+                        IF NVL(wk_panicgbn, '-') IN ('4', '6') THEN       -- PANIC LOW만 사용(GRADE)
+                            BEGIN
+                                IF NVL(wk_grade, 0) < wk_panicl THEN
+                                    BEGIN
+                                        vc_panicmark := 'P';
+                                    END;
+                                END IF;
+                            END;
+                        END IF;
+
+                        IF NVL(wk_panicgbn, '-') IN ('5', '6') THEN       -- PANIC HIGH만 사용(GRADE)
+
+                            BEGIN
+                                IF NVL(wk_grade, 0) > wk_panich THEN
+                                    BEGIN
+                                        vc_panicmark := 'P';
+                                    END;
+                                END IF;
+                            END;
+                        END IF;
+                    END;
+
+                ELSIF NVL(wk_panicgbn, '-') IN ('1', '2', '3') THEN
+                    DBMS_OUTPUT.PUT_LINE('wk_panicgbn -> ' || '1,2,3');
+                    BEGIN
+                        IF wk_numstate = 'Y' THEN    -- 숫자결과
+                            DBMS_OUTPUT.PUT_LINE('wk_numstate -> ' || 'Y');
+                            DBMS_OUTPUT.PUT_LINE('vc_rslt    -> ' || vc_rslt);
+                            DBMS_OUTPUT.PUT_LINE('wk_panicl    -> ' || wk_panicl);
+                            BEGIN
+
+                                IF NVL(wk_panicgbn, '-') IN ('1', '3') THEN       -- PANIC LOW만 사용(GRADE)
+                                   BEGIN
+                                       IF TO_NUMBER( NVL(vc_rslt, '0') ) < wk_panicl THEN
+                                           DBMS_OUTPUT.PUT_LINE('wk_panicl> vc_rslt   -> ' || vc_rslt);
+                                           BEGIN
+                                               vc_panicmark := 'P';
+                                           END;
+                                       END IF;
+                                   END;
+                                END IF;
+
+                                IF NVL(wk_panicgbn, '-') IN ('2', '3') THEN       -- PANIC HIGH만 사용(GRADE)
+                                    BEGIN
+                                        IF TO_NUMBER( NVL(vc_rslt, '0') ) > wk_panich THEN
+                                            BEGIN
+                                                vc_panicmark := 'P';
+                                            END;
+                                        END IF;
+                                    END;
+                                END IF;
+
+                            END;
+                        END IF;    -- IF wk_numstate = 'Y' THEN
+                    END;
+                ELSE
+                    BEGIN
+                        vc_panicmark := '';
+                    END;
+                END IF;    -- IF NVL(wk_panicgbn, '-') IN ('4', '5', '6') THEN
+            END;
+
+            /* **************************
+             * 사용자 정의  체크
+             * ************************** */
+            BEGIN
+
+                DBMS_OUTPUT.PUT_LINE('wk_refgbn   :' ||wk_refgbn);
+                DBMS_OUTPUT.PUT_LINE('vc_testcd   :' ||vc_testcd);
+
+                IF NVL(wk_refgbn,'-') IN ('1','2') THEN
+                    BEGIN
+                        IF wk_lisgbn = 'L' THEN
+                            BEGIN
+                                -- 판정유형 조회
+                                SELECT f60.judgtype, f60.ujudglt1, f60.ujudglt2, f60.ujudglt3
+                                  INTO wk_judgtype,  wk_ujudglt1,  wk_ujudglt2,  wk_ujudglt3
+                                  FROM lf060m f60
+                                 WHERE f60.testcd = vc_testcd
+                                   AND f60.spccd  = vc_spccd
+                                   AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                   AND NVL(f60.judgtype,'0') <> '0'
+                                   ;
+                                EXCEPTION
+                                    WHEN NO_DATA_FOUND THEN
+                                        wk_judgtype := '';
+                                        wk_ujudglt1 := '';
+                                        wk_ujudglt2 := '';
+                                        wk_ujudglt3 := '';
+                                    WHEN OTHERS THEN
+                                        RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(판정유형 검색오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                            END;
+                        ELSE
+                            BEGIN
+                                -- 판정유형 조회
+                                SELECT f60.judgtype, f60.ujudglt1, f60.ujudglt2, f60.ujudglt3
+                                  INTO wk_judgtype,  wk_ujudglt1,  wk_ujudglt2,  wk_ujudglt3
+                                  FROM rf060m f60
+                                 WHERE f60.hgbn   = (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                   AND f60.testcd = vc_testcd
+                                   AND f60.spccd  = vc_spccd
+                                   AND TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS') BETWEEN f60.usdt AND f60.uedt
+                                   AND NVL(f60.judgtype,'0') <> '0'
+                                   ;
+                                EXCEPTION
+                                    WHEN NO_DATA_FOUND THEN
+                                        wk_judgtype := '';
+                                        wk_ujudglt1 := '';
+                                        wk_ujudglt2 := '';
+                                        wk_ujudglt3 := '';
+                                    WHEN OTHERS THEN
+                                        RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(판정유형 검색오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                            END;
+
+
+                        END IF;
+
+                      /* ***************** */
+                     wk_rslttemp2 := vc_rslt;
+
+                        BEGIN
+                            IF LENGTH(wk_judgtype) = 6 THEN
+                                BEGIN
+                                    IF NVL(wk_refhs,'-') <> '-' AND TRIM(NVL(vc_rslt,'▦')) <> '▦'  THEN
+                                        BEGIN
+                                            IF wk_refls = '0' OR wk_refhs = '0' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := REPLACE( REPLACE(vc_rslt, '>', ''), '<', '');
+                                                END;
+                                            ELSIF wk_refls = '1' OR wk_refhs = '1' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := REPLACE( REPLACE(vc_rslt, '>=', ''), '<=', '');
+                                                END;
+                                            ELSE
+                                                BEGIN
+                                                    wk_rslttemp2 := vc_rslt;
+                                                END;
+                                            END IF;    -- IF wk_refls = '0' OR wk_refhs = '0' THEN
+
+                                            /* ****************************
+                                             * 결과값 숫자여부 검사
+                                             * **************************** */
+                                            BEGIN
+                                                wk_numstate2 := 'N';        -- 초기화
+
+                                                IF NVL(TRIM(TRANSLATE(wk_rslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]' THEN    -- 숫자결과
+                                                    BEGIN
+                                                        wk_numstate2 := 'Y';
+                                                    END;
+                                                END IF;
+                                            END;
+
+                                            IF wk_numstate2 = 'Y' THEN
+                                                BEGIN
+                                                     IF wk_refhs = '0' THEN
+                                                         BEGIN
+                                                               IF TO_NUMBER( NVL(wk_rslttemp2, '0') )  >= wk_refh   THEN
+                                                                vc_hlmark := 'H';
+                                                            END IF;
+                                                        END;
+                                                    ELSIF wk_refhs = '1' THEN
+                                                        BEGIN
+                                                            IF TO_NUMBER( NVL(wk_rslttemp2, '0') )  > wk_refh   THEN
+                                                                   vc_hlmark := 'H';
+                                                            END IF;
+                                                        END;
+                                                    END IF;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF;    -- IF NVL(wk_refhs,'-') <> '-' AND TRIM(NVL(vc_rslt,'▦') <> '▦'  THEN
+
+                                    IF NVL(vc_hlmark, '-') = '-' THEN
+                                        BEGIN
+                                            IF SUBSTR(wk_judgtype, 1, 3) IN ( '210', '211' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt1;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 1, 3) = '212' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt1 || '(' || wk_rslttemp2 || ')';
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 1, 3) = '213' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt1 || ' ' || wk_rslttemp2;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 1, 3) = '214' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_rslttemp2 || ' ' || wk_ujudglt1;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF; -- IF NVL(vc_hlmark, '-') = '-' THEN
+
+
+                                    IF  vc_hlmark = 'H' THEN
+                                        BEGIN
+                                            IF SUBSTR(wk_judgtype, 4, 3) IN ( '220', '221' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt2;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 4, 3) IN ( '222' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt2 || '(' || vc_rslt || ')';
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 4, 3) IN ( '223' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt2 || ' ' || vc_rslt;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 4, 3) IN ( '224' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := vc_rslt || ' ' || wk_ujudglt2;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF;    -- IF  vc_hlmark = 'H' THEN
+                                END;
+
+                            ELSIF LENGTH(wk_judgtype) = 9 THEN
+                                BEGIN
+                                    IF NVL(wk_refhs,'-') <> '-' AND TRIM(NVL(vc_rslt,'▦')) <> '▦'  THEN
+                                        BEGIN
+                                            IF wk_refls = '0' OR wk_refhs = '0' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := REPLACE( REPLACE(vc_rslt, '>', ''), '<', '');
+                                                END;
+                                            ELSIF wk_refls = '1' OR wk_refhs = '1' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := REPLACE( REPLACE(vc_rslt, '>=', ''), '<=', '');
+                                                END;
+                                            ELSE
+                                                BEGIN
+                                                    wk_rslttemp2 := vc_rslt;
+                                                END;
+                                            END IF;    -- IF wk_refls = '0' OR wk_refhs = '0' THEN
+
+                                            /* ****************************
+                                             * 결과값 숫자여부 검사
+                                             * **************************** */
+                                            BEGIN
+                                                wk_numstate2 := 'N';        -- 초기화
+
+                                                IF NVL(TRIM(TRANSLATE(wk_rslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]' THEN    -- 숫자결과
+                                                    BEGIN
+                                                        wk_numstate2 := 'Y';
+                                                    END;
+                                                END IF;
+                                            END;
+
+                                            IF wk_numstate2 = 'Y' THEN
+                                                BEGIN
+                                                     IF wk_refls = '0' THEN
+                                                         BEGIN
+                                                               IF TO_NUMBER( NVL(wk_rslttemp2, '0') )  <= wk_refl   THEN
+                                                                vc_hlmark := 'L';
+                                                            END IF;
+                                                         END;
+                                                     ELSIF wk_refls = '1' THEN
+                                                         BEGIN
+                                                               IF TO_NUMBER( NVL(wk_rslttemp2, '0') )  < wk_refl   THEN
+                                                                vc_hlmark := 'L';
+                                                            END IF;
+                                                         END;
+                                                     END IF;
+
+                                                     IF wk_refhs = '0' THEN
+                                                         BEGIN
+                                                               IF TO_NUMBER( NVL(wk_rslttemp2, '0') )  >= wk_refh   THEN
+                                                                vc_hlmark := 'H';
+                                                            END IF;
+                                                        END;
+                                                    ELSIF wk_refhs = '1' THEN
+                                                        BEGIN
+                                                            IF TO_NUMBER( NVL(wk_rslttemp2, '0') )  > wk_refh   THEN
+                                                                   vc_hlmark := 'H';
+                                                            END IF;
+                                                        END;
+                                                    END IF;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF;    -- IF NVL(wk_refhs,'-') <> '-' AND TRIM(NVL(vc_rslt,'▦') <> '▦'  THEN
+
+                                    IF NVL(vc_hlmark, '-') = 'L' THEN
+                                        BEGIN
+                                            IF SUBSTR(wk_judgtype, 1, 3) IN ( '310', '311' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt1;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 1, 3) = '312' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt1 || '(' || vc_rslt || ')';
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 1, 3) = '213' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt1 || ' ' || vc_rslt;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 1, 3) = '214' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_rslttemp2 || ' ' || vc_rslt;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF; -- IF NVL(vc_hlmark, '-') = '-' THEN
+
+                                    IF NVL(vc_hlmark, '-') = '-' THEN
+                                        BEGIN
+                                            IF SUBSTR(wk_judgtype, 4, 3) IN ( '320', '321' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt2;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 4, 3) = '322' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt2 || '(' || vc_rslt || ')';
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 4, 3) = '323' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt2 || ' ' || vc_rslt;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 4, 3) = '324' THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := vc_rslt || ' ' || wk_ujudglt2;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF; -- IF NVL(vc_hlmark, '-') = '-' THEN
+
+
+                                    IF  vc_hlmark = 'H' THEN
+                                        BEGIN
+                                            IF SUBSTR(wk_judgtype, 7, 3) IN ( '330', '331' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt3;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 7, 3) IN ( '332' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt3 || '(' || vc_rslt || ')';
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 7, 3) IN ( '333' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := wk_ujudglt3 || ' ' || vc_rslt;
+                                                END;
+                                            ELSIF SUBSTR(wk_judgtype, 7, 3) IN ( '334' ) THEN
+                                                BEGIN
+                                                    wk_rslttemp2 := vc_rslt || ' ' || wk_ujudglt3;
+                                                END;
+                                            END IF;
+                                        END;
+                                    END IF;    -- IF  vc_hlmark = 'H' THEN
+                                END;
+
+                               wk_rslt :=   wk_rslttemp2;
+
+                            END IF;    -- IF LENGTH(wk_judgtype) = 6 THEN
+                        END;
+                    END ;
+                END IF;    -- IF NVL(wk_refgbn,'-') IN ('1','2') THEN
+            END;
+
+
+            /* **************************
+             * DELTA 값 체크
+             * ************************** */
+
+
+            BEGIN
+                IF NVL(wk_deltagbn,'0') <> '0' THEN
+                    BEGIN
+                        IF NVL(wk_bffndt,'-') <> '-' THEN
+                            BEGIN
+                                SELECT  ROUND(sysdate - to_date(wk_bffndt, 'YYYYMMDDHH24MISS'))
+                                  INTO wk_datediff
+                                  FROM dual   ;
+                            END;
+
+                            IF wk_datediff = 0 THEN
+                                BEGIN
+                                    wk_datediff := 1;
+                                END;
+                            END IF;
+
+                            IF wk_datediff <= wk_deltaday THEN
+                                BEGIN
+                                    wk_rslttemp2 := REPLACE(REPLACE(REPLACE(vc_rslt, '>', ''), '<', ''),'=','');
+                                    wk_oldrslttemp2 := REPLACE(REPLACE(REPLACE(wk_bforgrst, '>', ''), '<', ''),'=','');
+                                END;
+                            END IF;
+
+
+                            IF NVL(wk_rslttemp2, ' ') <> ' ' AND NVL(TRIM(TRANSLATE(wk_rslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]'  AND  NVL(TRIM(TRANSLATE(wk_oldrslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+
+                                IF NVL(wk_deltagbn, '-') IN ('1') THEN       --변화차 = 현재결과 - 이전결과
+                                    BEGIN
+                                        IF NVL(wk_deltah,'-')<> '-' AND (TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) > wk_deltah THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        ELSIF NVL(wk_deltal,'-')<> '-' AND (TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) < wk_deltal THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        END IF;
+                                    END;
+
+                                ELSIF NVL(wk_deltagbn, '-') IN ('2') THEN       --변화비율 = 변화차/이전결과 *100
+
+                                    BEGIN
+                                        IF TO_NUMBER(wk_oldrslttemp2) = 0 THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+
+                                        ELSIF NVL(wk_deltah,'-')<> '-' AND ((TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) / TO_NUMBER(NVL(wk_oldrslttemp2, '0')) * 100) >wk_deltah THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        ELSIF NVL(wk_deltal,'-')<> '-'  AND ((TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) / TO_NUMBER(NVL(wk_oldrslttemp2, '0')) * 100) < wk_deltal THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        END IF;
+                                    END;
+
+                                ELSIF NVL(wk_deltagbn, '-') IN ('3') THEN       --기간당 변화차 = 변화차/기간
+
+                                   BEGIN
+
+                                        IF NVL(wk_deltah,'-')<> '-' AND ((TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) / wk_datediff ) > wk_deltah THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        ELSIF NVL(wk_deltal,'-')<> '-'  AND ((TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) / wk_datediff) < wk_deltal THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        END IF;
+                                   END;
+
+
+
+                                ELSIF NVL(wk_deltagbn, '-') IN ('4') THEN       --기간당 변화비율 = 변화비율/기간
+
+                                   BEGIN
+                                       IF NVL(wk_deltah,'-')<> '-' AND ((TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) / (TO_NUMBER(NVL(wk_oldrslttemp2, '0')) * 100)/ wk_datediff) > wk_deltah THEN
+                                           BEGIN
+                                               vc_deltamark := 'D';
+                                           END;
+                                       ELSIF NVL(wk_deltal,'-')<> '-' AND ((TO_NUMBER(NVL(wk_rslttemp2, '0'))-TO_NUMBER(NVL(wk_oldrslttemp2, '0'))) / (TO_NUMBER(NVL(wk_oldrslttemp2, '0')) * 100)/ wk_datediff) < wk_deltal THEN
+                                           BEGIN
+                                               vc_deltamark := 'D';
+                                           END;
+                                       END IF;
+                                   END;
+
+                                ELSIF NVL(wk_deltagbn, '-') IN ('5') THEN       --GRADE DELTA = 현재 GRADE - 이전 GRADE
+
+                                    BEGIN
+                                        IF nvl(wk_grade, 0) <> 0  AND nvl(wk_oldgrade, 0) <> 0 AND abs((wk_grade)-(wk_oldgrade)) > abs(wk_deltah) THEN
+                                            BEGIN
+                                                vc_deltamark := 'D';
+                                            END;
+                                        END IF;
+                                    END;
+                                END IF;
+
+                            END IF;
+
+
+
+                        END IF;
+
+
+                    END;
+                END IF;
+
+
+            END;
+
+            /* **************************
+             * CRITICAL 값 체크
+             * ************************** */
+             BEGIN
+                 IF nvl(wk_criticalgbn,'0') <> '0' THEN
+
+                     BEGIN
+                         wk_rslttemp2 := REPLACE(REPLACE(REPLACE(vc_rslt, '>', ''), '<', ''),'=','');
+                     END;
+
+
+
+                     BEGIN
+                        IF NVL(TRIM(TRANSLATE(wk_rslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                          --위험하한치만 사용
+                             IF nvl(wk_criticalgbn,'0') in ('1') AND nvl(wk_criticall,'-') <> '-'  AND NVL(TRIM(TRANSLATE(wk_criticall, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                                 BEGIN
+                                      IF TO_NUMBER(wk_rslttemp2) < TO_NUMBER(wk_criticall) THEN
+                                          vc_criticalmark := 'C';
+                                     END IF;
+                                 END;
+                             ELSIF nvl(wk_criticalgbn,'0') in ('2') AND nvl(wk_criticalh,'-') <> '-'  AND NVL(TRIM(TRANSLATE(wk_criticalh, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                                 BEGIN
+                                      IF TO_NUMBER(wk_rslttemp2) > TO_NUMBER(wk_criticalh) THEN
+                                          vc_criticalmark := 'C';
+                                     END IF;
+
+                                 END;
+                             ELSIF nvl(wk_criticalgbn,'0') in ('3') AND nvl(wk_criticall,'-') <> '-'  AND NVL(TRIM(TRANSLATE(wk_criticalh, '1234567890.,', ' ')), '[null]')  = '[null]'
+                                                                    AND nvl(wk_criticall,'-') <> '-'  AND NVL(TRIM(TRANSLATE(wk_criticall, '1234567890.,', ' ')), '[null]')  = '[null]'  THEN
+                                 BEGIN
+                                     IF TO_NUMBER(wk_rslttemp2) < TO_NUMBER(wk_criticall) THEN
+                                          vc_criticalmark := 'C';
+                                     ELSIF TO_NUMBER(wk_rslttemp2) > TO_NUMBER(wk_criticalh) THEN
+                                          vc_criticalmark := 'C';
+                                     END IF;
+                                 END;
+
+                             END IF;
+
+                         END IF;
+                     END;
+
+                 END IF;
+             END;
+
+             /* **************************
+             * ALERT CHECK
+             * ************************** */
+
+            BEGIN
+                BEGIN
+                    wk_rslttemp2 := REPLACE(REPLACE(REPLACE(vc_rslt, '>', ''), '<', ''),'=','');
+                END;
+
+                BEGIN
+
+                    IF NVL(TRIM(TRANSLATE(wk_rslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+
+                        IF nvl(wk_alertgbn,'0') in ('1','A') AND nvl(wk_alertl,'-') <> '-' AND NVL(TRIM(TRANSLATE(wk_alertl, '1234567890.,', ' ')), '[null]')  = '[null]'
+                                                             AND TO_NUMBER(wk_rslttemp2) < TO_NUMBER(wk_alertl)  THEN
+                            BEGIN
+                                vc_alertmark := 'A';
+                            END;
+                        ELSIF nvl(wk_alertgbn,'0') in ('2','B') AND nvl(wk_alerth,'-') <> '-' AND NVL(TRIM(TRANSLATE(wk_alerth, '1234567890.,', ' ')), '[null]')  = '[null]'
+                                                                AND TO_NUMBER(wk_rslttemp2) > TO_NUMBER(wk_alerth)  THEN
+                            BEGIN
+                                vc_alertmark := 'A';
+                            END;
+
+                        ELSIF nvl(wk_alertgbn,'0') in ('3','C') AND nvl(wk_alerth,'-') <> '-' AND NVL(TRIM(TRANSLATE(wk_alerth, '1234567890.,', ' ')), '[null]')  = '[null]'
+                                                                AND nvl(wk_alertl,'-') <> '-' AND NVL(TRIM(TRANSLATE(wk_alertl, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                            BEGIN
+                                IF TO_NUMBER(wk_rslttemp2) < TO_NUMBER(wk_alertl) THEN
+                                    vc_alertmark := 'A';
+                                ELSIF TO_NUMBER(wk_rslttemp2) > TO_NUMBER(wk_alerth) THEN
+                                    vc_alertmark := 'A';
+                                END IF;
+                            END;
+                        END IF;
+                    END IF;
+
+                END;
+
+
+            END;
+
+            /* **************************
+             * ALIM CHECK
+             * ************************** */
+
+
+             BEGIN
+                 IF NVL(wk_alimitgbn,'0') <> '0' THEN
+                     BEGIN
+                         wk_rslttemp2 := REPLACE(REPLACE(REPLACE(vc_rslt, '>', ''), '<', ''),'=','');
+                     END;
+
+                     BEGIN
+                         IF NVL(TRIM(TRANSLATE(wk_rslttemp2, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                             IF  NVL(wk_alimitgbn,'0') = '1' THEN --허용 하한치만 사용
+                                 IF NVL(wk_alimitl, '-') <> '-' AND  NVL(TRIM(TRANSLATE(wk_alimitl, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                                     IF  TO_NUMBER(wk_rslttemp2) <=   TO_NUMBER(wk_alimitl) THEN
+                                         BEGIN
+                                             IF NVL(wk_alimitls,'0') = '1' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '2' THEN
+                                                 BEGIN
+                                                     wk_rslt := '<' || wk_alimitl ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '3' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '이하' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '4' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '미만' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '5' THEN
+                                                 BEGIN
+                                                     wk_rslt := '<=' || wk_alimitl ;
+                                                 END;
+                                             END IF;
+
+
+                                         END;
+                                     END IF;
+                                 END IF;
+                             ELSIF NVL(wk_alimitgbn,'0') = '2' THEN --허용 상한치만 사용
+                                 IF NVL(wk_alimith, '-') <> '-' AND  NVL(TRIM(TRANSLATE(wk_alimith, '1234567890.,', ' ')), '[null]')  = '[null]' THEN
+                                     IF  TO_NUMBER(wk_rslttemp2) >=   TO_NUMBER(wk_alimith) THEN
+                                         BEGIN
+                                             IF NVL(wk_alimiths,'0') = '1' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimith ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '2' THEN
+                                                 BEGIN
+                                                     wk_rslt := '>' || wk_alimith ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '3' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '이상' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '4' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '초과' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '5' THEN
+                                                 BEGIN
+                                                     wk_rslt := '>=' || wk_alimith ;
+                                                 END;
+                                             END IF;
+
+
+                                         END;
+
+
+                                     END IF;
+                                 END IF;
+
+                             ELSIF NVL(wk_alimitgbn,'0') = '3' THEN --허용 상한치만 사용
+                                 IF NVL(wk_alimith, '-') <> '-' AND  NVL(TRIM(TRANSLATE(wk_alimith, '1234567890.,', ' ')), '[null]')  = '[null]' AND
+                                    NVL(wk_alimitl, '-') <> '-' AND  NVL(TRIM(TRANSLATE(wk_alimitl, '1234567890.,', ' ')), '[null]')  = '[null]'  THEN
+
+                                     IF  TO_NUMBER(wk_rslttemp2) <=   TO_NUMBER(wk_alimitl) THEN
+                                         BEGIN
+                                             IF NVL(wk_alimitls,'0') = '1' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '2' THEN
+                                                 BEGIN
+                                                     wk_rslt := '<' || wk_alimitl ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '3' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '이하' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '4' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '미만' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimitls,'0') = '5' THEN
+                                                 BEGIN
+                                                     wk_rslt := '<=' || wk_alimitl ;
+                                                 END;
+                                             END IF;
+
+
+                                         END;
+                                     END IF;
+
+                                     IF  TO_NUMBER(wk_rslttemp2) >=   TO_NUMBER(wk_alimith) THEN
+                                         BEGIN
+                                             IF NVL(wk_alimiths,'0') = '1' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimith ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '2' THEN
+                                                 BEGIN
+                                                     wk_rslt := '>' || wk_alimith ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '3' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '이상' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '4' THEN
+                                                 BEGIN
+                                                     wk_rslt := wk_alimitl || '초과' ;
+                                                 END;
+                                             ELSIF NVL(wk_alimiths,'0') = '5' THEN
+                                                 BEGIN
+                                                     wk_rslt := '>=' || wk_alimith ;
+                                                 END;
+                                             END IF;
+
+
+                                         END;
+
+
+                                     END IF;
+                                 END IF;
+                             END IF;
+
+                         END IF;
+                     END;
+                 END IF;
+
+             END;
+
+             IF wk_lisgbn = 'L' THEN
+                 BEGIN
+                     WITH rslt AS (
+                                   SELECT /*+ INDEX(z PK_LR010M) */
+                                          z.bcno, z.regno, z.testcd, z.spccd, z.tkdt, z.tclscd, z.cfmnm, z.wkgrpcd, z.eqbcno, z.eqcd, z.eqflag, z.bffndt,
+                                          z.rstflg, z.bfviewrst, z.bfbcno, z.bforgrst,
+                                          z.viewrst, z.orgrst, z.fnid, z.mwid, z.regid
+                                     FROM lr010m z
+                                    WHERE z.bcno BETWEEN in_bcno and in_bcno || 'zz'
+                                      AND z.testcd     =  vc_testcd
+                                      AND z.spccd      =  vc_spccd
+                                  )
+                     SELECT DISTINCT
+                                    NVL(CASE WHEN fn_ack_get_test_grprstyn(r1.tclscd, r1.spccd, r1.tkdt) = '0' THEN rb.bfbcno ELSE rb2.bfbcno END, r1.bfbcno) bfbcno1,
+                                    NVL(CASE WHEN fn_ack_get_test_grprstyn(r1.tclscd, r1.spccd, r1.tkdt) = '0' THEN rb.bforgrst ELSE rb2.bforgrst END, r1.bforgrst) bforgrst1,
+                                    NVL(CASE WHEN fn_ack_get_test_grprstyn(r1.tclscd, r1.spccd, r1.tkdt) = '0' THEN rb.bfviewrst ELSE rb2.bfviewrst END, r1.bfviewrst) bfviewrst1,
+                                    fn_ack_date_str(NVL(rb.bffndt, r1.bffndt), 'yyyymmddhh24miss') bffndt1
+                               INTO s_bfbcno, s_bforgrst, s_bfviewrst ,s_bfdt
+                       FROM lj010m j1
+                            INNER JOIN rslt r1
+                                    ON j1.bcno  = r1.bcno
+                                   AND j1.regno = r1.regno
+                            INNER JOIN lf060m f6
+                                    ON r1.testcd = f6.testcd
+                                   AND r1.spccd  = f6.spccd
+                                   AND r1.tkdt   BETWEEN f6.usdt AND f6.uedt
+                            LEFT OUTER JOIN (
+                                             SELECT *
+                                               FROM (
+                                                     SELECT ROW_NUMBER() OVER(PARTITION BY bf.BFTESTCD || bf.BFSPCCD ORDER BY bf.bffndt desc) num
+                                                          , bf.*
+                                                       FROM (
+                                                             SELECT /*+ INDEX(b IDX_LR010M_1) */
+                                                                   b.regno
+                                                                   , b.bcno       AS bfbcno
+                                                                   , b.testcd     AS bftestcd
+                                                                   , b.spccd      AS bfspccd
+                                                                   , b.orgrst     AS bforgrst
+                                                                   , b.viewrst    AS bfviewrst
+                                                                   , MAX(b.rstdt) AS bffndt
+                                                               FROM rslt a
+                                                                    INNER JOIN lr010m b
+                                                                            ON a.regno   = b.regno
+                                                                           AND a.testcd  = SUBSTR(b.testcd, 1, 5)
+                                                                           AND a.spccd   = b.spccd
+                                                                           AND a.bcno   <> b.bcno
+                                                                           AND a.tkdt   >= b.tkdt
+                                                                           AND b.rstflg IN ('2', '3')
+                                                                      GROUP BY b.regno, b.bcno, b.testcd, b.spccd, b.orgrst, b.viewrst
+                                                            )  bf
+                                                     ) bf
+                                               WHERE bf.num = 1
+                                            ) rb
+                                         ON r1.regno  = rb.regno
+                                        AND r1.testcd = rb.bftestcd
+                                        AND r1.spccd  = rb.bfspccd
+                           LEFT OUTER JOIN (
+                                            SELECT *
+                                              FROM (
+                                                    SELECT ROW_NUMBER() OVER(PARTITION BY BFTESTCD || BFSPCCD ORDER BY bffndt desc) num
+                                                         , bf.*
+                                                      FROM (SELECT /*+ INDEX(b IDX_LR010M_1) */
+                                                                   b.regno
+                                                                 , b.bcno       AS bfbcno
+                                                                 , b.testcd     AS bftestcd
+                                                                 , b.spccd      AS bfspccd
+                                                                 , b.orgrst     AS bforgrst
+                                                                 , b.viewrst    AS bfviewrst
+                                                                 , MAX(b.rstdt) AS bffndt
+                                                             FROM rslt a, lr010m b
+                                                            WHERE b.regno   = a.regno
+                                                              AND b.testcd  = a.testcd
+                                                              AND b.spccd   = a.spccd
+                                                              and b.bcno   <> a.bcno
+                                                              AND b.tkdt   <= a.tkdt
+                                                              AND b.rstflg IN ('2','3')
+                                                         group by b.regno, b.bcno, b.testcd, b.spccd, b.orgrst, b.viewrst
+                                                         ) bf
+                                                   ) bf
+                                              WHERE bf.num = 1
+                                             ) rb2
+                                          ON r1.regno  = rb2.regno
+                                      AND r1.testcd = rb2.bftestcd
+                                      AND r1.spccd  = rb2.bfspccd
+                                    WHERE j1.bcno LIKE in_bcno || '%'
+                         ;
+                 EXCEPTION
+                        WHEN NO_DATA_FOUND THEN
+                             s_bfbcno   :='';
+                             s_bforgrst :='';
+                             s_bfviewrst:='';
+                             s_bfdt     :='';
+                        WHEN OTHERS THEN
+                            RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(이전결과 조회) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                 END;
+             ELSE
+                 BEGIN
+                     WITH rslt AS (
+                                   SELECT /*+ INDEX(z PK_RR010M) */
+                                          z.bcno, z.regno, z.testcd, z.spccd, z.tkdt, z.tclscd, z.cfmnm, z.wkgrpcd, z.eqbcno, z.eqcd, z.eqflag, z.bffndt,
+                                          z.rstflg, z.bfviewrst, z.bfbcno, z.bforgrst,
+                                          z.viewrst, z.orgrst, z.fnid, z.mwid, z.regid , z.hgbn
+                                     FROM rr010m z
+                                    WHERE z.hgbn       = (SELECT clscd FROM lf000m where clsgbn ='00')
+                                      AND z.bcno BETWEEN in_bcno and in_bcno || 'zz'
+                                      AND z.testcd     =  vc_testcd
+                                      AND z.spccd      =  vc_spccd
+                                  )
+                     SELECT DISTINCT
+                                    NVL(CASE WHEN fn_ack_get_test_grprstyn(r1.tclscd, r1.spccd, r1.tkdt) = '0' THEN rb.bfbcno ELSE rb2.bfbcno END, r1.bfbcno) bfbcno1,
+                                    NVL(CASE WHEN fn_ack_get_test_grprstyn(r1.tclscd, r1.spccd, r1.tkdt) = '0' THEN rb.bforgrst ELSE rb2.bforgrst END, r1.bforgrst) bforgrst1,
+                                    NVL(CASE WHEN fn_ack_get_test_grprstyn(r1.tclscd, r1.spccd, r1.tkdt) = '0' THEN rb.bfviewrst ELSE rb2.bfviewrst END, r1.bfviewrst) bfviewrst1,
+                                    fn_ack_date_str(NVL(rb.bffndt, r1.bffndt), 'yyyymmddhh24miss') bffndt1
+                               INTO s_bfbcno, s_bforgrst, s_bfviewrst ,s_bfdt
+                       FROM rj010m j1
+                            INNER JOIN rslt r1
+                                    ON j1.hgbn  = r1.hgbn
+                                   AND j1.bcno  = r1.bcno
+                                   AND j1.regno = r1.regno
+                            INNER JOIN rf060m f6
+                                    ON r1.hgbn   = f6.hgbn
+                                   AND r1.testcd = f6.testcd
+                                   AND r1.spccd  = f6.spccd
+                                   AND r1.tkdt   BETWEEN f6.usdt AND f6.uedt
+                            LEFT OUTER JOIN (
+                                             SELECT *
+                                               FROM (
+                                                     SELECT ROW_NUMBER() OVER(PARTITION BY bf.BFTESTCD || bf.BFSPCCD ORDER BY bf.bffndt desc) num
+                                                          , bf.*
+                                                       FROM (
+                                                             SELECT /*+ INDEX(b IDX_LR010M_1) */
+                                                                   b.regno
+                                                                   , b.bcno       AS bfbcno
+                                                                   , b.testcd     AS bftestcd
+                                                                   , b.spccd      AS bfspccd
+                                                                   , b.orgrst     AS bforgrst
+                                                                   , b.viewrst    AS bfviewrst
+                                                                   , MAX(b.rstdt) AS bffndt
+                                                                   , MAX(b.hgbn)  AS hgbn
+                                                               FROM rslt a
+                                                                    INNER JOIN rr010m b
+                                                                            ON a.hgbn    = b.hgbn
+                                                                           AND a.regno   = b.regno
+                                                                           AND a.testcd  = SUBSTR(b.testcd, 1, 5)
+                                                                           AND a.spccd   = b.spccd
+                                                                           AND a.bcno   <> b.bcno
+                                                                           AND a.tkdt   >= b.tkdt
+                                                                           AND b.rstflg IN ('2', '3')
+                                                                      GROUP BY b.regno, b.bcno, b.testcd, b.spccd, b.orgrst, b.viewrst
+                                                            )  bf
+                                                     ) bf
+                                               WHERE bf.num = 1
+                                            ) rb
+                                         ON r1.hgbn   = rb.hgbn
+                                        AND r1.regno  = rb.regno
+                                        AND r1.testcd = rb.bftestcd
+                                        AND r1.spccd  = rb.bfspccd
+                           LEFT OUTER JOIN (
+                                            SELECT *
+                                              FROM (
+                                                    SELECT ROW_NUMBER() OVER(PARTITION BY BFTESTCD || BFSPCCD ORDER BY bffndt desc) num
+                                                         , bf.*
+                                                      FROM (SELECT /*+ INDEX(b IDX_LR010M_1) */
+                                                                   b.regno
+                                                                 , b.bcno       AS bfbcno
+                                                                 , b.testcd     AS bftestcd
+                                                                 , b.spccd      AS bfspccd
+                                                                 , b.orgrst     AS bforgrst
+                                                                 , b.viewrst    AS bfviewrst
+                                                                 , MAX(b.rstdt) AS bffndt
+                                                                 , MAX(b.hgbn)  AS hgbn
+                                                             FROM rslt a, rr010m b
+                                                            WHERE b.hgbn    = a.hgbn
+                                                              AND b.regno   = a.regno
+                                                              AND b.testcd  = a.testcd
+                                                              AND b.spccd   = a.spccd
+                                                              and b.bcno   <> a.bcno
+                                                              AND b.tkdt   <= a.tkdt
+                                                              AND b.rstflg IN ('2','3')
+                                                         group by b.regno, b.bcno, b.testcd, b.spccd, b.orgrst, b.viewrst
+                                                         ) bf
+                                                   ) bf
+                                              WHERE bf.num = 1
+                                             ) rb2
+                                          ON r1.hgbn = rb2.hgbn
+                                      AND r1.regno  = rb2.regno
+                                      AND r1.testcd = rb2.bftestcd
+                                      AND r1.spccd  = rb2.bfspccd
+                                    WHERE j1.bcno LIKE in_bcno || '%'
+                         ;
+                 EXCEPTION
+                        WHEN NO_DATA_FOUND THEN
+                             s_bfbcno   :='';
+                             s_bforgrst :='';
+                             s_bfviewrst:='';
+                             s_bfdt     :='';
+                        WHEN OTHERS THEN
+                            RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(이전결과 조회) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                 END;
+
+
+             END IF;
+
+             DBMS_OUTPUT.PUT_LINE('vc_panicmark   :' ||vc_panicmark);
+             DBMS_OUTPUT.PUT_LINE('wk_rstflg -> ' || wk_rstflg);
+             BEGIN
+                 wk_rstflg := in_rstflg;
+
+                 IF NVL(vc_rslt, ' ') <> ' ' AND NVL(wk_rslt, ' ') <> ' ' THEN
+                     IF NVL(vc_alertmark, ' ') <>' ' OR NVL(vc_criticalmark, ' ') <>' ' OR NVL(vc_deltamark, ' ') <>' '   OR NVL(vc_panicmark, ' ') <>' ' THEN
+                         wk_rstflg :='1';
+                     END IF;
+                 ElSE
+                     wk_rstflg :='';
+                 END IF;
+
+
+
+             END ;
+
+            /* **************************
+             * 일반 및 미생물 결과등록
+             * ************************** */
+            DBMS_OUTPUT.PUT_LINE('wk_tclscd -> ' || wk_tclscd);
+            IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN    -- 미생물
+                BEGIN
+                    UPDATE LM010M
+                       SET orgrst       =  vc_rslt
+                         , viewrst      =  wk_rslt
+                         , editid       =  in_id
+                         , editip       =  in_ip
+                         , editdt       =  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                         , hlmark       =  vc_hlmark
+                         , deltamark    =  vc_deltamark
+                         , criticalmark =  vc_criticalmark
+                         , panicmark    =  vc_panicmark
+                         , ALERTMARK    =  vc_alertmark
+                         , REGID        =  in_id
+                         , REGDT        =  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                         , MWID         =  CASE WHEN  wk_rstflg ='2'THEN in_id ELSE '' END
+                         , MWDT         =  CASE WHEN  wk_rstflg ='2'THEN TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')  ELSE '' END
+                         , FNID         =  CASE WHEN  wk_rstflg ='3'THEN in_id ELSE '' END
+                         , FNDT         =  CASE WHEN  wk_rstflg ='3'THEN  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')   ELSE '' END
+                         , RSTDT        = TO_CHAR(SYSDATE, 'yyyymmddhh24miss')
+                         , eqcd         =  s_eqcd
+                         , EQFLAG       =  s_eqflg
+                         , RSTFLG       =  wk_rstflg
+                         , BFBCNO       =  s_bfbcno
+                         , BFFNDT       =  s_bfdt
+                         , BFORGRST     =  s_bforgrst
+                         , BFVIEWRST    =  s_bfviewrst
+                     WHERE bcno              = in_bcno
+                       AND testcd            = vc_testcd
+                       AND spccd             = vc_spccd
+                       AND NVL(rstflg, '0') IN ('0', '1', '2');
+
+                       DBMS_OUTPUT.PUT_LINE('wk_rstflg -> ' || wk_rstflg);
+                    EXCEPTION
+                        WHEN OTHERS THEN
+                            RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(LM010M 등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                END;
+
+
+            ELSE
+                IF wk_lisgbn = 'L' THEN
+                    BEGIN
+                        UPDATE LR010M
+                           SET orgrst       =  vc_rslt
+                             , viewrst      =  wk_rslt
+                             , editid       =  in_id
+                             , editip       =  in_ip
+                             , editdt       =  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                             , hlmark       =  vc_hlmark
+                             , deltamark    =  vc_deltamark
+                             , criticalmark =  vc_criticalmark
+                             , panicmark    =  vc_panicmark
+                             , ALERTMARK    =  vc_alertmark
+                             , REGID        =  in_id
+                             , REGDT        =  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                             , MWID         =  CASE WHEN  wk_rstflg ='2'THEN in_id ELSE '' END
+                             , MWDT         =  CASE WHEN  wk_rstflg ='2'THEN TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')  ELSE '' END
+                             , FNID         =  CASE WHEN  wk_rstflg ='3'THEN in_id ELSE '' END
+                             , FNDT         =  CASE WHEN  wk_rstflg ='3'THEN  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')   ELSE '' END
+                             , RSTDT        = TO_CHAR(SYSDATE, 'yyyymmddhh24miss')
+                             , eqcd         =  s_eqcd
+                             , EQFLAG       =  s_eqflg
+                             , RSTFLG       =  wk_rstflg
+                             , BFBCNO       =  s_bfbcno
+                             , BFFNDT       =  s_bfdt
+                             , BFORGRST     =  s_bforgrst
+                             , BFVIEWRST    =  s_bfviewrst
+                         WHERE bcno              = in_bcno
+                           AND testcd            = vc_testcd
+                           AND spccd             = vc_spccd
+                           AND NVL(rstflg, '0') IN ('0', '1', '2','3');
+
+                    EXCEPTION
+                        WHEN OTHERS THEN
+                             RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(LR010M 등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                    END;
+                    DBMS_OUTPUT.PUT_LINE('vc_panicmark2   :' ||vc_panicmark);
+                ELSE
+                    BEGIN
+                        UPDATE RR010M
+                           SET orgrst       =  vc_rslt
+                             , viewrst      =  wk_rslt
+                             , editid       =  in_id
+                             , editip       =  in_ip
+                             , editdt       =  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                             , hlmark       =  vc_hlmark
+                             , deltamark    =  vc_deltamark
+                             , criticalmark =  vc_criticalmark
+                             , panicmark    =  vc_panicmark
+                             , ALERTMARK    =  vc_alertmark
+                             , REGID        =  in_id
+                             , REGDT        =  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                             , MWID         =  CASE WHEN  wk_rstflg ='2'THEN in_id ELSE '' END
+                             , MWDT         =  CASE WHEN  wk_rstflg ='2'THEN TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')  ELSE '' END
+                             , FNID         =  CASE WHEN  wk_rstflg ='3'THEN in_id ELSE '' END
+                             , FNDT         =  CASE WHEN  wk_rstflg ='3'THEN  TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')   ELSE '' END
+                             , RSTDT        = TO_CHAR(SYSDATE, 'yyyymmddhh24miss')
+                             , eqcd         =  s_eqcd
+                             , EQFLAG       =  s_eqflg
+                             , RSTFLG       =  wk_rstflg
+                             , BFBCNO       =  s_bfbcno
+                             , BFFNDT       =  s_bfdt
+                             , BFORGRST     =  s_bforgrst
+                             , BFVIEWRST    =  s_bfviewrst
+                         WHERE hgbn              = (SELECT clscd FROM lf000m where clsgbn ='00')
+                           AND bcno              = in_bcno
+                           AND testcd            = vc_testcd
+                           AND spccd             = vc_spccd
+                           AND NVL(rstflg, '0') IN ('0', '1', '2');
+
+                    EXCEPTION
+                        WHEN OTHERS THEN
+                             RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(LR010M 등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                    END;
+
+                END IF;
+
+            END IF;
+
+        END LOOP;
+
+        BEGIN
+            IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN    -- 미생물
+                SELECT  MIN(nvl(rstflg,'0')), MAX(nvl(rstflg,'0'))
+                  INTO wk_minrstflg, wk_maxrstflg
+                  FROM LM010M r010m, LF060M f060m
+                  WHERE bcno = in_bcno
+                    AND r010m.tclscd = wk_tclscd
+                    AND r010m.testcd = f060m.testcd
+                    AND r010m.spccd  = f060m.spccd
+                    AND f060m.usdt   <= to_char(sysdate ,'yyyymmddhh24miss')
+                    AND f060m.uedt   >= to_char(sysdate ,'yyyymmddhh24miss')
+                    AND nvl(f060m.titleyn,'0') ='0'
+                    AND nvl(REQSUB,'0')         = case when f060m.tcdgbn ='C' then  '1' else '0' end
+
+                   ;
+            ELSE
+                IF wk_lisgbn = 'L' THEN
+                    SELECT  MIN(nvl(rstflg,'0')), MAX(nvl(rstflg,'0'))
+                      INTO wk_minrstflg, wk_maxrstflg
+                      FROM LR010M r010m, LF060M f060m
+                     WHERE bcno = in_bcno
+                       AND r010m.tclscd = wk_tclscd
+                       AND r010m.testcd = f060m.testcd
+                       AND r010m.spccd  = f060m.spccd
+                       AND f060m.usdt   <= to_char(sysdate ,'yyyymmddhh24miss')
+                       AND f060m.uedt   >= to_char(sysdate ,'yyyymmddhh24miss')
+                       AND nvl(f060m.titleyn,'0') ='0'
+                       AND nvl(REQSUB,'0')         = case when f060m.tcdgbn ='C' then  '1' else '0' end
+                      ;
+                ELSE
+                    SELECT  MIN(nvl(rstflg,'0')), MAX(nvl(rstflg,'0'))
+                      INTO wk_minrstflg, wk_maxrstflg
+                      FROM RR010M r010m, RF060M f060m
+                     WHERE r010m.hgbn = (SELECT clscd FROM lf000m where clsgbn ='00')
+                       AND bcno = in_bcno
+                       AND r010m.tclscd = wk_tclscd
+                       AND r010m.hgbn   = f060m.hgbn
+                       AND r010m.testcd = f060m.testcd
+                       AND r010m.spccd  = f060m.spccd
+                       AND f060m.usdt   <= to_char(sysdate ,'yyyymmddhh24miss')
+                       AND f060m.uedt   >= to_char(sysdate ,'yyyymmddhh24miss')
+                       AND nvl(f060m.titleyn,'0') ='0'
+                       AND nvl(REQSUB,'0')         = case when f060m.tcdgbn ='C' then  '1' else '0' end
+                       ;
+                END IF ;
+            END IF;
+
+            DBMS_OUTPUT.PUT_LINE('wk_minrstflg   :' ||wk_minrstflg);
+            DBMS_OUTPUT.PUT_LINE('wk_maxrstflg   :' ||wk_maxrstflg);
+            DBMS_OUTPUT.PUT_LINE('vc_testcd   :' ||vc_testcd);
+
+            BEGIN
+                 IF wk_minrstflg =  wk_maxrstflg THEN
+                     wk_rstflg   :=  wk_minrstflg ;
+                 ELSIF wk_minrstflg = '0' And wk_maxrstflg <= '3' THEN
+                     wk_rstflg   := '1';
+                 ELSE
+                     wk_rstflg   :=  wk_minrstflg ;
+                 END IF;
+
+            END ;
+
+
+            BEGIN
+                IF wk_lisgbn = 'L' THEN
+                   UPDATE LJ011M
+                      SET rstflg = wk_rstflg
+                        , rstdt  = TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                    WHERE bcno = in_bcno
+                      AND tclscd = wk_tclscd;
+                ELSE
+                   UPDATE RJ011M
+                      SET rstflg = wk_rstflg
+                        , rstdt  = TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                    WHERE hgbn = (SELECT clscd FROM lf000m where clsgbn ='00')
+                      AND bcno = in_bcno
+                      AND tclscd = wk_tclscd;
+                END IF;
+            END;
+
+            BEGIN
+                IF wk_lisgbn = 'L' THEN
+                    SELECT  MIN(nvl(rstflg,'0')), MAX(nvl(rstflg,'0'))
+                      INTO wk_minrstflg, wk_maxrstflg
+                      FROM LJ011M
+                     WHERE bcno         = in_bcno
+                       AND nvl(spcflg, '0') NOT IN ('0', 'R')
+                      ;
+                ELSE
+                    SELECT  MIN(nvl(rstflg,'0')), MAX(nvl(rstflg,'0'))
+                      INTO wk_minrstflg, wk_maxrstflg
+                      FROM RJ011M
+                     WHERE bcno         = in_bcno
+                       AND nvl(spcflg, '0') NOT IN ('0', 'R')
+                      ;
+                END IF ;
+
+                If wk_maxrstflg = '0' Then
+                    wk_rstflg := '';
+                ElsIf wk_maxrstflg = '3' AND wk_minrstflg = '3' Then
+                    wk_rstflg := '2' ;
+                Else
+                    wk_rstflg := '1';
+                End If ;
+            END;
+
+
+            BEGIN
+                IF wk_lisgbn = 'L' THEN
+                    UPDATE LJ010M
+                       SET rstflg = wk_rstflg
+                     WHERE bcno = in_bcno;
+                ELSE
+                    UPDATE RJ010M
+                       SET rstflg = wk_rstflg
+                     WHERE hgbn = (SELECT clscd FROM lf000m where clsgbn ='00')
+                       AND bcno = in_bcno;
+                END IF;
+            END;
+        END;
+
+
+        BEGIN
+            IF wk_lisgbn = 'L' THEN
+                DELETE LR040M WHERE BCNO = in_bcno;
+            ELSE
+                DELETE RR040M WHERE hgbn = (SELECT clscd FROM lf000m WHERE clsgbn ='00') AND BCNO = in_bcno;
+            END IF;
+        END;
+
+        BEGIN
+            FOR cur_cmtconv IN (
+                                SELECT DISTINCT bcno , f081m.cmtcd , f081m.cvtform , f080m.cmtcont, f080m.partcd, f080m.slipcd
+                                  FROM lm010m r010m, lf082m f082m , lf081m f081m , lf080m f080m
+                                 WHERE r010m.bcno    = in_bcno
+                                   AND r010m.testcd = f082m.testcd
+                                   AND r010m.spccd  = f082m.spccd
+                                   AND f082m.cmtcd  = f081m.cmtcd
+                                   AND f082m.cmtcd  = f080m.cmtcd
+                                UNION
+                                SELECT DISTINCT bcno , f081m.cmtcd , f081m.cvtform , f080m.cmtcont, f080m.partcd, f080m.slipcd
+                                  FROM lr010m r010m, lf082m f082m , lf081m f081m , lf080m f080m
+                                 WHERE r010m.bcno    = in_bcno
+                                   AND r010m.testcd = f082m.testcd
+                                   AND r010m.spccd  = f082m.spccd
+                                   AND f082m.cmtcd  = f081m.cmtcd
+                                   AND f082m.cmtcd  = f080m.cmtcd
+                                UNION
+                                SELECT DISTINCT bcno , f081m.cmtcd , f081m.cvtform , f080m.cmtcont, f080m.partcd, f080m.slipcd
+                                  FROM rr010m r010m, rf082m f082m , rf081m f081m , rf080m f080m
+                                 WHERE r010m.hgbn   = (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                   AND r010m.bcno   = in_bcno
+                                   AND r010m.hgbn   = f082m.hgbn
+                                   AND r010m.testcd = f082m.testcd
+                                   AND r010m.spccd  = f082m.spccd
+                                   AND f082m.hgbn   = f081m.hgbn
+                                   AND f082m.cmtcd  = f081m.cmtcd
+                                   AND f082m.cmtcd  = f080m.cmtcd
+                               )
+            LOOP
+                BEGIN
+                    wk_cmtcd       := cur_cmtconv.cmtcd;
+                    wk_cvtform     := cur_cmtconv.cvtform;
+                    wk_cmtcont     := cur_cmtconv.cmtcont;
+                    wk_partcd      := cur_cmtconv.partcd;
+                    wk_slipcd      := cur_cmtconv.slipcd;
+
+                    PRO_ACK_EXE_CALCULATION(in_bcno ,wk_cmtcd ,wk_cvtform, rs_retval)   ;
+
+                    IF NVL(rs_retval, '0') = '1' THEN
+                        IF wk_lisgbn = 'L' THEN
+                            BEGIN
+                                SELECT NVL(MAX(RSTSEQ),0)
+                                  INTO wk_rstseq
+                                  FROM LR040M
+                                 WHERE BCNO    =   in_bcno
+                                 ;
+
+                            END;
+                        ELSE
+                            BEGIN
+                                SELECT NVL(MAX(RSTSEQ),0)
+                                  INTO wk_rstseq
+                                  FROM RR040M
+                                 WHERE hgbn = (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                   AND BCNO = in_bcno;
+
+                            END;
+                        END IF;
+
+
+                        BEGIN
+                            IF wk_lisgbn = 'L' THEN
+                                INSERT INTO LR040M
+                                            ( BCNO,   PARTCD,    SLIPCD,    RSTSEQ,     CMT,
+                                              REGDT,   REGID, EDITDT, EDITID, EDITIP
+                                            )
+                                     VALUES (in_bcno, wk_partcd, wk_slipcd, wk_rstseq,  wk_cmtcont,
+                                             TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),in_id  , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),
+                                             in_id,   in_ip
+                                            );
+                            ELSE
+                                INSERT INTO RR040M
+                                            ( BCNO,   PARTCD,    SLIPCD,    RSTSEQ,     CMT,
+                                              REGDT,   REGID, EDITDT, EDITID, EDITIP,
+                                              HGBN
+                                            )
+                                     VALUES (in_bcno, wk_partcd, wk_slipcd, wk_rstseq,  wk_cmtcont,
+                                             TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),in_id  , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS'),
+                                             in_id,   in_ip,
+                                             (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                            );
+                            END IF;
+                        END;
+                    END IF;
+                END;
+
+            END LOOP;
+
+        END;
+
+
+        BEGIN
+            FOR cur_rstconv IN (
+                                SELECT DISTINCT bcno , f085m.rstcdseq , f084m.cvtform , f083m.rstcont, f083m.testcd
+                                  FROM lr010m r010m
+                                       INNER JOIN lf084m f084m
+                                               ON r010m.testcd   = f084m.testcd
+                                              AND r010m.spccd    = f084m.spccd
+                                       INNER JOIN lf083m f083m
+                                               ON f084m.testcd   = f083m.testcd
+                                              AND f084m.spccd     =  CASE WHEN f083m.spccd = '00000' THEN r010m.spccd ELSE f083m.spccd END
+                                              AND f084m.rstcdseq  =  f083m.rstcdseq
+                                       INNER JOIN lf085m f085m
+                                               ON f084m.testcd   = f085m.testcd
+                                              AND f084m.spccd    = f085m.spccd
+                                              AND f084m.rstcdseq = f085m.rstcdseq
+                                 WHERE r010m.bcno = in_bcno
+                                UNION
+                                SELECT DISTINCT bcno , f085m.rstcdseq , f084m.cvtform , f083m.rstcont, f083m.testcd
+                                  FROM lr010m r010m
+                                       INNER JOIN lf084m f084m
+                                               ON r010m.testcd   = f084m.testcd
+                                              AND r010m.spccd    = f084m.spccd
+                                       INNER JOIN lf083m f083m
+                                               ON f084m.testcd   = f083m.testcd
+                                              AND f084m.spccd     =  CASE WHEN f083m.spccd = '00000' THEN r010m.spccd ELSE f083m.spccd END
+                                              AND f084m.rstcdseq  =  f083m.rstcdseq
+                                       INNER JOIN lf085m f085m
+                                               ON f084m.testcd   = f085m.testcd
+                                              AND f084m.spccd    = f085m.spccd
+                                              AND f084m.rstcdseq = f085m.rstcdseq
+                                 WHERE r010m.bcno = in_bcno
+                                 UNION
+                                SELECT DISTINCT bcno , f085m.rstcdseq , f084m.cvtform , f083m.rstcont, f083m.testcd
+                                  FROM rr010m r010m
+                                       INNER JOIN rf084m f084m
+                                               ON r010m.hgbn     = f084m.hgbn
+                                              AND r010m.testcd   = f084m.testcd
+                                              AND r010m.spccd    = f084m.spccd
+                                       INNER JOIN rf083m f083m
+                                               ON f084m.hgbn     = f083m.hgbn
+                                              AND f084m.testcd   = f083m.testcd
+                                              AND f084m.spccd     =  CASE WHEN f083m.spccd = '00000' THEN r010m.spccd ELSE f083m.spccd END
+                                              AND f084m.rstcdseq  =  f083m.rstcdseq
+                                       INNER JOIN rf085m f085m
+                                               ON f084m.hgbn     = f085m.hgbn
+                                              AND f084m.testcd   = f085m.testcd
+                                              AND f084m.spccd    = f085m.spccd
+                                              AND f084m.rstcdseq = f085m.rstcdseq
+                                 WHERE r010m.hgbn = (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                   AND r010m.bcno = in_bcno
+
+                                 order by rstcdseq
+                               )
+            LOOP
+                BEGIN
+                    wk_cvtrstcdseq := cur_rstconv.rstcdseq;
+                    wk_cvtrstform  := cur_rstconv.cvtform;
+                    wk_cvtrstcont  := cur_rstconv.rstcont;
+                    wk_cvttestcd   := cur_rstconv.testcd;
+
+                    PRO_ACK_EXE_CALCULATION_RST(in_bcno ,wk_cvtrstcdseq ,wk_cvttestcd,wk_cvtrstform, rs_retval)   ;
+
+                    IF NVL(rs_retval, '0') = '1' THEN
+
+                        BEGIN
+                            IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN    -- 미생물
+                                BEGIN
+                                    UPDATE LM010M
+                                       SET viewrst = wk_cvtrstcont
+                                     WHERE bcno              = in_bcno
+                                       AND testcd            = wk_cvttestcd
+                                       AND NVL(rstflg, '0') IN ('0', '1', '2');
+
+                                    EXCEPTION
+                                        WHEN OTHERS THEN
+                                            RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(LM010M 등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                                END;
+                            ELSE
+                                IF wk_lisgbn = 'L' THEN
+                                    BEGIN
+                                         UPDATE LR010M
+                                            SET viewrst = wk_cvtrstcont
+                                          WHERE bcno              = in_bcno
+                                            AND testcd            = wk_cvttestcd
+                                            AND NVL(rstflg, '0') IN ('0', '1', '2');
+
+                                        EXCEPTION
+                                           WHEN OTHERS THEN
+                                                 RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(LR010M 등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                                    END;
+                                ELSE
+                                    BEGIN
+                                         UPDATE RR010M
+                                            SET viewrst = wk_cvtrstcont
+                                          WHERE hgbn              = (SELECT clscd FROM lf000m WHERE clsgbn ='00')
+                                            AND bcno              = in_bcno
+                                            AND testcd            = wk_cvttestcd
+                                            AND NVL(rstflg, '0') IN ('0', '1', '2');
+
+                                        EXCEPTION
+                                           WHEN OTHERS THEN
+                                                 RAISE_APPLICATION_ERROR(-20553, 'PKG_ACK_EXLAB.exlabrsltsave(LR010M 등록오류) '||CHR(10)||CHR(13)||CHR(10)||CHR(13)||'errcode='||sqlcode||CHR(10)||CHR(13)||sqlerrm||CHR(10)||CHR(13));
+                                    END;
+                                END IF;
+                            END IF;
+                        END;
+
+                    END IF;
+                END;
+
+            END LOOP;
+        END;
+
+
+        BEGIN
+            IF NVL(wk_lisgbn,'L') = 'L' THEN
+                IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN    -- 미생물
+                    PRO_ACK_EXE_OCS_RST_M(in_bcno,in_id, in_ip , s_retval );
+                ELSE
+                    PRO_ACK_EXE_OCS_RST(in_bcno,in_id, in_ip , s_retval );
+
+                     DBMS_OUTPUT.PUT_LINE('PRO_ACK_EXE_OCS_RST    :' );
+                END IF;
+            ELSE
+                PRO_ACK_EXE_OCS_RST_R(in_bcno,in_id, in_ip , s_retval );
+            END IF;
+        END;
+
+        BEGIN
+            PRO_ACK_EXE_OCS_RSTFLG(in_bcno,in_id, in_ip , s_retval );
+        END;
+        BEGIN
+            FOR cur_rstsms IN (
+                           SELECT DISTINCT bcno , f086m.cmtcd , f086m.cvtform , f086m.cmtcont, f086m.testcd
+                                         , r010m.deltamark, r010m.criticalmark, r010m.panicmark, r010m.alertmark
+                                         , f6.tnmd
+                                  FROM lr010m r010m
+                                       INNER JOIN lf060m f6
+                                               ON r010m.testcd = f6.testcd AND r010m.spccd = f6.spccd AND r010m.tkdt >= f6.usdt AND r010m.tkdt < f6.uedt
+                                       INNER JOIN lf086m f086m
+                                               ON r010m.testcd   = f086m.testcd
+                                              AND r010m.spccd    = f086m.spccd
+                                              AND ( nvl(f086m.criticalmark, ' ') =  nvl(r010m.criticalmark, ' ')
+                                                   or
+                                                   nvl(f086m.deltamark, ' ')    =  nvl(r010m.deltamark, ' ')
+                                                   or
+                                                   nvl(f086m.alertmark, ' ')    =  nvl(r010m.alertmark, ' ')
+                                                   or
+                                                   nvl(f086m.panicmark, ' ')    =  nvl(r010m.panicmark, ' ')
+                                                  )
+                                 WHERE r010m.bcno = in_bcno
+                                UNION
+                                SELECT DISTINCT  bcno , f086m.cmtcd , f086m.cvtform , f086m.cmtcont, f086m.testcd
+                                               , r010m.deltamark, r010m.criticalmark, r010m.panicmark, r010m.alertmark
+                                               , f6.tnmd
+                                  FROM lm010m r010m
+                                       INNER JOIN lf060m f6
+                                               ON r010m.testcd = f6.testcd AND r010m.spccd = f6.spccd AND r010m.tkdt >= f6.usdt AND r010m.tkdt < f6.uedt
+                                       INNER JOIN lf086m f086m
+                                               ON r010m.testcd   = f086m.testcd
+                                              AND r010m.spccd    = f086m.spccd
+                                              AND ( nvl(f086m.criticalmark, ' ') =  nvl(r010m.criticalmark, ' ')
+                                                   or
+                                                   nvl(f086m.deltamark, ' ')    =  nvl(r010m.deltamark, ' ')
+                                                   or
+                                                   nvl(f086m.alertmark, ' ')    =  nvl(r010m.alertmark, ' ')
+                                                   or
+                                                   nvl(f086m.panicmark, ' ')    =  nvl(r010m.panicmark, ' ')
+                                                  )
+                                 WHERE r010m.bcno = in_bcno
+                                 order by CMTCD
+                               )
+
+            LOOP
+                BEGIN
+                    wk_smscmtcd    := cur_rstsms.cmtcd;
+                    wk_smscvtform  := cur_rstsms.cvtform;
+                    wk_smscmtcont  := cur_rstsms.cmtcont;
+                    wk_smstestcd   := cur_rstsms.testcd;
+                    wk_smstnmd     := cur_rstsms.tnmd;
+
+                    PRO_ACK_EXE_CALCULATION_SMS(in_bcno ,wk_smscmtcd ,wk_cvttestcd,wk_cvtrstform, rs_retval)   ;
+
+                    IF NVL(rs_retval, '0') = '1' THEN
+
+                        BEGIN
+                            IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN    -- 미생물
+                                SELECT DRIF.PHONE AS DRPHONE
+                                     , (SELECT PATNM FROM LJ010M WHERE BCNO = J011M.BCNO) PATNM
+                                     , TO_CHAR(TO_DATE(SUBSTR(ORGORDDT, 1, 8), 'YYYYMMDD'),'YYYY-MM-DD') ORDDT
+                                     , FN_ACK_GET_USR_NAME(IN_ID) USERNM
+                                     , ORGDOCTORCD
+                                  INTO wk_drphone, wk_patnm, wk_orddt, wk_usrnm, wk_smsdrid
+                                  FROM LJ011M J011M
+                                       INNER JOIN LR010M R010M
+                                               ON J011M.BCNO   =  R010M.BCNO AND J011M.TCLSCD =  R010M.TCLSCD
+                                       INNER JOIN VW_ACK_OCS_DR_INFO DRIF
+                                               ON J011M.ORGDOCTORCD = DRIF.DRCD
+                                 WHERE J011M.BCNO  = in_bcno
+                                   AND ROWNUM      = 1
+                                         ;
+                            ELSE
+                                SELECT DRIF.PHONE AS DRPHONE
+                                     , (SELECT PATNM FROM LJ010M WHERE BCNO = J011M.BCNO) PATNM
+                                     , TO_CHAR(TO_DATE(SUBSTR(ORGORDDT, 1, 8), 'YYYYMMDD'),'YYYY-MM-DD') ORDDT
+                                     , FN_ACK_GET_USR_NAME(IN_ID) USERNM
+                                     , ORGDOCTORCD
+                                  INTO wk_drphone, wk_patnm, wk_orddt, wk_usrnm, wk_smsdrid
+                                  FROM LJ011M J011M
+                                       INNER JOIN LM010M R010M
+                                               ON J011M.BCNO   =  R010M.BCNO AND J011M.TCLSCD =  R010M.TCLSCD
+                                       INNER JOIN VW_ACK_OCS_DR_INFO DRIF
+                                               ON J011M.ORGDOCTORCD = DRIF.DRCD
+                                 WHERE J011M.BCNO  = in_bcno
+                                   AND ROWNUM      = 1
+                                         ;
+
+                             END IF;
+
+                            BEGIN
+                               -- wk_smsmsg := ' /* 처방일자 --> '|| wk_orddt || '*/ '|| CHR(13) ;
+                               -- wk_smsmsg := wk_smsmsg|| '등록번호 [' || in_pid || '] 환자이름 '|| wk_patnm ||'] 의 결과를 확인하세요.!!'|| CHR(13) ;
+                               -- wk_smsmsg := wk_smsmsg|| '통보 [ 소속: 진단검사의학과 / 피통보자: '|| wk_usrnm||' ]';
+                                wk_smsmsg := 'CVR보고:' || wk_patnm || '(' || in_pid || ')-' || wk_smstnmd;
+                            END;
+
+                            BEGIN
+                                INSERT INTO em_tran(
+                                                     tran_pr,        tran_refkey, tran_id,   tran_phone,
+                                                     tran_callback, tran_status, tran_date, tran_msg,
+                                                     tran_etc1,     tran_etc2,   tran_etc3,
+                                                     editid,        editip,      edittime
+                                                   )
+                                             VALUES( seq_em_tran.nextval, 'umscuh', 'umscuh',      wk_drphone,
+                                                     '',               '1',        SYSDATE,        wk_smsmsg,
+                                                     NULL,             NULL,       wk_usrnm,
+                                                     in_id,            in_ip,      SYSDATE
+                                                   );
+                            END;
+
+                            -- SMS 전송내역
+                            BEGIN
+                                INSERT INTO LR059M(
+                                            RGSTDT,  RGSTFLG, BCNO,   TESTCD, SPCCD, RGSTID, RESNCD, RESNCNTS, TRGTMAN, ETCCNTS
+                                          , RGSTYMD, EDITID,  EDITIP, EDITDT, SEQ
+                                          )
+                                    VALUES( TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                          , 'SMS'
+                                          , in_bcno, '-', '-', in_id, '-', wk_smsmsg, wk_smsdrid, NULL
+                                          , TO_CHAR(SYSDATE, 'YYYYMMDD')
+                                          , NVL(in_id, '-')
+                                          , NVL(in_ip, '-')
+                                          , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                          , SQ_LR059M.NEXTVAL
+                                          )
+                                ;
+
+                            END;
+
+                            -- CVR 전송내역
+                            BEGIN
+                                INSERT INTO LR059M(
+                                            RGSTDT,  RGSTFLG, BCNO,   TESTCD, SPCCD, RGSTID, RESNCD, RESNCNTS, TRGTMAN, ETCCNTS
+                                          , RGSTYMD, EDITID,  EDITIP, EDITDT, SEQ
+                                          )
+                                    VALUES( TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                          , 'CVR'
+                                          , in_bcno, '-', '-', in_id, '-', wk_smsmsg, wk_smsdrid, NULL
+                                          , TO_CHAR(SYSDATE, 'YYYYMMDD')
+                                          , NVL(in_id, '-')
+                                          , NVL(in_ip, '-')
+                                          , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                          , SQ_LR059M.NEXTVAL
+                                          )
+                                ;
+
+                            END;
+
+                      END;
+
+                    ELSE
+                        IF NVL(cur_rstsms.deltamark, '-') <> '-' OR NVL(cur_rstsms.criticalmark, '-') <> '-'
+                              OR NVL(cur_rstsms.panicmark, '-') <> '-'  OR NVL(cur_rstsms.alertmark, '-') <> '-'  THEN
+                            BEGIN
+                                IF TRIM(NVL(wk_bcclsgbn, '0')) = '2' THEN    -- 미생물
+                                     SELECT DRIF.PHONE AS DRPHONE
+                                          , (SELECT PATNM FROM LJ010M WHERE BCNO = J011M.BCNO) PATNM
+                                          , TO_CHAR(TO_DATE(SUBSTR(ORGORDDT, 0, 8), 'YYYYMMDD'),'YYYY-MM-DD') ORDDT
+                                          , FN_ACK_GET_USR_NAME(in_id) USERNM
+                                          , J011M.ORGDOCTORCD
+                                       INTO wk_drphone, wk_patnm, wk_orddt, wk_usrnm, wk_smsdrid
+                                       FROM LJ011M J011M
+                                            INNER JOIN LM010M R010M
+                                                    ON J011M.BCNO   =  R010M.BCNO
+                                                   AND J011M.TCLSCD =  R010M.TCLSCD
+                                            INNER JOIN VW_ACK_OCS_DR_INFO DRIF
+                                                    ON J011M.ORGDOCTORCD = DRIF.DRCD
+                                      WHERE J011M.BCNO  = in_bcno
+                                        AND ROWNUM      = 1
+                                             ;
+                                ELSE
+                                     SELECT DRIF.PHONE AS DRPHONE
+                                          , (SELECT PATNM FROM LJ010M WHERE BCNO = J011M.BCNO) PATNM
+                                          , TO_CHAR(TO_DATE(SUBSTR(ORGORDDT, 1, 8), 'YYYYMMDD'),'YYYY-MM-DD') ORDDT
+                                          , FN_ACK_GET_USR_NAME(in_id) USERNM
+                                          , J011M.ORGDOCTORCD
+                                       INTO wk_drphone, wk_patnm, wk_orddt, wk_usrnm, wk_smsdrid
+                                       FROM LJ011M J011M
+                                            INNER JOIN LR010M R010M
+                                                    ON J011M.BCNO   =  R010M.BCNO
+                                                   AND J011M.TCLSCD =  R010M.TCLSCD
+                                                 INNER JOIN vw_ack_ocs_dr_info drif
+                                                    ON J011M.ORGDOCTORCD = DRIF.DRCD
+                                      WHERE J011M.BCNO  = in_bcno
+                                        AND ROWNUM      = 1
+                                             ;
+
+                                END IF;
+
+                                BEGIN
+                                   -- wk_smsmsg := ' /* 처방일자 --> '|| wk_orddt || '*/ '|| CHR(13) ;
+                                   -- wk_smsmsg := wk_smsmsg|| '등록번호 [' || in_pid || '] 환자이름 '|| wk_patnm || '] 의 결과를 확인하세요.!!'|| CHR(13) ;
+                                   -- wk_smsmsg := wk_smsmsg|| '통보 [ 소속: 진단검사의학과 / 피통보자: '|| wk_usrnm||' ]';
+
+                                   wk_smsmsg := 'CVR보고:' || wk_patnm || '(' || in_pid || ')-' || wk_smstnmd;
+
+                                END;
+
+                                BEGIN
+                                     INSERT INTO em_tran(
+                                                         tran_pr,        tran_refkey, tran_id,   tran_phone,
+                                                          tran_callback, tran_status, tran_date, tran_msg,
+                                                          tran_etc1,     tran_etc2,   tran_etc3,
+                                                          editid,        editip,      edittime
+                                                        )
+                                                  VALUES(seq_em_tran.nextval, 'umscuh', 'umscuh',      wk_drphone,
+                                                         '',               '1',        SYSDATE,        wk_smsmsg,
+                                                         NULL,             NULL,       wk_usrnm,
+                                                         in_id,            in_ip,      SYSDATE
+                                                        );
+                                END;
+
+                                -- SMS 전송내역
+                                BEGIN
+                                    INSERT INTO LR059M(
+                                                RGSTDT,  RGSTFLG, BCNO,   TESTCD, SPCCD, RGSTID, RESNCD, RESNCNTS, TRGTMAN, ETCCNTS
+                                              , RGSTYMD, EDITID,  EDITIP, EDITDT, SEQ
+                                              )
+                                        VALUES( TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                              , 'SMS'
+                                              , in_bcno, '-', '-', in_id, '-', wk_smsmsg, wk_smsdrid, NULL
+                                              , TO_CHAR(SYSDATE, 'YYYYMMDD')
+                                              , NVL(in_id, '-')
+                                              , NVL(in_ip, '-')
+                                              , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                              , SQ_LR059M.NEXTVAL
+                                              )
+                                    ;
+
+                                END;
+
+                                -- CVR 전송내역
+                                BEGIN
+                                    INSERT INTO LR059M(
+                                                RGSTDT,  RGSTFLG, BCNO,   TESTCD, SPCCD, RGSTID, RESNCD, RESNCNTS, TRGTMAN, ETCCNTS
+                                              , RGSTYMD, EDITID,  EDITIP, EDITDT, SEQ
+                                              )
+                                        VALUES( TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                              , 'CVR'
+                                              , in_bcno, '-', '-', in_id, '-', wk_smsmsg, wk_smsdrid, NULL
+                                              , TO_CHAR(SYSDATE, 'YYYYMMDD')
+                                              , NVL(in_id, '-')
+                                              , NVL(in_ip, '-')
+                                              , TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')
+                                              , SQ_LR059M.NEXTVAL
+                                              )
+                                    ;
+
+                                END;
+                            END;
+
+                        END IF;
+
+                    END IF;
+                END;
+
+            END LOOP;
+
+        END;
+
+
+
+
+
+    END exlabrsltsave;
+
+
+    /*

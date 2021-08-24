@@ -1,0 +1,36 @@
+서비스명, id, 암호: sdsocs     
+
+//바코드로 오더
+ select r.resultitemcode                    
+        ,p.patid                            
+        ,p.patname                          
+        ,p.sex                              
+        ,p.prsnidpre||prsnidpost prsnid     
+        ,r.resultflag                       
+        ,w.resultstate                      
+        ,w.rsvacptstate                     
+ from resultofnum r                         
+   ,  registinfos w                         
+   ,  patmst p                              
+ where r.patid = p.patid                    
+   and r.spcmno = w.spcmno                  
+   and r.spcmno = '바코드'  
+   and w.rsvacptstate < '5'        
+   
+//결과 업데이트
+ Update resultofnum Set                                               
+        resultindate = to_char(sysdate,'yyyymmdd')
+      , resultintime = to_char(sysdate,'HH24MI')  
+      , resultinid   = '검사자'          
+      , resultflag   = '1'                        
+      , textresultval= '결과'               
+ where spcmno = '바코드'                     
+   and resultitemcode = '검사코드'            
+   and resultflag < '2'      
+   
+//상태업데이트
+ Update registinfos Set                                              
+     rsvacptstate = '4'        
+   , resultstate  = '1'        
+ where spcmno = '바코드'  
+   and resultstate < '2'

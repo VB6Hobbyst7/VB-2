@@ -1,0 +1,23 @@
+  접속정보: Provider=MSDAORA.1;Password=lisprod001;User ID=CUHLIS;Data Source=CUBISDB1;Persist Security Info=True
+  
+  --아이디 2 검사자명
+  SELECT fn_ack_get_usr_name('''+UId+''') FROM dual
+  
+  --바코드 검체번호--
+  SELECT fn_ack_get_bcno_normal('''+BCD+''') FROM DUAL
+  
+  --결과전송 프로시저--
+  SpUpload.Close;
+  spUpload.Parameters.Clear;
+  SpUpload.Connection :=  TConnection.hospCon;;
+  SpUpload.ProcedureName:= 'pkg_ack_exlab.exlabrsltsave';
+  SpUpload.parameters.CreateParameter('in_hospcd', ftString, pdInput, 100, '');    //'A'
+  SpUpload.parameters.CreateParameter('in_bcno', ftString, pdInput, 100, '');
+  SpUpload.parameters.CreateParameter('in_testinfo', ftString, pdInput, 100, '');  //검사코드^검체코드▦검사코드^검체코드▦검사코드^검체코드
+  SpUpload.parameters.CreateParameter('in_totalcnt', ftString, pdInput, 100, '');
+  SpUpload.parameters.CreateParameter('in_pid', ftString, pdInput, 100, '');
+  SpUpload.parameters.CreateParameter('in_rsltinfo', ftString, pdInput, 100, '');  //검사결과▦검사결과
+  SpUpload.parameters.CreateParameter('in_rstflg', ftString, pdInput, 100, '');    //상태: 1(결과저장), 2(중간보고), 3(최종보고)
+  SpUpload.parameters.CreateParameter('in_custcd', ftString, pdInput, 100, '');   //장비코드
+  SpUpload.parameters.CreateParameter('in_id', ftString, pdInput, 100, '');      //사용자아이디
+  SpUpload.parameters.CreateParameter('in_ip', ftString, pdInput, 100, '');      //아이피주소

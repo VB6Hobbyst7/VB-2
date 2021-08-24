@@ -1,0 +1,133 @@
+'Provider=OraOLEDB.Oracle.1;Password=medi;User ID=medi;Data Source=HEMIN;'+
+'Persist Security Info=True';
+
+function TDM.DownLoadOrder_HYEM(TMaster: TIfMaster): boolean;
+var
+  K:integer;
+  ECD:string;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  with qrySOrder do begin
+      Close;
+      SQL.Text:=' select (select distinct SUNAME from cpl2010 where specimen_ser =  '''+TMaster.FBarCode+''') SUNAME '+#13#10+
+                '      , (select distinct Bunho from cpl2010 where specimen_ser =  '''+TMaster.FBarCode+''') Bunho '+#13#10+
+                '      , R.HANGMOG_CODE                          '+#13#10+
+                '      , E.GUMSA_NAME                            '+#13#10+
+                '      , E.JANGBI_OUT_CODE                       '+#13#10+
+                '      , E.JANGBI_CODE                           '+#13#10+
+                '      , R.CONFIRM_YN                            '+#13#10+
+                '      , R.CPL_RESULT                            '+#13#10+
+                //'      , R.JANGBI_YN                             '+#13#10+
+                '      , R.JANGBI_CODE                           '+#13#10+
+                ' from CPL3020 R                                 '+#13#10+
+                '    , EQP1010 E                                 '+#13#10+
+                ' where R.SPECIMEN_SER ='''+TMaster.FBarCode+''' '+#13#10+
+                '   and NVL(R.CONFIRM_YN, ''N'') = ''N''         '+#13#10+
+                '   and E.JANGBI_CODE = '''+TGlobal.FICode+'''   '+#13#10+
+                '   and E.JANGBI_OUT_CODE is Not Null            '+#13#10+
+                '   and R.HANGMOG_CODE = E.HANGMOG_CODE          '+#13#10+
+               // '   and R.SPECIMEN_CODE = E.SPECIMEN_CODE        '+#13#10+
+                '   order by E.jangbi_out_code                   ';
+
+      try
+          if SvrTEST = True then
+              SQL.SaveToFile('.\오더조회.sql');
+
+          Open;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= ' 오더체크 에러 입니다! 에러메세지->'+ e.Message;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          TMaster.vOrder:= VarArrayCreate([0, RecordCount-1], varVariant);
+          TMaster.vAbbr := VarArrayCreate([0, RecordCount-1], varVariant);
+          TMaster.vOrdList:= VarArrayCreate([0, RecordCount-1], varVariant);
+          TMaster.vUpCode:=  VarArrayCreate([0, RecordCount-1], varVariant);
+          K:=0;
+
+          while Not Eof do begin
+              ECD:= FieldByName('JANGBI_OUT_CODE').AsString;
+              //테스트용..
+              //ECD:= FieldByName('HANGMOG_CODE').AsString;
+              if TCode.SetCode_ECode(Trim(ECD)) then begin
+                  TMaster.vOrder[K]:= TCode.GetIfCode(ECD);
+                  TMaster.vAbbr[K] := TCode.GetAbbr(ECD);
+                  TMaster.vOrdList[K]:= ECD;
+                  TMaster.vUpCode[K]:= TCode.GetUpCode(ECD);
+                  Inc(K);
+
+                  if Result = False then begin
+                      TMaster.FOrdCode  := FieldByName('HANGMOG_CODE').AsString;;
+                      TMaster.FPID  := FieldByName('BUNHO').AsString;
+                      TMaster.FPNM  := FieldByName('SUNAME').AsString;
+                      Result:= True;
+                      TMaster.FOrdState:= 'Y';
+                  end;
+              end;
+
+              Next;
+          end;
+      end;
+  end;
+end;
+
+
+function TDM.UploadHospOne_HYEM(TMaster: TIfMaster): boolean;
+begin
+  Result:=False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:= 'Local 테스트중입니다!';
+      exit;
+  end;
+
+  with qrySUp do begin
+      Close;
+      SQL.Text:= ' INSERT INTO EQP3020 ( SYS_DATE, USER_ID, UPD_DATE, SPECIMEN_SER, JANGBI_CODE, JANGBI_OUT_CODE, CPL_RESULT, RESULT_DATE) '+#13#10+
+                 ' Values  (SYSDATE, '''', SYSDATE, '''+TMaster.FBarCode+''',  '''+TGlobal.FICode+''', '''+TMaster.FExamCode+''', '''+TMaster.FResult+''', SYSDATE ) ';
+
+      if SvrTEST = True then
+          SQL.SaveToFile('.\Insert.sql');
+      try
+          ExecSQL;
+          Result:= True;
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message+#13#10+SQL.Text;
+          end;
+      end;
+
+  end;
+end;
+
+
+
+
+insert into EQP1010 
+(SYS_DATE,
+USER_ID,
+UPD_DATE,
+JANGBI_CODE,
+HANGMOG_CODE,
+SPECIMEN_CODE,
+GUMSA_NAME,
+NICKNAME,
+JANGBI_OUT_CODE,
+USE_YN,
+SEQ,
+jangbi_result_code,
+DATA_LEN,
+CAL_GUBUN) values
+(sysdate ,'',sysdate,'203','C2392','BS','PCT','PCT','PCT','Y',1,'PCT',0,'A')
+

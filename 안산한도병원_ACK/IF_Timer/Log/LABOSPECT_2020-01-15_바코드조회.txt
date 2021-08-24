@@ -1,0 +1,39 @@
+SELECT DISTINCT       M.LABDATE   as HOSPDATE             
+     , M.PARTGBN,  M.LABSEQ, M.SPECIMENCD  
+     , M.NAME      as PNAME                
+     , M.REGNO     as PID                  
+     , M.AGE       as AGE                  
+     , M.SEX       as SEX                  
+     , M.IDLEFT + M.IDRIGHT AS PJUMIN      
+     , M.MEDICALREMARK as BARCODE          
+     , M.RESULTENDYN, R.SUBMCD             
+     , R.TESTITEMSEQ as ITEM               
+     , R.DELTAGBN                          
+     , R.BEFORERESULT                      
+     , R.BEFORELABNO                       
+     , M.DEPTCD                            
+     , M.WARD                              
+     , M.DOCTOR                            
+     , M.JUBSUGBN                          
+     , S.REFHIGHM                          
+     , S.REFLOWM                           
+     , S.REFHIGHF                          
+     , S.REFLOWF                           
+     , S.PANICLOW                          
+     , S.PANICHIGH                         
+     , S.DELTAVAL                          
+  FROM C_JUBSU M, C_RESULT R, TESTITEM S 
+ WHERE M.MEDICALREMARK = '11120213'  
+   AND M.LABDATE       = R.LABDATE             
+   AND M.PARTGBN       = R.PARTGBN             
+   AND M.LABSEQ        = R.LABSEQ              
+   AND M.SPECIMENCD    = R.SPECIMENCD          
+   AND S.PARTCD        = 'C'
+   AND R.PARTGBN       = S.PARTGBN             
+   AND R.SPECIMENCD    = S.SPECIMENCD          
+   AND R.TESTITEMSEQ   = S.TESTITEMSEQ         
+   AND S.SUBMCD        = 'NNNN'                
+   And R.TESTITEMSEQ   IN ('001','002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','027','028','038','044','047','049','050','051','052','029','030','031','032','033','034','035','036','037','039','040','041','042','043','054','113','129','217','158','060','061','062','067','068','069','070','075','076','077','078','079','080','081','082','083','086','087','088','089','090','091','092','093','094','095','096','097','098','099','100','101','102','103','104','105','106','107','108','109','110','111','112','053','229','230','233','223','237','241','243','244','285') 
+   AND R.CONFIRM       <> 'Y'                  
+   AND (R.RESULT = '' OR R.RESULT IS NULL)     
+

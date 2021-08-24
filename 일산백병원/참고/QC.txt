@@ -1,0 +1,37 @@
+안녕하세요.
+일산백병원 의료정보실 김태주과장입니다.
+ 
+
+문의하신 QC관련 정보입니다.
+
+ 
+
+[p_qcrstAdd] (
+ @ACTION        char        (  1),  /* 'A': 입력 */
+ @REP_DATE        char       (  8),  /* 결과일자  */
+    @REP_TIME        char       (  8),  /* 결과시간  */
+    @REP_METHOD      varchar    (  1),  /* 결과방법 'I':지정랙*/ -- 알파벳
+    @GOODS_CODE      char       (  2),  /* 장비      */
+    @LOT_NO          varchar    ( 30),  /* Lot No    */
+    @QC_NAME         varchar    ( 50),  /* 물질명    */
+    @ORD_CODE        char       (  8),  /* 처방코드  */
+    @LELMT_SEQ       decimal    (2,0),  /* 상세번호  */
+    @RESULT          varchar    ( 12),  /* 검사결과  */
+    @USER_ID         char       (  5),  /* 보고자    */
+    @CHART_NO        char       (  7),  /* 병록번호  */
+    @SAMPLE_DATE     char       (  8),  /* 검체일자  */
+    @PART            char       (  2),  /* 검사부서  */
+    @SAMPLE_SEQ      decimal    (4,0),  /* 검체번호  */
+ @REP_NUMBER         int = 0                 /* 일별검사 차수 */ [p_qcrstQuery_interface]로 조회후 +1
+
+
+[p_qcrstQuery_interface](
+ @Query            char        (  1),  -- '1' 당일 장비별 마지막 QC차수 조회용
+ @PART            char       (  2),  --부서코드  ex) CH
+ @GOODS_CODE      char       (  2)   --장비코드  ex) CB
+
+QC물질 Level 등 추가적인 다른정보도 있으면 부탁드립니다.
+
+ 
+
+감사합니다.

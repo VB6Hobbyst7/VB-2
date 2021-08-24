@@ -1,0 +1,362 @@
+10:12:30 [Rx]
+10:12:30 [Tx]
+10:12:30 [Rx]1H|@^\|URM-OI8ZeMWA-01||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101146P|1|||1820108140|^^^^O|1|1820108140||^^^001|R|20180502085637|||||||||ORH|||^^|||||||FR|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||39
+
+10:12:30 [Tx]
+10:12:30 [Rx]2F||<None>|20180502085637|20180502093946|Cepheid-60138QN^809702^671667^2141839^30301^20181230R|2|^001^^003^^^Toxin B^|NEG^|||R|3|^001^^003^^^Toxin B^Ct|^0.0|||R|4|^001^^003^^^Toxin B^EndPt|^0.0|||R|5|^001^^003^^^Binary Toxin^|NEG^|||R|60A
+
+10:12:30 [Tx]
+10:12:30 [Rx]3|^001^^003^^^Binary Toxin^Ct|^0.0|||R|7|^001^^003^^^Binary Toxin^EndPt|^0.0|||R|8|^001^^003^^^TcdC^|NEG^|||R|9|^001^^003^^^TcdC^Ct|^0.0|||R|10|^001^^003^^^TcdC^EndPt|^2.0|||R|11|^001^^003^^^SPC^|PASS^|||R|12|^001^^003^^^SPC^Ct|^31.8||42
+
+10:12:30 [Tx]
+10:12:30 [Rx]4|R|13|^001^^003^^^SPC^EndPt|^377.0|||R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20180502085637|20180502093946|Cepheid-60138QN^809702^671667^2141839^30301^20181230R|15|^001^^002^^^Toxin B^|NEG^|||R|16|^001^3F
+
+10:12:30 [Tx]
+10:12:30 [Rx]5^002^^^Toxin B^Ct|^0.0|||R|17|^001^^002^^^Toxin B^EndPt|^0.0|||R|18|^001^^002^^^Binary Toxin^|NEG^|||R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||R|20|^001^^002^^^Binary Toxin^EndPt|^0.0|||R|21|^001^^002^^^TcdC^|NEG^|||R|22|^001^^002^^^Tcd0C
+
+10:12:30 [Tx]
+10:12:30 [Rx]6C^Ct|^0.0|||R|23|^001^^002^^^TcdC^EndPt|^2.0|||R|24|^001^^002^^^SPC^|PASS^|||R|25|^001^^002^^^SPC^Ct|^31.8|||R|26|^001^^002^^^SPC^EndPt|^377.0|||L|1|N59
+
+10:12:30 [Tx]
+10:12:30 [Rx]
+10:12:30 [ED]1H|@^\|URM-OI8ZeMWA-01||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101146
+10:12:30 [ED]P|1|||1820108140|^^^^
+10:12:30 [ED]O|1|1820108140||^^^001|R|20180502085637|||||||||ORH|||^^|||||||F
+10:12:30 [오더조회]SELECT DISTINCT PART_JUBSU_DATE as 접수일자, PART_JUBSU_TIME, BUNHO as 내원번호, SUNAME as 이름, AGE as 나이, SEX as 성별,        FKCPL0201, SPECIMEN_CODE, GWA, HANGMOG_CODE as ITEM, INTERFACE_YN, JANGBI_OUT_CODE, JANGBI_CODE, CONFIRM_YN, CPL_RESULT   FROM VW_CPL_INTERFACE_GUMSA_LOAD  WHERE SPECIMEN_SER = '1820108140'   AND NVL(CONFIRM_YN, 'N') = 'N'   AND HANGMOG_CODE IN ('CZ99901','XXX01','XXX02','C5957M','C5957R')
+10:12:30 [ED]R|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||F||<None>|20180502085637|20180502093946|Cepheid-60138QN^809702^671667^2141839^30301^20181230
+10:12:30 [ED]R|2|^001^^003^^^Toxin B^|NEG^|||
+10:12:30 [ED]R|3|^001^^003^^^Toxin B^Ct|^0.0|||
+10:12:30 [ED]R|4|^001^^003^^^Toxin B^EndPt|^0.0|||
+10:12:30 [ED]R|5|^001^^003^^^Binary Toxin^|NEG^|||
+10:12:30 [ED]R|6|^001^^003^^^Binary Toxin^Ct|^0.0|||
+10:12:30 [ED]R|7|^001^^003^^^Binary Toxin^EndPt|^0.0|||
+10:12:30 [ED]R|8|^001^^003^^^TcdC^|NEG^|||
+10:12:30 [ED]R|9|^001^^003^^^TcdC^Ct|^0.0|||
+10:12:30 [ED]R|10|^001^^003^^^TcdC^EndPt|^2.0|||
+10:12:30 [ED]R|11|^001^^003^^^SPC^|PASS^|||
+10:12:30 [ED]R|12|^001^^003^^^SPC^Ct|^31.8|||
+10:12:30 [ED]R|13|^001^^003^^^SPC^EndPt|^377.0|||
+10:12:30 [ED]R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20180502085637|20180502093946|Cepheid-60138QN^809702^671667^2141839^30301^20181230
+10:12:30 [ED]R|15|^001^^002^^^Toxin B^|NEG^|||
+10:12:30 [ED]R|16|^001^^002^^^Toxin B^Ct|^0.0|||
+10:12:30 [ED]R|17|^001^^002^^^Toxin B^EndPt|^0.0|||
+10:12:30 [ED]R|18|^001^^002^^^Binary Toxin^|NEG^|||
+10:12:30 [ED]R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||
+10:12:30 [ED]R|20|^001^^002^^^Binary Toxin^EndPt|^0.0|||
+10:12:30 [ED]R|21|^001^^002^^^TcdC^|NEG^|||
+10:12:30 [ED]R|22|^001^^002^^^TcdC^Ct|^0.0|||
+10:12:30 [ED]R|23|^001^^002^^^TcdC^EndPt|^2.0|||
+10:12:30 [ED]R|24|^001^^002^^^SPC^|PASS^|||
+10:12:30 [ED]R|25|^001^^002^^^SPC^Ct|^31.8|||
+10:12:30 [ED]R|26|^001^^002^^^SPC^EndPt|^377.0|||
+10:12:30 [ED]L|1|N
+10:12:30 [ED]
+10:12:30 [ED]
+10:12:30 [결과저장]M07
+10:12:30 [결과저장]M07
+10:12:31 [결과저장]M07
+10:12:31 [결과저장]M07
+10:12:31 [Rx]
+10:12:31 [Tx]
+10:12:31 [Rx]1H|@^\|URM-Pb8ZeMWA-02||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101147P|1|||1810188516|^^^^O|1|1810188516||^^^001|R|20180430095517|||||||||ORH|||^^|||||||FR|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||6F
+
+10:12:31 [Tx]
+10:12:31 [Rx]2F||<None>|20180430095517|20180430103829|Cepheid-60138QN^809702^671538^2141668^30301^20181230R|2|^001^^003^^^Toxin B^|NEG^|||R|3|^001^^003^^^Toxin B^Ct|^0.0|||R|4|^001^^003^^^Toxin B^EndPt|^1.0|||R|5|^001^^003^^^Binary Toxin^|NEG^|||R|6FE
+
+10:12:31 [Tx]
+10:12:31 [Rx]3|^001^^003^^^Binary Toxin^Ct|^0.0|||R|7|^001^^003^^^Binary Toxin^EndPt|^1.0|||R|8|^001^^003^^^TcdC^|NEG^|||R|9|^001^^003^^^TcdC^Ct|^0.0|||R|10|^001^^003^^^TcdC^EndPt|^3.0|||R|11|^001^^003^^^SPC^|PASS^|||R|12|^001^^003^^^SPC^Ct|^31.6||42
+
+10:12:31 [Tx]
+10:12:31 [Rx]4|R|13|^001^^003^^^SPC^EndPt|^189.0|||R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20180430095517|20180430103829|Cepheid-60138QN^809702^671538^2141668^30301^20181230R|15|^001^^002^^^Toxin B^|NEG^|||R|16|^001^33
+
+10:12:31 [Tx]
+10:12:31 [Rx]5^002^^^Toxin B^Ct|^0.0|||R|17|^001^^002^^^Toxin B^EndPt|^1.0|||R|18|^001^^002^^^Binary Toxin^|NEG^|||R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||R|20|^001^^002^^^Binary Toxin^EndPt|^1.0|||R|21|^001^^002^^^TcdC^|NEG^|||R|22|^001^^002^^^Tcd0E
+
+10:12:31 [Tx]
+10:12:31 [Rx]6C^Ct|^0.0|||R|23|^001^^002^^^TcdC^EndPt|^3.0|||R|24|^001^^002^^^SPC^|PASS^|||R|25|^001^^002^^^SPC^Ct|^31.6|||R|26|^001^^002^^^SPC^EndPt|^189.0|||L|1|N59
+
+10:12:31 [Tx]
+10:12:31 [Rx]
+10:12:31 [ED]1H|@^\|URM-Pb8ZeMWA-02||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101147
+10:12:31 [ED]P|1|||1810188516|^^^^
+10:12:31 [ED]O|1|1810188516||^^^001|R|20180430095517|||||||||ORH|||^^|||||||F
+10:12:31 [오더조회]SELECT DISTINCT PART_JUBSU_DATE as 접수일자, PART_JUBSU_TIME, BUNHO as 내원번호, SUNAME as 이름, AGE as 나이, SEX as 성별,        FKCPL0201, SPECIMEN_CODE, GWA, HANGMOG_CODE as ITEM, INTERFACE_YN, JANGBI_OUT_CODE, JANGBI_CODE, CONFIRM_YN, CPL_RESULT   FROM VW_CPL_INTERFACE_GUMSA_LOAD  WHERE SPECIMEN_SER = '1810188516'   AND NVL(CONFIRM_YN, 'N') = 'N'   AND HANGMOG_CODE IN ('CZ99901','XXX01','XXX02','C5957M','C5957R')
+10:12:31 [ED]R|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||F||<None>|20180430095517|20180430103829|Cepheid-60138QN^809702^671538^2141668^30301^20181230
+10:12:31 [ED]R|2|^001^^003^^^Toxin B^|NEG^|||
+10:12:31 [ED]R|3|^001^^003^^^Toxin B^Ct|^0.0|||
+10:12:31 [ED]R|4|^001^^003^^^Toxin B^EndPt|^1.0|||
+10:12:31 [ED]R|5|^001^^003^^^Binary Toxin^|NEG^|||
+10:12:31 [ED]R|6|^001^^003^^^Binary Toxin^Ct|^0.0|||
+10:12:31 [ED]R|7|^001^^003^^^Binary Toxin^EndPt|^1.0|||
+10:12:31 [ED]R|8|^001^^003^^^TcdC^|NEG^|||
+10:12:31 [ED]R|9|^001^^003^^^TcdC^Ct|^0.0|||
+10:12:31 [ED]R|10|^001^^003^^^TcdC^EndPt|^3.0|||
+10:12:31 [ED]R|11|^001^^003^^^SPC^|PASS^|||
+10:12:31 [ED]R|12|^001^^003^^^SPC^Ct|^31.6|||
+10:12:31 [ED]R|13|^001^^003^^^SPC^EndPt|^189.0|||
+10:12:31 [ED]R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20180430095517|20180430103829|Cepheid-60138QN^809702^671538^2141668^30301^20181230
+10:12:31 [ED]R|15|^001^^002^^^Toxin B^|NEG^|||
+10:12:31 [ED]R|16|^001^^002^^^Toxin B^Ct|^0.0|||
+10:12:31 [ED]R|17|^001^^002^^^Toxin B^EndPt|^1.0|||
+10:12:31 [ED]R|18|^001^^002^^^Binary Toxin^|NEG^|||
+10:12:31 [ED]R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||
+10:12:31 [ED]R|20|^001^^002^^^Binary Toxin^EndPt|^1.0|||
+10:12:31 [ED]R|21|^001^^002^^^TcdC^|NEG^|||
+10:12:31 [ED]R|22|^001^^002^^^TcdC^Ct|^0.0|||
+10:12:31 [ED]R|23|^001^^002^^^TcdC^EndPt|^3.0|||
+10:12:31 [ED]R|24|^001^^002^^^SPC^|PASS^|||
+10:12:31 [ED]R|25|^001^^002^^^SPC^Ct|^31.6|||
+10:12:31 [ED]R|26|^001^^002^^^SPC^EndPt|^189.0|||
+10:12:31 [ED]L|1|N
+10:12:31 [ED]
+10:12:31 [ED]
+10:12:31 [결과저장]M07
+10:12:31 [결과저장]M07
+10:12:31 [결과저장]M07
+10:12:31 [결과저장]M07
+10:12:32 [Rx]
+10:12:32 [Tx]
+10:12:32 [Rx]1H|@^\|URM-St8ZeMWA-03||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101148P|1|||1820102561-|^^^^O|1|1820102561-||^^^010|R|20180427143559|||||||||ORH|||^^|||||||FR|1|^010^^020^Xpert MTB-RIF Assay G4^5^MTB^|DETECTED MEDIUM^|||||F22
+
+10:12:32 [Tx]
+10:12:32 [Rx]2||<None>|20180427143559|20180427161815|Cepheid-60138QN^809702^671328^527213331^23913^20191208R|2|^010^^020^^^Probe D^|POS^|||R|3|^010^^020^^^Probe D^Ct|^17.7|||R|4|^010^^020^^^Probe D^EndPt|^229.0|||R|5|^010^^020^^^Probe C^|POS^|||R|6|FF
+
+10:12:32 [Tx]
+10:12:32 [Rx]3^010^^020^^^Probe C^Ct|^16.5|||R|7|^010^^020^^^Probe C^EndPt|^253.0|||R|8|^010^^020^^^Probe E^|POS^|||R|9|^010^^020^^^Probe E^Ct|^17.7|||R|10|^010^^020^^^Probe E^EndPt|^135.0|||R|11|^010^^020^^^Probe B^|POS^|||R|12|^010^^020^^^Probe B9A
+
+10:12:32 [Tx]
+10:12:32 [Rx]4^Ct|^17.6|||R|13|^010^^020^^^Probe B^EndPt|^132.0|||R|14|^010^^020^^^Probe A^|POS^|||R|15|^010^^020^^^Probe A^Ct|^16.4|||R|16|^010^^020^^^Probe A^EndPt|^136.0|||R|17|^010^^020^^^SPC^|NA^|||R|18|^010^^020^^^SPC^Ct|^26.7|||R|19|^010^^0F1
+
+10:12:32 [Tx]
+10:12:32 [Rx]520^^^SPC^EndPt|^246.0|||R|20|^010^^040^Xpert MTB-RIF Assay G4^5^Rif Resistance^|NOT DETECTED^|||||F||<None>|20180427143559|20180427161815|Cepheid-60138QN^809702^671328^527213331^23913^20191208R|21|^010^^040^^^Probe D^|POS^|||R|22|^010^^0CE
+
+10:12:32 [Tx]
+10:12:32 [Rx]640^^^Probe D^Ct|^17.7|||R|23|^010^^040^^^Probe D^EndPt|^229.0|||R|24|^010^^040^^^Probe C^|POS^|||R|25|^010^^040^^^Probe C^Ct|^16.5|||R|26|^010^^040^^^Probe C^EndPt|^253.0|||R|27|^010^^040^^^Probe E^|POS^|||R|28|^010^^040^^^Probe E^Ct|06
+
+10:12:32 [Tx]
+10:12:32 [Rx]7^17.7|||R|29|^010^^040^^^Probe E^EndPt|^135.0|||R|30|^010^^040^^^Probe B^|POS^|||R|31|^010^^040^^^Probe B^Ct|^17.6|||R|32|^010^^040^^^Probe B^EndPt|^132.0|||R|33|^010^^040^^^Probe A^|POS^|||R|34|^010^^040^^^Probe A^Ct|^16.4|||R|35|^06B
+
+10:12:32 [Tx]
+10:12:32 [Rx]010^^040^^^Probe A^EndPt|^136.0|||R|36|^010^^040^^^SPC^|NA^|||R|37|^010^^040^^^SPC^Ct|^26.7|||R|38|^010^^040^^^SPC^EndPt|^246.0|||R|39|^010^^030^Xpert MTB-RIF Assay G4^5^QC Check^|^|||||F||<None>|20180427143559|20180427161815|Cepheid-6010F
+
+10:12:32 [Tx]
+10:12:32 [Rx]138QN^809702^671328^527213331^23913^20191208R|40|^010^^030^^^QC-1^|NEG^|||R|41|^010^^030^^^QC-1^Ct|^0.0|||R|42|^010^^030^^^QC-1^EndPt|^0.0|||R|43|^010^^030^^^QC-2^|NEG^|||R|44|^010^^030^^^QC-2^Ct|^0.0|||R|45|^010^^030^^^QC-2^EndPt|^0.0D5
+
+10:12:32 [Tx]
+10:12:32 [Rx]2|||L|1|N86
+
+10:12:32 [Tx]
+10:12:32 [Rx]
+10:12:33 [ED]1H|@^\|URM-St8ZeMWA-03||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101148
+10:12:33 [ED]P|1|||1820102561-|^^^^
+10:12:33 [ED]O|1|1820102561-||^^^010|R|20180427143559|||||||||ORH|||^^|||||||F
+10:12:33 [오더조회]SELECT DISTINCT PART_JUBSU_DATE as 접수일자, PART_JUBSU_TIME, BUNHO as 내원번호, SUNAME as 이름, AGE as 나이, SEX as 성별,        FKCPL0201, SPECIMEN_CODE, GWA, HANGMOG_CODE as ITEM, INTERFACE_YN, JANGBI_OUT_CODE, JANGBI_CODE, CONFIRM_YN, CPL_RESULT   FROM VW_CPL_INTERFACE_GUMSA_LOAD  WHERE SPECIMEN_SER = '1820102561-'   AND NVL(CONFIRM_YN, 'N') = 'N'   AND HANGMOG_CODE IN ('CZ99901','XXX01','XXX02','C5957M','C5957R')
+10:12:33 [ED]R|1|^010^^020^Xpert MTB-RIF Assay G4^5^MTB^|DETECTED MEDIUM^|||||F||<None>|20180427143559|20180427161815|Cepheid-60138QN^809702^671328^527213331^23913^20191208
+10:12:33 [ED]R|2|^010^^020^^^Probe D^|POS^|||
+10:12:33 [ED]R|3|^010^^020^^^Probe D^Ct|^17.7|||
+10:12:33 [ED]R|4|^010^^020^^^Probe D^EndPt|^229.0|||
+10:12:33 [ED]R|5|^010^^020^^^Probe C^|POS^|||
+10:12:33 [ED]R|6|^010^^020^^^Probe C^Ct|^16.5|||
+10:12:33 [ED]R|7|^010^^020^^^Probe C^EndPt|^253.0|||
+10:12:33 [ED]R|8|^010^^020^^^Probe E^|POS^|||
+10:12:33 [ED]R|9|^010^^020^^^Probe E^Ct|^17.7|||
+10:12:33 [ED]R|10|^010^^020^^^Probe E^EndPt|^135.0|||
+10:12:33 [ED]R|11|^010^^020^^^Probe B^|POS^|||
+10:12:33 [ED]R|12|^010^^020^^^Probe B^Ct|^17.6|||
+10:12:33 [ED]R|13|^010^^020^^^Probe B^EndPt|^132.0|||
+10:12:33 [ED]R|14|^010^^020^^^Probe A^|POS^|||
+10:12:33 [ED]R|15|^010^^020^^^Probe A^Ct|^16.4|||
+10:12:33 [ED]R|16|^010^^020^^^Probe A^EndPt|^136.0|||
+10:12:33 [ED]R|17|^010^^020^^^SPC^|NA^|||
+10:12:33 [ED]R|18|^010^^020^^^SPC^Ct|^26.7|||
+10:12:33 [ED]R|19|^010^^020^^^SPC^EndPt|^246.0|||
+10:12:33 [ED]R|20|^010^^040^Xpert MTB-RIF Assay G4^5^Rif Resistance^|NOT DETECTED^|||||F||<None>|20180427143559|20180427161815|Cepheid-60138QN^809702^671328^527213331^23913^20191208
+10:12:33 [ED]R|21|^010^^040^^^Probe D^|POS^|||
+10:12:33 [ED]R|22|^010^^040^^^Probe D^Ct|^17.7|||
+10:12:33 [ED]R|23|^010^^040^^^Probe D^EndPt|^229.0|||
+10:12:33 [ED]R|24|^010^^040^^^Probe C^|POS^|||
+10:12:33 [ED]R|25|^010^^040^^^Probe C^Ct|^16.5|||
+10:12:33 [ED]R|26|^010^^040^^^Probe C^EndPt|^253.0|||
+10:12:33 [ED]R|27|^010^^040^^^Probe E^|POS^|||
+10:12:33 [ED]R|28|^010^^040^^^Probe E^Ct|^17.7|||
+10:12:33 [ED]R|29|^010^^040^^^Probe E^EndPt|^135.0|||
+10:12:33 [ED]R|30|^010^^040^^^Probe B^|POS^|||
+10:12:33 [ED]R|31|^010^^040^^^Probe B^Ct|^17.6|||
+10:12:33 [ED]R|32|^010^^040^^^Probe B^EndPt|^132.0|||
+10:12:33 [ED]R|33|^010^^040^^^Probe A^|POS^|||
+10:12:33 [ED]R|34|^010^^040^^^Probe A^Ct|^16.4|||
+10:12:33 [ED]R|35|^010^^040^^^Probe A^EndPt|^136.0|||
+10:12:33 [ED]R|36|^010^^040^^^SPC^|NA^|||
+10:12:33 [ED]R|37|^010^^040^^^SPC^Ct|^26.7|||
+10:12:33 [ED]R|38|^010^^040^^^SPC^EndPt|^246.0|||
+10:12:33 [ED]R|39|^010^^030^Xpert MTB-RIF Assay G4^5^QC Check^|^|||||F||<None>|20180427143559|20180427161815|Cepheid-60138QN^809702^671328^527213331^23913^20191208
+10:12:33 [ED]R|40|^010^^030^^^QC-1^|NEG^|||
+10:12:33 [ED]R|41|^010^^030^^^QC-1^Ct|^0.0|||
+10:12:33 [ED]R|42|^010^^030^^^QC-1^EndPt|^0.0|||
+10:12:33 [ED]R|43|^010^^030^^^QC-2^|NEG^|||
+10:12:33 [ED]R|44|^010^^030^^^QC-2^Ct|^0.0|||
+10:12:33 [ED]R|45|^010^^030^^^QC-2^EndPt|^0.0|||
+10:12:33 [ED]L|1|N
+10:12:33 [ED]
+10:12:33 [ED]
+10:12:33 [Rx]
+10:12:33 [Tx]
+10:12:34 [Rx]1H|@^\|URM-PC9ZeMWA-04||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101150P|1|||1820102561|^^^^O|1|1820102561||^^^010|R|20180427135550|||||||||ORH|||^^|||||||FR|1|^010^^020^Xpert MTB-RIF Assay G4^5^MTB^|ERROR^|||||F||<None>|201FF
+
+10:12:34 [Tx]
+10:12:34 [Rx]280427135550|20180427141843|Cepheid-60138QN^809702^671668^537493453^24016^20200223C|1|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 208 for reading number 1 was above the maximum of 141^201D0
+
+10:12:34 [Tx]
+10:12:34 [Rx]380427141821|NC|2|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 209 for reading number 3 was above the maximum of 141^20180427141821|NR|2|^010^^020^^^Probe D^|NO RESULT^|||R|3|^010^^020^^AA
+
+10:12:34 [Tx]
+10:12:34 [Rx]4^Probe D^Ct|^0.0|||R|4|^010^^020^^^Probe D^EndPt|^0.0|||R|5|^010^^020^^^Probe C^|NO RESULT^|||R|6|^010^^020^^^Probe C^Ct|^0.0|||R|7|^010^^020^^^Probe C^EndPt|^0.0|||R|8|^010^^020^^^Probe E^|NO RESULT^|||R|9|^010^^020^^^Probe E^Ct|^0.0A0
+
+10:12:34 [Tx]
+10:12:34 [Rx]5|||R|10|^010^^020^^^Probe E^EndPt|^0.0|||R|11|^010^^020^^^Probe B^|NO RESULT^|||R|12|^010^^020^^^Probe B^Ct|^0.0|||R|13|^010^^020^^^Probe B^EndPt|^0.0|||R|14|^010^^020^^^Probe A^|NO RESULT^|||R|15|^010^^020^^^Probe A^Ct|^0.0|||R|16|^FE
+
+10:12:34 [Tx]
+10:12:34 [Rx]6010^^020^^^Probe A^EndPt|^0.0|||R|17|^010^^020^^^SPC^|NO RESULT^|||R|18|^010^^020^^^SPC^Ct|^0.0|||R|19|^010^^020^^^SPC^EndPt|^0.0|||R|20|^010^^040^Xpert MTB-RIF Assay G4^5^Rif Resistance^|ERROR^|||||F||<None>|20180427135550|20180427141811
+
+10:12:34 [Tx]
+10:12:34 [Rx]743|Cepheid-60138QN^809702^671668^537493453^24016^20200223C|1|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 208 for reading number 1 was above the maximum of 141^20180427141821|NC|2|I|Erro92
+
+10:12:34 [Tx]
+10:12:34 [Rx]0r^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 209 for reading number 3 was above the maximum of 141^20180427141821|NR|21|^010^^040^^^Probe D^|NO RESULT^|||R|22|^010^^040^^^Probe D^Ct|^0.0|||R|BC
+
+10:12:34 [Tx]
+10:12:34 [Rx]123|^010^^040^^^Probe D^EndPt|^0.0|||R|24|^010^^040^^^Probe C^|NO RESULT^|||R|25|^010^^040^^^Probe C^Ct|^0.0|||R|26|^010^^040^^^Probe C^EndPt|^0.0|||R|27|^010^^040^^^Probe E^|NO RESULT^|||R|28|^010^^040^^^Probe E^Ct|^0.0|||R|29|^010^^05A
+
+10:12:34 [Tx]
+10:12:34 [Rx]240^^^Probe E^EndPt|^0.0|||R|30|^010^^040^^^Probe B^|NO RESULT^|||R|31|^010^^040^^^Probe B^Ct|^0.0|||R|32|^010^^040^^^Probe B^EndPt|^0.0|||R|33|^010^^040^^^Probe A^|NO RESULT^|||R|34|^010^^040^^^Probe A^Ct|^0.0|||R|35|^010^^040^^^ProbeF9
+
+10:12:34 [Tx]
+10:12:34 [Rx]3 A^EndPt|^0.0|||R|36|^010^^040^^^SPC^|NO RESULT^|||R|37|^010^^040^^^SPC^Ct|^0.0|||R|38|^010^^040^^^SPC^EndPt|^0.0|||R|39|^010^^030^Xpert MTB-RIF Assay G4^5^QC Check^|ERROR^|||||F||<None>|20180427135550|20180427141843|Cepheid-60138QN^809D1
+
+10:12:34 [Tx]
+10:12:34 [Rx]4702^671668^537493453^24016^20200223C|1|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 208 for reading number 1 was above the maximum of 141^20180427141821|NC|2|I|Error^5006^Post-run analysF6
+
+10:12:34 [Tx]
+10:12:34 [Rx]5is error^Error 5006: [QC-1] probe check failed. Probe check value of 209 for reading number 3 was above the maximum of 141^20180427141821|NR|40|^010^^030^^^QC-1^|NO RESULT^|||R|41|^010^^030^^^QC-1^Ct|^0.0|||R|42|^010^^030^^^QC-1^EndPt|^093
+
+10:12:34 [Tx]
+10:12:34 [Rx]6.0|||R|43|^010^^030^^^QC-2^|NO RESULT^|||R|44|^010^^030^^^QC-2^Ct|^0.0|||R|45|^010^^030^^^QC-2^EndPt|^0.0|||L|1|N54
+
+10:12:34 [Tx]
+10:12:34 [Rx]
+10:12:34 [ED]1H|@^\|URM-PC9ZeMWA-04||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101150
+10:12:34 [ED]P|1|||1820102561|^^^^
+10:12:34 [ED]O|1|1820102561||^^^010|R|20180427135550|||||||||ORH|||^^|||||||F
+10:12:34 [오더조회]SELECT DISTINCT PART_JUBSU_DATE as 접수일자, PART_JUBSU_TIME, BUNHO as 내원번호, SUNAME as 이름, AGE as 나이, SEX as 성별,        FKCPL0201, SPECIMEN_CODE, GWA, HANGMOG_CODE as ITEM, INTERFACE_YN, JANGBI_OUT_CODE, JANGBI_CODE, CONFIRM_YN, CPL_RESULT   FROM VW_CPL_INTERFACE_GUMSA_LOAD  WHERE SPECIMEN_SER = '1820102561'   AND NVL(CONFIRM_YN, 'N') = 'N'   AND HANGMOG_CODE IN ('CZ99901','XXX01','XXX02','C5957M','C5957R')
+10:12:34 [ED]R|1|^010^^020^Xpert MTB-RIF Assay G4^5^MTB^|ERROR^|||||F||<None>|20180427135550|20180427141843|Cepheid-60138QN^809702^671668^537493453^24016^20200223
+10:12:34 [ED]C|1|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 208 for reading number 1 was above the maximum of 141^20180427141821|N
+10:12:34 [ED]C|2|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 209 for reading number 3 was above the maximum of 141^20180427141821|N
+10:12:34 [ED]R|2|^010^^020^^^Probe D^|NO RESULT^|||
+10:12:34 [ED]R|3|^010^^020^^^Probe D^Ct|^0.0|||
+10:12:34 [ED]R|4|^010^^020^^^Probe D^EndPt|^0.0|||
+10:12:34 [ED]R|5|^010^^020^^^Probe C^|NO RESULT^|||
+10:12:34 [ED]R|6|^010^^020^^^Probe C^Ct|^0.0|||
+10:12:34 [ED]R|7|^010^^020^^^Probe C^EndPt|^0.0|||
+10:12:34 [ED]R|8|^010^^020^^^Probe E^|NO RESULT^|||
+10:12:34 [ED]R|9|^010^^020^^^Probe E^Ct|^0.0|||
+10:12:34 [ED]R|10|^010^^020^^^Probe E^EndPt|^0.0|||
+10:12:34 [ED]R|11|^010^^020^^^Probe B^|NO RESULT^|||
+10:12:34 [ED]R|12|^010^^020^^^Probe B^Ct|^0.0|||
+10:12:34 [ED]R|13|^010^^020^^^Probe B^EndPt|^0.0|||
+10:12:34 [ED]R|14|^010^^020^^^Probe A^|NO RESULT^|||
+10:12:34 [ED]R|15|^010^^020^^^Probe A^Ct|^0.0|||
+10:12:34 [ED]R|16|^010^^020^^^Probe A^EndPt|^0.0|||
+10:12:34 [ED]R|17|^010^^020^^^SPC^|NO RESULT^|||
+10:12:34 [ED]R|18|^010^^020^^^SPC^Ct|^0.0|||
+10:12:34 [ED]R|19|^010^^020^^^SPC^EndPt|^0.0|||
+10:12:34 [ED]R|20|^010^^040^Xpert MTB-RIF Assay G4^5^Rif Resistance^|ERROR^|||||F||<None>|20180427135550|20180427141843|Cepheid-60138QN^809702^671668^537493453^24016^20200223
+10:12:34 [ED]C|1|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 208 for reading number 1 was above the maximum of 141^20180427141821|N
+10:12:34 [ED]C|2|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 209 for reading number 3 was above the maximum of 141^20180427141821|N
+10:12:34 [ED]R|21|^010^^040^^^Probe D^|NO RESULT^|||
+10:12:34 [ED]R|22|^010^^040^^^Probe D^Ct|^0.0|||
+10:12:34 [ED]R|23|^010^^040^^^Probe D^EndPt|^0.0|||
+10:12:34 [ED]R|24|^010^^040^^^Probe C^|NO RESULT^|||
+10:12:34 [ED]R|25|^010^^040^^^Probe C^Ct|^0.0|||
+10:12:34 [ED]R|26|^010^^040^^^Probe C^EndPt|^0.0|||
+10:12:34 [ED]R|27|^010^^040^^^Probe E^|NO RESULT^|||
+10:12:34 [ED]R|28|^010^^040^^^Probe E^Ct|^0.0|||
+10:12:34 [ED]R|29|^010^^040^^^Probe E^EndPt|^0.0|||
+10:12:34 [ED]R|30|^010^^040^^^Probe B^|NO RESULT^|||
+10:12:34 [ED]R|31|^010^^040^^^Probe B^Ct|^0.0|||
+10:12:34 [ED]R|32|^010^^040^^^Probe B^EndPt|^0.0|||
+10:12:34 [ED]R|33|^010^^040^^^Probe A^|NO RESULT^|||
+10:12:34 [ED]R|34|^010^^040^^^Probe A^Ct|^0.0|||
+10:12:34 [ED]R|35|^010^^040^^^Probe A^EndPt|^0.0|||
+10:12:34 [ED]R|36|^010^^040^^^SPC^|NO RESULT^|||
+10:12:34 [ED]R|37|^010^^040^^^SPC^Ct|^0.0|||
+10:12:34 [ED]R|38|^010^^040^^^SPC^EndPt|^0.0|||
+10:12:34 [ED]R|39|^010^^030^Xpert MTB-RIF Assay G4^5^QC Check^|ERROR^|||||F||<None>|20180427135550|20180427141843|Cepheid-60138QN^809702^671668^537493453^24016^20200223
+10:12:34 [ED]C|1|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 208 for reading number 1 was above the maximum of 141^20180427141821|N
+10:12:34 [ED]C|2|I|Error^5006^Post-run analysis error^Error 5006: [QC-1] probe check failed. Probe check value of 209 for reading number 3 was above the maximum of 141^20180427141821|N
+10:12:34 [ED]R|40|^010^^030^^^QC-1^|NO RESULT^|||
+10:12:34 [ED]R|41|^010^^030^^^QC-1^Ct|^0.0|||
+10:12:34 [ED]R|42|^010^^030^^^QC-1^EndPt|^0.0|||
+10:12:34 [ED]R|43|^010^^030^^^QC-2^|NO RESULT^|||
+10:12:34 [ED]R|44|^010^^030^^^QC-2^Ct|^0.0|||
+10:12:34 [ED]R|45|^010^^030^^^QC-2^EndPt|^0.0|||
+10:12:34 [ED]L|1|N
+10:12:34 [ED]
+10:12:34 [ED]
+10:12:35 [Rx]
+10:12:35 [Tx]
+10:12:35 [Rx]1H|@^\|URM-SU9ZeMWA-05||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101151P|1|||1810176195|^^^^O|1|1810176195||^^^001|R|20180423085242|||||||||ORH|||^^|||||||FR|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||60
+
+10:12:35 [Tx]
+10:12:35 [Rx]2F||<None>|20180423085242|20180423093541|Cepheid-60138QN^809702^671538^2141661^30301^20181230R|2|^001^^003^^^Toxin B^|NEG^|||R|3|^001^^003^^^Toxin B^Ct|^0.0|||R|4|^001^^003^^^Toxin B^EndPt|^0.0|||R|5|^001^^003^^^Binary Toxin^|NEG^|||R|6F3
+
+10:12:35 [Tx]
+10:12:35 [Rx]3|^001^^003^^^Binary Toxin^Ct|^0.0|||R|7|^001^^003^^^Binary Toxin^EndPt|^2.0|||R|8|^001^^003^^^TcdC^|NEG^|||R|9|^001^^003^^^TcdC^Ct|^0.0|||R|10|^001^^003^^^TcdC^EndPt|^3.0|||R|11|^001^^003^^^SPC^|PASS^|||R|12|^001^^003^^^SPC^Ct|^32.3||41
+
+10:12:35 [Tx]
+10:12:35 [Rx]4|R|13|^001^^003^^^SPC^EndPt|^387.0|||R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20180423085242|20180423093541|Cepheid-60138QN^809702^671538^2141661^30301^20181230R|15|^001^^002^^^Toxin B^|NEG^|||R|16|^001^29
+
+10:12:35 [Tx]
+10:12:35 [Rx]5^002^^^Toxin B^Ct|^0.0|||R|17|^001^^002^^^Toxin B^EndPt|^0.0|||R|18|^001^^002^^^Binary Toxin^|NEG^|||R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||R|20|^001^^002^^^Binary Toxin^EndPt|^2.0|||R|21|^001^^002^^^TcdC^|NEG^|||R|22|^001^^002^^^Tcd0E
+
+10:12:35 [Tx]
+10:12:35 [Rx]6C^Ct|^0.0|||R|23|^001^^002^^^TcdC^EndPt|^3.0|||R|24|^001^^002^^^SPC^|PASS^|||R|25|^001^^002^^^SPC^Ct|^32.3|||R|26|^001^^002^^^SPC^EndPt|^387.0|||L|1|N57
+
+10:12:35 [Tx]
+10:12:35 [Rx]
+10:12:35 [ED]1H|@^\|URM-SU9ZeMWA-05||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20180502101151
+10:12:35 [ED]P|1|||1810176195|^^^^
+10:12:35 [ED]O|1|1810176195||^^^001|R|20180423085242|||||||||ORH|||^^|||||||F
+10:12:35 [오더조회]SELECT DISTINCT PART_JUBSU_DATE as 접수일자, PART_JUBSU_TIME, BUNHO as 내원번호, SUNAME as 이름, AGE as 나이, SEX as 성별,        FKCPL0201, SPECIMEN_CODE, GWA, HANGMOG_CODE as ITEM, INTERFACE_YN, JANGBI_OUT_CODE, JANGBI_CODE, CONFIRM_YN, CPL_RESULT   FROM VW_CPL_INTERFACE_GUMSA_LOAD  WHERE SPECIMEN_SER = '1810176195'   AND NVL(CONFIRM_YN, 'N') = 'N'   AND HANGMOG_CODE IN ('CZ99901','XXX01','XXX02','C5957M','C5957R')
+10:12:35 [ED]R|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||F||<None>|20180423085242|20180423093541|Cepheid-60138QN^809702^671538^2141661^30301^20181230
+10:12:35 [ED]R|2|^001^^003^^^Toxin B^|NEG^|||
+10:12:35 [ED]R|3|^001^^003^^^Toxin B^Ct|^0.0|||
+10:12:35 [ED]R|4|^001^^003^^^Toxin B^EndPt|^0.0|||
+10:12:35 [ED]R|5|^001^^003^^^Binary Toxin^|NEG^|||
+10:12:35 [ED]R|6|^001^^003^^^Binary Toxin^Ct|^0.0|||
+10:12:35 [ED]R|7|^001^^003^^^Binary Toxin^EndPt|^2.0|||
+10:12:35 [ED]R|8|^001^^003^^^TcdC^|NEG^|||
+10:12:35 [ED]R|9|^001^^003^^^TcdC^Ct|^0.0|||
+10:12:35 [ED]R|10|^001^^003^^^TcdC^EndPt|^3.0|||
+10:12:35 [ED]R|11|^001^^003^^^SPC^|PASS^|||
+10:12:35 [ED]R|12|^001^^003^^^SPC^Ct|^32.3|||
+10:12:35 [ED]R|13|^001^^003^^^SPC^EndPt|^387.0|||
+10:12:35 [ED]R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20180423085242|20180423093541|Cepheid-60138QN^809702^671538^2141661^30301^20181230
+10:12:35 [ED]R|15|^001^^002^^^Toxin B^|NEG^|||
+10:12:35 [ED]R|16|^001^^002^^^Toxin B^Ct|^0.0|||
+10:12:35 [ED]R|17|^001^^002^^^Toxin B^EndPt|^0.0|||
+10:12:35 [ED]R|18|^001^^002^^^Binary Toxin^|NEG^|||
+10:12:35 [ED]R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||
+10:12:35 [ED]R|20|^001^^002^^^Binary Toxin^EndPt|^2.0|||
+10:12:35 [ED]R|21|^001^^002^^^TcdC^|NEG^|||
+10:12:35 [ED]R|22|^001^^002^^^TcdC^Ct|^0.0|||
+10:12:35 [ED]R|23|^001^^002^^^TcdC^EndPt|^3.0|||
+10:12:35 [ED]R|24|^001^^002^^^SPC^|PASS^|||
+10:12:35 [ED]R|25|^001^^002^^^SPC^Ct|^32.3|||
+10:12:35 [ED]R|26|^001^^002^^^SPC^EndPt|^387.0|||
+10:12:35 [ED]L|1|N
+10:12:35 [ED]
+10:12:35 [ED]
+10:12:35 [결과저장]M07
+10:12:35 [결과저장]M07
+10:12:35 [결과저장]M07
+10:12:35 [결과저장]M07

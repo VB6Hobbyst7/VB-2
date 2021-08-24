@@ -1,0 +1,106 @@
+[HOSP]
+OCS=NU
+HOSPCD=017
+HOSPNM=일산백병원
+MACHCD=I01
+MACHNM=STI7
+LABCD=L01
+LABNM=병리과
+PARTCD=P01
+PARTNM=병리학부
+USERPW=%48564948@#
+LOGINYN=N
+SAVEPW=Y
+BARUSE=Y
+SAVELIS=Y
+SAVEAUTO=N
+RSTTYPE=3
+;1:Seq,2:Rack/Pos,3:Check Box
+COLWIDTH=40
+USERNM=김광호
+
+[DATABASE]
+DBTYPE=2
+'DBTYPE : 1=ORACLE,2=MSSQL
+LOCALPATH=C:\IF_STI7\Interface.mdb
+LOCALUID=admin
+LOCALPWD=admin
+//운영
+//ORACLESID=REAL_HIS017_CTF
+ORACLESID=HIS017_EDU
+ORACLEUID=lisu02
+ORACLEPWD=lisu02
+;MSSQLIP=ISPHISDB
+MSSQLIP=172.17.23.5
+MSSQLDB=OPENDB
+MSSQLUID=sansoft
+MSSQLPWD=anat12!
+
+
+[COMM]
+COMTYPE=3
+'COMTYPE : 1=SERIAL,2=SOCKET,3=FILE
+COMPORT=1
+SPEED=9600
+PARITY=N
+DATABIT=8
+STARTBIT=1
+STOPBIT=1
+RTSEnable=True
+DTREnable=True
+TCPTYPE=1
+'TCPTYPE : 1=CLIENT,2=SERVER
+TCPIP=127.0.0.10
+TCPPORT=5150
+BARUSE=N
+ORDPATH=C:\INTERFACE\
+RSTPATH=C:\INTERFACE\
+
+[TEMPLETE]
+COUNT=46
+1=Fibroepithelial polyp with koilo.
+2=Erosion with chronic cervicitis
+3=chronic & acute cervicitis with focal koilo.
+4=Condyoma acuminatum
+5=Chronic cervicitis
+6=Foci suspicious for koilo.
+7=Adenocarcinoma
+8=Squamous cell ca.
+9=Koilocytotic atypia                                       
+10=LSIL with koilo.   
+11=Sinonasal papilloma
+12=inverted papilloma                        
+13=Papilloma           
+14=Nasal polyp
+15=polypoid lymphoepithelial lesion                
+16=Hypertrophic tonsil
+17=Chronic inflammation
+18=Carcinoma in situ
+19=Squamous papilloma
+20=VIN I with severe koilo.
+21= Ulcer with atrophic vaginitis
+22=Chronic tonsillitis
+23=Chronic active cervicitis
+24=CIS & High grade dysplasia
+25=Endometrial adenoca.
+26=Endocervical polyp
+27=Acanthosis with koilo.
+28=Unsatisfactory
+29=AIS
+30=AGUS
+31=H(CINIII)
+32=H(HPV&CINII)
+33=H(CINII)
+34=HSIL
+35=L(CINI)
+36=L(HPV&CINI)
+37=L(HPV)
+38=LSIL
+39=ASC-H
+40=ASCUS & AGUS
+41=ASCUS
+42=BCC
+43=N
+44=No.
+45=(       )
+46=미판독

@@ -1,0 +1,2 @@
+SELECT DISTINCT adrcod as EXAMCODE From S_PcpInf, S_AcpInf, P_PatInf, S_AdrInf Where PcpAcpKey = AcpKey   AND AcpChtNum = PatChtNum   and PcpBarNum = '1700000104' 
+ and adrcod IN ('B2570','B2580','B2602','B2630','B2710','C2200','C2210','C2411','C2420','C2430','C2443','C3711','C3720','C3730','C3750','C3780') 

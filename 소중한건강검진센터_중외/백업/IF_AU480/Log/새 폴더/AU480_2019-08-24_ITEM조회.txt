@@ -1,0 +1,7 @@
+SELECT DISTINCT LABCODE AS ITEM            
+   FROM SLA_Labresult                      
+ WHERE LABCODE IN ('PHB9004','PHB9005','PHB9006','Z401','PON1','D7813X','2015X','D6913X','2006X')     
+   AND RECEIPTDATE = '2019-08-24'  
+   AND SPECIMENNUM = '1908240141'  
+ ORDER BY LABCODE                          
+

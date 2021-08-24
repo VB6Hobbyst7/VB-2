@@ -1,0 +1,12 @@
+Update RESULTOFNUM                                     
+   Set RESULTINDATE   = to_char(sysdate,'yyyymmdd')    
+     , RESULTINTIME   = to_char(sysdate,'HH24MI')      
+     , RESULTINID     = '1234'         
+     , RESULTFLAG     = '1'                            
+     , TEXTRESULTVAL  = '48.9'              
+     , NUMRESULTVAL = '48.9'           
+ Where SPCMNO         = '1910210009'           
+   And ORDERCODE      = 'D1003A'             
+   And RESULTITEMCODE = 'D1004'            
+   And RESULTFLAG < '3'                                
+

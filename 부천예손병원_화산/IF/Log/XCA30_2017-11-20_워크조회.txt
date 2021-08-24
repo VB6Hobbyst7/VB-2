@@ -1,0 +1,2 @@
+SELECT O.OrdDt as 접수일자, O.PtID as 내원번호, O.PtNm as 이름, O.Sex as 성별, O.Age as 나이, O.SpcCd, O.SpcNm, O.AllTestNm, O.StatFg, O.SPCNO as 바코드번호  FROM TC201 O, TC301 T  WHERE O.OrdDt between  '20171120' AND '20171120'
+   AND O.SPCNO = T.SPCNO    And T.TESTCD in ('LH122')

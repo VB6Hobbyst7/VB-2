@@ -1,0 +1,117 @@
+2013-02-07 15:55:24>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_BUOY_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-02-07 15:55:27>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-02-07 15:55:28>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WEATHER_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-02-07 15:55:28>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-02-07 15:55:28>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_TIDAL_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-02-07 15:55:28>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-02-07 15:55:28>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQ_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-02-07 15:55:28>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-02-07 15:55:28>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQA_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-02-07 15:55:28>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-02-07 15:55:28>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_BUOY_CTD a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-02-07 15:55:28>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-02-07 15:56:13>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-01034: ORACLE not available
+ORA-27101: shared memory realm does not exist
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-02-07 15:57:03>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-01034: ORACLE not available
+ORA-27101: shared memory realm does not exist
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-02-07 15:57:53>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-01034: ORACLE not available
+ORA-27101: shared memory realm does not exist
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-02-07 15:58:43>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-01034: ORACLE not available
+ORA-27101: shared memory realm does not exist
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-02-07 15:59:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-01034: ORACLE not available
+ORA-27101: shared memory realm does not exist
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208

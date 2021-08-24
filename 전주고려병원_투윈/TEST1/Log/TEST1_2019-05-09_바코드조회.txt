@@ -1,0 +1,19 @@
+SELECT DISTINCT        C.JOBDATE                               AS HOSPDATE     
+     , C.SPECNO                                AS BARCODE      
+     , C.PTNO                                  AS CHARTNO      
+     , C.JOBNO                                 AS PID          
+     , DECODE(C.GBIO,'I','입원','O','외래')    AS INOUT        
+     , C.SNAME                                 AS PNAME        
+     , C.SEX                                   AS SEX          
+     , C.AGE                                   AS AGE          
+     , A.MASTERCODE                            AS ORDERCODE    
+     , A.SUBCODE                               AS ITEM         
+  From TW_HSP_OCS.TWEXAM_RESULTC A                             
+     , TW_HSP_OCS.TWEXAM_MASTER  B                             
+     , TW_HSP_OCS.TWEXAM_SPECMST C                             
+ Where A.SPECNO = '1905090276'                         
+   AND C.STATUS  <= '3'                                        
+   And C.SPECNO  = A.SPECNO                                    
+   And A.MASTERCODE = B.MASTERCODE                             
+ ORDER BY C.JOBDATE, C.SPECNO                                  
+

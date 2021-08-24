@@ -1,0 +1,48 @@
+Update RESULTOFNUM                                     
+   Set RESULTINDATE   = to_char(sysdate,'yyyymmdd')    
+     , RESULTINTIME   = to_char(sysdate,'HH24MI')      
+     , RESULTINID     = '1234'         
+     , RESULTFLAG     = '1'                            
+     , TEXTRESULTVAL  = '81'              
+     , NUMRESULTVAL = '81'           
+ Where SPCMNO         = '1910160002'           
+   And ORDERCODE      = 'D1003'             
+   And RESULTITEMCODE = 'XH102002'            
+   And RESULTFLAG < '3'                                
+
+Update RESULTOFNUM                                     
+   Set RESULTINDATE   = to_char(sysdate,'yyyymmdd')    
+     , RESULTINTIME   = to_char(sysdate,'HH24MI')      
+     , RESULTINID     = '1234'         
+     , RESULTFLAG     = '1'                            
+     , TEXTRESULTVAL  = '1.15'              
+     , NUMRESULTVAL = '1.15'           
+ Where SPCMNO         = '1910160002'           
+   And ORDERCODE      = 'D1003'             
+   And RESULTITEMCODE = 'XH102003'            
+   And RESULTFLAG < '3'                                
+
+Update RESULTOFNUM                                     
+   Set RESULTINDATE   = to_char(sysdate,'yyyymmdd')    
+     , RESULTINTIME   = to_char(sysdate,'HH24MI')      
+     , RESULTINID     = '1234'         
+     , RESULTFLAG     = '1'                            
+     , TEXTRESULTVAL  = '14.4'              
+     , NUMRESULTVAL = '14.4'           
+ Where SPCMNO         = '1910160002'           
+   And ORDERCODE      = 'D1003'             
+   And RESULTITEMCODE = 'XH102001'            
+   And RESULTFLAG < '3'                                
+
+Update RESULTOFNUM                                     
+   Set RESULTINDATE   = to_char(sysdate,'yyyymmdd')    
+     , RESULTINTIME   = to_char(sysdate,'HH24MI')      
+     , RESULTINID     = '1234'         
+     , RESULTFLAG     = '1'                            
+     , TEXTRESULTVAL  = '41.0'              
+     , NUMRESULTVAL = '41.0'           
+ Where SPCMNO         = '1910160002'           
+   And ORDERCODE      = 'D1004'             
+   And RESULTITEMCODE = 'D1004'            
+   And RESULTFLAG < '3'                                
+

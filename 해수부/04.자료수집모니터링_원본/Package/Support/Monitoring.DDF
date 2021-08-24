@@ -1,0 +1,43 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="CollMonitoring.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"CollMonitoring.exe"
+"msvbvm60.dll"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"VB6KO.DLL"
+"TrayTools.dll"
+"ssa3d30.ocx"
+"MSVCRT.DLL"
+"MSCOMCTL.OCX"
+"MSCMCKO.DLL"
+"RICHTX32.OCX"
+"RICHED32.DLL"
+"GAPI32.DLL"
+"RCHTXKO.DLL"
+"TABCTL32.OCX"
+"TABCTKO.DLL"
+"FPSPR70.ocx"
+"mfc42.dll"
+"MSSTDFMT.DLL"
+"STDFTKO.DLL"
+"MDAC_TYP.EXE"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"
+"CM.ico"
+"Config.bin"

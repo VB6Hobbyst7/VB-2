@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GROUP NAME="WORKLIST" TYPE="HOST" VERSION="00.00.00.00">
+	<GROUP TYPE="Sample">
+		<GROUP TYPE="Patient" ID="P1">
+		<PARAM TYPE="String[32]" ID="Group" FILTER="-rrrr"/>
+			<PARAM TYPE="String[32]" ID="Name" FILTER="-rrrr">John</PARAM>
+			<PARAM TYPE="String[32]" ID="Surname" FILTER="-rrrr">Doe</PARAM>
+			<PARAM TYPE="Date" ID="BirthDate" FILTER="-rrrr">12-04-1932</PARAM>
+			<PARAM TYPE="SexType" ID="Sex" FILTER="-rrrr"/>
+			<PARAM TYPE="String[50]" ID="Note" FILTER="-rrrr"/>
+            <PARAM TYPE="String[25]" ID="Code" FILTER="-rrrr"/>
+		</GROUP>
+		<GROUP TYPE="Assays" ID="">
+			<GROUP TYPE="Assay" ID="Test1" STATE="Host"/>
+			<GROUP TYPE="Assay" ID="Test2" STATE="Host"/>	
+		</GROUP>
+	</GROUP>
+	<GROUP TYPE="Sample">
+		<GROUP TYPE="Patient" ID="P2">
+		</GROUP>
+		<GROUP TYPE="Assays" ID="">
+			<GROUP TYPE="Assay" ID="Test1" STATE="Host"/>
+			<GROUP TYPE="Assay" ID="Test3" STATE="Host"/>	
+		</GROUP>
+	</GROUP>
+	<GROUP TYPE="Sample">
+		<GROUP TYPE="Patient" ID="P3">
+		</GROUP>
+		<GROUP TYPE="Assays" ID="">
+			<GROUP TYPE="Assay" ID="Test1" STATE="Host"/>
+			<GROUP TYPE="Assay" ID="Test2" STATE="Host"/>
+		</GROUP>
+	</GROUP>
+</GROUP>

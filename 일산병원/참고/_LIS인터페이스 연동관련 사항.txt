@@ -1,0 +1,63 @@
+* DB 관련정보
+
+운영
+ID: nhimc_inf
+PW: nhimc_inf2011
+
+DATABASE 명: NHIMCPRD
+
+
+
+개발
+ID: nhimc_inf
+PW: nhimc_inf_dev
+
+DATABASE 명: NHIMCDEV
+
+
+
+* 일산병원 LIS I/F와 OCS간 연계 관련 테이블 총 4개
+  
+       1. 검사마다 업데이트(검사코드 수만큼)
+        UPDATE SPSLMJBDI -- 검체처방정보관리
+           SET RSLT_STAT = '1', 
+               AMEN_ID = ' 수정자 ', 
+               UPDT_DT = SysDate 
+         WHERE SPCM_NO = ' 검체번호 ' 
+           AND EXMN_CD IN ('그룹코드','멀티코드','밧데리코드','검사코드') 
+           AND RSLT_STAT < '2' 
+           AND SPCM_STAT = '2' 
+        
+
+			 2. 검체(바코드)마다 업데이트 (1번)
+        UPDATE SPSLMJBBI -- 검체기본정보관리
+           SET RSLT_STAT = '1', 
+               AMEN_ID = ' 수정자 ', 
+               UPDT_DT = SysDate 
+         WHERE SPCM_NO = '검체번호 ' 
+           AND PID = ' 환자번호 ' 
+           AND RSLT_STAT < '2' 
+           AND SPCM_STAT = '2' 
+        
+
+				3. 리터럴 쿼리 수정부(검사수 만큼 업데이트)
+        UPDATE SPSLHRRST -- 일반검사결과관리
+         SET   RSLT_INPS_ID = ' 수정자 ',
+               RSLT_INPT_DT = SysDate,
+               RSLT_STAT = '1', 
+               EXMN_EQPM = ' 장비코드 ',
+               AMEN_ID = ' 수정자 ',    
+               UPDT_DT = SysDate,       
+               RSLT_NO = ' 결과순번 ' 
+         WHERE SPCM_NO = ' 검체번호 '   
+           AND EXMN_CD = ' 검사코드 '   
+           AND PID = ' 환자번호 '       
+           AND RSLT_STAT < '2'    
+
+       4. 처방마스터 업데이트
+       UPDATE MDMDHTORD
+          SET PRSC_STAT = '상태 업데이트'
+        WHERE ...   
+       
+       
+      5. ABGA 장비 최초 접수시 관련 웹서비스(WAS-Jeus) 호출( 첨부문서 참조)

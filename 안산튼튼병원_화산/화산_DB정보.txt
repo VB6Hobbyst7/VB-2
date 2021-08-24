@@ -1,0 +1,44 @@
+
+	    string connStr = "Data Source=192.168.0.4;DataBase = metro;User Id=sa;Password=mms";   
+
+
+SELECT	PtID AS PatientNo, PtNm as PatientName, Age as PatientAge,Sex as PatientSex, null as JuminNo,SpcNo as ReceiptNo,  null as ReceiptDate,null as JuminNo,null AS AdditionalInfo
+  FROM	TC201
+ WHERE	SpcNo = '1007270136'
+
+
+
+환자 정보
+
+ 
+
+SELECT SpcNo AS Barcode , Null AS RackOrDiskNo, Null AS PosNo, PtID AS PatientNo, PtNm as PatientName, Age as PatientAge, Sex as PatientSex, OrdDt as ReceiptDate  
+FROM TC201
+ WHERE SpcNo = @barcode
+
+ 
+
+오더 정보
+
+ 
+
+SELECT null as equipcode, testcd
+  FROM TC301
+ WHERE SpcNo = @barcode
+   AND  testcd IN ({0}) AND (RstVal = ' ')
+
+ 
+
+ 
+
+결과 전송
+
+ date = DateTime.Now.ToString("yyyyMMdd");
+ time= DateTime.Now.ToString("HHmmss");
+
+insert into TC206 ( SpcNo, TestCd, TransDt, TransTm, RstVal, EquipCd, SpcDiv, ErrDes) values(Barcode,ExamCode,Date,Tiem,Result,EquipCode(병원내 장비지정 코드),'','')
+
+
+LB1020
+
+LC50104

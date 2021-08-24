@@ -1,0 +1,31 @@
+10:26:58 : '__[소비자가]__*0.001'의 토큰이 잘못되었습니다.(__[소비자가]__*0.001)
+   위치: MS.Internal.Xml.XPath.XPathParser.ParseXPathExpresion(String xpathExpresion)
+   위치: System.Xml.XPath.XPathExpression.Compile(String xpath, IXmlNamespaceResolver nsResolver)
+   위치: System.Xml.XPath.XPathNavigator.Evaluate(String xpath)
+   위치: IdifCommon.clsCommon.Evaluate(String prmText)
+   위치: IdifCommon.clsCommon.Evaluate(String prmText)
+   위치: IdifCommon.clsLabel.MakePrintData(String prmTemplateData, Int32 prmHomeX, Int32 prmHomeY, SheetView prmSpreadSheet, Int32 prmRowIndex, Int32 prmPrintQty)
+   위치: IdifCommon.clsLabel.MakePrintData(String prmTemplateData, Int32 prmHomeX, Int32 prmHomeY, SheetView prmSpreadSheet, Int32 prmRowIndex, Int32 prmPrintQty)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+10:27:57 : Invalid row index: 87 (must be between 0 and 86)
+   위치: FarPoint.Win.Spread.Cells.get_Item(Int32 row, Int32 column)
+   위치: HanhuengPrint2008.frmExcelPrint.CalculatePrintQty()
+
+10:59:23 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+10:59:45 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+10:59:53 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+

@@ -1,0 +1,120 @@
+지누스 dll
+
+**장비코드 등록하셔야 합니다. LIS 프로그램에 기초정보인가에서 등록 가능합니다.
+**검사코드별로 장비코드 등록해야 합니다. LIS프로그램에 검사정보에서 검사별로 찾아서 장비 등록해줘야 합니다.
+**병원별로 URL, 병원코드 확인해서 사용 해야 합니다. 이것도 LIS 프로그램에 찾아보면 있어요.. 설정파일이나 그런데..
+**날짜랑 검체 번호는 'NN-NNNNNN-NN' 이런식으로 하이픈 들어가 있습니다. 자릿수는 기억이 안나네요..
+
+dll
+function W2ACALL2(pService, pRequest, pURL:PChar):PChar; stdcall; external 'w2afun.dll';
+
+const
+  CS_SVC = 'SCC0191A';                //고정
+  CS_URL = 'https://192.168.1.250';   //병원별 설정
+  CS_HCD = '77777770';                //병원별 설정
+  
+---워크리스트---
+  SVC:= CS_SVC;
+  URL:= CS_URL;
+  HCD:= CS_HCD;
+  SMP:= '%';
+  ICD:= 장비코드;
+  sF:= From날짜('yyyy-mm-dd');
+  sF:= To날짜('yyyy-mm-dd');
+  
+  OrdStr:='jobs'       + TAB + 'L' + TAB +
+          'hos_org_no' + TAB + HCD + TAB +
+          'fr_ymd'     + TAB + sF  + TAB +
+          'to_ymd'     + TAB + sT  + TAB +
+          'mach_cd'    + TAB + ICD + TAB +
+          'smp_no'     + TAB + SMP + TAB + CR;
+
+      slWork.Text := W2ACALL2(PChar(SVC), PChar(OrdStr), PChar(URL));
+      
+      for i:=0 to slWork.Count -1 do begin
+          sWork:= slWork.Strings[i];
+
+          ICD:= Trim(TokenStr(sWork, TAB, 1));	   //03  장비코드
+          BCD:= Trim(TokenStr(sWork, TAB, 2));	   //10-0001425-1  바코드
+          STA:= Trim(TokenStr(sWork, TAB, 3));	   //0: 접수, 1:예비, 2:일부, 3:최종, 4:수정
+          WNO:= Trim(TokenStr(sWork, TAB, 4));	   //0 
+          ADT:= Trim(TokenStr(sWork, TAB, 5));	   //201003220925 접수일시
+          PID:= Trim(TokenStr(sWork, TAB, 6));	   //00030617  환자번호
+          PNM:= Trim(TokenStr(sWork, TAB, 7));	   //승병순
+          JNO:= Trim(TokenStr(sWork, TAB, 8));	   //540324
+          JNO:= JNO + Trim(TokenStr(sWork, TAB, 9));	   //JNO + CHARACTER(7)	5140399
+          WAD:= Trim(TokenStr(sWork, TAB, 10));	   //5W   병동
+          RUM:= Trim(TokenStr(sWork, TAB, 11));	   //507  병실(Room)
+          DPT:= Trim(TokenStr(sWork, TAB, 12));	   //FM   접수부서
+          GBN:= Trim(TokenStr(sWork, TAB, 13));	   //O : 외래, E : 응급, I : 입원
+     end;
+     
+------바코드 오더---------
+  SVC:= CS_SVC;
+  URL:= CS_URL;
+  HCD:= CS_HCD;
+  SMP:= 바코드번호;
+  ICD:= 장비코드;
+
+  OrdStr:='jobs'       + TAB + 'Q' + TAB +
+          'hos_org_no' + TAB + HCD + TAB +
+          'smp_no'     + TAB + SMP + TAB +
+          'mach_cd'    + TAB + ICD + TAB + CR;
+
+      slWork.Text := W2ACALL2(PChar(SVC), PChar(OrdStr), PChar(URL));
+      
+      for i:=0 to slWork.Count -1 do begin
+          sWork:= slWork.Strings[i];
+          
+          OSEQ:= Trim(TokenStr(sOrder, TAB, 3));     //결과저장시 사용(검사별)
+          ESEQ:= Trim(TokenStr(sOrder, TAB, 4));     //결과저장시 사용(검사별)  
+          PSEQ:= Trim(TokenStr(sOrder, TAB, 5));     //결과저장시 사용(검사별)  
+          ECD := Trim(TokenStr(sOrder, TAB, 6));     //검사코드
+      end;
+      
+      
+------결과저장------
+  SVC:= CS_SVC;
+  URL:= CS_URL;
+  HCD:= CS_HCD;
+  SMP:= 바코드번호;
+  ICD:= 장비코드;                          
+   
+   
+  H: 헤더 문자열
+  M: 검사별 문자열
+                                                       
+      H:= 'jobs'         + TAB + 'A'  + TAB +           
+          'hos_org_no'   + TAB + HCD  + TAB ;           
+                 
+          while Not Eof do begin                        
+              ECD := FieldByName('ExamCode').AsString;   //검사코드
+              BCD := BarCode;                            //바코드
+              OSEQ:= FieldByName('OSEQ').AsString;       //바코드 다운로드 받은 정보(검사별)  
+              PSEQ:= FieldByName('PSEQ').AsString;       //바코드 다운로드 받은 정보(검사별) 
+              ESEQ:= FieldByName('ESEQ').AsString;       //바코드 다운로드 받은 정보(검사별) 
+              VAL := FieldByName('Result').AsString;     //결과
+              RES := FieldByName('Result').AsString;    
+              PID := FieldByName('PatNo').AsString;      //환자번호
+              RCD := ECD;                               
+              OCD := ECD;                               
+                                                        
+              //결과별 문자열 만들어서                        
+              M:= 'smp_no'       + TAB + BCD  + TAB +   
+                  'prcp_seq'     + TAB + OSEQ + TAB +   
+                  'exam_seq'     + TAB + ESEQ + TAB +   
+                  'rept_seq'     + TAB + PSEQ + TAB +   
+                  'cd'           + TAB + OCD + TAB  +   
+                  'pt_no'        + TAB + PID + TAB +    
+                  'exam_rslt'    + TAB + RES + TAB +    
+                  'exam_rslt_cd' + TAB + RCD + TAB +    
+                  'mach_rslt'    + TAB + RES + TAB + CR;
+                                                        
+              //한건씩 저장
+              slWork.Text:= W2ACALL2(PChar(SVC), PChar(S), PChar(URL));
+              if Pos('완료', slWork.Text) > 0 then begin
+                  Result:= True;
+              
+              Next;
+          end;
+ 

@@ -1,0 +1,1 @@
+ Update resultofnum Set resultindate = to_char(sysdate,'yyyymmdd') , resultintime = to_char(sysdate,'HH24MI') , resultinid = '041202' , resultflag = '1'  , textresultval= '7.3' , NUMRESULTVAL = '7.3' where spcmno = '1' and resultitemcode = 'XE000101' and resultflag < '2' 

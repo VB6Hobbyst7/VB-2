@@ -1,0 +1,31 @@
+Select DISTINCT       W.OcmAcpDtm          AS HOSPDATE                         
+    , ''                   AS INOUT                            
+    , ''                   AS DEPT                             
+    , R.ResOcmNum          AS BARCODE                          
+    , ''                   AS PID                              
+    , W.OcmChtNum          AS CHARTNO                          
+    , ''                   AS PJUMIN                           
+      P.PbsPatNam          AS PNAME                            
+    , ''                   AS SEX                              
+    , ''                   AS AGE                              
+    , COUNT(R.ResLabCod)   AS CNT                              
+  From OcmInf AS W                                             
+     , OdrInf AS O                                             
+     , ResInf AS R                                             
+     , PbsInf AS P                                             
+     , depmst AS D                                             
+     , LabMst AS E                                             
+ Where W.OcmNum    = R.ResOcmNum                               
+   And W.OcmChtNum = P.PbsChtNum                               
+   And W.OcmNum    = O.OdrOcmNum                               
+   And W.OcmDepCod = D.DepCod                                  
+   And D.DepExpDte  >= (Select Convert(varchar(10),Getdate(),112)) 
+   And O.Odrdelflg = 'N'                                       
+   And O.OdrSeq = R.ResOdrSeq                                  
+   And R.ResLabCod = E.LabCod                                  
+   And Upper(R.ResLabCod) IN ('B2570','B2580','B2602','B2710','C2200','C2210','C3711','C3720','C3730','C3750','C3795','D2510050','D2800040')       
+   And W.OcmComStt Not In ('CN', 'CR','VC')                    
+   And substring(O.odrdtm,1,8) Between '20210201' And '20210201'
+   And (R.ResRltVal is null or R.ResRltVal = '')           
+ GROUP BY W.OcmAcpDtm, R.ResOcmNum, W.OcmChtNum P.PbsPatNam    
+

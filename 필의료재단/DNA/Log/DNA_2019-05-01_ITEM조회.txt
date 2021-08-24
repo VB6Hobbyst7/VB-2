@@ -1,0 +1,9 @@
+SELECT DISTINCT        R.exam_code          AS ITEM     
+  FROM trust P, trures R 
+ WHERE P.request_date  = '20190426'
+   AND R.exam_no       = '9999'
+   AND R.exam_code       IN ('5379','5380','5381','5382','5383','5391','5385','5384','5386','5387','5388','5389','5390','5393','5394','5392','5395','5396','5397') 
+   AND R.exam_code     <> 'X999' 
+   AND P.request_date  = R.request_date 
+   AND P.exam_no       = R.exam_no 
+ ORDER BY R.exam_code 

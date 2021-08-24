@@ -1,0 +1,21 @@
+Select DISTINCT        a.RECEIPTDATE                           AS HOSPDATE     
+     , DECODE(a.IPDOPD,'1','입원','0','외래')  AS INOUT        
+     , ''                                      AS DEPT         
+     , a.SPECIMENNUM                           AS BARCODE      
+     , a.PTNO                                  AS PID          
+     , a.RECEIPTNO                             AS CHARTNO      
+     , a.SNAME                                 AS PNAME        
+     , ''                                      AS SEX          
+     , ''                                      AS AGE          
+     , COUNT(a.LABCODE)                        AS CNT          
+  From SLA_LabMaster a,        SLA_LabResult b                         
+ Where a.RECEIPTNO     =   b.RECEIPTNO         
+   And a.ORDERCODE     =   b.ORDERCODE         
+   And a.RECEIPTDATE   =   b.RECEIPTDATE       
+   And a.SPECIMENNUM   =   b.SPECIMENNUM       
+   And a.RECEIPTDATE BETWEEN '2021-06-08' And '2021-06-08'
+   And b.LABCODE       IN () 
+   And a.JSTATUS       < '3'                   
+   AND (b.RESULT = '' OR b.RESULT IS NULL) 
+ GROUP BY a.RECEIPTDATE, a.IPDOPD, a.SPECIMENNUM, a.PTNO, a.RECEIPTNO, a.SNAME 
+

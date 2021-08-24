@@ -1,0 +1,13 @@
+Select E.JANGBI_OUT_CODE   AS ITEM             
+  From MEDI.CPL3020 R                          
+     , MEDI.CPL2010 M                          
+     , MEDI.CPL0101 E                          
+ Where R.SPECIMEN_SER  = '1903201213'  
+   and NVL(R.CONFIRM_YN, 'N') = 'N'            
+   and R.JANGBI_CODE   = 'I2'
+   and E.JANGBI_OUT_CODE is Not Null           
+   and R.SPECIMEN_SER  = M.SPECIMEN_SER        
+   and R.HANGMOG_CODE  = M.HANGMOG_CODE        
+   and R.SPECIMEN_CODE = M.SPECIMEN_CODE       
+   and R.HANGMOG_CODE  = E.HANGMOG_CODE        
+   and R.SPECIMEN_CODE = E.SPECIMEN_CODE       

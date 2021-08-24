@@ -1,0 +1,160 @@
+'-- 이전결과가 없을 경우 오늘날짜 이전것중 제일 큰 날짜의 데이터를 가져온다.
+If mResult.BeforeRslt = "" Then
+    mResult.BeforeRslt = GetBeforeResult_ACK(mOrder.OrdDate, mResult.PARTGBN, mResult.SPECIMENCD, strTestCode, mOrder.PID)
+End If
+
+'-- 이전결과 찾아오기
+Function GetBeforeResult_ACK(asLabDate As String, asPartGbn As String, asSpecimenCd As String, asTestItem As String, asRegNo As String) As String
+    Dim RSJ             As ADODB.Recordset
+    
+On Error GoTo ErrorTrap
+    
+    GetBeforeResult_ACK = ""
+    
+    If asLabDate = "" Or asPartGbn = "" Or asSpecimenCd = "" Or asTestItem = "" Or asRegNo = "" Then
+        GetBeforeResult_ACK = ""
+        Exit Function
+    End If
+    
+    '최소, 최대치 찾아오기
+    SQL = ""
+    SQL = SQL & "Select TOP 1 LABDATE,RESULT " & vbCr
+    SQL = SQL & "  From C_RESULT " & vbCr
+    SQL = SQL & " Where LABDATE      < '" & asLabDate & "'" & vbCr
+    SQL = SQL & "   AND PARTGBN      = '" & asPartGbn & "'" & vbCr
+    SQL = SQL & "   AND SPECIMENCD   = '" & asSpecimenCd & "'" & vbCr
+    SQL = SQL & "   AND TESTITEMSEQ  = '" & asTestItem & "'" & vbCr
+    SQL = SQL & "   AND REGNO        = '" & asRegNo & "'" & vbCr
+    SQL = SQL & " ORDER BY LABDATE DESC " & vbCr
+    
+    'Call SetSQLData("DELTA", SQL, "A")
+    
+    Set RSJ = AdoCn.Execute(SQL)
+    If Not RSJ.EOF = True And Not RSJ.BOF = True Then
+        Do Until RSJ.EOF
+            GetBeforeResult_ACK = Trim(RSJ.Fields("RESULT") & "")
+            RSJ.MoveNext
+        Loop
+    End If
+    
+    RSJ.Close
+
+Exit Function
+
+ErrorTrap:
+    GetBeforeResult_ACK = ""
+    
+End Function
+
+
+
+'결과,검사코드,델타판정구분,이전결과 
+Function SetDelta_ACK(asResult As String, asEquipCode As String, asDeltaGbn As String, asBeforeResullt As String) As String
+    Dim RSJ             As ADODB.Recordset
+    Dim strDelta        As String
+    Dim strDeltaMIN     As String
+    Dim strDeltaMAX     As String
+    
+On Error GoTo ErrorTrap
+    
+    SetDelta_ACK = ""
+    
+    asResult = Replace(asResult, "<", "")
+    asResult = Replace(asResult, ">", "")
+    
+    If asResult = "" Or asEquipCode = "" Or asDeltaGbn = "" Or asBeforeResullt = "" Then
+        SetDelta_ACK = ""
+        Exit Function
+    End If
+    
+    '최소, 최대치 찾아오기
+    SQL = ""
+    SQL = SQL & "Select DELTAVAL "
+    SQL = SQL & "  From TESTITEM " & vbCr
+    SQL = SQL & " Where PARTCD       =  '" & gHOSP.PARTCD & "'" & vbCr
+    If mResult.PARTGBN = "" Then
+        SQL = SQL & "   AND PARTGBN      =  '01'" & vbCr
+    Else
+        SQL = SQL & "   AND PARTGBN      =  '" & mResult.PARTGBN & "'" & vbCr
+    End If
+    
+    If mResult.SPECIMENCD = "" Then
+        SQL = SQL & "   AND SPECIMENCD   =  '002'" & vbCr
+    Else
+        SQL = SQL & "   AND SPECIMENCD   =  '" & mResult.SPECIMENCD & "'" & vbCr
+    End If
+    
+    SQL = SQL & "   AND TESTITEMSEQ  = '" & asEquipCode & "'" & vbCr
+    
+    Call SetSQLData("DELTA", SQL, "A")
+    
+    Set RSJ = AdoCn.Execute(SQL)
+    Do Until RSJ.EOF
+        If IsNumeric(asResult) Then
+            If Trim(RSJ.Fields("DELTAVAL") & "") = "" Then
+                SetDelta_ACK = ""
+                Exit Function
+            End If
+            
+            strDeltaMIN = mGetP(Trim(RSJ.Fields("DELTAVAL")), 1, ",")
+            strDeltaMAX = mGetP(Trim(RSJ.Fields("DELTAVAL")), 2, ",")
+            
+            If IsNumeric(strDeltaMIN) And IsNumeric(strDeltaMAX) Then
+                Select Case asDeltaGbn
+                    Case "0"    '없음
+                            SetDelta_ACK = ""
+                    Case "1"    '변화차
+                            strDelta = CCur(asBeforeResullt) - CCur(asResult)
+                        
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "2"    '변화비율
+                            strDelta = ((CCur(asBeforeResullt) - CCur(asResult)) / CCur(asBeforeResullt)) * 100
+                        
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "3"    '기간당 변화차
+                            strDelta = CCur(asBeforeResullt) - CCur(asResult)
+                    
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "4"    '기간당 변화비율
+                            strDelta = ((CCur(asBeforeResullt) - CCur(asResult)) / CCur(asBeforeResullt)) * 100
+                            
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "5"    '절대변화차
+                            SetDelta_ACK = ""
+                End Select
+            End If
+        End If
+        
+        RSJ.MoveNext
+    
+    Loop
+    
+    RSJ.Close
+
+Exit Function
+
+ErrorTrap:
+    SetDelta_ACK = ""
+    
+End Function
+

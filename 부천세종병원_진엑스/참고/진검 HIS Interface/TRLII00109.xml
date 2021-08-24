@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00109">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetAntibioList">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="instcd">
+            <column id="instcd"   desc="기관코드" ref="instcd"/>
+            <column id="eqmtcd"   desc="장비코드" ref="eqmtcd"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="antibiolist" count_ref="antibiolist">
+            <column id="antibiocd"        type="string"   desc="항균제코드"     ref="antibiolist.antibiocd"/>
+            <column id="antibiofromdd"    type="string"   desc="항균제사용일자" ref="antibiolist.antibiofromdd"/>
+            <column id="antibiotodd"      type="string"   desc="항균제종료일자" ref="antibiolist.antibiotodd"/>
+            <column id="antibionm"        type="cdata"    desc="항균제명"       ref="antibiolist.antibionm"/>
+            <column id="antibioscrnnm"    type="cdata"    desc="항균제화면명" 	ref="antibiolist.antibioscrnnm"/>
+            <column id="antibioabbrnm"    type="cdata"    desc="항균제약어명" 	ref="antibiolist.antibioabbrnm"/>
+            <column id="antibioprntnm"    type="cdata"    desc="항균제출력명" 	ref="antibiolist.antibioprntnm"/>
+            <column id="fstrgstdt"        type="string"   desc="최초등록일시" 	ref="antibiolist.fstrgstdt"/>
+            <column id="fstrgstrid"       type="string"   desc="최초등록자" 	ref="antibiolist.fstrgstrid"/>
+            <column id="lastupdtrdt"      type="string"   desc="최종수정일시" 	ref="antibiolist.lastupdtrdt"/>
+            <column id="lastupdtrid"      type="string"   desc="최종수정자" 	ref="antibiolist.lastupdtrid"/>           
+     	  </table>		
+    </output>
+</submit>

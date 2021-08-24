@@ -1,0 +1,12 @@
+Update SLA_LabResult  
+   Set Result = '19', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2019-11-14', 
+       ResultTime = '15:36:18' 
+ Where SPECIMENNUM = '166145' 
+   And LabCode = 'D1890'
+   And transflag < '2' 

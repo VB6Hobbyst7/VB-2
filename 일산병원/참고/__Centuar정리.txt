@@ -1,0 +1,248 @@
+1. 결과변환
+
+Select Case 장비코드
+Case HBs, HBsAgD, HBsII  '2012.04.05 : HBsII 추가
+    Select Case strAspect
+	Case INDX     '## 정량
+	    strResult = strResult & ( & strIntResult & /1.0)
+	    strQCResult = strIntResult
+	Case INTR     '## 정성
+	    Select Case strIntResult
+		Case NR:      strResult = Negative
+		Case React:   strResult = Positive
+		Case Else:      strResult = Negative
+	    End Select
+    End Select
+    
+Case HBcT  'HBs Ag
+    Select Case strAspect
+	Case INDX     '## 정량
+	    strResult = strResult & ( & strIntResult & /0.5)
+	    strQCResult = strIntResult
+	Case INTR     '## 정성
+	    Select Case strIntResult
+		Case NR:      strResult = Negative
+		Case React:   strResult = Positive
+		Case Else:      strResult = Negative
+	    End Select
+    End Select
+    
+Case aHBs2 'Anti-HBs
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) >= 8.0 And CCur(strIntResult) < 12.0 Then
+		    strResult = BorderLine
+		    blBorderline = True
+		End If
+	    End If
+	    strResult = strResult & ( & strIntResult & )
+	    strQCResult = strIntResult
+	Case INTR     '## 정성
+	    Select Case strIntResult
+		Case NR:      strResult = Negative
+		Case React:   strResult = Positive
+		Case Else
+		    If blBorderline = True Then
+			strResult = BorderLine
+		    Else
+			strResult = Negative
+		    End If
+	    End Select
+	    
+    End Select
+    
+Case AFP
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 1.3 Then
+		    strResult = <1.3
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+Case CEA
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 0.1 Then
+		    strResult = <0.1
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+
+'Case TSH
+'-- 2012.10.11 채널변경
+Case TSH3UL
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 0.01 Then
+		    strResult = <0.01
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+Case FER
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If strIntResult = 0.0 Then
+		    strResult = <0.5
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+Case T3
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 10 Then
+		    strResult = <10
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+Case T4
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 0.3 Then
+		    strResult = <0.3
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+    
+Case FT4
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 0.1 Then
+		    strResult = <0.1
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+    
+Case HCY
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    If IsNumeric(strIntResult) Then
+		If CCur(strIntResult) < 0.5 Then
+		    strResult = <0.5
+		Else
+		    strResult = strIntResult
+		End If
+	    Else
+		strResult = strIntResult
+	    End If
+	    
+	    strQCResult = strIntResult
+    End Select
+Case Else
+    Select Case strAspect
+	Case DOSE     '## 정량
+	    strResult = strIntResult
+	    strQCResult = strIntResult
+    End Select
+
+End Select
+
+
+2. Abnormal 결과일때 Comment 저장
+
+3. 해당 환자의 참고치,델타,패닉 찾아오기
+''    SQL = SELECT MALE_HIGH,MALE_LOW,FEML_HIGH,FEML_LOW,DELT_DVSN,DELT_HIGH,DELT_LOW,DELT_DD,PANC_DVSN,PANC_HIGH,PANC_LOW                 
+''    SQL = SQL & vbCrLf &  FROM SPSLMFBIF                                                                                                                      
+''    SQL = SQL & vbCrLf &  WHERE USE_STR_DY <= SYSDATE                                                                                                         
+''    SQL = SQL & vbCrLf &    AND USE_END_DY >= SYSDATE                                                                                                         
+''    SQL = SQL & vbCrLf &    and EXMN_CD = ' & Trim(strExamCode) & ' 
+
+4. 결과입력
+SQL = UPDATE SPSLHRRST    '-- 결과테이블
+SQL = SQL & vbCrLf &    SET REAL_RSLT = ' & '' & ',       '결과(장비결과==> 수정결과)
+SQL = SQL & vbCrLf &        VIEW_RSLT = ' & '' & ',       '결과(수정결과)
+SQL = SQL & vbCrLf &        DTRM_DVSN = ' & strDecision(0) & ',                                     'H/L 체크
+SQL = SQL & vbCrLf &        DLTA_YN = ' & strDecision(1) & ',                                       'Delta 체크
+SQL = SQL & vbCrLf &        PANC_YN = ' & strDecision(2) & ',                                       'Panic 체크
+SQL = SQL & vbCrLf &        EXMN_EQPM = ' & gEquipCode & ',                                         '장비코드
+SQL = SQL & vbCrLf &        AMEN_ID = ' & gUserID & ',                                       '결과수정자
+SQL = SQL & vbCrLf &        UPDT_DT = SysDate,                                                        '결과수정일시
+SQL = SQL & vbCrLf &        RSLT_NO = ' & sCnt & ',                                                 '결과번호 (결과 넣을시에 증가)
+SQL = SQL & vbCrLf &        RSLT_INPS_ID = ' & gUserID & ',                                  '결과입력자
+SQL = SQL & vbCrLf &        RSLT_INPT_DT = SysDate,                                                   '결과입력일시
+SQL = SQL & vbCrLf &        RSLT_STAT = '1' 
+
+
+
+
+1.정도관리 결과 입력(접수시)
+SQL = UPDATE SPSLHQRST 
+SQL = SQL & vbCrLf &   SET RSLT_VALU = ' & sResult1 & ',                         '결과)
+SQL = SQL & vbCrLf &       RSLT_DT = sysdate,                                      '결과시간
+SQL = SQL & vbCrLf &       RSLT_RPTR_ID = ' & gUserID & ',                       '입력자
+SQL = SQL & vbCrLf &       AMEN_ID = ' & gUserID & ',                            '수정자
+SQL = SQL & vbCrLf &       UPDT_DT = sysdate                                       '수정시간
+SQL = SQL & vbCrLf & WHERE EQPM_CD = ' & Mid(lsID, 3, 3) & ' 		     '장비코드
+SQL = SQL & vbCrLf &   AND SBSN_CD = ' & Mid(lsID, 6, 3) & ' 		     '물질코드
+SQL = SQL & vbCrLf &   AND LVL_CD = ' & Mid(lsID, 9, 1) & ' 		     '레벨코드
+SQL = SQL & vbCrLf &   AND EXMN_CD  = ' & Trim(GetText(.vasTemp, iRow, 2)) & '   '검사코드
+SQL = SQL & vbCrLf &   AND EXMN_DY = ' & Trim(GetText(.vasTemp, iRow, 9)) & '     '검사일자
+SQL = SQL & vbCrLf &   AND RSLT_SQNO = ' & sCnt & ' 			     '차수
+SQL = SQL & vbCrLf &   AND RSLT_VALU IS NULL
+
+2. 정도관리 결과입력(직접입력)
+SQL = 
+SQL = SQL & vbCrLf & INSERT INTO SPSLHQRST(EXMN_DY   ,EQPM_CD ,SBSN_CD ,LVL_CD  
+SQL = SQL & vbCrLf &                      ,RSLT_SQNO ,EXMN_CD ,RSLT_DT ,RSLT_RPTR_ID 
+SQL = SQL & vbCrLf &                      ,RSLT_VALU ,SPCM_NO ,DEL_YN 
+SQL = SQL & vbCrLf &                      ,REGI_ID   ,RGST_DT ,AMEN_ID ,UPDT_DT) 
+SQL = SQL & vbCrLf &                VALUES('검사일자', '장비코드', '물질코드', '레벨코드', 
+SQL = SQL & vbCrLf &                        & insCnt & , '검사코드', sysdate, '입력자사번', 
+SQL = SQL & vbCrLf &                       '결과', '검체번호(바코드X)', 'N', 
+SQL = SQL & vbCrLf &                       '결과자사번', sysdate, '결과자사번', sysdate ) 
+
+3. 정도관리 오더 조회
+SQL = SELECT QC_EXMN_CD 
+SQL = SQL & vbCrLf &  FROM SPSLMQMST 
+SQL = SQL & vbCrLf & WHERE EQPM_CD = ' & Mid(SpecNo, 3, 3) & '      '//// 장비 번호
+SQL = SQL & vbCrLf &   AND SBSN_CD = ' & Mid(SpecNo, 6, 3) & '      '//// 검사명 번호
+SQL = SQL & vbCrLf &   AND LVL_CD = ' & Mid(SpecNo, 9, 1) & '       '//// 레벨 번호

@@ -1,0 +1,48 @@
+Update SLA_LabResult                       
+   Set Result      = '별지참조'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '1004'
+      ,ResultDate  = '2021-08-06'
+      ,ResultTime  = '13:31:17'
+ Where SPECIMENNUM = '010997190523'  
+   AND OrderCode   = 'D7460006'    
+   And LabCode     = 'D7460006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabResult                       
+   Set Result      = '>100'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '1004'
+      ,ResultDate  = '2021-08-06'
+      ,ResultTime  = '13:32:05'
+ Where SPECIMENNUM = '010997190523'  
+   AND OrderCode   = 'D7460006'    
+   And LabCode     = 'tIgE'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '010997190523'  
+   AND OrderCode   = 'D7460006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '별지참조'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '1004'
+      ,ResultDate  = '2021-08-06'
+      ,ResultTime  = '13:33:48'
+ Where SPECIMENNUM = '010997190523'  
+   AND OrderCode   = 'D7460006'    
+   And LabCode     = 'D7460006'   
+   And TRANSFLAG   < '2'                   
+

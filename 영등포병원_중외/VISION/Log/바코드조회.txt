@@ -1,0 +1,8 @@
+SELECT DISTINCT a.RECEIPTDATE as Á¢¼öÀÏÀÚ, a.SPECIMENNUM as ¹ÙÄÚµå¹øÈ£, a.IPDOPD, a.RECEIPTNO as Ã­Æ®¹øÈ£, a.PTNO as ³»¿ø¹øÈ£, a.SNAME as ÀÌ¸§, a.LABCODE as ITEM, a.ORDERCODE
+  FROM SLA_LabMaster a,SLA_LabResult b 
+ WHERE a.SPECIMENNUM = 'ê¹€ë³?27.5'
+   AND a.RECEIPTNO = b.RECEIPTNO 
+   AND a.OrderCode = b.OrderCode 
+   AND a.LABCODE IN ('B1034') 
+   AND a.JSTATUS < '3'
+

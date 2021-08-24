@@ -1,0 +1,19 @@
+  <query statement="Package" commandtype="StoredProcedure" queryid="PKG_LAB.INTERFACE_I02">
+    <commandtext>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">IN_SPCID</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_CD</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_RESULT</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_ERRFLAG</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_EQUIPCD</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_GUBUN</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_CNT</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_EQUIPTYPE</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_STAT</param>
+      <param direction="InputOutput" dbtype="VarChar" size="1">IO_ERRYN</param>
+      <param direction="InputOutput" dbtype="VarChar" size="4000">IO_ERRMSG</param>
+    </parameters>
+  </query>
+
+  

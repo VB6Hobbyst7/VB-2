@@ -1,0 +1,21 @@
+SELECT DISTINCT        a.RECEIPTDATE           AS HOSPDATE     
+     , a.IPDOPD                AS INOUT        
+     , ''                      AS DEPT         
+     , a.SPECIMENNUM           AS BARCODE      
+     , a.PTNO                  AS PID          
+     , a.RECEIPTNO             AS CHARTNO      
+     , ''                      AS PJUMIN       
+     , a.SNAME                 AS PNAME        
+     , ''                      AS SEX          
+     , ''                      AS AGE          
+     , a.ORDERCODE             AS ORDCODE      
+     , b.LABCODE               AS ITEM         
+     , ''                      AS SUBCODE      
+   FROM SLA_LabMaster a          , SLA_LabResult b                        
+ WHERE a.RECEIPTNO     = b.RECEIPTNO           
+   AND a.ORDERCODE     = b.ORDERCODE           
+   and a.RECEIPTDATE   = b.RECEIPTDATE         
+   AND a.SPECIMENNUM   = b.SPECIMENNUM         
+   AND a.SPECIMENNUM   = '1-1'  
+   AND b.LABCODE IN ('D0113')       
+

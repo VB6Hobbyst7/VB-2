@@ -1,0 +1,9 @@
+SELECT DISTINCT        PER_GUMJIN_DATE     AS HOSPDATE         
+     , PER_NAME            AS PNAME            
+     , PER_GUM_NUM         AS BARCODE          
+     , EDPSCODE            AS ITEM             
+  FROM ONIT..GUMJIN_INTERFACE                  
+ WHERE PER_GUMJIN_DATE = '2021-03-07'  
+   AND PER_GUM_NUM     = '33'  
+   AND EDPSCODE        IN ('1319','1409','426','563','564','565','566','570','571','839','924','960','985','986','998','999','D0113') 
+

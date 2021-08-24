@@ -1,0 +1,1 @@
+Select DISTINCT a.ORCD as ITEM   From emr.LRESULT a Where a.PAID = '00141843'    And a.SPNO = '201804030052'    And a.ORCD in ('C3791','C3792','C3793')   And a.OKFL <> 'Y' 

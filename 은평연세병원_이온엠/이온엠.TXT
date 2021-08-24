@@ -1,0 +1,47 @@
+오더 조회
+    sqlDoc = ""
+    sqlDoc = sqlDoc & vbCrLf & " SELECT O.H141_TSAMPLENO AS SPCNO, O.H141_SUGACD AS TESTCODE, O.H141_SEQNO AS ReceiptNo, O.H141_CHARTNO, O.H141_ODRDAT AS REQDATE, "
+    sqlDoc = sqlDoc & vbCrLf & "        P.A110_CHARTNO AS PTID, P.A110_PATNM AS PTNM, P.A110_JUMIN1 AS AGE, P.A110_SEX AS SEX      "
+    sqlDoc = sqlDoc & vbCrLf & "   FROM TB_H141_LISTAKEBODY O, TB_A110_PATINFO P  "
+    sqlDoc = sqlDoc & vbCrLf & "  Where P.A110_ChartNo = O.H141_CHARTNO           "
+    sqlDoc = sqlDoc & vbCrLf & "   AND  O.H141_TSAMPLENO  = '" & strBarno & "'    "
+    sqlDoc = sqlDoc & vbCrLf & "   AND  O.H141_NOTYYN = 'N'                       "
+    
+결과저장
+    sqlDoc = ""
+    sqlDoc = sqlDoc & "   Update TB_H141_LISTAKEBODY                   "
+    sqlDoc = sqlDoc & "      SET    H141_RSLTYN ='Y'                   "
+    sqlDoc = sqlDoc & "    WHERE H141_TSAMPLENO = '" & strBarCodeNo & "'   "
+    sqlDoc = sqlDoc & "      AND   H141_SUGACD  = '" & strLabCode & "' "
+        
+    AdoCn_SQL.Execute sqlDoc
+    
+    sqlDoc = ""
+    sqlDoc = sqlDoc & "   UPDATE TB_H131_SPPRESULT                     "
+    sqlDoc = sqlDoc & "      SET H131_RESULT  = '" & strRstval & "'   "
+    sqlDoc = sqlDoc & "    WHERE H131_SPPTYPE = 'L010'                 "
+    sqlDoc = sqlDoc & "      AND   H131_SEQNO = '" & strReceiptNo & "'   "
+        
+    AdoCn_SQL.Execute sqlDoc
+
+    sqlDoc = ""
+    sqlDoc = sqlDoc & "   UPDATE TB_H130_SPPRECEIVE                            "
+    sqlDoc = sqlDoc & "      SET H130_RSLTDAT = TO_CHAR(SYSDATE, 'YYYYMMDD') , "
+    sqlDoc = sqlDoc & "          H130_RSLTTM= TO_CHAR(SYSDATE, 'HH24:MI:SS')   "
+    sqlDoc = sqlDoc & "    WHERE H130_SPPTYPE ='L010'                          "
+    sqlDoc = sqlDoc & "      AND H130_SEQNO   = '" & strReceiptNo & "'           "
+        
+    AdoCn_SQL.Execute sqlDoc
+
+    sqlDoc = ""
+    sqlDoc = sqlDoc & "   UPDATE TB_H140_LISTAKEHEAD                           "
+    sqlDoc = sqlDoc & "      SET H140_RSLTYN    = 'Y'                              "
+    sqlDoc = sqlDoc & "    WHERE H140_TSAMPLENO = '" & strBarCodeNo & "'           "
+        
+    AdoCn_SQL.Execute sqlDoc
+    
+계정
+		DB     : 오라클
+		SERVER : EES
+		USER   : EON_SPP
+		PASS   : EON_SPP    

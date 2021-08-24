@@ -1,0 +1,78 @@
+<!--==========================================================================
+    내  용 : 접수번호 조회
+             일반혈액검사실 6대 장비 인터페이스 서버 제공
+    분  당 : 
+    AS-IS  : sl_d_35_sel_spcid_tstcd
+  ==========================================================================-->
+  <query statement="Package" commandtype="StoredProcedure" queryid="PKG_LAB.INTERFACE_S29">
+    <commandtext>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">IN_SPC_NO</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_STAT</param>
+      <param direction="Output" dbtype="Cursor" size="0">OUT_CURSOR</param>
+    </parameters>
+  </query>
+
+
+  <!--==========================================================================
+    내  용 : QC데이타 조회  Architect 
+             동일 assay code에 대한 중복 검사코드가 있어 
+             임상화학검사실 - 화학2 오스모	0ADOSMO1 
+    분  당 : 
+    AS-IS  : sl_d_95.sl_d_95_sel_ordcd_qc_tst_cd
+  ==========================================================================-->
+  <query statement="Package" commandtype="StoredProcedure" queryid="PKG_LAB.INTERFACE_S05">
+    <commandtext>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">IN_SPC_NO</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_EQUIP_CD</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_CD</param>
+      <param direction="Output" dbtype="Cursor" size="0">OUT_CURSOR</param>
+    </parameters>
+  </query>
+  
+  
+  <!--==========================================================================
+    내  용 : 접수일자로 접수번호 조회
+             분자유전자검사실 TAQMAN	0TAQMAN	진검/분자유전
+    분  당 : 
+    AS-IS  : sl_d_95.sl_d_95_sel_acno_L25
+  ==========================================================================-->
+  <query statement="Package" commandtype="StoredProcedure" queryid="PKG_LAB.INTERFACE_S28">
+    <commandtext>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">IN_ACPT_DTE</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_CD</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_FACNO</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TACNO</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_STAT</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_HSPCL</param>
+      <param direction="Output" dbtype="Cursor" size="0">OUT_CURSOR</param>
+    </parameters>
+  </query>
+
+
+<!--==========================================================================
+    내  용 : 접수번호 조회
+             분자유전자검사실 Triple 검사	0ABI3130	진검/분자유전
+    분  당 : 
+    AS-IS  : sl_d_41.sl_d_41_sel_pt_no
+  ==========================================================================-->
+  <query statement="Package" commandtype="StoredProcedure" queryid="PKG_LAB.INTERFACE_S23">
+    <commandtext>
+    </commandtext>
+    <parameters>
+      <param direction="Input" dbtype="VarChar" size="0">IN_FR_ACPT_DTE</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TO_ACPT_DTE</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_HSP_CL</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_FRCT_CD</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_CD</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_FACNO</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TACNO</param>
+      <param direction="Input" dbtype="VarChar" size="0">IN_TST_STAT</param>
+      <param direction="Output" dbtype="Cursor" size="0">OUT_CURSOR</param>
+    </parameters>
+  </query>  

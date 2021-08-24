@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00201">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetPatientInfo">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="bcno">
+            <column id="bcno"    desc="검체번호"    ref="bcno"/>
+            <column id="instcd"    desc="검사코드"   ref="instcd"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="patient" count_ref="patient">
+            <column id="pid"                type="cdata"   desc="등록번호"          ref="patient.pid"/>
+            <column id="patnm" 		   		type="cdata"   desc="환자성명" 			ref="patient.patnm"/>
+            <column id="sex"    			type="cdata"   desc="환자성별" 			ref="patient.sex"/>
+            <column id="age"	    		type="cdata"   desc="나이"			 	ref="patient.age"/>
+            <column id="spcacptdt" 	 	    type="cdata"   desc="접수일자" 			ref="patient.spcacptdt"/>
+     	  </table>		
+    </output>
+</submit>

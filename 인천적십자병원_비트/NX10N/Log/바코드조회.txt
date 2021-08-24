@@ -1,0 +1,20 @@
+SELECT DISTINCT PbsChtNum, PbsPatNam, ResOcmNum, OcmAcpDtm, 'O' As IOGBN, OcmNum  
+  FROM OcmInf, PbsInf, RsbInf, ResInf 
+ WHERE PbsChtNum = OcmChtNum 
+   AND RsbOcmNum = OcmNum 
+   AND ResOcmNum = OcmNum 
+   AND RsbAcpCod = ResAcpCod 
+   AND RsbSpmNum = ResSpmNum 
+   AND RsbAcpCod = '1' 
+   AND ResSpmNum = '1711884675' 
+ UNION ALL 
+SELECT DISTINCT PbsChtNum, PbsPatNam, PbsResNum, IcmAcpDtm As OcmAcpDtm, 'I' As IOGBN, IcmOcmNum As OcmNum 
+  FROM IcmInf, PbsInf, RsbInf, ResInf 
+ WHERE PbsChtNum = IcmChtNum 
+   AND ResOcmNum = IcmOcmNum 
+   AND RsbOcmNum = IcmOcmNum 
+   AND RsbAcpCod = ResAcpCod 
+   AND RsbSpmNum = ResSpmNum 
+   AND RsbAcpCod = '1' 
+   AND ResSpmNum = '1711884675' 
+

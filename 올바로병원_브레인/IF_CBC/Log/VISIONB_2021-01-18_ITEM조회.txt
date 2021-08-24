@@ -1,0 +1,12 @@
+SELECT CONCAT(RTRIM(LTRIM(C.SLABWS_MOMU)),'|',RTRIM(LTRIM(C.SLABWS_SCNT))) AS ITEM             
+  FROM BRWONMU..WCHAM  A, OSLABW B, OSLABWS C  
+ Where B.SLABW_DATE    = C.SLABWS_DATE         
+   And A.CHAM_KEY      = '0000010442'  
+   And A.CHAM_KEY      = B.slabw_cham          
+   And B.slabw_status  = '1'                   
+   And B.slabw_dept    = C.slabws_dept         
+   And B.slabw_cnt     = C.slabws_cnt          
+   And B.slabw_slab    = C.slabws_slab         
+   And C.SLABWS_DATE   = '20210118'  
+   And CONCAT(RTRIM(LTRIM(C.SLABWS_MOMU)),'|',RTRIM(LTRIM(C.SLABWS_SCNT))) IN ('D0100010|3') 
+ Order By ITEM 

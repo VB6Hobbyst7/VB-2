@@ -1,0 +1,16 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , EXAMCODE        AS ITEM 
+  From UB_PATRESULT                        
+ Where BARCODE = '03240000073548'      
+   And PID     = 'o15825'        
+   And EXAMCODE IN ('alb','alk','bil','bs','cho','cr','got','gpt','gtp','hdl','ldl','tp','trg')    
+   AND SENDFLAG = '0' Order by SAVESEQ,HOSPDATE,PNAME           

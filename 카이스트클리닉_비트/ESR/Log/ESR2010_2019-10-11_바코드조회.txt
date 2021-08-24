@@ -1,0 +1,25 @@
+SELECT DISTINCT        L.LABODRDTE     AS      HOSPDATE            
+     , L.LABBARCOD     AS      BARCODE             
+     , L.LABCHTNUM     AS      CHARTNO             
+     , L.LABATTEND     AS      PID                 
+     , M.MANADMFOR     AS      INOUT               
+     , M.MANRESNUM     AS      JUMIN               
+     , M.MANPATNAM     AS      PNAME               
+     , L.LABODRSTP     AS      ORDCODE             
+     , L.LABODRCOD     AS      ITEM                
+  FROM ME_LABDAT   L                               
+     , ME_DAT      D                               
+     , ME_MAN      M                               
+ WHERE L.LABODRDTE = '2019-10-11'          
+   AND L.LABCHTNUM = '00038888'          
+   AND L.LABKEYNUM = D.DATKEYNUM                   
+   AND L.LABATTEND = D.DATATTEND                   
+   AND L.LABATTEND = M.MANATTEND                   
+   AND L.LABCHTNUM = D.DATCHTNUM                   
+   AND L.LABCHTNUM = M.MANCHTNUM                   
+   AND L.LABODRDTE = D.DATODRDTE                   
+   AND L.LABODRCOD IN ('L2027')         
+   AND (L.LABCANCEL = '' OR L.LABCANCEL IS NULL)   
+   AND (L.LABRESULT = '' OR L.LABRESULT IS NULL)   
+   AND L.LABENDDEP < '3'                           
+

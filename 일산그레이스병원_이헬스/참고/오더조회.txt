@@ -1,0 +1,9 @@
+select P.APATNAME                             
+      ,R.*                                    
+From OBSURSTM R                               
+   , ABPATMST P                               
+Where R.OBSUMRNO = '00142898'   
+  and R.OBSUSLIP = 'F003  '                 
+  and (R.OBSURSLT = '' or R.OBSURSLT is null) 
+  and R.OBSUMRNO = P.APATMRNO                   
+order by R.OBSUORSQ                             

@@ -1,0 +1,28 @@
+TNS:ora7
+ID:kosmos_ocs
+PW:hospital
+
+--바코드 오더조회-----
+ select m.sname                         
+      , m.pano                          
+      , r.subcode                       
+ from exam_specmst m                    
+    , exam_resultc r                    
+ where m.specno = r.specno              
+   and m.specno = '바코드'
+   and r.status <> 'V' 
+   
+-----결과--------
+ Update exam_resultc Set                                      
+     result       = '결과'                  
+   , status       = 'Y'                        
+   , resultdate   = sysdate        
+ where specno = '바코드'                   
+   and subcode = '검사코드'                  
+   and status <> 'V'       
+   
+   
+----접수상태변경---------
+ Update exam_specmst Set      
+     status  = '04'    
+ where specno = '바코드'                               

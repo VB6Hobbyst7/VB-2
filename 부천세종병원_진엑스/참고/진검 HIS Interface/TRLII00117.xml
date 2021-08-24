@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00116">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetKeepSpcInfo">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="bcno">
+            <column id="bcno"    desc="검체번호"    ref="bcno"/>
+            <column id="eqmtcd"  desc="장비코드"     ref="eqmtcd"/>
+            <column id="instcd"    desc="검사코드"   ref="instcd"/>
+        </table>
+    </input> 
+    <output path="root/spcworklist" type="xml">
+        <table id="worklist" count_ref="worklist">
+            <column id="spcstat"    		type="cdata"   desc="검체상태" 			ref="worklist.spcstat"/>
+            <column id="patnm" 		   		type="cdata"   desc="환자성명" 			ref="worklist.patnm"/>
+            <column id="pid"  					type="cdata"   desc="등록번호" 			ref="worklist.pid"/>
+            <column id="sex"    				type="cdata"   desc="환자성별" 			ref="worklist.sex"/>
+            <column id="age"	    			type="cdata"   desc="나이"			 	ref="worklist.age"/>
+            <column id="spcacptdt" 	 	type="cdata"   desc="접수일자" 			ref="worklist.spcacptdt"/>
+            <column id="tclscdlist" 	 	 		type="cdata"   desc="검사코드" 			ref="worklist.tclscdlist"/>
+            <column id="retestyn" 	 	 		type="cdata"   desc="검사코드" 			ref="worklist.retestyn"/>
+     	  </table>		
+    </output>
+</submit>

@@ -1,0 +1,17 @@
+SELECT DISTINCT        a.RECEIPTDATE           AS HOSPDATE 
+     , a.SPECIMENNUM           AS BARCODE  
+     , a.RECEIPTNO             AS CHARTNO  
+     , a.IPDOPD                AS INOUT    
+     , a.PTNO                  AS PID      
+     , a.SNAME                 AS PNAME    
+     , a.ORDERCODE             AS ORDCODE  
+     , b.LABCODE               AS ITEM     
+   FROM SLA_LabMaster a, SLA_LabResult b   
+ WHERE a.RECEIPTNO     = b.RECEIPTNO       
+   AND a.ORDERCODE     = b.ORDERCODE       
+   and a.RECEIPTDATE   = b.RECEIPTDATE     
+   AND a.SPECIMENNUM   = b.SPECIMENNUM     
+   AND a.SPECIMENNUM   = '126'
+   AND b.LABCODE IN ('D0113','D1830','D1830','D1850','D1860','D1870','D1880','D2280','D2300','D2310','D2611','D3022','D3022=')   
+ ORDER BY b.LABCODE                        
+

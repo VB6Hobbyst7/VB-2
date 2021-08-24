@@ -1,0 +1,26 @@
+Update SLA_LabResult  
+   Set Result = '11.5s 92% .97R', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2021-04-25', 
+       ResultTime = '06:11:26' 
+ Where SPECIMENNUM = '2180175' 
+   AND ORDERCODE IN ('B0030','B1530','B1540','CLOT') 
+   And LabCode = 'H1540'
+   And transflag < '2' 
+Update SLA_LabResult  
+   Set Result = '33.1', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2021-04-25', 
+       ResultTime = '06:11:30' 
+ Where SPECIMENNUM = '2180175' 
+   AND ORDERCODE IN ('B0030','B1530','B1540','CLOT') 
+   And LabCode = 'H1530'
+   And transflag < '2' 

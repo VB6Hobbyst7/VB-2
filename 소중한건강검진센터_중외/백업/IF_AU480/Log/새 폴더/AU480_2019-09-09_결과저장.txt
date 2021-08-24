@@ -1,0 +1,720 @@
+Update SLA_LabResult                       
+   Set Result      = '3.06'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:00:49'
+ Where SPECIMENNUM = '1909070096'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070096'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '6.20'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:00:58'
+ Where SPECIMENNUM = '1909070140'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070140'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '6.13'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:01:07'
+ Where SPECIMENNUM = '1909070097'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070097'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '8.21'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:01:16'
+ Where SPECIMENNUM = '1909070033'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070033'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '470.1'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:02:28'
+ Where SPECIMENNUM = '1909070026'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070026'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '832.0'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:02:37'
+ Where SPECIMENNUM = '1909070039'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070039'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '903.9'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:02:47'
+ Where SPECIMENNUM = '1909070028'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070028'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '979.7'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:02:56'
+ Where SPECIMENNUM = '1909070029'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070029'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '441.3'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:03:05'
+ Where SPECIMENNUM = '1909070102'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070102'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '465.2'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:03:14'
+ Where SPECIMENNUM = '1909070095'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070095'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '444.5'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:03:23'
+ Where SPECIMENNUM = '1909070073'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070073'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '877.4'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:03:32'
+ Where SPECIMENNUM = '1909070044'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070044'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '716.2'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:34:55'
+ Where SPECIMENNUM = '1909070046'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070046'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '11.31'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:04'
+ Where SPECIMENNUM = '1909090024'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090024'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '5.33'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:13'
+ Where SPECIMENNUM = '1909090078'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090078'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '7.40'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:22'
+ Where SPECIMENNUM = '1909090050'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090050'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '8.65'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:31'
+ Where SPECIMENNUM = '1909090039'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090039'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '6.39'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:40'
+ Where SPECIMENNUM = '1909090020'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090020'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '9.25'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:49'
+ Where SPECIMENNUM = '1909090048'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090048'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '4.68'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:35:58'
+ Where SPECIMENNUM = '1909090005'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090005'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '8.12'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '11:36:07'
+ Where SPECIMENNUM = '1909090055'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090055'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '11.01'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:26:54'
+ Where SPECIMENNUM = '1909090111'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090111'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '7.27'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:27:03'
+ Where SPECIMENNUM = '1909090119'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090119'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '9.06'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:27:12'
+ Where SPECIMENNUM = '1909090128'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090128'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '6.99'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:27:21'
+ Where SPECIMENNUM = '1909090138'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090138'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '4.88'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:27:30'
+ Where SPECIMENNUM = '1909090070'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090070'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '767.7'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:27:39'
+ Where SPECIMENNUM = '1909090038'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090038'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '7.15'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:27:48'
+ Where SPECIMENNUM = '1909090064'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090064'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '548.2'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:28:07'
+ Where SPECIMENNUM = '1909090082'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090082'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '5.61'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:28:16'
+ Where SPECIMENNUM = '1909090012'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090012'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '0.96'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:28:25'
+ Where SPECIMENNUM = '1909090109'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090109'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '893.3'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:28:34'
+ Where SPECIMENNUM = '1909070014'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909070014'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '8.08'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:28:43'
+ Where SPECIMENNUM = '1909090068'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090068'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '6.01'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:28:52'
+ Where SPECIMENNUM = '1909090099'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090099'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '9.77'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '14:29:01'
+ Where SPECIMENNUM = '1909090110'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090110'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '1.12'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2019-09-09'
+      ,ResultTime  = '15:43:15'
+ Where SPECIMENNUM = '1909090109'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '1909090109'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+

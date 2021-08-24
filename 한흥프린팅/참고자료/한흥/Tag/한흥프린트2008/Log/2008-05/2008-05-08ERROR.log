@@ -1,0 +1,121 @@
+09:58:37 : 'COM1' 포트에 대한 액세스가 거부되었습니다.
+   위치: System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   위치: System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   위치: System.IO.Ports.SerialPort.Open()
+   위치: IdifCommon.clsCommon.OpenPort(SerialPort prmSerialPort, String prmPortName, Int32 prmBaudRate)
+   위치: IdifCommon.clsCommon.OpenPort(SerialPort prmSerialPort, String prmPortName, Int32 prmBaudRate)
+   위치: IdifCommon.frmExcelPrintBase.InitForm()
+
+10:09:11 : Port가 닫혀있습니다.
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+10:09:17 : Port가 닫혀있습니다.
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+10:09:35 : Port가 닫혀있습니다.
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+11:29:41 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+11:58:15 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+12:21:10 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+12:46:42 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+13:42:52 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+14:12:11 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+14:25:30 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+16:56:46 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:01:40 : '*0.001'의 토큰이 잘못되었습니다.(*0.001)
+   위치: MS.Internal.Xml.XPath.XPathParser.ParseXPathExpresion(String xpathExpresion)
+   위치: System.Xml.XPath.XPathExpression.Compile(String xpath, IXmlNamespaceResolver nsResolver)
+   위치: System.Xml.XPath.XPathNavigator.Evaluate(String xpath)
+   위치: IdifCommon.clsCommon.Evaluate(String prmText)
+   위치: IdifCommon.clsCommon.Evaluate(String prmText)
+   위치: IdifCommon.clsLabel.MakePrintData(String prmTemplateData, Int32 prmHomeX, Int32 prmHomeY, SheetView prmSpreadSheet, Int32 prmRowIndex, Int32 prmPrintQty)
+   위치: IdifCommon.clsLabel.MakePrintData(String prmTemplateData, Int32 prmHomeX, Int32 prmHomeY, SheetView prmSpreadSheet, Int32 prmRowIndex, Int32 prmPrintQty)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:20:40 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:20:47 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:20:56 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:21:27 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:21:36 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:21:55 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:22:11 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+17:22:41 : 프린터 상태를 확인하세요.:버퍼FULL
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+

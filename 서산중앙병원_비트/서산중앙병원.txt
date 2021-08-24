@@ -1,0 +1,156 @@
+'Provider=SQLOLEDB.1;Persist Security Info=False;Password=bitocs;User ID=sa;Initial Catalog=SEOSAN;Data Source='+TGlobal.FServerIP; 
+
+function TDM.DownLoadOrder_CENTRUL(TMaster: TIfMaster): boolean;
+var
+  i, rc, K:integer;
+  ECD, IfCd, Abbr, UpCd:string;
+  vAgeSex:Variant;
+begin
+  Result:=False;
+
+  if SvrConnection = false then begin
+      TGlobal.ErrMsg:= ' Local 모드 입니다!';
+      exit;
+  end;
+
+  with qrySOrder do begin
+      Close;
+      SQL.Text:=' select M.RsbSpmNum 검체번호            '+#13#10+
+                '      , M.RSBACPDTE 접수일자            '+#13#10+
+                '      , M.RSBACPCOD 접수코드            '+#13#10+
+                '      , M.RSBACPNUM 접수번호            '+#13#10+
+                '      , M.RSBSPMCOD 검체코드            '+#13#10+
+                '      , S.LABSPMNAM 검체명              '+#13#10+
+                '      , M.RsbChtNum 등록번호            '+#13#10+
+                '      , M.RsbItfYon 결과상태            '+#13#10+
+                '      , R.RESLABCOD 검사코드            '+#13#10+
+                '      , R.RESACPCOD 검사파트            '+#13#10+
+                '      , R.RESMZHMNT 검사결과            '+#13#10+
+                '      , R.RESCMTTXT 결과코멘트          '+#13#10+
+                '      , R.RESTSTDTM 검사일시            '+#13#10+
+                '      , R.RESTSTUID 검사자아이디        '+#13#10+
+                '      , R.RESUPDDTM 결과최종수정일시    '+#13#10+
+                '      , R.RESUPDUID 결과최종수정아이디  '+#13#10+
+                '      , R.RESCONLVL 결과신뢰도          '+#13#10+
+                '      , P.PBSPATNAM 환자명              '+#13#10+
+                '      , P.PBSRESNUM 주민번호            '+#13#10+
+                ' from RsbInf M                          '+#13#10+
+                '    , ResInf R                          '+#13#10+
+                '    , PbsInf P                          '+#13#10+
+                '    , labspmmst S                       '+#13#10+
+                ' Where M.RsbSpmNum = '''+TMaster.FBarCode+''' '+#13#10+
+                //'   and (M.RsbItfYon is Null or M.RsbItfYon <> ''F'') '+#13#10+
+                '   and (R.RESMZHMNT is Null or R.RESMZHMNT = '''' or R.RESMZHMNT = '' '') '+#13#10+
+                '   and M.RSBACPDTE = R.RESACPDTE        '+#13#10+
+                '   and M.RSBACPCOD = R.RESACPCOD        '+#13#10+
+                '   and M.RSBACPNUM = R.RESACPNUM        '+#13#10+
+                '   and M.RSBSPMCOD = R.RESSPMCOD        '+#13#10+
+                '   and M.RSBSPMNUM = R.RESSPMNUM        '+#13#10+
+                '   and M.RSBCHTNUM = P.PBSCHTNUM        '+#13#10+
+                '   and M.RSBSPMCOD = S.LABSPMCOD        ';
+      try
+          if SvrTEST = True then
+              SQL.SaveToFile('.\OrderDown.sql');
+
+          Open;
+
+          rc:= RecordCount;
+
+          if rc > 0 then begin
+              TMaster.vOrder  := VarArrayCreate([0,Rc-1], varVariant);
+              TMaster.vAbbr   := VarArrayCreate([0,Rc-1], varVariant);
+              TMaster.vSeqList:= VarArrayCreate([0,Rc-1], varVariant);
+              TMaster.vEcdList:= VarArrayCreate([0,Rc-1], varVariant);
+              TMaster.vUpCode :=  VarArrayCreate([0,Rc-1], varVariant);
+              TMaster.vRLow   :=VarArrayCreate([0,Rc-1], varVariant);
+              TMaster.vRHigh  := VarArrayCreate([0,Rc-1], varVariant);
+
+              K:=-1;
+              while Not Eof do begin
+                  ECD:= Trim(FieldByName('검사코드').AsString);
+
+                  if Trim(FieldByName('검사결과').AsString) <> '' then
+                  begin
+                      Next;
+                      Continue;
+                  end;
+
+                  if TCode.SetCode_ECode(ECD) then begin
+                      Inc(K);
+
+                      TMaster.vEcdList[K]:= ECD;
+
+                      IfCd:= TCode.GetIfCode(ECD);
+                      TMaster.vOrder[K]:= IfCd;
+
+                      UpCd:= TCode.GetUpCode(ECD);
+                      TMaster.vUpCode[K]:= UpCd;
+
+                      Abbr:= TCode.GetAbbr(ECD);
+                      TMaster.vAbbr[K]:= Abbr;
+
+                      if Result = False then begin
+                          TMaster.FPNM := FieldByName('환자명').AsString;
+                          TMaster.FPID := FieldByName('등록번호').AsString;
+                          TMaster.FPart:= FieldByName('검사파트').AsString;
+                          TMaster.FOrdState:= 'Y';
+                          Result:= True;
+                      end;
+                  end;
+
+                  Next;
+              end;
+
+          end;
+      except
+          on e:exception do
+              ShowMessage(e.Message);
+      end;
+  end;
+end;
+
+
+function TDM.UploadHosp_One_CENTRUL(TMaster: TIfMaster): boolean;
+begin
+  Result:= False;
+
+  if SvrConnection = false then begin
+      TGlobal.ErrMsg:= ' Local 모드 입니다!';
+      exit;
+  end;
+
+
+  if TMaster.FResult = '' then exit;
+
+  with qrySUp do begin
+      Close;
+      SQL.Text:=' Update ResInf Set                                       '+#13#10+
+                '     RESMZHMNT  = '''+TMaster.FResult+'''                '+#13#10+  //결과
+                '   , ResRepTyp = ''I''                                   '+#13#10+
+                '   , ResTstDtm  = To_Char(sysdate, ''YYYYMMDDHH24MI'')   '+#13#10+  //검사일시
+                '   , ResUpdDtm  = To_Char(sysdate, ''YYYYMMDDHH24MI'')   '+#13#10+  //검사일시
+                //'   , RESTSTUID  = '''+TGlobal.FUserID+'''                '+#13#10+  //사용자아이디
+                ' Where RESSPMNUM = '''+TMaster.FBarCode+'''              '+#13#10+
+                '   And RESLABCOD = '''+TMaster.FExamCode+'''             '+#13#10+
+                '   And ResRepTyp <> ''F'' ';
+      try
+          if SvrTEST = True then
+              SQL.SaveToFile('.\Update.sql');
+
+          ExecSQL;
+          Result:= True;
+      except
+          on e:exception do
+              ShowMessage(e.Message);
+      end;
+  end;
+
+end;
+
+
+								' Update RsbInf Set                            '+#13#10+
+                '     RsbItfYon  = ''M''                       '+#13#10+  //결과
+                ' Where RSBSPMNUM = '''+TMaster.FBarCode+'''   '+#13#10+
+                '   and (RsbItfYon is null or RsbItfYon <> ''F'') ';
+                
+                

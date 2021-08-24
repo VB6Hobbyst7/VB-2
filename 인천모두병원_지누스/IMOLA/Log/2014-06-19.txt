@@ -1,0 +1,18 @@
+15:49:43 [Rx]
+1H|\^&|||Analyzer|||||||||20140619134600C0
+2Q|1|140017856||||||||||NB2
+3L|13C
+
+15:49:44 [Tx]
+15:49:44 [Tx]
+15:49:44 [Tx]
+15:49:44 [Tx]
+15:49:44 [strRcvBuf]1H|\^&|||Analyzer|||||||||20140619134600
+15:49:44 [strRcvBuf]2Q|1|140017856||||||||||N
+15:49:44 [strBarno]140017856
+15:49:44 [SQL]SELECT /*+ INDEX (coif scccoifm_ix1) INDEX (prex scrprexh_ix3) INDEX (ptbs pmcptbsm_ux1) INDEX (rslt scrrslth_ux1) INDEX (xpsl mosxpslh_ix2) */       prex.acp_dt, prex.smp_no, coif.exam_mach_cd, rslt.exam_stus, prex.pt_no, ptbs.pt_nm, ptbs.ssn_1, ptbs.ssn_2,       DECODE(xpsl.gnl_add_typ_cd,'3','I',xpsl.prcp_knd_cd) as gnl_add_typ_cd, xpsl.adms_ymd , xpsl.mn_sub_typ_cd, xpsl.med_dpt_cd, xpsl.med_ymd, Max(Trim(coif.lmt_trm_day))  FROM scrprexh prex, pmcptbsm ptbs, scccoifm coif, mosxpslh xpsl, scrrslth rslt WHERE prex.hos_org_no               = '31205631'   AND SUBSTR(prex.acp_dt,1,8) BETWEEN '20140619' AND '20140619'   AND rslt.hos_org_no    = prex.hos_org_no   AND rslt.smp_no        = prex.smp_no   AND rslt.prcp_seq      = prex.prcp_seq   AND rslt.exam_seq      = prex.exam_seq   AND rslt.exam_stus    IN ('0')   AND ptbs.hos_org_no    = prex.hos_org_no   AND ptbs.pt_no         = prex.pt_no   AND coif.hos_org_no    = prex.hos_org_no   AND coif.exam_cd       = prex.cd   AND coif.use_typ       = 'Y'   AND SUBSTR(prex.acp_dt,1,8) BETWEEN coif.fr_dt AND coif.to_dt   AND coif.exam_mach_cd LIKE '10%'   AND xpsl.smp_no        = prex.smp_no   AND xpsl.hos_org_no    = prex.hos_org_no   AND xpsl.prcp_typ_cd  IN ('O','C')   AND prex.smp_no = '14-0017856-1'   GROUP BY prex.acp_dt, prex.smp_no, coif.exam_mach_cd ,rslt.exam_stus, prex.pt_no, ptbs.pt_nm, ptbs.ssn_1, ptbs.ssn_2,             DECODE(xpsl.gnl_add_typ_cd,'3','I',xpsl.prcp_knd_cd), xpsl.adms_ymd,xpsl.mn_sub_typ_cd, xpsl.med_dpt_cd, xpsl.med_ymd   ORDER BY prex.acp_dt, prex.smp_no 
+15:49:44 [SQLT]SELECT /*+ INDEX(rslt scrrslth_ux1) INDEX (coif scccoifm_ix1) */       rslt.smp_no, rslt.prcp_seq, rslt.exam_seq, rslt.rept_seq, rslt.cd, rslt.pt_no, rslt.exam_stus, rslt.mach_rslt, rslt.exam_rslt ,       coif.exam_nm, prex.acp_dt, ptbs.pt_nm, ptbs.ssn_1, ptbs.ssn_2, xpsl.pt_no,        DECODE(xpsl.gnl_add_typ_cd,'3','I',xpsl.prcp_knd_cd), xpsl.adms_ymd, xpsl.mn_sub_typ_cd, xpsl.med_dpt_cd, xpsl.med_ymd, coif.spc_cd, codm.cd_desc  FROM scrrslth rslt, scccoifm coif, scccodem codm, scrprexh prex, mosxpslh xpsl, pmcptbsm ptbs WHERE rslt.hos_org_no   = '31205631'  AND rslt.smp_no       = '14-0017856-1'  AND rslt.exam_stus  IN ('0','1','2')  AND coif.hos_org_no   = rslt.hos_org_no  AND coif.exam_cd      = rslt.cd  AND SUBSTR(prex.acp_dt,1,8) BETWEEN coif.fr_dt AND coif.to_dt  AND coif.exam_mach_cd = '10'  AND codm.hos_org_no   = coif.hos_org_no  AND codm.typ_cd       = '02'  AND codm.cd           = coif.spc_cd  AND SUBSTR(prex.acp_dt,1,8) BETWEEN codm.fr_dt AND codm.to_dt  AND prex.hos_org_no   = rslt.hos_org_no  AND prex.smp_no       = rslt.smp_no  AND prex.prcp_seq     = rslt.prcp_seq  AND prex.exam_seq     = rslt.exam_seq  AND xpsl.hos_org_no   = prex.hos_org_no  AND xpsl.smp_no       = prex.smp_no  AND xpsl.acp_no       = prex.prcp_seq  AND xpsl.prcp_typ_cd IN ('O','C')  AND ptbs.hos_org_no   = prex.hos_org_no  AND ptbs.pt_no        = prex.pt_no
+15:52:03 [strRcvBuf]3L|1
+15:52:08 [strRcvBuf]
+15:52:19 [Tx]
+15:52:22 [Rx]

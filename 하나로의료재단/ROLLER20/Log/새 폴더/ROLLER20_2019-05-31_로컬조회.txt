@@ -1,0 +1,14 @@
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMCODESUB,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE EXAMDATE    = '20190531121416'                                     
+   AND SAVESEQ     = 1
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMCODESUB,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 3
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+

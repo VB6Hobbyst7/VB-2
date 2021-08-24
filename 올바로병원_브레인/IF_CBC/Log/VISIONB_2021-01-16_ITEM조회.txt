@@ -1,0 +1,12 @@
+SELECT DISTINCT C.slabws_momu  AS ITEM    
+  FROM BRWONMU..WCHAM  A, OSLABW B, OSLABWS C
+ Where B.SLABW_DATE = C.SLABWS_DATE
+   AND A.CHAM_KEY      = '0000012973'  
+  and A.CHAM_KEY          = B.slabw_cham
+  and B.slabw_status   = '1'
+  AND B.slabw_dept = C.slabws_dept
+  AND B.slabw_cnt = C.slabws_cnt
+  AND B.slabw_slab = C.slabws_slab
+  AND C.SLABWS_DATE   = '20210116'  
+  and C.slabws_momu IN ('D0100010')
+

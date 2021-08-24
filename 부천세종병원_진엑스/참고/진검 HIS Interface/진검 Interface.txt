@@ -1,0 +1,137 @@
+진검 Interface 
+
+1. 호출방식 : URL호출 (webrequest)
+    
+2. Request URL : 운영 http://his.sejongh.co.kr/himed/webapps/com/commonweb/xrw/.live?
+                 교육 http://edu.sejongh.co.kr:8088/himed/webapps/com/commonweb/xrw/.live?
+3. 호출예제
+    1) 워크리스트 조회 
+        request URL : http://his.sejongh.co.kr/himed/webapps/com/commonweb/xrw/.live?submit_id=TRLII00101&business_id=lis&ex_interface=19920023|014&bcno=I4XXQ0EF0&instcd=014&eqmtcd=C01&
+
+        submit_id : TRLII00101 - 호출 기능코드
+        business_id : lis  - 업무구분
+        ex_interface : 19960185|014  - 세션ID (사용자ID|기관코드)
+        instcd : 병원코드
+        bcno : O23M61SG0 - 검체 바코드
+        eqmtcd : 장비코드
+        
+        반환값
+            <?xml version='1.0' encoding='utf-8'?>
+            <root>
+                <spcworklist>
+                    <worklist>
+                        <spcacptdt>
+                            <![CDATA[20100618175951]]>
+                        </spcacptdt>
+                        <acptflag>
+                            <![CDATA[입원]]>
+                        </acptflag>
+                        <bcno>
+                            <![CDATA[I4XXQ0EF0]]>
+                        </bcno>
+                        <pid>
+                            <![CDATA[200406411]]>
+                        </pid>
+                        <patnm>
+                            <![CDATA[이정임]]>
+                        </patnm>
+                        <sexage>
+                            <![CDATA[F/48]]>
+                        </sexage>
+                        <erprcpflag>
+                            <![CDATA[1]]>
+                        </erprcpflag>
+                        <workno>
+                            <![CDATA[20100618A100316]]>
+                        </workno>
+                        <tsectnm>
+                            <![CDATA[자동화]]>
+                        </tsectnm>
+                        <ifreqcdlist>
+                            <![CDATA[24▦963▦312▦]]>
+                        </ifreqcdlist>
+                        <tclscdlist>
+                            <![CDATA[LEA201▦LSS12501▦LSS125▦]]>
+                        </tclscdlist>
+                        <urinextrvol>
+                            <![CDATA[ ]]>
+                        </urinextrvol>
+                        <retestyn>
+                            <![CDATA[N▦N▦N▦]]>
+                        </retestyn>
+                        <rsltstat>
+                            <![CDATA[LEA201-▦LSS12501-▦LSS125-▦]]>
+                        </rsltstat>
+                    </worklist>
+                    <resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1276904542758"/>
+                </spcworklist>
+            </root>
+
+            spcacptdt 접수일자
+            acptflag 입원 외래 구분
+            bcno 바코드번호
+            pid 환자등록번호
+            patnm 환자명
+            sexage 성별/나이
+            erprcpflag 응급구분
+            workno 작업번호
+            tsectnm 검사계명
+            ifreqcdlist 인터페이스코드리스트
+            tclscdlist 검사코드리스트
+            urinextrvol 유린값
+            retestyn 재검여부리스트
+            rsltstat 결과상태리스트 (검사코드결과상태 LEA201-▦LSS12501-▦LSS125-▦ 
+                     결과상태(1:결과저장, 2:중간보고, 3:최종보고중, 4:최종보고, 5:수정보고)
+            
+    2) 결과등록
+        
+        request URL : http://his.sejongh.co.kr/himed/webapps/com/commonweb/xrw/.live?submit_id=TXLII00101&business_id=lis&ex_interface=19920023|014&bcno=I4XXQ0EF0&result=LSS1250.7920100619&instcd=014&eqmtcd=C01&userid=19920023&
+
+        result=LSS1250.7920100619 (검사코드검사결과공란등록일자)
+        
+        반환값: 
+            성공시
+                <?xml version='1.0' encoding='utf-8'?>
+                <root>
+                    <ResultFlag>
+                        <resultflag>Y</resultflag>
+                        <error>-</error>
+                        <error2/>
+                    </ResultFlag>
+                    <resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1276905206632"/>
+                </root>
+        
+            실패시    
+                <?xml version='1.0' encoding='utf-8'?>
+                <root>
+                    <ResultFlag>
+                        <resultflag>N</resultflag>
+                        <error>kr.co.hit.live.exception.LiveException: 검사항목을 확인하세요!|himed.his.lis.rsltmngtmgr.rsltmngtmgt.RsltMngtMgtImpl.setResultSave() at line 968 in RsltMngtMgtImpl.java</error>
+                        <error2>검사항목을 확인하세요!|himed.his.lis.rsltmngtmgr.rsltmngtmgt.RsltMngtMgtImpl.setResultSave() at line 968 in RsltMngtMgtImpl.java</error2>
+                    </ResultFlag>
+                    <resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1393295898728"/>
+                </root>
+
+3. 서비스ID 목록
+    TRLII00101 : 바코드번호로 워크리스트 조회
+    TRLII00102 : 장비코ㅡㄷ 리스트 조회
+    TRLII00103 : 장비별 검사코드조회
+    TRLII00104 : 사용자명 조회
+    TRLII00105 : 미생물워크리스트조회
+    TRLII00106 : 유린장비결과조회
+    TRLII00108 : 배양균 리스트 조회
+    TRLII00109 : 항균제 리스트 조회
+    TRLII00110 : 채혈데이터 조회
+    TRLII00113 : 바코드 검사결과 조회
+    TRLII00114 : 바코드번호로 특수검사의 워크리스트를 조회
+    TRLII00115 : PB의뢰서 데이터 조회
+    TXLII00101 : 인터페이스 일반 결과저장
+    TXLII00102 : 미생물결과등록
+    TXLII00106 : 이미지결과 인터페이스 프로시져
+    TXLII00107 : 자동접수 (혈액부만)
+    TXLII00108 : TLA장비 Rack Position 저장
+    TXLII00109 : 동맥혈가스분석 결과저장
+    TXLII00110 : 특수결과 서식결과 인터페이스
+    TXLII00112 : 혈당기 결과등록
+    
+    

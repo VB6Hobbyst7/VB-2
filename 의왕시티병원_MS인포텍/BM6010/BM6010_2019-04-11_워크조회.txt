@@ -1,0 +1,17 @@
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , COUNT(a.ORCD)   AS CNT      
+  From emr.LRESULT a, emr.APATINF b        
+ Where a.ORDT between  '20190411' and '20190411'   
+   And a.PAID = b.PAID                                     
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')                      
+   And a.OKFL <> 'Y'                                       
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')     
+ GROUP BY a.ORDT,a.SPNO,a.PAID,a.NWNO,b.PANM,b.SEXS,b.AGES 
+ Order By a.ORDT,a.PAID,b.PANM                             
+

@@ -1,0 +1,100 @@
+2013-03-20 13:21:28>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_TIDAL_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-03-20 13:23:38>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQ_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-03-20 13:23:39>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-03-20 13:27:31>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQA_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-03-20 13:27:31>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-03-20 13:30:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12537: TNS:연결이 종료되었습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-03-20 13:30:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12537: TNS:연결이 종료되었습니다
+
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-03-20 13:31:37>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-28547: 서버에 대한 접속을 실패했습니다. Oracle Net 관리자 오류일 수 있습니다.
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-03-20 13:38:51>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WEATHER_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-03-20 13:40:56>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WEATHER_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-03-20 13:40:56>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-03-20 13:40:56>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_TIDAL_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2013-03-20 13:40:56>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2013-03-20 13:43:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-03113: 통신 채널에 EOF 가 있습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-03-20 13:43:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-03113: 통신 채널에 EOF 가 있습니다
+
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2013-03-20 13:44:37>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208

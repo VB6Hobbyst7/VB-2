@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00113">
+    <action url="svc://local"
+            target="interfacemngtapp.InterFaceMngt"
+            interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+            method="reqGetBracdTestRslt">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="eqmtcd">
+            <column id="eqmtcd"  desc="장비코드"     ref="eqmtcd"/>
+            <column id="instcd"  desc="기관코드"     ref="instcd"/>
+            <column id="testcd"  desc="검사코드"     ref="testcd"/>
+            <column id="bcno"  desc="바코드번호"     ref="bcno"/>
+            <column id="termdd"  desc="바코드번호"     ref="termdd"/>
+            <column id="pid"  desc="바코드번호"     ref="pid"/>            
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="rsltlist" count_ref="getBracdTestRslt">
+            <column id="reptrslt"            type="cdata"           desc="결과" ref="getBracdTestRslt.reptrslt"/> 
+            <column id="bfreptrslt"            type="cdata"           desc="결과" ref="getBracdTestRslt.bfreptrslt"/>                    
+        </table>        
+    </output>
+</submit>

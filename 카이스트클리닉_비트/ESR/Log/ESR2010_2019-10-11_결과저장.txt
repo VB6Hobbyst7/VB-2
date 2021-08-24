@@ -1,0 +1,13 @@
+UPDATE ME_LABDAT                           
+   Set LABRESULT = '3'       
+     , LABENDDEP = '2'                     
+     , LABRSTDTE = '2019-10-11'       
+     , LABRSTTIM = '17:51:32'       
+     , LABRSTUID = '501'  
+     , LABRSTCOM = 'ESR2010'  
+ WHERE LABATTEND = '2019101116560500038888'      
+   And LABODRCOD = 'L2027'     
+   And LABODRSTP = '1'      
+   And LABODRDTE = '2019-10-11'   
+   And LABBARCOD = '1910110023'    
+

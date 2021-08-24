@@ -1,0 +1,18 @@
+ SELECT DISTINCT   J.접수일자 AS 접수일자,
+  L.검체번호 AS 바코드번호,
+  A.챠트번호 AS 챠트번호, 
+  J.접수번호 AS 내원번호,
+  '입원' AS 입외, 
+  L.진료검사ID AS R, 
+  L.진료지원ID AS P, 
+  A.환자이름 AS 이름, 
+  A.환자성별 AS 성별, 
+  A.환자나이  AS 나이, 
+  L.참고치0,L.참고치1,L.참고치2,L.참고치3,L.참고치4,L.참고치5,L.참고치6,L.참고치7,  L.처방코드 + L.서브코드 AS ITEM 
+   FROM TB_진료검사 L 
+  INNER JOIN TB_진료지원 J ON (L.진료지원ID = J.진료지원ID) 
+  INNER JOIN TB_진료일반 A ON (J.진료일자   = A.진료일자 AND J.챠트번호 = A.챠트번호 AND J.진료번호 = A.진료번호) 
+  Where L.검체번호 = '181118060'
+    AND L.검사상태 < 5 
+    AND L.처방코드 + L.서브코드 IN ('D1860','D1850','D1870','D1890','D3022','D2300','D2280','D1840','D1880','D1830')
+  ORDER BY J.접수일자, J.접수번호

@@ -1,0 +1,66 @@
+if (resultInfo.ExamCode.Length == 5)
+                {
+                    if (resultInfo.ViewResult.Equals("Negative") || resultInfo.ViewResult.Equals("Positive"))
+                    {
+                        this.comm.CommandText = string.Format("UPDATE	SZDAT01T SET NRSLT = {0}, CRSLT = '{1}', STATUS = '3' WHERE COMP = 'K' AND ACPTNO = '{2}' AND CODE1 = '{3}' and status = '1'",
+                            resultInfo.RawResult, resultInfo.ViewResult, sampleInfo.SampleNo, resultInfo.ExamCode);
+                    }
+                    else
+                    {
+                        this.comm.CommandText = string.Format("UPDATE	SZDAT01T SET NRSLT = {0}, STATUS = '3' WHERE COMP = 'K' AND ACPTNO = '{1}' AND CODE1 = '{2}' and status = '1'",
+                            resultInfo.RawResult, sampleInfo.SampleNo, resultInfo.ExamCode);
+                    }
+                }
+                else if(resultInfo.ExamCode.Length>5)
+                {
+                    string code1 = resultInfo.ExamCode.Substring(0, 5);
+                    string code2 = resultInfo.ExamCode.Substring(5);
+                    if (resultInfo.ViewResult.Equals("Negative") || resultInfo.ViewResult.Equals("Positive"))
+                    {
+                        this.comm.CommandText = string.Format("UPDATE	SZDAT01T SET NRSLT = {0}, CRSLT = '{1}', STATUS = '3' WHERE COMP = 'K' AND ACPTNO = '{2}' AND CODE1 = '{3}' AND CODE2 = '{4}' and status = '1'",
+                            resultInfo.RawResult, resultInfo.ViewResult, sampleInfo.SampleNo, code1, code2);
+                    }
+                    else
+                    {
+                        this.comm.CommandText = string.Format("UPDATE	SZDAT01T SET NRSLT = {0}, STATUS = '3' WHERE COMP = 'K' AND ACPTNO = '{1}' AND CODE1 = '{2}' AND CODE2 = '{3}' and status = '1'",
+                            resultInfo.RawResult, sampleInfo.SampleNo, code1, code2);
+                    }
+                }
+                count = this.comm.ExecuteNonQuery();
+                
+                
+                
+                
+                
+ internal void GetSelectedExam(DataTable tblSelectedExam, SampleInformation sampleInfo, string examCodes)
+        {
+            DataTable tblExam = new DataTable();
+            tblExam.Locale = CultureInfo.InvariantCulture;
+
+            this.comm.CommandText = string.Format("SELECT CODE1, CODE2 FROM SZDAT01T WHERE ACPTNO = '{0}' AND COMP = 'K' AND STATUS = '1' AND WORKCD in ('ZS1','ZC1')", sampleInfo.SampleNo);
+            this.comm.CommandType = CommandType.Text;
+            this.dataAdapter.Fill(tblExam);
+
+            foreach (DataRow examRow in tblExam.Rows)
+            {
+                string code = string.Format("{0}{1}", examRow["CODE1"].ToString().Trim(), examRow["CODE2"].ToString().Trim());
+
+                if (examCodes.Contains(code))
+                {
+                    DataRow addRow = tblSelectedExam.NewRow();
+                    addRow["ExamCode"] = code;
+                    tblSelectedExam.Rows.Add(addRow);
+                }
+            }
+        }
+        
+        
+        
+        
+<data name="SelectPatientInfoFromHospital" xml:space="preserve">
+    <value>SELECT    DISTINCT ACPTNO AS SampleNo, NULL AS SeqNo, CASU AS ReceiptNo, WORKNO AS PatientNo, NAME AS PatientName, SEX AS PatientSex
+  FROM SZDAT01T
+ WHERE COMP = 'K'
+   AND WORKCD in ('ZS1','ZC1') 
+   AND ACPTNO = '{0}'</value>
+    <comment>병원에서 검체번호로 환자 정보 가져오는 쿼리(병원)</comment>                

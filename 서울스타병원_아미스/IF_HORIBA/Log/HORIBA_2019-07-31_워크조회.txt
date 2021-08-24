@@ -1,0 +1,20 @@
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE                 
+     , R.SPCMNO                AS BARCODE                  
+     , P.PATID                 AS PID                      
+     , P.PATNAME               AS PNAME                    
+     , P.SEX                   AS SEX                      
+     , COUNT(R.RESULTITEMCODE) AS CNT                      
+  FROM REGISTINFOS O                                       
+     , RESULTOFNUM R                                       
+     , PATMST      P                                       
+ WHERE O.ACPTDATE BETWEEN '20190731' and '20190731'
+   AND O.ACPTDATE  = R.ACPTDATE                            
+   AND O.PATID     = R.PATID                               
+   AND O.ACPTSEQ   = R.ACPTSEQ                             
+   AND O.PATID     = P.PATID                               
+   AND O.CLAS          = 4                                 
+   AND R.RESULTITEMCODE IN ('L0200310','L0200629','L0200520','L0200730','L0200630','L0200631','L0200632','L0200633','L0200940','L0200430','L0200450','L0200440','C3711','C2420','C2243','C2243')            
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL)     
+ GROUP BY O.ACPTDATE, R.SPCMNO, P.PATID, P.PATNAME, P.SEX  
+ ORDER BY O.ACPTDATE, R.SPCMNO                             
+

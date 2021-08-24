@@ -1,0 +1,333 @@
+ TuxedoDLLName = 'wtuxws32.dll';
+ EnvFile = 'C:\hmc\comm\envfile';
+ SVRCON  = 'med1';
+
+ //서비스명 대소문자 구분한다!!!
+ UPLOAD_SVC = 'HAMA0111';
+ DWLOAD_SVC = 'HAMA0112';
+ LOGIN_SVC  = 'HAMA0125';
+
+//턱시도 선언부
+unit U_Tux;
+
+interface
+
+const
+  MAXTIDENT	= 30;
+  //TuxedoDLLName = 'C:\TUXEDO\BIN\wtuxws32.dll';
+  TuxedoDLLName = 'wtuxws32.dll';
+
+
+type
+  FLDLEN   = Word;
+
+  tpinfo_t = record
+    usrname: array[0..MAXTIDENT + 1] of char;	{ client user name }
+    cltname: array[0..MAXTIDENT + 1] of char;	{ application client name }
+    passwd:  array[0..MAXTIDENT + 1] of char;	{ application password }
+    grpname: array[0..MAXTIDENT + 1] of char;	{ client group name }
+    flags:   LongInt;		                { initialization flags }
+    datalen: LongInt;		                { length of app specific data }
+    data:    LongInt;		                { placeholder for app data }
+  end;
+
+  pTPINIT = ^tpinfo_t;
+
+Function tuxreadenv(a:PChar; b:PChar):Integer; stdcall; external TuxedoDLLName;
+Function tpinit(a:pTPINIT):Integer; stdcall; external TuxedoDLLName;
+Function tpstrerror(a:Integer):PChar; cdecl; external TuxedoDLLName;
+Function gettperrno(): integer; stdcall;  external TuxedoDLLName;
+Function tpalloc(a:PChar; b:PChar; c:LongInt):Pointer; stdcall; external TuxedoDLLName;
+Function Finit(a:Pointer; b:FLDLEN):Integer; stdcall; external TuxedoDLLName;
+Function tpcall(svc:PChar; inbuf:Pointer; inlen:Longint; outbuf:Pointer; outlen:PLongint; flags:Longint):integer; stdcall;  external TuxedoDLLName;
+Function gettpurcode:LongInt; cdecl; external TuxedoDLLName;
+Function tpfree(ptr:Pointer):Longint; stdcall;  external TuxedoDLLName;
+Function tpterm():integer; stdcall;  external TuxedoDLLName;
+
+///
+
+턱시도 사용
+function TuxInit: boolean;
+begin
+  Result:= False;
+
+  if tuxreadenv(PChar(EnvFile), PChar(SVRCON)) = -1 then
+  begin
+      ShowMessage(EnvFile+' read error ->' +StrPas(TPSTRERROR(GETTPERRNO)));
+      exit;
+  end;
+
+  if tpinit(nil) = -1 then
+  begin
+      showmessage('tpinit failed --> '+ StrPas(TPSTRERROR(GETTPERRNO)));
+      exit;
+  end;
+
+  Result:= True;
+end;
+
+//턱시도 콜(모두 동일하게 사용)
+function TPCALL_TUXEDO_STR(SvcName, DataStr:string; var SvrMsg:string):boolean;
+var
+  len : longint;
+  inBuffer: PChar;
+  outBuffer: PChar;
+  nCall:integer;
+begin
+  Result:= False;
+
+  if not TuxInit then           //턱시도 init
+    exit;
+
+  inBuffer := tpalloc('STRING', nil, 2048);
+  outBuffer:= tpalloc('STRING', nil, 2048);
+  try
+    if inBuffer=Nil then begin
+      ShowMessage('TPALLOC FAIL -> ' + StrPas(TPSTRERROR(GETTPERRNO)));
+      exit;
+    end ;
+
+    if outBuffer=Nil then begin
+      ShowMessage('TPALLOC FAIL -> ' + StrPas(TPSTRERROR(GETTPERRNO)));
+      exit;
+    end;
+
+    //buffer 초기화
+    if Finit(inBuffer, 2048) = -1 then
+      ShowMessage('Init FAIL -> ' + StrPas(TPSTRERROR(GETTPERRNO)));
+
+    if Finit(outBuffer, 2048) = -1 then
+      ShowMessage('Init FAIL -> ' + StrPas(TPSTRERROR(GETTPERRNO)));
+
+    StrCopy(inBuffer, PChar(DataStr));
+
+
+    //TGlobal.ErrMsg:= '[Tux]'+#13#10+
+    //                 'Service:'+ SvcName+',  Data:'+ DataStr;
+
+    //Call
+    nCall:= tpcall(PChar(SvcName), inBuffer, 0, @outBuffer, @len, 0);
+
+    if nCall = 0 then
+    begin
+        if GETTPURCODE = 0 then
+        begin
+            SvrMsg:= StrPas(OutBuffer);
+            Result:= True;                     //성공
+        end;
+    end
+    else begin
+        SvrMsg:= StrPas(OutBuffer);
+        TGlobal.LogMsg:='PC->'+ DataStr+#13#10+
+                        'SVR->'+  SvrMsg;
+    end;
+
+  finally
+    tpfree(PChar(inBuffer));
+    tpfree(PChar(outBuffer));
+    TpTerm();                       //턱시도 Term
+  end;
+
+end;
+
+ 
+로그인
+function LoginLab(UID, PWD:string; var UNM:string): boolean;
+var
+  DataStr, OutStr:string;
+  sql_code, func_name, tbl_name
+  , msg_desc, msg_level, data:string;
+begin
+  Result:= False;
+
+  DataStr:= Copy(UID,1,7)+FormatDateTime('yyyymmdd', now) + Copy(PWD,1,8);
+
+  if TPCALL_TUXEDO_STR(LOGIN_SVC, DataStr, OutStr) = True then begin
+      sql_code  := Trim(Copy(OutStr, 1, 10));
+      func_name := Trim(Copy(OutStr, 11, 16));
+      tbl_name  := Trim(Copy(OutStr, 27, 12));
+      msg_desc  := Trim(Copy(OutStr, 39, 60));
+      msg_level := Trim(Copy(OutStr, 99, 1));
+      data := Trim(Copy(OutStr, 100, 100));
+      UNM:= Trim(TokenStr(data, #09, 2));
+
+      if sql_code = '0' then begin
+          TGlobal.FUserID:= UID;
+          TGlobal.FUserPwd:= PWD;
+          TGlobal.FUserNm:= UNM;
+          
+          Result:= True;
+      end
+      else ShowMessage(OutStr);
+  end
+  else begin
+      ShowMessage(OutStr);
+  end;
+
+end;
+
+//오더조회
+function DownloadBCD_TUX_HYS(DataStr:string; var SvrMsg:string):boolean;
+begin
+  Result:= TPCALL_TUXEDO_STR(DWLOAD_SVC, DataStr, SvrMsg);
+end;
+
+function TDM.DownLoadOrder_HY(TMaster: TIfMaster): boolean;
+var
+  i, ECnt, k:integer;
+  sTmp, SendStr, sWork:string;
+  ECD:string;
+  vAgeSex:Variant;
+begin
+  Result:= False;
+
+  if Length(TMaster.FBarCode) <> 11 then exit;
+
+  SendStr:= '0' + Copy(TMaster.FBarCode,1,10) ;
+  
+  //sWork에 받아옴..
+  if Not DownloadBCD_TUX_HYS(SendStr, sWork) then
+      exit;
+
+  //sWork:= '0         HAMA0112        OK !!!      OK !!!                                                      001617078	송창준	136	14085067512	01408506751	10	L8105	L8106	L8107	L810701	L810702	L810703	L810704	L810705	L810706	L8108	';
+  //sWork:= '0         HAMA0112        OK !!!      OK !!!                                                      001465730	이상임	89	14049136112	01404913611	9	L8105	L8106	L8107	L810701	L810702	L810703	L810704	L810705	L810706	';
+  if sWork = '' then begin
+      TGlobal.LogMsg:= '오더없음->'+TMaster.FBarCode;
+      exit;
+  end;
+
+  if SvrTest = True then
+      TGlobal.LogMsg:= 'DOWN->'+sWork;
+
+  sWork:= Copy(sWork, 100, Length(sWork)-99);
+
+
+  if TMaster.FQCYN <> 'Y' then
+      TMaster.FPID  := Trim(TokenStr(sWork, #9, 1));
+
+  TMaster.FPNM  := Trim(TokenStr(sWork, #9, 2));
+  TMaster.FANO  := Trim(TokenStr(sWork, #9, 3));
+
+  ECnt:= StrToIntDef(Trim(TokenStr(sWork, #9, 6)),0);  //검사코드 갯수
+
+  if ECnt < 1 then exit;
+
+  TMaster.vOrder:= VarArrayCreate([0, ECnt-1], varVariant);
+  TMaster.vAbbr := VarArrayCreate([0, ECnt-1], varVariant);
+  TMaster.vOrdList:= VarArrayCreate([0, ECnt-1], varVariant);
+  TMaster.vUpCode:=  VarArrayCreate([0, ECnt-1], varVariant);
+  TMaster.vOrdCdList:=  VarArrayCreate([0, ECnt-1], varVariant);
+  TMaster.vANO:=  VarArrayCreate([0, ECnt-1], varVariant);
+
+  k:= -1;
+  for i:=1 to ECnt do begin
+      ECD:= Trim(TokenStr(sWork,#9,6+i));           //검사코드
+      if TCode.SetCode_ECode(ECD) then begin
+          Inc(k);
+
+          TMaster.vOrder[K]:= TCode.GetIfCode(ECD);
+          TMaster.vAbbr[K] := TCode.GetAbbr(ECD);
+          TMaster.vOrdList[K]:= ECD;
+          TMaster.vUpCode[K]:= TCode.GetUpCode(ECD, TMaster.FQCYN);
+          TMaster.vOrdCdList[K]:= '';
+          TMaster.vANO[K]:= '';
+          TMaster.slResult.Add(' ');
+          TMaster.slECD.Add(ECD);
+
+          if Result = False then begin
+              Result:= True;
+              TMaster.FOrdState:= 'Y';
+          end;
+      end;
+  end;
+
+end;
+
+
+//결과등록
+function UpLoadHosp_HYS(SendStr:string; var SvrMsg:string):boolean;
+begin
+  //gcInstId + #09 + gcUserId + #09 + FormatDateTime('yyyymmdd', now) + #09 + Copy(rMaster.Spcid,1,10) + #09 + '0' + #09 + '11'+ #09;
+
+  Result:= TPCALL_TUXEDO_STR(UPLOAD_SVC, SendStr, SvrMsg);
+
+  if Not Result then
+      ShowMessage(SvrMsg);
+
+end;
+
+function TDM.UploadResult(TMaster:TIfMaster; SelectYN:boolean): boolean;
+var
+  Header, Body, SendStr, SMsg, UID:string;
+  UpCnt, ValCnt:integer;
+begin
+  Result:= False;
+
+  UpCnt:=0;
+
+  if TMaster.FQCYN = 'Y' then
+      UID:= '       '
+  else
+      UID:= TGlobal.FUserID;
+
+  //헤더 만들고..
+  Header:= TMaster.FICode         + #09 +     //장비코드
+  UID                             + #09 +     //사용자 아이디
+  FormatDateTime('yyyymmdd', now) + #09 +     //날짜
+  TMaster.FBarCode                + #09 +     //바코드
+  '0'                             + #09 ;     //바코드인경우 '0'
+
+  with qryUp1 do begin
+      Close;
+      SQL.Text:= ' SELECT  M.BarCode                         '+#13#10+
+                 '       , R.ExamCode                        '+#13#10+
+                 '       , R.Result                          '+#13#10+
+                 '       , R.FLAG                            '+#13#10+
+                 '       , R.UpCode                          '+#13#10+
+                 ' FROM TB_Master AS M, TB_Result AS R       '+#13#10+
+                 ' where M.ExamDate = '''+TMaster.FExamDate+'''       '+#13#10+
+                 '   And M.ExamSeq  = '''+TMaster.FExamSeq+'''        '+#13#10+
+                 '   And M.ExamDate = R.ExamDate             '+#13#10+
+                 '   And M.ExamSeq  = R.ExamSeq              ';
+      Open;
+
+      ValCnt:= 0;
+
+      if RecordCount > 0 then begin
+          while Not Eof do begin
+              TMaster.FUpCode:= FieldByName('UpCode').AsString;
+
+              TMaster.FResult := FieldByName('Result').AsString;
+
+              TMaster.FFlag := FieldByName('FLAG').AsString;
+
+              SetDownCode(TMaster);
+
+              if TMaster.IsDownCodeOK = True then begin
+                  Body:= Body + TMaster.FExamCode  + #09 + TMaster.FResult  + #10;         //결과 문자열: 검사코드 + 탭 + 결과 + CR...
+                  Inc(ValCnt)
+              end;
+
+              Next;
+          end;
+
+          Header:= Header + IntToStr(ValCnt) + #09 ;                                      //헤더에 들어갈 결과 갯수
+      end;
+
+      if ValCnt > 0 then begin
+          SendStr:= Header + Body;                       //헤더 + 결과 문자열 붙여서 전송
+
+          if TMaster.FQCYN = 'Y' then begin
+              Result:= UpLoadHosp_HYS(SendStr, SMsg);
+          end
+          else begin
+               Result:= UpLoadHosp_HYS(SendStr, SMsg);       //호출
+          end;
+
+          if SvrTest = True then
+              TGlobal.LogMsg:= 'UPLOAD->'+SendStr+#13#10+
+                                'OUTMSG->'+SMsg;
+      end;
+
+  end;
+end;

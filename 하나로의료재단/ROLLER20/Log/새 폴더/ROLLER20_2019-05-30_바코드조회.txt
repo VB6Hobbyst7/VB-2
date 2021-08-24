@@ -1,0 +1,15 @@
+SELECT DISTINCT        SPRDT   AS HOSPDATE             
+     , ACPTNO  AS BARCODE              
+     , CASU    AS CHARTNO              
+     , WORKNO  AS PID                  
+     , NAME    AS PNAME                
+     , SEX     AS SEX                  
+     , CODE1   AS ITEM                 
+     , CODE2   AS CODE2                
+  From GOLIATH.SZDAT01T                
+ WHERE COMP    = 'K'
+   AND WORKCD  = 'ZH9'
+   AND ACPTNO  = '004804384'  
+   AND CODE1  IN ('20250','L2005')  
+   AND STATUS  = '1'                   
+ ORDER BY CODE1                        

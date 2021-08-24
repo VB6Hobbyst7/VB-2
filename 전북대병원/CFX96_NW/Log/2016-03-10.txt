@@ -1,0 +1,15 @@
+19:45:08 [SQL1]SELECT DISTINCT P.PbsPatNam, O.OSPCHTNUM, R.ResOcmNum, R.ResLabCod AS EXAMCODE , R.ResOdrSeq, R.ResSeq, R.ResSubSeq 
+  FROM RsbInf M, ResInf R, ospinf O, PBSINF P, LabMst E
+ WHERE M.RsbBarCod = '171'
+   And M.RsbAckStt <> 'A' 
+   And O.OspChkStt <> 'F' 
+   And (R.ResRepTyp Is Null or R.ResRepTyp <> 'F') 
+   And (R.ResRltVal is Null or R.ResRltVal = '') 
+   And R.ResStatus <> '5' 
+   And M.RSBACPNUM = R.ResRsbAcp
+   And R.ResOcmNum = O.OspOcmNum
+   and R.ResOdrSeq = O.OspOdrSeq
+   and R.ResSeq    = O.OspSeq
+   and O.OSPCHTNUM = P.PBSCHTNUM
+   and R.ResLabcod = E.LabCod
+

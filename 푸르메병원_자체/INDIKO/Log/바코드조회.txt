@@ -1,0 +1,6 @@
+SELECT PcpAcpDte, PatChtNum, PatNam
+  From S_PcpInf
+   INNER JOIN S_AcpInf ON PcpAcpKey = AcpKey
+   INNER JOIN P_PatInf ON AcpChtNum = PatChtNum
+ WHERE  PcpBarNum = '1700000104'
+

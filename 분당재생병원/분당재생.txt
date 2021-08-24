@@ -1,0 +1,164 @@
+//분당제생병원
+    function DownLoadOrder_DMCHS(TMaster:TIfMaster):boolean;
+    function UploadHost_One_DMCHS(TMaster:TIfMaster; var ErrMsg: string):boolean;
+    
+    
+    
+    
+    
+    
+function TDM.DownLoadOrder_DMCHS(TMaster: TIfMaster): boolean;
+var
+  ECD, IfCd, UpCd, Abbr:string;
+  Rc, K:integer;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  with spDown do begin
+      Close;
+
+      spDown.Connection:= TConnection.hospCon;
+      Parameters.ParamByName('i_ExamEqupCd').Value:= TGlobal.FICode;
+      Parameters.ParamByName('i_SpcNo').Value:= TMaster.FBarCode;
+
+      try
+          Open;
+
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= '오더조회 에러 입니다! 에러메세지->'+ e.Message;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          Rc:= RecordCount;
+          K:= -1;
+
+          TMaster.vOrder  := VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vAbbr   := VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vSeqList:= VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vEcdList:= VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vUpCode := VarArrayCreate([0,Rc-1], varVariant);
+
+          while Not Eof do begin
+              ECD:= Trim(FieldByName('LABCD').AsString);      //RetEqupExamCd
+
+              if IsUseExamCode(ECD) = True then begin
+                  Inc(K);
+
+                  TMaster.vEcdList[K]:= FieldByName('LABCD').AsString;
+
+                  GetIfData(ECD, IFCd, Abbr, UpCd);
+
+                  TMaster.vOrder[K]:= IfCd;
+
+                  TMaster.vUpCode[K]:= UpCd;
+
+                  TMaster.vAbbr[K]:= Abbr;
+
+                  if Result = false then begin
+                      TMaster.FPID := FieldByName('PatId').AsString;
+                      TMaster.FPNM := FieldByName('PatNm').AsString;
+                      TMaster.FDept:= FieldByName('ExamSlipCd').AsString;
+
+                      TMaster.FOrdState:= 'Y';
+
+                      Result:= True;
+                  end;
+             end;
+
+              Next;
+          end;
+      end;
+  end;
+end;
+
+
+
+function TDM.UploadHost_One_DMCHS(TMaster: TIfMaster;
+  var ErrMsg: string): boolean;
+var
+  //spIn:TADOStoredProc;
+  vOutErr:variant;
+  RES, VAL:string;
+begin
+  Result:= False;
+
+  Inc(TMaster.FUpCnt);
+
+  if SvrTEST = True then
+      TGlobal.DataLog:= 'i_ExamEqupCd:'+TGlobal.FICode+#13#10+
+                        'i_RetEqupExamCd:'+ TMaster.FUpCode+#13#10+
+                        'i_EqupRslt:'+TMaster.FResult+#13#10+
+                        'i_EqupSeq:'+IntToStr(TMaster.FUpCnt)+#13#10+
+                        'i_LabCd:'+TMaster.FExamCode+#13#10+
+                        'i_ExamStrYmd:'+FormatDateTime('YYYYMMDD', now)+#13#10+
+                        'i_ExamStrHms'+FormatDateTime('hhnnss', now)+#13#10+
+                        'i_SpcNo:'+TMaster.FBarCode+#13#10;
+                       // 'UserId:'+TGlobal.FUserID;
+
+
+
+  with proUp do begin
+      Close;
+      Parameters.ParamByName('i_SpcNo').Value:= TMaster.FBarCode;
+      Parameters.ParamByName('i_LabCd').Value:= TMaster.FExamCode;
+      Parameters.ParamByName('i_ExamEqupCd').Value:= TGlobal.FICode;
+      Parameters.ParamByName('i_RetEqupExamCd').Value:= TMaster.FUpCode;
+      Parameters.ParamByName('i_EqupRslt').Value:= TMaster.FResult;
+      Parameters.ParamByName('i_FlagCdLst').Value:= '';
+      Parameters.ParamByName('i_ErrCdLst').Value:= '';
+      Parameters.ParamByName('i_RackNo').Value:= '';
+      Parameters.ParamByName('i_PosNo').Value:= '';
+      Parameters.ParamByName('i_EqupSeq').Value:= TMaster.FUpCnt;
+      Parameters.ParamByName('i_Rmk').Value:= '';
+      Parameters.ParamByName('i_CommCdYn').Value:= 'Y';
+      Parameters.ParamByName('i_ExamStrYmd').Value:= FormatDateTime('YYYYMMDD', now);
+      Parameters.ParamByName('i_ExamStrHms').Value:= FormatDateTime('hhnnss', now);
+      Parameters.ParamByName('i_ExamId').Value:= TGlobal.FUserID;
+
+      try
+          ExecProc;
+          Result:= True;
+          TMaster.FUpState:= 'Y';
+
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+  end;
+end;
+
+procedure init;
+begin
+  proUp.Close;
+  proUp.Parameters.Clear;
+  proUp.ProcedureName:= 'SP_LAB_IF_COM.InsertEqupRslt';
+  proUp.Parameters.CreateParameter('i_SpcNo', ftString, pdInput, 20, '');   //검체번호 *
+  proUp.Parameters.CreateParameter('i_LabCd', ftString, pdInput, 10, '');   //검사코드 *
+  proUp.Parameters.CreateParameter('i_ExamEqupCd', ftString, pdInput, 10, '');   //장비코드 *
+  proUp.Parameters.CreateParameter('i_RetEqupExamCd', ftString, pdInput, 10, '');    //반환장비검사코드 *
+  proUp.Parameters.CreateParameter('i_EqupRslt', ftString   , pdInput, 100, '');     //장비결과 *
+  proUp.Parameters.CreateParameter('i_FlagCdLst', ftString, pdInput, 10, '');        //Flag코드리스트
+  proUp.Parameters.CreateParameter('i_ErrCdLst', ftString, pdInput, 10, '');         //오류코드리스트
+  proUp.Parameters.CreateParameter('i_RackNo', ftString   , pdInput, 10, '');        //Rack번호
+  proUp.Parameters.CreateParameter('i_PosNo', ftString   , pdInput, 10, '');         //Position 번호
+  proUp.Parameters.CreateParameter('i_EqupSeq', ftInteger, pdInput, 5, 0);             //장비Seq
+  proUp.Parameters.CreateParameter('i_Rmk', ftString, pdInput, 100, '');             //비고
+  proUp.Parameters.CreateParameter('i_CommCdYn', ftString   , pdInput, 1, '');       //전송코드여부 'Y'
+  proUp.Parameters.CreateParameter('i_ExamStrYmd', ftString, pdInput, 10, '');       //검사시작일자 *
+  proUp.Parameters.CreateParameter('i_ExamStrHms', ftString   , pdInput, 10, '');    //검사시작시분초 *
+  proUp.Parameters.CreateParameter('i_ExamId', ftString   , pdInput, 10, '');        //검사자ID
+  proUp.Connection:= TConnection.hospCon;
+end;

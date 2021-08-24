@@ -1,0 +1,121 @@
+Private Function Check_SNO(stSampleNo As String, _
+                           stGuboon As String, _
+                           ByVal stNow As String, _
+                           Optional ByVal stItem As String) As String
+    Dim stQC As String, stchkMent As String
+    Dim stError As String
+On Error GoTo ErrHandler
+
+    Select Case stGuboon
+        Case "C"
+            stQC = "1"
+            Call GetQcNO(stProCode, "Q1 또는 Q3", stSampleNo, False, , stItem) 'Q1:low label 또는 Q2:high label
+            If Len(stSampleNo) <> 10 Then
+                stSampleNo = "C" & stNow
+                stchkMent = "QC검체검색실패"
+            End If
+        Case Else
+            If Len(stSampleNo) = 0 Then
+                stSampleNo = "U" & stNow
+                stchkMent = "검체번호Null"
+            ElseIf IsNumeric(stSampleNo) Then
+                If Len(stSampleNo) = 10 Then
+                    stGuboon = "W"
+                    If Mid(stSampleNo, 3, 2) = "99" Then stGuboon = "C"
+                Else
+                    stchkMent = "부적합검체"
+                End If
+            Else
+                stchkMent = "Unknow 검체"
+            End If
+    End Select
+    Check_SNO = stchkMent
+    Exit Function
+
+ErrHandler:
+    If Err.Number <> 0 Then
+'        MsgBox "Error NO: " & Err.Number & vbCrLf & "Error 소스: " & Err.Source & vbCrLf & "Error 설명: " & Err.Description, vbExclamation, "Check_SNO 실행 오류"
+        stError = "Check_SNO 실행에러:  " & vbCrLf & "Error NO: " & Err.Number & vbCrLf & "Error 소스: " & Err.Source & vbCrLf _
+                & "Error 설명: " & Err.Description
+        Call Errlog("InsErr", stError)
+        Err.Clear
+    End If
+End Function
+
+
+'   Procedure : GetQcNO
+' Description : 인자로 넘어오는 쿼리를 실행하고, 마지막 Qc검체번호 반환
+'   Parameter : strSql(쿼리)
+'Return Value : Qc검체번호
+Public Function GetQcNO(ByVal stJangbi_Code As String, ByVal stQC As String, _
+                        ByRef stQCNO As String, _
+                        ByVal blnResultchk As Boolean, _
+                        ByVal stTestItem As String) As Boolean
+    Dim adoRs As ADODB.Recordset
+    Dim stSql As String
+    Dim stTestcode As String
+    stSql = "SELECT DISTINCT MIN(A.SPECIMEN_SER) " _
+         & "  FROM  MEDI.CPL0820 A, MEDI.CPL0101 B " _
+         & " WHERE B.JANGBI_CODE = 'IN' " _
+         & "   AND B.JANGBI_OUT_CODE = '" & stTestItem & "' " _
+         & "   AND A.QC = '" & stQC & "' " _
+         & "   AND A.ORDER_DATE = TRUNC(SYSDATE) " _
+         & "   AND A.CONFIRM_DATE IS NULL " _
+         & "   AND B.JUNDAL_GUBUN = A.JUNDAL_PART " _
+         & "   AND B.HANGMOG_CODE = A.HANGMOG_CODE AND B.SPECIMEN_CODE = A.QC"
+
+
+    If blnResultchk Then stSql = stSql & " AND A.RESULT_YN = 'N' "
+    If ExESQL(CNNORA, stSql, adCmdText, , adoRs) Then stQCNO = adoRs.Fields(0) & ""
+    If stQCNO <> "" Then GetQcNO = True
+    terminatedRS adoRs
+End Function
+
+'QC결과 Update
+Public Function SP_UPCPL0820(ByVal stI_CPL_RESULT As String, ByVal stI_RESULT_DATE As String, _
+                             ByVal stI_RESULT_TIME As String, ByVal stI_JANGBI_CODE As String, _
+                             ByVal stI_JANGBI_OUT As String, ByVal stI_SPECIMEN_SER As String) As Boolean
+    
+    Dim adoCommand As ADODB.Command
+    Dim stError As String
+    
+    On Error GoTo ErrHandler
+    If ConnectionCheck(CNNORA) = False Then
+       SP_UPCPL0820 = False
+       Exit Function
+    End If
+   
+    Set adoCommand = New ADODB.Command
+    Set adoCommand.ActiveConnection = CNNORA
+
+    adoCommand.CommandText = "MEDI.PR_CPL_UPDATE_CPL0820"
+    adoCommand.CommandType = adCmdStoredProc
+    
+    With adoCommand
+        .Parameters.Append .CreateParameter("I_CPL_RESULT", adVarChar, adParamInput, 30, stI_CPL_RESULT)
+        .Parameters.Append .CreateParameter("I_RESULT_DATE", adVarChar, adParamInput, 12, stI_RESULT_DATE) 'Format(Date, "yyyymmdd")
+        .Parameters.Append .CreateParameter("I_RESULT_TIME", adVarChar, adParamInput, 4, stI_RESULT_TIME)  'Format(Time, "hhmm")
+        .Parameters.Append .CreateParameter("I_JANGBI_CODE", adVarChar, adParamInput, 3, stI_JANGBI_CODE)
+        .Parameters.Append .CreateParameter("I_JANGBI_OUT", adVarChar, adParamInput, 20, stI_JANGBI_OUT)
+        .Parameters.Append .CreateParameter("I_SPECIMEN_SER", adVarChar, adParamInput, 20, stI_SPECIMEN_SER)
+    End With
+    CNNORA.BeginTrans
+    adoCommand.Execute
+    CNNORA.CommitTrans
+    terminatedCmd adoCommand
+
+    SP_UPCPL0820 = True
+    Exit Function
+    
+ErrHandler:
+    CNNORA.RollbackTrans
+    SP_UPCPL0820 = False
+    terminatedCmd adoCommand
+    If Err.Number <> 0 Then
+        If CheckOraConnection(Err.Description) = False Then fNetConnection = False
+        stError = "SP_UPCPL0820(QC결과 Update) 실행 오류" & vbCrLf & "Error NO: " & Err.Number & vbCrLf & "Error  객체: " & Err.Source & vbCrLf _
+                    & "Error 설명: " & Err.Description & vbCrLf
+        Call Errlog("DBErrlog", stError)
+        Err.Clear
+    End If
+End Function

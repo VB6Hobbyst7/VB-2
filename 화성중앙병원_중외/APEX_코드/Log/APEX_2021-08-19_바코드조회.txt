@@ -1,0 +1,22 @@
+SELECT DISTINCT        a.RECEIPTDATE           AS HOSPDATE     
+     , a.IPDOPD                AS INOUT        
+     , a.DEPTCODE              AS DEPT         
+     , a.SPECIMENNUM           AS BARCODE      
+     , a.PTNO                  AS PID          
+     , a.RECEIPTNO             AS CHARTNO      
+     , ''                      AS PJUMIN       
+     , a.SpecimenName          AS SpecimenName 
+     , a.SNAME                 AS PNAME        
+     , a.SEX                   AS SEX          
+     , a.AGE                   AS AGE          
+     , a.ORDERCODE             AS ORDCODE      
+     , b.LABCODE               AS ITEM         
+     , ''                      AS SUBCODE      
+   FROM SLA_LabMaster a          , SLA_LabResult b                        
+ WHERE a.RECEIPTNO     = b.RECEIPTNO           
+   AND a.ORDERCODE     = b.ORDERCODE           
+   and a.RECEIPTDATE   = b.RECEIPTDATE         
+   AND a.SPECIMENNUM   = b.SPECIMENNUM         
+   AND a.SPECIMENNUM   = '002680510923'  
+   AND b.LABCODE IN ('001','002','003','004','005','006','007','008','D746006')       
+

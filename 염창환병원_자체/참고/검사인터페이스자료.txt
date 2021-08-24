@@ -1,0 +1,313 @@
+EMRLAB 검사연동 관련 자료
+
+001.서버 IP : 192.168.0.238
+002.데이타베이스 : SQL2014
+003.데이타베이스 ID : sa
+004.데이타베이스암호 : sql!@#456    :: 특수기호 조심
+005.연동관련 데이타 베이스 요약
+1)인적사항 : DBinfor..환자정보
+2)검사결과 테이블 : DBsupport..검사결과
+3)검사임상참고치 : DBsupport..검사항목
+4)내원정보 : DBinfor..내원정보
+  ==>접수된 사람의 검사 결과 테이블 등록번호(챠트번호가 없음)
+  ==>내원정보에 연번과 검사결과에 처바번호로 매칭을 하시면 됩니다.
+
+006.결과 넣기
+1)처방번호, 접수번호, 검사코드, 순번으로 매칭하시고
+  ==>실제 결과란과 판정란과 처리상태만 업데이트 해 주시면 됩니다.
+
+007.테이블 설명
+1)DB명은 영어로 되어 있고, 테이블은 거의 데부분이 한글입니다.
+2)테이블 안에 들어 있는 필드명도 거의 대부분 한글입니다.
+3)아래에 스크립트 참조를 하시면 됩니다.
+
+
+
+
+
+
+=================결과 테이블==============================
+USE [DBsupport]
+GO
+
+/****** Object:  Table [dbo].[검사결과]    Script Date: 2018-10-24 오후 1:23:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[검사결과](
+	[처방번호] [int] NOT NULL,  --내원정보랑 연계할 것
+	[접수번호] [int] NOT NULL,
+	[그룹코드] [char](30) NULL,
+	[응급] [char](1) NULL,
+	[취소] [char](1) NULL,
+	[검사코드] [char](11) NULL, --검사코드
+	[순번] [int] NULL,             --임상참고치(검사항목)에 있는 순번
+	[검사항목] [char](60) NULL,
+	[결과] [char](40) NULL,    --실제 결과를 넣을 줄 부분
+	[판정] [char](10) NULL,   --실제 결과 부분
+	[처리상태] [char](10) NULL, --처리상태 : 한글로 "완료" 로 넣어 주시면 됩니다.
+	[접수일] [char](10) NULL,
+	[접수시각] [char](5) NULL,
+	[보고일] [char](10) NULL,
+	[보고시각] [char](5) NULL,
+	[검진] [char](1) NULL,
+	[세부분류] [varchar](60) NULL,
+	[접수자] [char](15) NULL,
+	[보고자] [char](15) NULL,
+	[TAT사유] [varchar](256) NULL,
+	[구처방번호] [int] NULL,
+	[등록] [char](15) NULL,
+	[등록일시] [datetime] NULL,
+	[수정] [char](15) NULL,
+	[수정일시] [datetime] NULL,
+	[삭제] [char](15) NULL,
+	[삭제일시] [datetime] NULL,
+	[IP] [char](15) NULL,
+ CONSTRAINT [IX_검사결과] UNIQUE CLUSTERED 
+(
+	[처방번호] ASC,
+	[접수번호] ASC,
+	[검사코드] ASC,
+	[순번] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+====================참고치 테이블================
+USE [DBsupport]
+GO
+
+/****** Object:  Table [dbo].[검사항목]    Script Date: 2018-10-24 오후 1:25:37 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[검사항목](
+	[수가코드] [nvarchar](11) NULL,  --검사코드
+	[순번1] [tinyint] NULL,             --결과에 순번
+	[검사명칭] [nvarchar](60) NULL,
+	[형식] [nvarchar](1) NULL,
+	[남f] [real] NULL,
+	[남t] [real] NULL,
+	[여f] [real] NULL,
+	[여t] [real] NULL,
+	[문자] [nvarchar](40) NULL,
+	[단위] [nvarchar](40) NULL,
+	[세부항목] [nvarchar](1) NULL,
+	[출력위치] [nvarchar](50) NULL,
+	[관련질환] [nvarchar](max) NULL,
+	[장비명] [nvarchar](50) NULL,
+	[장비검사항목] [nvarchar](50) NULL,
+	[TAT] [tinyint] NULL,
+	[응급TAT] [tinyint] NULL,
+	[등록] [nvarchar](15) NULL,
+	[등록일시] [datetime] NULL,
+	[수정] [nvarchar](15) NULL,
+	[수정일시] [datetime] NULL,
+	[삭제] [nvarchar](15) NULL,
+	[삭제일시] [datetime] NULL,
+	[IP] [nvarchar](15) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+
+====================환자정보===========================
+USE [DBinfor]
+GO
+
+/****** Object:  Table [dbo].[환자정보]    Script Date: 2018-10-24 오후 1:26:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[환자정보](
+	[등록번호] [char](10) NOT NULL,  --등록번호
+	[분류] [char](5) NULL,
+	[성명] [char](30) NULL,               ---환자이름
+	[생년월일] [char](10) NULL,         --생년월일
+	[주민번호1] [varbinary](256) NULL,
+	[주민번호2] [varbinary](256) NULL,
+	[자택전화] [char](30) NULL,
+	[휴대전화] [char](30) NULL,
+	[우편번호] [varchar](7) NULL,
+	[주소] [nvarchar](200) NULL,
+	[도로명주소] [nvarchar](200) NULL,
+	[메모] [varchar](max) NULL,
+	[진료실공용메모] [varchar](512) NULL,
+	[내원경로] [char](5) NULL,
+	[보험유형] [char](2) NULL,
+	[조합기호] [char](11) NULL,
+	[증번호] [char](20) NULL,
+	[차상위구분] [char](20) NULL,
+	[대상구분] [char](20) NULL,
+	[보호자성명] [char](30) NULL,
+	[자격취득일] [char](10) NULL,
+	[급여제한일] [char](10) NULL,
+	[의약분업예외] [char](5) NULL,
+	[중증환자번호] [char](20) NULL,
+	[장애등록일] [char](10) NULL,
+	[암등록번호] [nchar](20) NULL,
+	[암등록일] [char](10) NULL,
+	[보훈번호] [char](12) NULL,
+	[관리대상자] [char](1) NULL,
+	[관리사유] [varchar](80) NULL,
+	[RF카드번호] [char](10) NULL,
+	[사보험가입] [char](1) NULL,
+	[사보험메모] [varchar](40) NULL,
+	[수술일] [char](10) NULL,
+	[산정특례] [char](255) NULL,
+	[스캔] [char](1) NULL,
+	[스캔일] [char](10) NULL,
+	[최초내원일] [char](10) NULL,
+	[최종내원일] [char](10) NULL,
+	[최종진료의] [char](15) NULL,
+	[예약일] [char](10) NULL,
+	[예약진료의] [char](15) NULL,
+	[챠트존재] [char](1) NULL,
+	[내원여부] [char](1) NULL,
+	[할인코드] [char](5) NULL,
+	[환자색인] [char](30) NULL,
+	[보호자연락처] [nchar](80) NULL,
+	[보험] [char](1) NULL,
+	[보험기재사유] [varchar](80) NULL,
+	[SMS수신] [char](1) NULL,
+	[이메일수신] [char](1) NULL,
+	[추천지수] [char](5) NULL,
+	[외국인] [char](1) NULL,
+	[소속단체] [char](6) NULL,
+	[처리] [char](1) NULL,
+	[등록] [char](15) NULL,
+	[등록일시] [datetime] NULL,
+	[수정] [char](15) NULL,
+	[수정일시] [datetime] NULL,
+	[삭제] [char](15) NULL,
+	[삭제일시] [datetime] NULL,
+	[IP] [char](15) NULL,
+ CONSTRAINT [PK_환자정보] PRIMARY KEY CLUSTERED 
+(
+	[등록번호] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+USE [DBinfor]
+GO
+
+/****** Object:  Table [dbo].[내원정보]    Script Date: 2018-10-24 오후 1:27:37 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[내원정보](
+	[연번] [int] NOT NULL,      --검사결과에 처방번호랑 매칭
+	[입원연번] [int] NULL,
+	[등록번호] [char](10) NOT NULL,  ----등록번호 
+	[외래입원] [char](1) NOT NULL,   ---I(아이) : 입원  ---O(오) : 외래
+	[내원일] [char](10) NOT NULL, 
+	[주야] [char](1) NULL,
+	[보험유형] [char](2) NOT NULL,
+	[조합기호] [char](11) NULL,
+	[증번호] [char](20) NULL,
+	[차상위구분] [char](20) NULL,
+	[대상구분] [char](20) NULL,
+	[산정특례] [char](255) NULL,
+	[산정특례미적용] [char](1) NULL,
+	[진료과] [char](3) NULL,
+	[진료의] [char](15) NULL,
+	[내원구분] [char](5) NULL,
+	[내원시각] [char](8) NULL,
+	[수납시각] [char](8) NULL,
+	[예약시각] [char](8) NULL,
+	[예약구분] [char](1) NULL,
+	[전달내용] [varchar](80) NOT NULL,
+	[원무전달내용] [varchar](80) NULL,
+	[FU참고사항] [varchar](80) NULL,
+	[진행현황] [char](20) NULL,
+	[P] [char](2) NULL,
+	[L] [char](2) NULL,
+	[X] [char](2) NULL,
+	[C] [char](2) NULL,
+	[M] [char](2) NULL,
+	[BMD] [char](2) NULL,
+	[내원] [char](1) NULL,
+	[진료] [char](1) NULL,
+	[수납] [char](1) NULL,
+	[예약] [char](1) NULL,
+	[의약분업예외] [char](5) NULL,
+	[지역코드] [int] NULL,
+	[연령대] [tinyint] NULL,
+	[연령] [tinyint] NULL,
+	[월령] [tinyint] NULL,
+	[본인부담여부] [char](6) NULL,
+	[건생비잔액] [int] NULL,
+	[건생비청구액] [int] NULL,
+	[진료확인번호] [varchar](26) NULL,
+	[진료의뢰여부] [char](1) NULL,
+	[의뢰기관기호] [char](8) NULL,
+	[장기요양정액] [char](1) NULL,
+	[성명] [char](30) NULL,
+	[임부여부] [char](1) NULL,
+	[병실] [char](5) NULL,
+	[특진] [char](1) NULL,
+	[영상판독] [char](1) NULL,
+	[처방변경] [char](1) NULL,
+	[외래적용] [char](1) NULL,
+	[의약품관리] [char](1) NULL,
+	[내원년월] [char](7) NULL,
+	[심사이관일시] [datetime] NULL,
+	[최종등록일시] [datetime] NULL,
+	[퇴원약조제일수] [tinyint] NULL,
+	[무인접수] [char](1) NULL,
+	[지불보증번호] [varchar](50) NULL,
+	[주차대행] [char](1) NULL,
+	[등록] [char](15) NULL,
+	[등록일시] [datetime] NULL,
+	[수정] [char](15) NULL,
+	[수정일시] [datetime] NULL,
+	[삭제] [char](15) NULL,
+	[삭제일시] [datetime] NULL,
+	[IP] [char](15) NULL,
+ CONSTRAINT [PK_내원정보] PRIMARY KEY CLUSTERED 
+(
+	[연번] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+

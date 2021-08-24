@@ -1,0 +1,40 @@
+Update SLA_LabResult                       
+   Set Result      = '< 0.05'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '1004'
+      ,ResultDate  = '2021-02-18'
+      ,ResultTime  = '13:05:28'
+ Where SPECIMENNUM = '454224'  
+   AND OrderCode   = 'D0113'    
+   And LabCode     = 'D0113'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '454224'  
+   AND OrderCode   = 'D0113'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '< 0.05'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '1004'
+      ,ResultDate  = '2021-02-18'
+      ,ResultTime  = '15:09:10'
+ Where SPECIMENNUM = '454315'  
+   AND OrderCode   = 'D0113'    
+   And LabCode     = 'D0113'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '454315'  
+   AND OrderCode   = 'D0113'    
+   And JStatus < '3'                       
+

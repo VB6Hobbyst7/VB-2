@@ -1,0 +1,1 @@
+COPY auto.txt LPT1

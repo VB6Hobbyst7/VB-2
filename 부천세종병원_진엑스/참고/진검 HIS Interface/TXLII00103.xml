@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TXLII00102">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqSetIFMicroRsltSave">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="data1">
+            <column id="sworkdd"              desc="시작작업일자"   ref="data1"/>
+            <column id="data1"              desc="data1"   ref="data2"/>
+            <column id="data3"             desc="data3"   ref="data3"/>
+            <column id="userid"             desc="사용자ID"   ref="userid"/>
+            <column id="instcd"             desc="기관코드"   ref="instcd"/>
+        </table>  
+    </input> 
+     <output path="root" type="xml">
+        <table id="ResultFlag" count_ref="result">
+            <column id="resultflag"    type="string"   desc="결과구분" 	ref="result.resultflag"/>  
+            <column id="error"    type="string"   desc="error" 	ref="result.error"/>  
+     	  </table>		
+    </output>
+</submit>

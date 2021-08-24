@@ -1,0 +1,10 @@
+Update SLA_LabMaster 
+   Set JStatus = '2' 
+ Where SPECIMENNUM = '2180175' 
+   AND OrderCode IN ('B0030','B1530','B1540','CLOT') 
+   And JStatus < '3' 
+Update SLA_LabMaster 
+   Set JStatus = '2' 
+ Where SPECIMENNUM = '2180175' 
+   AND OrderCode IN ('B0030','B1530','B1540','CLOT') 
+   And JStatus < '3' 

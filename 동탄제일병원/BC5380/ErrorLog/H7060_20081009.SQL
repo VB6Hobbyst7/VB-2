@@ -1,0 +1,32 @@
+
+
+
+
+
+ Update MediEHE..PRSNUMBM   Set PRSNRSLT = '10',       PRSNIPDT = '20081009',       PRSNIPTM = '181823',       PRSNUSID = 'LAB' Where PRSNVSDT = '20081004'   And PRSNMRNO = 44578   And PRSNCODE = '23AF'   And PRSNSUBC = ''
+ Update MediEHE..PRSNUMBM   Set PRSNRSLT = '20',       PRSNIPDT = '20081009',       PRSNIPTM = '181826',       PRSNUSID = 'LAB' Where PRSNVSDT = '20081004'   And PRSNMRNO = 44578   And PRSNCODE = '23AB2'   And PRSNSUBC = ''
+ Update MediEHE..PRSNUMBM   Set PRSNRSLT = '10',       PRSNIPDT = '20081009',       PRSNIPTM = '181841',       PRSNUSID = 'LAB' Where PRSNVSDT = '20081004'   And PRSNMRNO = 44578   And PRSNCODE = '23AF'   And PRSNSUBC = ''
+ Update MediEHE..PRSNUMBM   Set PRSNRSLT = '20',       PRSNIPDT = '20081009',       PRSNIPTM = '181842',       PRSNUSID = 'LAB' Where PRSNVSDT = '20081004'   And PRSNMRNO = 44578   And PRSNCODE = '23AB2'   And PRSNSUBC = ''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

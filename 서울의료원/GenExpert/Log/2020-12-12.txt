@@ -1,0 +1,27 @@
+14:19:04 [Rx]
+14:19:04 [Tx]
+14:19:04 [Rx]1H|@^\|URM-IpQYVZXA-01||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20201212141631P|1|||2010165241|^^^^O|1|2010165241||^^^001|R|20201212123216|||||||||ORH|||^^|||||||FR|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|NEGATIVE^|||||50
+
+14:19:04 [Tx]
+14:19:04 [Rx]2F||<None>|20201212123216|20201212131515|Cepheid-60138QN^809702^671668^56968787^32414^20210808R|2|^001^^003^^^Toxin B^|NEG^|||R|3|^001^^003^^^Toxin B^Ct|^0.0|||R|4|^001^^003^^^Toxin B^EndPt|^1.0|||R|5|^001^^003^^^Binary Toxin^|NEG^|||R|00
+
+14:19:04 [Tx]
+14:19:04 [Rx]36|^001^^003^^^Binary Toxin^Ct|^0.0|||R|7|^001^^003^^^Binary Toxin^EndPt|^1.0|||R|8|^001^^003^^^TcdC^|NEG^|||R|9|^001^^003^^^TcdC^Ct|^0.0|||R|10|^001^^003^^^TcdC^EndPt|^4.0|||R|11|^001^^003^^^SPC^|PASS^|||R|12|^001^^003^^^SPC^Ct|^30.9|FF
+
+14:19:04 [Tx]
+14:19:04 [Rx]4||R|13|^001^^003^^^SPC^EndPt|^408.0|||R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20201212123216|20201212131515|Cepheid-60138QN^809702^671668^56968787^32414^20210808R|15|^001^^002^^^Toxin B^|NEG^|||R|16|^0052
+
+14:19:04 [Tx]
+14:19:04 [Rx]51^^002^^^Toxin B^Ct|^0.0|||R|17|^001^^002^^^Toxin B^EndPt|^1.0|||R|18|^001^^002^^^Binary Toxin^|NEG^|||R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||R|20|^001^^002^^^Binary Toxin^EndPt|^1.0|||R|21|^001^^002^^^TcdC^|NEG^|||R|22|^001^^002^^^TD6
+
+14:19:04 [Tx]
+14:19:04 [Rx]6cdC^Ct|^0.0|||R|23|^001^^002^^^TcdC^EndPt|^4.0|||R|24|^001^^002^^^SPC^|PASS^|||R|25|^001^^002^^^SPC^Ct|^30.9|||R|26|^001^^002^^^SPC^EndPt|^408.0|||L|1|N1D
+
+14:19:04 [Tx]
+14:19:04 [Rx]
+14:19:04 [결과저장]M07,2010165241,XXX01,Negative,N, null,202012110001511051GS314103576,07,N,Negative,실시간중합효소연쇄반응법(Realtime PCR)
+14:19:04 [결과저장]M07,2010165241,CZ99901,Negative,N, null,202012110001511051GS314103576,07,N,Negative,실시간중합효소연쇄반응법(Realtime PCR)
+14:19:04 [결과저장]M07,2010165241,XXX02,Negative,N, null,202012110001511051GS314103576,07,N,Negative,실시간중합효소연쇄반응법(Realtime PCR)
+14:19:04 [검사방법저장]Update cpl0302   Set mb_result_txt1  = '실시간중합효소연쇄반응법(Realtime PCR)' 
+ Where HANGMOG_CODE    = 'XXX02'
+   and FKCPL0201       = (Select PKCPL0201                             From cpl0201                           Where Specimen_Ser  = '2010165241'                             And BUNHO         = '0001511051')

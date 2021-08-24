@@ -1,0 +1,157 @@
+1.
+메소드: InitializeServer
+인자  :
+리턴값: void
+설명  : Tmax서버와의 연결을 초기화 하는 함수
+        (프로그램 실행시 반드시 호출하여야 하는 함수)
+
+2.
+메소드: FinalizeServer
+인자  :
+리턴값: void
+설명  : Tmax서버와의 연결을 종료 하는 함수
+        (프로그램 종료시 반드시 호출하여야 하는 함수)
+
+3.
+메소드: GetLabStandByListByWorkDate
+인자  : 작업일자( [Ex] "20050421")
+        검사학부코드
+리턴값: Boolean(True : 성공, False : 실패)
+설명  : 해당일자에 해당하는 검사내역을 가져오는 함수
+
+4.
+메소드: GetLabStandByListByChtNum
+인자  : 작업일자( [Ex] "20050421")
+        차트번호
+        검사학부코드
+리턴값: Boolean(True : 성공, False : 실패)
+설명  : 해당일자의 해당차트번호에 해당하는 검사내역을 가져오는 함수
+
+5.
+메소드: GetRowCount
+인자  : 
+리턴값: Integer
+설명  : 현재 가져온 데이터의 갯수를 얻어오는 함수
+
+6.
+메소드: GetDataValue
+인자  : 가져온 데이터내에서의 위치값(Row위치)
+        컬럼명칭
+리턴값: Object
+설명  : 현재 가져온 데이터의 내의 해당위치의 데이터값을 얻어오는 함수
+
+7.
+메소드: UpdateLabResult
+인자  : 검사실접수번호(RsbAcpNum)   * 괄호안의 내용은 해당 컬럼명칭을 표시한 것임
+        내원번호
+        처방시퀀스(OdrSeq)
+        검사접수시퀀스(ResSeq)
+	검사접수서브시퀀스(ResSubSeq)
+	검사결과값
+        검사결과타입( F: 최종보고, I: 중간보고)
+	검사담당자아이디
+	검사일시( [Ex] "200504211530")
+리턴값: Boolean(True : 성공, False : 실패)
+설명  : 검사결과를 Update하는 함수
+
+8.
+메소드: GetValidUserYon
+인자  : 사용자아이디
+        패스워드
+        작업일자( [Ex] "20050421")
+리턴값: Boolean(True : 성공, False : 실패)
+설명  : 해당사용자가 적절한 사용자인지의 여부를 확인하는 함수
+
+
+9.
+메소드: GetPreviousLabResultInfo
+인자  : sPrmLbqAcpNum (LbqAcpNum)
+        sPrmOcmNum    (LbqOcmNum)
+        sPrmTrnPrt    (LabSpmPos)
+        sPrmSpmCod    (RsbSpmCod)
+        sPrmLabCod    (ResLabCod)
+        sPrmVolFlg    (ResVolFlg)
+리턴값 :String
+설명   :해당 코드에 해당하는 검사의 가장 최근의 결과를 얻어오는 함수
+
+
+[SQL 쿼리내에 포함되어있는 컬럼의 리스트]
+        lbqacpnum, lbqtrndep, lbqocmnum, lbqchtnum, lbqpatnam,
+        lbqpattyp, lbqinscod, lbqdepcod, lbqdtrcod, lbqwrdcod,
+        lbqromcod, lbqacpstt, lbqemgyon, lbqcascod, lbqtrtuid,
+        lbqodrdte, lbqacpdtm, lbqacpuid, ospodrcod, ospodrdtm,
+        ospodrqty, ospodrday, ospodrtms, ospsplcmt,
+        rsbspmcod, rsbitfyon, rsbackstt, rsbconlvl, rsbprnyon, rsbprndtm,
+        rsbprnuid, rsbtstdtm, rsbtstuid, rsbreddtm, rsbreduid, rsbrlttyp,
+        rsbparyon, rsbtrynum, rsbrltval, rsbsubnum,
+        resodrseq, resseq, ressubseq, resrsbacp, reslabcod, resvolflg,
+        resrltseq, resrltval, resrltcmt, resreptyp, resupddtm, resupduid,
+        labshtnam, labrlttyp, labrltopt, labdefrlt, labuntcod,
+        labmaxlin, labmaxlen, labjbsseq, labrltseq, labviwyon, labprtyon,
+        labdlttyp, labadpdte, labexpdte, labgrpyon,
+        labseeyon, labspmpos,
+        lrfpcscod, lrfvolflg, lrfhigval, lrflowval, lrfstdval, lrfbasval,
+        lrfablprd, pbsresnum, ocmcomstt, rsbbarcod
+
+데이터를 제대로 못가져오거나 처리가 제대로 이루어 지지 않은 경우에는
+C:\LAB_INTERFACE_해당일자.log 파일내에 해당 에러내역이 표시되게 되므로 그것을 확인해 볼 수 있다.
+
+--------------------------------------------------------------------
+최한표20060413
+추가된 함수 설명
+
+메소드 : BITReadConsumptionSummary
+인자 : sPrmStrDte, sPrmEndDte
+리턴값 : boolean
+설명 : 해당 일자기간동안 발생된 처방 summary
+
+
+
+메소드 : GetConsumptionDataValue
+인자 : iPrmRow, sColumnName
+리턴값 : string (해당 row의 column name의 값)
+설명 : BITReadConsumptionSummary 로 읽어서 값이 있으면 GetConsumptionDataValue 로 데이터를 읽는다.
+   ex)  GetConsumptionDataValue(0, "OdrCod")
+ 
+column name : 
+	odrcod		: 처방코드
+	odrelccod	: 처방코드(청구)
+	odrdepcod 	: 진료과코드
+	ocmpattyp 	: 환자구분(입원/외래)
+	odruidprt	: 병동코드
+	odrdtrqty 	: 수량
+	odrday		: 일수
+
+
+최한표20060418
+추가된 함수 설명
+
+메소드 : GetConsumptionRowCount
+인자 : 없음
+리턴값 : integer
+설명 : BITReadConsumptionSummary 로 읽혀진 데이터의 총 count수를 return한다.
+
+--------------------------------------------------------------------
+설경주 20060713
+추가된 함수 설명
+
+메소드 : BITReadRadResultSummary
+인자 : sPrmStrDte, sPrmEndDte, sPrmCodNum, sPrmOcmNum
+리턴값 : boolean
+설명 : 해당 기간의 특정 코드 / 내원번호에 해당하는 판독 소견
+
+
+메소드 : GetRadResultDataValue
+인자 : iPrmRow, sColumnName
+리턴값 : string (해당 row의 column name의 값)
+설명 : BITReadRadResultSummary 로 읽어서 값이 있으면 GetRadResultDataValue 로 데이터를 읽는다.
+   ex)  GetRadResultDataValue(0, "RLTDTLCMT")
+ 
+column name : 
+	RLTDTLCMT	: 판독소견
+	RLTDTLIMP	: 임프레션
+
+메소드 : GetRadResultRowCount
+인자 : 없음
+리턴값 : integer
+설명 : BITReadRadResultSummary 로 읽혀진 데이터의 총 count수를 return한다.

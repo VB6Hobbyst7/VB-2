@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00101">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetSpcWorkListRefBCNO">
+    </action>
+    <input type="urlencoded">
+        <table id="bcno" count_ref="eqmtcd">
+            <column id="bcno"    desc="검체번호"    ref="bcno"/>
+            <column id="eqmtcd"  desc="장비코드"     ref="eqmtcd"/>
+            <column id="startdd" desc="시작일자"    ref="startdd"/>
+            <column id="enddd"    desc="종료일자"   ref="enddd"/>
+            <column id="tclscd"    desc="검사코드"   ref="tclscd"/>
+            <column id="instcd"    desc="검사코드"   ref="instcd"/>
+        </table>
+    </input> 
+    <output path="root/spcworklist" type="xml">
+        <table id="worklist" count_ref="worklist">
+            <column id="spcacptdt"    type="cdata"   desc="접수일자" 	ref="worklist.spcacptdt"/>
+            <column id="acptflag"    type="cdata"   desc="입원외래구분" 	ref="worklist.acptflag"/> 
+            <column id="bcno"        type="cdata"   desc="검체번호" 	ref="worklist.bcno"/> 
+            <column id="pid"       type="cdata"   desc="등록번호" 	    ref="worklist.pid"/> 
+            <column id="patnm"      type="cdata"   desc="환자명" 	    ref="worklist.patnm"/> 
+            <column id="sexage"    type="cdata"   desc="나이성별" 	    ref="worklist.sexage"/> 
+            <column id="erprcpflag"    type="cdata"   desc="응급구분" 	ref="worklist.erprcpflag"/> 
+            <column id="workno"    type="cdata"   desc="작업번호" 	    ref="worklist.workno"/>
+            <column id="tsectnm"    type="cdata"   desc="검사계명" 	ref="worklist.tsectnm"/> 
+            <column id="ifreqcdlist"    type="cdata"   desc="장비요청코드" ref="worklist.ifreqcdlist"/>    
+            <column id="tclscdlist"    type="cdata"   desc="검사리스트" 	ref="worklist.tclscdlist"/>  
+            <column id="urinextrvol"    type="cdata"   desc="유린값" 	ref="worklist.urinextrvol"/> 
+            <column id="retestyn"    type="cdata"   desc="재검여부" 	ref="worklist.retestyn"/> 
+            <column id="rsltstat"    type="cdata"   desc="재검여부" 	ref="worklist.rsltstat"/>
+     	  </table>		
+    </output>
+</submit>

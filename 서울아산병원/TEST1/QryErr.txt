@@ -1,0 +1,4 @@
+Select equipcode, examcode, examname, resprec, seqno 
+  From EQPMASTER 
+ Where equipno = 'TESTEQU' 
+ Order by  seqno * 10 

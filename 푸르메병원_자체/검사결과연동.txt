@@ -1,0 +1,43 @@
+
+--고객정보(성명,생년월일,성별,챠트번호등);
+Select PatNam    "성명",
+       PatResNum "생년월일",
+       PatSexTyp "성별",
+       PatChtNum "챠트번호등"
+  From P_PatInf;
+
+
+--접수정보(바코드-키값, 일자, 정렬순번등)     --S_AdrInf, S_PcpInf
+--결과정보(접수정보와의 키값검사코드,결과등); --S_LabInf
+
+--결과 상태(PcpStaTyp, AdrStaTyp)
+--재검사   N
+--보고대기 M
+--중간보고 I
+--최종보고 F
+
+
+--                                                                     결과상태    결과상태     최초 중간보고자    최초 중간보고일시     결과값
+--장비로 넘어오는 결과 상태가 [중간 보고]일 경우 Update 해야 할 컬럼들 PcpStaTyp,  AdrStaTyp,   LabMidUid,         LabMidDtf,            LabRst
+
+
+
+--                                                                     결과상태    결과상태     최종승인ID    최종승인일시    최초최종보고자    최초최종보고일시     결과값
+--장비로 넘어오는 결과 상태가 [최종 보고]일 경우 Update 해야 할 컬럼들 PcpStaTyp,  AdrStaTyp,   LabLstUid,    LabLstDtf,      LabOkUid,         LabOkDtf,            LabRst
+ Select LabCod, AdrPcpKey
+      , AdrKey "접수키",  AdrStaTyp "결과 상태"
+      , LabMidUid "최초 중간보고자", LabMidDtf "최초 중간보고일시"
+      , LabLstUid "최초 최종보고자", LabLstDtf "최초 최종보고일시", LabOkUid "최종승인ID", LabOkDtf  "최종 승인일시"
+      , LabRst    "결과값"
+ From S_LabInf, S_AdrInf
+ Where AdrKey = LabAdrKey
+ And   AdrStt = 'OE'
+ And   LabBarNum = '1600000650'; --1600000650 바코드 번호
+
+
+--위 쿼리 상에서 AdrPcpKey값으로 조회 PcpStaTyp 값을 Update
+Select PcpStaTyp
+From S_PcpInf 
+Where PcpKey = 74034;
+
+

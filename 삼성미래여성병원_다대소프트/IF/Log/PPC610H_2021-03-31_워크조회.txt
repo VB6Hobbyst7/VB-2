@@ -1,0 +1,21 @@
+SELECT DISTINCT        CONVERT(NVARCHAR(50),M.접수일자,112)    AS HOSPDATE                                 
+     , M.접수번호                              AS PID                                      
+     , M.차트번호                              AS CHARTNO                                  
+     , M.성명                                  AS PNAME                                    
+     , M.성별                                  AS SEX                                      
+     , M.나이                                  AS AGE                                      
+     , M.거래처명                              AS DEPT                                     
+     , COUNT(E.검사코드)                       AS CNT                                      
+  FROM VW_검사접수 M                                                                       
+     , VW_검사결과 R                                                                       
+     , VW_검사코드 E                                                                       
+ WHERE M.접수일자 BETWEEN CONVERT(DATE, '20210331') AND CONVERT(DATE, '20210331')  
+   AND M.접수일자      = R.접수일자                                                        
+   AND M.접수번호      = R.접수번호                                                        
+   AND R.검사코드      = E.검사코드                                                        
+   AND E.학부코드      = 'C2'                                            
+   AND E.검사코드      IN ('D0002010','D0002020','D0002050','D0002040','MCV|01','MCH|01','MCHC|01','B1060|01')                                             
+   AND ISNULL(R.보고여부, 'N') <> 'Y'                                                      
+   AND (R.결과값 IS NULL OR R.결과값 = '')                                                 
+ GROUP BY M.접수일자,M.접수번호,M.차트번호,M.성명,M.성별,M.나이,M.거래처명                 
+

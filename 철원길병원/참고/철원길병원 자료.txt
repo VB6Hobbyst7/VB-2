@@ -1,0 +1,361 @@
+//검진-다인
+'Provider=MSDASQL.1;Password=sql;Persist Security Info=True;User ID=dba;Data Source='+TGlobal.DAIN_Odbc  //odbc명: cwgil8
+
+//워크리스트 조회
+function TDM.DownWorkList_Dain(WF, WT: string; IsRes: boolean; F, T: integer; slWork: TStringList): integer;
+var
+  sOrder, S:string;
+  PID, PNM, JNO, BCD, EList, ADT:string;
+begin
+  Result:= 0;
+  slWork.Clear;
+
+  EList:= GEList; //DM.GetOrderCodeList;
+  
+  S:= ' select distinct                '+#13#10+
+      '     res1_date   AS ADT         '+#13#10+    //접수일자
+      '   , res1_gumno  AS BCD         '+#13#10+    //검진번호
+      '   , per1_name   AS PNM         '+#13#10+   
+      '   , per1_jumin  AS JNO         '+#13#10+
+      '   , per1_age                   '+#13#10+
+      '   , per1_sex                   '+#13#10+
+      '   , per1_memid  AS PID         '+#13#10+
+      ' from mresult001 R              '+#13#10+
+      '    , mperson001 P              '+#13#10+
+      ' where res1_date  = per1_date   '+#13#10+     
+      '   and res1_gumno = per1_gumno  '+#13#10+
+      '   and res1_date  between '''+WF+''' and '''+WT+''' '+#13#10+   //yyyymmdd
+      '   and res1_gum_code in '+EList  +#13#10;
+
+  if T > 0 then
+      S:= S+'   and res1_gumno Between '+IntToStr(F)+' and '+IntToStr(T)+#13#10;   //번호지정시
+
+  if Not IsRes then
+      S:= S + ' and (res1_result is null or res1_result = '''') '+#13#10;          //결과 없는것만 불러올때
+
+  S:= S + ' Order by ADT, BCD ';
+
+  with DM.qryGOrder do begin
+      Close;
+      SQL.Text:= S;
+      if SVRTEST = True then
+          SQL.SaveToFile('.\Work_검진.sql');
+      try
+          Open;
+          //Result:= DM.qryGOrder;
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message+#13#10+'SQL->'+SQL.Text;
+          end;
+      end;
+
+      if RecordCount = 0 then exit;
+
+      while Not Eof do begin
+          ADT:= FieldByName('ADT').AsString;
+          BCD:= FieldByName('BCD').AsString;
+          PID:= FieldByName('PID').AsString;
+          PNM:= FieldByName('PNM').AsString;
+
+          sOrder:= ''  + #09+
+                   BCD + #09+
+                   ''  + #09+
+                   ''  + #09+
+                   ADT + #09+
+                   PID + #09+
+                   PNM + #09+
+                   ''  + #09+    //JNO 앞
+                   ''  + #09+    //JNO 뒤
+                   ''  + #09+
+                   ''  + #09+
+                   ''  + #09+
+                   ''  + #09;
+          slWork.Add(sOrder);
+
+          Next;
+      end;
+  end;
+
+  Result:= slWork.Count;
+
+end;
+
+//검진번호로 조회
+function TDM.DownLoadOrder_BCD_ORD(BCD, ADT: string;
+  bReCheck: boolean): TDataSet;
+var
+  EList:string;
+  YY,MM,DD:string;
+begin
+  Result:= nil;
+  EList:= GEList;
+
+  with qryGOrder do begin
+      Close;
+      SQL.Text:=' select res1_gum_code           '+#13#10+
+                ' from mresult001                '+#13#10+
+                ' where res1_date  = '''+ADT+''' '+#13#10+
+                '   and res1_gumno = '''+BCD+''' '+#13#10+
+                '   and res1_gum_code in '+EList;
+      if Not bReCheck then
+          SQL.Text:= SQL.Text + ' and (res1_result is null or res1_result = '''') '+#13#10;
+
+      if SVRTEST = True then
+          SQL.SaveToFile('.\DownBCD_검진.sql');
+
+      Open;
+
+      if RecordCount > 0 then
+          Result:= qryGOrder;
+  end;
+
+end;
+
+//판정
+function TDM.GetLowHigh_GJ(ADT, PID, ECD, Res: string): string;
+var
+  dMin,dMax,dVal:double;
+begin
+  Result:= '';
+
+  dVal:= StrToFloatDef(Res,-100);
+  if dVal < -99 then exit;
+
+  with qryGOrder do begin
+      Close;
+      SQL.Text:= ' Select Res1_Low, Res1_High       '+
+                 ' From mresult001                  '+
+                 ' Where res1_date  = '''+ADT+'''   '+
+                 '   and res1_gumno = '''+PID+'''   '+
+                 '   and res1_gum_code = '''+ECD+''' ';
+
+      if SVRTEST = True then
+          SQL.SaveToFile('.\검진LH.sql');
+
+      Open;
+      if RecordCount = 0 then exit;
+
+      dMin:= StrToFloatDef(FieldByName('Res1_Low').AsString,-100);
+      if dMin < -99 then exit;
+
+      dMax:= StrToFloatDef(FieldByName('Res1_High').AsString,-100);
+      if dMax < -99 then exit;
+
+      if dVal < dMin then
+          Result:= 'L'
+      else
+      if dVal > dMax then
+          Result:= 'H';
+
+  end;
+end;
+
+//결과등록
+function TDM.UploadHost_One_Dain(BarCode, ExamCode, ResVal, ADT: string;
+  var ErrMsg: string): boolean;
+var
+  NowDt:string;
+  BCD, LH:string;
+begin
+  Result:= False;
+
+  if SvrConnection = False then exit;
+
+  BCD:= Trim(BarCode);
+  NowDt:= FormatDateTime('yyyymmddhhnn', now);
+
+  //ShowMessage(BarCode+'|'+ExamCode+'|'+ResVal);
+
+  if BarCode = '' then exit;
+
+  LH:= GetLowHigh_GJ(ADT, BCD, ExamCode, ResVal);
+
+  with qryGUp do begin
+      Close;
+      Sql.Text:=' update mresult001                       '+#13#10+
+                '     Set res1_result   = '''+ResVal+'''  '+#13#10+
+                '       , res1_rfm_name = '''+ResVal+'''  '+#13#10+
+                '       , res1_Pan      = '''+LH+'''      '+#13#10+
+                ' where res1_date     = '''+ADT+'''  '+#13#10+
+                '   and res1_gumno    = '+BCD+'  '+#13#10+
+                '   and res1_gum_code = '''+ExamCode+'''  ';
+      try
+          if SVRTEST = True then
+              SQL.SaveToFile('.\Upload_검진.sql');
+
+          ExecSql;
+          //SQL.SaveToFile('C:\SQL.text');
+          Result:= True;
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message+' SQL->'+SQL.Text;
+              ErrMsg:= e.Message;
+              ShowMessage(e.Message);
+          end;
+      end;
+  end;
+end;
+
+***********************지누스*************************************
+지누스 병원 코드
+32100167
+웹주소
+https://192.168.131.193
+CBC장비코드
+01
+
+//DLL정의
+function W2ACALL2(pService, pRequest, pURL:PChar):PChar; stdcall; external 'w2afun.dll';
+const
+  CS_SVC = 'SCC0191A';
+  
+  
+//워크리스트 조회
+function TDM.DownWorkList(sF, sT:string; slWork:TStringList):integer;
+var
+  SVC, URL, HCD:string;
+  OrdStr, ICD, SMP:string;
+begin
+  Result:= -1;
+
+  if SvrConnection = False then begin
+      ShowMessage('테스트모드입니다!');
+      slWork.Add( '05	13-0024502-1	0	0	201305031426	00010284	서산옥	400228	2335319	ICU	ICU	IM	I	 	 	 	N	0	0');
+      slWork.Add( '05	13-0024510-1	0	0	201305031455	00494154	김은봉	770625	2335037	3W	311	IM	I	 	 	 	N	0	0');
+      slWork.Add( '05	13-0024534-1	0	0	201305031806	00828144	유도현	400212	1334814	 	 	ER	E	 	 	 	N	0	0');
+      Result:=1;
+      exit;
+  end;
+
+  SVC:= CS_SVC;                 //'SCC0191A';
+  URL:= TGlobal.DBIpAddr;       //https://192.168.131.193
+  HCD:= TGlobal.HOSPCD;         //32100167
+  SMP:= '%';
+
+  ICD:= TGlobal.InstCode;      //01
+
+  OrdStr:='jobs'       + TAB + 'L' + TAB +
+          'hos_org_no' + TAB + HCD + TAB +
+          'fr_ymd'     + TAB + sF  + TAB +        //yyyymmdd
+          'to_ymd'     + TAB + sT  + TAB +
+          'mach_cd'    + TAB + ICD + TAB +
+          'smp_no'     + TAB + SMP + TAB + CR;
+
+  try
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[워크리스트 포맷]'+#13#10+OrdStr;
+
+      slWork.Text := W2ACALL2(PChar(SVC), PChar(OrdStr), PChar(URL));
+      Result:= 1;
+
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[워크리스트]'+#13#10+slWork.Text;
+  except
+      exit;
+  end;
+
+end;
+
+//검체별 조회
+function TDM.DownOrder_BCD_DLL(BCD: string; slWork: TStringList): integer;
+var
+  SVC, URL, HCD:string;
+  OrdStr, ICD, SMP:string;
+begin
+  Result:= -1;
+
+  if SvrConnection = False then begin
+      ShowMessage('테스트모드입니다!');
+      if BCD = '13-0024502-1' then begin
+          slWork.Add('13-0024502-1	05	3	3	3	L3030	00010284	0		4.0	 	 	05	 	 	0	0	0	0	 	Albumin				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024502-1	05	3	4	4	C3720	00010284	0		0.7	 	 	05	 	 	0	0	0	0	 	Total Bilirubin				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU');
+          slWork.Add('13-0024502-1	05	3	5	5	L3036	00010284	0		68	 	 	05	 	 	0	0	0	0	 	Alk.Phosphatase				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024502-1	05	3	6	6	L3020	00010284	0		22	 	 	05	 	 	0	0	0	0	 	AST(GOT)				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024502-1	05	3	7	7	L3021	00010284	0		19	 	 	05	 	 	0	0	0	0	 	ALT(GPT)				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+      end
+      else
+      if BCD = '13-0024510-1' then begin
+          slWork.Add('13-0024510-1	05	3	8	8	L3018	00494154	0		373	 	 	05	 	 	0	0	0	0	 	Glucose(FBS)				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	9	9	L3015	00494154	0		13	 	 	05	 	 	0	0	0	0	 	BUN				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	10	10	L3033	00494154	0		4.1	 	 	05	 	 	0	0	0	0	 	Uric acid				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	11	11	L3017	00494154	0		9.0	 	 	05	 	 	0	0	0	0	 	Calcium				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	12	12	L3031	00494154	0		3.6	 	 	05	 	 	0	0	0	0	 	Phosphorus				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+      end
+      else
+      if BCD = '13-0024534-1' then begin
+          slWork.Add('13-0024500-1	05	7	1	0	L3022	00828144	0		547	 	 	05	 	 	0	0	0	0	 	LDH				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	8	1	0	L3023	00828144	0		26	 	 	05	 	 	0	0	0	0	 	CPK				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	9	1	0	L3032	00828144	0		176	 	 	05	 	 	0	0	0	0	 	Cholesterol				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	10	1	0	L7339	00828144	0		100	 	 	05	 	 	0	0	0	0	 	Triglyceride				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	11	1	0	L3027	00828144	0		51	 	 	05	 	 	0	0	0	0	 	Amylase				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	12	1	0	L3028	00828144	0		177	 	 	05	 	 	0	0	0	0	 	Lipase				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+      end;
+      Result:=1;
+      exit;
+  end;
+
+  SVC:= CS_SVC;                 //'SCC0191A';
+  URL:= TGlobal.DBIpAddr;       //https://192.168.131.193
+  HCD:= TGlobal.HOSPCD;         //32100167
+  SMP:= BCD;
+
+  ICD:= TGlobal.InstCode;
+
+  OrdStr:='jobs'       + TAB + 'Q' + TAB +
+          'hos_org_no' + TAB + HCD + TAB +
+          'smp_no'     + TAB + SMP + TAB +
+          'mach_cd'    + TAB + ICD + TAB + CR;
+  try
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[바코드 포맷]'+#13#10+OrdStr;
+
+      slWork.Text := W2ACALL2(PChar(SVC), PChar(OrdStr), PChar(URL));
+      Result:=1;
+
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[바코드 오더]'+#13#10+slWork.Text;
+  except
+      exit;
+  end;
+end;
+
+//결과등록
+HCD:= TGlobal.HOSPCD;
+ICD:= TGlobal.InstCode;
+
+//헤더
+H:= 'jobs'         + TAB + 'A'  + TAB + 
+    'hos_org_no'   + TAB + HCD  + TAB ;
+    
+//결과
+M:= 'smp_no'       + TAB + BCD  + TAB +                       
+    'prcp_seq'     + TAB + OSEQ + TAB +     
+    'exam_seq'     + TAB + ESEQ + TAB +     
+    'rept_seq'     + TAB + PSEQ + TAB +     
+    'cd'           + TAB + OCD + TAB  +     
+    'pt_no'        + TAB + PID + TAB +      
+    'exam_rslt'    + TAB + RES + TAB +      
+    'exam_rslt_cd' + TAB + RCD + TAB +      
+    'mach_rslt'    + TAB + RES + TAB + CR;  
+                                            
+if Pos('완료', UploadHosp_Dll(H+M)) > 0 then
+    Inc(UpSucc);      
+    
+function TDM.UploadHosp_Dll(S:string): string;                              
+var                                                   
+  SVC, URL:string;                                    
+begin                                                 
+  if SvrConnection = False then exit;                 
+                                                      
+  SVC:= CS_SVC;                                       
+  URL:= TGlobal.DBIpAddr;                             
+                                                      
+  if SVRTEST = True then                              
+      TGlobal.LogMsg:= '[결과포맷]'+#13#10+S;         
+                                                      
+  Result:= W2ACALL2(PChar(SVC), PChar(S), PChar(URL));
+                                                      
+  if SVRTEST = True then                              
+      TGlobal.LogMsg:= '[결과리턴]'+#13#10+Result;    
+                                                      
+end;                                                 

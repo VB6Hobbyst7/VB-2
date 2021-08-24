@@ -1,0 +1,126 @@
+//자릿수는 STX 빼고 계산한 자릿수예요.
+procedure TF_Main.DoH7060(const cData: string);
+var
+ i:integer;
+ Buffer:string;
+begin
+  // 전역변수로 보관한 자료를 읽음
+  Buffer:= cData;
+  for i:= 1 to Length(Buffer) do begin
+      case Buffer[i] of
+          SOH: ;
+          STX:begin
+                  vcTxData:='';                     //STX오면 지움..
+              end;
+          ETB: ;
+          ETX:begin
+                  //AddDebugLine('H7180:[STX]'+cStr+'[ETX]');
+                  SetCommData(vcTxData);
+                  H7060_Rcv;
+                  vcTxData:='';
+                  ClearCommData;
+              end;
+          EOT: ;//AddDebugLine('H7180:EOT');
+          else
+             vcTxData:=vcTxData+Buffer[i];
+      end;
+  end;
+end;
+
+procedure TF_Main.H7060_Rcv;
+var
+  Temp:string;
+  Frame, Func, sSend:string;
+begin
+  Temp:= mmTemp.Text;
+
+  Frame := copy(Temp, 1, 1);
+  Func  := UpperCase(copy(Temp, 2, 1));
+
+  if Frame = '' then Exit;
+
+  case Frame[1]  of
+      ':',
+      '1',
+      '2': begin
+               if (UpperCase(Func)='A') or
+                  (UpperCase(Func)='D') or
+                  (UpperCase(Func)='N') or
+                  (UpperCase(Func)='Q') or
+                  (UpperCase(Func)='F') or
+                  (UpperCase(Func)='S') or
+                  (UpperCase(Func)='H') or
+                  (UpperCase(Func)='I') or
+                  (UpperCase(Func)='J') or
+                  (UpperCase(Func)='G') then  //G: stat
+               begin
+                   H7060_ResultProcess(Temp);
+                   //sSend:= SendSPMFrame;
+                   //TGlobal.DataLog:= 'IF_PC-> '+sSend; //Log
+               end
+               else begin
+                   //TGlobal.DataLog:= 'H7180-> '+Temp; //Log
+                   //sSend:= SendSPMFrame;
+                   //TGlobal.DataLog:= 'IF_PC-> '+sSend;
+               end;
+           end;
+      ';': H7060OrderFrame(Temp);
+      //else
+      //    SendSPMFrame;
+  end;
+end;
+
+procedure TF_Main.H7060OrderFrame(DataStr: string);
+var
+  TMaster:TIfMaster;
+  GrdIdx:integer;
+  sSender, sPos,sSmp :string;
+begin
+  TMaster:= TIfMaster.Create;
+  try
+      TMaster.FExamPos:= Trim(Copy(DataStr, 10, 3));      //SampleNo
+      TMaster.FRack   := Trim(Copy(DataStr, 7,1));
+      TMaster.FPos    := Trim(Copy(DataStr, 8,2));
+
+      GrdIdx:= GetGridIndex_iPos(gdIf, TMaster.FExamPos, False);
+      GetPatData(TMaster, grdIdx);
+      GetGridOrder(TMaster, grdIdx);
+
+      sPos:= PadLeftStr(TMaster.FPOS,' ',2);
+      sSmp:= PadLeftStr(TMaster.FExamPos,' ',3);
+
+      sSender:= Copy(DataStr,1,3)+sSmp+'0'+sPos+PadLeftStr(TMaster.FBarCode, ' ', 13)+Copy(DataStr,23,15)+'48';
+      sSender:= sSender + GetH7060OrderStr(TMaster.vOrder);
+      TGlobal.DataLog:= 'IF_PC->'+STX +sSender + ETX;
+      SendStr(STX +sSender + ETX);
+  finally
+      TMaster.Free;
+  end;
+
+
+end;
+
+
+function TF_Main.GetH7060OrderStr(vOrder: Variant): string;
+var
+  VC, i, nPos:integer;
+  sO, cOrdBlock:string;
+begin
+  Result:= '';
+  cOrdBlock:='00000000000000000000000000000000000000000000000000000';
+  Result:= cOrdBlock;
+
+  VC:= VarArrayDimCount(vOrder);
+  if VC > 0 then begin
+      for i:=0 to VarArrayHighBound(vOrder,1) do begin
+         sO:= Trim(vOrder[i]);
+         if( sO <> '' ) and (sO <> '53') then begin   //LDL
+             nPos:= StrToIntDef(Trim(vOrder[i]),0);
+             if (nPos > 0) and (Length(cOrdBlock) > nPos) then
+                 cOrdBlock[nPos]:='1';
+         end;
+      end;
+  end;
+
+  Result:= cOrdBlock;
+end;

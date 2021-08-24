@@ -1,0 +1,317 @@
+**********바코드 오더 요청
+1Q 0101250100000029738 100000029715 100000029761 100000029762 100000029763 100000029767 100000029771 100000029773 100000029774 100000029779 100000029792 100000029791 100000029789 100000029798 100000029796 100000029790 100000029784 100000029788 100000029809 100000029813 100000029787 100000029797 100000029768 100000029803 100000029801  69
+
+**********오더 처리
+BcdLst:= Copy(sData,12,Length(sData)-12);
+if Length(BcdLst) < 1 then exit;
+
+//13자리씩 나눈다(오더요청 바코드 갯수).
+BcdCnt:= Length(BcdLst) div 13;
+
+if BcdCnt = 0 then exit;
+
+
+  for i:=0 to BcdCnt-1 do begin
+      Bcd:= Trim(Copy(BcdLst,i*13+1,13));
+
+      TMaster:= TIfMaster.Create;
+      try
+          TMaster.FBarCode:= Bcd;
+
+          //오더정보 가져온다.
+          DM.DownLoadorder_Ord(TMaster);
+          
+          //오더문자열 만들고, 오더 갯수 체크
+          sOrder := BM601_OrderStr(TMaster);    //개별 오더 형식 -> sOList:= sOList + PadRightStr(sO,' ',3)+'M';
+          
+          //오더 갯수 이용해 헤더 문자열 만듦.
+          sHeader:= BM601_MakeHeader(TMaster, BcdCnt, gOrdCnt);
+
+          //화면에 디스플레이
+          DispOnePat_ORD(TMaster);
+
+          //검체별 문자열 만들고
+          sSender:= sHeader + sOrder + ' ' + ETX;
+
+          //보낼 컬렉션에 담아놓는다.
+          slSender.Add(STX + sSender  + BM601CheckSum(sSender));  //한건씩 보낼때 끝에 CRLF 붙여 보내야함..
+
+      finally
+          TMaster.Free;
+      end;
+  end;
+  
+  //보낼 오더가 있으면 ENQ 날린다..
+  if slSender.Count > 0 then
+      SendStr(ENQ);
+************************************************
+  
+  
+  
+  
+**********오더 문자열 헤더*********************
+function TF_Main.BM601_MakeHeader(TMaster: TIfMaster; TBcdCnt, Idx: integer): string;
+var
+  nIdx:integer;
+  Block,PosNo, Comment,
+  Sex, Age, sNow, BCD,
+  OrdCnt,dilution, Spc,
+  OGBN, OIdx, Sample, Request:string;
+begin
+
+  nIdx  := Idx mod 8;
+  OIdx  := IntToStr(nIdx)+'O ';
+  Block := '0101';
+  OrdCnt:= PadLeftStr(IntToStr(TMaster.FOrdCnt),'0',3);    //총 보낼 오더갯수
+  Sample:= 'N';
+  OGBN  := '0';
+  BCD   := PadRightStr(TMaster.FBarCode,' ',13);
+  PosNo:='           ';                             //11byte
+  Comment:= '                                '; //Comment1, Comment2 각 16byte, 환자번호, 이름 넣어도됨(한글 가능) Total:32byte
+  Sex:= 'U';
+  Age:= '   ';
+  sNow:= FormatDateTime('yyyymmdd',now);
+  dilution:= ' 1.0';          //Format: ^1.0 (^0.1 - 99.9). ^: blank space
+  SPC:='1';                   //1:blood serum, 2:urine: When not used, be sure to input “1”.
+  Request:= '1';              //Container classification 1 “1” to “9”: When not used, “1”.
+
+
+  Result:= OIdx+Block+OrdCnt+Sample+OGBN+BCD+       //'1O 0101002N0510076131    '
+           PosNo+Comment+                           //'                                       '
+           Sex+Age+sNow+Dilution+SPC+Request;       //M000YYYYMMDD 1.011';
+
+
+end;
+
+*************************************************
+
+
+
+
+**********인터페이스 오더 전송
+2013-07-04 12:34:16
+HOST->ENQ
+2013-07-04 12:34:16
+BM->ACK
+2013-07-04 12:34:16
+HOST->1O 0101009N0100000029738                                            U   20130704 1.0114  M6  M2  M3  M11 M5  M1  M8  M7  M AC
+
+2013-07-04 12:34:16
+BM->ACK
+2013-07-04 12:34:16
+HOST->2O 0101009N0100000029715                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M A8
+
+2013-07-04 12:34:17
+BM->ACK
+2013-07-04 12:34:17
+HOST->3O 0101009N0100000029761                                            U   20130704 1.0111  M2  M3  M8  M11 M5  M7  M6  M4  M AA
+
+2013-07-04 12:34:17
+BM->ACK
+2013-07-04 12:34:17
+HOST->4O 0101009N0100000029762                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M AC
+
+2013-07-04 12:34:18
+BM->ACK
+2013-07-04 12:34:18
+HOST->5O 0101010N0100000029763                                            U   20130704 1.0114  M7  M6  M2  M3  M10 M11 M5  M1  M8  M 74
+
+2013-07-04 12:34:18
+BM->ACK
+2013-07-04 12:34:18
+HOST->6O 0101010N0100000029767                                            U   20130704 1.0111  M11 M4  M7  M6  M2  M3  M8  M10 M5  M 79
+
+2013-07-04 12:34:18
+BM->ACK
+2013-07-04 12:34:18
+HOST->7O 0101010N0100000029771                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 75
+
+2013-07-04 12:34:19
+BM->ACK
+2013-07-04 12:34:19
+HOST->0O 0101010N0100000029773                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 70
+
+2013-07-04 12:34:19
+BM->ACK
+2013-07-04 12:34:19
+HOST->1O 0101010N0100000029774                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 72
+
+2013-07-04 12:34:20
+BM->ACK
+2013-07-04 12:34:20
+HOST->2O 0101010N0100000029779                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 78
+
+2013-07-04 12:34:20
+BM->ACK
+2013-07-04 12:34:20
+HOST->3O 0101010N0100000029792                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 74
+
+2013-07-04 12:34:20
+BM->ACK
+2013-07-04 12:34:20
+HOST->4O 0101010N0100000029791                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 74
+
+2013-07-04 12:34:21
+BM->ACK
+2013-07-04 12:34:21
+HOST->5O 0101010N0100000029789                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 7C
+
+2013-07-04 12:34:21
+BM->ACK
+2013-07-04 12:34:21
+HOST->6O 0101010N0100000029798                                            U   20130704 1.0115  M4  M7  M6  M1  M2  M3  M8  M10 M11 M 7D
+
+2013-07-04 12:34:22
+BM->ACK
+2013-07-04 12:34:22
+HOST->7O 0101009N0100000029796                                            U   20130704 1.0117  M6  M1  M2  M3  M8  M11 M5  M4  M B6
+
+2013-07-04 12:34:22
+BM->ACK
+2013-07-04 12:34:22
+HOST->0O 0101009N0100000029790                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M A9
+
+2013-07-04 12:34:22
+BM->ACK
+2013-07-04 12:34:22
+HOST->1O 0101010N0100000029784                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M10 M11 M5  M 73
+
+2013-07-04 12:34:23
+BM->ACK
+2013-07-04 12:34:23
+HOST->2O 0101010N0100000029788                                            U   20130704 1.01110 M7  M4  M6  M1  M2  M3  M8  M11 M5  M 78
+
+2013-07-04 12:34:23
+BM->ACK
+2013-07-04 12:34:23
+HOST->3O 0101009N0100000029809                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M AD
+
+2013-07-04 12:34:24
+BM->ACK
+2013-07-04 12:34:24
+HOST->4O 0101009N0100000029813                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M A9
+
+2013-07-04 12:34:24
+BM->ACK
+2013-07-04 12:34:24
+HOST->5O 0101009N0100000029787                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M B4
+
+2013-07-04 12:34:25
+BM->ACK
+2013-07-04 12:34:25
+HOST->6O 0101009N0100000029797                                            U   20130704 1.0112  M4  M7  M6  M1  M3  M8  M11 M5  M B6
+
+2013-07-04 12:34:25
+BM->ACK
+2013-07-04 12:34:25
+HOST->7O 0101009N0100000029768                                            U   20130704 1.0114  M7  M6  M1  M2  M8  M11 M5  M3  M B5
+
+2013-07-04 12:34:25
+BM->ACK
+2013-07-04 12:34:25
+HOST->0O 0101009N0100000029803                                            U   20130704 1.0111  M8  M7  M4  M6  M2  M3  M11 M5  M A4
+
+2013-07-04 12:34:26
+BM->ACK
+2013-07-04 12:34:26
+HOST->1O 0101009N0100000029801                                            U   20130704 1.0114  M7  M6  M1  M2  M3  M8  M11 M5  M A3
+
+
+
+**********장비에서 결과 전송
+1R 010101020130704122319N0100000029745                                                            U  020130704 1.011  1M      33          2M      34          3M     156          4M     150          5M     1.1          6M     7.1          7M     4.6          8M     102         10M     0.9         11M     191        28
+
+**************결과 파싱**********************
+procedure TF_Main.BM601_ResProcess(sData: string);
+var
+  TMaster: TIfMaster;
+  ResStr, sTmp, SInfo, sPos:string;
+  i, GrdIdx, ResCnt:integer;
+  TB, NB:integer;
+begin
+  if sData = '' then exit;
+
+  TMaster:= TIfMaster.Create;
+  try
+      TMaster.FExamDate:= FormatDateTime( 'yyyymmdd', now );
+      TMaster.FExamSeq := DM.GetExamSeq(TMaster.FExamDate);
+      TMaster.FInstTime:= FormatDateTime('yyyymmddhhnnss', now);
+      TMaster.FRcvTime := Str2ViewDTM(TMaster.FInstTime);
+
+      //바코드인경우 랙포지션 나오지 않음.
+      TMaster.FPos:='';
+      TMaster.FRack:= '';
+
+      TMaster.FBarCode:= Trim(Copy(sData,28, 13));
+
+      //QC, Cal 체크
+      if (Length(TMaster.FBarCode) = 5) and ((Copy(TMaster.FBarCode,1,1)='P') or  (Copy(TMaster.FBarCode,1,1)='C') or (Copy(TMaster.FBarCode,1,1)='M')) then begin
+          TMaster.QCYN:='Y';
+      end;
+
+      //오더 가져온다.
+      DM.DownLoadorder_ord(TMaster);
+
+      //결과 마스트 저장
+      DM.SaveMaster(TMaster);
+      
+      //디스플레이
+      F_Main.DispOnePat_Idx(TMaster, GrdIdx);
+
+      //이건 머더라;;
+      TB:= StrToIntDef(Copy(sData,5, 2),0);
+      NB:= StrToIntDef(Copy(sData,7, 2),0);
+
+      if NB = 1 then
+          ResStr:= Copy(sData,118,Length(sData)-118)
+      else
+          ResStr:= Copy(sData,52,Length(sData)-52);
+
+      //결과 갯수
+      ResCnt := StrToIntDef(Copy(sData,9, 3),0);
+      if ResCnt=0 then begin
+          Exit;
+      end;
+
+      for i:= 0 to ResCnt-1 do begin
+          //채널
+          TMaster.FUpCode:= Trim(Copy(ResStr,i*19+1+i,3));
+          
+          //약어
+          TMaster.FAbbr:= TCode.GetAbbr_UpCode(TMaster.FUpCode);
+          
+          //결과
+          TMaster.FResult:= Trim(Copy(ResStr,i*19+5+i,8));
+
+          //임시코드 등록
+          TMaster.FExamCode:= TCode.GetExamCode(TMaster.FUpCode);
+
+          //FLag
+          TMaster.FFlag  := UpperCase(Trim(Copy(ResStr,i*19+13+i,3)));
+
+          if TMaster.FResult = '' then
+              TMaster.FFlag:= 'X';
+
+          //플래그 체크
+          CheckFlag(TMaster);
+
+          //다운받은 오더 체크
+          DM.SetDownCode(TMaster);
+
+          //로컬 저장
+          DM.SaveResult(TMaster);
+          
+          //결과별 디스플레이
+          DispOneResult(TMaster, GrdIdx);
+
+          //오더 있으면 1건씩 결과 전송.. 루프 마지막에 한번에 처리해도 됨.. 여기선 한건씩..
+          if TMaster.IsDownCodeOK = True then
+              UploadProcess_One(TMaster, GrdIdx);
+      end;
+
+      gdIf.Refresh;
+
+  finally
+      TMaster.Free;
+  end;
+end;

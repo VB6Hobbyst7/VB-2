@@ -1,0 +1,9 @@
+Update ResInf    Set ResRltVal = '4.15',
+       ResItfVal = '4.15',
+       ResRepTyp = 'I', 
+       ResStatus = '4' 
+ Where ResOcmNum = '67890'
+   And ResOdrSeq = '987'
+   And ResSeq    = '654'
+   And ResSubSeq = '321'
+   And RESLABCOD = 'C3815A'

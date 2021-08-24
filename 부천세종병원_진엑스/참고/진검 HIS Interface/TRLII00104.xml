@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00104">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetUserNm">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="userid">
+            <column id="userid" desc="사용자ID"   ref="userid"/>
+            <column id="instcd" desc="기관코드"   ref="instcd"/>
+        </table>  
+    </input> 
+     <output path="root" type="xml">
+        <table id="getUsernm" count_ref="usernm">
+            <column id="usernm"   type="string"   desc="사용자명"     ref="usernm.usernm"/>
+         </table>	
+    </output>
+</submit>

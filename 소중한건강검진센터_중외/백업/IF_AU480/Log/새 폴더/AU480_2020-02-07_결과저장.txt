@@ -1,0 +1,1240 @@
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '14:59:31'
+ Where SPECIMENNUM = '2002070039'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070039'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.9)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '14:59:38'
+ Where SPECIMENNUM = '2002070039'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070039'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '14:59:49'
+ Where SPECIMENNUM = '2002070021'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070021'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '14:59:49'
+ Where SPECIMENNUM = '2002070021'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070021'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:00:07'
+ Where SPECIMENNUM = '2002070001'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070001'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.7)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:00:07'
+ Where SPECIMENNUM = '2002070001'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070001'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:00:44'
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '5.64'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:00:44'
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '670.6'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:00:50'
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:00:50'
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070041'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:02'
+ Where SPECIMENNUM = '2002070004'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070004'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.8)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:02'
+ Where SPECIMENNUM = '2002070004'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070004'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:20'
+ Where SPECIMENNUM = '2002070047'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070047'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(1.3)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:20'
+ Where SPECIMENNUM = '2002070047'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070047'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:38'
+ Where SPECIMENNUM = '2002070014'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070014'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:38'
+ Where SPECIMENNUM = '2002070014'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070014'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:56'
+ Where SPECIMENNUM = '2002070027'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070027'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:01:56'
+ Where SPECIMENNUM = '2002070027'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070027'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:02:23'
+ Where SPECIMENNUM = '2002070028'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070028'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(1.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:02:23'
+ Where SPECIMENNUM = '2002070028'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070028'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.3)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:02:41'
+ Where SPECIMENNUM = '2002070005'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070005'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:02:41'
+ Where SPECIMENNUM = '2002070005'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070005'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:02:59'
+ Where SPECIMENNUM = '2002070018'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070018'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:03:00'
+ Where SPECIMENNUM = '2002070018'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070018'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:03:08'
+ Where SPECIMENNUM = '2002070002'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070002'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:03:27'
+ Where SPECIMENNUM = '2002070020'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070020'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.5)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:03:27'
+ Where SPECIMENNUM = '2002070020'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070020'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:03'
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '12.67'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:03'
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = 'Z401'    
+   And LabCode     = 'Z401'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = 'Z401'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '432.8'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:03'
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(5.5)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:03'
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070032'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:21'
+ Where SPECIMENNUM = '2002070019'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070019'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(6.6)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:21'
+ Where SPECIMENNUM = '2002070019'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070019'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:39'
+ Where SPECIMENNUM = '2002070015'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070015'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(5.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:39'
+ Where SPECIMENNUM = '2002070015'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070015'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.2)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:57'
+ Where SPECIMENNUM = '2002070016'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070016'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:04:57'
+ Where SPECIMENNUM = '2002070016'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070016'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:05:15'
+ Where SPECIMENNUM = '2002070026'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070026'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '剧己(63.3)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:05:15'
+ Where SPECIMENNUM = '2002070026'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070026'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:05:33'
+ Where SPECIMENNUM = '2002070033'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070033'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(7.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:05:33'
+ Where SPECIMENNUM = '2002070033'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070033'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:05:51'
+ Where SPECIMENNUM = '2002070022'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070022'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:05:52'
+ Where SPECIMENNUM = '2002070022'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070022'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:06:10'
+ Where SPECIMENNUM = '2002070030'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070030'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.3)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:06:10'
+ Where SPECIMENNUM = '2002070030'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070030'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:06:28'
+ Where SPECIMENNUM = '2002070045'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070045'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(3.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:06:28'
+ Where SPECIMENNUM = '2002070045'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070045'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:06:46'
+ Where SPECIMENNUM = '2002070044'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070044'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(1.0)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:06:46'
+ Where SPECIMENNUM = '2002070044'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070044'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:13'
+ Where SPECIMENNUM = '2002070024'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070024'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '587.0'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:13'
+ Where SPECIMENNUM = '2002070024'  
+   AND OrderCode   = 'PON1'    
+   And LabCode     = 'PON1'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070024'  
+   AND OrderCode   = 'PON1'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(1.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:13'
+ Where SPECIMENNUM = '2002070024'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070024'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.3)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:31'
+ Where SPECIMENNUM = '2002070023'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070023'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '剧己(21.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:31'
+ Where SPECIMENNUM = '2002070023'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070023'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:49'
+ Where SPECIMENNUM = '2002070008'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070008'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(-  0.6)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:07:49'
+ Where SPECIMENNUM = '2002070008'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070008'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:08:07'
+ Where SPECIMENNUM = '2002070034'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070034'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(4.4)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:08:07'
+ Where SPECIMENNUM = '2002070034'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070034'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:08:25'
+ Where SPECIMENNUM = '2002070035'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070035'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.7)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:08:25'
+ Where SPECIMENNUM = '2002070035'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070035'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(0.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:08:43'
+ Where SPECIMENNUM = '2002070025'  
+   AND OrderCode   = '2006'    
+   And LabCode     = '2006'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070025'  
+   AND OrderCode   = '2006'    
+   And JStatus < '3'                       
+
+Update SLA_LabResult                       
+   Set Result      = '澜己(1.1)'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '501'
+      ,ResultDate  = '2020-02-07'
+      ,ResultTime  = '15:08:44'
+ Where SPECIMENNUM = '2002070025'  
+   AND OrderCode   = '2015'    
+   And LabCode     = '2015'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '2002070025'  
+   AND OrderCode   = '2015'    
+   And JStatus < '3'                       
+

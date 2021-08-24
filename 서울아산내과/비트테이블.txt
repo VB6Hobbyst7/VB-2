@@ -1,0 +1,67 @@
+접수 테이블 OcmInf     접수일자:OcmAcpDtm(YYYYMMDDHHNNSS)
+결과 테이블 ResInf      검사결과:ResRltVal
+환자 테이블 LabMst 
+검사코드 테이블 LabMst
+ 
+아래는 날짜, 검사항목으로 오더 가져오는 쿼리입니다.
+ select O.OcmAcpDtm  AS 접수일시  --입원일시                                  
+      , R.ResRsbAcp  AS 접수번호                                              
+      , R.ResOcmNum  AS 내원번호                                              
+      , R.ResSeq     AS 검사일련번호                                          
+      , R.ResOdrSeq  AS 처방일련번호                                          
+      , R.ResSubSeq  AS Set코드일련번호                                       
+      , R.ResLabCod  AS 검사코드                                              
+      , R.ResVolFlg  AS 성별구분   --공통C 남자M 여자F 산모O 신생아N          
+      , R.ResRltVal  AS 검사결과                                              
+      , R.ResRltCmt  AS 결과코멘트                                            
+      , R.ResRepTyp  AS 보고타입   --최종F 중간I                              
+      , R.ResUpdDtm  AS 최종수정일시                                          
+      , R.ResUpdUid  AS 초종수정자                                            
+      , O.OcmChtNum  AS 차트번호                                              
+      , O.OcmPatTyp  AS 환자유형   --0외래 I입원                              
+      , O.OcmComStt  AS 접수상태                                              
+      , O.OcmDepCod  AS 진료과                                                
+      , O.OcmDtrCod  AS 주치의                                                
+      , O.OcmWrdCod  AS 병동코드                                              
+      , O.OcmRomCod  AS 병실코드                                              
+      , O.OcmBedCod  AS 병상코드                                              
+      , O.OcmEmgCod  AS 응급등급  --Y응급환자 N일반환자 B신생아 S기타수입     
+      , P.pbspatnam  As 환자명                                                
+      , P.pbsSextyp  As 성별                                                  
+      , P.pbsbirdte  As 생년월일                                              
+      , E.LabShtNam  AS 검사명                                                
+ From ResInf AS R                                                             
+    , OcmInf AS O                                                             
+    , pbsinf AS P                                                             
+    , LabMst AS E                                                             
+    , OdrInf AS W                                                             
+ where O.OcmAcpDtm Between '+sFrom+'000000' and '+sTo+'235959'                              
+   and O.OcmComStt Not In ('CN', 'CR', 'VC')         
+   and R.ResLabCod in ('+CodeList+')                                          
+   and (R.ResRepTyp  is null or R.ResRepTyp <> 'F')        //'I':중간 'F' 완료
+   and R.ResOcmNum = O.OcmNum                                                 
+   and O.OcmChtNum = P.pbschtNum                                              
+   and R.ResOcmNum = W.OdrOcmNum                                              
+   and R.ResLabCod *= W.OdrCod                                                
+   and W.OdrDelFlg = 'N'                                                    
+   and R.ResLabCod = E.LabCod                                                                         
+ order by R.ResOdrSeq, R.ResSeq, R.ResSubSeq 
+
+
+
+
+
+
+
+
+
+
+-- 결과업데이트
+Update ResInf Set 
+     ResRltVal = '+RES+' 
+   , ResRepTyp = 'F'       
+   , ResUpdDtm ='+FormatDateTime('yyyymmddhhnn', now)+' 
+ Where ResOcmNum = '+Copy(BCD, 1,6)+' 
+   And ResLabCod = '+ECD+'           
+   And (ResRepTyp <> 'F' or ResRepTyp is null)
+ 

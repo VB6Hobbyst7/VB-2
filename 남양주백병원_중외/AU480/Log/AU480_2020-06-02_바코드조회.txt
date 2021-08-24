@@ -1,0 +1,20 @@
+SELECT DISTINCT        a.RECEIPTDATE           AS HOSPDATE 
+     , a.SPECIMENNUM           AS BARCODE  
+     , a.RECEIPTNO             AS CHARTNO  
+     , a.IPDOPD                AS INOUT    
+     , a.PTNO                  AS PID      
+     , a.SNAME                 AS PNAME    
+     , a.AGE                   AS AGE      
+     , a.SEX                   AS SEX      
+     , a.ORDERCODE             AS ORDCODE  
+     , b.LABCODE               AS ITEM     
+   FROM SLA_LabMaster a, SLA_LabResult b   
+ WHERE a.RECEIPTNO     = b.RECEIPTNO       
+   AND a.ORDERCODE     = b.ORDERCODE       
+   and a.RECEIPTDATE   = b.RECEIPTDATE     
+   AND a.SPECIMENNUM   = b.SPECIMENNUM     
+   AND a.SPECIMENNUM   = '01241016035214'
+   AND b.LABCODE IN ('B2570','B2580','B2602','C2200','C2210','C3730','C3750','C3720','C2443','C3780','C3711','B2611','C2420','C2243','C4903','B2710','C2411','88','99')   
+   AND a.JSTATUS < '3'                     
+ ORDER BY b.LABCODE                        
+

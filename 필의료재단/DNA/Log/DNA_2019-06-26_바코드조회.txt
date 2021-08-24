@@ -1,0 +1,23 @@
+SELECT DISTINCT        P.request_date  AS HOSPDATE 
+     , P.exam_no       AS PID      
+     , P.company_code  AS INOUT    
+     , P.chart_no      AS CHARTNO  
+     , p.personal_id               
+     , p.person_name   AS PNAME    
+     , P.worker_code               
+     , P.patient_kind              
+     , P.person_sex    AS SEX      
+     , P.person_age    AS AGE      
+     , R.exam_order                
+     , R.exam_code     AS ITEM     
+     , E.exam_ename                
+     , R.pro_code      AS ORDERCODE            
+  FROM trust P, trures R, examitem E           
+ WHERE P.request_date  = '20190625'  
+   AND P.exam_no       = '3471'    
+   AND R.exam_code     IN ('5379','5380','5381','5382','5383','5391','5385','5384','5386','5387','5388','5389','5390','5393','5394','5392','5395','5396','5397') 
+   AND R.exam_code     <> 'X999'               
+   AND P.request_date  = R.request_date        
+   AND P.exam_no       = R.exam_no             
+   AND R.exam_code     = E.exam_code           
+ ORDER BY P.request_date, P.exam_no            

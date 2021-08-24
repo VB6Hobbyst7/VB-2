@@ -1,0 +1,18 @@
+SELECT R.ORDT          AS HOSPDATE                     
+     , R.SPNO          AS BARCODE                      
+     , R.PAID          AS PID                          
+     , R.NWNO          AS CHARTNO                      
+     , P.PANM          AS PNAME                        
+     , P.SEXS          AS SEX                          
+     , P.AGES          AS AGE                          
+     , COUNT(R.ORCD)   AS CNT                          
+  FROM emr.LRESULT R                                   
+     , emr.APATINF P                                   
+ WHERE R.ORDT BETWEEN '20210716' AND '20210716'
+   AND R.PAID  = P.PAID                                
+   AND R.OKFL  <> 'Y'                                  
+   AND R.ORCD  IN ('C38251','C38252','C38253')                 
+   AND (R.RSFL IS NULL OR R.RSFL = 'N' OR R.RSFL = '') 
+ GROUP BY R.ORDT,R.SPNO,R.PAID,R.NWNO,P.PANM,P.SEXS,P.AGES 
+ ORDER BY R.ORDT, R.PAID, P.PANM                       
+

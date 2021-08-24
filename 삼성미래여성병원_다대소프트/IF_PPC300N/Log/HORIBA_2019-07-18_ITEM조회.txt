@@ -1,0 +1,11 @@
+SELECT DISTINCT        E.검사코드                              AS ITEM     
+  FROM VW_검사접수 M, VW_검사결과 R, VW_검사코드 E         
+ WHERE M.접수일자 = CONVERT(DATE, '20190718')    
+   AND M.접수일자 = R.접수일자                             
+   AND M.접수번호 = R.접수번호                             
+   AND m.접수번호 = '25055'                     
+   AND E.학부코드 = 'C2'                 
+   AND E.검사코드 IN ('B1050','B1040','B1010','B1020','MCV','MCH','MCHC','RDW','B1060','MPV','PCT','PDW','B1091-7','B1091-8','B1091-5','LYM#','MON#','GRA#','5379','1026','1027','1028')                  
+   AND IsNull(R.보고여부, 'N') <> 'Y'                      
+   AND (R.결과값 is null or R.결과값 = '')                 
+

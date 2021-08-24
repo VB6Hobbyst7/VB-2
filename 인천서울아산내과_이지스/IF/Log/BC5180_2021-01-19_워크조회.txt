@@ -1,0 +1,27 @@
+SELECT DISTINCT        SLABWS_DATE             AS HOSPDATE 
+     , CHAM_KEY                AS BARCODE  
+     , CHAM_WHANJA             AS PNAME    
+     , CHAM_JUMIN1             AS JUMIN1   
+     , CHAM_JUMIN2             AS JUMIN2   
+     , SLABW_INOUT             AS INOUT    
+  FROM BRWONMU..WCHAM  A   INNER JOIN OSLABW       B   ON  A.CHAM_KEY       = B.SLABW_CHAM         
+                                                       AND B.SLABW_STATUS   = '1'                  
+                           INNER JOIN OSLABWS      C   ON  B.SLABW_DATE     = C.SLABWS_DATE        
+                                                       AND B.SLABW_DEPT     = C.SLABWS_DEPT        
+                                                       AND B.SLABW_CNT      = C.SLABWS_CNT         
+                                                       AND B.SLABW_SLAB     = C.SLABWS_SLAB        
+                                                       AND C.SLABWS_DATE    >= '20210119'     
+                                                       AND C.SLABWS_DATE    <= '20210119'       
+                           INNER JOIN OSLABS       E   ON  C.SLABWS_SCNT    = E.SLABS_CNT          
+                                                       AND C.SLABWS_SLAB    = E.SLABS_KEY          
+                                                       AND E.SLABS_RCODE    IN ('Hb','HC0028','HC0031','XH002001','XH002002','XH002003','XH002004','XH002005','XH002006','XH002007','XH002008','XH002009','XH002010','XH002011','XH002012','XH002306','XH002307','XH002308','XH002309','XH002310')
+                                                       AND E.SLABS_USE      = 1                    
+                           INNER JOIN Ospecislab   F   ON  B.SLABS_cnt      = F.SPECIS_CNT         
+                                                       AND B.SLABW_DATE     = F.SPECIS_DATE        
+                                                       AND B.SLABW_DEPT     = F.SPECIS_Dept        
+                                                       AND F.SPECIS_DELETED = 0                    
+                           INNER JOIN OSPECIMEN    S   ON  A.CHAM_KEY       = S.SPECI_CHAM         
+                                                       AND F.SPECIS_DATE    = S.SPECI_DATE         
+                                                       AND F.SPECIS_SEQNO   = S.SPECI_SEQNO        
+ ORDER BY SPECI_DATE, SPECI_SEQNO          
+

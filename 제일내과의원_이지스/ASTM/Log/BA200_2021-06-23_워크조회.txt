@@ -1,0 +1,29 @@
+SELECT DISTINCT        a.ACC_YMD       AS HOSPDATE     
+     , a.RECEPT_NO     AS BARCODE      
+     , a.PTNT_NO       AS PID          
+     , c.PTNT_NM       AS PNAME        
+     , c.BIRTH_YMD     AS AGE          
+     , c.SEX           AS SEX          
+     , a.STS_CD        AS STATUS       
+     , COUNT(a.ORD_CD) AS CNT          
+  FROM H3LAB_RESULT a                  
+     , H1OPDIN b                       
+     , HZ_MST_PTNT c                   
+ WHERE a.ACC_YMD Between '20210622'                     AND '20210623' 
+   AND a.ORD_CD IN ('D0113','D1820','D1830','D1840','D1850','D1850-1','D1860','D1860-1','D1870','D1880','D1890','D1890-1','D2263','D2263-1','D2280','D2280-1','D2300','D2310','D2611','D2611-1','D2613','D2613-1','D2614','D2630030','D2800040','D2800050','D3022','D3022-1','D3800020','EGFR','LDL','LEB2611','LEC2430','LEC3794','LEC3795','LYB2570','LYB2580','LYB2602','LYB2710','LYC2200','LYC2210','LYC2411','LYC2420','LYC2430','LYC2443','LYC3711','LYC3720','LYC3721','LYC3730','LYC3780')
+   AND a.STS_CD     = 'A'          
+   AND (a.RESULT_NM = ''     OR a.RESULT_NM IS NULL)        
+   AND a.RECEPT_NO  = b.RECEPT_NO      
+   AND a.PTNT_NO    = c.PTNT_NO        
+ GROUP BY                              
+       a.ACC_YMD                       
+     , a.RECEPT_NO                     
+     , a.PTNT_NO                       
+     , c.PTNT_NM                       
+     , c.BIRTH_YMD                     
+     , c.SEX                           
+     , a.STS_CD                        
+ ORDER BY                              
+       a.ACC_YMD                       
+     , a.PTNT_NO                       
+

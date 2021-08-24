@@ -1,0 +1,66 @@
+bar:M2019-00767,result:Negative
+UU:-,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-
+STI-7 Single infection : N/A
+STI-7 Multi infection : N/A
+IC:+++,order:
+
+bar:M2019-00768,result:Positive
+UU:++,UP:-,MG:+,MH:+++,NG:-,CT:++,TV:-
+STI-7 Single infection : N/A
+STI-7 Multi infection : UU:++,MG:+,MH:+++,CT:++
+IC:++,order:
+
+bar:M2019-00769,result:Positive
+UU:-,UP:-,MG:-,MH:-,NG:-,CT:-,TV:++,UU:-
+STI-7 Single infection : TV:++
+STI-7 Multi infection : N/A
+IC:+++,order:
+
+bar:M2019-00767,result:Negative
+UU:-,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-
+STI-7 Single infection : N/A
+STI-7 Multi infection : N/A
+IC:+++,order:
+
+bar:M2019-00768,result:Positive
+UU:++,UP:-,MG:+,MH:+++,NG:-,CT:++,TV:-
+STI-7 Single infection : N/A
+STI-7 Multi infection : UU:++,MG:+,MH:+++,CT:++
+IC:++,order:
+
+bar:M2019-00769,result:Positive
+UU:-,UP:-,MG:-,MH:-,NG:-,CT:-,TV:++,UU:-
+STI-7 Single infection : TV:++
+STI-7 Multi infection : N/A
+IC:+++,order:
+
+bar:M2019-01062,result:Positive
+UU:++,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-,UU:-
+STI-7 Single infection : UU:++
+STI-7 Multi infection : N/A
+IC:++,order:
+
+UPDATE PATRESULT SET  TESTDATE  = '', SPCPART   = '', RSTDATE   = '', DOCTOR    = 'APD17 - аж ╧л M.D.', RELTEST   = '', PRERESULT = '', HPVMETHOD = '', RMK       = '', TEMP1     = '', EQUIPRESULT = 'Positive', RESULT      = 'Positive
+UU:++,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-,UU:-
+STI-7 Single infection : UU:++
+STI-7 Multi infection : N/A
+IC:++' WHERE SAVESEQ     = 7   AND MID(EXAMDATE,1,8)    = '20190424'    AND EQUIPNO     = 'I01'    AND JUBNO       = 'M2019-01062' 
+
+bar:M2019-01062,result:Positive
+UU:++,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-,UU:-
+STI-7 Single infection : UU:++
+STI-7 Multi infection : N/A
+IC:++,order:
+
+bar:M2019-01062,result:Positive
+UU:++,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-,UU:-
+STI-7 Single infection : UU:++
+STI-7 Multi infection : N/A
+IC:++,order:
+
+bar:M2019-01062,result:Positive
+UU:++,UP:-,MG:-,MH:-,NG:-,CT:-,TV:-
+STI-7 Single infection : UU:++
+STI-7 Multi infection : N/A
+IC:++,order:
+

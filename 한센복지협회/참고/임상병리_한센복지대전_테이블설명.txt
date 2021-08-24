@@ -1,0 +1,91 @@
+[한센복지협회_대전]
+
+######################### 인터페이스 개발회사
+산소프트
+
+
+######################### 디비연결정보
+오라클11 XE
+odbc 시스템DSN:  kti
+아이디:          LAB2ID
+패스워드:        hosp3pwd
+호스트문자열:    kti.world
+
+tnsnames.ora
+
+KTI.WORLD =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.250)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = XE)
+    )
+  )
+
+
+######################### 뷰테이블 (읽기)
+KTI.VIEW_Today2           오늘 외래처방
+KTI.VIEW_Chart2           마감 외래처방
+KTI.VIEW_Ward2            현재 입원처방
+KTI.VIEW_Admission2       퇴원 입원처방
+------------------------- 필드 설명
+Hcode      : 병록번호
+PtName     : 성명
+BirthSex   : 생일-성별(1,3,5,7:남 / 2,4,6,8:여)
+DeptCode   : 과코드
+DeptKname  : 진료과명
+WardNum    : 병동
+Room       : 병실
+DrSign     : 처방의 사인                ================ 수정
+KName      : 처방의명
+Coda       : 구분코드(내부코드)
+Bcode      : 청구코드
+BName      : 청구명칭
+FDate      : 처방일
+FTime      : 처방시간
+
+
+######################### 뷰테이블 (읽기)
+KTI.VIEW_Source	          처방명칭 테이블
+------------------------- 필드 설명
+Class      : 대분류 (S: 급여검사)
+Sclass     : 소분류 (대분류가 G 이면서 소분류가 S,Z 이면 비급여검사)
+Coda       : 구분코드(내부코드)
+Bcode      : 청구코드
+BName      : 청구명칭
+
+
+######################### 임상검사 (읽기)
+KTI.LabStand              기준 테이블 (여러값으로 안나오면 수가코드가 없을 수 있음)
+------------------------- 필드 설명
+Coda       : 처방코드  
+SubCode    : 한 처방코드에 결과가 여러개일 때(A,B,C...)
+SubName    : 서브명칭
+Lvalue     : 하한(남)
+fLvalue    : 하한(여)
+Uvalue     : 하한(남)
+fUvalue    : 하한(여)
+unit       : 단위
+fSFrD      : 적용일
+fSToD      : 해제일
+
+
+######################### 임상검사 (수정)
+KTI.LabResult             검사결과 테이블 (키: Serial, FDate, Hcode, Coda, SubCode )
+------------------------- 필드 설명
+Serial     : 처방일련번호
+FDate      : 검사일자
+Hcode      : 병록번호
+Coda       : 처방코드
+SubCode    : 한 처방코드에 결과가 여러개일 때(LabStand 테이블에 등록한 서브코드 A,B,C...)
+Time2      : 접수일시(YYYYMMDDhhmm)
+Time1      : 입력일시(YYYYMMDDhhmm)
+Time3      : 확인일시(YYYYMMDDhhmm)
+fSeqLab    : 바코드라벨 키
+Result     : 결과값 ★ 여기에 결과값을 수정하면 됩니다 ★
+
+
+######################### 참고사항
+위 필드중 Hcode, Serial 만 숫자필드 나머지는 텍스트필드
+테이블간 조인코드는 Coda

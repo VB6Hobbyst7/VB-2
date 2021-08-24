@@ -1,0 +1,17 @@
+SELECT DISTINCT       R.접수일                as HOSPDATE 
+     , R.처방번호              as BARCODE  
+     , P.등록번호              as PID      
+     , R.접수번호              as CHARTNO  
+     , P.성명                  as PNAME    
+     , P.남녀                  as SEX      
+     , M.외래입원              as INOUT    
+     , COUNT(R.검사코드)       as CNT      
+  FROM DBinfor..내원정보 M, DBinfor..VIEW_환자정보 P, DBsupport..검사결과 R    
+ WHERE M.연번      = R.처방번호                                                
+   AND M.등록번호  = P.등록번호                                                
+   AND R.처방번호  = R.처방번호                                                
+   AND R.접수일 BETWEEN '2019-05-31' and '2019-05-31'                      
+   AND R.검사코드 IN ('D1840','D1880','D1830','D2613','D1870','D1860','D1850','D1890','D3022','D2300','D2280','D1870','D2310','D2611','D2263')                                      
+   AND (R.결과 = '' OR R.결과 IS NULL)                                         
+ GROUP BY R.접수일, R.처방번호, P.등록번호, R.접수번호, P.성명, P.남녀, M.외래입원     
+

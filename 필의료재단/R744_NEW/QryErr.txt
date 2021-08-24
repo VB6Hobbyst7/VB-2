@@ -1,0 +1,4 @@
+Select equipcode, examcode, examname, resprec, seqno 
+  From EQPMASTER 
+ Where equipno = 'R744' 
+ Order by  seqno * 10 

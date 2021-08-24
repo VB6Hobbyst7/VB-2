@@ -1,0 +1,1351 @@
+D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+D3    dce_setenv          | Host Name = <OKSOFT>
+D4    dce_setenv          | Broker host = <emis1.duih.org>
+D5    dce_setenv          | Broker port = <13000>
+D6    dce_setenv          | Server Port = <To be chosen by the operating system>
+D7    dce_setenv          | Wed Jan 17 09:01:52 2018
+D8    dce_setenv          | Finished setting environment =======================
+
+D9    dce_findserver      | current time is <Wed Jan 17 09:02:11 2018>
+E10   dce_seterr          | Wed Jan 17 09:02:11 2018
+E10   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
++++++++++++ Wed Jan 17 09:02:11 2018 ++++++++++++++
++++++++++++ An ERROR has occurred. +++++++++++++++++
++++++++++++ Switching to <DEBUG> debug level. ++++++
++++++++++++ Replay upto last <40> message.   +++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+DCE_RINGSIZE=<40>
+-D1    dce_setenv          | Debug level is <DEBUG:DEBUG>
+-D2    dce_setenv          | version is <OEC ReleaseTag: librpc Entera Packages v3.2 for win32  Win NT    WinSock1.1
+>
+-D3    dce_setenv          | Host Name = <OKSOFT>
+-D9    dce_findserver      | current time is <Wed Jan 17 09:02:11 2018>
+-E10   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
++++++++++++ End of saved messages +++++++++++++++++++++
++++++++++++ Remain in <DEBUG> mode until end of RPC +++
+W11   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W12   dce_connect         | hostname emis1.duih.org is not in hosts file
+E13   dce_seterr          | Wed Jan 17 09:02:11 2018
+E13   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W14   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W15   connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E16   dce_seterr          | Wed Jan 17 09:02:11 2018
+E16   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E17   dce_seterr          | Wed Jan 17 09:02:11 2018
+E17   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W18   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W19   dce_connect         | hostname emis2.duih.org is not in hosts file
+E20   dce_seterr          | Wed Jan 17 09:02:11 2018
+E20   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W21   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W22   connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E23   dce_seterr          | Wed Jan 17 09:02:11 2018
+E23   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W24   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W25   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D26   dce_pop_long        | got <dce_result>=0
+D27   dce_table_destroy   | about to clear <0>
+D28   dce_table_destroy   | current time is <Wed Jan 17 09:02:11 2018>
+D29   dce_findserver      | current time is <Wed Jan 17 09:02:24 2018>
+E30   dce_seterr          | Wed Jan 17 09:02:24 2018
+E30   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W31   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W32   dce_connect         | hostname emis1.duih.org is not in hosts file
+E33   dce_seterr          | Wed Jan 17 09:02:24 2018
+E33   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W34   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W35   connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E36   dce_seterr          | Wed Jan 17 09:02:24 2018
+E36   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E37   dce_seterr          | Wed Jan 17 09:02:24 2018
+E37   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W38   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W39   dce_connect         | hostname emis2.duih.org is not in hosts file
+E40   dce_seterr          | Wed Jan 17 09:02:24 2018
+E40   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W41   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W42   connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E43   dce_seterr          | Wed Jan 17 09:02:24 2018
+E43   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W44   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W45   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D46   dce_pop_long        | got <dce_result>=0
+D47   dce_table_destroy   | about to clear <0>
+D48   dce_table_destroy   | current time is <Wed Jan 17 09:02:24 2018>
+D49   dce_findserver      | current time is <Wed Jan 17 09:03:26 2018>
+E50   dce_seterr          | Wed Jan 17 09:03:26 2018
+E50   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W51   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W52   dce_connect         | hostname emis1.duih.org is not in hosts file
+E53   dce_seterr          | Wed Jan 17 09:03:26 2018
+E53   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W54   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W55   connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E56   dce_seterr          | Wed Jan 17 09:03:26 2018
+E56   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E57   dce_seterr          | Wed Jan 17 09:03:26 2018
+E57   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W58   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W59   dce_connect         | hostname emis2.duih.org is not in hosts file
+E60   dce_seterr          | Wed Jan 17 09:03:26 2018
+E60   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W61   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W62   connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E63   dce_seterr          | Wed Jan 17 09:03:26 2018
+E63   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W64   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W65   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D66   dce_pop_long        | got <dce_result>=0
+D67   dce_table_destroy   | about to clear <0>
+D68   dce_table_destroy   | current time is <Wed Jan 17 09:03:26 2018>
+D69   dce_findserver      | current time is <Wed Jan 17 09:05:02 2018>
+E70   dce_seterr          | Wed Jan 17 09:05:02 2018
+E70   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W71   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W72   dce_connect         | hostname emis1.duih.org is not in hosts file
+E73   dce_seterr          | Wed Jan 17 09:05:02 2018
+E73   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W74   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W75   connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E76   dce_seterr          | Wed Jan 17 09:05:02 2018
+E76   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E77   dce_seterr          | Wed Jan 17 09:05:02 2018
+E77   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W78   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W79   dce_connect         | hostname emis2.duih.org is not in hosts file
+E80   dce_seterr          | Wed Jan 17 09:05:02 2018
+E80   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W81   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W82   connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E83   dce_seterr          | Wed Jan 17 09:05:02 2018
+E83   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W84   dce_findserver      | ERROR: Unable to contact broker to update server cache
+W85   dce_table_find      | No data was returned by this RPC.  There was probably an error
+D86   dce_pop_long        | got <dce_result>=0
+D87   dce_table_destroy   | about to clear <0>
+D88   dce_table_destroy   | current time is <Wed Jan 17 09:05:02 2018>
+D89   dce_findserver      | current time is <Wed Jan 17 09:05:03 2018>
+E90   dce_seterr          | Wed Jan 17 09:05:03 2018
+E90   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W91   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W92   dce_connect         | hostname emis1.duih.org is not in hosts file
+E93   dce_seterr          | Wed Jan 17 09:05:03 2018
+E93   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W94   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W95   connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E96   dce_seterr          | Wed Jan 17 09:05:03 2018
+E96   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E97   dce_seterr          | Wed Jan 17 09:05:03 2018
+E97   dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W98   dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W99   dce_connect         | hostname emis2.duih.org is not in hosts file
+E100  dce_seterr          | Wed Jan 17 09:05:03 2018
+E100  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W101  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W102  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E103  dce_seterr          | Wed Jan 17 09:05:03 2018
+E103  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W104  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W105  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D106  dce_pop_long        | got <dce_result>=0
+D107  dce_table_destroy   | about to clear <0>
+D108  dce_table_destroy   | current time is <Wed Jan 17 09:05:03 2018>
+D109  dce_findserver      | current time is <Wed Jan 17 09:05:03 2018>
+E110  dce_seterr          | Wed Jan 17 09:05:03 2018
+E110  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W111  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W112  dce_connect         | hostname emis1.duih.org is not in hosts file
+E113  dce_seterr          | Wed Jan 17 09:05:03 2018
+E113  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W114  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W115  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E116  dce_seterr          | Wed Jan 17 09:05:03 2018
+E116  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E117  dce_seterr          | Wed Jan 17 09:05:03 2018
+E117  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W118  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W119  dce_connect         | hostname emis2.duih.org is not in hosts file
+E120  dce_seterr          | Wed Jan 17 09:05:03 2018
+E120  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W121  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W122  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E123  dce_seterr          | Wed Jan 17 09:05:03 2018
+E123  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W124  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W125  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D126  dce_pop_long        | got <dce_result>=0
+D127  dce_table_destroy   | about to clear <0>
+D128  dce_table_destroy   | current time is <Wed Jan 17 09:05:03 2018>
+D129  dce_findserver      | current time is <Wed Jan 17 09:05:03 2018>
+E130  dce_seterr          | Wed Jan 17 09:05:03 2018
+E130  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W131  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W132  dce_connect         | hostname emis1.duih.org is not in hosts file
+E133  dce_seterr          | Wed Jan 17 09:05:03 2018
+E133  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W134  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W135  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E136  dce_seterr          | Wed Jan 17 09:05:03 2018
+E136  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E137  dce_seterr          | Wed Jan 17 09:05:03 2018
+E137  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W138  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W139  dce_connect         | hostname emis2.duih.org is not in hosts file
+E140  dce_seterr          | Wed Jan 17 09:05:03 2018
+E140  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W141  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W142  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E143  dce_seterr          | Wed Jan 17 09:05:03 2018
+E143  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W144  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W145  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D146  dce_pop_long        | got <dce_result>=0
+D147  dce_table_destroy   | about to clear <0>
+D148  dce_table_destroy   | current time is <Wed Jan 17 09:05:03 2018>
+D149  dce_findserver      | current time is <Wed Jan 17 09:05:03 2018>
+E150  dce_seterr          | Wed Jan 17 09:05:03 2018
+E150  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W151  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W152  dce_connect         | hostname emis1.duih.org is not in hosts file
+E153  dce_seterr          | Wed Jan 17 09:05:03 2018
+E153  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W154  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W155  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E156  dce_seterr          | Wed Jan 17 09:05:03 2018
+E156  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E157  dce_seterr          | Wed Jan 17 09:05:03 2018
+E157  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W158  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W159  dce_connect         | hostname emis2.duih.org is not in hosts file
+E160  dce_seterr          | Wed Jan 17 09:05:03 2018
+E160  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W161  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W162  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E163  dce_seterr          | Wed Jan 17 09:05:03 2018
+E163  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W164  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W165  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D166  dce_pop_long        | got <dce_result>=0
+D167  dce_table_destroy   | about to clear <0>
+D168  dce_table_destroy   | current time is <Wed Jan 17 09:05:03 2018>
+D169  dce_findserver      | current time is <Wed Jan 17 09:05:03 2018>
+E170  dce_seterr          | Wed Jan 17 09:05:03 2018
+E170  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W171  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W172  dce_connect         | hostname emis1.duih.org is not in hosts file
+E173  dce_seterr          | Wed Jan 17 09:05:03 2018
+E173  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W174  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W175  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E176  dce_seterr          | Wed Jan 17 09:05:03 2018
+E176  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E177  dce_seterr          | Wed Jan 17 09:05:03 2018
+E177  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W178  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W179  dce_connect         | hostname emis2.duih.org is not in hosts file
+E180  dce_seterr          | Wed Jan 17 09:05:03 2018
+E180  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W181  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W182  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E183  dce_seterr          | Wed Jan 17 09:05:03 2018
+E183  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W184  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W185  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D186  dce_pop_long        | got <dce_result>=0
+D187  dce_table_destroy   | about to clear <0>
+D188  dce_table_destroy   | current time is <Wed Jan 17 09:05:03 2018>
+D189  dce_findserver      | current time is <Wed Jan 17 09:05:03 2018>
+E190  dce_seterr          | Wed Jan 17 09:05:03 2018
+E190  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W191  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W192  dce_connect         | hostname emis1.duih.org is not in hosts file
+E193  dce_seterr          | Wed Jan 17 09:05:03 2018
+E193  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W194  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W195  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E196  dce_seterr          | Wed Jan 17 09:05:03 2018
+E196  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E197  dce_seterr          | Wed Jan 17 09:05:03 2018
+E197  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W198  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W199  dce_connect         | hostname emis2.duih.org is not in hosts file
+E200  dce_seterr          | Wed Jan 17 09:05:03 2018
+E200  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W201  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W202  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E203  dce_seterr          | Wed Jan 17 09:05:03 2018
+E203  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W204  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W205  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D206  dce_pop_long        | got <dce_result>=0
+D207  dce_table_destroy   | about to clear <0>
+D208  dce_table_destroy   | current time is <Wed Jan 17 09:05:03 2018>
+D209  dce_findserver      | current time is <Wed Jan 17 09:05:26 2018>
+E210  dce_seterr          | Wed Jan 17 09:05:26 2018
+E210  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W211  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W212  dce_connect         | hostname emis1.duih.org is not in hosts file
+E213  dce_seterr          | Wed Jan 17 09:05:26 2018
+E213  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W214  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W215  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E216  dce_seterr          | Wed Jan 17 09:05:26 2018
+E216  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E217  dce_seterr          | Wed Jan 17 09:05:26 2018
+E217  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W218  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W219  dce_connect         | hostname emis2.duih.org is not in hosts file
+E220  dce_seterr          | Wed Jan 17 09:05:26 2018
+E220  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W221  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W222  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E223  dce_seterr          | Wed Jan 17 09:05:26 2018
+E223  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W224  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W225  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D226  dce_pop_long        | got <dce_result>=0
+D227  dce_table_destroy   | about to clear <0>
+D228  dce_table_destroy   | current time is <Wed Jan 17 09:05:26 2018>
+D229  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E230  dce_seterr          | Wed Jan 17 09:05:30 2018
+E230  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W231  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W232  dce_connect         | hostname emis1.duih.org is not in hosts file
+E233  dce_seterr          | Wed Jan 17 09:05:30 2018
+E233  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W234  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W235  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E236  dce_seterr          | Wed Jan 17 09:05:30 2018
+E236  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E237  dce_seterr          | Wed Jan 17 09:05:30 2018
+E237  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W238  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W239  dce_connect         | hostname emis2.duih.org is not in hosts file
+E240  dce_seterr          | Wed Jan 17 09:05:30 2018
+E240  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W241  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W242  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E243  dce_seterr          | Wed Jan 17 09:05:30 2018
+E243  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W244  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W245  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D246  dce_pop_long        | got <dce_result>=0
+D247  dce_table_destroy   | about to clear <0>
+D248  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D249  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E250  dce_seterr          | Wed Jan 17 09:05:30 2018
+E250  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W251  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W252  dce_connect         | hostname emis1.duih.org is not in hosts file
+E253  dce_seterr          | Wed Jan 17 09:05:30 2018
+E253  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W254  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W255  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E256  dce_seterr          | Wed Jan 17 09:05:30 2018
+E256  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E257  dce_seterr          | Wed Jan 17 09:05:30 2018
+E257  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W258  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W259  dce_connect         | hostname emis2.duih.org is not in hosts file
+E260  dce_seterr          | Wed Jan 17 09:05:30 2018
+E260  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W261  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W262  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E263  dce_seterr          | Wed Jan 17 09:05:30 2018
+E263  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W264  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W265  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D266  dce_pop_long        | got <dce_result>=0
+D267  dce_table_destroy   | about to clear <0>
+D268  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D269  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E270  dce_seterr          | Wed Jan 17 09:05:30 2018
+E270  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W271  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W272  dce_connect         | hostname emis1.duih.org is not in hosts file
+E273  dce_seterr          | Wed Jan 17 09:05:30 2018
+E273  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W274  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W275  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E276  dce_seterr          | Wed Jan 17 09:05:30 2018
+E276  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E277  dce_seterr          | Wed Jan 17 09:05:30 2018
+E277  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W278  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W279  dce_connect         | hostname emis2.duih.org is not in hosts file
+E280  dce_seterr          | Wed Jan 17 09:05:30 2018
+E280  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W281  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W282  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E283  dce_seterr          | Wed Jan 17 09:05:30 2018
+E283  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W284  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W285  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D286  dce_pop_long        | got <dce_result>=0
+D287  dce_table_destroy   | about to clear <0>
+D288  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D289  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E290  dce_seterr          | Wed Jan 17 09:05:30 2018
+E290  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W291  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W292  dce_connect         | hostname emis1.duih.org is not in hosts file
+E293  dce_seterr          | Wed Jan 17 09:05:30 2018
+E293  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W294  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W295  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E296  dce_seterr          | Wed Jan 17 09:05:30 2018
+E296  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E297  dce_seterr          | Wed Jan 17 09:05:30 2018
+E297  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W298  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W299  dce_connect         | hostname emis2.duih.org is not in hosts file
+E300  dce_seterr          | Wed Jan 17 09:05:30 2018
+E300  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W301  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W302  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E303  dce_seterr          | Wed Jan 17 09:05:30 2018
+E303  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W304  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W305  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D306  dce_pop_long        | got <dce_result>=0
+D307  dce_table_destroy   | about to clear <0>
+D308  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D309  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E310  dce_seterr          | Wed Jan 17 09:05:30 2018
+E310  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W311  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W312  dce_connect         | hostname emis1.duih.org is not in hosts file
+E313  dce_seterr          | Wed Jan 17 09:05:30 2018
+E313  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W314  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W315  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E316  dce_seterr          | Wed Jan 17 09:05:30 2018
+E316  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E317  dce_seterr          | Wed Jan 17 09:05:30 2018
+E317  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W318  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W319  dce_connect         | hostname emis2.duih.org is not in hosts file
+E320  dce_seterr          | Wed Jan 17 09:05:30 2018
+E320  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W321  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W322  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E323  dce_seterr          | Wed Jan 17 09:05:30 2018
+E323  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W324  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W325  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D326  dce_pop_long        | got <dce_result>=0
+D327  dce_table_destroy   | about to clear <0>
+D328  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D329  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E330  dce_seterr          | Wed Jan 17 09:05:30 2018
+E330  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W331  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W332  dce_connect         | hostname emis1.duih.org is not in hosts file
+E333  dce_seterr          | Wed Jan 17 09:05:30 2018
+E333  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W334  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W335  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E336  dce_seterr          | Wed Jan 17 09:05:30 2018
+E336  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E337  dce_seterr          | Wed Jan 17 09:05:30 2018
+E337  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W338  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W339  dce_connect         | hostname emis2.duih.org is not in hosts file
+E340  dce_seterr          | Wed Jan 17 09:05:30 2018
+E340  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W341  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W342  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E343  dce_seterr          | Wed Jan 17 09:05:30 2018
+E343  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W344  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W345  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D346  dce_pop_long        | got <dce_result>=0
+D347  dce_table_destroy   | about to clear <0>
+D348  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D349  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E350  dce_seterr          | Wed Jan 17 09:05:30 2018
+E350  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W351  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W352  dce_connect         | hostname emis1.duih.org is not in hosts file
+E353  dce_seterr          | Wed Jan 17 09:05:30 2018
+E353  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W354  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W355  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E356  dce_seterr          | Wed Jan 17 09:05:30 2018
+E356  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E357  dce_seterr          | Wed Jan 17 09:05:30 2018
+E357  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W358  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W359  dce_connect         | hostname emis2.duih.org is not in hosts file
+E360  dce_seterr          | Wed Jan 17 09:05:30 2018
+E360  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W361  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W362  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E363  dce_seterr          | Wed Jan 17 09:05:30 2018
+E363  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W364  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W365  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D366  dce_pop_long        | got <dce_result>=0
+D367  dce_table_destroy   | about to clear <0>
+D368  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D369  dce_findserver      | current time is <Wed Jan 17 09:05:30 2018>
+E370  dce_seterr          | Wed Jan 17 09:05:30 2018
+E370  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W371  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W372  dce_connect         | hostname emis1.duih.org is not in hosts file
+E373  dce_seterr          | Wed Jan 17 09:05:30 2018
+E373  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W374  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W375  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E376  dce_seterr          | Wed Jan 17 09:05:30 2018
+E376  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E377  dce_seterr          | Wed Jan 17 09:05:30 2018
+E377  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W378  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W379  dce_connect         | hostname emis2.duih.org is not in hosts file
+E380  dce_seterr          | Wed Jan 17 09:05:30 2018
+E380  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W381  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W382  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E383  dce_seterr          | Wed Jan 17 09:05:30 2018
+E383  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W384  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W385  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D386  dce_pop_long        | got <dce_result>=0
+D387  dce_table_destroy   | about to clear <0>
+D388  dce_table_destroy   | current time is <Wed Jan 17 09:05:30 2018>
+D389  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E390  dce_seterr          | Wed Jan 17 09:05:31 2018
+E390  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W391  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W392  dce_connect         | hostname emis1.duih.org is not in hosts file
+E393  dce_seterr          | Wed Jan 17 09:05:31 2018
+E393  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W394  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W395  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E396  dce_seterr          | Wed Jan 17 09:05:31 2018
+E396  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E397  dce_seterr          | Wed Jan 17 09:05:31 2018
+E397  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W398  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W399  dce_connect         | hostname emis2.duih.org is not in hosts file
+E400  dce_seterr          | Wed Jan 17 09:05:31 2018
+E400  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W401  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W402  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E403  dce_seterr          | Wed Jan 17 09:05:31 2018
+E403  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W404  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W405  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D406  dce_pop_long        | got <dce_result>=0
+D407  dce_table_destroy   | about to clear <0>
+D408  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D409  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E410  dce_seterr          | Wed Jan 17 09:05:31 2018
+E410  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W411  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W412  dce_connect         | hostname emis1.duih.org is not in hosts file
+E413  dce_seterr          | Wed Jan 17 09:05:31 2018
+E413  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W414  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W415  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E416  dce_seterr          | Wed Jan 17 09:05:31 2018
+E416  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E417  dce_seterr          | Wed Jan 17 09:05:31 2018
+E417  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W418  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W419  dce_connect         | hostname emis2.duih.org is not in hosts file
+E420  dce_seterr          | Wed Jan 17 09:05:31 2018
+E420  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W421  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W422  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E423  dce_seterr          | Wed Jan 17 09:05:31 2018
+E423  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W424  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W425  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D426  dce_pop_long        | got <dce_result>=0
+D427  dce_table_destroy   | about to clear <0>
+D428  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D429  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E430  dce_seterr          | Wed Jan 17 09:05:31 2018
+E430  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W431  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W432  dce_connect         | hostname emis1.duih.org is not in hosts file
+E433  dce_seterr          | Wed Jan 17 09:05:31 2018
+E433  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W434  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W435  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E436  dce_seterr          | Wed Jan 17 09:05:31 2018
+E436  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E437  dce_seterr          | Wed Jan 17 09:05:31 2018
+E437  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W438  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W439  dce_connect         | hostname emis2.duih.org is not in hosts file
+E440  dce_seterr          | Wed Jan 17 09:05:31 2018
+E440  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W441  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W442  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E443  dce_seterr          | Wed Jan 17 09:05:31 2018
+E443  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W444  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W445  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D446  dce_pop_long        | got <dce_result>=0
+D447  dce_table_destroy   | about to clear <0>
+D448  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D449  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E450  dce_seterr          | Wed Jan 17 09:05:31 2018
+E450  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W451  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W452  dce_connect         | hostname emis1.duih.org is not in hosts file
+E453  dce_seterr          | Wed Jan 17 09:05:31 2018
+E453  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W454  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W455  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E456  dce_seterr          | Wed Jan 17 09:05:31 2018
+E456  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E457  dce_seterr          | Wed Jan 17 09:05:31 2018
+E457  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W458  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W459  dce_connect         | hostname emis2.duih.org is not in hosts file
+E460  dce_seterr          | Wed Jan 17 09:05:31 2018
+E460  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W461  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W462  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E463  dce_seterr          | Wed Jan 17 09:05:31 2018
+E463  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W464  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W465  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D466  dce_pop_long        | got <dce_result>=0
+D467  dce_table_destroy   | about to clear <0>
+D468  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D469  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E470  dce_seterr          | Wed Jan 17 09:05:31 2018
+E470  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W471  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W472  dce_connect         | hostname emis1.duih.org is not in hosts file
+E473  dce_seterr          | Wed Jan 17 09:05:31 2018
+E473  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W474  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W475  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E476  dce_seterr          | Wed Jan 17 09:05:31 2018
+E476  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E477  dce_seterr          | Wed Jan 17 09:05:31 2018
+E477  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W478  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W479  dce_connect         | hostname emis2.duih.org is not in hosts file
+E480  dce_seterr          | Wed Jan 17 09:05:31 2018
+E480  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W481  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W482  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E483  dce_seterr          | Wed Jan 17 09:05:31 2018
+E483  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W484  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W485  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D486  dce_pop_long        | got <dce_result>=0
+D487  dce_table_destroy   | about to clear <0>
+D488  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D489  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E490  dce_seterr          | Wed Jan 17 09:05:31 2018
+E490  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W491  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W492  dce_connect         | hostname emis1.duih.org is not in hosts file
+E493  dce_seterr          | Wed Jan 17 09:05:31 2018
+E493  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W494  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W495  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E496  dce_seterr          | Wed Jan 17 09:05:31 2018
+E496  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E497  dce_seterr          | Wed Jan 17 09:05:31 2018
+E497  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W498  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W499  dce_connect         | hostname emis2.duih.org is not in hosts file
+E500  dce_seterr          | Wed Jan 17 09:05:31 2018
+E500  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W501  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W502  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E503  dce_seterr          | Wed Jan 17 09:05:31 2018
+E503  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W504  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W505  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D506  dce_pop_long        | got <dce_result>=0
+D507  dce_table_destroy   | about to clear <0>
+D508  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D509  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E510  dce_seterr          | Wed Jan 17 09:05:31 2018
+E510  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W511  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W512  dce_connect         | hostname emis1.duih.org is not in hosts file
+E513  dce_seterr          | Wed Jan 17 09:05:31 2018
+E513  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W514  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W515  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E516  dce_seterr          | Wed Jan 17 09:05:31 2018
+E516  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E517  dce_seterr          | Wed Jan 17 09:05:31 2018
+E517  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W518  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W519  dce_connect         | hostname emis2.duih.org is not in hosts file
+E520  dce_seterr          | Wed Jan 17 09:05:31 2018
+E520  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W521  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W522  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E523  dce_seterr          | Wed Jan 17 09:05:31 2018
+E523  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W524  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W525  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D526  dce_pop_long        | got <dce_result>=0
+D527  dce_table_destroy   | about to clear <0>
+D528  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D529  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E530  dce_seterr          | Wed Jan 17 09:05:31 2018
+E530  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W531  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W532  dce_connect         | hostname emis1.duih.org is not in hosts file
+E533  dce_seterr          | Wed Jan 17 09:05:31 2018
+E533  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W534  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W535  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E536  dce_seterr          | Wed Jan 17 09:05:31 2018
+E536  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E537  dce_seterr          | Wed Jan 17 09:05:31 2018
+E537  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W538  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W539  dce_connect         | hostname emis2.duih.org is not in hosts file
+E540  dce_seterr          | Wed Jan 17 09:05:31 2018
+E540  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W541  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W542  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E543  dce_seterr          | Wed Jan 17 09:05:31 2018
+E543  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W544  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W545  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D546  dce_pop_long        | got <dce_result>=0
+D547  dce_table_destroy   | about to clear <0>
+D548  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D549  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E550  dce_seterr          | Wed Jan 17 09:05:31 2018
+E550  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W551  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W552  dce_connect         | hostname emis1.duih.org is not in hosts file
+E553  dce_seterr          | Wed Jan 17 09:05:31 2018
+E553  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W554  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W555  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E556  dce_seterr          | Wed Jan 17 09:05:31 2018
+E556  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E557  dce_seterr          | Wed Jan 17 09:05:31 2018
+E557  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W558  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W559  dce_connect         | hostname emis2.duih.org is not in hosts file
+E560  dce_seterr          | Wed Jan 17 09:05:31 2018
+E560  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W561  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W562  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E563  dce_seterr          | Wed Jan 17 09:05:31 2018
+E563  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W564  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W565  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D566  dce_pop_long        | got <dce_result>=0
+D567  dce_table_destroy   | about to clear <0>
+D568  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D569  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E570  dce_seterr          | Wed Jan 17 09:05:31 2018
+E570  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W571  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W572  dce_connect         | hostname emis1.duih.org is not in hosts file
+E573  dce_seterr          | Wed Jan 17 09:05:31 2018
+E573  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W574  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W575  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E576  dce_seterr          | Wed Jan 17 09:05:31 2018
+E576  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E577  dce_seterr          | Wed Jan 17 09:05:31 2018
+E577  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W578  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W579  dce_connect         | hostname emis2.duih.org is not in hosts file
+E580  dce_seterr          | Wed Jan 17 09:05:31 2018
+E580  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W581  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W582  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E583  dce_seterr          | Wed Jan 17 09:05:31 2018
+E583  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W584  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W585  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D586  dce_pop_long        | got <dce_result>=0
+D587  dce_table_destroy   | about to clear <0>
+D588  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D589  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E590  dce_seterr          | Wed Jan 17 09:05:31 2018
+E590  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W591  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W592  dce_connect         | hostname emis1.duih.org is not in hosts file
+E593  dce_seterr          | Wed Jan 17 09:05:31 2018
+E593  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W594  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W595  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E596  dce_seterr          | Wed Jan 17 09:05:31 2018
+E596  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E597  dce_seterr          | Wed Jan 17 09:05:31 2018
+E597  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W598  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W599  dce_connect         | hostname emis2.duih.org is not in hosts file
+E600  dce_seterr          | Wed Jan 17 09:05:31 2018
+E600  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W601  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W602  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E603  dce_seterr          | Wed Jan 17 09:05:31 2018
+E603  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W604  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W605  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D606  dce_pop_long        | got <dce_result>=0
+D607  dce_table_destroy   | about to clear <0>
+D608  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D609  dce_findserver      | current time is <Wed Jan 17 09:05:31 2018>
+E610  dce_seterr          | Wed Jan 17 09:05:31 2018
+E610  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W611  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W612  dce_connect         | hostname emis1.duih.org is not in hosts file
+E613  dce_seterr          | Wed Jan 17 09:05:31 2018
+E613  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W614  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W615  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E616  dce_seterr          | Wed Jan 17 09:05:31 2018
+E616  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E617  dce_seterr          | Wed Jan 17 09:05:31 2018
+E617  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W618  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W619  dce_connect         | hostname emis2.duih.org is not in hosts file
+E620  dce_seterr          | Wed Jan 17 09:05:31 2018
+E620  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W621  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W622  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E623  dce_seterr          | Wed Jan 17 09:05:31 2018
+E623  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W624  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W625  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D626  dce_pop_long        | got <dce_result>=0
+D627  dce_table_destroy   | about to clear <0>
+D628  dce_table_destroy   | current time is <Wed Jan 17 09:05:31 2018>
+D629  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E630  dce_seterr          | Wed Jan 17 09:05:32 2018
+E630  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W631  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W632  dce_connect         | hostname emis1.duih.org is not in hosts file
+E633  dce_seterr          | Wed Jan 17 09:05:32 2018
+E633  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W634  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W635  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E636  dce_seterr          | Wed Jan 17 09:05:32 2018
+E636  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E637  dce_seterr          | Wed Jan 17 09:05:32 2018
+E637  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W638  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W639  dce_connect         | hostname emis2.duih.org is not in hosts file
+E640  dce_seterr          | Wed Jan 17 09:05:32 2018
+E640  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W641  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W642  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E643  dce_seterr          | Wed Jan 17 09:05:32 2018
+E643  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W644  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W645  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D646  dce_pop_long        | got <dce_result>=0
+D647  dce_table_destroy   | about to clear <0>
+D648  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D649  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E650  dce_seterr          | Wed Jan 17 09:05:32 2018
+E650  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W651  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W652  dce_connect         | hostname emis1.duih.org is not in hosts file
+E653  dce_seterr          | Wed Jan 17 09:05:32 2018
+E653  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W654  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W655  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E656  dce_seterr          | Wed Jan 17 09:05:32 2018
+E656  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E657  dce_seterr          | Wed Jan 17 09:05:32 2018
+E657  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W658  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W659  dce_connect         | hostname emis2.duih.org is not in hosts file
+E660  dce_seterr          | Wed Jan 17 09:05:32 2018
+E660  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W661  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W662  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E663  dce_seterr          | Wed Jan 17 09:05:32 2018
+E663  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W664  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W665  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D666  dce_pop_long        | got <dce_result>=0
+D667  dce_table_destroy   | about to clear <0>
+D668  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D669  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E670  dce_seterr          | Wed Jan 17 09:05:32 2018
+E670  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W671  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W672  dce_connect         | hostname emis1.duih.org is not in hosts file
+E673  dce_seterr          | Wed Jan 17 09:05:32 2018
+E673  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W674  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W675  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E676  dce_seterr          | Wed Jan 17 09:05:32 2018
+E676  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E677  dce_seterr          | Wed Jan 17 09:05:32 2018
+E677  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W678  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W679  dce_connect         | hostname emis2.duih.org is not in hosts file
+E680  dce_seterr          | Wed Jan 17 09:05:32 2018
+E680  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W681  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W682  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E683  dce_seterr          | Wed Jan 17 09:05:32 2018
+E683  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W684  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W685  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D686  dce_pop_long        | got <dce_result>=0
+D687  dce_table_destroy   | about to clear <0>
+D688  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D689  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E690  dce_seterr          | Wed Jan 17 09:05:32 2018
+E690  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W691  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W692  dce_connect         | hostname emis1.duih.org is not in hosts file
+E693  dce_seterr          | Wed Jan 17 09:05:32 2018
+E693  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W694  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W695  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E696  dce_seterr          | Wed Jan 17 09:05:32 2018
+E696  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E697  dce_seterr          | Wed Jan 17 09:05:32 2018
+E697  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W698  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W699  dce_connect         | hostname emis2.duih.org is not in hosts file
+E700  dce_seterr          | Wed Jan 17 09:05:32 2018
+E700  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W701  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W702  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E703  dce_seterr          | Wed Jan 17 09:05:32 2018
+E703  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W704  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W705  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D706  dce_pop_long        | got <dce_result>=0
+D707  dce_table_destroy   | about to clear <0>
+D708  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D709  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E710  dce_seterr          | Wed Jan 17 09:05:32 2018
+E710  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W711  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W712  dce_connect         | hostname emis1.duih.org is not in hosts file
+E713  dce_seterr          | Wed Jan 17 09:05:32 2018
+E713  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W714  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W715  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E716  dce_seterr          | Wed Jan 17 09:05:32 2018
+E716  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E717  dce_seterr          | Wed Jan 17 09:05:32 2018
+E717  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W718  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W719  dce_connect         | hostname emis2.duih.org is not in hosts file
+E720  dce_seterr          | Wed Jan 17 09:05:32 2018
+E720  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W721  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W722  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E723  dce_seterr          | Wed Jan 17 09:05:32 2018
+E723  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W724  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W725  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D726  dce_pop_long        | got <dce_result>=0
+D727  dce_table_destroy   | about to clear <0>
+D728  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D729  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E730  dce_seterr          | Wed Jan 17 09:05:32 2018
+E730  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W731  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W732  dce_connect         | hostname emis1.duih.org is not in hosts file
+E733  dce_seterr          | Wed Jan 17 09:05:32 2018
+E733  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W734  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W735  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E736  dce_seterr          | Wed Jan 17 09:05:32 2018
+E736  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E737  dce_seterr          | Wed Jan 17 09:05:32 2018
+E737  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W738  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W739  dce_connect         | hostname emis2.duih.org is not in hosts file
+E740  dce_seterr          | Wed Jan 17 09:05:32 2018
+E740  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W741  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W742  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E743  dce_seterr          | Wed Jan 17 09:05:32 2018
+E743  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W744  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W745  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D746  dce_pop_long        | got <dce_result>=0
+D747  dce_table_destroy   | about to clear <0>
+D748  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D749  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E750  dce_seterr          | Wed Jan 17 09:05:32 2018
+E750  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W751  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W752  dce_connect         | hostname emis1.duih.org is not in hosts file
+E753  dce_seterr          | Wed Jan 17 09:05:32 2018
+E753  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W754  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W755  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E756  dce_seterr          | Wed Jan 17 09:05:32 2018
+E756  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E757  dce_seterr          | Wed Jan 17 09:05:32 2018
+E757  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W758  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W759  dce_connect         | hostname emis2.duih.org is not in hosts file
+E760  dce_seterr          | Wed Jan 17 09:05:32 2018
+E760  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W761  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W762  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E763  dce_seterr          | Wed Jan 17 09:05:32 2018
+E763  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W764  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W765  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D766  dce_pop_long        | got <dce_result>=0
+D767  dce_table_destroy   | about to clear <0>
+D768  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D769  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E770  dce_seterr          | Wed Jan 17 09:05:32 2018
+E770  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W771  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W772  dce_connect         | hostname emis1.duih.org is not in hosts file
+E773  dce_seterr          | Wed Jan 17 09:05:32 2018
+E773  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W774  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W775  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E776  dce_seterr          | Wed Jan 17 09:05:32 2018
+E776  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E777  dce_seterr          | Wed Jan 17 09:05:32 2018
+E777  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W778  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W779  dce_connect         | hostname emis2.duih.org is not in hosts file
+E780  dce_seterr          | Wed Jan 17 09:05:32 2018
+E780  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W781  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W782  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E783  dce_seterr          | Wed Jan 17 09:05:32 2018
+E783  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W784  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W785  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D786  dce_pop_long        | got <dce_result>=0
+D787  dce_table_destroy   | about to clear <0>
+D788  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D789  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E790  dce_seterr          | Wed Jan 17 09:05:32 2018
+E790  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W791  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W792  dce_connect         | hostname emis1.duih.org is not in hosts file
+E793  dce_seterr          | Wed Jan 17 09:05:32 2018
+E793  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W794  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W795  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E796  dce_seterr          | Wed Jan 17 09:05:32 2018
+E796  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E797  dce_seterr          | Wed Jan 17 09:05:32 2018
+E797  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W798  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W799  dce_connect         | hostname emis2.duih.org is not in hosts file
+E800  dce_seterr          | Wed Jan 17 09:05:32 2018
+E800  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W801  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W802  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E803  dce_seterr          | Wed Jan 17 09:05:32 2018
+E803  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W804  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W805  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D806  dce_pop_long        | got <dce_result>=0
+D807  dce_table_destroy   | about to clear <0>
+D808  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D809  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E810  dce_seterr          | Wed Jan 17 09:05:32 2018
+E810  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W811  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W812  dce_connect         | hostname emis1.duih.org is not in hosts file
+E813  dce_seterr          | Wed Jan 17 09:05:32 2018
+E813  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W814  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W815  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E816  dce_seterr          | Wed Jan 17 09:05:32 2018
+E816  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E817  dce_seterr          | Wed Jan 17 09:05:32 2018
+E817  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W818  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W819  dce_connect         | hostname emis2.duih.org is not in hosts file
+E820  dce_seterr          | Wed Jan 17 09:05:32 2018
+E820  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W821  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W822  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E823  dce_seterr          | Wed Jan 17 09:05:32 2018
+E823  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W824  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W825  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D826  dce_pop_long        | got <dce_result>=0
+D827  dce_table_destroy   | about to clear <0>
+D828  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D829  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E830  dce_seterr          | Wed Jan 17 09:05:32 2018
+E830  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W831  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W832  dce_connect         | hostname emis1.duih.org is not in hosts file
+E833  dce_seterr          | Wed Jan 17 09:05:32 2018
+E833  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W834  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W835  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E836  dce_seterr          | Wed Jan 17 09:05:32 2018
+E836  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E837  dce_seterr          | Wed Jan 17 09:05:32 2018
+E837  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W838  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W839  dce_connect         | hostname emis2.duih.org is not in hosts file
+E840  dce_seterr          | Wed Jan 17 09:05:32 2018
+E840  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W841  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W842  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E843  dce_seterr          | Wed Jan 17 09:05:32 2018
+E843  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W844  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W845  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D846  dce_pop_long        | got <dce_result>=0
+D847  dce_table_destroy   | about to clear <0>
+D848  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D849  dce_findserver      | current time is <Wed Jan 17 09:05:32 2018>
+E850  dce_seterr          | Wed Jan 17 09:05:32 2018
+E850  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W851  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W852  dce_connect         | hostname emis1.duih.org is not in hosts file
+E853  dce_seterr          | Wed Jan 17 09:05:32 2018
+E853  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W854  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W855  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E856  dce_seterr          | Wed Jan 17 09:05:32 2018
+E856  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E857  dce_seterr          | Wed Jan 17 09:05:32 2018
+E857  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W858  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W859  dce_connect         | hostname emis2.duih.org is not in hosts file
+E860  dce_seterr          | Wed Jan 17 09:05:32 2018
+E860  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W861  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W862  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E863  dce_seterr          | Wed Jan 17 09:05:32 2018
+E863  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W864  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W865  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D866  dce_pop_long        | got <dce_result>=0
+D867  dce_table_destroy   | about to clear <0>
+D868  dce_table_destroy   | current time is <Wed Jan 17 09:05:32 2018>
+D869  dce_findserver      | current time is <Wed Jan 17 09:05:33 2018>
+E870  dce_seterr          | Wed Jan 17 09:05:33 2018
+E870  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W871  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W872  dce_connect         | hostname emis1.duih.org is not in hosts file
+E873  dce_seterr          | Wed Jan 17 09:05:33 2018
+E873  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W874  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W875  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E876  dce_seterr          | Wed Jan 17 09:05:33 2018
+E876  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E877  dce_seterr          | Wed Jan 17 09:05:33 2018
+E877  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W878  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W879  dce_connect         | hostname emis2.duih.org is not in hosts file
+E880  dce_seterr          | Wed Jan 17 09:05:33 2018
+E880  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W881  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W882  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E883  dce_seterr          | Wed Jan 17 09:05:33 2018
+E883  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W884  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W885  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D886  dce_pop_long        | got <dce_result>=0
+D887  dce_table_destroy   | about to clear <0>
+D888  dce_table_destroy   | current time is <Wed Jan 17 09:05:33 2018>
+D889  dce_findserver      | current time is <Wed Jan 17 09:05:33 2018>
+E890  dce_seterr          | Wed Jan 17 09:05:33 2018
+E890  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W891  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W892  dce_connect         | hostname emis1.duih.org is not in hosts file
+E893  dce_seterr          | Wed Jan 17 09:05:33 2018
+E893  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W894  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W895  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E896  dce_seterr          | Wed Jan 17 09:05:33 2018
+E896  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E897  dce_seterr          | Wed Jan 17 09:05:33 2018
+E897  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W898  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W899  dce_connect         | hostname emis2.duih.org is not in hosts file
+E900  dce_seterr          | Wed Jan 17 09:05:33 2018
+E900  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W901  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W902  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E903  dce_seterr          | Wed Jan 17 09:05:33 2018
+E903  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W904  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W905  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D906  dce_pop_long        | got <dce_result>=0
+D907  dce_table_destroy   | about to clear <0>
+D908  dce_table_destroy   | current time is <Wed Jan 17 09:05:33 2018>
+D909  dce_findserver      | current time is <Wed Jan 17 09:05:33 2018>
+E910  dce_seterr          | Wed Jan 17 09:05:33 2018
+E910  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W911  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W912  dce_connect         | hostname emis1.duih.org is not in hosts file
+E913  dce_seterr          | Wed Jan 17 09:05:33 2018
+E913  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W914  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W915  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E916  dce_seterr          | Wed Jan 17 09:05:33 2018
+E916  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E917  dce_seterr          | Wed Jan 17 09:05:33 2018
+E917  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W918  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W919  dce_connect         | hostname emis2.duih.org is not in hosts file
+E920  dce_seterr          | Wed Jan 17 09:05:33 2018
+E920  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W921  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W922  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E923  dce_seterr          | Wed Jan 17 09:05:33 2018
+E923  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W924  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W925  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D926  dce_pop_long        | got <dce_result>=0
+D927  dce_table_destroy   | about to clear <0>
+D928  dce_table_destroy   | current time is <Wed Jan 17 09:05:33 2018>
+D929  dce_findserver      | current time is <Wed Jan 17 09:05:33 2018>
+E930  dce_seterr          | Wed Jan 17 09:05:33 2018
+E930  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W931  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W932  dce_connect         | hostname emis1.duih.org is not in hosts file
+E933  dce_seterr          | Wed Jan 17 09:05:33 2018
+E933  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W934  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W935  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E936  dce_seterr          | Wed Jan 17 09:05:33 2018
+E936  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E937  dce_seterr          | Wed Jan 17 09:05:33 2018
+E937  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W938  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W939  dce_connect         | hostname emis2.duih.org is not in hosts file
+E940  dce_seterr          | Wed Jan 17 09:05:33 2018
+E940  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W941  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W942  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E943  dce_seterr          | Wed Jan 17 09:05:33 2018
+E943  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W944  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W945  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D946  dce_pop_long        | got <dce_result>=0
+D947  dce_table_destroy   | about to clear <0>
+D948  dce_table_destroy   | current time is <Wed Jan 17 09:05:33 2018>
+D949  dce_findserver      | current time is <Wed Jan 17 09:05:33 2018>
+E950  dce_seterr          | Wed Jan 17 09:05:33 2018
+E950  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W951  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W952  dce_connect         | hostname emis1.duih.org is not in hosts file
+E953  dce_seterr          | Wed Jan 17 09:05:33 2018
+E953  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W954  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W955  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E956  dce_seterr          | Wed Jan 17 09:05:33 2018
+E956  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E957  dce_seterr          | Wed Jan 17 09:05:33 2018
+E957  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W958  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W959  dce_connect         | hostname emis2.duih.org is not in hosts file
+E960  dce_seterr          | Wed Jan 17 09:05:33 2018
+E960  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W961  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W962  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E963  dce_seterr          | Wed Jan 17 09:05:33 2018
+E963  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W964  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W965  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D966  dce_pop_long        | got <dce_result>=0
+D967  dce_table_destroy   | about to clear <0>
+D968  dce_table_destroy   | current time is <Wed Jan 17 09:05:33 2018>
+D969  dce_findserver      | current time is <Wed Jan 17 09:05:33 2018>
+E970  dce_seterr          | Wed Jan 17 09:05:33 2018
+E970  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W971  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W972  dce_connect         | hostname emis1.duih.org is not in hosts file
+E973  dce_seterr          | Wed Jan 17 09:05:33 2018
+E973  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W974  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W975  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E976  dce_seterr          | Wed Jan 17 09:05:33 2018
+E976  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E977  dce_seterr          | Wed Jan 17 09:05:33 2018
+E977  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W978  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W979  dce_connect         | hostname emis2.duih.org is not in hosts file
+E980  dce_seterr          | Wed Jan 17 09:05:33 2018
+E980  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W981  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W982  connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E983  dce_seterr          | Wed Jan 17 09:05:33 2018
+E983  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W984  dce_findserver      | ERROR: Unable to contact broker to update server cache
+W985  dce_table_find      | No data was returned by this RPC.  There was probably an error
+D986  dce_pop_long        | got <dce_result>=0
+D987  dce_table_destroy   | about to clear <0>
+D988  dce_table_destroy   | current time is <Wed Jan 17 09:05:33 2018>
+D989  dce_findserver      | current time is <Wed Jan 17 09:06:39 2018>
+E990  dce_seterr          | Wed Jan 17 09:06:39 2018
+E990  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W991  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W992  dce_connect         | hostname emis1.duih.org is not in hosts file
+E993  dce_seterr          | Wed Jan 17 09:06:39 2018
+E993  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W994  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W995  connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E996  dce_seterr          | Wed Jan 17 09:06:39 2018
+E996  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E997  dce_seterr          | Wed Jan 17 09:06:39 2018
+E997  dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W998  dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W999  dce_connect         | hostname emis2.duih.org is not in hosts file
+E1000 dce_seterr          | Wed Jan 17 09:06:39 2018
+E1000 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W1001 dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W1002 connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E1003 dce_seterr          | Wed Jan 17 09:06:39 2018
+E1003 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W1004 dce_findserver      | ERROR: Unable to contact broker to update server cache
+W1005 dce_table_find      | No data was returned by this RPC.  There was probably an error
+D1006 dce_pop_long        | got <dce_result>=0
+D1007 dce_table_destroy   | about to clear <0>
+D1008 dce_table_destroy   | current time is <Wed Jan 17 09:06:39 2018>
+D1009 dce_findserver      | current time is <Wed Jan 17 09:08:25 2018>
+E1010 dce_seterr          | Wed Jan 17 09:08:25 2018
+E1010 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W1011 dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W1012 dce_connect         | hostname emis1.duih.org is not in hosts file
+E1013 dce_seterr          | Wed Jan 17 09:08:25 2018
+E1013 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W1014 dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W1015 connect_broker_insta| Broker at <emis1.duih.org:13000> could not be reached
+E1016 dce_seterr          | Wed Jan 17 09:08:25 2018
+E1016 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+E1017 dce_seterr          | Wed Jan 17 09:08:25 2018
+E1017 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <get_hostaddress>
+W1018 dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W1019 dce_connect         | hostname emis2.duih.org is not in hosts file
+E1020 dce_seterr          | Wed Jan 17 09:08:25 2018
+E1020 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <6> Hostname not found in hosts file> from <dce_connect>
+W1021 dce_set_exit        | setting DCE_SHOULDEXIT flag to TRUE. Server will exit.
+W1022 connect_broker_insta| Broker at <emis2.duih.org:13000> could not be reached
+E1023 dce_seterr          | Wed Jan 17 09:08:25 2018
+E1023 dce_seterr          | setting DCE_ERRNUM to <ODE ERROR: <4> Could not connect to broker> from <connect_broker_instance>
+W1024 dce_findserver      | ERROR: Unable to contact broker to update server cache
+W1025 dce_table_find      | No data was returned by this RPC.  There was probably an error
+D1026 dce_pop_long        | got <dce_result>=0
+D1027 dce_table_destroy   | about to clear <0>
+D1028 dce_table_destroy   | current time is <Wed Jan 17 09:08:25 2018>
+D1029 dce_release         | Releasing <0> pointers

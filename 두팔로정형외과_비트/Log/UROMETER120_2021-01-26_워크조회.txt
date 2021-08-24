@@ -1,0 +1,29 @@
+SELECT DISTINCT        a.ACC_YMD       AS HOSPDATE     
+     , a.RECEPT_NO     AS BARCODE      
+     , a.PTNT_NO       AS PID          
+     , c.PTNT_NM       AS PNAME        
+     , c.BIRTH_YMD     AS AGE          
+     , c.SEX           AS SEX          
+     , a.STS_CD        AS STATUS       
+     , COUNT(a.ORD_CD) AS CNT          
+  FROM H3LAB_RESULT a                  
+     , H1OPDIN b                       
+     , HZ_MST_PTNT c                   
+ WHERE a.ACC_YMD Between '20210126'                     AND '20210126' 
+   AND a.ORD_CD IN ('ANC','BIL','BLD','GLU','KET','LEU','NIT','pH','PRO','S.G','URO')
+   AND a.STS_CD     = 'A'          
+   AND (a.RESULT_NM = ''     OR a.RESULT_NM IS NULL)        
+   AND a.RECEPT_NO  = b.RECEPT_NO      
+   AND a.PTNT_NO    = c.PTNT_NO        
+ GROUP BY                              
+       a.ACC_YMD                       
+     , a.RECEPT_NO                     
+     , a.PTNT_NO                       
+     , c.PTNT_NM                       
+     , c.BIRTH_YMD                     
+     , c.SEX                           
+     , c.STS_CD                        
+ ORDER BY                              
+       a.ACC_YMD                       
+     , a.PTNT_NO                       
+

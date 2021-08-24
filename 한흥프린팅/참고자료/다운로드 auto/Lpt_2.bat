@@ -1,0 +1,1 @@
+COPY Uhangul.zse LPT1

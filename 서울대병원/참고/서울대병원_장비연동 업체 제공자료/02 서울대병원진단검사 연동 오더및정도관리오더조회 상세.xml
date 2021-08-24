@@ -1,0 +1,36 @@
+1. 오더목록 조회    (샘플 : 개발서버 - 검체번호 18102900004)
+  queryid="PKG_LAB.INTERFACE_S29"
+  
+  파라미터는 "03 서울대병원진단검사 연동 오더조회.xml" 파일 참조
+  첫번째 파라미터 IN_SPC_NO (검체코드)
+  두번째 파라미터 IN_STAT   (상태값)
+    상택밧은 (1 : 접수, 2 : 입력, 3 : 최종보고) 3개 값중 하나이거나 머지 가능 ( 머지할 때 예:   "1,2") 중간에 콤마 붙이고 공백없어야 함
+
+    검체번호에 해당하는 오더 목록 output
+    PT_NO       : 환자번호
+    PATNAME     : 환자명
+    TST_CD      : 검사코드
+    AN          : 접수번호
+    DAY_YN      : 당일여부
+    ORD_SITE    : 오더발행처
+    TST_DTE     : 접수일시
+    TST_STAT    : 검사상태 (1 : 접수, 2 : 입력, 3 : 최종보고)
+    BIRTHDAY    : 생일
+    SEX         : 성별
+    RCNT_RSLT   : 이전결과
+
+2. 정도관리 목록조회
+
+    파라미터는 "03 서울대병원진단검사 연동 오더조회.xml" 파일 참조
+    
+    첫번째 파라미터 IN_SPC_NO     (검체코드)
+    두번째 파라미터 IN_EQUIP_CD   (장비코드)
+    세번째 파라미터 IN_TST_CD     (검사코드)
+
+    정도관리 오더목록 output
+    BRCD_SPCM_NO    : 검체번호
+    LOT_NO          : 로트번호
+    EXM_CD          : 검사코드
+    ACPT_DTE        : 일자
+    WRK_UNT         : 단위 (NULL)
+    TST_RSLT        : 결과 (NULL)

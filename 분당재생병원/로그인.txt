@@ -1,0 +1,63 @@
+SP_LAB_IF_COM
+
+Is
+
+ 
+
+ 
+
+ Procedure SelectUserId
+
+    (
+
+        i_UserId            VARCHAR2,
+
+        i_RC1                OUT CursorType
+
+    )
+
+    Is
+
+ 
+
+    t_TODAY ZZ_User.AppFrYmd%TYPE;
+
+ 
+
+    BEGIN
+
+      t_TODAY := TO_CHAR(SYSDATE,'YYYYMMDD');
+
+ 
+
+      OPEN i_RC1 For
+
+        SELECT  /*+SP_LAB_IF_COM.SelectUserId_001*/
+
+             '01' AS LocationCd, --DB위치값
+
+             A.UserId, A.AppFrYmd, a.AppToYmd,
+
+             CM_COM_UM_ENCRYPT.Decrypt(A.Pwd,A.UserId) as Pwd,
+
+             A.JobType,
+
+             A.EmpNo,
+
+             A.Userkornm
+
+        FROM  ZZ_User A
+
+        WHERE  A.UserId = i_UserId
+
+        AND  A.AppFrYmd <= t_TODAY AND A.AppToYmd >= t_TODAY;    -- 사용자ID가 유효한 ID인지를 확인
+
+ 
+
+    END SelectUserId; 
+
+ 
+
+ 
+
+End SP_LAB_IF_COM;

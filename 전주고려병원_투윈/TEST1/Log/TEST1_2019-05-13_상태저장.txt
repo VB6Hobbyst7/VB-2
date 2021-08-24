@@ -1,0 +1,12 @@
+Update TW_HSP_OCS.TWEXAM_SPECMST           
+   Set STATUS     = '3'                    
+     , RESULTDATE = TRUNC(SYSDATE)         
+ Where SPECNO     = '1905130416'   
+   And STATUS     <= '3'                   
+
+Update TW_HSP_OCS.TWEXAM_SPECMST           
+   Set STATUS     = '3'                    
+     , RESULTDATE = TRUNC(SYSDATE)         
+ Where SPECNO     = '1905130425'   
+   And STATUS     <= '3'                   
+

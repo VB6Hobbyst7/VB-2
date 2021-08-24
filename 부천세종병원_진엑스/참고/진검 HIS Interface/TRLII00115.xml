@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00114">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetPBListRef">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="bcno">
+            <column id="bcno"    desc="검체번호"    ref="bcno"/>
+            <column id="eqmtcd"  desc="장비코드"     ref="eqmtcd"/>            
+            <column id="instcd"    desc="검사코드"   ref="instcd"/>
+        </table>
+    </input> 
+    <output path="root/spcworklist" type="xml">
+        <table id="worklist" count_ref="worklist">
+        	<column id="bcno"        type="cdata"   desc="검체번호" 	ref="worklist.bcno"/>
+        	<column id="pid"       type="cdata"   desc="등록번호" 	    ref="worklist.pid"/> 
+        	<column id="prcpdd"       type="cdata"   desc="처방일자" 	    ref="worklist.prcpdd"/>
+        	<column id="patnm"      type="cdata"   desc="환자명" 	    ref="worklist.patnm"/> 
+        	<column id="spclno"      type="cdata"   desc="환자명" 	    ref="worklist.spclno"/>  
+        	<column id="sexage"    type="cdata"   desc="나이성별" 	    ref="worklist.sexage"/> 
+        	<column id="wardroom"    type="cdata"   desc="과병동" 	    ref="worklist.wardroom"/> 
+            <column id="drnm"    type="cdata"   desc="의사명" 				ref="worklist.drnm"/>
+            <column id="diagnosisnm"    type="cdata"   desc="진단명" 	ref="worklist.diagnosisnm"/> 
+            <column id="tclsnm"      type="cdata"   desc="검사명" 	    ref="worklist.tclsnm"/>
+            <column id="testcd"      type="cdata"   desc="검사코드" 	    ref="worklist.testcd"/>
+            <column id="reptrslt"      type="cdata"   desc="결과값" 	    ref="worklist.reptrslt"/>
+            <column id="judgmark"      type="cdata"   desc="판정값" 	    ref="worklist.judgmark"/> 
+            <column id="panicmark"      type="cdata"   desc="판정값" 	    ref="worklist.panicmark"/>
+            <column id="deltamark"    type="cdata"   desc="판정값" 	ref="worklist.deltamark"/> 
+            <column id="bfreptrslt"    type="cdata"   desc="이전검사" 	    ref="worklist.bfreptrslt"/>
+            <column id="bflastreptdt    "    type="cdata"   desc="이전검사일" 	ref="worklist.bflastreptdt"/>
+     	  </table>		
+    </output>
+</submit>

@@ -1,0 +1,1 @@
+Select BCD,PNM,(SEX +'/'+ AGE)as SA,ADTM, ODYYN as 당일, QUICKYN as 빠른, PID, WORKNO   From SNUBH_TLA..TB_BCD Where NOT STA IN ('O','R','H')   And (ODYYN IS NOT NULL AND ODYYN <> '' OR QUICKYN IS NOT NULL AND QUICKYN <> '' )    And INDT between '20170202' and '20170202' Order By ADTM 

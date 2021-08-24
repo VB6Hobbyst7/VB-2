@@ -1,0 +1,58 @@
+[DB정보]
+SERVER = sqlserver
+ID = bit
+PW = #bitbit
+DB = SANGJU_OCS
+
+
+[인적및 처방정보 조회]
+    strSql = "         SELECT DISTINCT   PbsChtNum, PbsPatNam, PbsResNum, OcmAcpDtm, OcmNum, ResLabCod " & vbCrLf
+    strSql = strSql & "     , RsbAcpDte, RsbAcpTim, RsbAcpNum, RsbSpmNum, 'O' As IOGBN " & vbCrLf
+    strSql = strSql & "FROM   OcmInf, PbsInf, RsbInf, ResInf " & vbCrLf
+    strSql = strSql & "WHERE  PbsChtNum = OcmChtNum " & vbCrLf
+    strSql = strSql & "AND    RsbOcmNum = OcmNum " & vbCrLf
+    strSql = strSql & "AND    ResOcmNum = OcmNum " & vbCrLf
+    strSql = strSql & "AND    RsbAcpCod = ResAcpCod " & vbCrLf
+    strSql = strSql & "AND    RsbSpmNum = ResSpmNum " & vbCrLf
+    strSql = strSql & "AND    RsbAcpCod = '" & frm!GUMPART & "' " & vbCrLf
+    strSql = strSql & "AND    ResSpmNum = '" & ArgSpmNum & "' " & vbCrLf
+    strSql = strSql & "UNION  ALL " & vbCrLf
+    strSql = strSql & "SELECT DISTINCT   PbsChtNum, PbsPatNam, PbsResNum, IcmAcpDtm As OcmAcpDtm, IcmOcmNum As OcmNum, ResLabCod " & vbCrLf
+    strSql = strSql & "     , RsbAcpDte, RsbAcpTim, RsbAcpNum, RsbSpmNum, 'I' As IOGBN " & vbCrLf
+    strSql = strSql & "FROM   IcmInf, PbsInf, RsbInf, ResInf " & vbCrLf
+    strSql = strSql & "WHERE  PbsChtNum = IcmChtNum " & vbCrLf
+    strSql = strSql & "AND    ResOcmNum = IcmOcmNum " & vbCrLf
+    strSql = strSql & "AND    RsbOcmNum = IcmOcmNum " & vbCrLf
+    strSql = strSql & "AND    RsbAcpCod = ResAcpCod " & vbCrLf
+    strSql = strSql & "AND    RsbSpmNum = ResSpmNum " & vbCrLf
+    strSql = strSql & "AND    RsbAcpCod = '" & frm!GUMPART & "' " & vbCrLf
+    strSql = strSql & "AND    ResSpmNum = '" & ArgSpmNum & "' " & vbCrLf
+    strSql = strSql & "ORDER BY RsbAcpDte, RsbAcpTim " & vbCrLf
+
+[결과 업데이트]
+    strSql = "SELECT * FROM ResInf WHERE RESLABCOD = '" & argORCD & "' " & vbCrLf
+    strSql = strSql & "AND ResSpmNum = '" & argSPNO & "' " & vbCrLf
+    
+    BitResInf.Open strSql, MsSql_cn, adOpenForwardOnly, adLockReadOnly
+    If Not BitResInf.EOF() And Not BitResInf.BOF() Then
+        strSql = "UPDATE ResInf SET ResMzhMnt = '" & argResult & "', ResRepTyp = 'M' " & vbCrLf
+        strSql = strSql & "where  ResLabCod = '" & argORCD & "'" & vbCrLf
+        strSql = strSql & "AND    ResSpmNum = '" & argSPNO & "'" & vbCrLf
+        MsSql_cn.Execute strSql
+    End If
+    BitResInf.Close
+    Set BitResInf = Nothing
+
+    strSql = "SELECT * FROM RsbInf WHERE RsbOcmNum = '" & argNWNO & "' " & vbCrLf
+    strSql = strSql & "AND RsbSpmNum = '" & argSPNO & "' " & vbCrLf
+    
+    BitResInf.Open strSql, MsSql_cn, adOpenForwardOnly, adLockReadOnly
+    If Not BitResInf.EOF() And Not BitResInf.BOF() Then
+        strSql = "UPDATE RsbInf SET RsbItfYon = 'M' " _
+               & "where  RsbOcmNum = '" & argNWNO & "'" _
+               & "AND    RsbSpmNum = '" & argSPNO & "'"
+        MsSql_cn.Execute strSql
+    End If
+    BitResInf.Close
+    Set BitResInf = Nothing
+

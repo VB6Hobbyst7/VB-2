@@ -1,0 +1,49 @@
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMCODESUB,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 4
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 5
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 6
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 7
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 8
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 1
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+
+SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,REFJUDGE    
+  FROM PATRESULT                                                               
+ WHERE MID(EXAMDATE,1,8)    = '20190531'                                     
+   AND SAVESEQ     = 2
+   AND BARCODE     = '915199000220'                                      
+   AND EXAMCODE    <> ''                                                       
+

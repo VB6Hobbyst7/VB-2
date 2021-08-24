@@ -1,0 +1,255 @@
+1. 웹서비스 주소 
+http://devensysinf.eumc.ac.kr/MS/LM/LMWebService.asmx (개발기) 
+http://esysinf.eumc.ac.kr/MS/LM/LMWebService.asmx (운영기)
+
+2. 웹서비스 메소드
+LMService("GETQUERY", xml)
+
+select 인경우           GETQUERY
+insert update 인경우 SETQUERY
+
+
+P0   병원구분
+P1   장비코드 (076)
+P2   FLAG 7자리
+P3   최초입력자
+P4   장비명
+P5   모검체
+P6   검사일시
+P7   검체번호
+P8   REMARK(장비비고)  |142||104||165||110||112||122||104||165||110||112|
+P9   처방개수
+P10  검사코드
+P11  결과FLAG
+P12  검사결과내용(수치결과)
+P13  감시결과내용(텍스트결과)            -- 공백(사용안함)
+P14  검사결과내용(수치결과+텍스트결과)   -- 공백(사용안함)
+P15  결과비고 (소견)
+P16  소요시간
+P17  일반화학체액
+P18  항목검사결과내용(약물및중금속)
+
+3. xml 규격
+
+샘플입니다.
+
+================================================
+
+GETQUERY 리스트 조회시 
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<Table>
+<QID>
+<![CDATA[PKG_MSE_LM_INTERFACE.PC_MSE_ORDER_SELECT]]>
+</QID>
+<QTYPE>
+<![CDATA[Package]]>
+</QTYPE>
+<USERID><![CDATA[RTE]]></USERID>
+<EXECTYPE><![CDATA[FILL]]></EXECTYPE>
+<P0><![CDATA[01]]></P0><P1><![CDATA[076]]></P1><P2><![CDATA[]]></P2><P3><![CDATA[]]></P3><P4><![CDATA[]]></P4><P5><![CDATA[]]></P5><P6><![CDATA[]]></P6><P7><![CDATA[19042289823]]></P7><P8><![CDATA[]]></P8><P9><![CDATA[]]></P9><P10><![CDATA[]]></P10><P11><![CDATA[]]></P11><P12><![CDATA[]]></P12><P13><![CDATA[]]></P13><P14><![CDATA[]]></P14><P15><![CDATA[]]></P15><P16><![CDATA[]]></P16><P17><![CDATA[]]></P17><P18><![CDATA[]]></P18></Table>
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<Table>
+<QID>
+<![CDATA[PKG_MSE_LM_INTERFACE.PC_MSE_ORDER_SELECT]]>       
+</QID>
+<QTYPE>
+<![CDATA[Package]]>
+</QTYPE>
+<USERID>
+<![CDATA[RTE]]>
+</USERID>
+<EXECTYPE>
+<![CDATA[FILL]]>
+</EXECTYPE>
+<P0>
+<![CDATA[02]]>
+</P0>
+<P1>
+<![CDATA[001]]>
+</P1>
+<P2>
+<![CDATA[]]>
+</P2>
+<P3>
+<![CDATA[]]>
+</P3>
+<P4>
+<![CDATA[]]>
+</P4>
+<P5>
+<![CDATA[]]>
+</P5>
+<P6>
+<![CDATA[]]>
+</P6>
+<P7>
+<![CDATA[160531548430]]>
+</P7>
+<P8>
+<![CDATA[]]>
+</P8>
+<P9>
+<![CDATA[]]>
+</P9>
+<P10>
+<![CDATA[]]>
+</P10>
+<P11>
+<![CDATA[]]>
+</P11>
+<P12>
+<![CDATA[]]>
+</P12>
+<P13>
+<![CDATA[]]>
+</P13>
+<P14>
+<![CDATA[]]>
+</P14>
+<P15>
+<![CDATA[]]>
+</P15>
+<P16>
+<![CDATA[]]>
+</P16>
+<P17>
+<![CDATA[]]>
+</P17>
+<P18>
+<![CDATA[]]>
+</P18>
+</Table>
+
+===========================================
+결과값 리턴시 (여러줄인경우 <TABLE></TABLE>) 
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<string xmlns="http://tempuri.org/"><NewDataSet> 
+<Table> 
+<SPCM_NO>검체번호</SPCM_NO>	
+<ACPT_DTM>접수일자</ACPT_DTM>	
+<EXM_ACPT_NO>접수번호</EXM_ACPT_NO>	
+<PT_NO>환자번호</PT_NO>	
+<PT_NM>환자이름</<PT_NO>	
+<SEX_TP_CD>성별</SEX_TP_CD>	
+<PT_BRDY_DT>생년월일</PT_BRDY_DT>	
+<PT_HME_DEPT_CD>환자진료과</PT_HME_DEPT_CD>	
+<WD_DEPT_CD>병동</WD_DEPT_CD>	
+<EXM_CD>검사코드</EXM_CD>	
+<TH1_SPCM_CD>검체코드</TH1_SPCM_CD>	
+<HR24_URN_EXM_TM>24시간소변검사시간</HR24_URN_EXM_TM>	
+<HR24_URN_EXM_VLM_CNTE>24시간소변검사부피내용</HR24_URN_EXM_VLM_CNTE>	
+<RPRN_EXM_CD>판넬코드</RPRN_EXM_CD>	
+<EXM_PRGR_STS_CD>결과상태값</EXM_PRGR_STS_CD>
+</Table> 
+</NewDataSet></string>
+
+
+*** 결과상태값 = C인것만 
+
+===========================================
+
+SETQUERY 결과데이터 저장시
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<Row>
+<Table>
+<QID>
+<![CDATA[PKG_MSE_LM_INTERFACE.PC_MSE_INTERFACE_SAVE]]>
+</QID>
+<QTYPE>
+<![CDATA[Package]]>
+</QTYPE>
+<USERID>
+<![CDATA[RTE]]>
+</USERID>
+<EXECTYPE>
+<![CDATA[FILL]]>
+</EXECTYPE>
+<P0>
+<![CDATA[02]]>
+</P0>
+<P1>
+<![CDATA[036]]>
+</P1>
+<P2>
+<![CDATA[YY]]>
+</P2>
+<P3>
+<![CDATA[70131]]>
+</P3>
+<P4>
+<![CDATA[VISION]]>
+</P4>
+<P5>
+<![CDATA[15544]]>
+</P5>
+<P6>
+<![CDATA[20171117140015]]>
+</P6>
+<P7>
+<![CDATA[17111700284]]>
+</P7>
+<P8>
+<![CDATA[REMARK 내용]]>
+</P8>
+<P9>
+<![CDATA[5]]>
+</P9>
+<P10>
+<![CDATA[	L7021	L7021	]]>                             		<--앞,뒤, 사이 탭구분입니다. 
+</P10>
+<P11>
+<![CDATA[	Y	Y	]]>                                       <--앞,뒤, 사이 탭구분입니다. 
+</P11>
+<P12>
+<![CDATA[	A/111/22/33/44/55	+	]]>                                                 <--앞,뒤, 사이 탭구분입니다. 
+</P12>
+<P13>
+<![CDATA[]]>                 <--앞,뒤, 사이 탭구분입니다. 
+</P13>
+<P14>
+<![CDATA[]]> <--앞,뒤, 사이 탭구분입니다. 
+</P14>
+<P15>
+<![CDATA[	Y	Y	]]>                                       <--앞,뒤, 사이 탭구분입니다. 
+
+<![CDATA[tab + 소견	+ tab	]]>                                       <--앞,뒤, 사이 탭구분입니다. 
+
+
+</P15>
+<P16>
+<![CDATA[]]>                                      
+</P16>
+<P17>
+<![CDATA[	Y	Y	]]>                                       <--앞,뒤, 사이 탭구분입니다.                                    
+</P17>
+<P18>
+<![CDATA[	Y	Y	]]>                                       <--앞,뒤, 사이 탭구분입니다.                                    
+</P18>
+</Table>
+</Row>
+
+================================================
+결과값 리턴시
+<?xml version='1.0' encoding='euc-kr'?><NewDataSet>
+<Table>
+<Return>
+<Value>true</Value>			-- true / false
+</Return>
+</Table></NewDataSet>
+
+
+
+
+
+
+
+
+
+
+

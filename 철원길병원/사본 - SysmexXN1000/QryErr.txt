@@ -1,0 +1,5 @@
+Select equipcode, examcode, examname, resprec, seqno 
+  From EQPMASTER 
+ Where equipno = 'XN1000' 
+   and mid(examcode,1,1) <> 'L' 
+ Order by  examcode 

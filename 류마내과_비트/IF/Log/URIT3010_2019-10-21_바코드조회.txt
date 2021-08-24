@@ -1,0 +1,22 @@
+ Select                                                          P.PbsPatNam AS PNAME                                 
+    , P.PbsResNum AS PJUMIN                                
+    , W.OcmAcpDtm AS HOSPDATE                              
+    , R.ResOcmNum AS BARCODE                               
+    , W.OcmChtNum AS CHARTNO                               
+    , R.ResLabCod AS ITEM                                  
+    , R.RESOCMNUM  AS PID     From OcmInf AS W                                       
+       , OdrInf AS O                                       
+       , ResInf AS R                                       
+       , PbsInf AS P                                       
+       , LabMst AS E                                       
+    where W.OcmNum    = R.ResOcmNum                        
+      and W.OcmChtNum = P.PbsChtNum                        
+      and W.OcmNum    = O.OdrOcmNum                        
+      And O.Odrdelflg = 'N'                                
+      and O.OdrSeq = R.ResOdrSeq                           
+      and R.ResLabCod = E.LabCod                           
+      and Upper(LTRIM(RTRIM(R.ResLabCod))) IN ('WBC','D0002013','B1050','RBC','D0002033','B1040','HB','D0002053','B1010','HCT','D0002043','B1020','MCV','B1020A','MCH','B1020B','MCHC','B1020C','RDW','PLT','D0002073','B1060','B1091','B1091B','B1091A','B1091C')
+      and W.OcmComStt Not In ('CN', 'CR','VC')             
+      and (R.ResRltVal is null or R.ResRltVal = '')        
+      and R.ResOcmNum = '    376569'              
+

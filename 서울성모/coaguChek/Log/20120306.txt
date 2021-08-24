@@ -1,0 +1,7167 @@
+[RX08:51:34 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T08:52:05+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX08:51:34 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T08:51:34+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX08:51:35 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T08:52:07+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T08:52:07+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX08:51:35 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T08:51:35+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX08:51:36 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T08:51:36+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX08:51:38 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T08:52:10+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX09:08:09 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:08:40+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:08:09 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:08:09+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:08:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:08:42+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:08:42+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:08:10 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:08:10+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:08:11 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:08:11+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:08:13 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:08:45+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX09:10:54 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:11:25+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:10:54 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:10:54+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:10:55 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:11:27+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:11:27+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:10:55 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:10:55+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:10:56 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:10:56+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:10:58 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:11:30+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX09:16:15 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:16:46+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:16:25 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:16:25+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:16:26 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:16:58+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:16:58+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:16:26 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:16:26+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:16:27 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:16:27+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:16:29 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:17:00+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX09:25:45 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:26:17+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:25:48 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:25:48+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:25:49 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:26:21+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:26:21+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:25:49 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:25:49+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:25:50 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:25:50+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:25:52 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:26:24+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX09:28:58 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:29:30+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:29:00 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:29:00+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:29:01 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:29:33+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:29:33+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:29:01 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:29:01+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:29:02 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:29:02+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:29:43 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:30:15+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:29:43 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:29:43+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:29:44 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:30:16+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:30:16+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:29:44 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:29:44+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:29:45 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:29:45+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:29:47 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:30:19+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX09:33:18 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:33:50+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX09:33:18 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:33:18+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX09:33:20 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:33:52+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T09:33:52+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX09:33:20 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:33:20+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX09:33:20 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T09:33:20+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX09:33:22 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T09:33:54+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:23:21 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:23:53+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:23:21 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:23:21+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:23:22 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:23:55+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:23:55+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:23:22 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:23:22+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:23:23 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:23:23+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:23:25 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:23:57+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:25:44 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:26:16+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:25:44 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:25:44+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:25:46 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:26:18+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:26:18+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:25:46 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:25:46+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:25:47 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:25:47+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:31:24 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:31:56+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:31:24 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:31:24+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:31:26 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:31:57+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:31:57+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:31:26 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:31:26+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:31:26 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:31:26+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:31:29 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:32:00+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:43:55 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:44:06+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:43:55 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:43:55+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:43:57 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:44:29+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:44:29+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:43:57 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:43:57+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:43:58 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:43:58+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:44:00 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:44:32+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:46:34 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:47:06+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:46:34 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:46:34+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:46:35 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:47:07+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:47:07+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:46:35 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:46:35+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:46:35 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:46:35+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:47:32 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:48:03+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:47:32 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:47:32+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:47:33 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:48:05+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:48:05+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:47:33 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:47:33+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:47:33 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:47:33+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:47:35 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:48:07+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:51:24 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:51:55+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:51:24 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:51:24+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:51:25 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:51:57+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:51:57+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:51:25 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:51:25+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:51:26 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:51:26+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:51:28 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:52:00+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:53:50 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:54:22+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:53:50 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:53:50+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:53:52 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:54:24+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:54:24+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:53:52 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:53:52+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:53:52 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:53:52+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:53:54 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:54:26+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX11:57:33 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:58:05+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX11:57:33 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:57:33+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX11:57:35 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:58:06+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T11:58:06+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX11:57:35 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:57:35+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX11:57:35 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T11:57:35+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX11:57:37 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T11:58:09+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX12:02:02 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:02:33+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX12:02:02 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:02:02+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX12:02:03 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:02:35+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T12:02:35+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX12:02:03 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:02:03+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX12:02:04 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:02:04+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX12:02:06 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:02:38+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX12:05:33 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:06:05+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX12:05:33 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:05:33+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX12:05:35 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:06:07+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T12:06:07+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX12:05:35 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:05:35+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX12:05:35 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:05:35+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX12:06:30 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:07:01+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX12:06:30 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "4"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:06:30+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX12:06:32 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:07:03+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T12:07:03+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX12:06:32 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "5"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:06:32+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX12:06:32 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "6"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:06:32+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX12:06:35 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:07:06+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[RX12:53:29 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T12:49:13+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX12:53:29 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T12:53:29+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:12:58 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:30+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX13:12:58 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:12:58+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:13:00 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:31+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T13:13:31+00:00"/>
+    <DST.new_observations_qty V="53"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX13:13:00 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:00+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX13:13:01 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:01+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX13:13:03 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:34+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T09:30:01+00:00"/>
+    <SVC.sequence_nbr V="00011"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:09 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "4"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:09+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1002"/>
+</ACK>
+</ACK.R01>
+[RX13:13:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1003"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:41+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T10:10:37+00:00"/>
+    <SVC.sequence_nbr V="00012"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="45" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="17.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:10 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "5"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:10+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1003"/>
+</ACK>
+</ACK.R01>
+[RX13:13:12 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1004"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:43+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T10:14:29+00:00"/>
+    <SVC.sequence_nbr V="00013"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.0" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="17" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="35.6" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:12 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "6"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:12+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1004"/>
+</ACK>
+</ACK.R01>
+[RX13:13:13 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1005"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:45+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T10:23:48+00:00"/>
+    <SVC.sequence_nbr V="00014"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="45" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="17.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:13 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "7"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:13+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1005"/>
+</ACK>
+</ACK.R01>
+[RX13:13:15 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1006"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:46+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T10:26:22+00:00"/>
+    <SVC.sequence_nbr V="00015"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.1" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="16" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="36.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:15 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "8"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:15+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1006"/>
+</ACK>
+</ACK.R01>
+[RX13:13:16 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1007"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:47+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T10:40:03+00:00"/>
+    <SVC.sequence_nbr V="00016"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="32.2" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:16 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "9"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:16+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1007"/>
+</ACK>
+</ACK.R01>
+[RX13:13:18 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1008"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:49+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T10:44:04+00:00"/>
+    <SVC.sequence_nbr V="00017"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.6" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="39" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19.5" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:18 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "10"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:18+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1008"/>
+</ACK>
+</ACK.R01>
+[RX13:13:19 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1009"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:51+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T13:02:06+00:00"/>
+    <SVC.sequence_nbr V="00018"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="42.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:19 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "11"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:19+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1009"/>
+</ACK>
+</ACK.R01>
+[RX13:13:21 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1010"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:52+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T13:41:48+00:00"/>
+    <SVC.sequence_nbr V="00019"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.8" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="18" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="33.4" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:21 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "12"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:21+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1010"/>
+</ACK>
+</ACK.R01>
+[RX13:13:22 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1011"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:53+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T13:53:31+00:00"/>
+    <SVC.sequence_nbr V="00020"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.1" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="80" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="13.6" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:22 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "13"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:22+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1011"/>
+</ACK>
+</ACK.R01>
+[RX13:13:24 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1012"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:55+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-19T15:52:44+00:00"/>
+    <SVC.sequence_nbr V="00021"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="38" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:24 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "14"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:24+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1012"/>
+</ACK>
+</ACK.R01>
+[RX13:13:25 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1013"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:57+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T08:42:14+00:00"/>
+    <SVC.sequence_nbr V="00022"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.1" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="85" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="13.2" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:26 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "15"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:26+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1013"/>
+</ACK>
+</ACK.R01>
+[RX13:13:27 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1014"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:13:58+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T08:47:04+00:00"/>
+    <SVC.sequence_nbr V="00023"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.4" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="41.2" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:27 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "16"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:27+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1014"/>
+</ACK>
+</ACK.R01>
+[RX13:13:29 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1015"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:14:00+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T08:50:09+00:00"/>
+    <SVC.sequence_nbr V="00024"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="21" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="30.1" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:29 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "17"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:29+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1015"/>
+</ACK>
+</ACK.R01>
+[RX13:13:31 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1016"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:14:01+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T10:01:43+00:00"/>
+    <SVC.sequence_nbr V="00025"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="38" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:31 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "18"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:31+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1016"/>
+</ACK>
+</ACK.R01>
+[RX13:13:32 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1017"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:14:03+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T10:09:28+00:00"/>
+    <SVC.sequence_nbr V="00026"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.1" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="84" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="13.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:13:32 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "19"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:13:32+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1017"/>
+</ACK>
+</ACK.R01>
+[RX13:25:40 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:26:12+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX13:25:40 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:25:40+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:25:42 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:26:14+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T13:26:14+00:00"/>
+    <DST.new_observations_qty V="37"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX13:25:42 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:25:42+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX13:25:43 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:25:43+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX13:45:50 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:20+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX13:45:50 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:50+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:45:52 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:23+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T13:46:23+00:00"/>
+    <DST.new_observations_qty V="37"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX13:45:52 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:52+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX13:45:52 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:52+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX13:45:54 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:25+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T13:27:45+00:00"/>
+    <SVC.sequence_nbr V="00027"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.4" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="51" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="16.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:45:54 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "4"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:54+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1002"/>
+</ACK>
+</ACK.R01>
+[RX13:45:56 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1003"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:27+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T13:56:39+00:00"/>
+    <SVC.sequence_nbr V="00028"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="21" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="29.4" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:45:56 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "5"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:56+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1003"/>
+</ACK>
+</ACK.R01>
+[RX13:45:57 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1004"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:28+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T14:00:40+00:00"/>
+    <SVC.sequence_nbr V="00029"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.0" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="28" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="24.5" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:45:57 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "6"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:57+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1004"/>
+</ACK>
+</ACK.R01>
+[RX13:45:58 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1005"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:30+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T14:19:54+00:00"/>
+    <SVC.sequence_nbr V="00030"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.3" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="64" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:45:58 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "7"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:45:58+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1005"/>
+</ACK>
+</ACK.R01>
+[RX13:46:00 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1006"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:31+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-20T16:04:41+00:00"/>
+    <SVC.sequence_nbr V="00031"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="21" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="29.5" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:00 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "8"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:00+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1006"/>
+</ACK>
+</ACK.R01>
+[RX13:46:01 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1007"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:32+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-21T09:08:47+00:00"/>
+    <SVC.sequence_nbr V="00032"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.6" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:01 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "9"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:01+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1007"/>
+</ACK>
+</ACK.R01>
+[RX13:46:03 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1008"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:34+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T07:47:16+00:00"/>
+    <SVC.sequence_nbr V="00033"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.6" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="40" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:03 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "10"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:03+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1008"/>
+</ACK>
+</ACK.R01>
+[RX13:46:04 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1009"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:36+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T08:47:38+00:00"/>
+    <SVC.sequence_nbr V="00034"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.8" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="32" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.1" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:04 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "11"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:04+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1009"/>
+</ACK>
+</ACK.R01>
+[RX13:46:06 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1010"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:37+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T08:49:00+00:00"/>
+    <SVC.sequence_nbr V="00035"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.6" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="20" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="30.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:06 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "12"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:06+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1010"/>
+</ACK>
+</ACK.R01>
+[RX13:46:08 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1011"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:39+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T09:09:26+00:00"/>
+    <SVC.sequence_nbr V="00036"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.2" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="25" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="26.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:08 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "13"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:08+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1011"/>
+</ACK>
+</ACK.R01>
+[RX13:46:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1012"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:40+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T09:15:03+00:00"/>
+    <SVC.sequence_nbr V="00037"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.4" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="40.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:10 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "14"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:10+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1012"/>
+</ACK>
+</ACK.R01>
+[RX13:46:11 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1013"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:42+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T09:30:16+00:00"/>
+    <SVC.sequence_nbr V="00038"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.3" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="59" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:11 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "15"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:11+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1013"/>
+</ACK>
+</ACK.R01>
+[RX13:46:13 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1014"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:44+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T09:44:27+00:00"/>
+    <SVC.sequence_nbr V="00039"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.0" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="93" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="12.5" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:13 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "16"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:13+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1014"/>
+</ACK>
+</ACK.R01>
+[RX13:46:14 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1015"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:46+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T10:04:30+00:00"/>
+    <SVC.sequence_nbr V="00040"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.6" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="40" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19.1" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:14 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "17"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:14+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1015"/>
+</ACK>
+</ACK.R01>
+[RX13:46:16 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1016"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:47+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T10:08:24+00:00"/>
+    <SVC.sequence_nbr V="00041"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="22.6" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:16 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "18"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:16+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1016"/>
+</ACK>
+</ACK.R01>
+[RX13:46:18 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1017"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:49+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T11:56:16+00:00"/>
+    <SVC.sequence_nbr V="00042"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.2" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="24" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="26.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:18 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "19"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:18+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1017"/>
+</ACK>
+</ACK.R01>
+[RX13:46:19 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1018"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:50+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T12:37:44+00:00"/>
+    <SVC.sequence_nbr V="00043"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.1" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="85" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="13.2" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:20 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "20"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:20+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1018"/>
+</ACK>
+</ACK.R01>
+[RX13:46:21 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1019"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:52+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T12:48:31+00:00"/>
+    <SVC.sequence_nbr V="00044"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="43" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="18.1" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:21 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "21"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:21+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1019"/>
+</ACK>
+</ACK.R01>
+[RX13:46:23 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1020"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:54+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T13:03:22+00:00"/>
+    <SVC.sequence_nbr V="00045"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.8" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="18" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="33.7" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:23 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "22"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:23+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1020"/>
+</ACK>
+</ACK.R01>
+[RX13:46:24 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1021"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:55+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T13:56:59+00:00"/>
+    <SVC.sequence_nbr V="00047"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.0" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="101" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="11.8" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:24 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "23"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:24+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1021"/>
+</ACK>
+</ACK.R01>
+[RX13:46:26 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1022"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:46:57+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T14:02:15+00:00"/>
+    <SVC.sequence_nbr V="00048"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.3" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="39.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:46:26 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "24"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:46:26+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1022"/>
+</ACK>
+</ACK.R01>
+[RX13:53:05 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:01+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-06-00-5B-A3-AA"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPro&amp;U76005674"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="U76005674"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX13:53:05 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:05+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:53:07 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:02+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T13:57:02+00:00"/>
+    <DST.new_observations_qty V="0"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX13:53:07 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:07+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX13:53:07 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:07+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX13:53:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<EOT.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:05+00:00"/>
+  </HDR>
+  <EOT>
+    <EOT.topic_cd V="OBS"/>
+  </EOT>
+</EOT.R01>
+
+[TX13:53:10 win1 ]
+<END.R01>
+<HDR>
+<HDR.control_id V= "4"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:10+00:00"/>
+</HDR>
+<TRM>
+<TRM.reason_cd V="NRM"/>
+</TRM>
+</END.R01>
+[RX13:53:11 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<ACK.R01>
+  <HDR>
+    <HDR.control_id V="1003"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:07+00:00"/>
+  </HDR>
+  <ACK>
+    <ACK.type_cd V="AA"/>
+    <ACK.ack_control_id V="4"/>
+    <ACK.error_detail_cd V="0"/>
+  </ACK>
+</ACK.R01>
+
+[RX13:53:49 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:21+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX13:53:49 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "5"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:49+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:53:51 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:22+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T13:54:22+00:00"/>
+    <DST.new_observations_qty V="16"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX13:53:51 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "6"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:51+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX13:53:52 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "7"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:52+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX13:53:54 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:25+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T14:28:17+00:00"/>
+    <SVC.sequence_nbr V="00049"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="32.5" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:53:54 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "8"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:54+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1002"/>
+</ACK>
+</ACK.R01>
+[RX13:53:55 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1003"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:27+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T14:37:01+00:00"/>
+    <SVC.sequence_nbr V="00050"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.8" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="32" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="21.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:53:55 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "9"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:55+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1003"/>
+</ACK>
+</ACK.R01>
+[RX13:53:57 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1004"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:28+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-25T16:41:10+00:00"/>
+    <SVC.sequence_nbr V="00051"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.2" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="71" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="14.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:53:57 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "10"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:57+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1004"/>
+</ACK>
+</ACK.R01>
+[RX13:53:58 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1005"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:30+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T07:41:27+00:00"/>
+    <SVC.sequence_nbr V="00052"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.6" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="20" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="31.4" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:53:59 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "11"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:53:59+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1005"/>
+</ACK>
+</ACK.R01>
+[RX13:54:00 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1006"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:31+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T08:40:51+00:00"/>
+    <SVC.sequence_nbr V="00053"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="36" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="20.4" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:00 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "12"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:00+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1006"/>
+</ACK>
+</ACK.R01>
+[RX13:54:02 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1007"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:33+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T08:56:53+00:00"/>
+    <SVC.sequence_nbr V="00056"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="19" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="32.2" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:02 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "13"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:02+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1007"/>
+</ACK>
+</ACK.R01>
+[RX13:54:03 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1008"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:35+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T09:05:36+00:00"/>
+    <SVC.sequence_nbr V="00057"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.9" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="17" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="35.0" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:03 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "14"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:03+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1008"/>
+</ACK>
+</ACK.R01>
+[RX13:54:05 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1009"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:36+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T09:08:38+00:00"/>
+    <SVC.sequence_nbr V="00058"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.7" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="36" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="20.6" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:05 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "15"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:05+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1009"/>
+</ACK>
+</ACK.R01>
+[RX13:54:06 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1010"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:37+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T09:10:45+00:00"/>
+    <SVC.sequence_nbr V="00059"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="2.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="20" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="30.4" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:07 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "16"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:07+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1010"/>
+</ACK>
+</ACK.R01>
+[RX13:54:08 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1011"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:39+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T09:25:44+00:00"/>
+    <SVC.sequence_nbr V="00060"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.2" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="75" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="14.0" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:08 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "17"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:08+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1011"/>
+</ACK>
+</ACK.R01>
+[RX13:54:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1012"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:41+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T10:01:59+00:00"/>
+    <SVC.sequence_nbr V="00061"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="42" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="18.5" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:10 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "18"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:10+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1012"/>
+</ACK>
+</ACK.R01>
+[RX13:54:11 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1013"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:43+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T10:08:39+00:00"/>
+    <SVC.sequence_nbr V="00063"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="3.0" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="17" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="35.4" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:11 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "19"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:11+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1013"/>
+</ACK>
+</ACK.R01>
+[RX13:54:13 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1014"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:54:44+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T10:10:25+00:00"/>
+    <SVC.sequence_nbr V="00064"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="43" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="18.1" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:54:13 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "20"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:54:13+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1014"/>
+</ACK>
+</ACK.R01>
+[RX13:56:41 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:12+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX13:56:41 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:41+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX13:56:43 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:15+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T13:57:15+00:00"/>
+    <DST.new_observations_qty V="3"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX13:56:43 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:43+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX13:56:44 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:44+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX13:56:46 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1002"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:17+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T10:37:19+00:00"/>
+    <SVC.sequence_nbr V="00065"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.5" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="44" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="17.9" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:56:46 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "4"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:46+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1002"/>
+</ACK>
+</ACK.R01>
+[RX13:56:47 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1003"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:18+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T13:41:05+00:00"/>
+    <SVC.sequence_nbr V="00067"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.0" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="99" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="12.0" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:56:47 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "5"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:47+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1003"/>
+</ACK>
+</ACK.R01>
+[RX13:56:48 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<OBS.R01>
+  <HDR>
+    <HDR.control_id V="1004"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:20+00:00"/>
+  </HDR>
+  <SVC>
+    <SVC.role_cd V="OBS"/>
+    <SVC.observation_dttm V="2012-01-26T13:56:19+00:00"/>
+    <SVC.sequence_nbr V="00068"/>
+    <PT>
+      <PT.patient_id V=""/>
+      <PT.location V=""/>
+      <PT.name V=""/>
+      <OBS>
+        <OBS.observation_id V="PT-INR" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="1.3" U="INR"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-%Q" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="64" U="%Q"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+      <OBS>
+        <OBS.observation_id V="PT-SEC" DN="PROTHROMBIN TIME" SN="LN"/>
+        <OBS.value V="15.3" U="SEC"/>
+        <OBS.method_cd V="M"/>
+        <OBS.interpretation_cd V="N"/>
+        <OBS.normal_lo-hi_limit V=""/>
+      </OBS>
+    </PT>
+    <OPR>
+      <OPR.operator_id V=""/>
+      <OPR.name V=""/>
+    </OPR>
+    <ORD>
+      <ORD.universal_service_id V="COAG" DN="ROCHE"/>
+      <ORD.order_id V=""/>
+    </ORD>
+    <RGT>
+      <RGT.name V="ROCHE"/>
+      <RGT.lot_number V="392"/>
+      <RGT.expiration_date V="2013-03-31T23:59:59+00:00"/>
+    </RGT>
+    <NTE>
+      <NTE.text V="SPT:0"/>
+    </NTE>
+    <NTE>
+      <NTE.text V="SOP:0"/>
+    </NTE>
+  </SVC>
+</OBS.R01>
+
+[TX13:56:49 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "6"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:49+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1004"/>
+</ACK>
+</ACK.R01>
+[RX13:56:50 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<EOT.R01>
+  <HDR>
+    <HDR.control_id V="1005"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:21+00:00"/>
+  </HDR>
+  <EOT>
+    <EOT.topic_cd V="OBS"/>
+  </EOT>
+</EOT.R01>
+
+[TX13:56:50 win1 ]
+<END.R01>
+<HDR>
+<HDR.control_id V= "7"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T13:56:50+00:00"/>
+</HDR>
+<TRM>
+<TRM.reason_cd V="NRM"/>
+</TRM>
+</END.R01>
+[RX13:56:51 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<ACK.R01>
+  <HDR>
+    <HDR.control_id V="1006"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T13:57:22+00:00"/>
+  </HDR>
+  <ACK>
+    <ACK.type_cd V="AA"/>
+    <ACK.ack_control_id V="7"/>
+    <ACK.error_detail_cd V="0"/>
+  </ACK>
+</ACK.R01>
+
+[RX14:06:59 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T14:07:31+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX14:06:59 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:06:59+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX14:07:00 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T14:07:32+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T14:07:32+00:00"/>
+    <DST.new_observations_qty V="0"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX14:07:00 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:07:00+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX14:07:01 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:07:01+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX14:27:08 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T14:27:41+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX14:27:08 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "1"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:27:08+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>
+[RX14:27:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<DST.R01>
+  <HDR>
+    <HDR.control_id V="1001"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T14:27:42+00:00"/>
+  </HDR>
+  <DST>
+    <DST.status_dttm V="2012-03-06T14:27:42+00:00"/>
+    <DST.new_observations_qty V="0"/>
+    <DST.condition_cd V="R"/>
+  </DST>
+</DST.R01>
+
+[TX14:27:10 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "2"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:27:10+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1001"/>
+</ACK>
+</ACK.R01>
+[TX14:27:11 win1 ]
+<REQ.R01>
+<HDR>
+<HDR.control_id V= "3"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:27:11+00:00"/>
+</HDR>
+<REQ>
+<REQ.request_cd V="ROBS"/>
+</REQ>
+</REQ.R01>
+[RX14:29:10 win1 ]<?xml version="1.0" encoding="UTF-8"?>
+<HEL.R01>
+  <HDR>
+    <HDR.control_id V="1000"/>
+    <HDR.version_id V="POCT1"/>
+    <HDR.creation_dttm V="2012-03-06T14:29:42+00:00"/>
+  </HDR>
+  <DEV>
+    <DEV.device_id V="00-60-19-01-00-01-19-25"/>
+    <DEV.vendor_id V="ROCHE&amp;CoaguChekXSPlus&amp;UQ0071973"/>
+    <DEV.manufacturer_name V="Roche Diagnostics GmbH"/>
+    <DEV.hw_version V="0341a"/>
+    <DEV.sw_version V="03.00.00"/>
+    <DEV.device_name V="UQ0071973"/>
+    <DCP>
+      <DCP.application_timeout V="60"/>
+      <DCP.vendor_specific ENC="TXT">SET_SETUP;ROCHE_SETUP;ROCHE_ORL;DATA_TRANSFER;DELETE_DTV;ROCHE_CML</DCP.vendor_specific>
+    </DCP>
+    <DSC>
+      <DSC.connection_profile_cd V="SA"/>
+      <DSC.topics_supported_cd V="D_EV"/>
+      <DSC.topics_supported_cd V="DTV"/>
+      <DSC.topics_supported_cd V="OP_LST"/>
+      <DSC.topics_supported_cd V="PT_LST"/>
+      <DSC.directives_supported_cd V="SET_TIME"/>
+      <DSC.directives_supported_cd V="LOCK"/>
+      <DSC.directives_supported_cd V="UNLOCK"/>
+      <DSC.directives_supported_cd V="DELETE"/>
+      <DSC.max_message_sz V="1000000"/>
+    </DSC>
+  </DEV>
+</HEL.R01>
+
+[TX14:29:10 win1 ]
+<ACK.R01>
+<HDR>
+<HDR.control_id V= "4"/>
+<HDR.version_id V= "POCT1"/>
+<HDR.creation_dttm V= "2012-03-06T14:29:10+00:00"/>
+</HDR>
+<ACK>
+<ACK.type_cd V="AA"/>
+<ACK.ack_control_id V="1000"/>
+</ACK>
+</ACK.R01>

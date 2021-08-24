@@ -1,0 +1,342 @@
+
+안녕하세요
+유진의료정보 김홍석입니다.
+
+
+=============================================================================
+1) 검사실테이블을 간략히 설명하자면
+=============================================================================
+	GUMSA013 (1개의 ROW : Key Sample_NO(12Byte)
+	GUMSA015 (Sample_NO Join 된 세부 항목테이블 Multi Row)
+				(Key : G15_SAMPLE, G15_WORKNM, G15_UNIQUE, G15_SERIAL,G15_SORTTH)
+	
+	2개로 구성되어 있습니다.
+
+
+=============================================================================
+2) 인터페이스 하실때
+=============================================================================
+   GUMSA015의 G15_WORKNM(워크네임) Field도 생화학파트 + 워크네임 하면
+     Unique 하니 처리하시면 될것입니다.
+
+
+=============================================================================
+3) Update는 GUMSA015만 하시면 되는데 아래에 설명하겠읍니다.
+=============================================================================
+
+   1) Update 항목
+
+		G15_VALUE		:	VARCHAR(80)		:	결과값('38.5')
+		G15_EVALUATE	:	VARCHAR(01)		:	H/L   (High:H, Low:L)
+		G15_CLVALU		:	NUMERIC(10,2)	:	최저값
+		G15_CHVALU		:	NUMERIC(10,2)	:	최대값
+
+	2) Update Key
+		(Key : G15_SAMPLE, G15_WORKNM, G15_UNIQUE, G15_SERIAL,G15_SORTTH)
+		키에 맞추어 결과나오는 순서대로 넣어주시면 됩니다.
+
+
+=============================================================================
+4) 통보는 유진정보에서 하니까 신경안쓰셔도 됩니다.
+=============================================================================
+참조테이불 : GUMSA001 : 검사기초테이블
+                  검사파트 + WORKNM 으로 구성
+
+             GUMSA010 : 표준결과치 테이블(상한값, 하한값)
+
+             GUMSA011 : 검사접수테이블
+
+=============================================================================
+5) LayOut
+=============================================================================
+/*-------------------------------------*/
+/*    검사 수거 TABLE                  */
+/*-------------------------------------*/
+/*  Sample No별 정렬                   */ 
+/*-------------------------------------*/
+CREATE TABLE  GUMSA013 (
+ G13_SAMPLE    VARCHAR(   12)   /* 검체번호(YYMM+Serial)         */
+,G13_GMLABNO   VARCHAR(    8)   /* LAB 번호(YYYYMMDD+Serial)     */
+,G13_CHTNO     VARCHAR(   10)   /* 차트번호                      */
+,G13_SJJNAM    VARCHAR(   20)   /* 수진자명                      */
+,G13_JINKWA    VARCHAR(    2)   /* 진료과목                      */
+,G13_GMPART    VARCHAR(    2)   /* 검사파트                      */
+,G13_GMDATE    VARCHAR(    8)   /* 검사일자(=진료일자)           */
+,G13_GMAGE     VARCHAR(    3)   /* 나이                          */
+,G13_GMSEX     VARCHAR(    1)   /* 성별                          */
+,G13_BUSEO     VARCHAR(    4)   /* 발생부서과(발생과)            */
+,G13_ROMNO     VARCHAR(    5)   /* 병실번호                      */
+,G13_CCDATE    VARCHAR(   12)   /* 검체체취시간                  */
+,G13_CCUSER    VARCHAR(    8)   /* 검체체취자                    */
+,G13_JSUSER    VARCHAR(    8)   /* 검체접수시간                  */
+,G13_JSDATE    VARCHAR(   12)   /* 검체접수자                    */
+,G13_SKDATE    VARCHAR(   12)   /* 검체수거시간                  */
+,G13_SKUSER    VARCHAR(    8)   /* 검체수거자                    */
+,G13_BOGOYN    VARCHAR(    1)   /* 보고여부(부분통보B,전체통보Y) */
+,G13_BGDATE    VARCHAR(   12)   /* 보고일자(실보고일자)          */
+,G13_BGUSER    VARCHAR(    8)   /* 보고자                        */
+,G13_PRINTYN   VARCHAR(    1)   /* 결과출력일자                  */
+,G13_REPYN     VARCHAR(    1)   /* 상세작업일지출력여부          */
+,G13_JINKUL    VARCHAR(    1)   /*  -:접수전,  1:검체접수        */
+                                /*  2:검체수거,6:전체통보        */
+                                /*  5:부분통보                   */
+,G13_IBTONG    VARCHAR(    1)   /*  입통                         */
+,G13_REMARK    VARCHAR( 2000)   /*                               */
+,G13_HELGBN    VARCHAR(    1)   /*                               */
+,G13_USER      VARCHAR(    8)   /*                               */
+,G13_ODAT      VARCHAR(    6)   /*                               */
+)TABLESPACE    E20060903_TB
+storage ( initial 10M NEXT 8M pctincrease 50 );
+
+CREATE UNIQUE INDEX GUMSA013_KY1
+         ON  GUMSA013 (G13_SAMPLE)
+TABLESPACE E20060903_TB
+storage ( initial 5M NEXT 5M pctincrease 50 );
+
+CREATE   INDEX GUMSA013_KY2
+         ON  GUMSA013 (G13_CHTNO, G13_GMPART, G13_GMDATE)
+TABLESPACE   E20060903_TB
+storage ( initial 7M NEXT 4M pctincrease 50 );
+
+CREATE   INDEX GUMSA013_KY3
+         ON  GUMSA013 (G13_GMDATE)
+TABLESPACE   E20060903_TB
+storage ( initial 5M NEXT 4M pctincrease 50 );
+
+
+/*-------------------------------------*/
+/*    검사 수거 TABLE (DETAIL)         */
+/*-------------------------------------*/
+
+CREATE TABLE   GUMSA015 (
+ G15_SAMPLE    VARCHAR(   12)   /* 검체번호(YYMM+Serial)         */
+,G15_GMLABNO   VARCHAR(    8)   /* LAB 번호(YYYYMMDD+Serial)     */
+,G15_CHTNO     VARCHAR(   10)   /* 차트번호                      */
+,G15_UNIQUE    VARCHAR(    7)   /* KEY : PART   (2 자리) +       */
+                                /* S/G    (1 자리) +             */
+                                /* SERAIAL(4 자리)               */
+,G15_SERIAL    VARCHAR(    3)   /* GUBUN(001-SINGLE,000-GROUP대표*/
+,G15_WORKNM    VARCHAR(   12)   /* 검사항목 코드(WORKNM)         */
+,G15_SHOWNM    VARCHAR(   12)   /* 검사항목 코드(WORKNM)         */
+,G15_GMPART    VARCHAR(    2)   /* 검사파트                      */
+,G15_AUCODE    VARCHAR(    2)   /* 검사장비                      */
+,G15_WGROUP    VARCHAR(    1)   /* 그룹검사(G), 단독(S)          */
+,G15_PUMCOD    VARCHAR(    9)   /* 품목코드                      */
+,G15_VALUE     VARCHAR(   80)   /* 결과 값                       */
+,G15_EVALUATE  VARCHAR(    1)   /* High/Low                      */
+,G15_GMSEX     VARCHAR(    1)   /* 성별                          */
+,G15_BGDATE    VARCHAR(    8)   /* 보고일자                      */
+,G15_KKUSER    VARCHAR(    8)   /* 보고자                        */
+,G15_QCCHK     VARCHAR(    2)   /* QC 체크여부                   */
+,G15_BOGOYN    VARCHAR(    1)   /* 보고여부                      */
+,G15_DELTA     VARCHAR(    1)   /* DELTA                         */
+,G15_PANIC     VARCHAR(    1)   /* PANIC                         */
+,G15_CLVALU    NUMERIC(   10,2) /* 최저값                        */
+,G15_CHVALU    NUMERIC(   10,2) /* 최고값                        */
+,G15_VALUECHK  NUMERIC(    1)   /*                               */
+,G15_EUNKUB    VARCHAR(    1)   /* 응급(E),일반(Z)               */
+,G15_SORTFR    VARCHAR(    2)   /* 순서 대분류(정렬순서-전체)    */
+,G15_SORTSE    VARCHAR(    2)   /* 순서 중분류(정려순서-S/G순서) */
+,G15_SORTTH    VARCHAR(    2)   /* 순서 소분류(정려순서-GROUP만) */
+,G15_ODCODE    VARCHAR(    9)   /* 오더코드(SLC_MATCHING)        */
+)TABLESPACE    E20060925_TB
+storage ( initial 30M NEXT 10M pctincrease 50 );
+
+CREATE UNIQUE INDEX GUMSA015_KY1
+         ON  GUMSA015 (G15_SAMPLE, G15_WORKNM, G15_UNIQUE, G15_SERIAL,G15_SORTTH)
+TABLESPACE   E20060925_TB
+storage ( initial 10M NEXT 5M pctincrease 50 );
+
+/*
+0_Text 처리시 KEY Sortth를 증가시켜 DUp 방지
+*/
+
+/*-----------------------------*/
+/*    검사기초 TABLE           */
+/*-----------------------------*/
+
+CREATE TABLE  GUMSA001 (
+ G01_GMPART   VARCHAR(  2)   /* 검사파트                        */
+,G01_UNIQUE   VARCHAR(  7)   /* KEY : PART   (2 자리) +         */
+                             /* S/G    (1 자리) +               */
+                             /* SERAIAL(4 자리)                 */
+,G01_SERIAL   VARCHAR(  3)   /* GUBUN(001-SINGLE,000-GROUP 대표 */
+,G01_WGROUP   VARCHAR(  1)   /* (G: 그룹코드 S: SINGLE)         */
+,G01_WORKNM   VARCHAR( 12)   /* 검사항목 코드(WORKNM)           */
+,G01_SHOWNM   VARCHAR( 12)   /* 검사항목                        */
+,G01_ENGNAM   VARCHAR( 50)   /* 검사명칭                        */
+,G01_PUMCOD   VARCHAR(  9)   /* 품목코드                        */
+,G01_SORTFR   VARCHAR(  2)   /* 순서 대분류(정렬순서-전체)      */
+,G01_SORTSE   VARCHAR(  2)   /* 순서 중분류(정려순서-S/G순서)   */
+,G01_SORTTH   VARCHAR(  2)   /* 순서 소분류(정려순서-GROUP만)   */
+                             /* SINGLE : 00 / GROUP 대표 00     */
+,G01_GUMCOD   VARCHAR(  2)   /* 검체코드                        */
+,G01_GUMTUB   VARCHAR(  2)   /* 검체용기                        */
+,G01_GUMQTY   NUMERIC(  4)   /* 검체량                          */
+,G01_UNIT     VARCHAR( 10)   /* 검사단위                        */
+,G01_QCCHK    VARCHAR(  1)   /* Q.C 체크 여부                   */
+,G01_KLDAN    VARCHAR( 10)   /* 결과단위                        */
+,G01_STATUS   VARCHAR(  1)   /* 사용여부                        */
+,G01_EUNKBU   VARCHAR(  1)   /* 응급검사여부                    */
+,G01_USER     VARCHAR(  8)   /* 등록자                          */
+,G01_ODAT     VARCHAR(  6)   /* 등록일자                        */
+,G01_PRINTYN  VARCHAR(  1)   /* 통계출력 여부                   */
+,G01_PRNRANG  VARCHAR(  2)   /* 통계출력 순서                   */
+,G01_SDATE    VARCHAR(  8)   /* 시작일자                        */
+,G01_EDATE    VARCHAR(  8)   /* 종료일자                        */
+,G01_TOWORK   VARCHAR( 12)   /* 통계출력 WORKNAME               */
+,G01_BRWORK   VARCHAR( 12)   /* 바코드출력 WORKNAME             */
+,G01_WINNAM   VARCHAR( 30)   /* 세부입력 WINDOW 명              */
+)TABLESPACE   E20060925_TB
+storage ( initial 1M NEXT 1M pctincrease 50 );
+
+CREATE UNIQUE INDEX GUMSA001_KY1
+         ON  GUMSA001 (G01_UNIQUE, G01_SERIAL, G01_EDATE)
+TABLESPACE E20060925_TB
+storage ( initial 500K NEXT 500K pctincrease 50 );
+
+CREATE   INDEX GUMSA001_KY2
+         ON  GUMSA001 (G01_WORKNM)
+TABLESPACE E20060925_TB
+storage ( initial 500K NEXT 500K pctincrease 50 );
+
+CREATE   INDEX GUMSA001_KY3
+         ON  GUMSA001 (G01_GMPART, G01_EDATE)
+TABLESPACE E20060925_TB
+storage ( initial 500K NEXT 500K pctincrease 50 );
+
+/* SINGLE일 경우에는 G01_WORKNM 과 G01_SHOWNM 이 동일하지만,
+   GROUP일 경우에는 대표코드는 G01_SHOWNM 이 없고,
+           세부코드부터 G01_WORKNM은 GROUP코드 항목,
+                        G01_SHOWNM은 개별코드 항목이 들어간다.    */
+
+/* G01_SORTFR는 GROUP일 경우는 01, SINGLE 일경우는 02가 들어간다  */
+/* G02_SORTSE는 SINGLE일경우에는 SINGLE 코드들의 순서,
+                GROUP일 경우에는 GROUP코드들의 순서가 들어간다    */
+/* G03_SORTTH는 SINGLE일 경우에는 00으로 SETTING하고,
+                GROUP일 경우에는 대표코드는 00이고 세부코드부터
+                SERIAL하게 부여된다.                              */
+
+/* 이렇게 SORT를 3개로 둔 이유는 개별코드 보다는 그룹이 먼저 보이고,
+     그 다음에 정려된 GROUP/SINGLE 순으로 정렬을 수행하며,
+     마지막으로 GROUP일경우 순서를 정렬하기 위해서 이다.           */
+
+
+/*--------------------------------*/
+/*     결과치 표준값 등록         */
+/*--------------------------------*/
+CREATE TABLE GUMSA010 (
+ G10_GMPART   VARCHAR(    2)   /* 검사파트                        */
+,G10_UNIQUE   VARCHAR(    7)   /* KEY : PART   (2 자리) +         */
+                               /* S/G    (1 자리) +               */
+                               /* SERAIAL(4 자리)                 */
+,G10_SERIAL   VARCHAR(    3)   /* GUBUN(001-SINGLE,000-GROUP 대표 */
+,G10_WORKNM   VARCHAR(   12)   /* 검사항목 코드(WORKNM)           */
+,G10_SHOWNM   VARCHAR(   12)   /* 검사항목                        */
+,G10_CLVALU   NUMERIC(   10,2) /* 공통(Low)                       */
+,G10_CHVALU   NUMERIC(   10,2) /*     (High)                      */
+,G10_MLVALU   NUMERIC(   10,2) /* 남성(Low)                       */
+,G10_MHVALU   NUMERIC(   10,2) /*     (High)                      */
+,G10_FLVALU   NUMERIC(   10,2) /* 여성(Low)                       */
+,G10_FHVALU   NUMERIC(   10,2) /*     (High)                      */
+,G10_DLVALU   NUMERIC(   10,2) /* Delta(Low)                      */
+,G10_DHVALU   NUMERIC(   10,2) /*      (High)                     */
+,G10_PLVALU   NUMERIC(   10,2) /* Panic(Low)                      */
+,G10_PHVALU   NUMERIC(   10,2) /*      (High)                     */
+,G10_METHOD   VARCHAR(    2)   /* 방법                            */
+,G10_STATUS   VARCHAR(    1)   /*                                 */
+,G10_SDATE    VARCHAR(    8)   /* 시작일자                        */
+,G10_EDATE    VARCHAR(    8)   /* 종료일자                        */
+)TABLESPACE   E20060925_TB
+storage ( initial 2M NEXT 1M pctincrease 50 );
+
+CREATE UNIQUE INDEX GUMSA010_AY1
+         ON  GUMSA010 (G10_GMPART, G10_SHOWNM, G10_EDATE)			//New Key 평가시 쓴다.
+TABLESPACE   E20060925_TB
+storage ( initial 500K NEXT 200K pctincrease 50 );
+
+
+/*----------------------------------------    */
+/*      검사접수 오더  (GUMSA011)             */
+/*----------------------------------------    */
+CREATE TABLE   GUMSA011 (
+ G11_SJKEY     VARCHAR(  10)         /*  수진번호                      */
+,G11_ORDKEY    VARCHAR(  16)         /*  오더KEY + SEAL                */
+,G11_SAMPLE    VARCHAR(  12)         /*  검체번호                      */
+,G11_CHTNO     VARCHAR(  10)         /*  차트번호                      */
+,G11_JNDATE    VARCHAR(   8)         /*  진료일자(검사시행일자)        */
+,G11_ORDATE    VARCHAR(   8)         /*  오더일자                      */
+,G11_ODTIME    VARCHAR(  14)         /*  ORDER저장시간(YYYYMMDDHHHHHH) */
+,G11_PGROUP    VARCHAR(   1)         /*  품목그룹여부(G,S)             */
+,G11_PUMCOD    VARCHAR(   9)         /*  품목코드(수가매칭)            */
+,G11_WGROUP    VARCHAR(   1)         /*  검사그룹여부(G,S)             */
+,G11_WORKNM    VARCHAR(  12)         /*  검사WORK(검사풀기매칭)        */
+                                     /*  SLIPMSTR 성분에 WKNAME이 있다.*/
+,G11_JINKWA    VARCHAR(   2)         /*  진료과목                      */
+,G11_BUSEO     VARCHAR(   4)         /*  발생부서과(발생과)            */
+,G11_ROMNO     VARCHAR(   5)         /*  병실번호                      */
+,G11_GONGBK    VARCHAR(   1)         /*                                */
+                                     /*  그림판독유무('P', '-')   ******/
+,G11_HYLGBN    VARCHAR(   1)         /*  채혈장소(Potabl을 넣는다.)    */
+,G11_EUNKUB    VARCHAR(   1)         /*  응급접수('E'가 들어간다.)     */
+                                     /*  일반접수('Z'가 들어간다.)     */
+,G11_JINKUL    VARCHAR(   1)         /*  -:접수전,  1:검체접수         */
+                                     /*  2:검체수거,6:결과통보         */
+                                     /*  9:Hold                        */
+,G11_GUMCOD    VARCHAR(   2)         /*  검체코드                      */
+,G11_GUMNAM    VARCHAR(  30)         /*  검체명                        */
+,G11_GMPART    VARCHAR(   2)         /*  검사파트                      */
+,G11_BARDAT    VARCHAR(  12)         /*  바코드출력일자+시간           */
+,G11_BARYN     VARCHAR(   1)         /*  바코드출력여부(Y,-)           */
+,G11_GUMTUB    VARCHAR(   2)         /*  검체용기                      */
+,G11_GUMQTY    NUMERIC(   4)         /*  검체량                        */
+,G11_KLDAN     VARCHAR(  10)         /*  결과단위                      */
+,G11_IBTONG    VARCHAR(   1)         /*  입원1,외래2                   */
+,G11_SUKEY     VARCHAR(  11)         /*  수납번호                      */
+,G11_USER      VARCHAR(   8)         /*  Update USER-ID                */
+,G11_ODAT      VARCHAR(   6)         /*  Update DATE                   */
+,G11_HELGBN    VARCHAR(   1)         /*  검진구분 (일반:- 검진:0/1/2/3)*/
+,G11_KUM       NUMERIC(   8)         /*  검사금액                      */
+,G11_KAKUM     NUMERIC(   8)         /*  검사금액(가산율 포함)         */
+,G11_SJJNAM    VARCHAR(  20)         /*  검진 수진자명                 */
+)TABLESPACE    E85550168_TB
+STORAGE ( INITIAL 30M NEXT 10M PCTINCREASE 50 );
+
+CREATE UNIQUE INDEX GUMSA011_KY1
+ ON  GUMSA011 (G11_ORDKEY)
+TABLESPACE   E85550168_TB
+STORAGE ( INITIAL 8M NEXT 5M PCTINCREASE 50 );
+
+CREATE      INDEX GUMSA011_KY2
+ ON  GUMSA011 (G11_CHTNO )
+TABLESPACE   E85550168_TB
+STORAGE ( INITIAL 8M NEXT 10M PCTINCREASE 50 );
+
+CREATE      INDEX GUMSA011_KY3
+ ON  GUMSA011 (G11_JNDATE)
+TABLESPACE   E85550168_TB
+STORAGE ( INITIAL 8M NEXT 5M PCTINCREASE 50 );
+
+CREATE      INDEX GUMSA011_KY4
+ ON  GUMSA011 (G11_SAMPLE)
+TABLESPACE   E85550168_TB
+STORAGE ( INITIAL 8M NEXT 5M PCTINCREASE 50 );
+
+CREATE      INDEX GUMSA011_KY5
+ ON  GUMSA011 (G11_SJKEY)
+TABLESPACE   E85550168_TB
+STORAGE ( INITIAL 8M NEXT 5M PCTINCREASE 50 );
+
+
+=============================================================================
+6) id
+=============================================================================
+oraid:guminter
+  pwd:guminter
+  sid:ora9
+  tnsname : fullorac
+
+  ip:192.168.1.3
+  
+로긴하시면 gumsa* 테이블이 보이는데 참고하십시요...
+

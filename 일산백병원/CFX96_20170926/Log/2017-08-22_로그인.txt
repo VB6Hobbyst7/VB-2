@@ -1,0 +1,2 @@
+SELECT usab.instcd,       usab.USERID,       usab.USERABBR  FROM lis.lpcmusab usab,       com.zsumusrb usrb WHERE usab.instcd     = ?    AND usab.delflagcd  = ?    AND usab.userid     = ?    AND usab.userid     = usrb.userid   AND to_char(sysdate,'yyyymmdd') BETWEEN usrb.userfromdd AND usrb.usertodd 
+

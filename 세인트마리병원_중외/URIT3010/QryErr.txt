@@ -1,0 +1,4 @@
+Select distinct equipcode, examcode, examname, resprec, seqno 
+  From EQPMASTER 
+ Where equipno = 'XC_A30' 
+ Order by  seqno * 10 

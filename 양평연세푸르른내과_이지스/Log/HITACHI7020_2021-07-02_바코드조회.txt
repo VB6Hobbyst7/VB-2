@@ -1,0 +1,17 @@
+SELECT DISTINCT        a.ACC_YMD   AS HOSPDATE 
+     , a.RECEPT_NO AS BARCODE  
+     , a.PTNT_NO   AS PID      
+     , c.PTNT_NM   AS PNAME    
+     , c.BIRTH_YMD AS AGE      
+     , c.SEX       AS SEX      
+     , a.ORD_CD    AS ITEM     
+  FROM H3LAB_RESULT a          
+     , H1OPDIN b               
+     , HZ_MST_PTNT c           
+ WHERE a.RECEPT_NO = '79410'  
+   AND a.ORD_CD IN ('291','292','525','708','디골','디급','ALB','ALT','AST','BUN','CA','CR','CRP','D','GFR','GLU-','GLUCOSE','LDL','LDL계산','PROTEIN','TB','TCHOL','TG','URIC')
+   AND (a.RESULT_NM = '' OR a.RESULT_NM IS NULL)            
+   AND a.RECEPT_NO = b.RECEPT_NO           
+   AND a.PTNT_NO    = c.PTNT_NO            
+ ORDER BY a.ORD_CD                         
+

@@ -1,0 +1,46 @@
+아이디   : SA
+패스워드 : KMC
+
+OCS1: 100.100.0.1 SNJOCSDB
+WON1: 100.100.0.2 SNJWONDB
+
+인적 테이블   won1.snjwondb.dbo.pt1m00
+              pt1_cd 환자번호 
+              pt1_nm 환자성명 
+
+대기자 테이블   select * from  ocs1.snjocsdb.dbo.INTERFACEREADY  (연동매개 테이블) 
+검사항목 테이블 select * from  ocs1.snjocsdb.dbo.daecode where jin_code = 1  
+
+
+검사결과 테이블 select * from  ocs1.snjocsdb.dbo.gum_kg1 where jin_code = 1 !!  gum_kg1 의 kg1에 결과값 입력  
+
+
+검사명칭 테이블 select * from   ocs1.snjocsdb.dbo.woncode where jin_code = 1 
+
+
+select     a.cht_id           -- 챠트번호   INTERFACEREADY
+          ,e.pt1_nm           -- 성명       PT1M00 
+          ,a.jindt            -- 진료일자   INTERFACEREADY
+          ,a.jintm            -- 진료시간   INTERFACEREADY
+          ,a.daecode          -- 검사대분류   INTERFACEREADY
+          ,d.dae_name         -- 검사대분류  DAECODE
+          ,b.won_code         -- 검사코드    GUM_KG1  
+          ,c.WON_NAME         -- 검사명칭    WONCODE 
+          ,b.seq              -- 검사순서    GUM_KG1     
+          ,b.kg1              -- 검사 결과값 GUM_KG1  
+          , *
+      from ocs1.snjocsdb.dbo.INTERFACEREADY  a                       --대기자   INTERFACEREADY
+      left join ocs1.snjocsdb.dbo.gum_kg1 b on a.cht_id = b.cht_id   --검사코드    GUM_KG1
+                                           and a.jindt  = b.jindt 
+                                           and a.jintm  = b.jintm   
+                                           and a.daecode = b.dae_code 
+      left join ocs1.snjocsdb.dbo.woncode c on c.jin_code = 1       -- 검사명칭    WONCODE    
+                                        and    c.dae_code = b.dae_code 
+                                        and    c.won_code = b.won_code
+                                        and    c.seq = 1
+      left join ocs1.snjocsdb.dbo.daecode d on d.jin_code = 1       -- 검사대분류  DAECODE 
+                                           and d.dae_code = b.dae_code 
+      left join won1.snjwondb.dbo.pt1m00 e on e.pt1_cd = a.cht_id   -- 성명       PT1M00 
+
+ where a.cht_id  <> 0  order by b.cht_id ,b.jindt ,b.jintm,b.dae_code,b.won_code,b.seq  
+

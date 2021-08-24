@@ -1,0 +1,29 @@
+Select DISTINCT        W.OcmAcpDtm AS HOSPDATE                             
+     , ''          AS INOUT                                
+     , ''          AS DEPT                                 
+     , R.ResOcmNum AS BARCODE                              
+     , ''          AS PID                                  
+     , W.OcmChtNum AS CHARTNO                              
+     , ''          AS PJUMIN                               
+     , P.PbsPatNam AS PNAME                                
+     , ''          AS SEX                                  
+     , ''          AS AGE                                  
+     , ''          AS ORDCODE                              
+     , R.ResLabCod AS ITEM                                 
+     , ''          AS SUBCODE                              
+  From OcmInf AS W                                         
+     , OdrInf AS O                                         
+     , ResInf AS R                                         
+     , PbsInf AS P                                         
+     , LabMst AS E                                         
+ Where W.OcmNum    = R.ResOcmNum                           
+   And W.OcmChtNum = P.PbsChtNum                           
+   and W.OcmNum    = O.OdrOcmNum                           
+   And O.Odrdelflg = 'N'                                   
+   and O.OdrSeq    = R.ResOdrSeq                           
+   and R.ResLabCod = E.LabCod                              
+   and R.ResOcmNum = '1000000039'                  
+   and W.OcmComStt Not In ('CN', 'CR','VC')                
+   and Upper(R.ResLabCod) IN ('B1010','B1020','B1040','B1050','B1060','B1060A','B1060B','B1060C','B1091A','B1091B','B1091C','B1091D','B1091E','B1220','MCH','MCHC','MCV')   
+   and (R.ResRltVal is null or R.ResRltVal = '')           
+

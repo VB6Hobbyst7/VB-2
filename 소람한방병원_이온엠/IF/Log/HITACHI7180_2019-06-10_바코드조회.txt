@@ -1,0 +1,14 @@
+SELECT DISTINCT        O.H141_ODRDAT        AS HOSPDATE 
+      ,O.H141_TSAMPLENO     AS BARCODE  
+      ,P.A110_CHARTNO       AS CHARTNO  
+      ,P.A110_PATNM         AS PNAME    
+      ,P.A110_JUMIN1        AS AGE      
+      ,P.A110_SEX           AS SEX      
+      ,O.H141_SUGACD        AS ITEM     
+      ,O.H141_SEQNO         AS SUBITEM  
+  FROM TB_H141_LISTAKEBODY O, TB_A110_PATINFO P  
+ Where P.A110_ChartNo      = O.H141_CHARTNO      
+   AND O.H141_TSAMPLENO    = '1019000157'
+   AND O.H141_NOTYYN       IN ('N','T')                    And O.H141_SUGACD in ('SO-D1860','SO-D1850','SO-D2510050','SO-D1870','SO-D1830','SO-D2300','SO-D2800050','SO-D2611','XXX','XXX','XXX','SO-D2280','XXX','SO-D1880','SO-D1840','XXX')     
+ Order By O.H141_SUGACD                          
+

@@ -1,0 +1,1 @@
+Update scrrslth SET exam_stus    = decode(exam_stus, '0','1',exam_stus),      exam_rslt    = '141',      mach_rslt    = '141',      exam_dt      = '20140603154711',      exam_empno   = '041202' WHERE hos_org_no = '31205631'   AND smp_no     = '14-0016355-1'   AND cd         = 'C3791'   AND prcp_seq   = '4'   AND exam_seq   = '2'   AND rept_seq   = '2'

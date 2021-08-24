@@ -1,0 +1,221 @@
+아래  tnsnames.ora 참조하십시요.
+
+ 
+
+ID/passwd는 lbusr/lbusr
+
+dmcdev는 테스트용이구요.
+
+ 
+
+DMCHS 는 실 db입니다.
+
+ 
+
+ 
+
+ DMCDEV =
+
+  (DESCRIPTION =
+
+    (ADDRESS_LIST =
+
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 172.16.200.132)(PORT = 1521))
+
+    )
+
+    (CONNECT_DATA =
+
+      (SERVICE_NAME = DMCDEV)
+
+    )
+
+  )
+
+ 
+
+DMCHS =
+
+  (DESCRIPTION =
+
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 172.16.100.32)(PORT = 1521))
+
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 172.16.100.31)(PORT = 1521))
+
+    (LOAD_BALANCE = no)
+
+    (CONNECT_DATA =
+
+      (SERVER = DEDICATED)
+
+      (SERVICE_NAME = DMCHS)
+
+      (FAILOVER_MODE =
+
+        (TYPE = SESSION)
+
+        (METHOD = BASIC)
+
+        (RETRIES = 180)
+
+        (DELAY = 5)
+
+      )
+
+    )
+
+  )
+
+ 
+
+----------------------------------------------------------------------
+
+SP_LAB_IF_COM
+
+Is
+
+ 
+
+ 
+
+    Procedure SelectGnlRslt    //조회
+
+    (
+
+      i_ExamEqupCd        VARCHAR2,
+
+      i_SpcNo             VARCHAR2,
+
+      i_RC1               OUT CursorType
+
+    )
+
+    IS
+
+ 
+
+    BEGIN
+
+          OPEN i_RC1 FOR
+
+            SELECT    /*+SP_LAB_IF_COM.SelectGnlRslt_001*/
+
+               A.LabRsltSeq,
+
+               A.SpcNo,   //검체번호
+
+               A.LabCd,   //검사코드
+
+               A.ExamSlipCd,
+
+               A.PatId,
+
+               P.PatNm,
+
+               /*trunc(months_between(sysdate, to_date(P.BirthYmd,'yyyymmdd'))/12) AS Age,*/
+
+               HSUSR.FN_CALCAGE(P.BirthYmd, sysdate) AS Age,
+
+               P.Sex,
+
+               (SELECT ComCdNm FROM ZZ_ComCD WHERE DivCd = 'SLRsltUnit' AND A.RsltUnitCd = ComCd) AS RsltUnitCdNm,
+
+               A.RsltGb,
+
+               A.RsltProgStus,
+
+               (SELECT ComCdNm FROM ZZ_ComCD WHERE DivCd = 'SLProgStus' AND A.RsltProgStus = ComCd) AS RsltProgStusNm,
+
+               A.MinNmrc,
+
+               A.MaxNmrc,
+
+               C.ExamEqupCd, //장비코드
+
+               B.LabNm,
+
+               C.EqupExamCd,
+
+               C.RetEqupExamCd, //반환장비검사코드
+
+               B.SpcCd,
+
+               C.Basrslt,
+
+               C.CommCdYn
+
+            FROM  SL_GnlRslt      A, SL_ExamM B,
+
+                 SL_EqupExamConv C,
+
+                 HP_PatBasInfo   P
+
+            WHERE A.LabCd = B.LabCd
+
+            AND   A.LabCd = C.LabCd
+
+            AND   A.PatId = P.PatId
+
+            AND   C.ExamEqupCd   = i_ExamEqupCd
+
+            AND   A.SpcNo        = i_SpcNo
+
+            AND A.RsltProgStus   IN ('32', '39');     /*검사, 재검*/
+
+    END SelectGnlRslt;
+
+ 
+
+ 
+
+    Procedure InsertEqupRslt(                        //결과저장
+
+      i_SpcNo               VARCHAR2,   //검체번호 *
+
+      i_LabCd               VARCHAR2,   //검사코드 *
+
+      i_ExamEqupCd          VARCHAR2,   //장비코드 *
+
+      i_RetEqupExamCd       VARCHAR2,   //반환장비검사코드 *
+
+      i_EqupRslt            VARCHAR2,   //장비결과 *
+
+      i_FlagCdLst           VARCHAR2,   //Flag코드리스트
+
+      i_ErrCdLst            VARCHAR2,   //오류코드리스트
+
+      i_RackNo              VARCHAR2,  //Rack번호
+
+      i_PosNo               VARCHAR2,  //Position 번호
+
+      i_EqupSeq             NUMBER,    //장비Seq
+
+      i_Rmk                 VARCHAR2,  //비고
+
+      i_CommCdYn            VARCHAR2,  //전송코드여부 'Y'
+
+      i_ExamStrYmd          VARCHAR2,  //검사시작일자 *
+
+      i_ExamStrHms          VARCHAR2,  //검사시작시분초 *
+
+ 
+
+      i_ExamId              VARCHAR2   //검사자ID
+
+ 
+
+    )
+
+    IS
+
+ 
+
+    END InsertEqupRslt;
+
+   
+
+ 
+
+End SP_LAB_IF_COM;
+
+ 

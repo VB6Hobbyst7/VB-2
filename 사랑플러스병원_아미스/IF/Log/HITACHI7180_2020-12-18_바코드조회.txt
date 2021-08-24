@@ -1,0 +1,2823 @@
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'BIORAD 1'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'BIORAD 2'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'IMMUNO1'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'IMMUNO2'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'VIT LOW'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012170340'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000100010001000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180008'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111010000110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180022'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111010000110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180027'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111010000110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180019'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111110110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180011'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111010011110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180005'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111010000110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180002'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111010000110110000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'BIORAD 1'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'BIORAD 2'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'IMMUNO1'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = 'IMMUNO2'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012170340'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180008'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180022'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180027'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180019'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180011'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180005'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180002'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180115'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011100110100000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180096'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111110110100000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180121'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011110111101010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180087'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000010000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180116'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000010000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180122'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000010000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180086'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011110110100000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111100111100010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180106'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180064'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180049'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180053'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180058'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180076'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180070'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180090'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180061'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180073'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180046'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180067'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180079'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180111'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180137'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180143'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180082'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180125'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180166'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000010000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180154'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180115'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180157'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180160'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180165'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111100110100000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180096'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180150'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011110111101000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180121'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180087'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180116'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180122'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180086'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180106'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180064'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180049'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180053'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180058'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180076'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180070'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180090'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180061'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180073'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180046'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180067'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180079'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180111'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180137'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180143'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180082'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180125'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180166'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180154'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180157'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180151'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000010000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180168'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180160'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180165'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180150'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180176'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011110111100000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180171'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000110000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180151'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180168'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180176'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180171'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180199'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180099'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000001011010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180196'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111110111110010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180189'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000001001010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180183'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180199'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180099'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180196'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180189'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180183'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180228'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101000010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180220'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000010000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180219'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011100110100000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180212'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111011110111111010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180099'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180228'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180220'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180219'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180212'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180099'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180099'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180212'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000000000000010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180253'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012080297'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111111111111110000000000001100001000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012090260'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111111111111110000000000001100001000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012090251'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111111111111110000000000001100001000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180245'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180273'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000100010000000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180261'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+1111111110111110010000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180264'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180270'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+0011101111010000000000000000000000000000000000000000000000000000000000000000000000000000
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180099'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180212'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180253'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012080297'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012090260'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012090251'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180245'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180273'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180261'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180264'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180270'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('AMY','CZ246','D4902020','D5142030','LDL','LIP','XC00038','XC0021','XC0022','XC0025','XC0027','XC0028','XC0029','XC0030','XC0031','XC0032','XC0034','XC0038','XC0047J','XC0048','XI0011')        
+

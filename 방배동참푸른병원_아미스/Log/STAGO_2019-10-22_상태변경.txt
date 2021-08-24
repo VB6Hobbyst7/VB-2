@@ -1,0 +1,8 @@
+Update REGISTINFOS                         
+   Set RESULTSTATE  = '1'                  
+      ,RsvAcptState = '4'                  
+ Where SPCMNO       = '1910220005' 
+   AND ORDERCODE    = 'D1004'   
+   AND CLAS         = 4                    
+   AND RESULTSTATE < '4'                   
+

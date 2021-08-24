@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00106">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetURISYSRsltRef">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="bcno">
+            <column id="bcno"              desc="검체번호"   ref="bcno"/>
+            <column id="eqmtcd"              desc="장비코드"   ref="eqmtcd"/>
+            <column id="instcd"              desc="기관코드"   ref="instcd"/>
+        </table>  
+    </input> 
+     <output path="root" type="xml">
+        <table id="urisysrsltlist" count_ref="urisysrsltlist">
+            <column id="bcno"       type="string"   desc="검체번호"     ref="urisysrsltlist.bcno"/>
+            <column id="tclscd"     type="string"   desc="검사코드"     ref="urisysrsltlist.tclscd"/>
+            <column id="reptrslt"   type="cdata"    desc="결과"     ref="urisysrsltlist.reptrslt"/>
+            <column id="tclsscrnnm"   type="cdata"    desc="검사명"     ref="urisysrsltlist.tclsscrnnm"/>
+         </table>	
+    </output>
+</submit>

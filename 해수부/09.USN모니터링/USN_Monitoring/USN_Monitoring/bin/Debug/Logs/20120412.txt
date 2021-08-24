@@ -1,0 +1,14 @@
+2012-04-12 11:41:50>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12560: TNS:프로토콜 어댑터 오류
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 207

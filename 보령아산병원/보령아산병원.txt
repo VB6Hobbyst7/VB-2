@@ -1,0 +1,152 @@
+'Provider=MSDAORA.1;Password=macman;User ID=macman;Data Source=AFIS0;Persist Security Info=True';
+
+//워크리스트
+' SELECT  distinct HONM                      '+#13#10+  //병원명';
+'       , SPNO                      '+#13#10+  //검체번호';
+'       , WKNO                      '+#13#10+  //작업번호';
+'       , PAID                      '+#13#10+  //환자번호';
+'       , PANM                      '+#13#10+  //환자명';
+'       , SEXS                      '+#13#10+  //성별';
+'       , SJDT                      '+#13#10+  //생년월일';
+//'       , ORCD                      '+#13#10+  //처방코드';
+//'       , ORNM                      '+#13#10+  //처방명';
+//'       , ORSM                      '+#13#10+  //약어명';
+'       , OKFL                      '+#13#10+  //'Y/N 결과 확정 여부';
+'       , OKDT                      '+#13#10+  //결과 확정 DATE';
+'       , OKID                      '+#13#10+  //확정자';
+' FROM V_AFISINFO LR                '+#13#10+
+' WHERE OKFL = ''N''                '+#13#10+
+'   and ORCD in '+EList              +#13#10+
+'   and OKDT between to_date('''+WF+''', ''yyyymmdd'' )   '+#13#10+
+'                and to_date('''+WT+''', ''yyyymmdd'' )+1 '+#13#10+
+'   and HOCD = '''+TGlobal.HOSPCD+'''  '+#13#10+
+' order by okdt ';
+
+ADT := FormatDateTime('yyyymmdd', FieldByName('OKDT').AsDateTime);
+ANO := FieldByName('WKNO').AsString;                    
+BCD := Trim(FieldByName('SPNO').AsString);              
+PID := Trim(FieldByName('PAID').AsString);              
+SPC := ''; //FieldByName('SPECIMENCD').AsString;        
+SLP := ''; //FieldByName('PARTGBN').AsString;           
+PNM := Trim(FieldByName('PANM').AsString);              
+JNO := ''; //FieldByName('JUMIN').AsString;            
+
+
+바코드 조회
+' SELECT  HONM                      '+#13#10+  //병원명';                              
+'       , SPNO                      '+#13#10+  //검체번호';           
+'       , WKNO                      '+#13#10+  //작업번호';           
+'       , PAID                      '+#13#10+  //환자번호';           
+'       , PANM                      '+#13#10+  //환자명';             
+'       , SEXS                      '+#13#10+  //성별';               
+'       , SJDT                      '+#13#10+  //생년월일';           
+'       , ORCD                      '+#13#10+  //처방코드';           
+'       , ORNM                      '+#13#10+  //처방명';             
+'       , ORSM                      '+#13#10+  //약어명';             
+'       , OKFL                      '+#13#10+  //'Y/N 결과 확정 여부';
+'       , OKDT                      '+#13#10+  //결과 확정 DATE';     
+'       , OKID                      '+#13#10+  //확정자';             
+' FROM V_AFISINFO LR                            '+#13#10+             
+' WHERE HOCD = '''+TGlobal.HOSPCD+'''  '+#13#10+                      
+'   AND SPNO = '''+TMaster.FBarCode+''' '+#13#10+                     
+'   AND OKFL = ''N'' ';        
+
+
+ECD:= Trim(FieldByName('ORCD').AsString);                                                                    
+if TCode.SetCode_ECode(ECD) then begin                  
+    TMaster.FPatId := FieldByName('PAID').AsString;     
+    TMaster.FPatNm := FieldByName('PANM').AsString;     
+    //TMaster.FAge := Trim(FieldByName('AGE').AsString);
+    //TMaster.FSex := Trim(FieldByName('SEX').AsString);
+    TMaster.FANO := FieldByName('WKNO').AsString;       
+    Result:= True;                                      
+    TMaster.FOrdState:= 'Y';                            
+    Exit;                                               
+end;                                                    
+.
+
+
+
+결과
+function TDM.UploadHospOne_ASAN(TMaster: TIfMaster): boolean;                           
+var                                                                                     
+  spIn:TADOStoredProc;                                                                  
+  vErYn, vRet:variant;                                                                  
+begin                                                                                   
+  Result:= False;                                                                       
+                                                                                        
+  spIn:= TADOStoredProc.Create(nil);                                                    
+  try                                                                                   
+      spIn.Connection:= TConnection.HostCon;                                            
+                                                                                        
+      with spIn do begin                                                                
+          Close;                                                                        
+          ProcedureName:= 'setAfisInfo2';                                               
+          Parameters.CreateParameter('r_hocd', ftFixedChar, pdInput, 2, '');            
+          Parameters.CreateParameter('r_paid', ftFixedChar, pdInput, 8, '');            
+          Parameters.CreateParameter('r_spno', ftFixedChar, pdInput, 14, '');           
+          Parameters.CreateParameter('r_orcd', ftFixedChar, pdInput, 7, '');            
+          Parameters.CreateParameter('r_rslt', ftString   , pdInput, 30, '');           
+          Parameters.CreateParameter('r_okfl', ftFixedChar, pdInput, 1, '');            
+          Parameters.CreateParameter('r_maid', ftFixedChar, pdInput, 7, '');            
+          Parameters.CreateParameter('s_eryn', ftString   , pdOutput, 4000, '');        
+          Parameters.CreateParameter('s_retn', ftString   , pdOutput, 4000, '');        
+                                                                                        
+          Parameters.ParamByName('r_hocd').Value:= TGlobal.HOSPCD;                      
+          Parameters.ParamByName('r_paid').Value:= TMaster.FPatId;                      
+          Parameters.ParamByName('r_spno').Value:= TMaster.FBarCode;                    
+          Parameters.ParamByName('r_orcd').Value:= PadRightStr(TMaster.FExamCode,' ',7);
+          Parameters.ParamByName('r_rslt').Value:= TMaster.FResult;                     
+          Parameters.ParamByName('r_okfl').Value:= 'N';                                 
+          Parameters.ParamByName('r_maid').Value:= TGlobal.InstCode;                    
+          Parameters.ParamByName('s_eryn').Value:= vErYn;                               
+          Parameters.ParamByName('s_retn').Value:= vRet;                                
+                                                                                        
+          try                                                                           
+              ExecProc;                                                                 
+                                                                                        
+              vErYN:= Parameters.ParamByName('s_eryn').Value;                           
+              vRet := Parameters.ParamByName('s_retn').Value;                           
+                                                                                        
+              if SvrTest then                                                           
+                  TGlobal.ErrMsg:= '검체번호:'+TMaster.FBarCode+#13#10+                 
+                                   '등록번호:'+TMaster.FPatId+#13#10+                   
+                                   '검사코드:'+TMaster.FExamCode+#13#10+                
+                                   '검사결과:'+TMaster.FResult+#13#10+                  
+                                   '장비코드:'+TGlobal.InstCode+#13#10+                 
+                                   '병원코드:'+TGlobal.HOSPCD+#13#10+                   
+                                   '에러YN  :'+vErYN+#13#10+                            
+                                   '에러메세지:'+vRet;                                  
+                                                                                        
+              if VarIsNull(vErYN) then begin                                            
+                  Result:= True;                                                        
+                  exit;                                                                 
+              end                                                                       
+              else begin                                                                
+                  if vErYN = 'Y' then begin                                             
+                      TGlobal.ErrMsg:= '검체번호:'+TMaster.FBarCode+#13#10+             
+                                       '등록번호:'+TMaster.FPatID+#13#10+               
+                                       '검사코드:'+TMaster.FExamCode+#13#10+            
+                                       '검사결과:'+TMaster.FResult+#13#10+              
+                                       '장비코드:'+TGlobal.InstCode+#13#10+             
+                                       '병원코드:'+TGlobal.HOSPCD+#13#10+               
+                                       '에러YN  :'+vErYN+#13#10+                        
+                                       '에러메세지:'+vRet;                              
+                      exit;                                                             
+                  end                                                                   
+                  else begin                                                            
+                      Result:= True;                                                    
+                      exit;                                                             
+                  end;                                                                  
+              end;                                                                      
+                                                                                        
+          except                                                                        
+              on e:exception do begin                                                   
+                  ShowMessage(e.Message);                                               
+                  exit;                                                                 
+              end;                                                                      
+          end;                                                                          
+      end;                                                                              
+  finally                                                                               
+      spIn.Free;                                                                        
+  end;                                                                                 

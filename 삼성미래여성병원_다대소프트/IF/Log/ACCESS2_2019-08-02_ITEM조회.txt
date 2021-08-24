@@ -1,0 +1,11 @@
+SELECT DISTINCT        E.검사코드                              AS ITEM     
+  FROM VW_검사접수 M, VW_검사결과 R, VW_검사코드 E         
+ WHERE M.접수일자 = CONVERT(DATE, '20190801')    
+   AND M.접수일자 = R.접수일자                             
+   AND M.접수번호 = R.접수번호                             
+   AND m.접수번호 = '43245'                     
+   AND E.학부코드 = 'E1'                 
+   AND E.검사코드 IN ('Ferritin','E2','FRT4','HBAb3','5399','1756','hFSH','1669','hLH','OV125Ag','5012','5014')                  
+   AND IsNull(R.보고여부, 'N') <> 'Y'                      
+   AND (R.결과값 is null or R.결과값 = '')                 
+

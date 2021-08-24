@@ -1,0 +1,84 @@
+function TfrmMain.Create_DSR_Message(sDateTime, sControlID, sSPECNO : string;
+  var sDsrMsg : string) : Integer;
+var
+  sQry, sDeviceSPECNO : string;
+  i : Integer;
+begin
+  sDeviceSPECNO := Copy(sSPECNO, 3, 10);
+
+  sDsrMsg :=
+  #$B +
+  'MSH|^~\&|||Mindray|BS-400|' + sDateTime + '||DSR^Q03|' + sControlID + '|P|2.3.1||||||ASCII|||' + #$D#$A +
+  'MSA|AA|' + sControlID + '|Message accepted|||0|' + #$D#$A +
+  'ERR|0|' + #$D#$A +
+  'QAK|SR|OK|' + #$D#$A +
+  'QRD|' + sDateTime + '|R|D|1|||RD|' + sDeviceSPECNO + '|OTH|||T|' + #$D#$A +
+  'QRF|BS-400|' + sDateTime + '|' + sDateTime + '|||RCT|COL|ALL||' + #$D#$A +
+  'DSP|1|||||' + #$D#$A +
+  'DSP|2|||||' + #$D#$A +
+  'DSP|3|||||' + #$D#$A +
+  'DSP|4|||||' + #$D#$A +
+  'DSP|5|||||' + #$D#$A +
+  'DSP|6|||||' + #$D#$A +
+  'DSP|7|||||' + #$D#$A +
+  'DSP|8|||||' + #$D#$A +
+  'DSP|9|||||' + #$D#$A +
+  'DSP|10|||||' + #$D#$A +
+  'DSP|11|||||' + #$D#$A +
+  'DSP|12|||||' + #$D#$A +
+  'DSP|13|||||' + #$D#$A +
+  'DSP|14|||||' + #$D#$A +
+  'DSP|15|||||' + #$D#$A +
+  'DSP|16|||||' + #$D#$A +
+  'DSP|17|||||' + #$D#$A +
+  'DSP|18|||||' + #$D#$A +
+  'DSP|19|||||' + #$D#$A +
+  'DSP|20|||||' + #$D#$A +
+  'DSP|21||' + sDeviceSPECNO + '|||' + #$D#$A +
+  'DSP|22|||||' + #$D#$A +
+  'DSP|23||' + sDateTime + '|||' + #$D#$A +
+  'DSP|24|||||' + #$D#$A +
+  'DSP|25|||||' + #$D#$A +
+  'DSP|26|||||' + #$D#$A +
+  'DSP|27|||||' + #$D#$A +
+  'DSP|28|||||' + #$D#$A;
+
+  sQry := 'SELECT B.NAME ' +
+          '  FROM LRESULT A, MSTMACH B ' +
+          ' WHERE A.ORCD = B.CODE ' +
+          '   AND B.MACH = ' + QuotedStr('BS400') +
+          '   AND A.SPNO = ' + QuotedStr(sSPECNO);
+  try
+    adoQry.SQL.Text := sQry;
+    adoQry.Open;
+  except
+    on E: Exception do begin
+      Result := -1;
+      adoQry.Close;
+      ShowMessage('Error > 환자 오더정보 조회 중 오류가 발생하였습니다.' + #13 +
+        'Error Msg > ' + E.Message);
+      Exit;
+    end;
+  end;
+
+  if adoQry.RecordCount < 1 then begin
+    adoQry.Close;
+    ShowMessage('Error > 검체번호 ' + sSPECNO + ' 환자 오더정보가 존재하지 않습니다.');
+    Result := -2;
+    Exit;
+  end;
+
+  for i := 0 to adoQry.RecordCount - 1 do begin
+    sDsrMsg := sDsrMsg + 'DSP|' + IntToStr(29 + i) + '||' +
+      adoQry.FieldByName('NAME').AsString + '^^^|||' + #$D#$A;
+    adoQry.Next;
+  end;
+
+  adoQry.Close;
+
+  //sDsrMsg := sDsrMsg + 'DSC|' + sRange + '|' + #$D#$A + #$1C + #$D#$A;
+  sDsrMsg := sDsrMsg + 'DSC||' + #$D#$A + #$1C + #$D#$A;
+
+  Result := 0;
+end;
+

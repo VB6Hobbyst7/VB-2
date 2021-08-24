@@ -1,0 +1,20 @@
+Update SLA_LabResult                       
+   Set Result      = '< 0.50'     
+      ,NormalFlag  = '0'                   
+      ,PanicFlag   = '0'                   
+      ,DeltaFlag   = '0'                   
+      ,TransFlag   = '1'                   
+      ,ResultID    = '1004'
+      ,ResultDate  = '2021-02-16'
+      ,ResultTime  = '15:27:16'
+ Where SPECIMENNUM = '453927'  
+   AND OrderCode   = 'D0113'    
+   And LabCode     = 'D0113'   
+   And TRANSFLAG   < '2'                   
+
+Update SLA_LabMaster                       
+   Set JStatus = '2'                       
+ Where SPECIMENNUM = '453927'  
+   AND OrderCode   = 'D0113'    
+   And JStatus < '3'                       
+

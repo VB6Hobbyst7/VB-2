@@ -1,0 +1,37 @@
+2012-05-07 12:32:07>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_BUOY_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 12:32:11>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-05-07 12:32:11>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WEATHER_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 12:32:11>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-05-07 14:10:39>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_BUOY_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 14:16:14>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WEATHER_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 14:16:14>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-05-07 16:57:58>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQ_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 17:40:15>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQ_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 17:40:16>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-05-07 17:40:16>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQA_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-05-07 17:40:16>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\조사협회소스\USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67

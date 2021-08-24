@@ -1,0 +1,110 @@
+DXC 관련
+
+1.egfr 공식 (3가지)
+장비코드 = "03E"
+
+If GetText(vasList, 1, colSex) = "M" Then
+    lsReuslt = 186 * (CCur(asResult) ^ (-1.154)) * (CCur(GetText(vasList, 1, colAge)) ^ (-0.203))
+Else
+    lsReuslt = 186 * (CCur(asResult) ^ (-1.154)) * (CCur(GetText(vasList, 1, colAge)) ^ (-0.203)) * 0.742
+End If
+
+If GetText(vasID, gRow, colSex) = "M" Then
+    lsReuslt = 175 * (CCur(asResult) ^ (-1.154)) * (CCur(GetText(vasID, gRow, colAge)) ^ (-0.203))
+Else
+    lsReuslt = 175 * (CCur(asResult) ^ (-1.154)) * (CCur(GetText(vasID, gRow, colAge)) ^ (-0.203)) * 0.742
+End If
+
+If GetText(vasID, gRow, colSex) = "M" Then
+    If CCur(asResult) <= 0.9 Then
+	lsReuslt = 141 * (((CCur(asResult) / 0.9) ^ (-0.411))) * ((0.993) ^ CCur(GetText(vasID, gRow, colAge)))
+    ElseIf CCur(asResult) > 0.9 Then
+	lsReuslt = 141 * (((CCur(asResult) / 0.9) ^ (-1.209))) * ((0.993) ^ CCur(GetText(vasID, gRow, colAge)))
+    End If
+Else
+    If CCur(asResult) <= 0.7 Then
+	lsReuslt = 141 * (((CCur(asResult) / 0.7) ^ (-0.329))) * ((0.993) ^ CCur(GetText(vasID, gRow, colAge))) * 1.018
+    ElseIf CCur(asResult) > 0.7 Then
+	lsReuslt = 141 * (((CCur(asResult) / 0.7) ^ (-1.209))) * ((0.993) ^ CCur(GetText(vasID, gRow, colAge))) * 1.018
+    End If
+    
+End If
+
+
+2. 결과변환
+장비코드 = '89A' 검사코드 = 'L3537'
+If 수치 < 1 Then
+    lsResult = "Negative"
+Else
+    lsResult = "Positive(" & 수치 & ")"
+End If
+
+장비코드 = "RPR" 
+If 수치 < 1 Then
+lsResult = "Negative(" & 수치 & ")"
+Else
+lsResult = "Positive(" & 수치 & ")"
+End If
+
+3. 결과 Comment
+If 장비코드 = "C-LDL" And 결과 = "see comment" Then
+	SQL = ""
+	SQL = SQL & vbCrLf & "SELECT CNTS "
+	SQL = SQL & vbCrLf & "  FROM SPSLMFRMK "
+	SQL = SQL & vbCrLf & " WHERE OPNN_CD = '3023' "
+	SQL = SQL & vbCrLf & ""
+	res = db_select_Col(gServer, SQL)
+
+	gComment_Code = gReadBuf(0)
+
+ElseIf 검사코드 = "L80201F" Or 검사코드 = "L80202F" Then
+
+	If IsNumeric(asResult) = True Then
+	    If CCur(asResult) >= 60 Then
+		SQL = ""
+		SQL = SQL & vbCrLf & "SELECT CNTS "
+		SQL = SQL & vbCrLf & "  FROM SPSLMFRMK "
+		SQL = SQL & vbCrLf & " WHERE OPNN_CD = '8053' "
+		SQL = SQL & vbCrLf & ""
+		res = db_select_Col(gServer, SQL)
+		
+		gComment_Code = gReadBuf(0)
+		Exit Function
+	    Else
+		SQL = ""
+		SQL = SQL & vbCrLf & "SELECT CNTS "
+		SQL = SQL & vbCrLf & "  FROM SPSLMFRMK "
+		SQL = SQL & vbCrLf & " WHERE OPNN_CD = '8701' "
+		SQL = SQL & vbCrLf & ""
+		res = db_select_Col(gServer, SQL)
+		
+		gComment_Code = gReadBuf(0)
+		Exit Function
+	    End If
+	End If
+ElseIf 검사코드 = "L30201F" Or 검사코드 = "L30202F" Then
+					
+	If IsNumeric(asResult) = True Then
+	    If CCur(asResult) >= 60 Then
+		SQL = ""
+		SQL = SQL & vbCrLf & "SELECT CNTS "
+		SQL = SQL & vbCrLf & "  FROM SPSLMFRMK "
+		SQL = SQL & vbCrLf & " WHERE OPNN_CD = '3045' "
+		SQL = SQL & vbCrLf & " "
+		res = db_select_Col(gServer, SQL)
+		
+		gComment_Code = gReadBuf(0)
+		Exit Function
+	    Else
+		SQL = ""
+		SQL = SQL & vbCrLf & "SELECT CNTS "
+		SQL = SQL & vbCrLf & "  FROM SPSLMFRMK "
+		SQL = SQL & vbCrLf & " WHERE OPNN_CD = '3061' "
+		SQL = SQL & vbCrLf & ""
+		res = db_select_Col(gServer, SQL)
+		
+		gComment_Code = gReadBuf(0)
+		Exit Function
+	    End If
+	End If												
+End If

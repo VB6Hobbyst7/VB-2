@@ -1,0 +1,778 @@
+17:51:21 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00033' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+AND DC_DVSN = 'O' 
+17:52:34 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00033' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+AND DC_DVSN = 'O' 
+18:19:19 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00001' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:29 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00002' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:30 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00003' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:31 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00004' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:32 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00005' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:33 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00006' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:34 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00007' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:35 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00008' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:36 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00009' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:37 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00010' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:38 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00011' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:39 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00013' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:40 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00014' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:41 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00015' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:42 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00016' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:43 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00017' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:44 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00018' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:45 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00019' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:46 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00020' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:47 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00021' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:50 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00022' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:51 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00023' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:52 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00024' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:53 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00025' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:54 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00026' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:55 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00027' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:55 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00028' 
+              AND EXMN_CD IN ('LABGA04','LABGA04','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:57 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00029' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:58 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00030' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:19:59 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00031' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:00 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00032' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:01 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00033' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:03 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00034' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:04 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00035' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:05 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00036' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:06 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00037' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:07 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00038' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:08 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00039' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:09 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00040' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:10 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00041' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:11 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00042' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:12 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00043' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:13 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00044' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:15 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00045' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:16 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00046' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:17 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00047' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:18 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00048' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:19 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00049' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:20 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00050' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:21 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00051' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:22 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00052' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:23 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00053' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:24 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00054' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:25 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00055' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:27 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00056' 
+              AND EXMN_CD IN ('GLABR','LABGA03','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:28 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00057' 
+              AND EXMN_CD IN ('GLABE','LABGA01','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:29 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00058' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 
+18:20:30 [POCT贸规T] : 
+UPDATE MDMDHTORD 
+   SET PRSC_STAT = '51'
+     , RPTG_DT = SYSDATE
+     , AMEN_ID = 'POCT'
+ WHERE (PRSC_SQNO, PRSC_CD) 
+       IN (SELECT PRSC_SQNO, EXMN_CD 
+             FROM SPSLMJBDI 
+            WHERE SPCM_NO = '20111122LA00059' 
+              AND EXMN_CD IN ('GLABI','LABGA02','') 
+              AND SPCM_STAT = '2') 
+              AND PRSC_STAT < '51' 
+AND DC_DVSN = 'O' 

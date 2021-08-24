@@ -1,0 +1,18 @@
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE     
+     , R.SPCMNO                AS BARCODE      
+     , P.PATID                 AS PID          
+     , P.PATNAME               AS PNAME        
+     , P.SEX                   AS SEX          
+     , R.ORDERCODE             AS ORDCODE      
+     , R.RESULTITEMCODE        AS ITEM         
+  FROM REGISTINFOS O, RESULTOFNUM R, PATMST P  
+ WHERE O.ACPTDATE  = R.ACPTDATE                
+   AND O.PATID     = R.PATID                   
+   AND O.ACPTSEQ   = R.ACPTSEQ                 
+   AND O.PATID     = P.PATID                   
+   AND R.SPCMNO = '1907080019'         
+   AND R.RESULTITEMCODE IN ('D1860','D1850','D2510050','D1870','CA','GGT','IP','D2263','D3022A','D3022','D2611','D2300','D2280','D2310','D1840','D1880','D1830','DB','D2613','LDL-C','D0113','D7813','D7811')
+   AND O.CLAS          = 4                     
+   AND R.RESULTFLAG    = 0                     
+ ORDER BY R.SPCMNO                             
+

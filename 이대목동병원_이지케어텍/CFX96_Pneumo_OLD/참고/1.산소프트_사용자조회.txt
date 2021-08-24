@@ -1,0 +1,70 @@
+1. 웹서비스 주소 
+http://devensysinf.eumc.ac.kr/MS/LM/LMWebService.asmx (개발기) 
+http://esysinf.eumc.ac.kr/MS/LM/LMWebService.asmx (운영기)
+
+2. 웹서비스 메소드
+LMService("GETQUERY", xml)
+
+P0   병원구분
+P1   사용자사번
+P2   패스워드
+
+3. xml 규격
+
+샘플입니다.
+
+================================================
+
+GETQUERY 리스트 조회시 
+
+<?xml version='1.0' encoding='UTF-8'?>
+<Table>
+<QID>
+<![CDATA[PKG_MSE_LM_INTERFACE.PC_MSE_USER_SELECT]]>       
+</QID>
+<QTYPE>
+<![CDATA[Package]]>
+</QTYPE>
+<USERID>
+<![CDATA[RTE]]>
+</USERID>
+<EXECTYPE>
+<![CDATA[FILL]]>
+</EXECTYPE>
+<P0>
+<![CDATA[02]]>
+</P0>
+<P1>
+<![CDATA[C0EMR]]>
+</P1>
+<P2>
+<![CDATA[11111]]>
+</P2>
+</Table>
+
+<?xml version='1.0' encoding='euc-kr'?>
+<Table>
+<QID>
+<![CDATA[PKG_MSE_LM_INTERFACE.PC_MSE_USER_SELECT]]>
+</QID>
+<QTYPE>
+<![CDATA[Package]]>
+</QTYPE>
+<USERID>
+<![CDATA[RTE]]>
+</USERID>
+<EXECTYPE>
+<![CDATA[FILL]]>
+</EXECTYPE>
+<P0>
+<![CDATA[02]]>
+</P0>
+<P1>
+<![CDATA[C0EMR]]>
+</P1>
+<P2>
+<![CDATA[11111]]>
+</P2>
+</Table>
+
+

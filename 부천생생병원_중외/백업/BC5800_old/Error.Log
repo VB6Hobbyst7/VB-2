@@ -1,0 +1,379 @@
+2016-11-08 17:07:07
+ 오더체크 에러 입니다! 에러메세지->ORA-03114: ORACLE에 연결되어 있지 않습니다
+2016-11-08 17:15:50
+ 오더체크 에러 입니다! 에러메세지->ORA-03114: ORACLE에 연결되어 있지 않습니다
+2018-01-12 11:15:50
+ 오더체크 에러 입니다! 에러메세지->ORA-03114: ORACLE에 연결되어 있지 않습니다
+2018-01-12 12:04:04
+ 오더체크 에러 입니다! 에러메세지->ORA-03114: ORACLE에 연결되어 있지 않습니다
+2018-12-06 07:57:29
+Record is deleted [Sql: Delete From TB_Result Where ExamDate <= '20180907' ]
+2019-04-25 08:58:26
+Record is deleted [Sql: Delete From TB_Result Where ExamDate <= '20190125' ]
+2019-04-25 08:58:26
+Record is deleted [Sql: Delete From TB_Master Where ExamDate <= '20190125' ]
+2019-06-14 08:52:35
+Could not use ''; file already in use
+[ Select Abbr, DispSeq From TB_CodeInfo Order By int(DispSeq) ]
+2019-06-14 08:52:36
+Could not use ''; file already in use
+[ Select ExamCode From TB_CodeInfo Order By DispSeq ]
+2019-06-14 08:52:36
+Could not use ''; file already in use
+[ Select * From TB_CodeInfo 
+ Order By DispSeq, ExamCode ]
+2019-06-14 08:52:36
+Could not use ''; file already in use
+[ Select Abbr, DispSeq From TB_CodeInfo Order By int(DispSeq) ]
+2019-06-14 08:52:37
+Could not use ''; file already in use [Sql: Delete From TB_Result Where ExamDate <= '20190316' ]
+2019-06-14 08:52:37
+Could not use ''; file already in use
+[ Select ExamCode From TB_CodeInfo Order By DispSeq ]
+2019-06-14 08:52:37
+Could not use ''; file already in use [Sql: Delete From TB_Master Where ExamDate <= '20190316' ]
+2019-06-14 08:52:37
+Could not use ''; file already in use
+[ Select * From TB_CodeInfo 
+ Order By DispSeq, ExamCode ]
+2019-06-14 08:52:38
+Could not use ''; file already in use [Sql: Delete From TB_Result Where ExamDate <= '20190316' ]
+2019-06-14 08:52:39
+Could not use ''; file already in use [Sql: Delete From TB_Master Where ExamDate <= '20190316' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly
+[ Select iif( isNull(Max(Int(ExamSeq))), 1, Max(Int(ExamSeq))+1) As SEQ From TB_Master 
+ Where ExamDate = '20191119'         ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly
+[ Select * From TB_Master 
+ Where ExamDate = '20191119' 
+   And ExamSeq  = '001' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Master' [Sql: Insert Into TB_Master 
+ ( ExamDate, ExamSeq, ExamTime, BarCode, DEPT, ReceiptNo, ODT, OrdCode, PId, PNM, RPOS, ADT, ANO, SLP, UpState, ErrorTxt ) 
+ Values 
+ ( '20191119' 
+ , '001'  
+ , '2019-11-19 13:05:52'  
+ , '00166823'  
+ , ''    
+ , '0'    
+ , ''  
+ , 'CBC6DG  '  
+ , '00037920'    
+ , '여인순'    
+ , '-001'    
+ , '2019-11-19'    
+ , '365376'    
+ , ''    
+ , 'N'  
+ , '')  ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'D0002010  ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'D0002010  '  
+  , '' 
+  , ''    
+  , 'WBC'    
+  , 'N'      
+  , '3.97')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1091E    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1091E    '  
+  , '' 
+  , ''    
+  , 'BAS%'    
+  , 'N'      
+  , '0.5')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1091A    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1091A    '  
+  , '' 
+  , ''    
+  , 'NEU%'    
+  , 'N'      
+  , '45.2')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1091D    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1091D    '  
+  , '' 
+  , ''    
+  , 'EOS%'    
+  , 'N'      
+  , '1.3')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1091B    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1091B    '  
+  , '' 
+  , ''    
+  , 'LYM%'    
+  , 'N'      
+  , '41.8')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1091C    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1091C    '  
+  , '' 
+  , ''    
+  , 'MON%'    
+  , 'N'      
+  , '11.2')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'D0002030  ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'D0002030  '  
+  , '' 
+  , ''    
+  , 'RBC'    
+  , 'N'      
+  , '3.95')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'D0002050  ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'D0002050  '  
+  , '' 
+  , ''    
+  , 'HGB'    
+  , 'N'      
+  , '12.0')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1220A    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1220A    '  
+  , '' 
+  , ''    
+  , 'MCV'    
+  , 'N'      
+  , '93.7')   ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:52
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1220B    ' ]
+2019-11-19 13:05:52
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1220B    '  
+  , '' 
+  , ''    
+  , 'MCH'    
+  , 'N'      
+  , '30.4')   ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1220C    ' ]
+2019-11-19 13:05:53
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1220C    '  
+  , '' 
+  , ''    
+  , 'MCHC'    
+  , 'N'      
+  , '32.4')   ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'D0002040  ' ]
+2019-11-19 13:05:53
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'D0002040  '  
+  , '' 
+  , ''    
+  , 'HCT'    
+  , 'N'      
+  , '37.0')   ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'D0002070  ' ]
+2019-11-19 13:05:53
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'D0002070  '  
+  , '' 
+  , ''    
+  , 'PLT'    
+  , 'N'      
+  , '331')   ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Result'.  Make sure it exists and that its name is spelled correctly
+[ Select * FRom TB_Result             Where ExamDate = '20191119'    And ExamSeq  = '001'     And ExamCode = 'B1220E    ' ]
+2019-11-19 13:05:53
+Could not find output table 'TB_Result' [Sql: Insert Into TB_Result    
+ ( ExamDate, ExamSeq, OrdCODE, ExamCode, PNAME, IfCode, UpCode, Flag, Result ) 
+ Values                
+ (  '20191119'   
+  , '001'    
+  , 'CBC6DG  '   
+  , 'B1220E    '  
+  , '' 
+  , ''    
+  , 'MPV'    
+  , 'N'      
+  , '8.6')   ]
+2019-11-19 13:05:53
+The Microsoft Jet database engine cannot find the input table or query 'TB_Master'.  Make sure it exists and that its name is spelled correctly [Sql: Update TB_Master Set 
+   UpState = 'Y' 
+ Where ExamDate = '20191119' 
+   And ExamSeq = '001' ]
+2019-11-19 13:29:35
+Unrecognized database format 'D:\SANSOFT\BC5800\SANSOFT.MDB'
+[ Select Abbr, DispSeq From TB_CodeInfo Order By int(DispSeq) ]
+2019-11-19 13:29:35
+Unrecognized database format 'D:\SANSOFT\BC5800\SANSOFT.MDB'
+[ Select ExamCode From TB_CodeInfo Order By DispSeq ]
+2019-11-19 13:29:35
+Unrecognized database format 'D:\SANSOFT\BC5800\SANSOFT.MDB'
+[ Select * From TB_CodeInfo 
+ Order By DispSeq, ExamCode ]
+2019-11-19 13:29:35
+Unrecognized database format 'D:\SANSOFT\BC5800\SANSOFT.MDB' [Sql: Delete From TB_Result Where ExamDate <= '20190821' ]
+2019-11-19 13:29:36
+Unrecognized database format 'D:\SANSOFT\BC5800\SANSOFT.MDB' [Sql: Delete From TB_Master Where ExamDate <= '20190821' ]

@@ -1,0 +1,29 @@
+SELECT DISTINCT        SLABW_INOUT             AS INOUT    
+     , SLABWS_DATE             AS HOSPDATE 
+     , SLABW_TIME              AS TIME              
+     , CHAM_KEY                AS BARCODE  
+     , CHAM_WHANJA             AS PNAME    
+     , CHAM_JUMIN1             AS JUMIN1   
+     , CHAM_JUMIN2             AS JUMIN2   
+     , SPECI_DATE              AS CHARTNO 
+     , SPECI_SEQNO             AS PID      
+     , CONCAT(RTRIM(LTRIM(C.SLABWS_MOMU)),'|',RTRIM(LTRIM(C.SLABWS_SCNT))) AS ITEM               
+     , C.slabws_result,C.slabws_slab,B.slabw_slab
+FROM BRWONMU..WCHAM A                                                
+       INNER JOIN OSLABW B     ON A.CHAM_KEY = B.SLABW_CHAM            
+       INNER JOIN OSLABWS C    ON B.SLABW_DATE = C.SLABWS_DATE         
+                               AND B.slabw_dept = C.slabws_dept        
+                               AND B.slabw_cnt = C.slabws_cnt          
+                               AND B.slabw_slab = C.slabws_slab        
+                               And RTRIM(LTRIM(C.SLABWS_MOMU))      IN ('D0002010','D0002010','D0002010','D0002020','D0002030','D0002040','D0002040','D0002040','D0002040','D0002050','D0002050','D0002050','D0002060','D0002070','D0013','D0013','D0013','D0013','D0013','D0013','D0013') 
+       INNER JOIN OSLABS E     ON C.SLABWS_SCNT = E.SLABS_CNT          
+                               AND C.slabws_slab = E.slabs_key         
+                               AND E.slabs_use  = 1                    
+       INNER JOIN Ospecislab F ON B.slabw_cnt = F.specis_cnt           
+                               AND B.slabw_date = F.specis_date        
+                               AND B.slabw_dept = F.specis_dept        
+       INNER JOIN OSPECIMEN S  ON A.cham_key = S.SPECI_CHAM            
+                               AND F.specis_date = S.speci_date        
+                               AND F.specis_seqno = S.speci_seqno      
+                               And F.specis_date  = '20210401'  
+                               And F.specis_seqno  = '33'  

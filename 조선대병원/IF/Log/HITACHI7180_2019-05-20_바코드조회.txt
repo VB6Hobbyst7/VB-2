@@ -1,0 +1,19 @@
+Select DISTINCT M.PART_JUBSU_DATE   AS HOSPDATE         
+     , M.PART_JUBSU_TIME                       
+     , M.BUNHO             AS PID              
+     , M.SUNAME            AS PNAME            
+     , M.AGE               AS AGE              
+     , M.SEX               AS SEX              
+     , M.GWA_NAME          AS INOUT            
+     , R.HANGMOG_CODE                          
+     , E.JANGBI_OUT_CODE   AS ITEM                  , R.LAB_NO            AS CHARTNO          
+  From MEDI.CPL3020 R                          
+     , MEDI.CPL2010 M                          
+     , MEDI.CPL0101 E                          
+ Where R.SPECIMEN_SER  = '2202'  
+   and NVL(R.CONFIRM_YN, 'N') = 'N'            
+   and R.JANGBI_CODE   = 'IN'
+   and E.JANGBI_OUT_CODE is Not Null           
+   and R.SPECIMEN_SER  = M.SPECIMEN_SER        
+   and R.HANGMOG_CODE  = E.HANGMOG_CODE        
+   and R.SPECIMEN_CODE = E.SPECIMEN_CODE       

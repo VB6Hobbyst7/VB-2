@@ -1,0 +1,58 @@
+
+
+Date :Feb-11-2014 18:03:20
+ID_NO:0001-                
+Ward: 
+Name: 
+BLD    -    neg          
+BIL    -    neg          
+URO    +-  norm          
+KET    -    neg          
+PRO    -    neg          
+NIT    -    neg          
+GLU    -    neg          
+p.H         8.0          
+S.G       1.015          
+LEU    +-    10   WBC/ul 
+COL LT.Yellow  
+CLA Clear      
+
+Date :Feb-11-2014 18:03:20
+ID_NO:0001-                
+Ward: 
+Name: 
+BLD    -    neg          
+BIL    -    neg          
+URO    +-  norm          
+KET    -    neg          
+PRO    -    neg          
+NIT    -    neg          
+GLU    -    neg          
+p.H         8.0          
+S.G       1.015          
+LEU    +-    10   WBC/ul 
+COL LT.Yellow  
+CLA Clear      
+
+Date :Feb-11-2014 18:03:20
+ID_NO:0001-                
+Ward: 
+Name: 
+BLD    -    neg          
+BIL    -    neg          
+URO    +-  norm          
+KET    -    neg          
+PRO    -    neg          
+NIT    -    neg          
+GLU    -    neg          
+p.H         8.0          
+S.G       1.015          
+LEU    +-    10   WBC/ul 
+COL LT.Yellow  
+CLA Clear      
+
+[SQL] SELECT a.EnterDate, b.Status, b.waitseqno, b.MAP2SEQNO, b.DispDesc, b.RVALUEKIND, b.NORMLOW, b.NORMHIGH, b.NORMALVALUE, b.RVALUEKIND ,  a.ChartNo, b.GumsaKind, c.sujinname, b.status  FROM onit_out..WaitPrsnp a, onit_out..jun370_resulttb b, onit_out..pewprsnp c, onit_out..BAGMAP2PREF d  WHERE a.WaitSeqNo = '1'  AND a.WaitSeqNo = b.WaitSeqNo  AND d.labno in (4)  AND b.map2seqno = d.map2seqno  AND a.chartno = c.chartno  AND B.Result = ''  AND b.map2seqno <> '1285' ORDER BY a.chartno 
+
+
+
+

@@ -1,0 +1,165 @@
+
+
+***********************지누스*************************************
+지누스 병원 코드
+32100167
+웹주소
+https://192.168.131.193
+CBC장비코드
+01
+
+//DLL정의
+function W2ACALL2(pService, pRequest, pURL:PChar):PChar; stdcall; external 'w2afun.dll';
+const
+  CS_SVC = 'SCC0191A';
+  
+  
+//워크리스트 조회
+function TDM.DownWorkList(sF, sT:string; slWork:TStringList):integer;
+var
+  SVC, URL, HCD:string;
+  OrdStr, ICD, SMP:string;
+begin
+  Result:= -1;
+
+  if SvrConnection = False then begin
+      ShowMessage('테스트모드입니다!');
+      slWork.Add( '05	13-0024502-1	0	0	201305031426	00010284	서산옥	400228	2335319	ICU	ICU	IM	I	 	 	 	N	0	0');
+      slWork.Add( '05	13-0024510-1	0	0	201305031455	00494154	김은봉	770625	2335037	3W	311	IM	I	 	 	 	N	0	0');
+      slWork.Add( '05	13-0024534-1	0	0	201305031806	00828144	유도현	400212	1334814	 	 	ER	E	 	 	 	N	0	0');
+      Result:=1;
+      exit;
+  end;
+
+  SVC:= CS_SVC;                 //'SCC0191A';
+  URL:= TGlobal.DBIpAddr;       //https://192.168.131.193
+  HCD:= TGlobal.HOSPCD;         //32100167
+  SMP:= '%';
+
+  ICD:= TGlobal.InstCode;      //01
+
+  OrdStr:='jobs'       + TAB + 'L' + TAB +
+          'hos_org_no' + TAB + HCD + TAB +
+          'fr_ymd'     + TAB + sF  + TAB +        //yyyymmdd
+          'to_ymd'     + TAB + sT  + TAB +
+          'mach_cd'    + TAB + ICD + TAB +
+          'smp_no'     + TAB + SMP + TAB + CR;
+
+  try
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[워크리스트 포맷]'+#13#10+OrdStr;
+
+      slWork.Text := W2ACALL2(PChar(SVC), PChar(OrdStr), PChar(URL));
+      Result:= 1;
+
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[워크리스트]'+#13#10+slWork.Text;
+  except
+      exit;
+  end;
+
+end;
+
+//검체별 조회
+function TDM.DownOrder_BCD_DLL(BCD: string; slWork: TStringList): integer;
+var
+  SVC, URL, HCD:string;
+  OrdStr, ICD, SMP:string;
+begin
+  Result:= -1;
+
+  if SvrConnection = False then begin
+      ShowMessage('테스트모드입니다!');
+      if BCD = '13-0024502-1' then begin
+          slWork.Add('13-0024502-1	05	3	3	3	L3030	00010284	0		4.0	 	 	05	 	 	0	0	0	0	 	Albumin				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024502-1	05	3	4	4	C3720	00010284	0		0.7	 	 	05	 	 	0	0	0	0	 	Total Bilirubin				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU');
+          slWork.Add('13-0024502-1	05	3	5	5	L3036	00010284	0		68	 	 	05	 	 	0	0	0	0	 	Alk.Phosphatase				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024502-1	05	3	6	6	L3020	00010284	0		22	 	 	05	 	 	0	0	0	0	 	AST(GOT)				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024502-1	05	3	7	7	L3021	00010284	0		19	 	 	05	 	 	0	0	0	0	 	ALT(GPT)				201305031426	서산옥	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+      end
+      else
+      if BCD = '13-0024510-1' then begin
+          slWork.Add('13-0024510-1	05	3	8	8	L3018	00494154	0		373	 	 	05	 	 	0	0	0	0	 	Glucose(FBS)				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	9	9	L3015	00494154	0		13	 	 	05	 	 	0	0	0	0	 	BUN				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	10	10	L3033	00494154	0		4.1	 	 	05	 	 	0	0	0	0	 	Uric acid				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	11	11	L3017	00494154	0		9.0	 	 	05	 	 	0	0	0	0	 	Calcium				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024510-1	05	3	12	12	L3031	00494154	0		3.6	 	 	05	 	 	0	0	0	0	 	Phosphorus				201305031426	김은봉	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+      end
+      else
+      if BCD = '13-0024534-1' then begin
+          slWork.Add('13-0024500-1	05	7	1	0	L3022	00828144	0		547	 	 	05	 	 	0	0	0	0	 	LDH				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	8	1	0	L3023	00828144	0		26	 	 	05	 	 	0	0	0	0	 	CPK				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	9	1	0	L3032	00828144	0		176	 	 	05	 	 	0	0	0	0	 	Cholesterol				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	10	1	0	L7339	00828144	0		100	 	 	05	 	 	0	0	0	0	 	Triglyceride				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	11	1	0	L3027	00828144	0		51	 	 	05	 	 	0	0	0	0	 	Amylase				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+          slWork.Add('13-0024500-1	05	12	1	0	L3028	00828144	0		177	 	 	05	 	 	0	0	0	0	 	Lipase				201305031426	유도현	400228	2335319	I	20130503	IM	059	Serum	ICU	ICU	');
+      end;
+      Result:=1;
+      exit;
+  end;
+
+  SVC:= CS_SVC;                 //'SCC0191A';
+  URL:= TGlobal.DBIpAddr;       //https://192.168.131.193
+  HCD:= TGlobal.HOSPCD;         //32100167
+  SMP:= BCD;
+
+  ICD:= TGlobal.InstCode;
+
+  OrdStr:='jobs'       + TAB + 'Q' + TAB +
+          'hos_org_no' + TAB + HCD + TAB +
+          'smp_no'     + TAB + SMP + TAB +
+          'mach_cd'    + TAB + ICD + TAB + CR;
+  try
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[바코드 포맷]'+#13#10+OrdStr;
+
+      slWork.Text := W2ACALL2(PChar(SVC), PChar(OrdStr), PChar(URL));
+      Result:=1;
+
+      if SVRTEST = True then
+          TGlobal.LogMsg:= '[바코드 오더]'+#13#10+slWork.Text;
+  except
+      exit;
+  end;
+end;
+
+//결과등록
+HCD:= TGlobal.HOSPCD;
+ICD:= TGlobal.InstCode;
+
+//헤더
+H:= 'jobs'         + TAB + 'A'  + TAB + 
+    'hos_org_no'   + TAB + HCD  + TAB ;
+    
+//결과
+M:= 'smp_no'       + TAB + BCD  + TAB +                       
+    'prcp_seq'     + TAB + OSEQ + TAB +     
+    'exam_seq'     + TAB + ESEQ + TAB +     
+    'rept_seq'     + TAB + PSEQ + TAB +     
+    'cd'           + TAB + OCD + TAB  +     
+    'pt_no'        + TAB + PID + TAB +      
+    'exam_rslt'    + TAB + RES + TAB +      
+    'exam_rslt_cd' + TAB + RCD + TAB +      
+    'mach_rslt'    + TAB + RES + TAB + CR;  
+                                            
+if Pos('완료', UploadHosp_Dll(H+M)) > 0 then
+    Inc(UpSucc);      
+    
+function TDM.UploadHosp_Dll(S:string): string;                              
+var                                                   
+  SVC, URL:string;                                    
+begin                                                 
+  if SvrConnection = False then exit;                 
+                                                      
+  SVC:= CS_SVC;                                       
+  URL:= TGlobal.DBIpAddr;                             
+                                                      
+  if SVRTEST = True then                              
+      TGlobal.LogMsg:= '[결과포맷]'+#13#10+S;         
+                                                      
+  Result:= W2ACALL2(PChar(SVC), PChar(S), PChar(URL));
+                                                      
+  if SVRTEST = True then                              
+      TGlobal.LogMsg:= '[결과리턴]'+#13#10+Result;    
+                                                      
+end;    

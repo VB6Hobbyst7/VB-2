@@ -1,0 +1,12 @@
+Update SLA_LabResult  
+   Set Result = '100', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2017-06-27', 
+       ResultTime = '14:32:31' 
+ Where SPECIMENNUM = '31663' 
+   And LabCode = 'C3711CC3'
+   And transflag < '2' 

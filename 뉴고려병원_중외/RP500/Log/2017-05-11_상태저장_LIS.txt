@@ -1,0 +1,10 @@
+Update SLA_LabMaster 
+   Set JStatus = '3' 
+ Where SPECIMENNUM = '3374170' 
+   AND OrderCode = 'C3815' 
+   And JStatus < '3' 
+Update SLA_LabMaster 
+   Set JStatus = '3' 
+ Where SPECIMENNUM = '03374170' 
+   AND OrderCode = '' 
+   And JStatus < '3' 

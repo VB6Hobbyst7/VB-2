@@ -1,0 +1,8 @@
+SELECT a.접수일자,(a.진료검사ID + '-' + a.진료지원ID + '-' + a.진료처방ID) as 바코드,a.챠트번호,b.환자이름,b.환자성별,a.처방코드,a.서브코드
+  FROM SEE_TREATEXAM a,SEE_CHART b
+ WHERE a.접수일자 Between '20161214' AND '20161214'
+   AND a.챠트번호 = b.챠트번호
+   AND a.처방코드 IN ('BRC07','C2200')
+   AND a.진료처방ID > 0 
+   AND a.연동구분 = '1' 
+ ORDER BY a.접수일자,a.챠트번호

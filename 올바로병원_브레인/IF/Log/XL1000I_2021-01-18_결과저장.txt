@@ -1,0 +1,144 @@
+Update OSLABWS    Set slabws_cresult      = '12.2'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 2  
+   And RTRIM(slabws_momu)  = 'D1003'   
+
+Update OSLABWS    Set slabws_cresult      = '1.02'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 3  
+   And RTRIM(slabws_momu)  = 'D1003'   
+
+Update OSLABWS    Set slabws_cresult      = '34.2'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 4  
+   And RTRIM(slabws_momu)  = 'D1004'   
+
+Update OSLABWS    Set slabws_cresult      = '12.2'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 2  
+   And RTRIM(slabws_momu)  = 'D1003'   
+
+Update OSLABWS    Set slabws_cresult      = '1.02'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 3  
+   And RTRIM(slabws_momu)  = 'D1003'   
+
+Update OSLABWS    Set slabws_cresult      = '34.2'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 4  
+   And RTRIM(slabws_momu)  = 'D1004'   
+
+Update OSLABWS    Set slabws_result      = '12.2'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 2  
+   And RTRIM(slabws_momu)  = 'D1003'   
+
+Update OSLABWS    Set slabws_result      = '1.02'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 3  
+   And RTRIM(slabws_momu)  = 'D1003'   
+
+Update OSLABWS    Set slabws_result      = '34.2'     
+ Where slabws_date         = '20210116' 
+   And slabws_cnt          = (Select slabw_cnt                                     
+                                From Oslabw                                        
+                               Where slabw_cham            = '0000012975'  
+                                 And slabw_date            = '20210116' 
+                                 And RTRIM([slabw_time])   = '1707'    
+                                 And slabws_date           = slabw_date            
+                                 And slabws_dept           = slabw_dept            
+                                 And slabws_cnt            = slabw_cnt             
+                                 And slabws_slab           = slabw_slab            
+                                 And slabw_status          <>'2'       )           
+   And RTRIM(slabws_slab)  = 'APTT'    
+   And RTRIM(slabws_scnt)  = 4  
+   And RTRIM(slabws_momu)  = 'D1004'   
+

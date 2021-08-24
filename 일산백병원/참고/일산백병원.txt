@@ -1,0 +1,155 @@
+var
+  ECD, IfCd, UpCd, Abbr:string;
+  Rc, K:integer;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  //if BarCodeCheck_SGB(TMaster.FBarCode) = False then
+  //    exit;
+
+  with qrySOrder do begin
+      Close;
+            Close;
+      Close;
+      SQL.Text:=' exec p_interfacequery ''2'', :BCD ';
+      Parameters.ParamByName('BCD').Value:= Copy(TMaster.FBarCode,1,11);
+      try
+          if SvrTEST then
+              sql.SaveToFile(ORD_SQL);
+
+          Open;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= '오더조회 에러 입니다! 에러메세지->'+ e.Message+' SQL=>'+ SQL.Text;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          Rc:= RecordCount;
+          K:= -1;
+
+          TMaster.vOrder  := VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vAbbr   := VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vSeqList:= VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vEcdList:= VarArrayCreate([0,Rc-1], varVariant);
+          TMaster.vUpCode := VarArrayCreate([0,Rc-1], varVariant);
+
+          while Not Eof do begin
+              ECD:= Trim(FieldByName('ORD_CODE').AsString)+IntToStr(FieldByName('LELMT_SEQ').AsInteger);
+
+              if IsUseExamCode(ECD) = True then begin
+                  Inc(K);
+
+                  TMaster.vEcdList[K]:= FieldByName('ORD_CODE').AsString;
+
+                  GetIfData(ECD, IFCd, Abbr, UpCd);
+
+                  TMaster.vOrder[K]:= IfCd;
+
+                  TMaster.vUpCode[K]:= UpCd;
+
+                  TMaster.vAbbr[K]:= Abbr;
+
+                  TMaster.vSeqList[k]:= IntToStr(FieldByName('LELMT_SEQ').AsInteger);
+
+                  if Result = false then begin
+
+                      TMaster.FOrdState:= 'Y';
+
+                      Result:= True;
+                  end;
+              end;
+
+              Next;
+          end;
+      end;
+
+      if Result = False then exit;
+
+      Close;
+      SQL.Text:=' exec p_interfacequery ''1'', :BCD ';
+      Parameters.ParamByName('BCD').Value:= Copy(TMaster.FBarCode,1,11);
+      try
+
+          Open;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= '오더조회 에러 입니다! 에러메세지->'+ e.Message+' SQL=>'+ SQL.Text;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          TMaster.FPID := FieldByName('CHART_NO').AsString;
+          TMaster.FPNM := FieldByName('PAT_NAME').AsString;
+          TMaster.FANO := IntToStr(FieldByName('SAMPLE_SEQ').AsInteger);
+          TMaster.FADT := FieldByName('SAMPLE_DATE').AsString;
+          TMaster.FDept := FieldByName('DEPT_CODE').AsString;
+          TMaster.FSLP  := FieldByName('PART').AsString;
+          TMaster.FSpcCd:= Trim(FieldByName('SPEC_CODE').AsString);
+          TMaster.FRoom     := FieldByName('BED_NO').AsString;
+      end;
+  end;
+  
+  
+  
+var
+  //spIn:TADOStoredProc;
+  vOutErr:variant;
+  RES, VAL:string;
+begin
+  Result:= False;
+
+  if SvrTEST = True then
+      TGlobal.DataLog:= 'SampleDate:'+TMaster.FADT+#13#10+
+                        'Part:'+TMaster.FSLP+#13#10+
+                        'PID:'+TMaster.FPID+#13#10+
+                        'SampleSeq:'+TMaster.FANO+#13#10+
+                        'ECD:'+TMaster.FExamCode+#13#10+
+                        'LelmtSeq:'+TMaster.FLelmtSeq+#13#10+
+                        'RES:'+TMaster.FResult+#13#10+
+                        'BCD:'+TMaster.FBarCode+#13#10+
+                        'UserId:'+TGlobal.FUserID;
+
+  with proUp do begin
+      Close;
+      //ProcedureName:= 'p_l3a01interface;1';
+
+      Parameters.ParamByName('@Action').Value     := 'U';
+      Parameters.ParamByName('@Sample_date').Value:= TMaster.FADT;
+      Parameters.ParamByName('@Part').Value       := TMaster.FSLP;
+      Parameters.ParamByName('@Chart_no').Value   := TMaster.FPID;
+      Parameters.ParamByName('@Sample_seq').Value := StrToIntDef(TMaster.FANO, 0);
+      Parameters.ParamByName('@Ord_code').Value   := TMaster.FExamCode;
+      Parameters.ParamByName('@Lelmt_seq').Value  := StrToIntDef(TMaster.FLelmtSeq, 0);
+      Parameters.ParamByName('@Result').Value     := TMaster.FResult;
+      Parameters.ParamByName('@q_ref').Value     := '';
+      Parameters.ParamByName('@q_pan').Value     := '';
+      Parameters.ParamByName('@q_del').Value     := '';
+      Parameters.ParamByName('@q_cri').Value     := '';
+      Parameters.ParamByName('@USER_ID').Value   := TGlobal.FUserID;
+      Parameters.ParamByName('@GOODS_CODE').Value   := TGlobal.FICode;
+
+      try
+          ExecProc;
+          Result:= True;
+          TMaster.FUpState:= 'Y';
+
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+  end;

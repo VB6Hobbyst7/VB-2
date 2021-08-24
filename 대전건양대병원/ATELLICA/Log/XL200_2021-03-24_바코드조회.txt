@@ -1,0 +1,15 @@
+Select DISTINCT        SAVESEQ                 
+     , HOSPDATE                
+     , INOUT                   
+     , CHARTNO                 
+     , BARCODE                 
+     , PID                     
+     , PNAME                   
+     , PSEX                    
+     , PAGE                    
+     , PJUMIN                  
+     , EXAMCODE        AS ITEM 
+  From UB_PATRESULT                        
+ Where BARCODE = '5'      
+   And EXAMCODE IN ()    
+   AND SENDFLAG = '0' Order by SAVESEQ,HOSPDATE,PNAME           

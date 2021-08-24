@@ -1,0 +1,1 @@
+Select INDTM   From SNUBH_TLA..TB_EVENT  Where BCD = '170117502001'   And GRPCD = 'ARC'   And STA IN ('O','R')    And SEQ = (Select MAX(SEQ) FROM SNUBH_TLA..TB_EVENT                Where BCD = '170117502001'                 And GRPCD = 'ARC'                 And STA IN ('O','R')                Group By BCD) 

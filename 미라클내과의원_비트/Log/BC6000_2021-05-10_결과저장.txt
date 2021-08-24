@@ -1,0 +1,8 @@
+UPDATE RESINF                                                      
+   SET RESRLTVAL = '13.5'                               
+     , RESUPDDTM = '202105101130'           
+     , RESREPTYP = 'M'                                             
+ WHERE LTRIM(RTRIM(ResOcmNum))         = '1000000409'      
+   AND Upper(LTRIM(RTRIM(RESLABCOD)))  = 'B1010'
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+

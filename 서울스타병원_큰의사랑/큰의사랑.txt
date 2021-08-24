@@ -1,0 +1,79 @@
+ 
+Provider=SQLOLEDB.1;Persist Security Info=False;Password=ubcare1!;User ID=sa;
+Initial Catalog=InterfaceDB;Data Source=IP주소;
+                            
+//워크리스트
+ select distinct IntOdrDte
+      , IntLabNum           --접수번호
+      , IntChtNum           --차트번호
+      , IntPatNam           --환자명
+      , IntSexTyp           --성별
+      , IntOdrStt           --상태
+      , IntEmgYon           --응급여부
+ from interfacedb..IntRst i         
+    , aphdb..rstinf r               
+ WHERE   r.RstOdrStt not in ( 'OC')     
+     and (r.rstrstval = '' or rstrstval is null) 
+     And i.intodrtyp = 'HEMO'           
+     and i.IntOdrDte = '+YYYYMMDD+'        
+     and i.IntLabCod in ('+검사코드리스트+')
+     and i.intlabnum = r.rstlabnum    
+     and i.intodrdte = r.rstodrdte    
+     and i.intlabseq = r.rstlabseq    
+     and i.intlabcod = r.rstodrcod       
+
+SQL = ""
+SQL = SQL & "SELECT DISTINCT i.IntOdrDte AS HOSPDATE"
+SQL = SQL & ", i.IntLabNum AS BARCODE "           ' 검사번호"
+SQL = SQL & ", i.IntChtNum AS CHARTNO "           ' 차트번호"
+SQL = SQL & ", i.IntPatNam AS PNAME "             ' 환자명"
+SQL = SQL & ", i.IntSexTyp AS SEX"                ' 성별"
+SQL = SQL & ", i.IntOdrStt AS STATE               ' 상태"
+SQL = SQL & ", i.IntEmgYon AS INOUT"              ' 응급여부"
+SQL = SQL & "  FROM interfacedb..IntRst i, aphdb..rstinf r " & vbCr
+SQL = SQL & " WHERE r.RstOdrStt not in ('OC') " & vbCr
+SQL = SQL & "   AND (r.rstrstval = '' or rstrstval is null)" & vbCr
+SQL = SQL & "   AND i.intodrtyp = '" & gHOSP.PARTCD & "'" & vbCr  ''HEMO'
+SQL = SQL & "   AND i.IntOdrDte BETWEEN '" & pFrom & "' AND '" & pTo & "'" & vbCr
+SQL = SQL & "   AND i.IntLabCod + cast(IntLabseq as varchar(3)) IN (" & gAllTestCd & ")" & vbCr
+SQL = SQL & "   AND i.intlabnum = r.rstlabnum" & vbCr
+SQL = SQL & "   AND i.intodrdte = r.rstodrdte" & vbCr
+SQL = SQL & "   AND i.intlabseq = r.rstlabseq" & vbCr
+SQL = SQL & "   AND i.intlabcod = r.rstodrcod" & vbCr
+
+     
+    
+//검체별 오더조회
+ SELECT i.IntOdrDte                                                   
+      , i.IntLabNum                                   
+      , i.IntChtNum                                   
+      , i.IntPatNam                                   
+      , i.IntSexTyp                                   
+      , i.IntLabSeq                                   
+      , i.IntLabCod                                   
+      , i.IntOdrStt                                   
+      , i.IntEmgYon                                   
+ from interfacedb..IntRst i                            
+    , aphdb..rstinf r                                  
+ WHERE   r.RstOdrStt not in ( 'OC')                  
+     And i.intodrtyp = 'HEMO'                      
+     And i.IntChtNum = '+차트번호+'      
+     and i.IntOdrDte = '+접수일자+'          
+     And i.IntLabNum = '+접수번호+'       
+     and i.IntLabCod in ('+검사코드리스트+')        
+     and i.intlabnum = r.rstlabnum                     
+     and i.intodrdte = r.rstodrdte                     
+     and i.intlabseq = r.rstlabseq                     
+     and i.intlabcod = r.rstodrcod                     
+  Order by i.IntOdrDte desc       
+                
+                
+//결과등록
+ UPDATE IntRst SET                                                                                    
+      IntRstVal = '+결과+'                   
+    , IntRstDte = '+결과시간('yyyymmddhhnn', now)+' 
+ WHERE IntLabNum = '+접수번호+'               
+   And IntLabSeq = '+검사코드Sub+'                
+   AND IntLabCod = '+검사코드+'              
+   And IntChtNum = '+차트번호+'                 
+   And IntOdrDte = '+접수일자+'                     

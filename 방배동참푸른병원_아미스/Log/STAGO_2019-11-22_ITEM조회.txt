@@ -1,0 +1,2 @@
+SELECT R.RESULTITEMCODE as ITEM                      FROM registinfos O, resultofnum R                 WHERE O.acptdate = R.acptdate                        AND R.SPCMNO = '1911220002'                AND O.patid = R.patid                              AND O.acptseq = R.acptseq                          AND O.CLAS = 4                                     AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL)     
+   AND R.RESULTITEMCODE in ('XH102002','XH102003','XH102001','D1004')      ORDER BY R.RESULTITEMCODE                        

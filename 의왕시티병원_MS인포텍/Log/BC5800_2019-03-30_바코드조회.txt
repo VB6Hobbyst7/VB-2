@@ -1,0 +1,57 @@
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201903300272'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('B1050','B1040','B1040-1','B1010','B1020','B1060','B1060-1','LCBC-1','LCBC-2','LCBC-3','LCBC-4','B1091-2','B1091-1','B1091-4','B1091-5','B1091-3')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B1010''B1020','B1040-1','B1050','B1060-1','B1091-1','B1091-2','B1091-3','B1091-4','B1091-5','LCBC-1','LCBC-2','LCBC-3','LCBC-4',
+'B1010''B1020','B1040-1','B1050','B1060-1','B1091-1','B1091-2','B1091-3','B1091-4','B1091-5','LCBC-1','LCBC-2','LCBC-3','LCBC-4'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201903300272'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('B1050','B1040','B1040-1','B1010','B1020','B1060','B1060-1','LCBC-1','LCBC-2','LCBC-3','LCBC-4','B1091-2','B1091-1','B1091-4','B1091-5','B1091-3')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B1010','B1020','B1040-1','B1050','B1060-1','B1091-1','B1091-2','B1091-3','B1091-4','B1091-5','LCBC-1','LCBC-2','LCBC-3','LCBC-4',
+'B1010','B1020','B1040-1','B1050','B1060-1','B1091-1','B1091-2','B1091-3','B1091-4','B1091-5','LCBC-1','LCBC-2','LCBC-3','LCBC-4'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201903300277'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('B1050','B1040','B1040-1','B1010','B1020','B1060','B1060-1','LCBC-1','LCBC-2','LCBC-3','LCBC-4','B1091-2','B1091-1','B1091-4','B1091-5','B1091-3')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B1010','B1020','B1040-1','B1050','B1060-1','B1091-1','B1091-2','B1091-3','B1091-4','B1091-5','LCBC-1','LCBC-2','LCBC-3','LCBC-4',
+'B1010','B1020','B1040-1','B1050','B1060-1','B1091-1','B1091-2','B1091-3','B1091-4','B1091-5','LCBC-1','LCBC-2','LCBC-3','LCBC-4'

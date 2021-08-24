@@ -1,0 +1,10 @@
+SELECT DISTINCT (L.처방코드 + L.서브코드) AS ITEM                  
+  FROM             TB_진료검사 L                                   
+       INNER JOIN  TB_진료지원 J ON  (L.진료지원ID = J.진료지원ID) 
+       INNER JOIN  TB_진료일반 A ON  (J.진료일자   = A.진료일자    
+                                AND   J.챠트번호   = A.챠트번호    
+                                AND   J.진료번호   = A.진료번호)   
+ Where L.검체번호= '190816033'                            
+   AND L.검사상태 < 5                                              
+   AND L.처방코드 + L.서브코드 IN ('D1860','D1850','D1870','D2263','D2611','D2300','D2280','D1840','D1880','D3022','D3022A01','D3022B01','D3022B02','D3022B03','D3022B04')             
+

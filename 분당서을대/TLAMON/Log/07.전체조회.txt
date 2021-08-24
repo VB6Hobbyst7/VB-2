@@ -1,0 +1,1 @@
+Select '1' as Num, Count(*) as Cnt   From SNUBH_TLA..TB_BCD Where (ODYYN IS NOT NULL AND ODYYN <> '')    And INDT between '20170118' and '20170201' Union All Select '2' as Num, Count(*) as Cnt   From SNUBH_TLA..TB_BCD Where (QUICKYN IS NOT NULL AND QUICKYN <> '')    And INDT between '20170118' and '20170201' Order By Num

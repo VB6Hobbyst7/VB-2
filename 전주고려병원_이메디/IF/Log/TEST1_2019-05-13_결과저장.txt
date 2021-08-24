@@ -1,0 +1,18 @@
+Update TW_HSP_OCS.TWEXAM_RESULTC           
+   Set STATUS      = '4'                   
+     , RESULT      = '65'     
+     , RESULTDATE  = TRUNC(SYSDATE)        
+ Where SPECNO      = '1905130416'  
+   And MASTERCODE  = 'LH1P01'    
+   And SUBCODE     = 'LH1T11'   
+   And STATUS      <= '3'                  
+
+Update TW_HSP_OCS.TWEXAM_RESULTC           
+   Set STATUS      = '4'                   
+     , RESULT      = '43'     
+     , RESULTDATE  = TRUNC(SYSDATE)        
+ Where SPECNO      = '1905130425'  
+   And MASTERCODE  = 'LH1P01'    
+   And SUBCODE     = 'LH1T11'   
+   And STATUS      <= '3'                  
+

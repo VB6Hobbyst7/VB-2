@@ -1,0 +1,26 @@
+Update SLA_LabResult  
+   Set Result = '+', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2018-11-19', 
+       ResultTime = '18:37:01' 
+ Where SPECIMENNUM = '123456' 
+   AND OrderCode = ''      
+   And LabCode = 'FluA'
+   And transflag < '2' 
+Update SLA_LabResult  
+   Set Result = '+', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2018-11-19', 
+       ResultTime = '18:39:39' 
+ Where SPECIMENNUM = '123456' 
+   AND OrderCode = ''      
+   And LabCode = 'FluA'
+   And transflag < '2' 

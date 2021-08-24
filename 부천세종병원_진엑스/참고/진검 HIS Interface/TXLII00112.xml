@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TXLII00112">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqSetSureRslt">
+    </action>
+    <input type="urlencoded">
+        <table id="result" count_ref="bcno">
+            <column id="instcd"    		desc="기관코드" 		ref="instcd"/>
+            <column id="bcno"    		desc="검체번호" 		ref="bcno"/>
+            <column id="tclscd"    		desc="검사코드" 		ref="tclscd"/>
+            <column id="rslt"    		desc="결과" 	type="cdata"		ref="rslt"/>
+            <column id="testdt"    		desc="검사일시" 	type="cdata"		ref="testdt"/>
+            <column id="userid"    		desc="사용자ID" 		ref="userid"/>
+            <column id="eqmtcd"    	desc="장비코드" 		ref="eqmtcd"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="ResultFlag" count_ref="result">
+            <column id="resultflag"    type="string"   desc="결과구분" 	ref="result.resultflag"/>  
+            <column id="error"    type="string"   desc="error" 	ref="result.error"/> 
+            <column id="error2"    type="string"   desc="error2" 	ref="result.error2"/>  
+     	  </table>		
+    </output>        
+</submit>

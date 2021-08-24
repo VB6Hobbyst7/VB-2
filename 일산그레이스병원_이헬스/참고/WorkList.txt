@@ -1,0 +1,9 @@
+select distinct P.APATNAME 
+              , R.OBSUMRNO 
+              , R.OBSULBNO 
+From OBSURSTM R            
+   , ABPATMST P            
+Where R.OBSULBNO between '201312100001' and '201312101000' 
+  and R.OBSUSLIP = 'F003  ' 
+  and (R.OBSURSLT = '' or R.OBSURSLT is null) 
+  and R.OBSUMRNO = P.APATMRNO order by R.OBSULBNO 

@@ -1,0 +1,7 @@
+SELECT DISTINCT ORD_CD AS ITEM             
+  FROM LIS_INTERFACE1_V                    
+ WHERE READING_YMD = '20210413'  
+   AND BCODE_NO    = '1778691'  
+   AND ORD_CD IN ('D0142','D1073003','D4023010','D4040004','D40620123')      
+ ORDER BY ORD_CD                           
+

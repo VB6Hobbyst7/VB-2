@@ -1,0 +1,121 @@
+//결과에 따른 상태코드 가져오기.
+function TDM.GetStatusCd(asPartCD, asPartGbn, asSpecimenCd, asTestItem:string; dRes: double): string;
+var
+  dLow, dHigh:double;
+  sLow, sHigh, LowCd, HighCd:string;
+begin
+  Result:= '';
+  sLow:= '';
+  sHigh:= '';
+
+  with DM.qryStatus do begin
+      Close;
+      SQL.Text:= ' Select STATUSCD, COMPOPERATOR, CRITICALVAL From STATUS '+
+                 ' Where PARTCD = '''+asPartCD+''' '+
+                 '   And PARTGBN =  '''+asPartGbn+''' '+
+                 '   And SPECIMENCD = '''+asSpecimenCd+''' '+
+                 '   And TESTITEMSEQ = '''+asTestItem+''' ';
+
+      if TGlobal.IsDebug = True then
+         SQL.SaveToFile(TGlobal.AppPath+'GetStatusCD.sql');
+
+      Open;
+
+      if RecordCount > 0 then begin
+          while Not Eof do begin
+              if FieldByName('COMPOPERATOR').AsString = '이하' then begin
+                  sLow:= FieldByName('CRITICALVAL').AsString;
+                  LowCd:= FieldByName('STATUSCD').AsString;
+              end
+              else if FieldByName('COMPOPERATOR').AsString = '이상' then begin
+                  sHigh:= FieldByName('CRITICALVAL').AsString;
+                  HighCd:= FieldByName('STATUSCD').AsString;
+              end;
+
+              Next;
+          end;
+      end;
+
+      if sLow <> '' then begin
+          if TryStrToFloat(sLow, dLow) = True then begin
+              if dLow >= dRes then begin
+                  Result:= LowCd;
+                  exit;
+              end;
+          end;
+      end;
+
+      if sHigh <> '' then begin
+          if TryStrToFloat(sHigh, dHigh) = True then begin
+              if dHigh <= dRes then begin
+                  Result:= HighCd;
+                  exit;
+              end;
+          end;
+      end;
+  end;
+end;
+
+
+//상태플래그 저장
+function TDM.SaveHospFlag(asLabDate, asPartCD, asPartGbn, asLabSeq, asSpecimenCd, asTestItem:string; dRes:double): boolean;
+var
+  CriticalCd:string;
+  UpCnt:integer;
+begin
+  Result:= False;
+
+  if dRes < -99 then exit;
+  
+  if (asLabDate = '') or (asPartCD = '') or (asPartGbn = '') or (asLabSeq = '') or (asSpecimenCd = '') or (asTestItem = '') then exit;
+
+  //상태코드 가져오기
+  CriticalCd:= GetStatusCd(asPartCD, asPartGbn, asSpecimenCd, asTestItem, dRes);
+
+  if CriticalCd = '' then exit;
+
+  with DM.qryStatus do begin
+      Close;
+      SQL.Text:=' Select * From FLAG '+#13#10+
+                ' Where LABDATE     = '''+asLabDate+''' ' +#13#10+
+                '   And PARTCD      = '''+asPartCD+'''  ' +#13#10+
+                '   And PARTGBN     = '''+asPartGbn+''' ' +#13#10+
+                '   And LABSEQ      = '''+asLabSeq+'''  ' +#13#10+
+                '   And SUBMCD      = ''NNNN''          ' +#13#10+
+                '   And SPECIMENCD  = '''+asSpecimenCd+'''    ' +#13#10+
+                '   And TESTITEMSEQ = '''+asTestItem+'''   ';
+      try
+          if TGlobal.IsDebug = True then
+              SQL.SaveToFile(TGlobal.AppPath + 'GetHospFlag.sql');
+
+          Open;
+
+          if RecordCount = 0 then begin
+              Close;
+              SQL.Text:= ' Insert Into FLAG (LABDATE, PARTCD, PARTGBN, LABSEQ, SPECIMENCD, TESTITEMSEQ, SUBMCD, STATUSCD) '+
+                         ' Values ('''+asLabDate+''', '''+asPartCD+''', '''+asPartGbn+''', '''+asLabSeq+''', '''+asSpecimenCd+''', '+
+                         '         '''+asTestItem+''', ''NNNN'', '''+CriticalCd+''') ';
+              ExecSql;
+              Result:= True;
+          end
+          else begin
+              Close;
+              SQL.Text:= ' Update FLAG Set STATUSCD = '''+CriticalCd+''' '+#13#10+
+                         ' Where LABDATE     = '''+asLabDate+''' ' +#13#10+
+                         '   And PARTCD      = '''+asPartCD+'''  ' +#13#10+
+                         '   And PARTGBN     = '''+asPartGbn+''' ' +#13#10+
+                         '   And LABSEQ      = '''+asLabSeq+'''  ' +#13#10+
+                         '   And SUBMCD      = ''NNNN''          ' +#13#10+
+                         '   And SPECIMENCD  = '''+asSpecimenCd+'''    ' +#13#10+
+                         '   And TESTITEMSEQ = '''+asTestItem+'''   ';
+              ExecSql;
+              Result:= True;
+          end;
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message+#13#10+'[SQL]'+#13#10+SQL.Text;
+              exit;
+          end;
+      end;
+  end;
+end;

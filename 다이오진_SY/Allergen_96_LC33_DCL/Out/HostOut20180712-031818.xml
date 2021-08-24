@@ -1,0 +1,280 @@
+<GROUP ID="HostOut">
+	<GROUP ID="SoftwareInfo">
+		<PARAM TYPE="String" ID="Name">APEX</PARAM>
+		<PARAM TYPE="String" ID="Version">2.23.6</PARAM>
+	</GROUP>
+	<GROUP ID="SessionInfo" FILTER="txxxr">
+		<PARAM TYPE="String" ID="ID" FILTER="-wwwr">---</PARAM>
+		<PARAM TYPE="String" ID="User" FILTER="-rrrr">1</PARAM>
+		<PARAM TYPE="DateTime" ID="LastChangeDateTime" FILTER="-rrrr">2018-07-12 오전 3:18:10</PARAM>
+		<PARAM TYPE="DateTime" ID="Execution" FILTER="-rrrr">2018-07-12 오전 3:18:10</PARAM>
+		<PARAM TYPE="String" ID="PhaseSelection" FILTER="-----">FullSession</PARAM>
+		<PARAM TYPE="String" ID="DoctorHeader"></PARAM>
+		<PARAM TYPE="String" ID="LaboratoryHeader"></PARAM>
+	</GROUP><GROUP TYPE="Instrument" ID="APBlotElite.185"><GROUP TYPE="Patient" ID="18071153001">
+			<PARAM TYPE="String" ID="SourcePosition">R01-01</PARAM>
+			<GROUP ID="PatientCard">
+				<PARAM TYPE="String[32]" ID="Group" FILTER="-wwwr">INHALANT</PARAM>
+				<PARAM TYPE="String[32]" ID="Name" FILTER="-ooor">박란주</PARAM>
+				<PARAM TYPE="String[32]" ID="Surname" FILTER="-ooor">박란주</PARAM>
+				<PARAM TYPE="Date" ID="BirthDate" FILTER="-ooor">2018-07-11</PARAM>
+				<PARAM TYPE="SexType" ID="Sex" FILTER="-wwwr">F</PARAM>
+				<PARAM TYPE="String[50]" ID="Note" FILTER="-wwwr">Note Test</PARAM>
+				<PARAM TYPE="String[50]" ID="Note" FILTER="-wwwr">53001</PARAM>
+				<PARAM TYPE="String[25]" ID="Code" FILTER="-ooor">Code Test</PARAM>
+			</GROUP><GROUP TYPE="Assay" ID="PROTIA Allergy-Q64 Inhalant"><GROUP TYPE="Results" ID="1"><GROUP>
+						<PARAM TYPE="Long" ID="Position">1</PARAM><PARAM TYPE="Long" ID="StripLength">1639</PARAM>
+						<PARAM TYPE="String" ID="ImgBlotStripPath">C:\Program Files\APEX Suite\APEX\img\APBlotElite.185-BlotStrip1.jpg</PARAM>
+						<PARAM TYPE="String" ID="Remarks"></PARAM>
+						<GROUP TYPE="Blot" ID="1" STATE="Ok"><PARAM TYPE="Long" ID="Axis">135</PARAM><PARAM TYPE="String" ID="Type">Control</PARAM><PARAM TYPE="String" ID="Name">Positive control</PARAM><PARAM TYPE="String" ID="Code">PC</PARAM><PARAM TYPE="Long" ID="Intensity">163</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="2" STATE="Ok"><PARAM TYPE="Long" ID="Axis">179</PARAM><PARAM TYPE="String" ID="Type">Standard</PARAM><PARAM TYPE="String" ID="Name">S2</PARAM><PARAM TYPE="String" ID="Code">S2</PARAM><PARAM TYPE="Long" ID="Intensity">139</PARAM><PARAM TYPE="Double" ID="Value">100</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="3" STATE="Ok"><PARAM TYPE="Long" ID="Axis">221</PARAM><PARAM TYPE="String" ID="Type">Standard</PARAM><PARAM TYPE="String" ID="Name">S3</PARAM><PARAM TYPE="String" ID="Code">S3</PARAM><PARAM TYPE="Long" ID="Intensity">111</PARAM><PARAM TYPE="Double" ID="Value">10</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="4" STATE="Ok"><PARAM TYPE="Long" ID="Axis">265</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">총 IgE
+</PARAM><PARAM TYPE="String" ID="Code">tIgE</PARAM><PARAM TYPE="String" ID="Curve">T Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="Double" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="5" STATE="Ok"><PARAM TYPE="Long" ID="Axis">305</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">집먼지
+</PARAM><PARAM TYPE="String" ID="Code">h1</PARAM><PARAM TYPE="String" ID="Curve">C Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="6" STATE="Ok"><PARAM TYPE="Long" ID="Axis">350</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">진드기(Dp)
+</PARAM><PARAM TYPE="String" ID="Code">d1</PARAM><PARAM TYPE="String" ID="Curve">C Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="7" STATE="Ok"><PARAM TYPE="Long" ID="Axis">394</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">진드기(Df)
+</PARAM><PARAM TYPE="String" ID="Code">d2</PARAM><PARAM TYPE="String" ID="Curve">C Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="8" STATE="Ok"><PARAM TYPE="Long" ID="Axis">443</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">고양이털
+</PARAM><PARAM TYPE="String" ID="Code">e1</PARAM><PARAM TYPE="String" ID="Curve">W Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="9" STATE="Ok"><PARAM TYPE="Long" ID="Axis">487</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">개털
+</PARAM><PARAM TYPE="String" ID="Code">e5</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="10" STATE="Ok"><PARAM TYPE="Long" ID="Axis">532</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">계란흰자</PARAM><PARAM TYPE="String" ID="Code">f1</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="11" STATE="Ok"><PARAM TYPE="Long" ID="Axis">576</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">우유
+</PARAM><PARAM TYPE="String" ID="Code">f2</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="12" STATE="Ok"><PARAM TYPE="Long" ID="Axis">621</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">바퀴벌레
+</PARAM><PARAM TYPE="String" ID="Code">i6</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="13" STATE="Ok"><PARAM TYPE="Long" ID="Axis">668</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">땅콩
+</PARAM><PARAM TYPE="String" ID="Code">f13</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">6</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="14" STATE="Ok"><PARAM TYPE="Long" ID="Axis">707</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">콩
+</PARAM><PARAM TYPE="String" ID="Code">f14</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="15" STATE="Ok"><PARAM TYPE="Long" ID="Axis">747</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">밀가루
+</PARAM><PARAM TYPE="String" ID="Code">f4</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="16" STATE="Ok"><PARAM TYPE="Long" ID="Axis">796</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">오리나무
+</PARAM><PARAM TYPE="String" ID="Code">t2</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="17" STATE="Ok"><PARAM TYPE="Long" ID="Axis">840</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">자작나무
+</PARAM><PARAM TYPE="String" ID="Code">t3</PARAM><PARAM TYPE="String" ID="Curve">W Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="18" STATE="Ok"><PARAM TYPE="Long" ID="Axis">885</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">참나무
+</PARAM><PARAM TYPE="String" ID="Code">t7</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="19" STATE="Ok"><PARAM TYPE="Long" ID="Axis">929</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">돼지풀
+</PARAM><PARAM TYPE="String" ID="Code">w1</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="20" STATE="Ok"><PARAM TYPE="Long" ID="Axis">978</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">환삼덩굴
+</PARAM><PARAM TYPE="String" ID="Code">w22</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="21" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1021</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">쑥 꽃가루
+</PARAM><PARAM TYPE="String" ID="Code">w6</PARAM><PARAM TYPE="String" ID="Curve">A-4 Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="22" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1065</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">알터나리아
+</PARAM><PARAM TYPE="String" ID="Code">m6</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="23" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1105</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">클라도스포리움</PARAM><PARAM TYPE="String" ID="Code">m2</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="24" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1154</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">아스퍼질러스
+</PARAM><PARAM TYPE="String" ID="Code">m3</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="25" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1198</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">게
+</PARAM><PARAM TYPE="String" ID="Code">f23</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="26" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1243</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">새우
+</PARAM><PARAM TYPE="String" ID="Code">f24</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="27" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1287</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">고등어
+</PARAM><PARAM TYPE="String" ID="Code">f206</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="28" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1328</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">호밀꽃가루
+</PARAM><PARAM TYPE="String" ID="Code">g12</PARAM><PARAM TYPE="String" ID="Curve">Y Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="29" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1376</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">CCD항원
+</PARAM><PARAM TYPE="String" ID="Code">o214</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="30" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1429</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">복숭아
+</PARAM><PARAM TYPE="String" ID="Code">f95</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="31" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1478</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">사과</PARAM><PARAM TYPE="String" ID="Code">f49</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="32" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1514</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">참깨
+</PARAM><PARAM TYPE="String" ID="Code">f10</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="33" STATE="Ok"><PARAM TYPE="Long" ID="Axis">140</PARAM><PARAM TYPE="String" ID="Type">Control</PARAM><PARAM TYPE="String" ID="Name">Positive control</PARAM><PARAM TYPE="String" ID="Code">PC</PARAM><PARAM TYPE="String" ID="Curve"/><PARAM TYPE="Long" ID="Intensity">158</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="34" STATE="Ok"><PARAM TYPE="Long" ID="Axis">185</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">저장진드기 (A)
+</PARAM><PARAM TYPE="String" ID="Code">d70</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="35" STATE="Ok"><PARAM TYPE="Long" ID="Axis">226</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">저장진드기 (T)
+</PARAM><PARAM TYPE="String" ID="Code">d72</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="36" STATE="Ok"><PARAM TYPE="Long" ID="Axis">273</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">Grass mix</PARAM><PARAM TYPE="String" ID="Code">gx1</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="Double" ID="Value">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="37" STATE="Ok"><PARAM TYPE="Long" ID="Axis">318</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">우산잔디
+</PARAM><PARAM TYPE="String" ID="Code">g2</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="Double" ID="Value">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="38" STATE="Ok"><PARAM TYPE="Long" ID="Axis">366</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">큰조아재비
+</PARAM><PARAM TYPE="String" ID="Code">g6</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="39" STATE="Ok"><PARAM TYPE="Long" ID="Axis">403</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">페니실리움
+</PARAM><PARAM TYPE="String" ID="Code">m1</PARAM><PARAM TYPE="String" ID="Curve">Y Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="40" STATE="Ok"><PARAM TYPE="Long" ID="Axis">451</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">칸디다
+</PARAM><PARAM TYPE="String" ID="Code">m5</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="41" STATE="Ok"><PARAM TYPE="Long" ID="Axis">490</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">개암나무
+</PARAM><PARAM TYPE="String" ID="Code">t4</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="42" STATE="Ok"><PARAM TYPE="Long" ID="Axis">535</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">올리브</PARAM><PARAM TYPE="String" ID="Code">t9</PARAM><PARAM TYPE="String" ID="Curve">W Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="43" STATE="Ok"><PARAM TYPE="Long" ID="Axis">579</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">플라타너스
+</PARAM><PARAM TYPE="String" ID="Code">t11</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="44" STATE="Ok"><PARAM TYPE="Long" ID="Axis">623</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">버드나무
+</PARAM><PARAM TYPE="String" ID="Code">t12</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="45" STATE="Ok"><PARAM TYPE="Long" ID="Axis">665</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">미루나무
+</PARAM><PARAM TYPE="String" ID="Code">t14</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="46" STATE="Ok"><PARAM TYPE="Long" ID="Axis">710</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">물푸레나무
+</PARAM><PARAM TYPE="String" ID="Code">t15</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="47" STATE="Ok"><PARAM TYPE="Long" ID="Axis">754</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">백송
+</PARAM><PARAM TYPE="String" ID="Code">t16</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="48" STATE="Ok"><PARAM TYPE="Long" ID="Axis">801</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">삼나무
+</PARAM><PARAM TYPE="String" ID="Code">t17</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="49" STATE="Ok"><PARAM TYPE="Long" ID="Axis">840</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">아카시아
+</PARAM><PARAM TYPE="String" ID="Code">t19</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="50" STATE="Ok"><PARAM TYPE="Long" ID="Axis">889</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">블란서국화
+</PARAM><PARAM TYPE="String" ID="Code">w7</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="51" STATE="Ok"><PARAM TYPE="Long" ID="Axis">929</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">민들레
+</PARAM><PARAM TYPE="String" ID="Code">w8</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="52" STATE="Ok"><PARAM TYPE="Long" ID="Axis">978</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">참질경이
+</PARAM><PARAM TYPE="String" ID="Code">w9</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="53" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1028</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">명아주과풀
+</PARAM><PARAM TYPE="String" ID="Code">w11</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="54" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1072</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">미역취 국화
+</PARAM><PARAM TYPE="String" ID="Code">w12</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="55" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1135</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">털비름
+</PARAM><PARAM TYPE="String" ID="Code">w14</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="56" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1179</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">라텍스
+</PARAM><PARAM TYPE="String" ID="Code">k82</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="57" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1223</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">꿀벌독</PARAM><PARAM TYPE="String" ID="Code">i1</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="58" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1268</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">말벌독
+</PARAM><PARAM TYPE="String" ID="Code">i3</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="59" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1312</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">생쥐/쥐
+</PARAM><PARAM TYPE="String" ID="Code">e71/e73</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="60" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1357</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">토끼
+</PARAM><PARAM TYPE="String" ID="Code">e82</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="61" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1401</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">기니피그
+</PARAM><PARAM TYPE="String" ID="Code">e6</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="62" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1450</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">양모
+</PARAM><PARAM TYPE="String" ID="Code">e81</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="63" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1490</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">햄스터
+</PARAM><PARAM TYPE="String" ID="Code">e84</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="64" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1530</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">말
+</PARAM><PARAM TYPE="String" ID="Code">e3</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+					</GROUP></GROUP></GROUP></GROUP><GROUP TYPE="Patient" ID="18071153002">
+			<PARAM TYPE="String" ID="SourcePosition">R01-02</PARAM>
+			<GROUP ID="PatientCard">
+				<PARAM TYPE="String[32]" ID="Group" FILTER="-wwwr">INHALANT</PARAM>
+				<PARAM TYPE="String[32]" ID="Name" FILTER="-ooor">이희정</PARAM>
+				<PARAM TYPE="String[32]" ID="Surname" FILTER="-ooor">이희정</PARAM>
+				<PARAM TYPE="Date" ID="BirthDate" FILTER="-ooor">2018-07-11</PARAM>
+				<PARAM TYPE="SexType" ID="Sex" FILTER="-wwwr">F</PARAM>
+				<PARAM TYPE="String[50]" ID="Note" FILTER="-wwwr">Note Test</PARAM>
+				<PARAM TYPE="String[50]" ID="Note" FILTER="-wwwr">53002</PARAM>
+				<PARAM TYPE="String[25]" ID="Code" FILTER="-ooor">Code Test</PARAM>
+			</GROUP><GROUP TYPE="Assay" ID="PROTIA Allergy-Q64 Inhalant"><GROUP TYPE="Results" ID="1"><GROUP>
+						<PARAM TYPE="Long" ID="Position">2</PARAM><PARAM TYPE="Long" ID="StripLength">1639</PARAM>
+						<PARAM TYPE="String" ID="ImgBlotStripPath">C:\Program Files\APEX Suite\APEX\img\APBlotElite.185-BlotStrip2.jpg</PARAM>
+						<PARAM TYPE="String" ID="Remarks"></PARAM>
+						<GROUP TYPE="Blot" ID="1" STATE="Ok"><PARAM TYPE="Long" ID="Axis">137</PARAM><PARAM TYPE="String" ID="Type">Control</PARAM><PARAM TYPE="String" ID="Name">Positive control</PARAM><PARAM TYPE="String" ID="Code">PC</PARAM><PARAM TYPE="Long" ID="Intensity">167</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="2" STATE="Ok"><PARAM TYPE="Long" ID="Axis">179</PARAM><PARAM TYPE="String" ID="Type">Standard</PARAM><PARAM TYPE="String" ID="Name">S2</PARAM><PARAM TYPE="String" ID="Code">S2</PARAM><PARAM TYPE="Long" ID="Intensity">131</PARAM><PARAM TYPE="Double" ID="Value">100</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="3" STATE="Ok"><PARAM TYPE="Long" ID="Axis">223</PARAM><PARAM TYPE="String" ID="Type">Standard</PARAM><PARAM TYPE="String" ID="Name">S3</PARAM><PARAM TYPE="String" ID="Code">S3</PARAM><PARAM TYPE="Long" ID="Intensity">108</PARAM><PARAM TYPE="Double" ID="Value">10</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="4" STATE="Ok"><PARAM TYPE="Long" ID="Axis">271</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">총 IgE
+</PARAM><PARAM TYPE="String" ID="Code">tIgE</PARAM><PARAM TYPE="String" ID="Curve">T Curve</PARAM><PARAM TYPE="Long" ID="Intensity">26</PARAM><PARAM TYPE="String" ID="QntResult">34</PARAM><PARAM TYPE="String" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="5" STATE="Ok"><PARAM TYPE="Long" ID="Axis">315</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">집먼지
+</PARAM><PARAM TYPE="String" ID="Code">h1</PARAM><PARAM TYPE="String" ID="Curve">C Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="6" STATE="Ok"><PARAM TYPE="Long" ID="Axis">360</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">진드기(Dp)
+</PARAM><PARAM TYPE="String" ID="Code">d1</PARAM><PARAM TYPE="String" ID="Curve">C Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="7" STATE="Ok"><PARAM TYPE="Long" ID="Axis">404</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">진드기(Df)
+</PARAM><PARAM TYPE="String" ID="Code">d2</PARAM><PARAM TYPE="String" ID="Curve">C Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="8" STATE="Ok"><PARAM TYPE="Long" ID="Axis">448</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">고양이털
+</PARAM><PARAM TYPE="String" ID="Code">e1</PARAM><PARAM TYPE="String" ID="Curve">W Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="9" STATE="Ok"><PARAM TYPE="Long" ID="Axis">493</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">개털
+</PARAM><PARAM TYPE="String" ID="Code">e5</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="10" STATE="Ok"><PARAM TYPE="Long" ID="Axis">533</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">계란흰자</PARAM><PARAM TYPE="String" ID="Code">f1</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="11" STATE="Ok"><PARAM TYPE="Long" ID="Axis">582</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">우유
+</PARAM><PARAM TYPE="String" ID="Code">f2</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="12" STATE="Ok"><PARAM TYPE="Long" ID="Axis">626</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">바퀴벌레
+</PARAM><PARAM TYPE="String" ID="Code">i6</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="13" STATE="Ok"><PARAM TYPE="Long" ID="Axis">666</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">땅콩
+</PARAM><PARAM TYPE="String" ID="Code">f13</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="14" STATE="Ok"><PARAM TYPE="Long" ID="Axis">714</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">콩
+</PARAM><PARAM TYPE="String" ID="Code">f14</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="15" STATE="Ok"><PARAM TYPE="Long" ID="Axis">762</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">밀가루
+</PARAM><PARAM TYPE="String" ID="Code">f4</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="16" STATE="Ok"><PARAM TYPE="Long" ID="Axis">804</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">오리나무
+</PARAM><PARAM TYPE="String" ID="Code">t2</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="17" STATE="Ok"><PARAM TYPE="Long" ID="Axis">846</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">자작나무
+</PARAM><PARAM TYPE="String" ID="Code">t3</PARAM><PARAM TYPE="String" ID="Curve">W Curve</PARAM><PARAM TYPE="Long" ID="Intensity">7</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="18" STATE="Ok"><PARAM TYPE="Long" ID="Axis">886</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">참나무
+</PARAM><PARAM TYPE="String" ID="Code">t7</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="19" STATE="Ok"><PARAM TYPE="Long" ID="Axis">937</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">돼지풀
+</PARAM><PARAM TYPE="String" ID="Code">w1</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="20" STATE="Ok"><PARAM TYPE="Long" ID="Axis">982</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">환삼덩굴
+</PARAM><PARAM TYPE="String" ID="Code">w22</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="21" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1026</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">쑥 꽃가루
+</PARAM><PARAM TYPE="String" ID="Code">w6</PARAM><PARAM TYPE="String" ID="Curve">A-4 Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="22" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1071</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">알터나리아
+</PARAM><PARAM TYPE="String" ID="Code">m6</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="23" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1115</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">클라도스포리움</PARAM><PARAM TYPE="String" ID="Code">m2</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="24" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1155</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">아스퍼질러스
+</PARAM><PARAM TYPE="String" ID="Code">m3</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="25" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1212</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">게
+</PARAM><PARAM TYPE="String" ID="Code">f23</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="26" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1257</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">새우
+</PARAM><PARAM TYPE="String" ID="Code">f24</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="27" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1298</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">고등어
+</PARAM><PARAM TYPE="String" ID="Code">f206</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="28" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1335</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">호밀꽃가루
+</PARAM><PARAM TYPE="String" ID="Code">g12</PARAM><PARAM TYPE="String" ID="Curve">Y Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="29" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1385</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">CCD항원
+</PARAM><PARAM TYPE="String" ID="Code">o214</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="30" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1429</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">복숭아
+</PARAM><PARAM TYPE="String" ID="Code">f95</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="31" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1473</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">사과</PARAM><PARAM TYPE="String" ID="Code">f49</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="32" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1518</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">참깨
+</PARAM><PARAM TYPE="String" ID="Code">f10</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">6</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="33" STATE="Ok"><PARAM TYPE="Long" ID="Axis">146</PARAM><PARAM TYPE="String" ID="Type">Control</PARAM><PARAM TYPE="String" ID="Name">Positive control</PARAM><PARAM TYPE="String" ID="Code">PC</PARAM><PARAM TYPE="String" ID="Curve"/><PARAM TYPE="Long" ID="Intensity">171</PARAM><PARAM TYPE="Double" ID="QntResult">-</PARAM><PARAM TYPE="Double" ID="Result">-</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="34" STATE="Ok"><PARAM TYPE="Long" ID="Axis">187</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">저장진드기 (A)
+</PARAM><PARAM TYPE="String" ID="Code">d70</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="35" STATE="Ok"><PARAM TYPE="Long" ID="Axis">232</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">저장진드기 (T)
+</PARAM><PARAM TYPE="String" ID="Code">d72</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="36" STATE="Ok"><PARAM TYPE="Long" ID="Axis">279</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">Grass mix</PARAM><PARAM TYPE="String" ID="Code">gx1</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="Double" ID="Value">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="37" STATE="Ok"><PARAM TYPE="Long" ID="Axis">323</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">우산잔디
+</PARAM><PARAM TYPE="String" ID="Code">g2</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="Double" ID="Value">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="38" STATE="Ok"><PARAM TYPE="Long" ID="Axis">368</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">큰조아재비
+</PARAM><PARAM TYPE="String" ID="Code">g6</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="39" STATE="Ok"><PARAM TYPE="Long" ID="Axis">412</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">페니실리움
+</PARAM><PARAM TYPE="String" ID="Code">m1</PARAM><PARAM TYPE="String" ID="Curve">Y Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="40" STATE="Ok"><PARAM TYPE="Long" ID="Axis">454</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">칸디다
+</PARAM><PARAM TYPE="String" ID="Code">m5</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">5</PARAM><PARAM TYPE="Double" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="41" STATE="Ok"><PARAM TYPE="Long" ID="Axis">500</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">개암나무
+</PARAM><PARAM TYPE="String" ID="Code">t4</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">5</PARAM><PARAM TYPE="Double" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="42" STATE="Ok"><PARAM TYPE="Long" ID="Axis">536</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">올리브</PARAM><PARAM TYPE="String" ID="Code">t9</PARAM><PARAM TYPE="String" ID="Curve">W Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="43" STATE="Ok"><PARAM TYPE="Long" ID="Axis">586</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">플라타너스
+</PARAM><PARAM TYPE="String" ID="Code">t11</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">5</PARAM><PARAM TYPE="Double" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="44" STATE="Ok"><PARAM TYPE="Long" ID="Axis">628</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">버드나무
+</PARAM><PARAM TYPE="String" ID="Code">t12</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">4</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="45" STATE="Ok"><PARAM TYPE="Long" ID="Axis">672</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">미루나무
+</PARAM><PARAM TYPE="String" ID="Code">t14</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="46" STATE="Ok"><PARAM TYPE="Long" ID="Axis">723</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">물푸레나무
+</PARAM><PARAM TYPE="String" ID="Code">t15</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">2</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="47" STATE="Ok"><PARAM TYPE="Long" ID="Axis">768</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">백송
+</PARAM><PARAM TYPE="String" ID="Code">t16</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="48" STATE="Ok"><PARAM TYPE="Long" ID="Axis">808</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">삼나무
+</PARAM><PARAM TYPE="String" ID="Code">t17</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">3</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="49" STATE="Ok"><PARAM TYPE="Long" ID="Axis">848</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">아카시아
+</PARAM><PARAM TYPE="String" ID="Code">t19</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="50" STATE="Ok"><PARAM TYPE="Long" ID="Axis">893</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">블란서국화
+</PARAM><PARAM TYPE="String" ID="Code">w7</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">5</PARAM><PARAM TYPE="Double" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="51" STATE="Ok"><PARAM TYPE="Long" ID="Axis">968</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">민들레
+</PARAM><PARAM TYPE="String" ID="Code">w8</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="52" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1012</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">참질경이
+</PARAM><PARAM TYPE="String" ID="Code">w9</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="53" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1057</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">명아주과풀
+</PARAM><PARAM TYPE="String" ID="Code">w11</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="54" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1101</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">미역취 국화
+</PARAM><PARAM TYPE="String" ID="Code">w12</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="55" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1146</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">털비름
+</PARAM><PARAM TYPE="String" ID="Code">w14</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="56" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1190</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">라텍스
+</PARAM><PARAM TYPE="String" ID="Code">k82</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="57" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1235</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">꿀벌독</PARAM><PARAM TYPE="String" ID="Code">i1</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="58" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1279</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">말벌독
+</PARAM><PARAM TYPE="String" ID="Code">i3</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="59" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1323</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">생쥐/쥐
+</PARAM><PARAM TYPE="String" ID="Code">e71/e73</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="60" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1362</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">토끼
+</PARAM><PARAM TYPE="String" ID="Code">e82</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="61" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1407</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">기니피그
+</PARAM><PARAM TYPE="String" ID="Code">e6</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="62" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1451</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">양모
+</PARAM><PARAM TYPE="String" ID="Code">e81</PARAM><PARAM TYPE="String" ID="Curve">A Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="63" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1496</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">햄스터
+</PARAM><PARAM TYPE="String" ID="Code">e84</PARAM><PARAM TYPE="String" ID="Curve">D Curve</PARAM><PARAM TYPE="Long" ID="Intensity">0</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+						<GROUP TYPE="Blot" ID="64" STATE="Ok"><PARAM TYPE="Long" ID="Axis">1544</PARAM><PARAM TYPE="String" ID="Type">Antigen</PARAM><PARAM TYPE="String" ID="Name">말
+</PARAM><PARAM TYPE="String" ID="Code">e3</PARAM><PARAM TYPE="String" ID="Curve">F Curve</PARAM><PARAM TYPE="Long" ID="Intensity">1</PARAM><PARAM TYPE="String" ID="QntResult">&lt;0.15</PARAM><PARAM TYPE="String" ID="Result">0</PARAM></GROUP>
+					</GROUP></GROUP></GROUP></GROUP></GROUP></GROUP>

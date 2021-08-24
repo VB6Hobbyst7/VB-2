@@ -1,0 +1,5 @@
+Update twexam_general_sub 
+   Set RESULT1     = '5.1'
+ Where PTNO     = '00438313'
+   and jeobsudt = to_date('2017-05-29', 'yyyy/mm/dd hh24/mi/ss') 
+   and itemcd = '112015'

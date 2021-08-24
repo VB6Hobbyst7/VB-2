@@ -1,0 +1,1 @@
+COPY print.txt LPT1

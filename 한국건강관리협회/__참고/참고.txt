@@ -1,0 +1,91 @@
+--이건 서부건협이예요..
+'Provider=MSDAORA.1;Password=hospital;User ID=TW_MIS_MED;Data Source=kahp;Persist Security Info=True';
+                             
+--결과
+function TDM.UploadHosp_One(BCD, ECD, RES: string): boolean;
+begin
+  Result:= False;
+
+  with qryUp do begin
+    Close;
+    SQL.Text:=' update TWMED_RESULT1 Set        '+#13#10+
+              '       Result    = '''+RES+'''   '+#13#10+
+              '     , ACTSTATUS = ''7''         '+#13#10+
+              ' where SAMPLENO = '''+BCD+'''    '+#13#10+
+              '   and ITEMCODE = '''+ECD+'''    '+#13#10+
+              '   and ACTSTATUS < ''8''         ';
+    try
+      ExecSql;
+      Result:= True;
+    except
+          on e:exception do
+              TGlobal.DataLog:= e.Message+' SQL->'+SQL.Text;
+    end;
+  end;
+end;
+
+--오더조회
+function TDM.DownLoadOrderAndDownOrder(TMaster: TIfMaster): boolean;
+var
+  UpCode, OCD, NCD:string;
+begin
+  Result:= False;
+
+  if HospConnectionYN = False then begin
+      TMaster.FERRMsg:= '테스트중';
+      exit;
+  end;
+
+  with HOrder do begin
+      Close;
+      SQL.Text:=' Select   R.SEQNO                     '+#13#10+
+                '       ,  R.ITEMCODE                  '+#13#10+
+                '       ,  R.JUMIN                     '+#13#10+
+                '       ,  R.SampleNo                  '+#13#10+
+                '       ,  R.JDATE                     '+#13#10+
+                '       ,  J.Name                      '+#13#10+
+                '       ,  J.AGE                       '+#13#10+
+                '       ,  J.SEX                       '+#13#10+
+                '  From TWMED_RESULT1 R                '+#13#10+
+                '     , TWMED_KEYTBL  J                '+#13#10+
+                '  where R.JDATE    = J.JDATE          '+#13#10+
+                '    and R.CORPCODE = J.CORPCODE       '+#13#10+
+                '    and R.SEQNO    = J.SEQNO          '+#13#10+
+                '    and R.JUMIN    = J.JUMIN          '+#13#10+
+                '    and R.SampleNo= '''+TMaster.FBCD+''' ';
+      Open;
+
+      if RecordCount = 0 then exit;
+
+      if Trim(FieldByName('JUMIN').AsString) <> '' then
+          TMaster.FJNO:= Copy(FieldByName('JUMIN').AsString,1,6)+'-'+Copy(FieldByName('JUMIN').AsString,7,7);
+      TMaster.FPId := '';
+      TMaster.FPNm := Trim(FieldByName('Name').AsString);
+      TMaster.FADT :=FieldByName('JDATE').AsString;
+      TMaster.FANo := Trim(FieldByName('SEQNO').AsString);
+      Tmaster.FAGE := Trim(FieldByName('AGE').AsString);
+      TMaster.FSex := Trim(FieldByName('SEX').AsString);
+
+      OCD:= '';
+
+      while Not Eof do begin
+          NCD   := FieldByName('ITEMCODE').AsString;
+          if NCD <> OCD then begin
+              OCD:= NCD;
+              UpCode:= TCode.GetUpCode(NCD);
+
+              if UpCode <> '' then begin
+                  TMaster.FSTA:= STA_OKORD;
+                  DownSaveCode(TMaster.FEDT,
+                               TMaster.FSEQ,
+                               NCD,
+                               NCD,
+                               UpCode);
+                  if Result = False then
+                      Result:= True;
+              end;
+          end;
+          Next;
+      end;
+  end;
+end;

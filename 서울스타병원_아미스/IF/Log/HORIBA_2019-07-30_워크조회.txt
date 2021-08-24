@@ -1,0 +1,23 @@
+Select DISTINCT        a.진료년                                                    
+     , a.진료월                                                    
+     , a.진료일                                                    
+     , a.챠트번호                          AS CHARTNO              
+     , b.수진자명                          AS PNAME                
+     , COUNT(a.처방코드)                   AS CNT                  
+  From TB_검사항목 a                                               
+     , TB_인적사항 b                                               
+     , TB_진료기본 c                                               
+ Where a.진료년 BETWEEN '2019' and '2019'  
+   And a.진료월 BETWEEN '07' and '07'
+   And a.진료일 BETWEEN '30' and '30'    
+   And a.처방번호 > 0                                              
+   And c.진료상태 IN ('1','5','6','7','8','9')                     
+   And (a.처방코드 + '|' + a.서브코드) IN ('B1050|','B1040|','B1010|','B1020|','B1060|001','B1060|002','B1060|003','RDW','B1060|','LYM%','MON%','GRA%')     
+   And (a.검사결과 IS NULL OR a.검사결과 = '')                     
+   And a.진료년    = c.진료년                                      
+   And a.진료월    = c.진료월                                      
+   And a.진료일    = c.진료일                                      
+   And a.챠트번호  = c.챠트번호                                    
+   And a.챠트번호  = b.챠트번호                                    
+ GROUP BY a.진료년,a.진료월,a.진료일,a.챠트번호,b.수진자명         
+

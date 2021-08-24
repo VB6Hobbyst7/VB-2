@@ -1,0 +1,10 @@
+SELECT DISTINCT        E.검사코드                              AS ITEM     
+  FROM VW_검사접수 M, VW_검사결과 R, VW_검사코드 E         
+ WHERE M.접수일자 = CONVERT(DATE, '20210705')    
+   AND M.접수일자 = R.접수일자                             
+   AND M.접수번호 = R.접수번호                             
+   AND m.접수번호 = '41768'                     
+   AND E.검사코드 IN ('5164','5075','5079','1420','5062','5153')                  
+   AND IsNull(R.보고여부, 'N') <> 'Y'                      
+   AND (R.결과값 is null or R.결과값 = '')                 
+

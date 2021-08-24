@@ -1,0 +1,48 @@
+[RESULT]
+
+BS-400
+==> ORU^R01
+    ORU Structure
+    MSH
+    PID
+    OBR
+    {OBX} : Result
+
+LIS
+==> ACK^R01
+    ACK Structure
+    MSH
+    MSA
+
+
+[ORDER] ??
+BS-400
+==> QRY^Q02
+    QRY Structure
+    MSH
+    QRD
+    QRF
+
+LIS
+==> QCK^Q02
+    QCK Structure
+    MSH
+    MSA
+    ERR
+    QAK
+
+LIS
+==> DSR^Q03
+    DSR Structure
+    MSH
+    MSA
+    ERR
+    QAK
+    QRD
+    QRF
+    {DSP}
+    DSC
+
+BS-400
+==> ACK^Q03
+

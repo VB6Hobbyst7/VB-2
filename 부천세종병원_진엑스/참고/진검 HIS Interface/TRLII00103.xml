@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00103">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetEqmtList">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="refgbn">
+            <column id="refgbn" desc="구분" ref="refgbn"/>
+            <column id="eqmtcd" desc="장비코드" ref="eqmtcd"/>
+            <column id="instcd" desc="기관코드" ref="instcd"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="eqmttclscdlist" count_ref="getEqmtCdList">
+            <column id="testcdfromdd" type="string" desc="장비검사코드시작일" ref="getEqmtCdList.testcdfromdd"/>
+            <column id="testcdtodd"   type="string" desc="장비검사코드종료일" ref="getEqmtCdList.testcdtodd"/>
+            <column id="dispseq"      type="string" desc="표시순서"           ref="getEqmtCdList.dispseq"/>
+            <column id="tclscd"       type="string" desc="검사코드"           ref="getEqmtCdList.tclscd"/>
+            <column id="testdispnm"   type="cdata"  desc="검사명"             ref="getEqmtCdList.testdispnm"/>
+            <column id="spccd"        type="string" desc="검체코드"           ref="getEqmtCdList.spccd"/>
+            <column id="ifreqcd"      type="string" desc="if요청코드"         ref="getEqmtCdList.ifreqcd"/>
+            <column id="ifrsltcd"     type="string" desc="if결과코드"         ref="getEqmtCdList.ifrsltcd"/>
+            <column id="ifspccd"      type="string" desc="if검체코드"         ref="getEqmtCdList.ifspccd"/>
+            <column id="qctestcd"     type="string" desc="정도관리검사코드"   ref="getEqmtCdList.qctestcd"/>
+            <column id="rsltreptkind" type="string" desc="결과보고유형"       ref="getEqmtCdList.rsltreptkind"/>
+            <column id="etc1"         type="string" desc="etc1"               ref="getEqmtCdList.etc1"/>
+            <column id="etc2"         type="string" desc="etc2"               ref="getEqmtCdList.etc2"/>
+            <column id="testcdseqno"  type="string" desc="검사코드순번"        ref="getEqmtCdList.testcdseqno"/>
+        </table>		
+    </output>
+</submit>

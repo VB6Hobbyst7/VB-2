@@ -1,0 +1,15 @@
+Select Distinct        a.PRSC_DATE                 AS HOSPDATE     
+     , a.SPECIMENID                AS BARCODE      
+     , a.PID                       AS PID          
+     , b.PNAME                     AS PNAME        
+     , b.SEX                       AS SEX          
+     , a.RECENO                    AS CHARTNO      
+     , a.SEQNO                                     
+     , a.SPECIMENCODE                              
+     , a.EXAMCODE                  AS ITEM         
+  From EXAMRES a, PATIENT b                        
+ Where SPECIMENID = 'A1_KSK'           
+   AND a.EXAMSTATE >= 'B'                          
+   AND a.PID = b.PID                               
+ Order By  a.RECENO,a.SEQNO, a.PID                 
+

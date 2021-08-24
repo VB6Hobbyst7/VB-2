@@ -1,0 +1,20 @@
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE                 
+     , R.SPCMNO                AS BARCODE                  
+     , P.PATID                 AS PID                      
+     , P.PATNAME               AS PNAME                    
+     , P.SEX                   AS SEX                      
+     , COUNT(R.RESULTITEMCODE) AS CNT                      
+  FROM REGISTINFOS O                                       
+     , RESULTOFNUM R                                       
+     , PATMST      P                                       
+ WHERE O.ACPTDATE BETWEEN '20190905' and '20190905'
+   AND O.ACPTDATE  = R.ACPTDATE                            
+   AND O.PATID     = R.PATID                               
+   AND O.ACPTSEQ   = R.ACPTSEQ                             
+   AND O.PATID     = P.PATID                               
+   AND O.CLAS          = 4                                 
+   AND R.RESULTITEMCODE IN ('XU000203','XU000204','XU000205','XU000211','XU000209','XU000206','XU000207','XU000210','XU000208','XU000212')            
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL)     
+ GROUP BY O.ACPTDATE, R.SPCMNO, P.PATID, P.PATNAME, P.SEX  
+ ORDER BY O.ACPTDATE, R.SPCMNO                             
+

@@ -1,0 +1,4 @@
+Select equipcode, examcode, subcode, examname, resprec, seqno 
+  From EQPMASTER 
+ Where equipno = 'UroMeter' 
+ Order by  seqno,examcode 

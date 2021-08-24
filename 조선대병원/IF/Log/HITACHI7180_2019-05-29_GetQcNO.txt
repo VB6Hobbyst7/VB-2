@@ -1,0 +1,35 @@
+SELECT DISTINCT MIN(A.SPECIMEN_SER)                    
+  FROM MEDI.CPL0820 A, MEDI.CPL0101 B                  
+ WHERE B.JANGBI_CODE       = 'IN'   
+   AND B.JANGBI_OUT_CODE   IN ('5','6') 
+   AND A.QC                = 'Q1'            
+   AND A.ORDER_DATE        = TRUNC(SYSDATE)            
+   AND B.JUNDAL_GUBUN      = A.JUNDAL_PART             
+   AND B.HANGMOG_CODE      = A.HANGMOG_CODE            
+   AND B.SPECIMEN_CODE     = A.QC                      
+   AND A.CONFIRM_DATE IS NULL                          
+
+SELECT DISTINCT MIN(A.SPECIMEN_SER) AS SPECIMEN_SER    
+  FROM MEDI.CPL0820 A, MEDI.CPL0101 B                  
+ WHERE B.JANGBI_CODE       = 'IN'   
+   AND B.JANGBI_OUT_CODE   IN ('5','6') 
+   AND A.QC                = 'Q1'            
+   AND A.ORDER_DATE        = TRUNC(SYSDATE)            
+   AND B.JUNDAL_GUBUN      = A.JUNDAL_PART             
+   AND B.HANGMOG_CODE      = A.HANGMOG_CODE            
+   AND B.SPECIMEN_CODE     = A.QC                      
+   AND A.CONFIRM_DATE IS NULL                          
+
+1905991491
+SELECT DISTINCT MIN(A.SPECIMEN_SER) AS SPECIMEN_SER    
+  FROM MEDI.CPL0820 A, MEDI.CPL0101 B                  
+ WHERE B.JANGBI_CODE       = 'IN'   
+   AND B.JANGBI_OUT_CODE   IN ('5','6') 
+   AND A.QC                = 'Q3'            
+   AND A.ORDER_DATE        = TRUNC(SYSDATE)            
+   AND B.JUNDAL_GUBUN      = A.JUNDAL_PART             
+   AND B.HANGMOG_CODE      = A.HANGMOG_CODE            
+   AND B.SPECIMEN_CODE     = A.QC                      
+   AND A.CONFIRM_DATE IS NULL                          
+
+1905991492

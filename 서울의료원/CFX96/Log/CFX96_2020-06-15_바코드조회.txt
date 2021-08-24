@@ -1,0 +1,15 @@
+SELECT DISTINCT        PART_JUBSU_DATE         AS HOSPDATE 
+     , SPECIMEN_SER            AS BARCODE  
+     , BUNHO                   AS PID      
+     , FKCPL0201               AS CHARTNO  
+     , SPECIMEN_CODE           AS SPCCD    
+     , SUNAME                  AS PNAME    
+     , AGE                     AS AGE      
+     , SEX                     AS SEX      
+     , GWA                     AS DEPT     
+     , HANGMOG_CODE            AS ITEM     
+  FROM VW_CPL_INTERFACE_GUMSA_LOAD         
+ WHERE SPECIMEN_SER = 'PC' 
+   AND NVL(CONFIRM_YN, 'N') = 'N'          
+   AND HANGMOG_CODE IN ('LZ31','LZ31A','LZ31B')
+

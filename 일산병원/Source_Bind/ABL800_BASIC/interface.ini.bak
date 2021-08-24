@@ -1,0 +1,67 @@
+[code]
+
+[CONFIG]
+Equip=ABB
+EquipCode=ABB
+QCEquip=EM017
+;Equip=0CX7SUPE
+;Equip=0CX3
+gPort=6
+gSpeed=9600
+gParity=N
+gDataBit=8
+gStopBit=1
+gStartBit=1
+gRTSEnable=TRUE
+gDTREnable=TRUE
+
+WaitTime = 30
+
+Handshaking=NONE
+InBUFFERSize=1024
+OutBUFFERSize=512
+RThreshold=1
+SThreshold=0
+InputLen=1
+ParityReplace=?
+CDTimeOut=0
+CTSTimeOut=0
+DSRTimeOut=0
+NullDiscard=Y
+ACKUse=0
+
+[DATABASE]
+driver =
+server =NHIMCTST
+uid =nhimc_inf
+pwd =nhimc_inf0601
+database =
+hostname = 
+
+[DRDATABASE]
+driver =
+server =NHIMCPRI1
+uid =nhimc_inf
+pwd =nhimc_inf0601
+database =
+hostname =  
+
+[QCBARCODE]
+basic1 =9903600111
+basic2 =9903600121
+basic3 =9903600131
+basic4 =9903600141
+basic5 =9904800111
+flex1 =9903700111
+flex2 =9903700121
+flex3 =9903700131
+flex4 =9903700141
+flex5 =9904900111
+
+
+LocalDB = C:\chartplus\data\Interface.mdb
+
+[Server]
+ServerPath=http://if.ncc.re.kr/WEBSERVICE/INTERFACE/LisInterface.asmx?wsdl
+IFUser=12345
+¿ÀÀü 11:50 2011-05-07

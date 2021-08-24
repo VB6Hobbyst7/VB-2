@@ -1,0 +1,20 @@
+Update ORD_IPDORDER 
+   Set OCSFLAG = '3' 
+ Where SPECIMENNUM = '3377773' 
+   AND OrderCode = 'C3815-1' 
+   And OCSFLAG < '3' 
+Update ORD_OPDORDER 
+   Set OCSFLAG = '3' 
+ Where SPECIMENNUM = '03377773' 
+   AND OrderCode = '' 
+   And OCSFLAG < '3' 
+Update ORD_IPDORDER 
+   Set OCSFLAG = '3' 
+ Where SPECIMENNUM = '3377773' 
+   AND OrderCode = 'C3815-1' 
+   And OCSFLAG < '3' 
+Update ORD_OPDORDER 
+   Set OCSFLAG = '3' 
+ Where SPECIMENNUM = '03377773' 
+   AND OrderCode = '' 
+   And OCSFLAG < '3' 

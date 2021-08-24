@@ -1,0 +1,399 @@
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180017'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180015'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180008'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180022'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180027'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180019'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180025'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180011'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180005'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180002'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180121'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180096'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180115'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180086'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180140'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180165'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180150'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180196'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180212'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180219'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '2012180261'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XC0041','XC0042','XC0043')        
+

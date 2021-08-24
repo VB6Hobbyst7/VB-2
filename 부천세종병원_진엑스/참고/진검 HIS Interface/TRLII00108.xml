@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00108">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetBacList">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="instcd">
+            <column id="instcd"   desc="기관코드" ref="instcd"/>
+            <column id="eqmtcd"   desc="장비코드" ref="eqmtcd"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="baclist" count_ref="baclist">
+            <column id="baccd"            type="cdata"   desc="균코드" 		ref="baclist.baccd"/>
+            <column id="baccdfromdd"      type="cdata"   desc="균사용일자" 	ref="baclist.baccdfromdd"/>
+            <column id="baccdtodd"        type="cdata"   desc="균종료일자"    	ref="baclist.baccdtodd"/>
+            <column id="bacnm"            type="cdata"    desc="균명"         	ref="baclist.bacnm"/>
+            <column id="bacscrnnm"        type="cdata"    desc="균화면명" 		ref="baclist.bacscrnnm"/>
+            <column id="bacabbrnm"        type="cdata"    desc="균약어명" 		ref="baclist.bacabbrnm"/>
+            <column id="bacprntnm"        type="cdata"    desc="균출력명" 		ref="baclist.bacprntnm"/>
+            <column id="infcrefantbiocd"  type="cdata"   desc="감염판정항셍재" ref="baclist.infcrefantbiocd"/>
+            <column id="infcrefchar"      type="cdata"   desc="감염판정문자" 	ref="baclist.infcrefchar"/>
+            <column id="infcinfo"         type="cdata"   desc="감염정보" 		ref="baclist.infcinfo"/>
+            <column id="bacgenscd"        type="cdata"   desc="균속코드" 		ref="baclist.bacgenscd"/>
+            <column id="fstrgstdt"        type="cdata"   desc="최초등록일시" 	ref="baclist.fstrgstdt"/>
+            <column id="fstrgstrid"       type="cdata"   desc="최초등록자" 	ref="baclist.fstrgstrid"/>
+            <column id="lastupdtrdt"      type="cdata"   desc="최종수정일시" 	ref="baclist.lastupdtrdt"/>
+            <column id="lastupdtrid"      type="cdata"   desc="최종수정자" 	ref="baclist.lastupdtrid"/>                
+     	  </table>		
+    </output>
+</submit>

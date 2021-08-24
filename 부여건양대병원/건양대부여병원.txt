@@ -1,0 +1,130 @@
+'Provider=MSDAORA.1;Password=hospital;User ID=kbh_exam;Data Source=KBH;'+
+                            'Persist Security Info=True';
+                            
+
+--워크리스트 조회--
+procedure TF_Main.btnWKClick(Sender: TObject);
+var
+  R:integer;
+  WF, WT, EList:string;
+  ADT, SLP, ANO, PNM, PID, BCD:string;
+begin
+  if Not ckbxAdd.Checked then begin
+      gdWK.ClearNormalCells;
+      gdWK.Row:=1;
+      gdWk.RowCount:=2;
+  end;
+
+  EList:= TCode.FECD_QryInStr;
+
+  WF:= FormatDateTime('yyyymmdd', dtpWf.Date);
+  WT:= FormatDateTime('yyyymmdd', dtpWT.Date);
+  with DM.qrySOrder do begin
+      Close;
+      SQL.Text:=' Select distinct                              '+#13#10+
+                '       To_Char(R.jeobsudt, ''yyyymmdd'') ADT  '+#13#10+  //파트접수일자
+                '       , R.slipno1                            '+#13#10+  //작업번호
+                '       , R.slipno2                            '+#13#10+
+                '       , R.ptno                               '+#13#10+
+                '       , O.deptcode                           '+#13#10+
+                '       , O.status                             '+#13#10+
+                '       , p.sname                              '+#13#10+
+                '       , p.jumin1||p.jumin2 as jno            '+#13#10+
+                '  From twexam_general_sub R                   '+#13#10+
+                '     , twexam_general O                       '+#13#10+
+                '     , twbas_patient p                        '+#13#10+
+                '  where r.verify <> ''Y''                     '+#13#10+
+                '    and O.gbch = ''Y''                        '+#13#10+
+                '    and R.slipno1 = ''13''                    '+#13#10+
+                '    and R.itemcd in '+EList                    +#13#10+
+                '    and R.jeobsudt Between to_date('''+WF+'000000'', ''yyyymmddHH24miss'')  '+#13#10+
+                '                       and to_date('''+WT+'235959'', ''yyyymmddHH24miss'')  '+#13#10+
+                '    and R.jeobsudt = O.jeobsudt               '+#13#10+
+                '    and R.slipno1  = O.slipno1                '+#13#10+
+                '    and R.slipno2  = O.slipno2                '+#13#10+
+                '    and R.PTNO     = O.PTNO                   '+#13#10+
+                '    and R.PTNO     = p.PTNO                   '+#13#10+
+                '  order by adt, R.slipno2 ';
+      try
+          if SvrTEST then
+              SQL.SaveToFile('.\워크리스트.sql');
+
+          Open;
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message + #13#10+
+                               'SQL->'+Sql.Text;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      R:=0;
+      if RecordCount = 0 then exit;
+
+      gdWK.RowCount:= RecordCount +1;
+
+      while Not Eof do begin
+          Inc(R);
+          ADT := FieldByName('ADT').AsString;
+          SLP := FieldByName('slipno1').AsString;
+          ANO := FieldByName('slipno2').AsString;
+          PNM := FieldByName('sname').AsString;
+          PID := FieldByName('PTNO').AsString;
+
+          BCD := DM.JubsuToBCD(ADT, SLP, ANO);
+          AddWork_One(R, ADT, BCD, PNM, PID);
+
+          Next;
+      end;
+  end;
+end;
+
+
+---바코드로 접수일, 접수번호 만들기
+
+function TDM.BcdToJubsu(BCD: string; var ADT, SLP, ANO: string): boolean;
+var
+  cNow:string;
+  nNow:integer;
+  cDate:string;
+  GetBarVal:integer;
+  nAdd:integer;
+  spcid:string;
+begin
+  Result:= False;
+
+  ADT:=''; SLP:=''; ANO:= '';
+
+  if Length(BCD) <> 12 then exit;
+
+  nNow:= DaysBetween(Now, StrToDate('1999-01-01'));
+  GetBarVal:= StrToInt(Copy(BCD,1,5));
+  nAdd:= GetBarVal - nNow;
+
+  ADT:= FormatDateTime('yyyymmdd', now+nAdd);
+  SLP:= Copy(BCD, 6, 2);
+  ANO:= Copy(BCD, 8, 5);
+
+  Result:= True;
+end;
+
+결과 업데이트
+' Update twexam_general_sub Set           '+#13#10+
+'     result1      = '''+RES+'''          '+#13#10+
+'   , outclassno   = '''+TGlobal.InstCode+''' '+#13#10+  //장비코드
+' where jeobsudt = to_date('''+ADT+''', ''yyyymmdd'') '+#13#10+
+'   and slipno1 = '''+SLP+'''             '+#13#10+
+'   and slipno2 = '''+ANO+'''             '+#13#10+
+'   and itemcd  = '''+ECD+'''             '+#13#10+
+'   and ptno    = '''+PID+'''             '+#13#10+
+'   and verify <> ''Y''                   ';
+                
+--상태업데이트
+' Update twexam_general Set               '+#13#10+
+'     status  = ''U''               '+#13#10+
+' where jeobsudt = to_date('''+ADT+''', ''yyyymmdd'') '+#13#10+
+'   and slipno1 = '''+SLP+'''             '+#13#10+
+'   and slipno2 = '''+ANO+'''             '+#13#10+
+'   and ptno    = '''+PID+'''             '+#13#10+
+'   and status  in (''U'', ''R'', ''P'')' ;

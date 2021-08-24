@@ -1,0 +1,8 @@
+Update SLA_LabResult  
+   Set Result = '8.6', 
+       TransFlag = '1', 
+       ResultDate = '2016-12-20', 
+       ResultTime = '12:22:41' 
+ Where SPECIMENNUM = '172096' 
+   And LabCode = 'C3730'
+   And transflag < '2' 

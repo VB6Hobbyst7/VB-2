@@ -1,0 +1,54 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="coaguChek.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"coaguChek.exe"
+"msvbvm60.dll"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"VB6KO.DLL"
+"comctl32.dll"
+"scrrun.dll"
+"MSVCRT.DLL"
+"SCRRNKO.DLL"
+"msado26.tlb"
+"msjro.dll"
+"MSSTDFMT.DLL"
+"STDFTKO.DLL"
+"msxml3.dll"
+"MSCOMCTL.OCX"
+"MSCMCKO.DLL"
+"MSCOMCT2.OCX"
+"MSCC2KO.DLL"
+"COMDLG32.OCX"
+"CMDLGKO.DLL"
+"HSCotrol.ocx"
+"MSCOMM32.OCX"
+"TABCTL32.OCX"
+"TABCTKO.DLL"
+"MSMASK32.OCX"
+"MSMSKKO.DLL"
+"SPR32X30.ocx"
+"THREED32.OCX"
+"MFC40.DLL"
+"MSVCRT40.DLL"
+"BHButton.ocx"
+"MSWINSCK.OCX"
+"WINSKKO.DLL"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"
+"DataBase.mdb"

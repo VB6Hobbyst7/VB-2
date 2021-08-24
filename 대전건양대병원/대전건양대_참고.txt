@@ -1,0 +1,87 @@
+DB 접속정보
+ID=KUH_QC
+PWD=qcpass;
+Data Source=KUH;
+Server=152.1.10.200;
+
+바코드정보
+날짜 = convLabnoToExpand(Left(바코드번호, 5))
+convLabnoToExpand = Format(DateAdd("d", Val(sComp5), "1999-01-01"), "YYYYMMDD")
+sSLno1 = Val(Mid(바코드번호, 6, 2))
+sSLno2 = Val(Mid(바코드번호, 8, 5))
+ 
+
+검체정보(ptno, sname, sex, ageyy, deptcode, gber, slipno1, slipno2, itemcd, itemnm, geomchc1, status, result1)
+프로시저명: EXAM_INTERFACE_S
+ input:
+       접수일자
+       slipno1
+       slipno2
+ 
+* 조회결과중 STATUS 값
+    R =접수중 
+    P =부분결과 
+    U= 미확인
+    임상병리에서 verify 한 결과값은 리스트에 안나옴 
+ 
+
+검체접수(검체도착)
+프로시저명: EXAM_INTERFACE_ARR_U
+ input:
+       환자번호
+       접수일자
+       slipno1
+       slipno2
+ 
+ 
+
+결과입력
+프로시저명: EXAM_INTERFACE_U
+ input:
+       환자번호
+       접수일자
+       slipno1
+       slipno2
+       itemcd
+       result
+       jangbi
+       sabun
+ 
+
+프로시저 변수
+ 
+EXAM_INTERFACE_S
+       I_JEOBSUDT      DATE
+    , I_SLIPNO1       NUMBER
+    , I_SLIPNO2       NUMBER
+  
+ 
+ 
+EXAM_INTERFACE_ARR_U
+       I_PTNO          VARCHAR2
+    , I_JEOBSUDT      DATE
+    , I_SLIPNO1       NUMBER
+    , I_SLIPNO2       NUMBER
+ 
+ 
+EXAM_INTERFACE_U
+      I_PTNO          VARCHAR2
+    , I_JEOBSUDT      DATE
+    , I_SLIPNO1       NUMBER
+    , I_SLIPNO2       NUMBER
+    , I_ITEMCD        VARCHAR2  
+    , I_RESULT        VARCHAR2
+    , I_JANGBI        NUMBER
+    , I_SABUN         VARCHAR2
+    
+ 
+ 
+ 
+ 
+********************************************* 
+(302-718) 대전광역시 서구 관저동로 158
+건양대학교병원 의료정보팀  김홍근
+Email : hong@kyuh.ac.kr
+☎ 042-600-6774   
+☎ 010-3476-8641
+*********************************************

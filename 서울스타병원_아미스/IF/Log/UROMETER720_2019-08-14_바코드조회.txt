@@ -1,0 +1,19 @@
+SELECT DISTINCT       O.ACPTDATE              AS HOSPDATE             
+     , R.SPCMNO                AS BARCODE              
+     , P.PATID                 AS PID                  
+     , P.PATNAME               AS PNAME                
+     , P.SEX                   AS SEX                  
+     , R.ORDERCODE             AS ORDCODE              
+     , R.RESULTITEMCODE        AS ITEM                 
+  FROM REGISTINFOS O                                   
+     , RESULTOFNUM R                                   
+     , PATMST      P                                   
+ WHERE O.ACPTDATE      = R.ACPTDATE                    
+   AND O.PATID         = R.PATID                       
+   AND O.ACPTSEQ       = R.ACPTSEQ                     
+   AND O.PATID         = P.PATID                       
+   AND O.CLAS          = 4                             
+   AND R.SPCMNO        = '1908140083'          
+   AND (R.NUMRESULTVAL = '' OR R.NUMRESULTVAL IS NULL) 
+   AND R.RESULTITEMCODE IN ('XU000203','XU000204','XU000205','XU000211','XU000209','XU000206','XU000207','XU000210','XU000208','XU000212')        
+

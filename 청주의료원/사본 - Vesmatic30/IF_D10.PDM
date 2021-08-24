@@ -1,0 +1,142 @@
+[Root]
+Most Recent Package=Standard Setup Package 1
+
+[Package|Standard Setup Package 1|IconGroups]
+Group0=INTERFACE
+PrivateGroup0=-1
+Parent0=$(Programs)
+
+[Package|Standard Setup Package 1|INTERFACE]
+Icon1=IF_Variant.exe
+Title1=INTERFACE
+StartIn1=$(AppPath)
+Key1=Icon1
+
+
+[Package|Standard Setup Package 1|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=Z:\work\청주의료원\D10\Package
+
+[Package|Standard Setup Package 1|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Standard Setup Package 1|Files Found]
+
+[Package|Standard Setup Package 1|Files Released]
+odet30.lib=
+
+[Package|Standard Setup Package 1|Missing Dependency Information]
+C:\WINDOWS\system32\SPR32X60.ocx=
+C:\WINDOWS\system32\wininet.dll=
+
+[Package|Standard Setup Package 1|Out-of-Date Dependency Information]
+
+[Package|Standard Setup Package 1|Files Added]
+\\vmware-host\shared folders\d\work\속초의료원\d10\interface.mdb=
+\\vmware-host\shared folders\d\work\속초의료원\d10\interface.ini=
+
+[Package|Standard Setup Package 1|Files Removed]
+
+[Package|Standard Setup Package 1|Files In Project]
+C:\WINDOWS\system32\msvbvm60.dll=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\system32\VB6KO.DLL=Yes
+C:\WINDOWS\system32\wininet.dll=Yes
+C:\WINDOWS\system32\MSCOMM32.OCX=Yes
+C:\WINDOWS\system32\MSCOMKO.DLL=Yes
+C:\WINDOWS\system32\SPR32X60.ocx=Yes
+C:\WINDOWS\system32\THREED20.OCX=Yes
+C:\WINDOWS\system32\MSCOMCT2.OCX=Yes
+C:\WINDOWS\system32\MSCC2KO.DLL=Yes
+C:\WINDOWS\system32\MSMASK32.OCX=Yes
+C:\WINDOWS\system32\MSMSKKO.DLL=Yes
+C:\WINDOWS\system32\comdlg32.ocx=Yes
+C:\WINDOWS\system32\CMDLGKO.DLL=Yes
+C:\WINDOWS\system32\tabctl32.ocx=Yes
+C:\WINDOWS\system32\TABCTKO.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\system32\VB6STKIT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\Interface.mdb=Yes
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\interface.ini=Yes
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\IF_D10.exe=Yes
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\P_SLDLL.dll=Yes
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\odet30.dll=Yes
+
+[Package|Standard Setup Package 1|Configure Registry Files]
+Applicable=No
+
+[Package|Standard Setup Package 1|Configure Remote Servers]
+Applicable=No
+
+[Package|Standard Setup Package 1|Install Locations]
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\IF_Variant.exe=$(AppPath)
+C:\WINDOWS\system32\msvbvm60.dll=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\system32\VB6KO.DLL=$(WinSysPath)
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\P_SLDLL.dll=$(AppPath)
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\odet30.dll=$(AppPath)
+C:\WINDOWS\system32\wininet.dll=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMM32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMKO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\SPR32X60.ocx=$(WinSysPath)
+C:\WINDOWS\system32\THREED20.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCOMCT2.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSCC2KO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\MSMASK32.OCX=$(WinSysPath)
+C:\WINDOWS\system32\MSMSKKO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\CMDLGKO.DLL=$(WinSysPath)
+C:\WINDOWS\system32\tabctl32.ocx=$(WinSysPath)
+C:\WINDOWS\system32\TABCTKO.DLL=$(WinSysPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\system32\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\Interface.mdb=$(AppPath)
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\interface.ini=$(AppPath)
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\IF_D10.exe=$(AppPath)
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\P_SLDLL.dll=$(AppPath)
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\odet30.dll=$(AppPath)
+
+[Package|Standard Setup Package 1|Configure Shared Files]
+Applicable=Yes
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\IF_Variant.exe=No
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\P_SLDLL.dll=No
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\odet30.dll=No
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\MDAC_TYP.EXE=No
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\Interface.mdb=No
+\\vmware-host\Shared Folders\D\work\속초의료원\D10\interface.ini=No
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\IF_D10.exe=No
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\P_SLDLL.dll=No
+\\vmware-host\Shared Folders\D\work\청주의료원\D10\odet30.dll=No
+
+[Package|Standard Setup Package 1|Distribution]
+Type=single
+Size=
+Title=INTERFACE
+
+[Package|Standard Setup Package 1|Package]
+PackageFolder=Z:\work\청주의료원\D10\Package
+ProjectFolder=\\vmware-host\Shared Folders\D\work\청주의료원\D10
+ServerSideCab=
+File1=Z:\work\청주의료원\D10\Package\setup.exe
+File2=Z:\work\청주의료원\D10\Package\Setup.Lst
+File3=Z:\work\청주의료원\D10\Package\IF_D10.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

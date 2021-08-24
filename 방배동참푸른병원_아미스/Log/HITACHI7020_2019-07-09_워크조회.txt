@@ -1,0 +1,18 @@
+SELECT DISTINCT       O.ACPTDATE              as HOSPDATE                 
+     , R.SPCMNO                as BARCODE                  
+     , P.PATID                 as PID                      
+     , P.PATNAME               as PNAME                    
+     , P.SEX                   as SEX                      
+     , COUNT(R.RESULTITEMCODE) as CNT                      
+  FROM REGISTINFOS O, RESULTOFNUM R, PATMST P              
+ WHERE O.ACPTDATE  = R.ACPTDATE                            
+   AND O.PATID     = R.PATID                               
+   AND O.ACPTSEQ   = R.ACPTSEQ                             
+   AND O.PATID     = P.PATID                               
+   AND O.ACPTDATE BETWEEN '20190708' and '20190709'
+   AND R.RESULTITEMCODE IN ('D1860','D1850','D2510050','D1870','CA','GGT','IP','D2263','D3022A','D3022','D2611','D2300','D2280','D2310','D1840','D1880','D1830','DB','D2613','LDL-C','D0113','RF')            
+   AND O.CLAS          = 4                                 
+   AND R.RESULTFLAG    = 0                                 
+ GROUP BY O.ACPTDATE,R.SPCMNO,P.PATID,P.PATNAME,P.SEX      
+ ORDER BY R.SPCMNO                                         
+

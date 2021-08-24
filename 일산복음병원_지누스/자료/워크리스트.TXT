@@ -1,0 +1,47 @@
+SELECT /*+ INDEX (coif scccoifm_ix1) INDEX (prex scrprexh_ix3)
+           INDEX (ptbs pmcptbsm_ux1) INDEX (rslt scrrslth_ux1)
+           INDEX (xpsl mosxpslh_ix2) */
+  prex.acp_dt 
+, prex.smp_no 
+, coif.exam_mach_cd 
+, rslt.exam_stus
+, prex.pt_no 
+, ptbs.pt_nm 
+, ptbs.ssn_1 
+, ptbs.ssn_2 
+, DECODE(xpsl.gnl_add_typ_cd,'3','I',xpsl.prcp_knd_cd) 
+, xpsl.adms_ymd 
+, xpsl.mn_sub_typ_cd
+, xpsl.med_dpt_cd 
+, xpsl.med_ymd 
+, MAX(TRIM(coif.lmt_trm_day))
+FROM scrprexh prex
+   , pmcptbsm ptbs
+   , scccoifm coif
+   , mosxpslh xpsl
+   , scrrslth rslt
+WHERE prex.hos_org_no = :hs_hos_org_no
+  AND SUBSTR(prex.acp_dt,1,8) BETWEEN :hs_fr_ymd AND :hs_to_ymd
+  AND prex.smp_no LIKE :hs_smp_no
+  AND rslt.hos_org_no = prex.hos_org_no
+  AND rslt.smp_no = prex.smp_no
+  AND rslt.prcp_seq = prex.prcp_seq
+  AND rslt.exam_seq = prex.exam_seq
+  AND rslt.exam_stus IN ('0')
+  AND ptbs.hos_org_no = prex.hos_org_no
+  AND ptbs.pt_no = prex.pt_no
+  AND coif.hos_org_no = prex.hos_org_no
+  AND coif.exam_cd = prex.cd
+  AND coif.use_typ = 'Y'
+  AND SUBSTR(prex.acp_dt,1,8) BETWEEN coif.fr_dt AND coif.to_dt
+  AND coif.exam_mach_cd LIKE :hs_mach_cd
+  AND xpsl.smp_no = prex.smp_no
+  AND xpsl.hos_org_no = prex.hos_org_no
+  AND xpsl.prcp_typ_cd IN ('O','C')
+GROUP BY prex.acp_dt , prex.smp_no , coif.exam_mach_cd ,
+         rslt.exam_stus, prex.pt_no , ptbs.pt_nm ,
+         ptbs.ssn_1 , ptbs.ssn_2 ,
+         DECODE(xpsl.gnl_add_typ_cd,'3','I',xpsl.prcp_knd_cd) ,
+         xpsl.adms_ymd , xpsl.mn_sub_typ_cd, xpsl.med_dpt_cd ,
+         xpsl.med_ymd
+ORDER BY prex.acp_dt, prex.smp_no ;

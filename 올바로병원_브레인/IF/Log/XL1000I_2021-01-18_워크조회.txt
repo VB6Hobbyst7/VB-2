@@ -1,0 +1,17 @@
+SELECT DISTINCT   B.SLABW_DATE             AS HOSPDATE         
+, B.SLABW_CHAM             AS BARCODE          
+, A.CHAM_WHANJA            AS PNAME            
+, A.CHAM_JUMIN1            AS JUMIN1           
+, A.CHAM_JUMIN2            AS JUMIN2           
+, B.SLABW_INOUT            AS INOUT            
+  FROM BRWONMU..WCHAM A, OSLABW B, OSLABWS C   
+ Where A.CHAM_KEY      = B.SLABW_CHAM          
+   And B.SLABW_STATUS  = '1'                   
+   And B.SLABW_DATE    = C.SLABWS_DATE         
+   And B.SLABW_DEPT    = C.SLABWS_DEPT         
+   And B.SLABW_CNT     = C.SLABWS_CNT          
+   And B.SLABW_SLAB    = C.SLABWS_SLAB         
+   And C.SLABWS_DATE   >= '20210107'      
+   And C.SLABWS_DATE   <= '20210118'        
+   And CONCAT(RTRIM(LTRIM(C.SLABWS_MOMU)),'|',RTRIM(LTRIM(C.SLABWS_SCNT)))      IN ('D1003|2','D1003|3','D1004|4') 
+ Order By B.SLABW_DATE, B.SLABW_CHAM   

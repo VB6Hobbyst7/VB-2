@@ -1,0 +1,63 @@
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC900206'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = 'QC900406'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')
+ SELECT DISTINCT a.JEOBSUDT,a.PTNO,a.slipno2, '' AS GBIO,b.SNAME,a.SEX,a.AGEYY 
+  From twexam_general_sub a,
+       tw_mis_pmpa.twbas_patient b 
+ Where a.ptno = '00221090'
+   And a.ptno = b.ptno 
+   And a.jeobsudt = to_date('20170530', 'yyyy/mm/dd hh24/mi/ss') 
+   AND a.itemcd in ('112015')

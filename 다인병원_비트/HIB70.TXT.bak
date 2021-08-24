@@ -1,0 +1,40 @@
+select * from PinInf
+ where pinpatnam = '¹Úº¸°Ë'
+
+select * from PrsInf
+
+
+select * from ME_regDAT
+
+select * from "dbo"."PB_LABCODE"
+ where labsetdte = '2016-08-23'
+   and labserial in ('11','12','13','14','25','26','27','28')
+
+
+select * from "dbo"."PB_LABGROUP"
+ where pblinsdte = '2016-08-23'
+
+
+select * from "dbo"."PB_PERSON"
+
+select * from ME_LABDAT
+ where labchtnum = '00000001'
+
+   and LABODRCOD = 'B154001'
+
+update ME_LABDAT set LABRESULT = '987',labenddep = 3
+ where labchtnum = '00000001'
+   and LABODRCOD = 'B1540'
+
+LABODRCOD
+B154001   
+
+select * from "dbo"."JIN_PERSON"
+
+"dbo"."ME_LABDAT"."LABSMPCOD"
+
+
+select LABSERIAL,LABATTEND,LABCHTNUM,LABODRDTE,LABKEYNUM,LABINSNUM,LABODRCOD,LABODRNAM,LABRESULT,LABSMPCOD
+  from ME_LABDAT
+ where LABODRDTE between '2016-08-22' AND '2016-08-22'
+   and (LABRESULT <> '' OR LABRESULT IS NULL)

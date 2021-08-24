@@ -1,0 +1,608 @@
+
+
+== Ocs 종합건진,검사결과 연동
+
+0 계정 OCS01 비번 OCS7007(대소문구분)
+  서버주소 192.168.0.10
+  DB EHOCSDB1
+
+1. 환자기본정보 Table (ABPATMST)
+  **주의)  환자챠트번호는 모든필드에 8자리기준으로 앞에 0을 채우기(예 1번은 00000001)
+
+2. 당일접수내역 Table (ABIOPATM)
+
+3. 당일접수내역 Sub Table (AOOPTSUB)
+
+4. 처방내역 Table (OBODRMTM)
+
+5 .처방내역 Sub Table(OBOSUBMM)
+
+6. 검사결과(수치결과) Table(OBSURSTM)
+
+7. 검사결과(TEXT,장문결과) Table(OBTXRSTM)
+
+8. 각종번호 부여방법(신환차트번호,처방order no.)
+
+9. 수가정보 Table (BABSUGAM)
+
+
+10. CBC 코드내역 해당PC C:\rs232\CBC.cfg file
+
+== 1. 환자기본정보 Table (ABPATMST)
+
+              APATMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*등록번호                         */ 필수
+              APATNAME   CHAR(14) NOT NULL DEFAULT ' ',                             /*환자성명                         */ 필수
+              APATJMN1   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주민번호(년월일)                 */ 필수
+              APATJMN2   CHAR(7) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주민번호(SERIAL)                 */ 필수
+              APATPSEX   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*성별(M/F)                        */ 필수
+              APATBDAY   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*실제생년월일                     */
+              APATBGBN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*음,양력구분(1=양,2=음)           */
+              APATINSR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험유형 11=국민공단,31=1종보호,34=2종 
+                                                                                               41=자보,51=일반
+                     
+              APATKIHO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험기관기호                     */
+              APATGKHO   CHAR(16) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*보험증번호                       */
+              APATSELF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT '0',                /*보험100%SELF                     */ 필수=0
+              APATPNAM   CHAR(14) NOT NULL DEFAULT ' ',                             /*피보험자명                       */
+              APATGWAN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT '0',                /*환자와관계                       */ 필수=0
+              APATPJMN   CHAR(13) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*피보험자주민번호                 */
+              APATGAMC   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*감액코드                         */
+              APATJIKW   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*직원과관계                       */
+              APATGEYK   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*계약처코드                       */
+              APATTEL1   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전화번호1(DDD)                   */
+              APATTEL2   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전화번호2(국)                    */
+              APATTEL3   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전화번호3                        */
+              APATPSTG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*우편물발송처                     */
+              APATDMCK   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*엽서반송여부                     */
+              APATZIP1   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*우편번호1                        */
+              APATZIP2   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*우편번호2                        */
+              APATADDR   VarChar(80) NOT NULL DEFAULT ' ',                          /*상세주소                         */
+              APATJIYK   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*지역코드                         */
+              APATPVIP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*VIP구분                          */
+              APATCMPL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*불만유무                         */
+              APATFDAY   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*신환등록일자                     */
+              APATLDAY   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최종내원일자                     */
+              APATIPCK   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입원중여부                       */
+              APATABTY   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*혈액형ABO TYPE                   */
+              APATRHTY   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*혈핵형RH TYPE                    */
+              APATMBL1   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*이동전화1                        */
+              APATMBL2   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*이동전화2                        */
+              APATMBL3   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*이동전화3                        */
+              APATCARE   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'Y',                /*M-CARE회원                       */
+              APATMAIL   CHAR(50) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*E-MAIL ADDR                      */
+              APATMCSQ   DEC(9,0) NOT NULL DEFAULT 0,                               /*M-CARE회원PID                    */
+              APATHSBN   CHAR(14) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*배우자명                         */
+              APATHSBJ   CHAR(13) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*배우자주민번호                   */
+              APATPST1   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*실우편번호1                      */
+              APATPST2   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*실우편번호2                      */
+              APATZPSQ   DEC(9,0) NOT NULL DEFAULT 0,                               /*우편고유번호                     */
+              APATOMRN   CHAR(15) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*구차트번호                       */
+              APATUPDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*작업일자                         */
+              APATLDPT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최종내원과                       */
+              APATLDOC   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최종주치의                       */
+              APATGROP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*병원소속                         */
+              APATFDOC   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최초주치의                       */
+              APATOKCB   CHAR(16) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*OK_Point_Card                    */
+              APATTXCX   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*연말정산자료                     */
+              APATCONF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*개인정보수집동의                 */
+              APATJENC   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주민번호ENC                      */
+              APATENYN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*암호화여부                       */
+
+
+
+=== 2. 당일접수내역 Table (ABIOPATM)
+
+
+              AIOPMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*등록번호                         */ 필수
+              AIOPCASE   DEC(9,0) NOT NULL DEFAULT 0,                               /*내원번호                         */ 필수
+              AIOPIOGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*I=입원,O=외래                    */ 필수
+              AIOPPTYP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입원,외래 Sub   I/O              */ 필수
+              AIOPDEPT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*진료과                           */ 필수
+              AIOPDOCT   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주치의                           */ 필수
+              AIOPTUKJ   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'N',                /*특진구분                         */
+              AIOPPIVF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*불임환자구분                     */
+              AIOPSTAT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT '4',                /*진료진행상태 접수상태 4          */ 필수
+              AIOPWARD   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*병동;간호대                      */
+              AIOPROOM   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ROOM NO                          */
+              AIOPPBED   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*BED NO                           */
+              AIOPDEST   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*고객 현위치                      */
+              AIOPINSR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*현보험유형( 11=보험,31,34보호,51=일반) 필수    
+              AIOPSELF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT '0',                /*현보험100%                       */    필수
+              AIOPINTY   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*접수,예약등록형태                */
+              AIOPNWPT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT '0',                /*신환구분 신환= 1                 */    필수
+              AIOPCHOJ   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*초재구분 1=초,2=재               */    필수
+              AIOPPDRG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DRG유무                          */
+              AIOPOUTD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*원내외처방구분                   */
+              AIOPSCRN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*대사유무,상태                    */
+              AIOPBLST   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*계산진행상태                     */
+              AIOPCARD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*카드수납유무                     */
+              AIOPCFYN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'N',                /*입원청구서작성                   */
+              AIOPCFXX   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'Y',                /*보험청구여부                     */
+              AIOPNAME   CHAR(14) NOT NULL DEFAULT ' ',                             /*환자성명                         */  필수
+              AIOPJMN1   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주민번호1                        */  필수
+              AIOPJMN2   CHAR(7) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주민번호 ex(1000000,2000000)     */  필수
+              AIOPPSEX   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*성별 M/F                         */  필수
+              AIOPPAGE   DEC(3,0) NOT NULL DEFAULT 0,                               /*나이                             */   
+              AIOPPDAY   DEC(3,0) NOT NULL DEFAULT 0,                               /*나이(일수)                       */   
+              AIOPGAMC   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*감액할인코드                     */
+              AIOPGAMP   DEC(3,0) NOT NULL DEFAULT 0,                               /*감액율(입원)                     */
+              AIOPGEYK   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*계약처코드                       */
+              AIOPINDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입원,접수일                      */  필수
+              AIOPINTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입원,접수시간                    */  필수
+              AIOPDCDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*퇴원일(외래=접수일)              */  필수
+              AIOPDCTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*퇴원시간(외래=접수시간)          */  필수
+              AIOPDCGP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*퇴원유형                         */
+              AIOPWKDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력일                           */  필수
+              AIOPWKTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력시간                         */  필수
+              AIOPWKID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력자                           */  필수
+              AIOPREMK   CHAR(40) NOT NULL DEFAULT ' ',                             /*참조처리                         */
+              AIOPC100   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*산정특례                         */
+              AIOPSPRO   DEC(3,0) NOT NULL DEFAULT 0,                               /*산정특례율(%)                    */
+              AIOPSPCD   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*산정확인코드                     */
+              AIOPCDCH   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*AIOPCDCH                         */
+              AIOPDMY1   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY1                           */
+              AIOPDMY2   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY2                           */
+              AIOPANDR   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*마취초빙의코드                   */
+              AIOPRSLT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*진료결과                         */
+              AIOPIWRN   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*원내이유                         */
+              AIOPCHAS   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*청구차수                         */
+              AIOPGONG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*공상여부                         */
+              AIOPHPDP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*건진과목                         */
+              AIOPCFOK   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*청구사전심사                     */
+              AIOPGROP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*병원소속                         */
+              AIOPSTA1   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*진료진행상태2                    */
+              AIOPTXCX   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*연말정산자료거부                 */
+              AIOPVWXY   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*상해외인                         */
+              AIOPAGED   DEC(5,0) NOT NULL DEFAULT 0,                               /*나이일수                         */
+              AIOPDURC   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUR 코드                         */
+
+
+
+=== 3. 당일접수내역 Sub Table (AOOPTSUB)
+
+              AOPSMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*등록번호                         */  필수
+              AOPSCASE   DEC(9,0) NOT NULL DEFAULT 0,                               /*내원번호                         */  필수
+              AOPSCNUM   DEC(3,0) NOT NULL DEFAULT 0,                               /*일련번호                         */  필수 기본=1
+              AOPSFRDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일자From                         */  필수 접수일
+              AOPSTODT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일자To                           */  필수 접수일
+              AOPSGWAN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*피보관계                         */  필수 기본 ='0'
+              AOPSPNAM   CHAR(14) NOT NULL DEFAULT ' ',                             /*피보험자명                       */
+              AOPSINSR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험유형                         */  필수 11=보험,51=일반
+              AOPSKIHO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기관기호                         */
+              AOPSGKHO   CHAR(16) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*증번호                           */
+              AOPSSELF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험100%SELF                     */  필수 기본='0'
+              AOPSJNGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*진찰료발생구분                   */  필수 기본='0'
+              AOPSMSGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*진찰료미수구분                   */  필수 기본='0'
+              AOPSFXRT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*정액정률구분                     */
+              AOPSCARE   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*M-CARE회원                       */
+              AOPSIJIM   DEC(3,0) NOT NULL DEFAULT 0,                               /*근육주사수기료                   */
+              AOPSIJIV   DEC(3,0) NOT NULL DEFAULT 0,                               /*정맥주사수기료                   */
+              AOPSIJIS   DEC(3,0) NOT NULL DEFAULT 0,                               /*경피주사수기료                   */
+              AOPSD02A   DEC(3,0) NOT NULL DEFAULT 0,                               /*내복약조제료                     */
+              AOPSD02B   DEC(3,0) NOT NULL DEFAULT 0,                               /*외용약조제료                     */
+              AOPSDMGR   DEC(3,0) NOT NULL DEFAULT 0,                               /*의약관리료                       */
+              AOPSD02C   DEC(3,0) NOT NULL DEFAULT 0,                               /*원외내복처방료                   */
+              AOPSD2C1   DEC(3,0) NOT NULL DEFAULT 0,                               /*원외외용,주사                    */
+              AOPS27CJ   DEC(3,0) NOT NULL DEFAULT 0,                               /*해부병리다종                     */
+              AOPSWRDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력일자                         */ 필수
+              AOPSWRTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력시간                         */ 필수
+              AOPSWRID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*담당자                           */ 필수
+              AOPSMISU   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*미수감액유무                     */
+              AOPSJAMT   DEC(5,0) NOT NULL DEFAULT 0,                               /*진찰료                           */
+              AOPSTAMT   DEC(5,0) NOT NULL DEFAULT 0,                               /*진찰료특진료                     */
+              AOPSKAMT   DEC(5,0) NOT NULL DEFAULT 0,                               /*진찰료조합부담                   */
+              AOPSGAMT   DEC(5,0) NOT NULL DEFAULT 0,                               /*진찰료감액                       */
+              AOPSMAMT   DEC(5,0) NOT NULL DEFAULT 0,                               /*진찰료미수                       */
+              AOPSRAMT   DEC(5,0) NOT NULL DEFAULT 0,                               /*진찰료영수액                     */
+
+
+
+=== 4. 처방내역 Table (OBODRMTM)
+
+              OBODMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*고객번호                         */  필수
+              OBODCASE   DEC(9,0) NOT NULL DEFAULT 0,                               /*내원번호                         */  필수
+              OBODORNO   DEC(5,0) NOT NULL DEFAULT 0,                               /*ORDER NUMBER                     */  필수
+              OBODORSQ   DEC(3,0) NOT NULL DEFAULT 0,                               /*ORDER SEQUENCE                   */  필수
+              OBODNUMB   DEC(5,0) NOT NULL DEFAULT 0,                               /*ORDER지 번호                     */  
+              OBODPTYP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PATIENT TYPE                     */  필수 기본= 'O' 대문자 알파벳
+              OBODIOGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*I=입원/O=외래                    */  필수 기본= 'O' 대문자 알파벳
+              OBODORDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력일                           */  필수
+              OBODORGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력자 구분                      */  필수
+              OBODORTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력시간                         */  필수
+              OBODORID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력자                           */  필수
+              OBODDOCT   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주치의                           */  필수
+              OBODDEPT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방과                           */
+              OBODCNST   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*대진/CONSULT                     */
+              OBODTYPE   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER 대분류                     */  필수(수가정보의 BASUPCDB) 
+              OBODSTAT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER STATUS                     */  필수 기본 = 'OE', 채혈시 = 'AC'
+              OBODDYPR   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER작성경로                    */
+              OBODDYSU   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*풀림여부                         */
+              OBODDYSE   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*풀림처방                         */
+              OBODDAYF   DEC(1,0) NOT NULL DEFAULT 0,                               /*DAILY간격                        */
+              OBODCPFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*CP FLAG                          */
+              OBODCODE   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수가코드                         */  필수
+              OBODSDTE   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방시작일                       */  필수
+              OBODSDTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방시작시                       */  필수
+              OBODEDTE   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방종료일                       */  필수
+              OBODBUNR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수가분류코드                     */  필수
+              OBODTUKJ   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*특진구분                         */
+              OBODQTYO   DEC(7,2) NOT NULL DEFAULT 0,                               /*용량/마취시간                    */  필수
+              OBODDAYS   DEC(3,0) NOT NULL DEFAULT 0,                               /*날수/마취분                      */  필수
+              OBODTMES   DEC(3,0) NOT NULL DEFAULT 0,                               /*횟수/Divd                        */  필수
+              OBODMETH   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약 용법                          */
+              OBODQTOT   DEC(3,0) NOT NULL DEFAULT 0,                               /*총횟수                           */  
+              OBODUSCT   DEC(3,0) NOT NULL DEFAULT 0,                               /*총실행횟수                       */
+              OBODGUBN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약 내,외부구분                   */
+              OBODIUFG   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*원내이유코드                     */
+              OBODUNTD   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약품처방단위                     */
+              OBODPDFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*소아 약 FLAG                     */
+              OBODPQTY   DEC(9,3) NOT NULL DEFAULT 0,                               /*소아 약1회용량                   */
+              OBODPUNT   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*소아 약단위                      */
+              OBODDSCH   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*퇴원약 FLAG                      */
+              OBODPOWD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*POWDER  FLAG                     */
+              OBODDGGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*마약류관련                       */
+              OBODDRNO   CHAR(13) NOT NULL DEFAULT ' ',                             /*약번호                           */
+              OBODBOTL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*BOTTLE  FLAG                     */
+              OBODILSU   DEC(2,0) NOT NULL DEFAULT 0,                               /*처방전유효일수                   */
+              OBODCKCD   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험해당이유                     */
+              OBODSELF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SELF   FLAG                      */  
+              OBODEMER   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*응급   FLAG                      */
+              OBODDANI   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*심야   FLAG                      */
+              OBODMERE   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*미래처방 FLAG                    */
+              OBODLABR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사실                           */ 필수
+              OBODSLIP   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SLIP CODE                        */ 필수
+              OBODSITE   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SITE CODE                        */
+              OBODSMPL   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검체코드                         */
+              OBODLEFT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사부위                         */
+              OBODRTYP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과유형                         */
+              OBODROOM   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*건진검사ROOM                     */
+              OBODIOFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*추가제외/IV Start                */
+              OBODZLFU   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ZLF 구분                         */
+              OBODRVFG   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사예약FLAG                     */
+              OBODCMNF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*COMMENT FLAG                     */
+              OBODCOLP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*COLPO   FLAG                     */
+              OBODPTBL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*POTABLE FLAG                     */
+              OBODONCL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ONCL    FLAG                     */
+              OBODDEST   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DELIVERY DEST                    */
+              OBODPHPL   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*건물 위치정보                    */
+              OBODUNTP   DEC(9,0) NOT NULL DEFAULT 0,                               /*단가                             */
+              OBODAMNT   DEC(9,0) NOT NULL DEFAULT 0,                               /*금액                             */
+              OBODOPSB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수술구분                         */
+              OBODOPPS   DEC(6,2) NOT NULL DEFAULT 0,                               /*수술 난이도                      */
+              OBODTRAN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전환FLAG                         */
+              OBODGSLF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*교통산재SELF                     */
+              OBODASTA   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납STATUS                       */
+              OBODRCVA   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*추후수납 flag                    */
+              OBODQRCV   DEC(3,0) NOT NULL DEFAULT 0,                               /*수납횟수                         */
+              OBODRCVF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'N',                /*수납FLAG                         */ 필수 기본= 'N'
+              OBODASDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납일                           */
+              OBODASTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납시간                         */
+              OBODASID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납ID                           */
+              OBODUPDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수정일                           */
+              OBODUPTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수정시간                         */
+              OBODUPID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수정자                           */
+              OBODDES1   DEC(5,0) NOT NULL DEFAULT 0,                               /*ITEM삭제ORNO                     */
+              OBODDES2   DEC(3,0) NOT NULL DEFAULT 0,                               /*ITEM삭제ORSQ                     */
+              OBODDSFL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*퇴원ORDER FLAG                   */
+              OBODDES4   DEC(5,0) NOT NULL DEFAULT 0,                               /*관련ORDER지번호                  */
+              OBODDES3   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전처리구분                       */
+              OBODSHET   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*후처리구분                       */
+              OBODPRNT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER출력여부                    */
+              OBODDNSP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*예약구분(수가)                   */
+              OBODPUDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PickUp일                         */
+              OBODPUTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PickUp시                         */
+              OBODPUID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PickUp자                         */
+              OBODYUFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*연장 Flag                        */
+              OBODDTFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*의사약시간flag                   */
+              OBODWTFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*W/S약시간flag                    */
+              OBODOKFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*이미완료 Flag                    */
+              OBODDRNS   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*할일구분                         */
+              OBODGIVE   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전체주기flag                     */
+              OBODDCTS   DEC(3,0) NOT NULL DEFAULT 0,                               /*당일d/c횟수                      */
+              OBODS333   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*금식검사                         */
+              OBODDCFG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약반납flag                       */
+              OBODDTCD   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*출력자CODE                       */
+              OBODDUM1   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY1                           */
+              OBODDUM2   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY2                           */
+              OBODDUM3   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY3                           */
+
+
+=== 5 .처방내역 Sub Table(OBOSUBMM)
+
+              OBOSMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*고객번호                         */  필수
+              OBOSCASE   DEC(9,0) NOT NULL DEFAULT 0,                               /*내원번호                         */  필수
+              OBOSORNO   DEC(5,0) NOT NULL DEFAULT 0,                               /*ORDER NUMBER                     */  필수
+              OBOSORSQ   DEC(3,0) NOT NULL DEFAULT 0,                               /*ORDER SEQUENCE                   */  필수
+              OBOSIOGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*IPD,OPD 구분 *                   */   
+              OBOSPTYP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PATIENT TYPE *                   */   
+              OBOSDOCT   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*주치의 *                         */   
+              OBOSDEPT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방과 *                         */   
+              OBOSTYPE   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER 대분류 *                   */
+              OBOSSTAT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER STATUS *                   */
+              OBOSDYPR   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER 작성경로*                  */
+              OBOSCODE   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수가코드 *                       */
+              OBOSSDTE   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방시작일*                      */
+              OBOSSDTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방시작시간 *                   */
+              OBOSDRNO   CHAR(13) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*약번호 *                         */
+              OBOSLABR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사실 *                         */
+              OBOSSLIP   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SLIP CODE *                      */
+              OBOSRTYP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과유형 *                       */
+              OBOSRCVF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납 FLAG *                      */
+              OBOSASDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납일 *                         */
+              OBOSASTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수납시간 *                       */
+              OBOSPUDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PICKUP DATE *                    */
+              OBOSPUTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PICKUP TIME *                    */
+              OBOSDCRI   DEC(5,0) NOT NULL DEFAULT 0,                               /*투여횟수                         */
+              OBOSDCSI   DEC(5,0) NOT NULL DEFAULT 0,                               /*반납횟수                         */
+              OBOSDCDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*D/C 종료일                       */
+              OBOSDCTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*D/C 종료시간                     */
+              OBOSDCID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*D/C 종료자                       */
+              OBOSENCC   DEC(5,0) NOT NULL DEFAULT 0,                               /*ENEMA CC                         */
+              OBOSPRNF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'N',                /*채혈List출력유무 FLAG            */
+              OBOSCFDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*bar출력일                        */
+              OBOSCFTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*bar출력시                        */
+              OBOSCFID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*bar출력자                        */
+              OBOSARDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검체채취일                       */
+              OBOSARTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검체채혈시간                     */
+              OBOSARID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*채혈자                           */
+              OBOSRCDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*접수일                           */
+              OBOSRCTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*접수시간                         */
+              OBOSRCID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*접수자                           */
+              OBOSRCNO   DEC(5,0) NOT NULL DEFAULT 0,                               /*접수순서                         */
+              OBOSLBNO   CHAR(12) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*LAB NUMBER                       */
+              OBOSSVDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최초저장일                       */
+              OBOSSVTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최초저장시간                     */
+              OBOSSVID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최초저장자                       */
+              OBOSTMDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*부분결과입력일                   */
+              OBOSTMTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*부분결과입력시간                 */
+              OBOSTMID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*부분결과입력자                   */
+              OBOSRDTE   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과입력일                       */
+              OBOSRDTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과입력시간                     */
+              OBOSRDID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과입력자                       */
+              OBOSLDTE   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최종변경일                       */
+              OBOSLDTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최종변경시간                     */
+              OBOSLDID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*최종변경자                       */
+              OBOSRSTT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과상태                         */
+              OBOSTEPL   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사장소                         */
+              OBOSWBCD   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사대장코드                     */
+              OBOSPWFL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사대장WORKLIST출력FLAG / 주사투*/
+              OBOSFPSB   CHAR(10) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*검체보관방법                     */
+              OBOSRPCF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사실시여부                     */
+              OBOSRRTN   DEC(5,2) NOT NULL DEFAULT 0,                               /*실반납 갯수                      */
+              OBOSNRTN   DEC(5,2) NOT NULL DEFAULT 0,                               /*미반납 갯수                      */
+              OBOSRTRS   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*미반납 사유                      */
+              OBOSRWRD   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*반납요청병동                     */
+              OBOSMRDT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*통합결과지출력                   */
+              OBOSOUTF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*외부의뢰출력                     */
+              OBOSDUM1   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*Dummy1                           */
+              OBOSDUM2   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*Dummy2                           */
+              OBOSDUM3   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*Dummy3                           */
+
+
+=== 6. 검사결과(수치결과) Table(OBSURSTM)
+
+              OBSUMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*고객번호                         */
+              OBSUCASE   DEC(9,0) NOT NULL DEFAULT 0,                               /*내원번호                         */
+              OBSUORNO   DEC(3,0) NOT NULL DEFAULT 0,                               /*ORDER NUM.                       */
+              OBSUORSQ   DEC(5,0) NOT NULL DEFAULT 0,                               /*ORDER SEQ.                       */
+              OBSUCODE   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사코드                         */
+              OBSUSUBC   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사코드SUB                      */
+              OBSURSLT   CHAR(15),                                                  /*검사결과                         */
+              OBSUCPMV   CHAR(10),                                                  /*보조결과                         */
+              OBSUPWFL   CHAR(1),                                                   /*W/S 출력FLAG                     */
+              OBSURLFL   CHAR(1),                                                   /*검사PANIC FLAG                   */
+              OBSURMKF   CHAR(1),                                                   /*REMARKS FLAG                     */
+              OBSUVRUS   CHAR(5),                                                   /*VERIFY ID                        */
+              OBSUENDT   CHAR(8),                                                   /*입력일                           */
+              OBSUENTM   CHAR(6),                                                   /*입력시간                         */
+              OBSUENID   CHAR(5),                                                   /*입력자                           */
+              OBSUSLIP   CHAR(6),                                                   /*SLIP_CODE                        */
+              OBSULABR   CHAR(2),                                                   /*검사부서                         */
+              OBSULBNO   CHAR(12),                                                  /*Lab Number                       */
+
+
+=== 7. 검사결과(TEXT,장문결과) Table(OBTXRSTM)
+
+              OBTXMRNO   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*고객번호                         */
+              OBTXCASE   DEC(9,0) NOT NULL DEFAULT 0,                               /*내원번호                         */
+              OBTXORNO   DEC(5,0) NOT NULL DEFAULT 0,                               /*ORDER NUMBER                     */
+              OBTXSMRY   VarChar(300) ALLOCATE(100) NOT NULL DEFAULT ' ',           /*OBTXSMRY                         */
+              OBTXDETL   VarChar(6000) ALLOCATE(999) NOT NULL DEFAULT ' ',          /*OBTXDETL                         */
+              OBTXNORF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*정상비정상구분                   */
+              OBTXVRUS   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*VERIFY ID                        */
+              OBTXENDT   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력일                           */
+              OBTXENTM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력시간                         */
+              OBTXENID   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*입력자                           */
+              OBTXSLIP   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SLIP                             */
+              OBTXLABR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사과                           */
+              OBTXLBNO   CHAR(12) FOR SBCS DATA NOT NULL DEFAULT ' ',               /*Lab Number                       */
+
+
+== 8. 각종번호 부여방법(신환차트번호,처방order no.)
+
+    --------------------------------
+     8.1 신환 차트번호
+          
+        // 최종번호에 1 더하기
+        Sql.Text := ' Update BBSEQNOM                       '+#13+
+                    '    Set BBSQNUMB = BBSQNUMB + BBSQNUMC '+#13+
+                  '  Where BBSQJBGB =  'AM'                 '+#13+
+                  '    And BBSQDATE =  '99999999'           '+#13+
+                  '    And BBSQJBCD =  'HJMRNO';
+ 
+
+
+        // 최종번호 선택함
+        Sql.Text := ' Select BBSQNUMB From BBSEQNOM           '+#13+
+                    '  Where BBSQJBGB =  'AM'                 '+#13+
+                    '    And BBSQDATE =  '99999999'           '+#13+
+                    '    And BBSQJBCD =  'HJMRNO';
+
+        Open;
+
+        Result := FieldByName('BBSQNUMB').AsFloat;
+
+    ----------------------------
+    8.2 내원일련번호 
+
+
+        // 최종번호에 1 더하기
+        Sql.Text := ' Update BBSEQNOM                       '+#13+
+                    '    Set BBSQNUMB = BBSQNUMB + BBSQNUMC '+#13+
+                  '  Where BBSQJBGB =  'CS'                 '+#13+
+                  '    And BBSQDATE =  '99999999'           '+#13+
+                  '    And BBSQJBCD =  '999999';
+ 
+
+
+        // 최종번호 선택함
+        Sql.Text := ' Select BBSQNUMB From BBSEQNOM           '+#13+
+                    '  Where BBSQJBGB =  'AM'                 '+#13+
+                    '    And BBSQDATE =  '99999999'           '+#13+
+                    '    And BBSQJBCD =  '999999';
+
+        Open;
+
+        Result := FieldByName('BBSQNUMB').AsFloat;
+
+     8.3 처방발생번호(OBODORNO)
+
+         최종번호 선택후  순차적 1씩 증가
+
+         Sql.Text := ' Select Max(OBODORNO) MaxNo                 '+#13+
+                     '   From OBODRMTM                            '+#13+
+                     '  Where OBODMRNO = 차드번호      
+                     '    And OBODCASE = 내원순번
+         Open;
+
+
+        if Not Eof then
+           Result := FieldByName('MaxNo').AsInteger;
+        else
+           Result := 1
+
+      8.4 처방발생번호 Sub(OBODORSQ
+          처방발생번호 기준으로 순차적 1씩증가
+
+         예) 1-1,1-2,1-3.... 2-1,2-2,2-3............
+        
+
+
+====  9. 수가정보 Table (BABSUGAM)
+
+              BASUITEM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수가코드                         */
+              BASUFDAY   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*적용일자                         */
+              BASUTDAY   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*종료일자                         */
+              BASUDEPT   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*관리과                           */
+              BASUOCDP   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방과                           */
+              BASUMSDP   CHAR(5) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*원가부서적용                     */
+              BASUINFO   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*외래안내과                       */
+              BASUPCDB   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*대분류(PC TBL)                   */ 처방정보(ORDER 대분류) 
+              BASUBUNR   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*분류                             */
+              BASUNUJK   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*누적                             */
+              BASUSUIP   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*수입원                           */
+              BASUCBUN   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*EDI분류코드                      */
+              BASUCTYN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT 'N',                /*EDI횟수관리                      */
+              BASURGBN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*REC구분                          */
+              BASUGSUL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*행위재료구분                     */
+              BASUSUBC   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ODR입력구분                      */
+              BASUNGHT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*심야구분                         */
+              BASUCHLD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT '0',                /*소아가산코드                     */
+              BASUGAMM   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*감액미수                         */
+              BASUPRSU   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*선시행후수납                     */
+              BASUDRGG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DRG제외코드                      */
+              BASUDGIO   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*원내,외구분                      */
+              BASUIWRN   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*원내이유                         */
+              BASUDNAL   DEC(3,0) NOT NULL DEFAULT 0,                               /*투약일수SET                      */
+              BASUBRDG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*연결코드FLAG                     */
+              BASUVALU   DEC(7,2) NOT NULL DEFAULT 0,                               /*환산지수                         */
+              BASUIAMT   DEC(7,0) NOT NULL DEFAULT 0,                               /*일반수가                         */
+              BASUIPNT   DEC(9,2) NOT NULL DEFAULT 0,                               /*일반수가점수                     */
+              BASUITKJ   DEC(3,0) NOT NULL DEFAULT 0,                               /*일반특진율                       */
+              BASUISUS   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일반수수료항목                   */
+              BASUIGSN   DEC(3,0) NOT NULL DEFAULT 0,                               /*일반행위가산률                   */
+              BASUISLF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일반SELF                         */
+              BASUIENT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일반수량시간                     */
+              BASUIGIT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일반기타사항1                    */
+              BASUIPGM   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*일반계산PGM                      */
+              BASUBAMT   DEC(7,0) NOT NULL DEFAULT 0,                               /*보험수가                         */
+              BASUBPNT   DEC(9,2) NOT NULL DEFAULT 0,                               /*보험수가점수                     */
+              BASUBTKJ   DEC(3,0) NOT NULL DEFAULT 0,                               /*보험특진률                       */
+              BASUBSUS   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험수수료항목                   */
+              BASUBGSN   DEC(3,0) NOT NULL DEFAULT 0,                               /*보험행위가산률                   */
+              BASUBSLF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험SELF                         */
+              BASUBENT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험수량시간                     */
+              BASUBGIT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험기타사항                     */
+              BASUBPGM   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보헙계산PGM                      */
+              BASUJAMT   DEC(7,0) NOT NULL DEFAULT 0,                               /*자보수가                         */
+              BASUJPNT   DEC(9,2) NOT NULL DEFAULT 0,                               /*자보수가점수                     */
+              BASUJTKJ   DEC(3,0) NOT NULL DEFAULT 0,                               /*자보특진률                       */
+              BASUJSUS   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*자보수수료항목                   */
+              BASUJGSN   DEC(3,0) NOT NULL DEFAULT 0,                               /*자보행위가산률                   */
+              BASUJSLF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*자보SELF                         */
+              BASUJENT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*자보수량시간                     */
+              BASUJGIT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*자보기타사항                     */
+              BASUJPGM   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*자보계산PGM                      */
+              BASUGAMT   DEC(7,0) NOT NULL DEFAULT 0,                               /*기타수가                         */
+              BASUGPNT   DEC(9,2) NOT NULL DEFAULT 0,                               /*기타수가점수                     */
+              BASUGTKJ   DEC(3,0) NOT NULL DEFAULT 0,                               /*기타특진률                       */
+              BASUGSUS   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기타수수료항목                   */
+              BASUGGSN   DEC(3,0) NOT NULL DEFAULT 0,                               /*기타행위가산률                   */
+              BASUGSLF   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기타SELF                         */
+              BASUGENT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기타수량시간                     */
+              BASUGGIT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기타기타사항                     */
+              BASUGPGM   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기타계산PGM                      */
+              BASUHAMT   DEC(8,0) NOT NULL DEFAULT 0,                               /*건진수가                         */
+              BASUSAMT   DEC(8,0) NOT NULL DEFAULT 0,                               /*신검수가                         */
+              BASUGCOD   CHAR(9) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*보험기관코드                     */
+              BASUGQTY   DEC(8,2) NOT NULL DEFAULT 0,                               /*기관환산수량                     */
+              BASUHCOD   CHAR(20) NOT NULL DEFAULT ' ',                             /*한글수가코드                     */
+              BASUHDSC   CHAR(50) NOT NULL DEFAULT ' ',                             /*한글명칭                         */
+              BASUEDSC   CHAR(50) NOT NULL DEFAULT ' ',                             /*영문명칭                         */
+              BASUSDES   CHAR(20) NOT NULL DEFAULT ' ',                             /*약어명칭(ENG)                    */
+              BASUDGDB   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약품성분코드                     */
+              BASUDGGB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약품구분                         */
+              BASUDGGN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*전문일반약                       */
+              BASUJANG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*장려약품                         */
+              BASUUNTH   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약품형태                         */
+              BASUUNTD   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약품형태단위                     */
+              BASUUNTQ   DEC(8,2) NOT NULL DEFAULT 0,                               /*약품형태용량                     */
+              BASUOCDW   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처방단위                         */
+              BASUOCUT   DEC(8,2) NOT NULL DEFAULT 0,                               /*처방기본용량                     */
+              BASUPDDW   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*소아처방단위                     */
+              BASUPDUT   DEC(9,3) NOT NULL DEFAULT 0,                               /*소아처방기본용량                 */
+              BASUOCMN   DEC(8,2) NOT NULL DEFAULT 0,                               /*처방최소허용량                   */
+              BASUOCMX   DEC(8,2) NOT NULL DEFAULT 0,                               /*처방최대허용량                   */
+              BASUMETH   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*기본용법                         */
+              BASUOINT   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*외용약일수FLAG                   */
+              BASUDMGR   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*약품관리항목                     */
+              BASUYBYN   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*예방접종코드                     */
+              BASUYBCT   DEC(2,0) NOT NULL DEFAULT 0,                               /*예방주사횟수                     */
+              BASUSLIP   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SLIP코드                         */
+              BASUSPCM   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검체필요                         */
+              BASUSITE   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*SITE필요                         */
+              BASUCOMM   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*COMMENT필요                      */
+              BASUOCGR   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사GROUP                        */
+              BASUOCSB   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사SUBC                         */
+              BASURTYP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*결과유형                         */
+              BASURDUR   CHAR(20) NOT NULL DEFAULT ' ',                             /*결과소요일                       */
+              BASUWBCD   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*검사대장코드                     */
+              BASUEXFL   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*외부의뢰구분                     */
+              BASUPORS   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*PORTABLE FLAG                    */
+              BASUBSMG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*양측관리                         */
+              BASUECNF   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*EDI확인코드                      */
+              BASUED12   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*EDI제제약                        */
+              BASURVCD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*예약유무코드                     */
+              BASUWHYG   CHAR(3) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ORDER이유                        */
+              BASUNSOD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*NS ODR=1                         */
+              BASUACTG   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*실시자구분                       */
+              BASUTERM   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*처치TERM                         */
+              BASUSHET   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*Sheet형태                        */
+              BASUS333   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*금식유무                         */
+              BASUPREP   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*혈액Prep유무                     */
+              BASUBLOD   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*혈액수혈유무                     */
+              BASUI9CM   CHAR(6) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*ICD9CM                           */
+              BASUDMY1   CHAR(1) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY1                           */
+              BASUDMY2   CHAR(2) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY2                           */
+              BASUDMY3   CHAR(4) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY3                           */
+              BASUDMY4   CHAR(8) FOR SBCS DATA NOT NULL DEFAULT ' ',                /*DUMMY4                           */

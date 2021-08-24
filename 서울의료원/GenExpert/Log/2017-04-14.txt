@@ -1,0 +1,58 @@
+09:41:40 [Rx]
+09:41:40 [Tx]
+09:41:40 [Rx]1H|@^\|URM-h9E6ptVA-01||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20170414094124P|1|||1710151750|^^^^O|1|1710151750||^^^001|R|20170414084719|||||||||ORH|||^^|||||||FR|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|POSITIVE^|||||8B
+
+09:41:40 [Tx]
+09:41:40 [Rx]2F||<None>|20170414084719|20170414093015|Cepheid-60138QN^809702^671668^80832732^30006^20180603R|2|^001^^003^^^Toxin B^|POS^|||R|3|^001^^003^^^Toxin B^Ct|^25.3|||R|4|^001^^003^^^Toxin B^EndPt|^212.0|||R|5|^001^^003^^^Binary Toxin^|NEG^|||E0
+
+09:41:40 [Tx]
+09:41:40 [Rx]3R|6|^001^^003^^^Binary Toxin^Ct|^0.0|||R|7|^001^^003^^^Binary Toxin^EndPt|^1.0|||R|8|^001^^003^^^TcdC^|NEG^|||R|9|^001^^003^^^TcdC^Ct|^0.0|||R|10|^001^^003^^^TcdC^EndPt|^3.0|||R|11|^001^^003^^^SPC^|NA^|||R|12|^001^^003^^^SPC^Ct|^30.7B3
+
+09:41:40 [Tx]
+09:41:40 [Rx]4|||R|13|^001^^003^^^SPC^EndPt|^208.0|||R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20170414084719|20170414093015|Cepheid-60138QN^809702^671668^80832732^30006^20180603R|15|^001^^002^^^Toxin B^|POS^|||R|16|^0B9
+
+09:41:40 [Tx]
+09:41:40 [Rx]501^^002^^^Toxin B^Ct|^25.3|||R|17|^001^^002^^^Toxin B^EndPt|^212.0|||R|18|^001^^002^^^Binary Toxin^|NEG^|||R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||R|20|^001^^002^^^Binary Toxin^EndPt|^1.0|||R|21|^001^^002^^^TcdC^|NEG^|||R|22|^001^^00236
+
+09:41:40 [Tx]
+09:41:40 [Rx]6^^^TcdC^Ct|^0.0|||R|23|^001^^002^^^TcdC^EndPt|^3.0|||R|24|^001^^002^^^SPC^|NA^|||R|25|^001^^002^^^SPC^Ct|^30.7|||R|26|^001^^002^^^SPC^EndPt|^208.0|||L|1|NDE
+
+09:41:40 [Tx]
+09:41:40 [Rx]
+09:41:40 [ED]1H|@^\|URM-h9E6ptVA-01||GeneXpert PC^GeneXpert^4.7b|||||SMC||P|1394-97|20170414094124
+09:41:40 [ED]P|1|||1710151750|^^^^
+09:41:40 [ED]O|1|1710151750||^^^001|R|20170414084719|||||||||ORH|||^^|||||||F
+09:41:40 [오더조회]SELECT DISTINCT PART_JUBSU_DATE as 접수일자, PART_JUBSU_TIME, BUNHO as 내원번호, SUNAME as 이름, AGE as 나이, SEX as 성별,        FKCPL0201, SPECIMEN_CODE, GWA, HANGMOG_CODE as ITEM, INTERFACE_YN, JANGBI_OUT_CODE, JANGBI_CODE, CONFIRM_YN, CPL_RESULT   FROM VW_CPL_INTERFACE_GUMSA_LOAD  WHERE SPECIMEN_SER = '1710151750'   AND NVL(CONFIRM_YN, 'N') = 'N'   AND HANGMOG_CODE IN ('CZ99901','XXX01','XXX02')
+09:41:40 [ED]R|1|^001^^003^Xpert C.difficile G3^4^Toxigenic C^diff|POSITIVE^|||||F||<None>|20170414084719|20170414093015|Cepheid-60138QN^809702^671668^80832732^30006^20180603
+09:41:40 [ED]R|2|^001^^003^^^Toxin B^|POS^|||
+09:41:40 [ED]R|3|^001^^003^^^Toxin B^Ct|^25.3|||
+09:41:40 [ED]R|4|^001^^003^^^Toxin B^EndPt|^212.0|||
+09:41:40 [ED]R|5|^001^^003^^^Binary Toxin^|NEG^|||
+09:41:40 [ED]R|6|^001^^003^^^Binary Toxin^Ct|^0.0|||
+09:41:40 [ED]R|7|^001^^003^^^Binary Toxin^EndPt|^1.0|||
+09:41:40 [ED]R|8|^001^^003^^^TcdC^|NEG^|||
+09:41:40 [ED]R|9|^001^^003^^^TcdC^Ct|^0.0|||
+09:41:40 [ED]R|10|^001^^003^^^TcdC^EndPt|^3.0|||
+09:41:40 [ED]R|11|^001^^003^^^SPC^|NA^|||
+09:41:40 [ED]R|12|^001^^003^^^SPC^Ct|^30.7|||
+09:41:40 [ED]R|13|^001^^003^^^SPC^EndPt|^208.0|||
+09:41:40 [ED]R|14|^001^^002^Xpert C.difficile G3^4^027^|PRESUMPTIVE NEG^|||||F||<None>|20170414084719|20170414093015|Cepheid-60138QN^809702^671668^80832732^30006^20180603
+09:41:40 [ED]R|15|^001^^002^^^Toxin B^|POS^|||
+09:41:40 [ED]R|16|^001^^002^^^Toxin B^Ct|^25.3|||
+09:41:41 [ED]R|17|^001^^002^^^Toxin B^EndPt|^212.0|||
+09:41:41 [ED]R|18|^001^^002^^^Binary Toxin^|NEG^|||
+09:41:41 [ED]R|19|^001^^002^^^Binary Toxin^Ct|^0.0|||
+09:41:41 [ED]R|20|^001^^002^^^Binary Toxin^EndPt|^1.0|||
+09:41:41 [ED]R|21|^001^^002^^^TcdC^|NEG^|||
+09:41:41 [ED]R|22|^001^^002^^^TcdC^Ct|^0.0|||
+09:41:41 [ED]R|23|^001^^002^^^TcdC^EndPt|^3.0|||
+09:41:41 [ED]R|24|^001^^002^^^SPC^|NA^|||
+09:41:41 [ED]R|25|^001^^002^^^SPC^Ct|^30.7|||
+09:41:41 [ED]R|26|^001^^002^^^SPC^EndPt|^208.0|||
+09:41:41 [ED]L|1|N
+09:41:41 [ED]
+09:41:41 [ED]
+09:41:41 [결과저장]M07
+09:41:41 [결과저장]M07
+09:41:41 [결과저장]M07
+09:41:41 [결과저장]M07

@@ -1,0 +1,18 @@
+SELECT DISTINCT        a.ACC_YMD       AS HOSPDATE     
+     , a.RECEPT_NO     AS BARCODE      
+     , a.PTNT_NO       AS PID          
+     , c.PTNT_NM       AS PNAME        
+     , c.BIRTH_YMD     AS AGE          
+     , c.SEX           AS SEX          
+     , COUNT(a.ORD_CD) AS CNT          
+  FROM H3LAB_RESULT a                  
+     , H1OPDIN b                       
+     , HZ_MST_PTNT c                   
+ WHERE a.ACC_YMD between '20200804' AND '20200804' 
+   AND a.ORD_CD IN ('291','291-','292','292-','488-','502-','525','590-','597-','708','디급','ALB','ALP','ALT','ALT-','AST','AST-','BCRATO-','BUN','CA','CA-','CR','CRP','CRP-','GFR','GLU-','GLUCOSE','LDL','LDL계산','LDL계산-','PROTEIN','TB','TCHOL','TG','URIC','VITD-')                    
+   AND a.STS_CD     = 'A'                                  
+   AND a.RECEPT_NO  = b.RECEPT_NO                          
+   AND a.PTNT_NO    = c.PTNT_NO                            
+ GROUP BY a.ACC_YMD, a.RECEPT_NO, a.PTNT_NO, c.PTNT_NM,c.BIRTH_YMD,c.SEX 
+ ORDER BY a.ACC_YMD, a.PTNT_NO 
+

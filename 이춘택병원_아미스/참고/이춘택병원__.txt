@@ -1,0 +1,35 @@
+ select r.resultitemcode ,p.patid ,p.patname ,p.sex  ,p.prsnidpre||prsnidpost prsnid  ,r.resultflag  ,w.resultstate  ,w.rsvacptstate  ,r.ORDERCODE 
+ from resultofnum r  , registinfos w  , patmst p 
+ where r.patid = p.patid 
+ and r.spcmno = w.spcmno 
+ and r.OrderCode = w.OrderCode 
+ and r.spcmno = '''+TMaster.FBarCode+''' 
+ and r.resultitemcode in '+EList +#13#10;
+
+
+
+ Update resultofnum Set 
+ resultindate = to_char(sysdate,''yyyymmdd'') 
+ , resultintime = to_char(sysdate,''HH24MI'') 
+ , resultinid = '''+TGlobal.FUserID+''' 
+ , resultflag = ''1'' 
+ , textresultval= '''+TMaster.FResult+''' ';
+
+'-- 결과가 수치형이면
+if dVal > -1 then
+SQL.Text:= SQL.Text + ' , NUMRESULTVAL = '+TMaster.FResult+ #13#10;
+
+ where spcmno = '''+TMaster.FBarCode+''' 
+ and resultitemcode = '''+TMaster.FExamCode+''' 
+ and resultflag < ''2'' ';
+
+
+
+
+UPDATE registinfos SET 
+ RESULTSTATE = '+STA+' 
+ where SPCMNO = '''+BCD+''' 
+ and ORDERCODE = '''+OCD+''' 
+ and CLAS = 4  
+ and RESULTSTATE < '4' 
+

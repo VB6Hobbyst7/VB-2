@@ -1,0 +1,72 @@
+'결과,검사코드
+Function SetPanic_ACK(asResult As String, asEquipCode As String) As String
+    Dim RSJ         As ADODB.Recordset
+    Dim sqlRet      As Integer
+    Dim sqlDoc      As String
+    Dim strAge      As String
+    Dim strSex      As String
+    Dim stryy, strmm, strdd, strDate  As String
+    
+On Error GoTo ErrorTrap
+    
+    SetPanic_ACK = ""
+    
+    asResult = Replace(asResult, "<", "")
+    asResult = Replace(asResult, ">", "")
+    
+    strAge = mResult.PAGE
+    strSex = mResult.PSEX
+    
+    SQL = ""
+    SQL = SQL & "Select PANICLOW MIN, PANICHIGH MAX "
+    SQL = SQL & "  From TESTITEM " & vbCr
+    SQL = SQL & " Where PARTCD       =  '" & gHOSP.PARTCD & "'" & vbCr
+    If mResult.PARTGBN = "" Then
+        SQL = SQL & "   AND PARTGBN      =  '01'" & vbCr
+    Else
+        SQL = SQL & "   AND PARTGBN      =  '" & mResult.PARTGBN & "'" & vbCr
+    End If
+    
+    If mResult.SPECIMENCD = "" Then
+        SQL = SQL & "   AND SPECIMENCD   =  '002'" & vbCr
+    Else
+        SQL = SQL & "   AND SPECIMENCD   =  '" & mResult.SPECIMENCD & "'" & vbCr
+    End If
+    
+    SQL = SQL & "   AND TESTITEMSEQ  = '" & asEquipCode & "'" & vbCr
+    
+'    Call SetSQLData("PANIC", SQL, "A")
+    
+    Set RSJ = AdoCn.Execute(SQL)
+    Do Until RSJ.EOF
+        If IsNumeric(asResult) Then
+            If IsNumeric(RSJ.Fields("MIN")) Then
+                If Val(asResult) < Val(RSJ.Fields("MIN")) Then
+                    SetPanic_ACK = "P"
+                End If
+            End If
+            If IsNumeric(RSJ.Fields("MAX")) Then
+                If Val(asResult) > Val(RSJ.Fields("MAX")) Then
+                    SetPanic_ACK = "P"
+                End If
+            End If
+        Else
+            SetPanic_ACK = ""
+        End If
+        
+        '-- 2019-04-30
+        mResult.PANICLOW = RSJ.Fields("MIN")
+        mResult.PANICHIGH = RSJ.Fields("MAX")
+        
+        RSJ.MoveNext
+    
+    Loop
+    
+    RSJ.Close
+
+Exit Function
+
+ErrorTrap:
+    SetPanic_ACK = ""
+    
+End Function

@@ -1,0 +1,167 @@
+TLA 인터페이스 자료 요청 드립니다.     
+
+******* 검사장비 인터페이스용 요청 자료*************
+
+기본적인 인터페이스 자료가 필요합니다.
+
+1. 전산 접속정보(아이피, 아이디, 패스워드등)
+
+인터페이스 방법은 Web Service를 이용합니다.
+Web Service를 호출하고, 호출 시 적절한 ID값과 파라메터를 부여하면(부여방법은 XML을 이용합니다.)
+Web Service에서 관련 작업을 본원의 DB에 처리하게 됩니다.
+
+1) Web Service 주소 입니다.
+
+http://interface.snubh.org/SUP_NEXT/WEBSERVICE/INT/IntWebService.asmx
+-> 개발기 및 운영기 URL 주소는 동일하며, Web Service 호출 시  USERID 를 다르게 호출하시면 됩니다.
+-> USERID : 개발기(LIANEXTDEV) , 운영기(LIANEXT)
+
+2) Web Service 메소드 입니다.
+
+SupWebService(sGubun, sParam) 
+
+3) 메소드 사용법 입니다.
+
+ex. VB6.0 
+
+-> SELECT 할 경우 (인터페이스 할 검사 및 환자정보 조회 시 사용)
+x = oSOAP.SupWebService("GETQUERY", Xml) 
+
+-> INSERT 또는 UPDATE 할 경우 (인터페이스 결과전송 시 사용)
+x = oSOAP.SupWebService("SETQUERY", Xml)
+
+메소드에 GETQUERY나 SETQUERY만 설정해서 사용하시면 되고, XML 설정 방법은 아래와 같습니다.
+
+4) XML 설정 방법 입니다.
+
+XML 설정 시 각 서비스에 해당하는 쿼리 ID와 파라메터를 지정하게 됩니다.
+
+QTYPE은 Package로 해주시고
+SELECT의 경우 EXECTYPE에 FILL, INSERT/UPDATE의 경우 EXECTYPE에 NONQUERY를 넣어주시면 됩니다.  
+
+각각의 서비스에 따른 쿼리 ID와 파라메터는 문의주신 내용 밑에 말씀드리겠습니다.
+
+ex1. XML 규격 예제 : SELECT  
+
+<?xml version='1.0' encoding='UTF-8'?>
+<ROOT>
+<Table>
+<QID><![CDATA[Pk_Lab.Interface_S127]]></QID>
+<QTYPE><![CDATA[Package]]></QTYPE>
+<USERID><![CDATA[LIANEXT]]></USERID>
+<EXECTYPE><![CDATA[FILL]]></EXECTYPE>        
+<P0><![CDATA[11111111111]]></P0>
+<P1><![CDATA[]]></P1>
+</Table>
+</ROOT>
+
+ex2. XML 규격 예제 : INSERT , UPDATE   
+
+<?xml version='1.0' encoding='UTF-8'?>
+<ROOT>
+<Table>
+<QID><![CDATA[Pk_Lab.Interface_I02]]></QID>
+<QTYPE><![CDATA[Package]]></QTYPE>
+<USERID><![CDATA[LIANEXT]]></USERID>
+<EXECTYPE><![CDATA[NONQUERY]]></EXECTYPE>
+<P0><![CDATA[	150709000000	150709000000	150709000000	150709000000	150709000000	]]></P0>
+<P1><![CDATA[	L8191	L8192	L8193	L8194	L8195	]]></P1>
+<P2><![CDATA[	>100	0.5	1.1	2.0	11.6	]]></P2>
+<P3><![CDATA[						]]></P3>
+<P4><![CDATA[	0ECLUSYS	0ECLUSYS	0ECLUSYS	0ECLUSYS	0ECLUSYS	]]></P4>
+<P5><![CDATA[	]]></P5>
+<P6><![CDATA[5]]></P6>
+<P7><![CDATA[G]]></P7>
+<P8><![CDATA[]]></P8>
+<P9><![CDATA[]]></P9>
+<P10><![CDATA[]]></P10>
+</Table>
+</ROOT>
+
+
+2. 바코드를 이용한 오더 정보 서비스
+
+ - 환자정보(이름, 등록번호, 검사코드, 검사명, 검사결과 및 결과 전송시 필요한 정보)
+ 
+1) 오더정보 불러오는 서비스 
+
+-> 검체번호에 해당하는 검사코드 조회
+
+쿼리ID : Pk_Lab.Interface_S37
+파라메터 2개
+P0내용 : 검체번호
+P1내용 : null (무조건 null로 설정)   
+
+조회되는 컬럼 값 
+: PT_NO (환자번호), ACPT_NO (접수번호), TST_CD (검사코드), WRK_UNT (작업단위분류), DT_CB_ACPT_SEQ (일자별접수순번)   
+
+2) 환자정보 불러오는 서비스
+
+-> 검체번호에 해당하는 환자정보 조회
+
+쿼리ID : Pk_Lab.Interface_S06
+파라메터 2개
+P0내용 : 검체번호
+P1내용 : null (무조건 null로 설정)   
+
+조회되는 컬럼 값 
+: TST_FRCT_CD (검사분류), SPC_NO (검체번호), PT_NO (환자번호), PT_NM (환자명)   
+
+
+3.결과 전송 할수 있는 서비스
+
+ - 오더 정보를 이용해 결과 전송시 필요한 서비스 요청 드립니다.
+
+ - 특정 상태값을 넘겨야 하거나, 특이 사항이 있으면 알려주시기 바랍니다.
+
+ - 장비 인터페이스는 기존 장비 인터페이스용 서비스 사용하면 될것 같습니다.    
+
+-> 결과 전송 
+  
+쿼리ID : Pk_Lab.Interface_I02 
+파라메터 11개
+P0내용 : 검체번호 (전송할 갯수만큼 붙여 탭(chr(9))으로 구분해주시면 됩니다. 맨 처음과 마지막도 탭 붙여주시면 됩니다.)
+P1내용 : 검사코드 (전송할 갯수만큼 붙여 탭(chr(9))으로 구분해주시면 됩니다. 맨 처음과 마지막도 탭 붙여주시면 됩니다.)
+P2내용 : 검사결과 (전송할 갯수만큼 붙여 탭(chr(9))으로 구분해주시면 됩니다. 맨 처음과 마지막도 탭 붙여주시면 됩니다.)
+P3내용 : ErrFlag  (전송할 갯수만큼 붙여 탭(chr(9))으로 구분해주시면 됩니다. 맨 처음과 마지막도 탭 붙여주시면 됩니다.)   
+P4내용 : 장비코드 (전송할 갯수만큼 붙여 탭(chr(9))으로 구분해주시면 됩니다. 맨 처음과 마지막도 탭 붙여주시면 됩니다. 현업에서 지정하는 장비코드를 넣어주시면 되며, 이 부분은 추후 정해지면 그 때 수정하시면 될 것 같습니다.)  
+P5내용 : 장비비고 (전송할 갯수만큼 붙여 탭(chr(9))으로 구분해주시면 됩니다. 맨 처음과 마지막도 탭 붙여주시면 됩니다.)
+P6내용 : 결과갯수
+P7내용 : G (고정)
+P8내용 : null (무조건 null로 설정)
+P9내용 : null (무조건 null로 설정) -->err_yn
+P10내용 : null (무조건 null로 설정) -->err_msg 
+
+※※※ 위의 1-4) XML 설정 방법에서 ex2. XML 규격 예제 : INSERT , UPDATE 를 참고하시면 됩니다.  ※※※ 
+
+
+************ TLA 인터페이스용 요청 자료*********************
+
+1. TLA로 보낼 접수 검체 리스트
+
+ - 타이머돌려서 접수 된 검체를 계속 가져와서 TLA 로 미리 보내 놓아야 하기 때문에 접수된 검체 리스트가 필요합니다. 
+ 
+1) TLA 검사에 해당하는 worklist 조회
+
+-> 말씀해주신 "TLA에서 요구하는 명세"에 있는 내용을 조회할 수 있도록 수정하였습니다. (필수 및 옵션 포함)
+
+쿼리ID : Pk_Lab.Interface_S127 
+파라메터 1개
+P0내용 : null (무조건 null로 설정) 
+  
+조회되는 컬럼 값 
+: SPCM_NO (검체번호), EXM_CD (검사코드), EXRS_CNTE (검사결과), TH1_SPCM_CD (검체코드), TH1_SPCM_NM (검체명), BLCL_DTM (채혈일시), ACPT_DTM (접수일시), PT_NO (환자번호), PT_NM (환자명),
+  SEX (성별), AGE (나이), PACT_TP_CD(외래/입원/응급구분), PBSO_DEPT_CD (진료과), PACT_TP_NM (병동(실)), ANDR_STF_NO (주치의사번), ANDR_STF_NM (주치의명), INFECT_CLS (감염여부) 
+
+2) TLA 전송완료 업데이트 서비스
+
+-> 오더 전송된 검체번호에 대해서 처리되었음을 알림 (전송 후 다시 불려지는 것 방지) 
+-> 오더 전송 후 호출해주시면 됩니다. 
+
+쿼리ID : Pk_Lab.Interface_U11
+파라메터 3개
+P0내용 : 검체번호
+P1내용 : null (무조건 null로 설정) 
+P2내용 : null (무조건 null로 설정)   
+
+

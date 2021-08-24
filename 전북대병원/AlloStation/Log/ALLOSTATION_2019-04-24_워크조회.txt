@@ -1,0 +1,63 @@
+ SELECT      j011m.colldt                              AS HOSPDATE 
+   , j011m.bcno                                AS BARCODE  
+   , r010m.WKYMD||r010m.WKGRPCD||r010m.WKNO    AS FLWKNO   
+   , r010m.WKNO                                AS CHARTNO  
+   , j011m.regno                               AS PID      
+   , j010m.patnm                               AS PNAME    
+   , j010m.age                                 AS AGE      
+   , j010m.sex                                 AS SEX      
+   , j011m.IOGBN                               AS INOUT    
+   , j010m.DEPTCD                              AS DEPT     
+   , j010m.WARDNO                              AS WARD     
+   , j010m.ROOMNO                              AS ROOM     
+   , f72m.testcd                               AS ITEM     
+   , r010m.SPCCD                               AS SPCCD    
+  FROM LJ011M j011m                                        
+       INNER JOIN LJ010M j010m                             
+               ON j011m.bcno               = j010m.bcno    
+              AND j011m.regno              = j010m.regno   
+       INNER JOIN LR010M r010m                             
+               ON j011m.bcno               = r010m.bcno    
+              AND j011m.regno              = r010m.regno   
+              AND NVL(r010m.rstflg,'0')    = '0'           
+       INNER JOIN LF072M f72m                              
+               ON f72m.eqcd        = 'Allergen'
+              AND f72m.testcd     IN ('IN','FD','XM01','XM01','XM02','XM02','IA51','FI10','IA52','FI16','IA53','FI15','IA55','FI17','IA59','FI20','IA48','FI25','IA16','FI26','IA17','FI19','IA19','FI23','IA42','FI14','IA50','FI13','IA20','FI12','IA28','FI01','IA34','FI04','IA44','FI11','IA18','FI09','IA29','FI05','IA45','FI28','IA39','FI29','IA23','FI08','IA08','FI41','IA15','FI49','IA36','FI59','IA26','FI54','IA60','FI27','IA63','FI63','IA46','FI02','IA54','FI18','IA11','FI44','IA32','FI33','IA38','FI50','IA21','FI56','IA27','FI60','IA35','FI55','IA01','FI58','IA02','FI34','IA03','FI35','IA05','FI37','IA06','FI39','IA06_1','FI39_1','IA09','FI42','IA64','FI64','IA12','FI46','IA13','FI47','IA43','FI06','IA37','FI32','IA33','FI36','IA30','FI45','IA24','FI52','IA56','FI21','IA62','FI31','IA58','FI24','XM03','XM03','IA57','FI22','IA47','FI03','IA61','FI30','IA49','FI07','IA65','FI65','IA07','FI40','XP01','XP01','XP02','XP02','XP03','XP03','XP04','XP04','XP05','XP05','XP06','XP06','XP07','XP07','IA04','FI38','IA14','FI48','XP08','XP08','XP09','XP09','XP10','XP10','XP11','XP11','XP12','XP12','IA31','FI57','XP13','XP13','XP14','XP14','IA41','FI62','IA25','FI53','IA22','FI51','XP15','XP15','IA40','FI61','XP16','XP16','XP17','XP17','IA10','FI43')
+              AND r010m.testcd     = f72m.testcd         
+ WHERE j011m.colldt BETWEEN '20190424000000' AND '20190424235959'
+   AND r010m.wkno between '000001' AND '009999'
+   AND j011m.spcflg            = '4'                       
+   AND NVL(j011m.rstflg, '0')  = '0'                       
+ UNION                                                     
+ SELECT  SELECT      j011m.colldt                              AS HOSPDATE 
+   , j011m.bcno                                AS BARCODE  
+   , r010m.FLWKNO                              AS FLWKNO   
+   , r010m.WKNO                                AS CHARTNO  
+   , j011m.regno                               AS PID      
+   , j010m.patnm                               AS PNAME    
+   , j010m.age                                 AS AGE      
+   , j010m.sex                                 AS SEX      
+   , j011m.IOGBN                               AS INOUT    
+   , j010m.DEPTCD                              AS DEPT     
+   , j010m.WARDNO                              AS WARD     
+   , j010m.ROOMNO                              AS ROOM     
+   , f72m.testcd                               AS ITEM     
+   , r010m.SPCCD                               AS SPCCD    
+  FROM LJ011M j011m                                        
+       INNER JOIN LJ010M j010m                             
+               ON j011m.bcno               = j010m.bcno    
+              AND j011m.regno              = j010m.regno   
+       INNER JOIN LR010M r010m                             
+               ON j011m.bcno               = r010m.bcno    
+              AND j011m.regno              = r010m.regno   
+              AND NVL(r010m.rstflg,'0')    = '0'           
+       INNER JOIN LF072M f72m                              
+               ON f72m.eqcd        = 'Allergen'
+              AND f72m.testcd     IN ('IN','FD','XM01','XM01','XM02','XM02','IA51','FI10','IA52','FI16','IA53','FI15','IA55','FI17','IA59','FI20','IA48','FI25','IA16','FI26','IA17','FI19','IA19','FI23','IA42','FI14','IA50','FI13','IA20','FI12','IA28','FI01','IA34','FI04','IA44','FI11','IA18','FI09','IA29','FI05','IA45','FI28','IA39','FI29','IA23','FI08','IA08','FI41','IA15','FI49','IA36','FI59','IA26','FI54','IA60','FI27','IA63','FI63','IA46','FI02','IA54','FI18','IA11','FI44','IA32','FI33','IA38','FI50','IA21','FI56','IA27','FI60','IA35','FI55','IA01','FI58','IA02','FI34','IA03','FI35','IA05','FI37','IA06','FI39','IA06_1','FI39_1','IA09','FI42','IA64','FI64','IA12','FI46','IA13','FI47','IA43','FI06','IA37','FI32','IA33','FI36','IA30','FI45','IA24','FI52','IA56','FI21','IA62','FI31','IA58','FI24','XM03','XM03','IA57','FI22','IA47','FI03','IA61','FI30','IA49','FI07','IA65','FI65','IA07','FI40','XP01','XP01','XP02','XP02','XP03','XP03','XP04','XP04','XP05','XP05','XP06','XP06','XP07','XP07','IA04','FI38','IA14','FI48','XP08','XP08','XP09','XP09','XP10','XP10','XP11','XP11','XP12','XP12','IA31','FI57','XP13','XP13','XP14','XP14','IA41','FI62','IA25','FI53','IA22','FI51','XP15','XP15','IA40','FI61','XP16','XP16','XP17','XP17','IA10','FI43')  
+              AND r010m.testcd     = f72m.testcd           
+ WHERE j011m.colldt BETWEEN '20190424000000' AND '20190424235959'
+   AND r010m.wkno between '000001' AND '009999'
+   AND j011m.spcflg            = '4'                       
+   AND NVL(j011m.rstflg, '0')  = '0'                       
+ ORDER BY FLWKNO                                           
+

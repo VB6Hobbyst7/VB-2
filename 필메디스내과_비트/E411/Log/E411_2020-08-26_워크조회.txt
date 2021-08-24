@@ -1,0 +1,13 @@
+SELECT DISTINCT         SUBSTRING(R.RESACPDTM,1,8) AS HOSPDATE                 
+     , R.RESSPMNUM                 AS BARCODE                  
+     , R.RESCHTNUM                 AS CHARTNO                  
+     , P.PBSPATNAM                 AS PNAME                    
+     , COUNT(R.RESLABCOD)          AS CNT                      
+  FROM RESINF AS R                                             
+WHERE O.OCMACPDTM BETWEEN '20200826' AND '20200826'    
+  AND R.RESCHTNUM = P.PBSCHTNUM                                
+  AND R.RESLABCOD IN ('430','440','AFP','C3340a','C3360','C4712','C4812','C4872','CA19-9','CEA','CZ232','Ferr','HbsAb','T3a')                      
+  AND (R.RESREPTYP IS NULL OR R.RESREPTYP <> 'F')              
+  AND (R.RESRLTVAL = ''  OR R.RESRLTVAL IS NULL)               
+ GROUP BY R.RESACPDTM,R.RESSPMNUM,R.RESCHTNUM,P.PBSPATNAM      
+

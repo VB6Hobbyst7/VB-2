@@ -1,0 +1,7 @@
+SELECT DISTINCT HONM, OKDT as 접수일자, SPNO as 바코드번호, WKNO as 챠트번호, PAID as 내원번호, PANM as 이름, SEXS as 성별, SJDT as 생년월일
+  FROM V_AFISINFO 
+ WHERE OKFL = 'N'
+   AND ORCD IN ()
+   AND OKDT BETWEEN  TO_DATE('20100311','yyyymmdd') AND TO_DATE('20100311','yyyymmdd')+1
+   AND HOCD = '40'
+ ORDER BY OKDT 

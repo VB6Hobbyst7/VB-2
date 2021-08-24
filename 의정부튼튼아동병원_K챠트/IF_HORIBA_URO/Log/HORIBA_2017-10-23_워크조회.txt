@@ -1,0 +1,18 @@
+ SELECT DISTINCT   J.접수일자 AS 접수일자,
+  L.검체번호 AS 바코드번호,
+  A.챠트번호 AS 챠트번호, 
+  J.접수번호 AS 내원번호,
+  '입원' AS 입외, 
+  J.진료검사ID AS R, 
+  L.진료지원ID AS P, 
+  A.환자이름 AS 이름, 
+  A.환자성별 AS 성별, 
+  A.환자나이  AS 나이 
+   FROM TB_진료검사 L 
+  INNER JOIN TB_진료지원 J ON (L.진료지원ID = J.진료지원ID) 
+  INNER JOIN TB_진료일반 A ON (J.진료일자   = A.진료일자 AND J.챠트번호 = A.챠트번호 AND J.진료번호 = A.진료번호) 
+  Where J.접수일자 Between '20171023' and '20171023'
+    AND L.검사종류 = 'L01'
+    AND L.검사상태 < 5 
+    AND L.처방코드 + L.서브코드 IN ('WBC','RBC','HGB','HCT','MCV','MCH','MCHC','RDW','PLT','LYM%','MON%','GRA%','LYM#','MON#','GRA#')
+  ORDER BY J.접수일자, J.접수번호

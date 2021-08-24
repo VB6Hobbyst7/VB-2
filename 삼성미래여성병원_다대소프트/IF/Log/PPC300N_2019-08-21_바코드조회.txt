@@ -1,0 +1,19 @@
+SELECT DISTINCT        CONVERT(NVARCHAR(50),M.접수일자,112)    AS HOSPDATE 
+     , M.접수번호                              AS PID      
+     , M.차트번호                              AS CHARTNO  
+     , M.성명                                  AS PNAME    
+     , M.성별                                  AS SEX      
+     , M.나이                                  AS AGE      
+     , M.거래처명                              AS DEPT     
+     , E.검사코드                              AS ITEM     
+  FROM VW_검사접수 M, VW_검사결과 R, VW_검사코드 E         
+ WHERE M.접수일자      = CONVERT(DATE, '19082102')
+   AND M.접수번호      = '1'                
+   AND E.학부코드      = 'C1'            
+   AND E.검사코드      IN ('D1860','D1850','D1870','D2263','D2611','D2300','D2280','D1840','D1880','D3022','D3022A01','D3022B01','D3022B02','D3022B03','D3022B04')             
+   AND ISNULL(R.보고여부, 'N') <> 'Y'                      
+   AND (R.결과값 IS NULL OR R.결과값 = '')                 
+   AND M.접수일자      = R.접수일자                        
+   AND M.접수번호      = R.접수번호                        
+   AND R.검사코드      = E.검사코드                        
+

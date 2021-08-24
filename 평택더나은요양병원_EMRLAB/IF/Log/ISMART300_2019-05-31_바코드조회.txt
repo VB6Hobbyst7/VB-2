@@ -1,0 +1,16 @@
+SELECT DISTINCT       R.접수일                as HOSPDATE 
+     , R.처방번호              as BARCODE   
+     , P.등록번호              as PID       
+     , R.접수번호              as CHARTNO   
+     , P.성명                  as PNAME     
+     , P.남녀                  as SEX       
+     , M.외래입원              as INOUT     
+     , R.검사코드              as ITEM      
+     , R.순번                  as ITEMSEQ   
+  FROM DBinfor..내원정보 M, DBinfor..VIEW_환자정보 P, DBsupport..검사결과 R     
+ WHERE M.연번      = R.처방번호                                            
+   AND M.등록번호  = P.등록번호                                            
+   AND R.처방번호  = R.처방번호                                            
+   AND R.처방번호 = 'test'                                   
+   AND R.검사코드 IN ('D225302','D225303','D225304','D225305','D225306','D225307','D225308','D225309','D225310','D225311','D2253')                                  
+

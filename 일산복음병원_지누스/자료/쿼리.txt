@@ -1,0 +1,137 @@
+//워크리스트 조회
+procedure TF_Main.btnWKClick(Sender: TObject);
+var
+  R:integer;
+  WT, WF, EList:string;
+  Seq, PNM, ADT, PID,
+  NBCD, OBCD, Sta:string;
+begin
+
+  WF:= FormatDateTime('yyyymmdd', dtpWf.Date);
+  WT:= FormatDateTime('yyyymmdd', dtpWt.Date);
+
+  with DM.qrySOrder do begin
+      Close;
+      SQL.Text:=' SELECT /*+ INDEX (coif scccoifm_ix1) INDEX (prex scrprexh_ix3)    '+#13#10+
+                '            INDEX (ptbs pmcptbsm_ux1) INDEX (rslt scrrslth_ux1)    '+#13#10+
+                '            INDEX (xpsl mosxpslh_ix2) */                           '+#13#10+
+                '   prex.acp_dt         AS ACPTDATE                                 '+#13#10+
+                ' , prex.smp_no         AS BCD                                      '+#13#10+
+                ' , coif.exam_mach_cd                                               '+#13#10+
+                ' , rslt.exam_stus                                                  '+#13#10+
+                ' , prex.pt_no          AS PATID                                    '+#13#10+
+                ' , ptbs.pt_nm          AS PATNAME                                  '+#13#10+
+                ' , ptbs.ssn_1                                                      '+#13#10+
+                ' , ptbs.ssn_2                                                      '+#13#10+
+                ' , DECODE(xpsl.gnl_add_typ_cd,''3'',''I'',xpsl.prcp_knd_cd)        '+#13#10+
+                ' , xpsl.adms_ymd                                                   '+#13#10+
+                ' , xpsl.mn_sub_typ_cd                                              '+#13#10+
+                ' , xpsl.med_dpt_cd                                                 '+#13#10+
+                ' , xpsl.med_ymd                                                    '+#13#10+
+                ' , MAX(TRIM(coif.lmt_trm_day))                                     '+#13#10+
+                ' FROM scrprexh prex                                                '+#13#10+
+                '    , pmcptbsm ptbs                                                '+#13#10+
+                '    , scccoifm coif                                                '+#13#10+
+                '    , mosxpslh xpsl                                                '+#13#10+
+                '    , scrrslth rslt                                                '+#13#10+
+                ' WHERE prex.hos_org_no = '''+HOSPCODE+'''                          '+#13#10+    //'31201393';
+                '   AND SUBSTR(prex.acp_dt,1,8) between '''+WF+''' and '''+WT+'''   '+#13#10+
+                '   AND rslt.hos_org_no = prex.hos_org_no                           '+#13#10+
+                '   AND rslt.smp_no = prex.smp_no                                   '+#13#10+
+                '   AND rslt.prcp_seq = prex.prcp_seq                               '+#13#10+
+                '   AND rslt.exam_seq = prex.exam_seq                               '+#13#10;
+                '   AND rslt.exam_stus IN (''0'',''1'',''2'')       '+#13#10+ //일부까지.. '0' 만 가져오는건 처음검사
+                '   AND ptbs.hos_org_no = prex.hos_org_no                           '+#13#10+
+                '   AND ptbs.pt_no = prex.pt_no                                     '+#13#10+
+                '   AND coif.hos_org_no = prex.hos_org_no                           '+#13#10+
+                '   AND coif.exam_cd = prex.cd                                      '+#13#10+
+                '   AND coif.use_typ = ''Y''                                        '+#13#10+
+                '   AND SUBSTR(prex.acp_dt,1,8) BETWEEN coif.fr_dt AND coif.to_dt   '+#13#10+
+                '   AND coif.exam_mach_cd = ''11''                                  '+#13#10+       //장비코드?  먼지 모름.
+                '   AND xpsl.smp_no = prex.smp_no                                   '+#13#10+
+                '   AND xpsl.hos_org_no = prex.hos_org_no                           '+#13#10+
+                '   AND xpsl.prcp_typ_cd IN (''O'',''C'')                           '+#13#10+
+                ' GROUP BY prex.acp_dt , prex.smp_no , coif.exam_mach_cd ,          '+#13#10+
+                '          rslt.exam_stus, prex.pt_no , ptbs.pt_nm ,                '+#13#10+
+                '          ptbs.ssn_1 , ptbs.ssn_2 ,                                '+#13#10+
+                '          DECODE(xpsl.gnl_add_typ_cd,''3'',''I'',xpsl.prcp_knd_cd) ,   '+#13#10+
+                '          xpsl.adms_ymd , xpsl.mn_sub_typ_cd, xpsl.med_dpt_cd ,    '+#13#10+
+                '          xpsl.med_ymd                                             '+#13#10+
+                ' ORDER BY prex.acp_dt, prex.smp_no ';
+      try
+          Open;
+      except
+          on e:exception do begin
+              TGlobal.ErrMsg:= e.Message + #13#10+
+                               'SQL->'+Sql.Text;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      R:=0;
+      if RecordCount = 0 then exit;
+      OBCD:='';
+
+      while Not Eof do begin
+          NBCD:= FieldByName('BCD').AsString;
+          if NBCD <> OBCD then begin
+              if FindBCD(NBCD) = 0 then
+              begin
+                  Inc(R);
+                  OBCD:= NBCD;
+                  PNM := Trim(FieldByName('PATNAME').AsString);
+                  ADT := Copy(FieldByName('ACPTDATE').AsString,1,8);
+                  PID := Trim(FieldByName('PATID').AsString); //FieldByName('chtNo').AsString;
+                  AddWork_One(R, ADT, NBCD, PNM, PID);
+              end;
+          end;
+
+          Next;
+      end;
+  end;
+end;
+
+
+//검사코드오더 조회 - 바코드
+' select CD  '+
+' from scrrslth       '+
+' where CD in '+EList +                      //검사코드 리스트
+'   and SMP_NO = '''+BCD+''' '+
+'   and hos_org_no = '''+HOSPCODE+''' ';
+
+
+
+
+
+
+//결과 업데이트
+' UPDATE scrrslth SET                         '+#13#10+                                
+'       exam_dt    = '''+NowDt+'''            '+#13#10+    //NowDt:= FormatDateTime('yyyymmddhhnn', now);              
+'     , Exam_EmpNo = '''+TGlobal.InstCode+''' '+#13#10+    //장비코드           
+'     , exam_rslt  = '''+ResVal+'''           '+#13#10+    //결과            
+'     , mach_rslt  ='''+ResVal+'''            '+#13#10+                
+'     , exam_stus  = decode(exam_stus, ''0'',''1'',exam_stus) '+#13#10+
+' where cd         = '''+ExamCode+'''  '+#13#10+                       
+'   and exam_stus  <> ''3''             '+#13#10+                      
+'   and smp_no     = '''+BarCode+'''   '+#13#10+                       
+'   and hos_org_no = '''+HOSPCODE+'''  ';       
+
+
+
+//상태변경1
+' UPDATE scrprexh  SET             '+#13#10+                                                            
+'     smp_stus = decode(smp_stus, ''0'',''1'',smp_stus) '+#13#10+
+' where cd         = '''+OCD+'''   '+#13#10+                     
+'   and smp_stus   <> ''3''         '+#13#10+                    
+'   and smp_no     = '''+BCD+'''   '+#13#10+                     
+'   and hos_org_no = '''+HOSPCODE+'''  ';    
+
+
+//상태변경2
+' UPDATE mosxpslh   SET            '+#13#10+                                                               
+'     prcp_stus_cd = ''4''         '+#13#10+                           
+' where prcp_cd      = '''+OCD+'''   '+#13#10+    //EX-D 에서는 'ZNA' 처방코드인지 정확히 모름..
+'   and prcp_stus_cd <> ''6''         '+#13#10+   //= '3' 거에서 변경..
+'   and smp_no       = '''+BCD+'''   '+#13#10+                         
+'   and hos_org_no   = '''+HOSPCODE+'''  ';                            

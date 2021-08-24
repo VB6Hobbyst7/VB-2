@@ -1,0 +1,562 @@
+SELECT DISTINCT       M.LABDATE   as HOSPDATE             
+     , M.PARTGBN,  M.LABSEQ, M.SPECIMENCD  
+     , M.NAME      as PNAME                
+     , M.REGNO     as PID                  
+     , M.AGE       as AGE                  
+     , M.SEX       as SEX                  
+     , M.IDLEFT + M.IDRIGHT AS PJUMIN      
+     , M.MEDICALREMARK as BARCODE          
+     , M.RESULTENDYN, R.SUBMCD             
+     , R.TESTITEMSEQ as ITEM               
+     , R.DELTAGBN                          
+     , R.BEFORERESULT                      
+     , R.BEFORELABNO                       
+    '2019-04-29 추가 c_Abnormal 테이블 용
+     , M.DEPTCD                            
+     , M.WARD                              
+     , M.DOCTOR                            
+     , M.JUBSUGBN                          
+  FROM C_JUBSU M, C_RESULT R 
+ WHERE M.MEDICALREMARK = '10300233'
+   AND M.LABDATE       = R.LABDATE 
+   AND M.PARTGBN       = R.PARTGBN 
+   AND M.LABSEQ        = R.LABSEQ 
+   AND M.SPECIMENCD    = R.SPECIMENCD
+   And R.TESTITEMSEQ   IN ('001','002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','027','028','038','044','047','049','050','051','052','029','030','031','032','033','034','035','036','037','039','040','041','042','043','054','113','129','217','158','060','061','062','067','068','069','070','075','076','077','078','079','080','081','082','083','086','087','088','089','090','091','092','093','094','095','096','097','098','099','100','101','102','103','104','105','106','107','108','109','110','111','112','053','229','230','233','223','237','241','243','244','285')
+   AND R.CONFIRM       <> 'Y' 
+
+
+'--이전결과정보
+Sub GetBeforePatInfo_ACK(asLabDate As String, asPartGbn As String, asSpecimenCd As String, asRegNo As String)
+    Dim RSJ             As ADODB.Recordset
+    
+On Error GoTo ErrorTrap
+    
+    If asLabDate = "" Or asPartGbn = "" Or asSpecimenCd = "" Or asRegNo = "" Then
+        Exit Sub
+    End If
+    
+    SQL = ""
+    SQL = SQL & "Select TOP 1 LABDATE,LABSEQ,DEPTCD,WARD,DOCTOR,JUBSUGBN " & vbCr
+    SQL = SQL & "  From C_JUBSU " & vbCr
+    SQL = SQL & " Where LABDATE      < '" & asLabDate & "'" & vbCr
+    SQL = SQL & "   AND PARTGBN      = '" & asPartGbn & "'" & vbCr
+    SQL = SQL & "   AND SPECIMENCD   = '" & asSpecimenCd & "'" & vbCr
+    SQL = SQL & "   AND REGNO        = '" & asRegNo & "'" & vbCr
+    SQL = SQL & " ORDER BY LABDATE DESC " & vbCr
+    
+    
+    Set RSJ = AdoCn.Execute(SQL)
+    If Not RSJ.EOF = True And Not RSJ.BOF = True Then
+        Do Until RSJ.EOF
+            mResult.BeforeLabNo = Trim(RSJ.Fields("LABDATE")) & "C01" & Trim(RSJ.Fields("LABSEQ"))
+            mResult.BeforeDept = Trim(RSJ.Fields("DEPTCD"))
+            mResult.BeforeWard = Trim(RSJ.Fields("WARD"))
+            mResult.BeforeDoctor = Trim(RSJ.Fields("DOCTOR"))
+            'mResult.BeforeJubsuGbn = Trim(RSJ.Fields("JUBSUGBN"))
+            If Trim(RSJ.Fields("JUBSUGBN")) & "" = "0" Then
+                mResult.BeforeJubsuGbn = "입원"
+            ElseIf Trim(RSJ.Fields("JUBSUGBN")) & "" = "1" Then
+                mResult.BeforeJubsuGbn = "외래"
+            Else
+                mResult.BeforeJubsuGbn = Trim(RSJ.Fields("JUBSUGBN")) & ""
+            End If
+                        
+            RSJ.MoveNext
+        Loop
+    End If
+    
+    RSJ.Close
+
+Exit Sub
+
+
+'-- DELTA 판정
+Function SetDelta_ACK(asResult As String, asEquipCode As String, asDeltaGbn As String, asBeforeResullt As String) As String
+    Dim RSJ             As ADODB.Recordset
+    Dim strDelta        As String
+    Dim strDeltaMIN     As String
+    Dim strDeltaMAX     As String
+    
+On Error GoTo ErrorTrap
+    
+    SetDelta_ACK = ""
+    
+    asResult = Replace(asResult, "<", "")
+    asResult = Replace(asResult, ">", "")
+    
+    If asResult = "" Or asEquipCode = "" Or asDeltaGbn = "" Or asBeforeResullt = "" Then
+        SetDelta_ACK = ""
+        Exit Function
+    End If
+        
+    '최소, 최대치 찾아오기
+    SQL = ""
+    SQL = SQL & "Select DELTAVAL "
+    SQL = SQL & "  From TESTITEM " & vbCr
+    SQL = SQL & " Where PARTCD       =  '" & gHOSP.PARTCD & "'" & vbCr
+    If mResult.PARTGBN = "" Then
+        SQL = SQL & "   AND PARTGBN      =  '01'" & vbCr
+    Else
+        SQL = SQL & "   AND PARTGBN      =  '" & mResult.PARTGBN & "'" & vbCr
+    End If
+    
+    If mResult.SPECIMENCD = "" Then
+        SQL = SQL & "   AND SPECIMENCD   =  '002'" & vbCr
+    Else
+        SQL = SQL & "   AND SPECIMENCD   =  '" & mResult.SPECIMENCD & "'" & vbCr
+    End If
+    
+    SQL = SQL & "   AND TESTITEMSEQ  = '" & asEquipCode & "'" & vbCr
+    
+    Call SetSQLData("DELTA", SQL, "A")
+    
+    Set RSJ = AdoCn.Execute(SQL)
+    Do Until RSJ.EOF
+        If IsNumeric(asResult) Then
+            If Trim(RSJ.Fields("DELTAVAL") & "") = "" Then
+                SetDelta_ACK = ""
+                Exit Function
+            End If
+            
+            strDeltaMIN = mGetP(Trim(RSJ.Fields("DELTAVAL")), 1, ",")
+            strDeltaMAX = mGetP(Trim(RSJ.Fields("DELTAVAL")), 2, ",")
+            
+            If IsNumeric(strDeltaMIN) And IsNumeric(strDeltaMAX) Then
+                Select Case asDeltaGbn
+                    Case "0"    '없음
+                            SetDelta_ACK = ""
+                    Case "1"    '변화차 (오늘결과 - 이전결과)
+                            strDelta = CCur(asResult) - CCur(asBeforeResullt)
+                        
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "2"    '변화비율 ((오늘결과 - 이전결과) / 이전결과 ) * 100
+                            strDelta = ((CCur(asResult) - CCur(asBeforeResullt)) / CCur(asBeforeResullt)) * 100
+                        
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "3"    '기간당 변화차 (오늘결과 - 이전결과)
+                            strDelta = CCur(asResult) - CCur(asBeforeResullt)
+                    
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "4"    '기간당 변화비율 ((오늘결과 - 이전결과) / 이전결과 ) * 100  'SGOT. SGPT, BUN 3항목만 있음
+                            strDelta = ((CCur(asResult) - CCur(asBeforeResullt)) / CCur(asBeforeResullt)) * 100
+                            
+                            If CCur(strDelta) <= CCur(strDeltaMIN) Or CCur(strDelta) >= CCur(strDeltaMAX) Then
+                                SetDelta_ACK = "D"
+                            Else
+                                SetDelta_ACK = ""
+                            End If
+                    
+                    Case "5"    '절대변화차
+                            SetDelta_ACK = ""
+                End Select
+            End If
+        End If
+        
+        '-- 2019-04-30
+        mResult.DELTALOW = strDeltaMIN
+        mResult.DELTAHIGH = strDeltaMAX
+        mResult.DELTAGBN = asDeltaGbn
+        
+        RSJ.MoveNext
+    
+    Loop
+    
+    RSJ.Close
+
+Exit Function
+
+ErrorTrap:
+    SetDelta_ACK = ""
+    
+End Function
+
+
+'결과저장 함수
+Function SaveTransData_ACK(ByVal argSpcRow As Integer) As Integer
+    Dim RS_L            As ADODB.Recordset
+    Dim RS_S            As ADODB.Recordset
+    Dim intRow          As Integer
+    Dim strDate         As String
+    Dim strTime         As String
+    
+    Dim strSaveSeq      As String
+    Dim strExamDate     As String
+    Dim strHospDate     As String
+    Dim strBarcode      As String
+    Dim strChartNo      As String
+    Dim strPatID        As String
+    Dim strIO           As String
+    Dim strKey1         As String
+    Dim strSex          As String
+    Dim strAge          As String
+
+    Dim strOrdCd        As String
+    Dim strTestCd       As String
+    Dim strSubCode      As String
+    Dim strEqpcd        As String
+    Dim sResult         As String
+    Dim sResult1        As String
+    Dim sResult2        As String
+    Dim strRefVal       As String
+    Dim strJudge        As String
+    Dim blnSave         As Boolean
+    Dim strSeqS         As String
+    
+    Dim strPartGbn      As String
+    Dim strSpcCd        As String
+    Dim strLabSeq       As String
+    Dim strJumin        As String
+    Dim strPanic        As String
+    Dim strDelta        As String
+    Dim strAbNormal     As String
+    
+    '-- 2019-04-29
+    Dim strDept         As String
+    Dim strWard         As String
+    Dim strDoctor       As String
+    Dim strJubsuGbn     As String
+    Dim strRLow         As String
+    Dim strRHigh        As String
+    Dim strPLow         As String
+    Dim strPHigh        As String
+    Dim strDLow         As String
+    Dim strDHigh        As String
+    Dim strDGbn         As String
+    
+    Dim strBfResult     As String
+    Dim strBfLabNo      As String
+    Dim strBfDept       As String
+    Dim strBfWard       As String
+    Dim strBfDoctor     As String
+    Dim strBfJubsuGbn   As String
+    
+On Error GoTo ErrHandle
+
+    With frmMain
+        SaveTransData_ACK = -1
+        
+        strSaveSeq = Trim(GetText(.spdOrder, argSpcRow, colSAVESEQ))
+        strExamDate = Trim(GetText(.spdOrder, argSpcRow, colEXAMDATE))
+        strHospDate = Trim(GetText(.spdOrder, argSpcRow, colHOSPDATE))
+        strJumin = Trim(GetText(.spdOrder, argSpcRow, colPJUMIN))
+        strBarcode = Trim(GetText(.spdOrder, argSpcRow, colBARCODE))
+        strPatID = Trim(GetText(.spdOrder, argSpcRow, colPID))
+        strChartNo = Trim(GetText(.spdOrder, argSpcRow, colCHARTNO))
+        strIO = Trim(GetText(.spdOrder, argSpcRow, colINOUT))
+        strKey1 = Trim(GetText(.spdOrder, argSpcRow, colKEY1))
+        
+        strDate = Format(Now, "yyyymmdd")
+        strTime = Format(Now, "hhmmss")
+        
+        
+        intRow = 0
+        strJudge = ""
+        blnSave = False
+        
+        If Trim(strBarcode) = "" Then
+            Exit Function
+        End If
+        
+'        If Trim(strPatID) = "" Then
+'            Exit Function
+'        End If
+        
+        '-- Local에서 환자별로 결과값 가져오기
+        .vasTemp.MaxRows = 0
+        
+        SQL = ""
+        SQL = SQL & "SELECT EQUIPCODE,ORDERCODE,EXAMCODE,EXAMSUBCODE,EQUIPRESULT,RESULT,SAMPLETYPE,INOUT,PANICVALUE,REFJUDGE,DELTAVALUE " & vbCrLf
+        '-- 2019-04-29
+        SQL = SQL & "      ,QCRUN,QCLEVEL,QCLAB,QCLOT,QCAnalyte,QCMethod,QCInstrument,QCReagent,QCUnit  " & vbCrLf
+        SQL = SQL & "  FROM PATRESULT " & vbCrLf
+        SQL = SQL & " WHERE EQUIPNO             = '" & gHOSP.MACHCD & "'" & vbCrLf                      '장비코드
+        SQL = SQL & "   AND SAVESEQ             = " & strSaveSeq & vbCrLf                               '저장번호
+        SQL = SQL & "   AND MID(EXAMDATE,1,8)   = '" & Mid(strExamDate, 1, 8) & "'" & vbCrLf            '검사일
+        SQL = SQL & "   AND BARCODE             = '" & strBarcode & "'" & vbCrLf
+        
+'        Call SetSQLData("로컬결과조회", SQL)
+        
+        Set RS_L = New ADODB.Recordset
+        Set RS_L = AdoCn_Local.Execute(SQL, , 1)
+        If Not RS_L.EOF = True And Not RS_L.BOF = True Then
+            .vasTemp.MaxRows = RS_L.RecordCount
+            Do Until RS_L.EOF
+                intRow = intRow + 1
+                Call SetText(.vasTemp, RS_L.Fields("EQUIPCODE").Value & "", intRow, 1)
+                Call SetText(.vasTemp, RS_L.Fields("ORDERCODE").Value & "", intRow, 2)
+                Call SetText(.vasTemp, RS_L.Fields("EXAMCODE").Value & "", intRow, 3)
+                Call SetText(.vasTemp, RS_L.Fields("EXAMSUBCODE").Value & "", intRow, 4)
+                Call SetText(.vasTemp, RS_L.Fields("EQUIPRESULT").Value & "", intRow, 5)
+                Call SetText(.vasTemp, RS_L.Fields("RESULT").Value & "", intRow, 6)
+                Call SetText(.vasTemp, RS_L.Fields("SAMPLETYPE").Value & "", intRow, 7)
+                Call SetText(.vasTemp, RS_L.Fields("INOUT").Value & "", intRow, 8)
+                Call SetText(.vasTemp, RS_L.Fields("PANICVALUE").Value & "", intRow, 9)
+                Call SetText(.vasTemp, RS_L.Fields("REFJUDGE").Value & "", intRow, 10)
+                Call SetText(.vasTemp, RS_L.Fields("DELTAVALUE").Value & "", intRow, 11)
+                '-- 2019-04-29
+                Call SetText(.vasTemp, RS_L.Fields("QCRUN").Value & "", intRow, 12)
+                Call SetText(.vasTemp, RS_L.Fields("QCLEVEL").Value & "", intRow, 13)
+                Call SetText(.vasTemp, RS_L.Fields("QCLAB").Value & "", intRow, 14)
+                Call SetText(.vasTemp, RS_L.Fields("QCLOT").Value & "", intRow, 15)
+                Call SetText(.vasTemp, RS_L.Fields("QCAnalyte").Value & "", intRow, 16)
+                Call SetText(.vasTemp, RS_L.Fields("QCMethod").Value & "", intRow, 17)
+                Call SetText(.vasTemp, RS_L.Fields("QCInstrument").Value & "", intRow, 18)
+                Call SetText(.vasTemp, RS_L.Fields("QCReagent").Value & "", intRow, 19)
+                Call SetText(.vasTemp, RS_L.Fields("QCUnit").Value & "", intRow, 20)
+                
+                RS_L.MoveNext
+            Loop
+        End If
+        
+        RS_L.Close
+        
+        sResult = ""
+        sResult1 = ""
+        sResult2 = ""
+        
+        '-- 서버로 결과값 저장하기
+        For intRow = 1 To .vasTemp.DataRowCnt
+            strOrdCd = Trim(GetText(.vasTemp, intRow, 2))       '처방코드
+            strLabSeq = Trim(GetText(.vasTemp, intRow, 2))       'LABSEQ
+            strTestCd = Trim(GetText(.vasTemp, intRow, 3))      '검사코드
+            strSubCode = Trim(GetText(.vasTemp, intRow, 4))     '검사코드
+            sResult1 = Trim(GetText(.vasTemp, intRow, 5))       '결과(장비결과)
+            sResult2 = Trim(GetText(.vasTemp, intRow, 6))       '결과(수정결과)
+            strSpcCd = Trim(GetText(.vasTemp, intRow, 7))       'SAMPLETYPE
+            strPartGbn = Trim(GetText(.vasTemp, intRow, 8))       'INOUT
+            strPanic = Trim(GetText(.vasTemp, intRow, 9))       'PANIC
+            strJudge = Trim(GetText(.vasTemp, intRow, 10))      'H/L
+            strDelta = Trim(GetText(.vasTemp, intRow, 11))      'DELTA
+            '-- 2019 -04-29
+            strDept = mGetP(Trim(GetText(.vasTemp, intRow, 12)), 1, "|")
+            strWard = mGetP(Trim(GetText(.vasTemp, intRow, 12)), 2, "|")
+            
+            strDoctor = mGetP(Trim(GetText(.vasTemp, intRow, 13)), 1, "|")
+            strJubsuGbn = mGetP(Trim(GetText(.vasTemp, intRow, 13)), 2, "|")
+            
+            strRLow = mGetP(Trim(GetText(.vasTemp, intRow, 14)), 1, "|")
+            strRHigh = mGetP(Trim(GetText(.vasTemp, intRow, 14)), 2, "|")
+            
+            strPLow = mGetP(Trim(GetText(.vasTemp, intRow, 15)), 1, "|")
+            strPHigh = mGetP(Trim(GetText(.vasTemp, intRow, 15)), 2, "|")
+            
+            strDLow = mGetP(Trim(GetText(.vasTemp, intRow, 16)), 1, "|")
+            strDHigh = mGetP(Trim(GetText(.vasTemp, intRow, 16)), 2, "|")
+            strDGbn = mGetP(Trim(GetText(.vasTemp, intRow, 16)), 3, "|")
+            
+            strBfResult = Trim(GetText(.vasTemp, intRow, 17))
+            strBfLabNo = Trim(GetText(.vasTemp, intRow, 18))
+            
+            strBfDept = mGetP(Trim(GetText(.vasTemp, intRow, 19)), 1, "|")
+            strBfWard = mGetP(Trim(GetText(.vasTemp, intRow, 19)), 2, "|")
+            
+            strBfDoctor = mGetP(Trim(GetText(.vasTemp, intRow, 20)), 1, "|")
+            strBfJubsuGbn = mGetP(Trim(GetText(.vasTemp, intRow, 20)), 2, "|")
+                        
+                        
+            '-- 장비결과적용
+            If gHOSP.SAVELIS = "Y" Then
+                sResult = sResult2
+            Else
+                sResult = sResult1
+            End If
+            
+            If strHospDate <> "" And strBarcode <> "" And strTestCd <> "" And sResult <> "" Then
+                '-- 결과저장
+                SQL = ""
+                Select Case gHOSP.PARTCD
+                    Case "H": SQL = SQL & "UPDATE H_RESULT "   '혈액학
+                    Case "C": SQL = SQL & "UPDATE C_RESULT "   '생화학
+                    Case "J": SQL = SQL & "UPDATE J_RESULT "   '수탁
+                    Case "M": SQL = SQL & "UPDATE M_RESULT "   '미생물
+                    Case "S": SQL = SQL & "UPDATE S_RESULT "   '면역학
+                    Case "U": SQL = SQL & "UPDATE U_RESULT "   '뇨화학
+                End Select
+                
+                SQL = SQL & " SET RESULT   = '" & sResult & "'" & vbCr
+                SQL = SQL & " , MACHINECD  = '" & gHOSP.ACKMACHCD & "' " & vbCr
+                SQL = SQL & " , RESULTDATE = '" & strDate & "'" & vbCr
+                SQL = SQL & " , RESULTTIME = '" & strTime & "'" & vbCr
+                SQL = SQL & " , REFMARK    = '" & strJudge & "'" & vbCr
+                SQL = SQL & " , PANICMARK  = '" & strPanic & "'" & vbCr
+                SQL = SQL & " , DELTAMARK  = '" & strDelta & "'" & vbCr
+                SQL = SQL & " WHERE TESTITEMSEQ = '" & strTestCd & "'" & vbCr
+                SQL = SQL & "   AND LABDATE     = '" & strHospDate & "'" & vbCr
+                SQL = SQL & "   AND PARTGBN     = '" & strPartGbn & "'" & vbCr
+                SQL = SQL & "   AND LABSEQ      = '" & strSubCode & "'" & vbCr
+                SQL = SQL & "   AND SPECIMENCD  = '" & strSpcCd & "'" & vbCr
+                'SQL = SQL & "   AND SUBMCD      = 'NNNN'" & vbCr    '고정
+                SQL = SQL & "   AND CONFIRM <> 'Y' "
+                
+                Call SetSQLData("결과저장", SQL, "A")
+                AdoCn.Execute SQL
+                blnSave = True
+            
+                'AbNormal한 결과일 경우 C_AbNormal 테이블에 Insert & Update
+                If strJudge <> "" Or strPanic <> "" Or strDelta <> "" Then
+                    'AbNormalCd 판정
+                    strAbNormal = GetAbNormal(strJudge, strPanic, strDelta, "")
+                    '기존데이터 있는지 확인
+                    '키 : LABDATE, PARTGBN, LABSEQ, SPECIMENCD, TESTITEMSEQ,SUBMCD
+                    SQL = ""
+                    SQL = SQL & "Select COUNT(*) AS CNT "
+                    SQL = SQL & "  From C_ABNORMAL"
+                    SQL = SQL & " Where LABDATE     = '" & strHospDate & "' " & vbCrLf
+                    SQL = SQL & "   And PARTGBN     = '" & strPartGbn & "'  " & vbCrLf
+                    SQL = SQL & "   And LABSEQ      = '" & strSubCode & "'  " & vbCrLf
+                    SQL = SQL & "   And SPECIMENCD  = '" & strSpcCd & "'    " & vbCrLf
+                    SQL = SQL & "   And TESTITEMSEQ = '" & strTestCd & "'   " & vbCrLf
+                    'SQL = SQL & "   And SUBMCD      = 'NNNN'" & vbCrLf
+                    '-- Record Count 가져옴
+                    AdoCn.CursorLocation = adUseClient
+                    Set RS_S = New ADODB.Recordset
+                    Set RS_S = AdoCn.Execute(SQL, , 1)
+                    If Not RS_S.EOF = True And Not RS_S.BOF = True Then
+                        If IsNull(RS_S.Fields("CNT")) Or RS_S.Fields("CNT") = 0 Then
+                            'Insert
+                            SQL = ""
+                            SQL = SQL & "Insert Into C_ABNORMAL ("
+                            SQL = SQL & " LABDATE"
+                            SQL = SQL & ",PARTGBN"
+                            SQL = SQL & ",LABSEQ"
+                            SQL = SQL & ",SPECIMENCD"
+                            SQL = SQL & ",TESTITEMSEQ"
+                            SQL = SQL & ",SUBMCD" & vbCrLf
+                            SQL = SQL & ",ABNORMALCD"
+                            SQL = SQL & ",RESULT"
+                            SQL = SQL & ",REFLOW"
+                            SQL = SQL & ",REFHIGH" & vbCrLf
+                            SQL = SQL & ",PANICLOW"
+                            SQL = SQL & ",PANICHIGH"
+                            SQL = SQL & ",DELTAGBN"
+                            SQL = SQL & ",DELTALOW"
+                            SQL = SQL & ",DELTAHIGH"
+                            SQL = SQL & ",CURRENTDEPTNM"
+                            SQL = SQL & ",CURRENTWARD"
+                            SQL = SQL & ",CURRENTDOCTOR"
+                            SQL = SQL & ",CURRENTJUBSUGBN"
+                            SQL = SQL & ",BEFORERESULT"
+                            SQL = SQL & ",BEFORELABNO"
+                            SQL = SQL & ",BEFOREDEPTNM"
+                            SQL = SQL & ",BEFOREWARD"
+                            SQL = SQL & ",BEFOREDOCTOR"
+                            SQL = SQL & ",BEFOREJUBSUGBN) " & vbCrLf
+                            SQL = SQL & " Values ("
+                            SQL = SQL & " '" & strHospDate & "'"
+                            SQL = SQL & ",'" & strPartGbn & "'"
+                            SQL = SQL & ",'" & strSubCode & "'"
+                            SQL = SQL & ",'" & strSpcCd & "'"
+                            SQL = SQL & ",'" & strTestCd & "'"
+                            SQL = SQL & ",'NNNN'"
+                            SQL = SQL & ",'" & strAbNormal & "'"
+                            SQL = SQL & ",'" & sResult & "'"
+                            SQL = SQL & ",'" & strRLow & "'"
+                            SQL = SQL & ",'" & strRHigh & "'"
+                            SQL = SQL & ",'" & strPLow & "'"
+                            SQL = SQL & ",'" & strPHigh & "'"
+                            SQL = SQL & ",'" & strDGbn & "'"
+                            SQL = SQL & ",'" & strDLow & "'"
+                            SQL = SQL & ",'" & strDHigh & "'"
+                            SQL = SQL & ",'" & strDept & "'"
+                            SQL = SQL & ",'" & strWard & "'"
+                            SQL = SQL & ",'" & strDoctor & "'"
+                            SQL = SQL & ",'" & strJubsuGbn & "'"
+                            SQL = SQL & ",'" & strBfResult & "'"
+                            SQL = SQL & ",'" & strBfLabNo & "'"
+                            SQL = SQL & ",'" & strBfDept & "'"
+                            SQL = SQL & ",'" & strBfWard & "'"
+                            SQL = SQL & ",'" & strBfDoctor & "'"
+                            SQL = SQL & ",'" & strBfJubsuGbn & "')" & vbCrLf
+                        Else
+                            'Update
+                            SQL = ""
+                            SQL = SQL & "Update C_ABNORMAL Set " & vbCrLf
+                            SQL = SQL & "    ABNORMALCD         = '" & strAbNormal & "'     " & vbCrLf
+                            SQL = SQL & "   ,RESULT             = '" & sResult & "'         " & vbCrLf
+                            SQL = SQL & "   ,REFLOW             = '" & strRLow & "'         " & vbCrLf
+                            SQL = SQL & "   ,REFHIGH            = '" & strRHigh & "'        " & vbCrLf
+                            SQL = SQL & "   ,PANICLOW           = '" & strPLow & "'         " & vbCrLf
+                            SQL = SQL & "   ,PANICHIGH          = '" & strPHigh & "'        " & vbCrLf
+                            SQL = SQL & "   ,DELTAGBN           = '" & strDGbn & "'         " & vbCrLf
+                            SQL = SQL & "   ,DELTALOW           = '" & strDLow & "'         " & vbCrLf
+                            SQL = SQL & "   ,DELTAHIGH          = '" & strDHigh & "'        " & vbCrLf
+                            SQL = SQL & "   ,CURRENTDEPTNM      = '" & strDept & "'         " & vbCrLf
+                            SQL = SQL & "   ,CURRENTWARD        = '" & strWard & "'         " & vbCrLf
+                            SQL = SQL & "   ,CURRENTDOCTOR      = '" & strDoctor & "'       " & vbCrLf
+                            SQL = SQL & "   ,CURRENTJUBSUGBN    = '" & strJubsuGbn & "'     " & vbCrLf
+                            SQL = SQL & "   ,BEFORERESULT       = '" & strBfResult & "'     " & vbCrLf
+                            SQL = SQL & "   ,BEFORELABNO        = '" & strBfLabNo & "'      " & vbCrLf
+                            SQL = SQL & "   ,BEFOREDEPTNM       = '" & strBfDept & "'       " & vbCrLf
+                            SQL = SQL & "   ,BEFOREWARD         = '" & strBfWard & "'       " & vbCrLf
+                            SQL = SQL & "   ,BEFOREDOCTOR       = '" & strBfDoctor & "'     " & vbCrLf
+                            SQL = SQL & "   ,BEFOREJUBSUGBN)    = '" & strBfJubsuGbn & "'   " & vbCrLf
+                            SQL = SQL & " Where LABDATE         = '" & strHospDate & "'     " & vbCrLf
+                            SQL = SQL & "   And PARTGBN         = '" & strPartGbn & "'      " & vbCrLf
+                            SQL = SQL & "   And LABSEQ          = '" & strSubCode & "'      " & vbCrLf
+                            SQL = SQL & "   And SPECIMENCD      = '" & strSpcCd & "'        " & vbCrLf
+                            SQL = SQL & "   And TESTITEMSEQ     = '" & strTestCd & "'       " & vbCrLf
+                            'SQL = SQL & "   And SUBMCD      ='NNNN'                 " & vbCrLf
+                        
+                        End If
+                        
+                        Call SetSQLData("이상결과저장", SQL, "A")
+                        AdoCn.Execute SQL
+
+                    End If
+                    RS_S.Close
+                    
+                End If
+            End If
+        Next intRow
+                       
+        If blnSave = True Then
+        '-- 상태변경
+        ' 해당바코드의 검사결과가 모두 들어갔을 경우에만 업데이트 한다.
+            If GetTestComplete_ACK(strBarcode) = True Then
+                SQL = ""
+                Select Case gHOSP.PARTCD
+                    Case "H": SQL = SQL & "UPDATE H_JUBSU "   '혈액학
+                    Case "C": SQL = SQL & "UPDATE C_JUBSU "   '생화학
+                    Case "J": SQL = SQL & "UPDATE J_JUBSU "   '수탁
+                    Case "M": SQL = SQL & "UPDATE M_JUBSU "   '미생물
+                    Case "S": SQL = SQL & "UPDATE S_JUBSU "   '면역학
+                    Case "U": SQL = SQL & "UPDATE U_JUBSU "   '뇨화학
+                End Select
+                
+                SQL = SQL & " SET RESULTENDDATE = '" & strDate & "' " & vbCr
+                SQL = SQL & "   , RESULTENDTIME = '" & strTime & "' " & vbCr
+                SQL = SQL & "   , RESULTENDYN   = '1'               " & vbCr
+                SQL = SQL & " WHERE MEDICALREMARK = '" & strBarcode & "'" & vbCr
+                
+                Call SetSQLData("상태변경", SQL, "A")
+                AdoCn.Execute SQL
+            End If
+        End If
+        
+        SaveTransData_ACK = 1
+        
+    End With
+
+Exit Function
+
+ErrHandle:
+    SaveTransData_ACK = -1
+    
+    
+End Function

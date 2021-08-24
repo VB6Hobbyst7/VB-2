@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00102">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetEqmtList">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="refgbn">
+            <column id="refgbn" desc="구분" ref="refgbn"/>
+            <column id="instcd" desc="기관코드" ref="instcd"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="eqmtcdlist" count_ref="getEqmtCdList">
+            <column id="eqmtfromdd"   type="string" desc="장비사용시작일" ref="getEqmtCdList.eqmtfromdd"/>
+            <column id="eqmttodd"     type="string" desc="장비사용종료일" ref="getEqmtCdList.eqmttodd"/>
+            <column id="eqmtcd"       type="string" desc="장비코드"       ref="getEqmtCdList.eqmtcd"/>
+            <column id="eqmtnm"       type="cdata"  desc="장비명"         ref="getEqmtCdList.eqmtnm"/>
+            <column id="eqmtabbrnm"   type="cdata"  desc="장비약어명"     ref="getEqmtCdList.eqmtabbrnm"/>
+            <column id="rsltreptid"   type="cdata"  desc="결과보고자명"   ref="getEqmtCdList.rsltreptid"/>
+            <column id="rsltreptkind" type="string" desc="결과보고유형"   ref="getEqmtCdList.rsltreptkind"/>
+            <column id="rsltreptresn" type="cdata"  desc="결과보고사유"   ref="getEqmtCdList.rsltreptresn"/>
+            <column id="retestyn"     type="string" desc="재검여부"       ref="getEqmtCdList.retestyn"/>
+        </table>		
+    </output>
+</submit>

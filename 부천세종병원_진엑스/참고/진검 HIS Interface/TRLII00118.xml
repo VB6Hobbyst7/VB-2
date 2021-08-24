@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00105">
+    <action url="svc://local"
+    	    target="interfacemngtapp.InterFaceMngt"
+    	    interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+    	    method="reqGetMicroWorkListSM">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="workflag">
+            <column id="sworkdd"              desc="작업시작일자"   ref="sworkdd"/>
+            <column id="eworkdd"              desc="작업종료일자"   ref="eworkdd"/>
+            <column id="sworkseq"             desc="작업시작번호"   ref="sworkseq"/>
+            <column id="eworkseq"             desc="작업종료번호"   ref="eworkseq"/>
+            <column id="workflag"             desc="작업구분"   ref="workflag"/>
+            <column id="bcno"                 desc="검체번호"   ref="bcno"/>
+            <column id="worktestgrupcd"       desc="작업그룹코드"   ref="worktestgrupcd"/>
+            <column id="testmdlcd"            desc="중분류코드"   ref="testmdlcd"/>
+            <column id="instcd"            desc="기관코드"   ref="instcd"/>
+            <column id="eqmtcd"            desc="장비코드"   ref="eqmtcd"/>
+        </table>  
+    </input> 
+     <output path="root" type="xml">
+        <table id="microworklist" count_ref="microworklist">
+            <column id="bcno"   type="cdata"   desc="검체번호"     ref="microworklist.bcno"/>
+            <column id="tclsscrnnm"   type="cdata"   desc="검사명"     ref="microworklist.tclsscrnnm"/>
+            <column id="workno"   type="cdata"   desc="작업번호"     ref="microworklist.workno"/>
+            <column id="pid"   type="cdata"   desc="등록번호"     ref="microworklist.pid"/>
+            <column id="patnm"   type="cdata"   desc="환자명"     ref="microworklist.patnm"/>
+            <column id="wardnm"   type="cdata"   desc="병동명"     ref="microworklist.wardnm"/>
+            <column id="spcacptdt"   type="cdata"   desc="접수일시"     ref="microworklist.spcacptdt"/>
+            <column id="testcd"   type="cdata"   desc="검사코드"     ref="microworklist.testcd"/>
+            <column id="patsex"   type="cdata"   desc="성별"     ref="microworklist.patsex"/>
+            <column id="patage"   type="cdata"   desc="나이"     ref="microworklist.patage"/>
+            <column id="brthdd"   type="cdata"   desc="생년월일" ref="microworklist.brthdd"/>
+            <column id="orddeptnm"   type="cdata"   desc="진료과명"     ref="microworklist.orddeptnm"/>
+            <column id="spccd"   type="cdata"   desc="검체코드"     ref="microworklist.spccd"/>
+            <column id="spcscrnnm"   type="cdata"   desc="검체명"     ref="microworklist.spcscrnnm"/>
+            <column id="retestyn"   type="cdata"   desc="재검여부"     ref="microworklist.retestyn"/>
+            <column id="rsltstat"   type="cdata"   desc="결과상태"     ref="microworklist.rsltstat"/>
+         </table>	
+    </output>
+</submit>

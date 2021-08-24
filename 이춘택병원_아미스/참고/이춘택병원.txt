@@ -1,0 +1,170 @@
+'Provider=MSDAORA.1;Password=lcthis;User ID=lcthis;Data Source=ctleem;'+
+'Persist Security Info=True';
+                            
+function TDM.DownLoadOrder_HM_ORD(TMaster: TIfMaster): boolean;
+var
+  ECD, Abbr, IfCd, EList:string;
+  K:integer;
+begin
+  Result:= False;
+
+  EList:= TCode.FECD_QryInStr;
+
+  if Pos('ERR', TMaster.FBarCode) > 0 then exit;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:=  'Local TEST중입니다.';
+      exit;
+  end;
+
+  with qrySOrder do begin
+      Close;
+      SQL.Text:=' select r.resultitemcode                        '+#13#10+
+                '        ,p.patid                                '+#13#10+
+                '        ,p.patname                              '+#13#10+
+                '        ,p.sex                                  '+#13#10+
+                '        ,p.prsnidpre||prsnidpost prsnid         '+#13#10+
+                '        ,r.resultflag                           '+#13#10+
+                '        ,w.resultstate                          '+#13#10+
+                '        ,w.rsvacptstate                         '+#13#10+
+                '        ,r.ORDERCODE                            '+#13#10+
+                ' from resultofnum r                             '+#13#10+
+                '   ,  registinfos w                             '+#13#10+
+                '   ,  patmst p                                  '+#13#10+
+                ' where r.patid = p.patid                        '+#13#10+
+                '   and r.spcmno = w.spcmno                      '+#13#10+
+                '   and r.OrderCode = w.OrderCode                '+#13#10+
+                //'   and r.resultflag < ''3''                     '+#13#10+
+                '   and r.spcmno = '''+TMaster.FBarCode+'''      '+#13#10+
+                '   and r.resultitemcode in '+EList               +#13#10;
+                //'   and w.rsvacptstate < ''5''                   ';
+      try
+          if SvrTEST then
+              sql.SaveToFile(ORD_SQL);
+
+          Open;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= '오더조회 에러 입니다! 에러메세지->'+ e.Message+' SQL=>'+ SQL.Text;
+              ShowMessage(e.Message);
+              exit;
+          end;
+      end;
+
+      if RecordCount > 0 then begin
+          TMaster.vOrder:= VarArrayCreate([0,RecordCount-1], varVariant);
+          TMaster.vAbbr := VarArrayCreate([0,RecordCount-1], varVariant);
+          TMaster.vOrdList:= VarArrayCreate([0,RecordCount-1], varVariant);
+          TMaster.vOcdList:= VarArrayCreate([0,RecordCount-1], varVariant);
+          K:=-1;
+          while Not Eof do begin
+              ECD:= Trim(FieldByName('resultitemcode').AsString);
+
+              if TCode.SetCode_ECode(ECD) then begin
+                  Inc(K);
+
+                  TMaster.vOrdList[K]:= FieldByName('resultitemcode').AsString;
+                  TMaster.vOcdList[K]:= FieldByName('ORDERCODE').AsString;
+
+                  IfCd:= TCode.GetUpCode(ECD);
+                  TMaster.vOrder[K]:= IfCd;
+
+                  Abbr:= TCode.GetAbbr(ECD);
+                  TMaster.vAbbr[K]:= Abbr;
+
+                  if Result = false then begin
+                      TMaster.FPID := FieldByName('patid').AsString;
+                      TMaster.FPNM := FieldByName('patname').AsString;
+                      TMaster.FOrdState:= 'Y';
+                      Result:= True;
+                  end;
+              end;
+              Next;
+          end;
+      end;
+  end;
+end;
+
+
+function TDM.UploadHosp_One_HM(TMaster: TIfMaster): boolean;
+var
+  dVal:double;
+  NoSignRes:string;
+begin
+  Result:= False;
+
+  if SvrConnection = False then begin
+      TGlobal.ErrMsg:= 'Local 테스트중입니다!';
+      exit;
+  end;
+
+  //부등호 들어가서 Text에 넣으면 결과가 안보인다 ㅡㅡ;
+  NoSignRes:= StringReplace(TMaster.FResult, '>', '', [rfReplaceAll]);
+  TMaster.FResult:= StringReplace(NoSignRes, '<', '', [rfReplaceAll]);
+  //
+  dVal:= StrToFloatDef(TMaster.FResult, -1);
+
+  with qrySUp do begin
+      Close;
+      SQL.Text:=' Update resultofnum Set                                   '+#13#10+
+                '        resultindate = to_char(sysdate,''yyyymmdd'')      '+#13#10+
+                '      , resultintime = to_char(sysdate,''HH24MI'')        '+#13#10+
+                '      , resultinid   = '''+TGlobal.FUserID+'''            '+#13#10+
+                '      , resultflag   = ''1''                              '+#13#10+
+                '      , textresultval= '''+TMaster.FResult+'''            ';
+      if dVal > -1 then
+          SQL.Text:= SQL.Text + ' , NUMRESULTVAL = '+TMaster.FResult+ #13#10;
+
+      SQL.Text:= SQL.Text+
+                ' where spcmno = '''+TMaster.FBarCode+'''                  '+#13#10+
+                '   and resultitemcode = '''+TMaster.FExamCode+'''         '+#13#10+
+                '   and resultflag < ''2''                                 ';
+
+      if SvrTEST then
+          SQL.SaveToFile(RLT_SQL);
+
+      try
+          ExecSQL;
+          Result:= True;
+      except
+          on e:exception do
+          begin
+              TGlobal.ErrMsg:= '에러메세지->'+ e.Message+#13#10+SQL.Text;
+          end;
+      end;
+  end;
+
+end;
+
+
+//상태는 STA=3으로 변경
+function TDM.UploadHost_State_HM(BCD, OCD, STA: string): boolean;
+begin
+  Result:= False;
+
+  Result:= True;
+  exit;
+  
+  with qrySUp do begin
+      Close;
+      Sql.Text:=' UPDATE registinfos SET  '+#13#10+
+                '       RESULTSTATE = '+STA+'   '+#13#10+
+                ' where SPCMNO = '''+BCD+'''    '+#13#10+
+                '   and ORDERCODE = '''+OCD+''' '+#13#10+
+                '   and CLAS = 4 '              +#13#10+
+                '   and RESULTSTATE < ''4'' ';
+      try
+          if SvrTEST then
+              sql.SaveToFile(STA_SQL);
+
+          ExecSql;
+          Result:= True;
+      except
+          on e:exception do begin
+              TGlobal.DataLog:= e.Message+' SQL->'+SQL.Text;
+              ShowMessage(e.Message);
+          end;
+      end;
+  end;
+end;

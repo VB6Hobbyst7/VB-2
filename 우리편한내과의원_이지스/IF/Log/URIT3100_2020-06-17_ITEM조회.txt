@@ -1,0 +1,10 @@
+SELECT DISTINCT ORD_CD AS ITEM                     
+  FROM H3LAB_RESULT a, H1OPDIN b, HZ_MST_PTNT c    
+ WHERE a.ACC_YMD   = '20200617'          
+   AND a.RECEPT_NO = '88057'          
+   AND a.ORD_CD IN ('N11001','D0002010[?','D0002010','N11004','N11005','N11006','N11007','N11008','N11009','N11012','N1100203','N1100204','N1100201')            
+   AND a.STS_CD    = 'A'                           
+   AND a.SUTAK_CD  = ''                            
+   AND a.RECEPT_NO = b.RECEPT_NO                   
+ ORDER BY ORD_CD                                   
+

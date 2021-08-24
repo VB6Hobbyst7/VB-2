@@ -1,0 +1,1639 @@
+2012-07-24 15:25:08>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_TIDAL_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 15:25:08>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQ_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 15:25:10>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:10:38>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_BUOY_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 16:10:38>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:11:00>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WEATHER_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 16:11:00>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:11:00>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_TIDAL_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 16:11:00>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:11:00>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQ_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 16:11:00>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:11:00>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_WQA_OBSERVATION a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 16:11:00>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:11:00>>SQL에러 :  SELECT b.station_name as 관측소명,MAX(a.OBS_TIME) as 관측시간 FROM TK_BUOY_CTD a, TK_USN_STATION b WHERE a.SYSTEM_ID = b.SYSTEM_id GROUP BY b.station_name, a.SYSTEM_ID, a.NODE_ID ORDER BY a.SYSTEM_ID
+2012-07-24 16:11:00>>subRDCPDisplay : System.ArgumentOutOfRangeException: 인덱스가 범위를 벗어났습니다. 인덱스는 음수가 아니어야 하며 컬렉션의 크기보다 작아야 합니다.
+매개 변수 이름: index
+   위치: System.Collections.ArrayList.get_Item(Int32 index)
+   위치: System.Windows.Forms.DataGridViewColumnCollection.get_Item(Int32 index)
+   위치: USN_Monitoring.frmMain.subDataViewSetting(DataGridView dttView) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 92
+   위치: USN_Monitoring.frmMain.subRDCPDisplay(OracleConnection oraconnection, DataGridView dttGridView, String strFrom) 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 67
+2012-07-24 16:11:00>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:12:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:13:00>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:13:50>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:14:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:15:30>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:16:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:17:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:17:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:18:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:19:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:20:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:20:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:21:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:22:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:23:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:24:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:25:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:25:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:26:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:27:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:28:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:29:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:30:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:30:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:31:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:32:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:33:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:34:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:35:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:35:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:36:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:37:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:38:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:39:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:40:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:40:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:41:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:42:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:43:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:44:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:45:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:45:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:46:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:47:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:48:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:49:19>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:50:09>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:50:59>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:51:49>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:52:39>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:53:29>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:54:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:55:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:56:00>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:56:50>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:57:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:58:30>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 16:59:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:00:31>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:01:21>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:02:11>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:03:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:03:51>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:04:41>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:05:31>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:06:21>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:07:11>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:08:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:08:51>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:09:41>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:10:31>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:11:21>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:12:11>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:13:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:13:51>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:14:41>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:15:31>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:16:21>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:17:11>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:18:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:18:51>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:19:41>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:20:31>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:21:21>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:22:11>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:23:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:23:51>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:24:41>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:25:31>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:26:21>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:27:11>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:28:01>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12170: TNS: 접속 시간 초과가 발생함
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:28:30>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:29:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:30:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:31:00>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:31:50>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:32:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:33:30>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:34:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:35:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:36:00>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:36:50>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:37:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:38:30>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:39:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:40:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:41:00>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:41:50>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:42:40>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:43:30>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:44:20>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208
+2012-07-24 17:45:10>>subTotalDisplasy : System.Data.OracleClient.OracleException: ORA-12543: TNS:수신지 호스트에 도달할 수 없습니다
+
+   위치: System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   위치: System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   위치: System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   위치: System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   위치: System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   위치: System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   위치: System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   위치: System.Data.OracleClient.OracleConnection.Open()
+   위치: USN_Monitoring.frmMain.subTotalDisplasy() 파일 D:\Source\조사협회\09.USN모니터링\USN_Monitoring\USN_Monitoring\frmMain.vb:줄 208

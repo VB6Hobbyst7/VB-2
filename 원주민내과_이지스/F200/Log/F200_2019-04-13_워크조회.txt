@@ -1,0 +1,19 @@
+SELECT DISTINCT    P.request_date  AS HOSPDATE 
+ , P.exam_no       AS PID      
+ , P.company_code  AS DEPT     
+ , P.chart_no      AS CHARTNO  
+ , p.personal_id   AS BARCODE  
+ , p.person_name   AS PNAME    
+ , P.worker_code               
+ , P.patient_kind              
+ , P.person_sex    AS SEX      
+ , P.person_age    AS AGE      
+ , R.pro_code      AS ITEM     
+  FROM trust P, trures R       
+ WHERE P.request_date BETWEEN '20190404' AND '20190413'
+   AND R.pro_code IN ('TEST_A','TEST_B','VB6012A') 
+   AND R.exam_code <> 'X999' 
+   AND P.request_date = R.request_date 
+   AND P.exam_no = R.exam_no 
+ ORDER BY P.request_date, P.exam_no 
+

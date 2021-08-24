@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<submit id="TRLII00110">
+    <action url="svc://local"
+            target="interfacemngtapp.InterFaceMngt"
+            interface="himed.his.lis.interfacemngtapp.interfacemngt.InterFaceMngt" 
+            method="reqGetBfNRslt">
+    </action>
+    <input type="urlencoded">
+        <table id="cond" count_ref="eqmtcd">
+            <column id="eqmtcd"  desc="장비코드"     ref="eqmtcd"/>
+            <column id="instcd"  desc="기관코드"     ref="instcd"/>
+            <column id="testcd"  desc="분주그룹코드"     ref="testcd"/>
+            <column id="pid"  desc="등록번호"     ref="pid"/>
+        </table>
+    </input> 
+    <output path="root" type="xml">
+        <table id="worklist" count_ref="getBfNRslt">
+            <column id="pid"            type="cdata"           desc="등록번호" ref="getBfNRslt.pid"/>
+            <column id="patnm"      type="cdata"   desc="환자명" ref="getBfNRslt.patnm"/>
+            <column id="age"     type="cdata"    desc="성별"       ref="getBfNRslt.age"/>
+            <column id="sex"     type="cdata"    desc="나이"       ref="getBfNRslt.sex"/>
+            <column id="orddeptnm"     type="cdata"    desc="진료과"       ref="getBfNRslt.orddeptnm"/>
+            <column id="orddrnm"     type="cdata"    desc="진료의"       ref="getBfNRslt.orddrnm"/>
+            <column id="prcpdd"     type="cdata"    desc="처방일자"       ref="getBfNRslt.prcpdd"/>
+            <column id="spcacptdt"     type="cdata"    desc="접수일자"       ref="getBfNRslt.spcacptdt"/>
+            <column id="lastreptdt"     type="cdata"    desc="최종보고일자"       ref="getBfNRslt.lastreptdt"/>
+            <column id="tclsnm"     type="cdata"    desc="검사명"       ref="getBfNRslt.tclsnm"/>
+            <column id="reptrslt"     type="cdata"    desc="결과"       ref="getBfNRslt.reptrslt"/>
+            <column id="retest"     type="cdata"    desc="재검"       ref="getBfNRslt.retest"/>
+        </table>        
+    </output>
+</submit>

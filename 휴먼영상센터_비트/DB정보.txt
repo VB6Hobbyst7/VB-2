@@ -1,0 +1,112 @@
+database명  [mediroPACK]
+TABLE 명 [orderinf]
+
+
+
+
+
+USE [mediroPACK]
+GO
+
+/****** Object:  Table [dbo].[orderinf]    Script Date: 10/29/2018 10:58:22 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[orderinf](
+	[orderID] [nchar](30) NOT NULL,
+	[accessionID] [nchar](30) NOT NULL,
+	[jin_sid] [bigint] NOT NULL,
+	[chart] [nvarchar](50) NOT NULL,
+	[hname] [nvarchar](50) NULL,
+	[ename] [nvarchar](50) NULL,
+	[birth] [nchar](8) NULL,
+	[gender] [nchar](1) NULL,
+	[age] [int] NULL,
+	[su_kor_name] [nvarchar](250) NULL,
+	[su_eng_name] [nvarchar](250) NULL,
+	[doctor] [nvarchar](50) NULL,
+	[sector] [nvarchar](50) NULL,
+	[order_day] [nchar](8) NULL,
+	[order_time] [nchar](6) NULL,
+	[su_key] [nvarchar](50) NULL,
+	[jin_ilsu] [int] NULL,
+	[reserve_time] [nchar](6) NULL,
+	[emergency] [nchar](1) NULL,
+	[sect] [nchar](1) NULL,
+	[modality] [nchar](2) NULL,
+	[stydyID] [nvarchar](50) NULL,
+ CONSTRAINT [PK_orderinf] PRIMARY KEY CLUSTERED 
+(
+	[orderID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Order ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'orderID'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Accession Number' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'accessionID'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Tx. ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'jin_sid'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'차트번호' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'chart'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'환자명(한글)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'hname'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'환자명(영문)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'ename'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'생일 YYYYMMDD' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'birth'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'성별 Man ->M Woman ->F unknown-> O' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'gender'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'나이' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'age'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'처방명칭(한글)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'su_kor_name'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'처방명칭(영문)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'su_eng_name'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'주치의' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'doctor'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'과목' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'sector'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'의뢰일자' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'order_day'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'의뢰시간' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'order_time'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'처방코드' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'su_key'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'투여량' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'jin_ilsu'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'예약시간 hhmmss' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'reserve_time'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'응급여부 1: 응급' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'emergency'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'접수구분 0: 촬영대기 1: 촬영완료 2: 촬영보류' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'sect'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Modality  CT : CT / MR : MRI / US : Ultra Sound / PX : Xray  / PT : Cd Copy' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'orderinf', @level2type=N'COLUMN',@level2name=N'modality'
+GO
+
+

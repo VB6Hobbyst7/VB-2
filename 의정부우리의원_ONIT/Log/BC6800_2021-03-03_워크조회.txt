@@ -1,0 +1,12 @@
+SELECT DISTINCT        PER_GUMJIN_DATE     AS HOSPDATE             
+     , PER_NAME            AS PNAME                
+     , PER_GUM_NUM         AS BARCODE              
+     , PER_GUM_NUM * 10    AS SORT                 
+     , COUNT(EDPSCODE)     AS CNT                  
+  FROM ONIT..GUMJIN_INTERFACE                      
+ WHERE PER_GUMJIN_DATE BETWEEN '20210303' AND '20210303'
+   AND EDPSCODE IN ('1319','1409','426','563','564','565','566','570','571','839','924','960','985','986','998','999','D0113')            
+   AND (RESULT  = ''  OR RESULT IS NULL)       
+ GROUP BY PER_GUMJIN_DATE, PER_NAME, PER_GUM_NUM   
+ ORDER BY PER_GUMJIN_DATE, SORT,  PER_NAME 
+

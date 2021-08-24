@@ -1,0 +1,10 @@
+UPDATE ME_DAT                              
+   Set DATENDDEP   = '2'                   
+     , DATRSTDTE = '2019-10-10'       
+     , DATRSTTIM = '11:17:27'       
+     , DATRSTUID = '501'  
+     , DATRSTCOM = 'ESR2010'  
+ WHERE DATATTEND = '2019100812074000021050'      
+   And DATODRCOD = 'L2027'     
+   And DATODRSTP = '1'      
+   And DATODRDTE = '2019-10-10'

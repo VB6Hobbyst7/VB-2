@@ -1,0 +1,12 @@
+Update SLA_LabResult  
+   Set Result = '7.0', 
+       NormalFlag = '0', 
+       PanicFlag = '0', 
+       DeltaFlag = '0', 
+       TransFlag = '1', 
+       ResultID  = '', 
+       ResultDate = '2017-05-15', 
+       ResultTime = '09:05:19' 
+ Where ReceiptNo = '1712806' 
+   And LabCode = 'B1034'
+   And transflag < '2' 

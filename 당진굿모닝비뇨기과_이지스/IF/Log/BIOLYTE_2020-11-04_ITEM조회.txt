@@ -1,0 +1,9 @@
+SELECT DISTINCT ORD_CD AS ITEM                     
+  FROM H3LAB_RESULT a, H1OPDIN b, HZ_MST_PTNT c    
+ WHERE a.ACC_YMD   = '20201104'          
+   AND a.RECEPT_NO = '225545'          
+   AND a.ORD_CD IN ('CL-IN','K-IN','NA-IN')            
+   AND (a.RESULT_NM = '' OR a.RESULT_NM IS NULL)            
+   AND a.RECEPT_NO = b.RECEPT_NO                   
+ ORDER BY ORD_CD                                   
+

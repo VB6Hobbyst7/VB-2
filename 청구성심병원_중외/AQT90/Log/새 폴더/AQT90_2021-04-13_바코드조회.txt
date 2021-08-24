@@ -1,0 +1,14 @@
+SELECT DISTINCT        READING_YMD     AS HOSPDATE         
+     , BCODE_NO        AS BARCODE          
+     , PTNT_NO         AS PID              
+     , PTNT_NM         AS PNAME            
+     , AGE             AS AGE              
+     , SEX             AS SEX              
+     , IO_GB           AS INOUT            
+     , ORD_CD          AS ITEM             
+     , SP_CD           AS SPCCD            
+  FROM LIS_INTERFACE1_V                    
+ WHERE BCODE_NO    = '1778691'  
+   AND ORD_CD IN ('D0142','D1073003','D4023010','D4040004','D40620123')      
+ ORDER BY ORD_CD                           
+

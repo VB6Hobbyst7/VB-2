@@ -1,0 +1,42 @@
+09:51:19 : 'COM1' 포트에 대한 액세스가 거부되었습니다.
+   위치: System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   위치: System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   위치: System.IO.Ports.SerialPort.Open()
+   위치: IdifCommon.clsCommon.OpenPort(SerialPort prmSerialPort, String prmPortName, Int32 prmBaudRate)
+   위치: IdifCommon.clsCommon.OpenPort(SerialPort prmSerialPort, String prmPortName, Int32 prmBaudRate)
+   위치: IdifCommon.frmExcelPrintBase.InitForm()
+
+10:04:09 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+15:18:01 : Port가 닫혀있습니다.
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+15:18:06 : Port가 닫혀있습니다.
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.clsZebra.GetPrinterStatus(SerialPort prmSerialPort)
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+16:34:01 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+18:24:35 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+
+18:44:27 : 프린터 상태를 확인하세요.:응답없음
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.PrintStart()
+   위치: IdifCommon.frmExcelPrintBase.cmdPrintStart_Click(Object sender, EventArgs e)
+

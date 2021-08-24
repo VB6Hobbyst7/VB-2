@@ -1,0 +1,13 @@
+SELECT DISTINCT L.LABODRCOD as ITEM                
+  FROM ME_LABDAT L, ME_DAT D                       
+ WHERE L.LABODRDTE  = '2019-10-17'         
+   AND L.LABCHTNUM  = '00011026'         
+   AND L.LABKEYNUM  = D.DATKEYNUM                  
+   AND L.LABATTEND  = D.DATATTEND                  
+   AND L.LABCHTNUM  = D.DATCHTNUM                  
+   AND L.LABODRDTE  = D.DATODRDTE                  
+   AND L.LABODRCOD IN ('L2027')         
+   AND (L.LABCANCEL = '' OR L.LABCANCEL IS NULL)   
+   AND (L.LABRESULT = ''  OR L.LABRESULT IS NULL)  
+   AND L.LABENDDEP < '3'                           
+

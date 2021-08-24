@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BITLabResultInterface</name>
+    </assembly>
+    <members>
+        <member name="T:BIT.ASP.Assistant.Interface.BITLabResultInterface">
+            <summary>
+            검사장비 인터페이스
+            </summary>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.InitializeServer">
+            <summary>
+            Tmax 서버 초기화
+            </summary>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.FinalizeServer">
+            <summary>
+            Tmax 서버 종료
+            </summary>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetLabStandByListByWorkDate(System.String,System.String)">
+            <summary>
+            학부 코드 별 접수완료된 검사 리스트 검색
+            </summary>
+            <param name="sPrmWorkDate">접수완료일자(yyyymmdd)</param>
+            <param name="sPrmTrnPrt">학부코드</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetLabStandByListByChtNum(System.String,System.String,System.String)">
+            <summary>
+            특정 환자의 접수완료된 검사 리스트 검색
+            </summary>
+            <param name="sPrmWorkDate">접수일시(yyyyMMddhhii) (hhii 생략가능)</param>
+            <param name="sPrmChtNum">수진자차트번호</param>
+            <param name="sPrmTrnPrt">학부코드</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetLabStandByListByChtNum(System.String,System.String,System.String,BIT.ASP.Assistant.Interface.BITLabResultInterface.DATE_TYPE)">
+            <summary>
+            특정 환자의 접수완료된 검사 리스트 검색
+            </summary>
+            <param name="sPrmWorkDate">작업일자(yyyyMMddhhii) (hhii 생략가능)</param>
+            <param name="sPrmChtNum">수진자차트번호</param>
+            <param name="sPrmTrnPrt">학부코드</param>
+            <param name="ePrmType">작업일자의 타입이 처방일자 or 검사실접수일자 여부</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetLabStandByListByBarCode(System.String)">
+            <summary>
+            특정 바코드의 접수완료된 검사 리스트 검색
+            </summary>
+            <param name="sPrmBarCodeNumber">바코드번호</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetRowCount">
+            <summary>
+            검색된 데이터 개수 리턴
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetDataValue(System.Int32,System.String)">
+            <summary>
+            검색된 데이터 내에서 특정 컬럼의 값을 리턴
+            </summary>
+            <param name="iPrmRow">행번호</param>
+            <param name="sPrmColumnName">열이름</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetPreviousLabResultInfo(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            현재 인터페이스 되는 처방의 가장 최근 검사 결과 값을 가져온다
+            </summary>
+            <param name="sPrmLbqAcpNum">접수번호</param>
+            <param name="sPrmChtNum">수진자 차트번호</param>
+            <param name="sPrmTrnPrt">학부코드</param>
+            <param name="sPrmSpmCod">검체코드</param>
+            <param name="sPrmLabCod">검사코드</param>
+            <param name="sPrmVolFlg">구분</param>
+            <returns>검사결과</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.UpdateLabResult(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            인터페이스 결과를 저장
+            </summary>
+            <param name="sPrmRsbAcpNum">바코드접수번호</param>
+            <param name="sPrmOcmNum">수진자내원번호</param>
+            <param name="sPrmOdrSeq">처방일련번호</param>
+            <param name="sPrmResSeq">검사결과일련번호</param>
+            <param name="sPrmResSubSeq">검사결과Set코드일련번호</param>
+            <param name="sPrmResLabCod">검사코드</param>
+            <param name="sPrmResRltVal">검사결과값</param>
+            <param name="sPrmResRepTyp">보고상태('F':최종보고, 'I':중간보고)</param>
+            <param name="sPrmResUpdUid">검사보고담당자ID</param>
+            <param name="sPrmUpdDtm">저장일시(yyyyMMddhhii)</param>
+            <returns>성공여부</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.InitializePrintSetting">
+            <summary>
+            검사결과 출력 초기화
+            </summary>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.AddDataToPrint(System.String,System.String,System.String,System.String)">
+            <summary>
+            출력하고자 하는 처방을 리스트에 추가
+            </summary>
+            <param name="sPrmOcmNum">수진자내원번호</param>
+            <param name="sPrmOdrSeq">처방일련번호</param>
+            <param name="sPrmResSeq">일련번호</param>
+            <param name="sPrmResSubSeq">Set 코드 일련번호</param>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.PrintInterfaceResult(System.String,System.String)">
+            <summary>
+            선택된 검사 결과 출력
+            </summary>
+            <param name="sPrmUserID">사용자ID</param>
+            <param name="sPrmWorkDate">작업일자</param>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetValidUserYon(System.String,System.String,System.String)">
+            <summary>
+            사용자 계정 유효성 점검
+            </summary>
+            <param name="sPrmUserID">사용자 ID</param>
+            <param name="sPrmPassWord">비밀번호</param>
+            <param name="sPrmWorkDate">작업일자</param>
+            <returns>유효성여부</returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.BITReadConsumptionSummary(System.String,System.String)">
+            <summary>
+            처방소모 내역 읽기
+            </summary>
+            <remarks>작성일자:2006-04-13</remarks>
+            <param name="sPrmStrDte"></param>
+            <param name="sPrmEndDte"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetConsumptionDataValue(System.Int32,System.String)">
+            <summary>
+            소모내역 return
+            </summary>
+            <remarks>작업일자:2006-04-13</remarks>
+            <param name="iPrmRow"></param>
+            <param name="sPrmColumnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetConsumptionRowCount">
+            <summary>
+            소모내역 data count return
+            </summary>
+            <remarks>작업일자:2006-04-13</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.BITReadRadResultSummary(System.String,System.String,System.String,System.String)">
+            <summary>
+            방사선과 결과 조회
+            </summary>
+            <remarks>작성일자:2006-07-13</remarks>
+            <param name="sPrmStrDte"></param>
+            <param name="sPrmEndDte"></param>
+            <param name="sPrmCodNum"></param>
+            <param name="sPrmOcmNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetRadResultDataValue(System.Int32,System.String)">
+            <summary>
+            방사선과 검사결과 return
+            </summary>
+            <remarks>작성일자:2006-07-13</remarks>
+            <param name="iPrmRow"></param>
+            <param name="sPrmColumnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIT.ASP.Assistant.Interface.BITLabResultInterface.GetRadResultRowCount">
+            <summary>
+            방사선과 검사결과 data count return
+            </summary>
+            <remarks>작성일자:2006-07-13</remarks>
+            <returns></returns>
+        </member>
+        <member name="T:BIT.ASP.Assistant.Interface.BITLabResultInterface.DATE_TYPE">
+            <summary>
+            작업일자 타입
+            </summary>
+        </member>
+        <member name="F:BIT.ASP.Assistant.Interface.BITLabResultInterface.DATE_TYPE.ACCEPT_DATE">
+            <summary>
+            검사실접수일자
+            </summary>
+        </member>
+        <member name="F:BIT.ASP.Assistant.Interface.BITLabResultInterface.DATE_TYPE.ORDER_DATE">
+            <summary>
+            처방일자
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,5 @@
+Update SLA_LabMaster 
+   Set JStatus = '2' 
+ Where SPECIMENNUM = '172096' 
+   AND LabCode = 'C3730' 
+   And JStatus < '3' 

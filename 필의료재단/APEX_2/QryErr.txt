@@ -1,0 +1,11 @@
+UPDATE  PATRESULT Set   RESULT = 'Total IgE는 증가하였습니다.
+Allergen은 28,29에서 Increased
+ 반응을 나타냈습니다.
+
+여러가지 알러젠에서 양성반응을 나타냈습니다.
+이는 알러젠의 cross reaction에 의한 현상으로 판단되므로
+주된 임상소견을 참고하시고 Skin test를 권합니다.'
+ WHERE EQUIPNO = 'Allergen' 
+   AND BARCODE = '2016092209991'
+   AND EQUIPCODE = 'cmnt'
+   AND GUBUN = 'ATOPY'

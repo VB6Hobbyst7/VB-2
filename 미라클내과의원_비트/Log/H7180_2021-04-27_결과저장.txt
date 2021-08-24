@@ -1,0 +1,40 @@
+UPDATE RESINF                                                      
+   SET RESRLTVAL = '19'                               
+     , RESUPDDTM = '202104271049'           
+     , RESREPTYP = 'M'                                             
+ WHERE LTRIM(RTRIM(ResOcmNum))         = '1000000036'      
+   AND Upper(LTRIM(RTRIM(RESLABCOD)))  = 'C3730'
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+
+UPDATE RESINF                                                      
+   SET RESRLTVAL = '96'                               
+     , RESUPDDTM = '202104271049'           
+     , RESREPTYP = 'M'                                             
+ WHERE LTRIM(RTRIM(ResOcmNum))         = '1000000036'      
+   AND Upper(LTRIM(RTRIM(RESLABCOD)))  = 'C3711'
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+
+UPDATE RESINF                                                      
+   SET RESRLTVAL = '181'                               
+     , RESUPDDTM = '202104271058'           
+     , RESREPTYP = 'M'                                             
+ WHERE LTRIM(RTRIM(ResOcmNum))         = '83791278514'      
+   AND Upper(LTRIM(RTRIM(RESLABCOD)))  = 'B2570'
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+
+UPDATE RESINF                                                      
+   SET RESRLTVAL = '58'                               
+     , RESUPDDTM = '202104271058'           
+     , RESREPTYP = 'M'                                             
+ WHERE LTRIM(RTRIM(ResOcmNum))         = '83791278513'      
+   AND Upper(LTRIM(RTRIM(RESLABCOD)))  = 'B2570'
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+
+UPDATE RESINF                                                      
+   SET RESRLTVAL = '181'                               
+     , RESUPDDTM = '202104271058'           
+     , RESREPTYP = 'M'                                             
+ WHERE LTRIM(RTRIM(ResOcmNum))         = '83791278514'      
+   AND Upper(LTRIM(RTRIM(RESLABCOD)))  = 'B2570'
+   AND (RESREPTYP = 'N' OR RESREPTYP IS NULL)                      
+

@@ -1,0 +1,24 @@
+SELECT DISTINCT        CONVERT(NVARCHAR(50),M.접수일자,112)    AS HOSPDATE                                 
+     , ''                                      AS INOUT                                    
+     , M.거래처명                              AS DEPT                                     
+     , CONVERT(NVARCHAR(50),M.접수일자,112) + M.접수번호 AS BARCODE                        
+     , M.접수번호                              AS PID                                      
+     , M.차트번호                              AS CHARTNO                                  
+     , ''                                      AS PJUMIN                                   
+     , M.성명                                  AS PNAME                                    
+     , M.성별                                  AS SEX                                      
+     , M.나이                                  AS AGE                                      
+     , COUNT(E.검사코드)                       AS CNT                                      
+  FROM VW_검사접수 M                                                                       
+     , VW_검사결과 R                                                                       
+     , VW_검사코드 E                                                                       
+ WHERE M.접수일자 BETWEEN CONVERT(DATE, '20190802') AND CONVERT(DATE, '20190802')  
+   AND M.접수일자      = R.접수일자                                                        
+   AND M.접수번호      = R.접수번호                                                        
+   AND R.검사코드      = E.검사코드                                                        
+   AND E.학부코드      = 'U1'                                            
+   AND E.검사코드      IN ('4008','4009','4010','4011','4012','4013','4014','4015','4016','4017','BIL','BLD','GLU','KET','LEU','NIT','pH','PRO','S.G','URO')                                             
+   AND ISNULL(R.보고여부, 'N') <> 'Y'                                                      
+   AND (R.결과값 IS NULL OR R.결과값 = '')                                                 
+ GROUP BY M.접수일자,M.거래처명,M.접수번호,M.차트번호,M.성명,M.성별,M.나이                 
+

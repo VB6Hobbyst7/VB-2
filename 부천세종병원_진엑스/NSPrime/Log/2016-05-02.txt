@@ -1,0 +1,135 @@
+13:26:56 [WL_IN]submit_id=TRLII00119&business_id=lis&ex_interface=21302115|012&instcd=012&eqmtcd=I04&startdd=20160502&enddd=20160502&tclscd=LIM105
+13:27:06 [WL_OUT]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462163216863"/>
+</spcworklist></root>
+14:04:31 [WL_IN]submit_id=TRLII00119&business_id=lis&ex_interface=21302115|012&instcd=012&eqmtcd=I24&startdd=20160502&enddd=20160502&tclscd=LIM305▦LIM306
+14:04:32 [WL_OUT]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462165472419"/>
+</spcworklist></root>
+15:01:40 [SQL]SELECT GUBUN, EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH, EXAMTYPE 
+  From EQPMASTER 
+ WHERE EQUIPNO = 'B4C' 
+ GROUP BY GUBUN, EXAMCODE, EQUIPCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH,EXAMTYPE  ORDER BY GUBUN, SEQNO * 10 
+15:01:42 [SQL]SELECT GUBUN, EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH, EXAMTYPE 
+  From EQPMASTER 
+ WHERE EQUIPNO = 'B4C' 
+  AND GUBUN = 'FD'  GROUP BY GUBUN, EXAMCODE, EQUIPCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH,EXAMTYPE  ORDER BY GUBUN, SEQNO * 10 
+15:01:45 [SQL]SELECT GUBUN, EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH, EXAMTYPE 
+  From EQPMASTER 
+ WHERE EQUIPNO = 'B4C' 
+  AND GUBUN = 'IN'  GROUP BY GUBUN, EXAMCODE, EQUIPCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH,EXAMTYPE  ORDER BY GUBUN, SEQNO * 10 
+15:02:55 [SQL]SELECT GUBUN, EQUIPCODE, EXAMCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH, EXAMTYPE 
+  From EQPMASTER 
+ WHERE EQUIPNO = 'B4C' 
+ GROUP BY GUBUN, EXAMCODE, EQUIPCODE, EXAMNAME, RESPREC, SEQNO, REFLOW, REFHIGH,EXAMTYPE  ORDER BY GUBUN, SEQNO * 10 
+15:11:33 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169494245"/>
+</spcworklist></root>
+15:11:34 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169494558"/>
+</spcworklist></root>
+15:11:34 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169494866"/>
+</spcworklist></root>
+15:11:34 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169495165"/>
+</spcworklist></root>
+15:11:35 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169495436"/>
+</spcworklist></root>
+15:11:35 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169496234"/>
+</spcworklist></root>
+15:11:36 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169496484"/>
+</spcworklist></root>
+15:11:36 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169496775"/>
+</spcworklist></root>
+15:11:36 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169497052"/>
+</spcworklist></root>
+15:11:36 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169497297"/>
+</spcworklist></root>
+15:11:37 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169497599"/>
+</spcworklist></root>
+15:11:37 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169497844"/>
+</spcworklist></root>
+15:11:37 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169498089"/>
+</spcworklist></root>
+15:11:37 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169498355"/>
+</spcworklist></root>
+15:11:38 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169498665"/>
+</spcworklist></root>
+15:11:38 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169498927"/>
+</spcworklist></root>
+15:11:38 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169499174"/>
+</spcworklist></root>
+15:11:39 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169499501"/>
+</spcworklist></root>
+15:11:39 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169499766"/>
+</spcworklist></root>
+15:11:39 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169500034"/>
+</spcworklist></root>
+15:11:39 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169500274"/>
+</spcworklist></root>
+15:11:40 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169500542"/>
+</spcworklist></root>
+15:11:40 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169500785"/>
+</spcworklist></root>
+15:11:40 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169501067"/>
+</spcworklist></root>
+15:11:40 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169501317"/>
+</spcworklist></root>
+15:11:41 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169501564"/>
+</spcworklist></root>
+15:11:41 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169501831"/>
+</spcworklist></root>
+15:11:41 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169502128"/>
+</spcworklist></root>
+15:11:42 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169502447"/>
+</spcworklist></root>
+15:11:42 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169502691"/>
+</spcworklist></root>
+15:11:42 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169502961"/>
+</spcworklist></root>
+15:11:42 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169503211"/>
+</spcworklist></root>
+15:11:43 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169503482"/>
+</spcworklist></root>
+15:11:43 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169503832"/>
+</spcworklist></root>
+15:11:43 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169504106"/>
+</spcworklist></root>
+15:11:43 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169504354"/>
+</spcworklist></root>
+15:12:56 [BC]<?xml version='1.0' encoding='utf-8'?>
+<root><spcworklist><resultKM error="no" type="status" clear="true" description="info||정상적으로 처리되었습니다." updateinstance="true" source="1462169565964"/>
+</spcworklist></root>

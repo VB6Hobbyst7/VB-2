@@ -1,0 +1,41 @@
+1. Order 정보 호출 URL : 
+SERVERIP + "/himed2/.live?submit_id=TRLII00123&business_id=lis&instcd=053&startdd=" + argStartDate + "&enddd=" + argEnddate + "&testcd=" + argLisCode + ""
+ -> (서버IP)/himed2/.live?submit_id=TRLII00123&business_id=lis&instcd=053&startdd=(조회시작일자)&enddd=(조회끝일자)&testcd=(LIS코드)
+
+
+
+http://192.168.200.131/himed2/.live?submit_id=TRLII00123&business_id=lis&instcd=053&startdd=20191024&enddd=20191025&testcd=VB6012A
+
+보바스
+Param:                    submit_id=TRLII00123&business_id=lis&instcd=053&startdd=20191025&enddd=20191025&testcd=TEST_A▦TEST_B▦VB6012A▦&
+
+ 
+
+2. 파트접수 URL : 
+SERVERIP + "/himed2/.live?submit_id=TXLII00107&business_id=lis&bcno=" + argBarcode + "&instcd=053&userid=LISBC&eqmtcd=-"
+
+ 
+
+ -> (서버IP)/himed2/.live?submit_id=TXLII00107&business_id=lis&bcno=(바코드번호)&instcd=053&userid=LISBC&eqmtcd=-
+
+ 
+
+3. 결과전송 URL : 
+SERVERIP + "/himed2/.live?submit_id=" + argId + "&business_id=lis&bcno=" + argBarcode + "&result=" + argResult + "&eqmtcd=" + strLIS_EQCD + "&instcd=053&userid=LISBC&paste=Y&retestyn=N&nmeddilute=0"
+ -> (서버IP)/himed2/.live?submit_id=TXLII00101&business_id=lis&bcno=(바코드번호)&result=(결과:검사코드%17결과%17%17입력시간%171%03·····검사코드%17결과%17%17입력시간%171)&eqmtcd=(장비코드)&instcd=053&userid=LISBC&paste=Y&retestyn=N&nmeddilute=0
+
+보바스
+Param:										submit_id=TXLII00101&business_id=lis&bcno=3034200020&result=VB6012ANegative(0.10)1&eqmtcd=025&instcd=053&userid=LISBC&
+
+
+
+4. 바코드 조회
+
+
+보바스
+Param:submit_id=TRLII00123&business_id=lis&instcd=053&bcno=3034200020
+Return:<?xml version='1.0' encoding='utf-8'?>
+<root><worklist><bcno><![CDATA[3034200020]]></bcno><patnm><![CDATA[박치인]]></patnm><prgstno><![CDATA[300213-1******]]></prgstno><pid><![CDATA[000074540]]></pid><sex><![CDATA[M]]></sex><age><![CDATA[89]]></age><spcnm><![CDATA[Throat swab]]></spcnm><spccd><![CDATA[023]]></spccd><tclscd><![CDATA[VB6012A]]></tclscd><spcstat><![CDATA[4]]></spcstat><rsltstat><![CDATA[-]]></rsltstat><workno><![CDATA[20190809I20003]]></workno><testcd><![CDATA[VB6012A]]></testcd><execprcpuniqno><![CDATA[2007997234]]></execprcpuniqno><spcacptdt><![CDATA[20190809102452]]></spcacptdt><prcpdd><![CDATA[20190809]]></prcpdd><retestyn><![CDATA[N]]></retestyn><testlrgcd><![CDATA[I]]></testlrgcd><orddeptcd><![CDATA[NU]]></orddeptcd></worklist><message><type>info</type><code>info</code><msg>정상적으로 처리되었습니다.</msg><description></description></message>
+</root>
+
+

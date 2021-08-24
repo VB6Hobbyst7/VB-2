@@ -1,0 +1,4 @@
+SELECT DISTINCT PAID as 환자번호, NWNO as 내원번호, SPNO as 바코드번호, '' as 챠트번호, ORDT as 접수일자, OIFL as 입외,
+       '' as 주민번호, PANM as 이름, ORQN as 처방번호,'' as 검체명, '' as SEQ, ORCD as ITEM 
+  FROM bobath.V_LAB_ORDER_CP 
+ WHERE SPNO  = 'e2323' ORDER BY ORDT, ORQN, SPNO 

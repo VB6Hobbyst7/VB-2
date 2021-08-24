@@ -1,0 +1,26 @@
+ select       P.PbsPatNam AS PNAME                                     
+    , P.PbsResNum AS PJUMIN                                    
+    , W.OcmAcpDtm AS HOSPDATE                                  
+    , R.ResOcmNum AS BARCODE                                   
+    , W.OcmChtNum AS CHARTNO                                   
+    , COUNT(R.ResLabCod) AS COUNT                               
+    From OcmInf AS W                                           
+       , OdrInf AS O                                           
+       , ResInf AS R                                           
+       , PbsInf AS P                                           
+       , depmst AS D                                           
+       , LabMst AS E                                           
+    where W.OcmNum    = R.ResOcmNum                            
+      and W.OcmChtNum = P.PbsChtNum                            
+      and W.OcmNum    = O.OdrOcmNum                            
+      and W.OcmDepCod = D.DepCod                               
+      and D.DepExpDte  >= (Select Convert(varchar(10),Getdate(),112)) 
+      And O.Odrdelflg = 'N'                                    
+      and O.OdrSeq = R.ResOdrSeq                               
+      and R.ResLabCod = E.LabCod                               
+      and Upper(R.ResLabCod) IN ('D2420023','D3230053','D3230063','D3250013','D4023013','D4040003','D4062013','D4290003','D4300033','D4311003','D4350003','D7011013','D7015003','D7018003')           
+      and W.OcmComStt Not In ('CN', 'CR','VC')                 
+      and substring(O.odrdtm,1,8) Between '20200827' and '20200827'   
+      and (R.ResRltVal is null or R.ResRltVal = '')            
+ GROUP BY P.PbsPatNam, P.PbsResNum , W.OcmAcpDtm, R.ResOcmNum, W.OcmChtNum 
+

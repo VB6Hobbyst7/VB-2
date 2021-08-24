@@ -1,0 +1,73 @@
+
+혈구분석
+
+< 처방 데이터 조회 >
+view : vw_CPinfo
+쿼리 : select * from vw_CPinfo where acptdate = '날짜'
+컬럼 :
+	patid : 환자번호
+	patname : 환자명
+	birth : 생년월일
+	age : 나이
+	sex : 성별
+	acptdate : 검사실로의 전달일자
+	rsvacptdate : 검사실에서 접수일자(채혈일자)
+	rsvacpttime : 검사실에서 접수시간(채혈시간)
+	deptcode : 진료과
+	orderdate : 처방일
+	ioflg : 입원/외래 구분
+	ward : 병동
+	ordercode : 처방코드
+	ordername : 처방명
+	samplenm : 검체명
+	spcmno : 검체번호
+	resultitemcode : 결과코드
+	resultitemname : 결과코드명
+
+< 결과저장 >
+Update resultofnum Set resultindate = to_char(sysdate,'yyyymmdd'), resultintime = to_char(sysdate,'HH24MI'),
+ 		       resultinid = ?, resultflag = 1, textresultval = ?, NUMRESULTVAL = ?, DELTAFLAG = ?
+where spcmno = ?
+ and resultitemcode = ?
+ and resultflag = 0
+
+* resultinid = 결과입력자ID
+* resultflag = 결과등록상태(0:결과미등록상태, 1:결과저장, 2:재검중, 3:통보, ..........)
+* textresultval = 텍스트형(서술형) 결과값
+* NUMRESULTVAL = 수치형 결과값
+* DELTAFLAG = 델타여부(0:델타아님, 1:델타)
+* spcmno = 검체번호
+* resultitemcode = 결과코드
+
+
+< 처방 상태변경 >
+ UPDATE registinfos SET RESULTSTATE = '3'
+  where SPCMNO = ''
+    and ORDERCODE = ''
+    and CLAS = 4
+    and RESULTSTATE < '4'
+
+* RESULTSTATE = 결과상태구분(0:결과미처리, 3:결과생성(저장))
+* SPCMNO = 검체번호
+* ORDERCODE = 처방코드
+* CLAS = 처방분류(4:진단검사, 22:수혈)
+
+
+< 진단검사 직원 조회 >
+view : vw_robo8000
+쿼리 : select * from vw_user_cp where usrid = '사번'
+
+
+< TNS 정보 >
+GMHIS =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.101.10)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = gmhis)
+    )
+  )
+
+< DB 접속 >
+계정 / 비번 : 별도 전달

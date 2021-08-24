@@ -1,0 +1,1987 @@
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = 'PA001'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+
+
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = 'PB001'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+
+
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110005'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110040'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110034'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110012'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2710','C2243','C3711','C3720','C3721','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2710','C2243','C3711','C3720','C3721','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110037'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3721','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3721','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110031'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110010'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2243','C3711','C3730','C3750','C3791','C3792','C3793',
+'C2243','C3711','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110042'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2602','C2243','C3711','C3730','C3750',
+'B2602','C2243','C3711','C3730','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110022'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110008'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110006'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2200','C2210',
+'C2200','C2210'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110029'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110016'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2243','C3720','C3721','C3730','C3750',
+'C2243','C3720','C3721','C3730','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110024'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110019'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110026'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110005'   
+   And a.PAID = '00180039' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110040'   
+   And a.PAID = '00054021' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110034'   
+   And a.PAID = '00195270' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110012'   
+   And a.PAID = '00086256' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2710','C2243','C3711','C3720','C3721','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2710','C2243','C3711','C3720','C3721','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110037'   
+   And a.PAID = '00159702' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3721','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C3720','C3721','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110031'   
+   And a.PAID = '00196248' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110010'   
+   And a.PAID = '00047720' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2243','C3711','C3730','C3750','C3791','C3792','C3793',
+'C2243','C3711','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110042'   
+   And a.PAID = '00194796' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2602','C2243','C3711','C3730','C3750',
+'B2602','C2243','C3711','C3730','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110022'   
+   And a.PAID = '00017784' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110008'   
+   And a.PAID = '00120751' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110006'   
+   And a.PAID = '00017288' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2200','C2210',
+'C2200','C2210'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110029'   
+   And a.PAID = '00070638' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110016'   
+   And a.PAID = '00141984' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2243','C3720','C3721','C3730','C3750',
+'C2243','C3720','C3721','C3730','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110024'   
+   And a.PAID = '00159458' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110019'   
+   And a.PAID = '00168843' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110026'   
+   And a.PAID = '00196230' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110079'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110089'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C2420','C2430','C2443','C3711','C3750',
+'B2570','B2580','B2710','C2411','C2420','C2430','C2443','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110061'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110079'   
+   And a.PAID = '00008470' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110089'   
+   And a.PAID = '00073893' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C2420','C2430','C2443','C3711','C3750',
+'B2570','B2580','B2710','C2411','C2420','C2430','C2443','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110061'   
+   And a.PAID = '00134233' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110068'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110102'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','B2611','B2710','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','B2611','B2710','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110076'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110099'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110047'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2411','C2420','C2443',
+'C2411','C2420','C2443'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110068'   
+   And a.PAID = '00191358' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110102'   
+   And a.PAID = '00165639' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','B2611','B2710','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','B2611','B2710','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110076'   
+   And a.PAID = '00140589' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110099'   
+   And a.PAID = '00020809' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110047'   
+   And a.PAID = '00182820' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2411','C2420','C2443',
+'C2411','C2420','C2443'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110137'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2243',
+'C2243'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110119'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110144'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110115'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110131'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110140'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110153'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2411','C2420','C2443',
+'C2411','C2420','C2443'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110158'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110150'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110137'   
+   And a.PAID = '00194186' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2243',
+'C2243'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110119'   
+   And a.PAID = '00117774' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110093'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2630','B2710','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3721','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2630','B2710','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3721','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110165'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110177'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110108'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110172'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110112'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110173'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C3791','C3792','C3793',
+'C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110144'   
+   And a.PAID = '00013749' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110115'   
+   And a.PAID = '00196341' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110131'   
+   And a.PAID = '00055179' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110140'   
+   And a.PAID = '00000101' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110153'   
+   And a.PAID = '00043212' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C2411','C2420','C2443',
+'C2411','C2420','C2443'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110158'   
+   And a.PAID = '00163511' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110150'   
+   And a.PAID = '00111103' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110173'   
+   And a.PAID = '00110795' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'C3791','C3792','C3793',
+'C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110093'   
+   And a.PAID = '00038392' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2630','B2710','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3721','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2630','B2710','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3721','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110210'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2710',
+'B2710'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110165'   
+   And a.PAID = '00171608' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110177'   
+   And a.PAID = '00183946' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110108'   
+   And a.PAID = '00196356' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110172'   
+   And a.PAID = '00142698' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C3711','C3750',
+'B2570','B2580','B2710','C3711','C3750'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110112'   
+   And a.PAID = '00195932' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110165'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791',
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110210'   
+   And a.PAID = '00159702' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2710',
+'B2710'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110165'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791',
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110218'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110204'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110241'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110197'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110222'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110232'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110215'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2611','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110190'   
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110218'   
+   And a.PAID = '00069662' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110204'   
+   And a.PAID = '00025688' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110241'   
+   And a.PAID = '00170108' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2710','C2411','C3711',
+'B2570','B2580','B2710','C2411','C3711'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110197'   
+   And a.PAID = '00196354' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110222'   
+   And a.PAID = '00007037' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110232'   
+   And a.PAID = '00163100' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2602','C2200','C2210','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110215'   
+   And a.PAID = '00174154' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2611','C2200','C2210','C2243','C2411','C3711','C3720','C3730','C3750','C3791','C3792','C3793'
+Select DISTINCT        a.ORDT          AS HOSPDATE 
+     , a.SPNO          AS BARCODE  
+     , a.PAID          AS PID      
+     , a.NWNO          AS CHARTNO  
+     , b.PANM          AS PNAME    
+     , b.SEXS          AS SEX      
+     , b.AGES          AS AGE      
+     , a.ORCD          AS ITEM     
+     , a.ORQN          AS SEQ      
+  From LRESULT a, APATINF b            
+ Where a.SPNO = '201904110190'   
+   And a.PAID = '00175933' 
+   And a.PAID = b.PAID                 
+   And a.ORCD IN ('C3730','C2200','C2210','C3720','C3721','C2411','B2570','B2580','C2243','B2710','C3750','C3711','C2443','B2630','B2611','C3780','C2420','B2602','B2590','HCY','C2430','C2430Z','C3791','C3792','C3793')  
+   And a.OKFL <> 'Y'                   
+   AND (a.RSFL IS NULL OR a.RSFL = 'N' OR a.RSFL = '')
+ Order By a.ORCD                       
+
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793',
+'B2570','B2580','B2590','B2602','B2611','B2630','C2200','C2210','C2243','C2411','C2420','C2443','C3711','C3720','C3730','C3750','C3780','C3791','C3792','C3793'

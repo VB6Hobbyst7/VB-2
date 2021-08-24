@@ -1,0 +1,4 @@
+
+
+
+[SQL] SELECT a.EnterDate, b.Status, b.waitseqno, b.MAP2SEQNO, b.DispDesc, b.RVALUEKIND, b.NORMLOW, b.NORMHIGH, b.NORMALVALUE, b.RVALUEKIND ,  a.ChartNo, b.GumsaKind, c.sujinname, b.status  FROM onit_out..WaitPrsnp a, onit_out..jun370_resulttb b, onit_out..pewprsnp c, onit_out..BAGMAP2PREF d  WHERE a.WaitSeqNo = '135064'  AND a.WaitSeqNo = b.WaitSeqNo  AND d.labno in (2)  AND b.map2seqno = d.map2seqno  AND a.chartno = c.chartno  AND B.Result = ''  AND b.map2seqno <> '1286' ORDER BY a.chartno 

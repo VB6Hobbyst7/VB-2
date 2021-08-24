@@ -1,0 +1,965 @@
+환자조회
+
+Function Get_Sample_Info(ByVal asRow As Long) As Integer
+    
+    Dim sBarcode As String
+    Dim sSpecNo As String
+    Dim sRet    As String
+    
+On Error GoTo Err
+
+    Get_Sample_Info = -1
+    '환자정보 가져오기
+    sBarcode = Trim(GetText(frmInterface.vasID, asRow, colBarcode))   '샘플 바코드 번호
+    
+    If sBarcode = "" Then
+        Exit Function
+    End If
+    
+    SQL = "SELECT FN_LABCVTBCNO(?) FROM DUAL "
+    
+    Set AdoCmd_ORACLE = New ADODB.Command
+    Set AdoRs_ORACLE = New ADODB.Recordset
+    Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+    
+    AdoCmd_ORACLE.CommandType = adCmdText
+    AdoCmd_ORACLE.CommandText = SQL
+    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("FN_LABCVTBCNO", adVarChar, , 10, Trim(sBarcode))
+    Set AdoRs_ORACLE = New ADODB.Recordset
+    AdoRs_ORACLE.Open AdoCmd_ORACLE, , adOpenStatic, adLockBatchOptimistic
+    
+    sSpecNo = AdoRs_ORACLE.Fields(0) & ""
+    
+    Set AdoCmd_ORACLE = Nothing
+    Set AdoRs_ORACLE = Nothing
+    
+
+    SQL = "SELECT PID, PT_NM, SEX, AGE "
+    SQL = SQL & vbCrLf & " FROM SPSLMJBBI "
+    SQL = SQL & vbCrLf & "WHERE SPCM_NO = ? "
+    SQL = SQL & vbCrLf & "  AND SPCM_STAT = ? "
+'    SQL = SQL & vbCrLf & "  AND RSLT_STAT <> ? "
+    
+    Set AdoCmd_ORACLE = New ADODB.Command
+    Set AdoRs_ORACLE = New ADODB.Recordset
+    Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+    
+    AdoCmd_ORACLE.CommandType = adCmdText
+    AdoCmd_ORACLE.CommandText = SQL
+    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(sSpecNo))
+    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+'    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+    Set AdoRs_ORACLE = New ADODB.Recordset
+    AdoRs_ORACLE.Open AdoCmd_ORACLE, , adOpenStatic, adLockBatchOptimistic
+
+    If AdoRs_ORACLE.BOF = False Then
+        SetText frmInterface.vasID, Trim(sSpecNo), asRow, colSpecNo     '2
+        SetText frmInterface.vasID, Trim(AdoRs_ORACLE.Fields(0) & ""), asRow, colPID    '6
+        SetText frmInterface.vasID, Trim(AdoRs_ORACLE.Fields(1) & ""), asRow, colPName  '7
+        SetText frmInterface.vasID, Trim(AdoRs_ORACLE.Fields(2) & ""), asRow, colSex    '8
+        SetText frmInterface.vasID, Trim(AdoRs_ORACLE.Fields(3) & ""), asRow, colAge    '9
+        Get_Sample_Info = 1
+    Else
+        Get_Sample_Info = -1
+    End If
+
+    Set AdoCmd_ORACLE = Nothing
+    Set AdoRs_ORACLE = Nothing
+
+Exit Function
+
+Err:
+    Save_Raw_Data "[Get_Sample_Info]" & Err.Description
+    Get_Sample_Info = -1
+    
+End Function
+
+
+결과저장
+
+If Mid(mResult.BarNo, 1, 2) = "99" Then
+    res = Insert_Data_QC(gRow)
+Else
+    res = Insert_Data(gRow)
+End If
+
+Function Insert_Data_QC(ByVal argSpcRow As Integer) As Integer
+    Dim iRow            As Integer
+    Dim i               As Integer
+    Dim j               As Integer
+    Dim k               As Integer
+    Dim lsID            As String
+    Dim lsSpecNo        As String
+    Dim lsPid           As String
+    Dim sResult         As String
+    Dim sCnt            As String
+    Dim sResult1        As String
+    Dim sResult2        As String
+    Dim ExamCnt         As String
+    Dim ExamCode_Spec   As String
+    Dim lsQC_Date       As String
+    
+    Dim insCnt          As String
+    Dim strQCcode As String
+    Dim varQcCode As Variant
+        
+    With frmInterface
+        Insert_Data_QC = -1
+        ExamCode_Spec = ""
+        lsID = ""
+        lsID = Trim(GetText(.vasID, argSpcRow, colBarcode))
+        lsSpecNo = Trim(GetText(.vasID, argSpcRow, colSpecNo))
+        lsPid = Trim(GetText(.vasID, argSpcRow, colPID))
+        
+        lsQC_Date = Format(GetDateFull, "yyyymmdd")
+
+        'Local에서 환자별로 결과값 가져오기
+        ClearSpread .vasTemp
+
+        SQL = " Select equipcode, examcode, result, EQUIPRESULT, refflag, panicflag, deltaflag, RESDATE, EXAMDATE" & vbCrLf & _
+              " From pat_res " & vbCrLf & _
+              " Where equipno = '" & gEquip & "' " & vbCrLf & _
+              " And examdate = '" & Format(CDate(.dtpToday.Value), "yyyymmdd") & "'  " & vbCrLf & _
+              " And barcode = '" & Trim(GetText(.vasID, argSpcRow, colBarcode)) & "' " & vbCrLf & _
+              " And diskno = '" & Trim(GetText(.vasID, argSpcRow, colRack)) & "' " & vbCrLf & _
+              " And posno = '" & Trim(GetText(.vasID, argSpcRow, colPos)) & "' " & vbCrLf & _
+              " And sendflag < '2' "
+        
+        res = db_select_Vas(gLocal, SQL, .vasTemp)
+        
+        If res = -1 Then
+            SaveQuery SQL
+            Exit Function
+        End If
+        
+        For i = 1 To frmInterface.vasTemp.DataRowCnt
+            If ExamCode_Spec <> "" Then
+                ExamCode_Spec = ExamCode_Spec & ",'" & Trim(GetText(frmInterface.vasTemp, i, 2)) & "'"
+            Else
+                ExamCode_Spec = "'" & Trim(GetText(frmInterface.vasTemp, i, 2)) & "'"
+            End If
+        Next i
+        
+        If ExamCode_Spec = "" Then: ExamCode_Spec = "''"
+        .vasTemp.MaxRows = .vasTemp.DataRowCnt + 1
+
+    
+        sCnt = ""
+        sResult1 = ""
+        sResult2 = ""
+        
+        SQL = "SELECT EXMN_CD FROM SPSLMQCTM "
+        If lsID = "9904800111" Then
+            SQL = SQL & vbCrLf & " WHERE eqpm_cd = '048'"   'ABL800 BASIC QC
+        Else
+            SQL = SQL & vbCrLf & " WHERE eqpm_cd = '036'"   'ABL800 BASIC QC
+        End If
+        res = db_select_Row(gServer, SQL)
+        
+        strQCcode = ""
+        
+        For k = 0 To UBound(gReadBuf)
+            If gReadBuf(k) <> "" Then
+                strQCcode = strQCcode & Trim(gReadBuf(k)) & ","
+            Else
+                Exit For
+            End If
+        Next
+        
+        varQcCode = Split(strQCcode, ",")
+
+        cn_Ser.BeginTrans
+        '서버로 결과값 저장하기
+        For iRow = 1 To .vasTemp.DataRowCnt
+            sCnt = ""
+            
+            sResult1 = Trim(GetText(.vasTemp, iRow, 4))
+            sResult2 = Trim(GetText(.vasTemp, iRow, 3))
+            
+            If Mid(sResult1, 1, 3) = "-99" Then: sResult1 = " "
+            
+            If sResult1 <> "" Then
+                SQL = "SELECT MAX(RSLT_SQNO) FROM SPSLHQRST "
+                SQL = SQL & vbCrLf & "WHERE EQPM_CD = '" & Mid(lsID, 3, 3) & "' "
+                SQL = SQL & vbCrLf & "  AND SBSN_CD = '" & Mid(lsID, 6, 3) & "' "
+                SQL = SQL & vbCrLf & "  AND LVL_CD = '" & Mid(lsID, 9, 1) & "' "
+                SQL = SQL & vbCrLf & "  AND EXMN_CD  = '" & Trim(GetText(.vasTemp, iRow, 2)) & "' "
+                SQL = SQL & vbCrLf & "  AND EXMN_DY = '" & Trim(GetText(.vasTemp, iRow, 9)) & "' "
+                SQL = SQL & vbCrLf & "  AND RSLT_VALU IS NULL "
+                SQL = SQL & vbCrLf & "GROUP BY RSLT_SQNO "
+                res = db_select_Col(gServer, SQL)
+                sCnt = gReadBuf(0)
+                
+                If IsNumeric(sCnt) = True Then
+                    SQL = "UPDATE SPSLHQRST "
+                    SQL = SQL & vbCrLf & "  SET RSLT_VALU = '" & sResult1 & "', "                        '결과(장비결과)
+                    SQL = SQL & vbCrLf & "      RSLT_DT = sysdate, "                                     '결과(수정결과)"
+                    SQL = SQL & vbCrLf & "      RSLT_RPTR_ID = '" & gUserID & "', "                                                           'Delta 체크"
+                    SQL = SQL & vbCrLf & "      AMEN_ID = '" & gUserID & "', "                                                           'Panic 체크"
+                    SQL = SQL & vbCrLf & "      UPDT_DT = sysdate "                                     '결과입력자"
+                    SQL = SQL & vbCrLf & "WHERE EQPM_CD = '" & Mid(lsID, 3, 3) & "' "
+                    SQL = SQL & vbCrLf & "  AND SBSN_CD = '" & Mid(lsID, 6, 3) & "' "
+                    SQL = SQL & vbCrLf & "  AND LVL_CD = '" & Mid(lsID, 9, 1) & "' "
+                    SQL = SQL & vbCrLf & "  AND EXMN_CD  = '" & Trim(GetText(.vasTemp, iRow, 2)) & "' "
+                    SQL = SQL & vbCrLf & "  AND EXMN_DY = '" & Trim(GetText(.vasTemp, iRow, 9)) & "' "
+                    SQL = SQL & vbCrLf & "  AND RSLT_SQNO = '" & sCnt & "' "
+                    SQL = SQL & vbCrLf & "  AND RSLT_VALU IS NULL "
+                    res = SendQuery(gServer, SQL)
+                    If res < 0 Then
+                        SaveQuery SQL
+                       ' db_RollBack gServer
+                       cn_Ser.RollbackTrans
+                        Exit Function
+                    End If
+                
+                Else
+                    If insCnt = "" Then
+                        SQL = "SELECT MAX(RSLT_SQNO) FROM SPSLHQRST "
+                        SQL = SQL & vbCrLf & "WHERE EQPM_CD = '" & Mid(lsID, 3, 3) & "' "
+                        SQL = SQL & vbCrLf & "  AND SBSN_CD = '" & Mid(lsID, 6, 3) & "' "
+                        SQL = SQL & vbCrLf & "  AND LVL_CD = '" & Mid(lsID, 9, 1) & "' "
+                        'SQL = SQL & vbCrLf & "  AND EXMN_CD  = '" & Trim(GetText(.vasTemp, iRow, 2)) & "' "
+                        SQL = SQL & vbCrLf & "  AND EXMN_DY = '" & Trim(GetText(.vasTemp, iRow, 9)) & "' "
+                        res = db_select_Col(gServer, SQL)
+                    
+                        If gReadBuf(0) = "" Then
+                            insCnt = "1"
+                        Else
+                            insCnt = CLng(gReadBuf(0)) + 1
+                        End If
+                    End If
+                    
+                    For k = 0 To UBound(varQcCode) - 1
+                        If Trim(GetText(.vasTemp, iRow, 2)) <> "" And Trim(GetText(.vasTemp, iRow, 2)) = varQcCode(k) Then
+                            SQL = ""
+                            SQL = SQL & vbCrLf & "INSERT INTO SPSLHQRST(EXMN_DY   ,EQPM_CD ,SBSN_CD ,LVL_CD  "
+                            SQL = SQL & vbCrLf & "                     ,RSLT_SQNO ,EXMN_CD ,RSLT_DT ,RSLT_RPTR_ID "
+                            SQL = SQL & vbCrLf & "                     ,RSLT_VALU ,SPCM_NO ,DEL_YN "
+                            SQL = SQL & vbCrLf & "                     ,REGI_ID   ,RGST_DT ,AMEN_ID ,UPDT_DT) "
+                            SQL = SQL & vbCrLf & "               VALUES('" & Trim(GetText(.vasTemp, iRow, 9)) & "', '" & Mid(lsID, 3, 3) & "', '" & Mid(lsID, 6, 3) & "', '" & Mid(lsID, 9, 1) & "', "
+                            SQL = SQL & vbCrLf & "                      " & insCnt & ", '" & Trim(GetText(.vasTemp, iRow, 2)) & "', sysdate, '" & gUserID & "', "
+                            'SQL = SQL & vbCrLf & "                      " & sCnt & ", '" & Trim(GetText(.vasTemp, iRow, 2)) & "', sysdate, '" & gUserID & "', "
+                            SQL = SQL & vbCrLf & "                      '" & sResult1 & "', '" & lsID & "', 'N', "
+                            SQL = SQL & vbCrLf & "                      '" & gUserID & "', sysdate, '" & gUserID & "', sysdate ) "
+                            res = SendQuery(gServer, SQL)
+                            If res = -1 Then
+                                SaveQuery SQL
+                                cn_Ser.RollbackTrans
+                                Exit Function
+                            End If
+                            Exit For
+                        End If
+                    Next
+                        
+                End If
+                
+            End If
+            
+        Next iRow
+        
+        cn_Ser.CommitTrans
+        Insert_Data_QC = 1
+    End With
+    
+End Function
+
+Function Insert_Data(ByVal argSpcRow As Integer) As Integer
+    Dim iRow            As Integer
+    Dim i               As Integer
+    Dim j               As Integer
+    Dim lsID            As String
+    Dim lsSpecNo        As String
+    Dim lsPid           As String
+    Dim sResult         As String
+    Dim sCnt            As String
+    Dim sResult1        As String
+    Dim sResult2        As String
+    Dim ExamCnt         As String
+    Dim ExamCode_Spec   As String
+    Dim ExamCode_Remark As String
+    
+    Dim State_GM        As String       '//// 그룹/멀티 코드
+    Dim State_cnt       As Integer      '//// 그룹/멀티 코드 쪽 변수
+    Dim State_G         As String       '//// 그룹코드
+    Dim State_M         As String       '//// 멀티코드
+    Dim State_B         As String       '//// 배터리코드
+    
+    Dim Send_State      As String
+    Dim SQL_LOCAL       As String
+    Dim CODE_L8_cnt     As String
+    
+    Dim sqlRet          As Integer
+    
+
+    With frmInterface
+        gComment_All = ""
+        Insert_Data = -1
+        ExamCode_Spec = ""
+        ExamCode_Remark = ""
+        CODE_L8_cnt = ""
+        State_GM = ""
+        State_cnt = 0
+        State_G = ""
+        State_M = ""
+        gState_G = ""
+        gState_M = ""
+        gState_B = ""
+        lsID = ""
+        lsID = Trim(GetText(.vasID, argSpcRow, colBarcode))
+        lsSpecNo = Trim(GetText(.vasID, argSpcRow, colSpecNo))
+        lsPid = Trim(GetText(.vasID, argSpcRow, colPID))
+
+        'Local에서 환자별로 결과값 가져오기
+        ClearSpread .vasTemp
+
+        SQL = "Select equipcode, examcode, result, EQUIPRESULT, refflag, panicflag, deltaflag, PSEX " & vbCrLf & _
+              "  From pat_res " & vbCrLf & _
+              " Where equipno = '" & gEquip & "' " & vbCrLf & _
+              "   And examdate = '" & Format(CDate(.dtpToday.Value), "yyyymmdd") & "'  " & vbCrLf & _
+              "   And barcode = '" & Trim(GetText(.vasID, argSpcRow, colBarcode)) & "' " & vbCrLf & _
+              "   And diskno = '" & Trim(GetText(.vasID, argSpcRow, colRack)) & "' " & vbCrLf & _
+              "   And posno = '" & Trim(GetText(.vasID, argSpcRow, colPos)) & "' "
+        res = db_select_Vas(gLocal, SQL, .vasTemp)
+        
+        If res = -1 Then
+            SaveQuery SQL
+            Exit Function
+        End If
+        
+        For i = 1 To frmInterface.vasTemp.DataRowCnt    '/// 실제 검사한 검사코드들
+            If ExamCode_Spec <> "" Then
+                ExamCode_Spec = ExamCode_Spec & ",'" & Trim(GetText(frmInterface.vasTemp, i, 2)) & "'"
+            Else
+                ExamCode_Spec = "'" & Trim(GetText(frmInterface.vasTemp, i, 2)) & "'"
+            End If
+        Next i
+        
+        If ExamCode_Spec = "" Then: ExamCode_Spec = "''"
+        .vasTemp.MaxRows = .vasTemp.DataRowCnt + 1
+
+        sCnt = ""
+        sResult1 = ""
+        sResult2 = ""
+        
+        SQL = "SELECT COUNT(A.EXMN_CD), B.BLPS_ID FROM SPSLHRRST A, SPSLMJBDI B "
+        SQL = SQL & vbCrLf & " WHERE A.SPCM_NO = B.SPCM_NO "
+        SQL = SQL & vbCrLf & "   AND A.SPCM_NO = '" & lsSpecNo & "' "                           '검체번호"
+        SQL = SQL & vbCrLf & "   AND A.EXMN_CD IN (" & gAllExam & ") "                          '검사코드"
+        'SQL = SQL & vbCrLf & "   AND RSLT_STAT < '2' "                                         '결과상태"
+        SQL = SQL & vbCrLf & " GROUP BY  B.BLPS_ID "
+        res = db_select_Col(gServer, SQL)
+        
+        If Val(gReadBuf(0)) = "0" Then Exit Function
+        .lblUser.Caption = gReadBuf(1)
+
+        '서버로 결과값 저장하기
+        cn_Ser.BeginTrans
+        
+        For iRow = 1 To .vasTemp.DataRowCnt
+            sResult1 = Trim(GetText(.vasTemp, iRow, 4))
+            sResult2 = Trim(GetText(.vasTemp, iRow, 3))
+            If sResult1 <> "" And Mid(sResult1, 1, 3) <> "-99" And Trim(GetText(.vasTemp, iRow, 2)) <> "" And lsSpecNo <> "" Then
+                gComment_Code = ""
+            
+                SQL = "SELECT RSLT_NO FROM SPSLHRRST "
+                SQL = SQL & vbCrLf & " WHERE SPCM_NO = '" & lsSpecNo & "' "                                             '검체번호"
+                SQL = SQL & vbCrLf & "   AND EXMN_CD = '" & Trim(GetText(.vasTemp, iRow, 2)) & "' "                     '검사코드"
+                SQL = SQL & vbCrLf & "   AND PID = '" & lsPid & "' "                                                    '환자번호"
+                SQL = SQL & vbCrLf & "   AND RSLT_STAT < '2' "                                                          '결과상태"
+                res = db_select_Col(gServer, SQL)
+                 
+                If gReadBuf(0) = "" Then: gReadBuf(0) = "0"
+                
+                sCnt = CLng(gReadBuf(0)) + 1
+
+                Send_State = "3"
+                
+                SQL = "UPDATE SPSLHRRST "
+                SQL = SQL & vbCrLf & "   SET REAL_RSLT = ?, "               '결과(장비결과)
+                SQL = SQL & vbCrLf & "       VIEW_RSLT = ?, "               '결과(수정결과)
+                SQL = SQL & vbCrLf & "       DTRM_DVSN = ?, "               'HL 체크
+                SQL = SQL & vbCrLf & "       PANC_YN = ?, "                 'Delta 체크
+                SQL = SQL & vbCrLf & "       DLTA_YN = ?, "                 'Panic 체크
+                SQL = SQL & vbCrLf & "       EXMN_EQPM = ?, "               '장비코드
+                SQL = SQL & vbCrLf & "       AMEN_ID = ?, "                 '결과수정자
+                SQL = SQL & vbCrLf & "       UPDT_DT = SysDate, "           '결과수정일시
+                SQL = SQL & vbCrLf & "       RSLT_NO = ?, "                 '결과번호 (결과 넣을시에 증가)
+                SQL = SQL & vbCrLf & "       RSLT_INPS_ID = ?, "            '결과입력자
+                SQL = SQL & vbCrLf & "       RSLT_INPT_DT = SysDate, "      '결과입력일시
+                SQL = SQL & vbCrLf & "       MDDL_RPTR_ID = ?, "            '중간보고자
+                SQL = SQL & vbCrLf & "       MDDL_RPTG_DT = SysDate, "      '중간보고일시
+                SQL = SQL & vbCrLf & "       LAST_RPTR_ID = ?, "            '최종보고자
+                SQL = SQL & vbCrLf & "       LAST_RPTG_DT = SysDate, "      '최종보고일시
+                SQL = SQL & vbCrLf & "       RSLT_STAT = ? "                '결과상태
+                SQL = SQL & vbCrLf & " WHERE SPCM_NO = ? "                  '검체번호
+                SQL = SQL & vbCrLf & "   AND EXMN_CD = ? "                  '검사코드
+                SQL = SQL & vbCrLf & "   AND PID = ? "                      '환자번호
+                SQL = SQL & vbCrLf & "   AND RSLT_STAT < ? "                '결과상태
+                
+                Set AdoCmd_ORACLE = New ADODB.Command
+                Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+                AdoCmd_ORACLE.CommandType = adCmdText
+                AdoCmd_ORACLE.CommandText = SQL
+                
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("REAL_RSLT", adVarChar, , 20, sResult1)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("VIEW_RSLT", adVarChar, , 20, sResult2)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("DTRM_DVSN", adVarChar, , 20, Trim(GetText(.vasTemp, iRow, 5)))
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("PANC_YN", adVarChar, , 20, Trim(GetText(.vasTemp, iRow, 6)))
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("DLTA_YN", adVarChar, , 20, Trim(GetText(.vasTemp, iRow, 7)))
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 20, gEquipCode)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_NO", adVarChar, , 20, sCnt)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 20, Send_State)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 20, lsSpecNo)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 20, Trim(GetText(.vasTemp, iRow, 2)))
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("PID", adVarChar, , 20, lsPid)
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 20, "2")
+                
+                AdoCmd_ORACLE.Execute sqlRet
+                Set AdoCmd_ORACLE = Nothing
+                
+                State_GM = RsltState_Check(lsSpecNo, Trim(GetText(.vasTemp, iRow, 2)))
+                
+                State_cnt = InStr(1, State_GM, "/")
+                State_G = Mid(State_GM, 1, State_cnt - 1)
+                State_GM = Mid(State_GM, State_cnt + 1)
+                State_cnt = InStr(1, State_GM, "/")
+                State_M = Mid(State_GM, 1, State_cnt - 1)
+                State_B = Mid(State_GM, State_cnt + 1)
+                
+                '/코드 비교시 이용
+                If InStr(1, gState_G, State_G) = 0 Then
+                    gState_G = gState_G & "," & State_G
+                End If
+                If InStr(1, gState_M, State_M) = 0 Then
+                    gState_M = gState_M & "," & State_M
+                End If
+                If InStr(1, gState_B, State_B) = 0 Then
+                    gState_B = gState_B & "," & State_B
+                End If
+                
+                If Mid(gState_G, 1, 1) = "," Then gState_G = Mid(gState_G, 2)
+                If Mid(gState_M, 1, 1) = "," Then gState_M = Mid(gState_M, 2)
+                If Mid(gState_B, 1, 1) = "," Then gState_B = Mid(gState_B, 2)
+                
+                '/------------------------------------ 결과테이블 그룹코드 상태 업데이트
+                If Trim(State_G) <> "" Then
+                    SQL = "UPDATE SPSLHRRST "
+                    If Send_State = "1" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                                 '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                                 '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                    '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                      '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                      '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    
+                    ElseIf Send_State = "2" Then
+                        
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                                 '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                                 '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTR_ID = ? "                                 '중간보고자"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTG_DT = ? "                                 '중간보고일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                    '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                      '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                      '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    
+                    ElseIf Send_State = "3" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                                 '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                                 '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTR_ID = ? "                                 '중간보고자"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTG_DT = ? "                                 '중간보고일시"
+                        SQL = SQL & vbCrLf & "      ,LAST_RPTR_ID = ? "                                 '최종보고자"
+                        SQL = SQL & vbCrLf & "      ,LAST_RPTG_DT = ? "                                 '최종보고일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                    '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                      '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                      '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    End If
+                        
+                    SQL = SQL & vbCrLf & " WHERE SPCM_NO = ? "                                          '검체번호"
+                    SQL = SQL & vbCrLf & "   AND EXMN_CD = ? "                                          '검사코드"
+                    SQL = SQL & vbCrLf & "   AND PID = ? "                                              '환자번호"
+                    SQL = SQL & vbCrLf & "   AND RSLT_STAT < ? "                                        '결과상태"
+
+                    Set AdoCmd_ORACLE = New ADODB.Command
+                    Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+                    
+                    AdoCmd_ORACLE.CommandType = adCmdText
+                    AdoCmd_ORACLE.CommandText = SQL
+                    
+                    '-- 시스템 날짜 가져오기 함수 : gsDBDateTime
+                    If Send_State = "1" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "1")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    ElseIf Send_State = "2" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                        
+                    ElseIf Send_State = "3" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    End If
+                        
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_NO", adVarChar, , 1, sCnt)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_G))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("PID", adVarChar, , 15, lsPid)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+                    
+                    AdoCmd_ORACLE.Execute sqlRet
+                    Set AdoCmd_ORACLE = Nothing
+                End If
+                '/------------------------------------
+                
+                '/------------------------------------ 결과테이블 멀티코드 상태 업데이트
+                If Trim(State_M) <> "" Then
+                    SQL = "UPDATE SPSLHRRST "
+                    If Send_State = "1" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                             '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                             '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                  '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                  '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    ElseIf Send_State = "2" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                             '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                             '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTR_ID = ? "                             '중간보고자"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTG_DT = ? "                             '중간보고일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                  '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                  '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    ElseIf Send_State = "3" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                             '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                             '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTR_ID = ? "                             '중간보고자"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTG_DT = ? "                             '중간보고일시"
+                        SQL = SQL & vbCrLf & "      ,LAST_RPTR_ID = ? "                             '최종보고자"
+                        SQL = SQL & vbCrLf & "      ,LAST_RPTG_DT = ? "                             '최종보고일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                  '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                  '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    End If
+                    
+                    SQL = SQL & vbCrLf & " WHERE SPCM_NO = ? "                                      '검체번호"
+                    SQL = SQL & vbCrLf & "   AND EXMN_CD = ? "                                      '검사코드"
+                    SQL = SQL & vbCrLf & "   AND PID = ? "                                          '환자번호"
+                    SQL = SQL & vbCrLf & "   AND RSLT_STAT < ? "                                    '결과상태"
+
+                    Set AdoCmd_ORACLE = New ADODB.Command
+                    Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+                    
+                    AdoCmd_ORACLE.CommandType = adCmdText
+                    AdoCmd_ORACLE.CommandText = SQL
+                    
+                    '-- 시스템 날짜 가져오기 함수 : gsDBDateTime
+                    If Send_State = "1" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "1")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    ElseIf Send_State = "2" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    ElseIf Send_State = "3" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    End If
+                    
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_NO", adVarChar, , 1, sCnt)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_M))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("PID", adVarChar, , 15, lsPid)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+                    
+                    AdoCmd_ORACLE.Execute sqlRet
+                    Set AdoCmd_ORACLE = Nothing
+                End If
+            '/------------------------------------
+            
+            '/------------------------------------ 결과테이블 그룹코드 상태 업데이트
+                If Trim(State_B) <> "" Then
+                    SQL = "UPDATE SPSLHRRST "
+                    If Send_State = "1" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                                 '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                                 '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                    '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                      '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                      '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    ElseIf Send_State = "2" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                                 '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                                 '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTR_ID = ? "                                 '중간보고자"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTG_DT = ? "                                 '중간보고일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                    '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                      '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                      '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    ElseIf Send_State = "3" Then
+                        SQL = SQL & vbCrLf & " SET   RSLT_INPS_ID = ? "                                 '결과입력자"
+                        SQL = SQL & vbCrLf & "      ,RSLT_INPT_DT = ? "                                 '결과입력일시"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTR_ID = ? "                                 '중간보고자"
+                        SQL = SQL & vbCrLf & "      ,MDDL_RPTG_DT = ? "                                 '중간보고일시"
+                        SQL = SQL & vbCrLf & "      ,LAST_RPTR_ID = ? "                                 '최종보고자"
+                        SQL = SQL & vbCrLf & "      ,LAST_RPTG_DT = ? "                                 '최종보고일시"
+                        SQL = SQL & vbCrLf & "      ,RSLT_STAT = ? "
+                        SQL = SQL & vbCrLf & "      ,EXMN_EQPM = ? "                                    '장비코드
+                        SQL = SQL & vbCrLf & "      ,AMEN_ID = ? "                                      '결과수정자
+                        SQL = SQL & vbCrLf & "      ,UPDT_DT = ? "                                      '결과수정일시
+                        SQL = SQL & vbCrLf & "      ,RSLT_NO = ? "
+                    End If
+                    
+                    SQL = SQL & vbCrLf & " WHERE SPCM_NO = ? "                                          '검체번호"
+                    SQL = SQL & vbCrLf & "   AND EXMN_CD = ? "                                          '검사코드"
+                    SQL = SQL & vbCrLf & "   AND PID = ? "                                              '환자번호"
+                    SQL = SQL & vbCrLf & "   AND RSLT_STAT < ? "                                        '결과상태"
+
+                    Set AdoCmd_ORACLE = New ADODB.Command
+                    Set AdoCmd_ORACLE.ActiveConnection = cn_Ser                                         'ADOConnection
+                    
+                    AdoCmd_ORACLE.CommandType = adCmdText
+                    AdoCmd_ORACLE.CommandText = SQL
+                    
+                    '-- 시스템 날짜 가져오기 함수 : gsDBDateTime
+                    
+                    If Send_State = "1" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "1")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                        
+                    ElseIf Send_State = "2" Then
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                        
+                    ElseIf Send_State = "3" Then
+
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPS_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_INPT_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTR_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTG_DT", adDBDate, , , gsDBDateTime)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_EQPM", adVarChar, , 10, gEquipCode)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                        
+                    End If
+                        
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_NO", adVarChar, , 1, sCnt)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_B))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("PID", adVarChar, , 15, lsPid)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+                    
+                    AdoCmd_ORACLE.Execute sqlRet
+                    Set AdoCmd_ORACLE = Nothing
+                End If
+            '/------------------------------------
+            
+            '/------------------------------------ 접수테이블 STATE 업데이트
+                If Send_State = "" Then cn_Ser.RollbackTrans: Exit Function
+                
+                If Send_State = "1" Then
+                    SQL = "UPDATE SPSLMJBDI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = ? " & vbCrLf
+                    
+                ElseIf Send_State = "2" Then
+                    SQL = "UPDATE SPSLMJBDI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = ?, MDDL_RPTG_DT = ? " & vbCrLf
+                    
+                ElseIf Send_State = "3" Then
+                    SQL = "UPDATE SPSLMJBDI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = ?, MDDL_RPTG_DT = ?, LAST_RPTG_DT = ? " & vbCrLf
+                    
+                End If
+                SQL = SQL & " WHERE SPCM_NO = ? " & vbCrLf
+                SQL = SQL & "   AND RSLT_STAT <> ? " & vbCrLf
+                SQL = SQL & "   AND SPCM_STAT = ? " & vbCrLf
+                SQL = SQL & "   AND EXMN_CD IN (?,?,?,?) "
+                
+                Set AdoCmd_ORACLE = New ADODB.Command
+                Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+                
+                AdoCmd_ORACLE.CommandType = adCmdText
+                AdoCmd_ORACLE.CommandText = SQL
+                
+                '-- 시스템 날짜 가져오기 함수 : gsDBDateTime
+                If Send_State = "1" Then
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "1")
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+                    
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_G))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_M))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_B))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(GetText(.vasTemp, iRow, 2)))
+                    
+                ElseIf Send_State = "2" Then
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 15, "2")
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , 5, gsDBDateTime)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+                    
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_G))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_M))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_B))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(GetText(.vasTemp, iRow, 2)))
+
+                ElseIf Send_State = "3" Then
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTG_DT", adDBDate, , , gsDBDateTime)
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+                    
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_G))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_M))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_B))
+                    AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(GetText(.vasTemp, iRow, 2)))
+                End If
+                
+                AdoCmd_ORACLE.Execute sqlRet
+                Set AdoCmd_ORACLE = Nothing
+                '##### 바인딩 수정 - 7 ##############################################
+     
+                If sqlRet < 0 Then
+                    SaveQuery SQL
+                    cn_Ser.RollbackTrans
+                    Exit Function
+                End If
+            
+            '/------------------------------------
+            End If
+        Next iRow
+        
+        '/------------------------------------ 접수테이블 STATE 업데이트
+         If Send_State = "" Then cn_Ser.RollbackTrans: Exit Function
+                
+         Dim MDMD_EXAMCODE   As String
+         Dim MDMD_LIST
+         Dim sParam_string   As String
+         
+         MDMD_EXAMCODE = ""
+         MDMD_LIST = Split(gState_G, ",")
+         For i = 0 To UBound(MDMD_LIST) - 1
+             MDMD_EXAMCODE = MDMD_EXAMCODE & ",'" & MDMD_LIST(i) & "'"
+         Next i
+         MDMD_LIST = Split(gState_M, ",")
+         For i = 0 To UBound(MDMD_LIST) - 1
+             MDMD_EXAMCODE = MDMD_EXAMCODE & ",'" & MDMD_LIST(i) & "'"
+         Next i
+         MDMD_LIST = Split(gState_B, ",")
+         For i = 0 To UBound(MDMD_LIST) - 1
+             MDMD_EXAMCODE = MDMD_EXAMCODE & ",'" & MDMD_LIST(i) & "'"
+         Next i
+         
+         MDMD_EXAMCODE = MDMD_EXAMCODE & "," & ExamCode_Spec
+         MDMD_EXAMCODE = Mid(MDMD_EXAMCODE, 2)
+         MDMD_LIST = Split(Replace(MDMD_EXAMCODE, "'", ""), ",")
+         
+         For i = 0 To UBound(MDMD_LIST)
+             If sParam_string <> "" Then
+                 sParam_string = sParam_string & ",?"
+             Else
+                 sParam_string = ",?"
+             End If
+         Next i
+         
+         sParam_string = Mid(sParam_string, 2)
+         
+        If Send_State = "1" Then
+            SQL = "UPDATE SPSLMJBDI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = ? " & vbCrLf
+        ElseIf Send_State = "2" Then
+            SQL = "UPDATE SPSLMJBDI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = ?, MDDL_RPTG_DT = ? " & vbCrLf
+        ElseIf Send_State = "3" Then
+            SQL = "UPDATE SPSLMJBDI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = ?, MDDL_RPTG_DT = ?, LAST_RPTG_DT = ? " & vbCrLf
+        End If
+        SQL = SQL & " WHERE SPCM_NO = ? " & vbCrLf
+        SQL = SQL & "   AND RSLT_STAT <> ? " & vbCrLf
+        SQL = SQL & "   AND SPCM_STAT = ? " & vbCrLf
+        SQL = SQL & "   AND EXMN_CD IN (" & sParam_string & ")"
+        
+        Set AdoCmd_ORACLE = New ADODB.Command
+        Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+        
+        AdoCmd_ORACLE.CommandType = adCmdText
+        AdoCmd_ORACLE.CommandText = SQL
+        
+        '-- 시스템 날짜 가져오기 함수 : gsDBDateTime
+        
+        If Send_State = "1" Then
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "1")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+            
+        ElseIf Send_State = "2" Then
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 15, "2")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , 5, gsDBDateTime)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+
+        ElseIf Send_State = "3" Then
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("UPDT_DT", adDBDate, , , gsDBDateTime)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("MDDL_RPTG_DT", adDBDate, , , gsDBDateTime)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("LAST_RPTG_DT", adDBDate, , , gsDBDateTime)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+            
+        End If
+             
+        For i = 0 To UBound(MDMD_LIST)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(MDMD_LIST(i)))
+        Next i
+             
+'        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_G))
+'        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_M))
+'        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(State_B))
+'        AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("EXMN_CD", adVarChar, , 10, Trim(GetText(.vasTemp, iRow, 2)))
+        
+        AdoCmd_ORACLE.Execute sqlRet
+        Set AdoCmd_ORACLE = Nothing
+        '##### 바인딩 수정 - 7 ##############################################
+
+        If sqlRet < 0 Then
+            SaveQuery SQL
+            cn_Ser.RollbackTrans
+            Exit Function
+        End If
+        '/------------------------------------
+
+
+        '/------------------------------------ 처방테이블 STATE 업데이트
+            SQL = "UPDATE SPSLMJBBI SET RSLT_STAT = ?, AMEN_ID = ?, UPDT_DT = SYSDATE " & vbCrLf
+            SQL = SQL & " WHERE SPCM_NO = ? " & vbCrLf
+            SQL = SQL & "   AND RSLT_STAT < ? " & vbCrLf
+            SQL = SQL & "   AND SPCM_STAT = ? " & vbCrLf
+            SQL = SQL & "   AND PID = ? "
+            
+            Set AdoCmd_ORACLE = New ADODB.Command
+            Set AdoCmd_ORACLE.ActiveConnection = cn_Ser 'ADOConnection
+            AdoCmd_ORACLE.CommandType = adCmdText
+            AdoCmd_ORACLE.CommandText = SQL
+            
+            If Send_State = "1" Then
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "1")
+            ElseIf Send_State = "2" Then
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "2")
+            ElseIf Send_State = "3" Then
+                AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+            End If
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("AMEN_ID", adVarChar, , 20, .lblUser.Caption)
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_NO", adVarChar, , 15, Trim(lsSpecNo))
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("RSLT_STAT", adVarChar, , 5, "3")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("SPCM_STAT", adVarChar, , 5, "2")
+            AdoCmd_ORACLE.Parameters.Append AdoCmd_ORACLE.CreateParameter("PID", adVarChar, , 20, lsPid)
+            
+            AdoCmd_ORACLE.Execute sqlRet
+            Set AdoCmd_ORACLE = Nothing
+        '/------------------------------------
+        
+        '/------------------------------------ 처방테이블 업데이트(MDMDHTORD)
+        
+                  SQL = "UPDATE MDMDHTORD "
+            SQL = SQL & vbCrLf & "   SET PRSC_STAT = '51'"      '/50 예비보고, 51 최종보고
+            SQL = SQL & vbCrLf & "     , RPTG_DT = SYSDATE"
+            SQL = SQL & vbCrLf & "     , AMEN_ID = '" & .lblUser.Caption & "'"
+            SQL = SQL & vbCrLf & "     , updt_DT = SYSDATE"
+            SQL = SQL & vbCrLf & " WHERE PRSC_SQNO = "
+            SQL = SQL & "                   (SELECT PRSC_SQNO "
+            SQL = SQL & vbCrLf & "             FROM SPSLMJBDI "
+            SQL = SQL & vbCrLf & "            WHERE BRCD_LABL_NO = '" & lsID & "') "
+'            SQL = SQL & vbCrLf & "            WHERE SPCM_NO = '" & lsSpecNo & "' "
+'            SQL = SQL & vbCrLf & "              AND EXMN_CD IN (" & Trim(MDMD_EXAMCODE) & ") "                     '검사코드"
+'            SQL = SQL & vbCrLf & "              AND SPCM_STAT = '2') "
+            SQL = SQL & vbCrLf & "AND DC_DVSN = 'O' "
+            
+            Save_Raw_Data "[처방업데이트]" & SQL
+            
+            res = SendQuery(gServer, SQL)
+            If res = -1 Then
+                SaveQuery SQL
+                cn_Ser.RollbackTrans
+                Exit Function
+            End If
+        
+        '/------------------------------------ 처방테이블 업데이트
+        
+        cn_Ser.CommitTrans
+        Insert_Data = 1
+    End With
+
+End Function

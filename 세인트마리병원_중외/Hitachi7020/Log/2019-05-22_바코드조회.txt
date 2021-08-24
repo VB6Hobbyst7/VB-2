@@ -1,0 +1,32 @@
+SELECT DISTINCT a.RECEIPTDATE as 접수일자, a.SPECIMENNUM as 바코드번호, a.IPDOPD, a.RECEIPTNO as 챠트번호, a.PTNO as 내원번호, a.SNAME as 이름, a.LABCODE as ITEM, a.ORDERCODE
+  FROM SLA_LabMaster a,SLA_LabResult b 
+ WHERE a.SPECIMENNUM = '158287'
+   AND a.RECEIPTNO = b.RECEIPTNO 
+   AND a.OrderCode = b.OrderCode 
+   AND a.LABCODE IN ('D1840-','D1880-','D3022-5','D1860-','D1850-','D1870-','D2611-','D2613-','D2300-','D2280-','D1830-','D1890-','D2263-','G2','G7','G8','G3','G4','G10','G9','G5','D3022-6','D3022','D3022-1','D3022-2') 
+   AND a.JSTATUS < '3'
+
+SELECT DISTINCT a.RECEIPTDATE as 접수일자, a.SPECIMENNUM as 바코드번호, a.IPDOPD, a.RECEIPTNO as 챠트번호, a.PTNO as 내원번호, a.SNAME as 이름, a.LABCODE as ITEM, a.ORDERCODE
+  FROM SLA_LabMaster a,SLA_LabResult b 
+ WHERE a.SPECIMENNUM = '158292'
+   AND a.RECEIPTNO = b.RECEIPTNO 
+   AND a.OrderCode = b.OrderCode 
+   AND a.LABCODE IN ('D1840-','D1880-','D3022-5','D1860-','D1850-','D1870-','D2611-','D2613-','D2300-','D2280-','D1830-','D1890-','D2263-','G2','G7','G8','G3','G4','G10','G9','G5','D3022-6','D3022','D3022-1','D3022-2') 
+   AND a.JSTATUS < '3'
+
+SELECT DISTINCT a.RECEIPTDATE as 접수일자, a.SPECIMENNUM as 바코드번호, a.IPDOPD, a.RECEIPTNO as 챠트번호, a.PTNO as 내원번호, a.SNAME as 이름, a.LABCODE as ITEM, a.ORDERCODE
+  FROM SLA_LabMaster a,SLA_LabResult b 
+ WHERE a.SPECIMENNUM = '158295'
+   AND a.RECEIPTNO = b.RECEIPTNO 
+   AND a.OrderCode = b.OrderCode 
+   AND a.LABCODE IN ('D1840-','D1880-','D3022-5','D1860-','D1850-','D1870-','D2611-','D2613-','D2300-','D2280-','D1830-','D1890-','D2263-','G2','G7','G8','G3','G4','G10','G9','G5','D3022-6','D3022','D3022-1','D3022-2') 
+   AND a.JSTATUS < '3'
+
+SELECT DISTINCT a.RECEIPTDATE as 접수일자, a.SPECIMENNUM as 바코드번호, a.IPDOPD, a.RECEIPTNO as 챠트번호, a.PTNO as 내원번호, a.SNAME as 이름, a.LABCODE as ITEM, a.ORDERCODE
+  FROM SLA_LabMaster a,SLA_LabResult b 
+ WHERE a.SPECIMENNUM = '158339'
+   AND a.RECEIPTNO = b.RECEIPTNO 
+   AND a.OrderCode = b.OrderCode 
+   AND a.LABCODE IN ('D1840-','D1880-','D3022-5','D1860-','D1850-','D1870-','D2611-','D2613-','D2300-','D2280-','D1830-','D1890-','D2263-','G2','G7','G8','G3','G4','G10','G9','G5','D3022-6','D3022','D3022-1','D3022-2') 
+   AND a.JSTATUS < '3'
+

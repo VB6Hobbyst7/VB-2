@@ -1,0 +1,8 @@
+Select DISTINCT ORCD AS ITEM       
+  From emr.LRESULT                 
+ Where PAID = '00196265'   
+   And SPNO =  '201904050137'
+   And ORCD IN ('B1050','B1040','B1040-1','B1010','B1020','B1060','B1060-1','LCBC-1','LCBC-2','LCBC-3','B1220','LCBC-5','B1060-2','B1230','LCBC-6','LCBC-4','B1091-2','B1091-1','B1091-4','B1091-5','B1091-3')
+   And OKFL <> 'Y'                 
+ Order By ORCD                     
+
