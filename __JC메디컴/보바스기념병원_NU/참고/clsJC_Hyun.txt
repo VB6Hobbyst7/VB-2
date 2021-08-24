@@ -1,0 +1,624 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using System.Xml;
+
+
+
+namespace JCLinkerEQ
+{
+    class clsJC_Hyun
+    {
+        private string SERVERIP = "http://10.10.10.71";
+        /// <summary>
+        /// 바코드 번호를 이용한 자동접수
+        /// </summary>
+        /// <param name="argBarcode"></param>
+        /// <param name="argRefWkno"></param>
+        /// <returns></returns>
+        public bool AcceptBarcode(string argBarcode, ref string argRefWkno)
+        {
+            string strURL = string.Empty;
+
+            try
+            {
+                strURL = SERVERIP + "/himed2/.live?submit_id=TXLII00107&business_id=lis&bcno=" + argBarcode + "&instcd=053&userid=LISBC&eqmtcd=-";
+                // url 생성및 자료 리딩
+
+                clsJC_Medicom.Log_Save("S", strURL);
+
+                XmlDocument xml = new XmlDocument();
+
+                xml.Load(strURL);
+
+                // 임시 DataSet 및 DataTable
+                DataSet ds = new DataSet();
+                DataTable rtnInfo = new DataTable();
+
+                // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+                ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+                // DataSet에서 사용할 Table에 넣기
+                rtnInfo = ds.Tables["resultflag"];
+
+                //if (rtnInfo == null || rtnInfo.Rows[0]["resultmsg"].ToString() != "OK")
+                //{
+                //    return false;
+                //}
+                string strWorkno = string.Empty;
+
+                if (rtnInfo == null)
+                {
+                    argRefWkno = "X";
+                    return false;
+                }
+                if (rtnInfo.Rows[0]["workno"] != null)
+                {
+                    strWorkno = rtnInfo.Rows[0]["workno"].ToString();
+
+                }
+                if (string.IsNullOrWhiteSpace(strWorkno))
+                {
+                    strWorkno = "X";
+                }
+                argRefWkno = strWorkno;
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        /// <summary>
+        /// 사용자 로그인
+        /// </summary>
+        /// <param name="argId"></param>
+        /// <param name="argPass"></param>
+        /// <param name="mess"></param>
+        /// <returns></returns>
+        public bool Login(string argId, string argPass,ref string argDept, ref string mess)
+        {
+            string strURL = "";
+            //LISBC
+            //hit20160715!
+            strURL = SERVERIP + "/himed2/.live?submit_id=TRLII00000&business_id=lis&jobkind=E&userid=" + argId + "&instcode=his053&password=" + argPass;
+
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables["result"];
+
+            if(rtnInfo == null || rtnInfo.Rows[0]["resultmsg"] == null)
+            {
+                mess = "로그인실패!";
+                return false;
+            }
+            if (rtnInfo.Rows[0]["resultmsg"].ToString() != "OK")
+            {
+
+                string message = rtnInfo.Rows[0]["resultmsg"].ToString();
+                mess = message;
+
+                return false;
+            }
+            argDept = rtnInfo.Rows[0]["deptcd"].ToString();
+            mess = "OK";
+            return true;
+        }
+       
+        /// <summary>
+        /// 바코드를 이용해 바코드에 해당하는 정보 조회
+        /// </summary>
+        /// <param name="barcode"></param>
+        /// <returns></returns>
+        public DataTable GetBarcodeInfo(string barcode)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.Clear();
+                dt.Rows.Clear();
+                //O21J40020
+                string sendString = SERVERIP + "/himed2/.live?submit_id=TRLII00123&business_id=lis&instcd=053&bcno=" + barcode;
+                dt = processXML(sendString, "worklist");
+
+                return dt;
+            }
+            catch
+            {
+                return dt;
+            }
+
+        }
+        /// <summary>
+        /// 기간별 조회
+        /// </summary>
+        /// <param name="argStartDate"></param>
+        /// <param name="argEnddate"></param>
+        /// <param name="argLisCode"></param>
+        /// <returns></returns>
+        public DataTable GetWorkList(string argStartDate, string argEnddate, string argLisCode)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.Rows.Clear();
+                string sendString = SERVERIP + "/himed2/.live?submit_id=TRLII00123&business_id=lis&instcd=053&startdd=" + argStartDate + "&enddd=" + argEnddate + "&testcd=" + argLisCode + "";
+
+                dt = processXML(sendString, "worklist");
+
+                return dt;
+            }
+            catch
+            {
+                return dt;
+            }
+
+        }
+        public Boolean GetRetestOK(string barcode)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.Clear();
+                dt.Rows.Clear();
+                //http://10.10.10.71/himed2/.live?submit_id=TXLII00105&business_id=lis&bcno=1212300020&instcd=053&userid=LISBC
+
+                string strURL = SERVERIP + "/himed2/.live?submit_id=TXLII00105&business_id=lis&bcno=" + barcode + "&instcd=053&userid=LISBC";
+                XmlDocument xml = new XmlDocument();
+                xml.Load(strURL);
+
+                // 임시 DataSet 및 DataTable
+                DataSet ds = new DataSet();
+                DataTable rtnInfo = new DataTable();
+
+                // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+                ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+                // DataSet에서 사용할 Table에 넣기
+                //rtnInfo = ds.Tables["ResultFlag"];
+
+                //if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+                //{
+                //    return false;
+                //}
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        public string ResultHPV(string argPtno, string argRslt)
+        {
+            DataTable dt = new DataTable();
+            string strRetValue = string.Empty;
+            try
+            {
+                dt.Clear();
+                dt.Rows.Clear();
+                //http://his999dev.ccmc.or.kr:18088/himed2/.live?submit_id=TXPII00101&business_id=lis&ptno=M17000025&rslt=양성%17abc%17양성%17abc%17음성%17abc%17양성%17abc&instcd=053&userid=ASTBC
+
+                string strURL = SERVERIP + "/himed2/.live?submit_id=TXPII00101&business_id=lis&ptno=" + argPtno + "&rslt=" + argRslt + "&instcd=053&userid=ASTBC";
+
+                clsJC_Medicom.Log_Save("S", strURL);
+
+                XmlDocument xml = new XmlDocument();
+                xml.Load(strURL);
+
+                // 임시 DataSet 및 DataTable
+                DataSet ds = new DataSet();
+                DataTable rtnInfo = new DataTable();
+
+                // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+                ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+                // DataSet에서 사용할 Table에 넣기
+                rtnInfo = ds.Tables["message"];
+
+                if (rtnInfo == null || rtnInfo.Rows.Count < 1)
+                {
+                    strRetValue = "저장실패";
+                    return strRetValue;
+                }
+                if(rtnInfo.Rows[0]["msg"] == null)
+                {
+                    strRetValue = "저장실패";
+                    return strRetValue;
+                }
+                strRetValue = rtnInfo.Rows[0]["msg"].ToString();
+
+                return strRetValue;
+            }
+            catch(Exception e)
+            {
+                return e.Message;
+            }
+
+        }
+        public DataTable GetWorkListRetest(string argStartDate, string argEnddate, string argLisCode)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.Rows.Clear();
+                string sendString = SERVERIP + "/himed2/.live?submit_id=TRLII00124&business_id=lis&instcd=053&startdd=" + argStartDate + "&enddd=" + argEnddate + "&testcd=" + argLisCode + "";
+
+               // clsJC_Medicom.Log_Save("S", "재검요청:"+sendString);
+
+                dt = processXML(sendString, "worklist");
+
+                return dt;
+            }
+            catch
+            {
+                return dt;
+            }
+
+        }
+        public DataTable GetWorkNumb(string argWorkno)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt.Rows.Clear();
+                string sendString = SERVERIP + "/himed2/.live?submit_id=TRLII00123&business_id=lis&instcd=053&workno=" + argWorkno;
+
+                dt = processXML(sendString, "worklist");
+
+                return dt;
+            }
+            catch
+            {
+                return dt;
+            }
+
+        }
+        /// <summary>
+        /// 결과저장
+        /// </summary>
+        /// <param name="argBarcode"></param>
+        /// <param name="argResult"></param>
+        /// <returns></returns>
+        public bool SendResult(string argBarcode, string argResult)
+        {
+            bool ReturnBool = true;
+
+            ReturnBool = this.SendResult("TXLII00101", "ResultFlag", argBarcode, argResult);
+
+            return ReturnBool;
+
+        }
+        public bool SendResultGEM(string argBarcode, string argResult, string argUser)
+        {
+            bool ReturnBool = true;
+
+            ReturnBool = this.SendResultGEM("TXLII00101", "ResultFlag", argBarcode, argResult, argUser);
+
+            return ReturnBool;
+
+        }
+        /// <summary>
+        /// 결과 저장
+        /// </summary>
+        /// <param name="argId"></param>
+        /// <param name="argNodeName"></param>
+        /// <param name="argBarcode"></param>
+        /// <param name="argResult"></param>
+        /// <returns></returns>
+        private bool SendResult(string argId, string argNodeName, string argBarcode, string argResult)
+        {
+            bool ReturnBool = true;
+            string strURL = "";
+            strURL += SERVERIP + "/himed2/.live?submit_id=" + argId + "&business_id=lis&bcno=" + argBarcode + "&result=";
+            //strLIS_EQCD
+            //Program.strPROJECT_EQCD
+            strURL += argResult + "&eqmtcd=" + clsJC_LinkerEQ.strLIS_EQCD + "&instcd=053&userid=LISBC&paste=Y&retestyn=N&nmeddilute=0";
+
+            //au5400장비는 현대 결과저장 속도 문제로 인해 바로 결과 저장하지 않고
+            //자체 DB에 결과를 저장한다
+            //결과 저장이 되지 않았을 경우에는 바로 현대로 결과를 보낸다
+
+            if (Program.strPROJECT_EQCD == "1V" || Program.strPROJECT_EQCD == "2W")
+            {
+                ReturnBool = this.insertSerndInfo(argBarcode, strURL, Program.strPROJECT_EQCD);
+
+                if (ReturnBool == true)
+                {
+                    return ReturnBool;
+                }
+            }
+            clsJC_Medicom.Log_Save("S", strURL);
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            clsJC_Medicom.Log_Save("S", "결과전송완료!");
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables[argNodeName];
+
+            if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+            {
+                ReturnBool = false;
+            }
+
+            return ReturnBool;
+        }
+        public Boolean SendResultData(string argData)
+        {
+            bool ReturnBool = true;
+            string strURL = "";
+            strURL = argData;
+
+            clsJC_Medicom.Log_Save("S","요청:"+ strURL);
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            clsJC_Medicom.Log_Save("S", "결과전송끝!");
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables["ResultFlag"];
+
+            if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+            {
+                ReturnBool = false;
+            }
+
+            return ReturnBool;
+        }
+        public Boolean insertSerndInfo(string argBcno, string argSend, string argEqcd)
+        {
+            ParamCollection param = new ParamCollection();
+            param.Clear();
+            try
+            {
+                string strSend = argSend;
+                param.Add("@datm", DateTime.Now.ToString("yyyyMMddHHmmss"));
+                param.Add("@flag", "N");
+                param.Add("@bcno", argBcno);
+                param.Add("@date", DateTime.Now.ToString("yyyyMMdd"));
+                param.Add("@data", strSend);
+                param.Add("@eqcd", argEqcd);
+
+                clsJC_SQL sql = new clsJC_SQL();
+                string query = sql.InsertSendinfo();
+                if (clsJC_DataBase.TDBOPENSTATE == true)
+                {
+                    Boolean boolStat = false;
+                    boolStat = clsJC_DataBase.TRUNSQL(ref clsJC_DataBase.TCNN, query, param);
+                    if(boolStat == true && clsJC_DataBase.TDBROWCNT > 0)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        private bool SendResultGEM(string argId, string argNodeName, string argBarcode, string argResult, string argUser)
+        {
+            bool ReturnBool = true;
+            string strURL = "";
+            string strUser = string.Empty;
+            if(Program.strPROJECT_EQCD == "GEM3500_3" || Program.strPROJECT_EQCD == "GEM3500_4"|| Program.strPROJECT_EQCD == "GEM3500_5")
+            {
+                strUser = argUser;
+            }
+            else
+            {
+                strUser = "LISBC";
+            }
+            if(string.IsNullOrWhiteSpace(strUser))
+            {
+                strUser = "LISBC";
+            }
+            strURL += SERVERIP + "/himed2/.live?submit_id=" + argId + "&business_id=lis&bcno=" + argBarcode + "&result=";
+
+            // strURL += argResult + "&eqmtcd=" + clsJC_LinkerEQ.strLIS_EQCD + "&instcd=053&userid=LISBC&paste=Y&retestyn=N&nmeddilute=0";
+            strURL += argResult + "&eqmtcd=" + clsJC_LinkerEQ.strLIS_EQCD + "&instcd=053&userid="+ strUser + "&paste=Y&retestyn=N&nmeddilute=0";
+
+            clsJC_Medicom.Log_Save("S", strURL);
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables[argNodeName];
+
+            if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+            {
+                ReturnBool = false;
+            }
+
+            return ReturnBool;
+        }
+        public bool SendResultGEM(string argBarcode, string argResult, string argDrid, string argdept)
+        {
+            bool ReturnBool = true;
+            string strURL = "";
+            strURL += SERVERIP + "/himed2/.live?submit_id=" + "TXLII00109" + "&business_id=lis&bcno=" + argBarcode + "&drid=" + argDrid + "&result=";
+
+            strURL += argResult + "&eqmtcd=" + clsJC_LinkerEQ.strLIS_EQCD + "&instcd=053&userid=LISBC&deptcd="+argdept +"&testdt="+ DateTime.Now.ToString("yyyyMMddHHmmss") +"&spccd=002";
+
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables["ResultFlag"];
+
+            if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+            {
+                ReturnBool = false;
+            }
+
+            return ReturnBool;
+        }
+        public bool SendResultBact(string argBarcode, string argResult)
+        {
+            bool ReturnBool = true;
+            string strURL = "";
+            strURL += SERVERIP + "/himed2/.live?submit_id=TXLII00102&business_id=lis&instcd=053&bcno=" + argBarcode + "&drid=106296&eqmtcd=-&userid=LISBC&";
+
+            strURL += argResult;
+
+            clsJC_Medicom.Log_Save("S", strURL);
+
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables["ResultFlag"];
+
+            if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+            {
+                ReturnBool = false;
+            }
+
+            return ReturnBool;
+        }
+
+        /// <summary>
+        /// vitek 장비 결과 현대 전송
+        /// </summary>
+        /// <param name="argBarcode"></param>
+        /// <param name="argResult"></param>
+        /// <returns></returns>
+        public bool SendResultMicro(string argBarcode, string argResult)
+        {
+            /* 우선 바코드를 하드코딩해서 처리 */
+            //&growthyn=Y&rsltval=Growth%1720170711095823&
+            //I21NU0050
+            DataTable dtBarcodeOrder = new DataTable();
+            clsJC_Hyun hyun = new clsJC_Hyun();
+            string SendCode = string.Empty;
+            try
+            {
+                dtBarcodeOrder = hyun.GetBarcodeInfo(argBarcode);
+                if (dtBarcodeOrder != null && dtBarcodeOrder.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dtBarcodeOrder.Rows)
+                    {
+                        string testcd = string.Empty;
+                        testcd = dr["testcd"].ToString();
+                        if(testcd == "B4141" || testcd == "B4148" || testcd == "B4142" || testcd == "B4143" || testcd == "B4144" || testcd == "B4149" || testcd == "B4145")
+                        {
+                            SendCode = testcd;
+                            break;
+                        }
+
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            if (string.IsNullOrWhiteSpace(SendCode)) SendCode = "B4062";
+            string strURL = "";
+            strURL += SERVERIP + "/himed2/.live?submit_id=TXLII00102&business_id=lis&instcd=053&bcno=" + argBarcode + "&drid=106296&eqmtcd=-&userid=LISBC&testcd="+ SendCode +"&eqmtflag=Equimpment&rsltstat=1&growthyn=Y&rsltval=Growth%17"+DateTime.Now.ToString("yyyyMMddHHmmss") +"&" + argResult;
+
+
+            clsJC_Medicom.Log_Save("T", strURL);
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable rtnInfo = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            // DataSet에서 사용할 Table에 넣기
+            rtnInfo = ds.Tables["ResultFlag"];
+
+            if (rtnInfo == null || rtnInfo.Rows[0]["resultflag"].ToString() != "Y")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        #region xml 전문 리딩 후 Table 리턴
+
+        private DataTable processXML(string strURL, string NodeName)
+        {
+            // url 생성및 자료 리딩
+            XmlDocument xml = new XmlDocument();
+            xml.Load(strURL);
+
+            // 임시 DataSet 및 DataTable
+            DataSet ds = new DataSet();
+            DataTable PtList = new DataTable();
+
+            // xml 결과를 파일 유형으로 변경하여 DataSet에 넣기
+            ds.ReadXml(new System.IO.StringReader(xml.InnerXml));
+
+            // DataSet에서 사용할 Table에 넣기
+            PtList = ds.Tables[NodeName];
+
+            return PtList;
+        }
+
+        #endregion 전문 리딩 후 Table 리턴
+    }
+}

@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DomainObjects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.3" Created="2014-01-16T13:46:53.71875+09:00" Creator="Roche.DMCore.Domain.ImportExport.V1_3.XmlFileExport">
+  <TestOrders>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id5330922f-47d1-435c-b2d0-81ceaf935d25">
+      <TestOrderId>71fd0e0b-3145-4ca3-a731-1f0567b0f396</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <Flags>
+            <Flag Code="X2" />
+          </Flags>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Ide1429aee-140e-48e5-93d0-f7ef6b20e0de">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id98524093-cf2b-4970-9c2f-9259bfb98c16">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id1e7cd4db-341d-46d5-8b2b-52b7dd6ce54a">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id52c83c6e-f3dd-43b9-a4bb-189abf8e2666" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id1e7cd4db-341d-46d5-8b2b-52b7dd6ce54a">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id92592097-67cd-46b6-9175-8c762ac79cf1" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;25&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301636&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="27.5" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="27.522659301757812" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern>X2</FlagPattern>
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Idadf6cddc-5f23-45fb-85f2-75e4a5db1236">
+      <TestOrderId>4fff8859-e8b3-4c67-8eaf-c39fc88dd3a6</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idf9fe0709-c399-4ba6-b3ef-d27dd4546866">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Ida661ce66-115f-4f31-adb1-ddfc2229a598">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Ida5889f6e-81d3-4674-87a6-673b35202feb">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Ideeaa8a36-0e39-4f5f-81c4-40c3c8fa495e" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Ida5889f6e-81d3-4674-87a6-673b35202feb">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id340aad94-e2c3-4057-a972-7b17eb7aa49d" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;37&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301828&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="30.0" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="29.965591430664062" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id34549d33-0135-4c7b-bcea-f215e167b817">
+      <TestOrderId>5cf2906f-9fa4-4ebc-b319-28d943ee1651</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id3906d8e1-a7a2-4536-9b98-de1642d651d1">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id8014d6b7-eea1-4df7-b306-566fc066e3ed">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id292d962d-aedd-441d-9f84-a4639504d585">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Idab831941-d36e-4fa3-af3c-88e744f47d9b" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id292d962d-aedd-441d-9f84-a4639504d585">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idaa5a03b8-20f8-4317-bb50-3b2c4e9f3caa" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;49&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301586&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="29.1" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="29.064559936523438" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id1fd36fca-9dd1-4338-b555-f01e023ef01e">
+      <TestOrderId>2124519e-d668-4677-b7bb-79fc7e80694c</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id065c46fe-ce67-45db-af0e-085955c45329">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idea7e7801-2f6c-4881-b86c-0001c988b648">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Ide47a965d-e477-48a6-a490-431013b0b395">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Ida3299123-74bd-4c2a-be38-d26179d6c4b8" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Ide47a965d-e477-48a6-a490-431013b0b395">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idfec00c62-45a5-4335-a990-1b111ecc6ad6" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;61&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011302085&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="32.2" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="32.153701782226562" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Idd27f3a86-c42b-4230-a1c5-0b829f9fb109">
+      <TestOrderId>8a445c64-1a1c-4b26-98b9-d17824411eb0</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idbf53a219-3269-405a-bb47-3f2b9e1d64f0">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id3ac11fe5-2b4e-4913-8a40-cc57efe60391">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Iddbc521ad-48fd-4e87-a5e8-af44c9cc4c0a">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Idcf35a97b-e3bb-40e5-9bce-911bd114ca19" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Iddbc521ad-48fd-4e87-a5e8-af44c9cc4c0a">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id0f5487ea-4d78-4166-818a-7491ebd460ac" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;73&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301929&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="32.2" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="32.216262817382812" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id76a893c9-2ff9-4f70-bdaf-a089e8b108ed">
+      <TestOrderId>2303f3b0-b25e-41af-99e1-95dcac8870ea</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id252d4f53-457f-46ea-8edc-a3ac37632e5a">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id38a69a90-8e0d-4661-a26c-a6617b05536f">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idb5eb5e06-e065-498d-a29e-57e9ec6ec751">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Idbf16852b-8b46-4a8b-bec3-9fa7d2a1007a" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idb5eb5e06-e065-498d-a29e-57e9ec6ec751">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id4cc975f0-fe4a-452a-ab04-0b7de88a1a31" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;85&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301593&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="30.8" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="30.787277221679688" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id12fea91d-189c-4c10-9cc5-f7c31ac38d6d">
+      <TestOrderId>0dc8a4e5-466a-450a-91d2-9b6f4d30ad8f</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idbb6310ab-f2a6-40cc-96f3-cec88e73f318">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id571424f8-bff5-475e-8480-457e7e2700ae">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id93789508-1d0a-4378-81d9-e3160c8ac402">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id4d1d923a-556d-4f23-961f-722cad98e157" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id93789508-1d0a-4378-81d9-e3160c8ac402">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id34b59f23-bbd9-4f18-9e14-9dab8070935a" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;2&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301580&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="27.3" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="27.308273315429688" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id734fa167-ff43-4411-ae2a-14fdd96e1397">
+      <TestOrderId>40f514f5-fd06-44da-8c11-38ef747851ff</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idd76f3502-04af-49c8-b4b1-136c7a9dd043">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Ide83d3abe-cb99-462d-af98-7d5c7d81800a">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idd843bfa6-6495-4993-971a-309ae315b337">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id34568140-fed1-4e5e-9226-60aaa269d630" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idd843bfa6-6495-4993-971a-309ae315b337">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id7fb821ce-b9b8-47bf-b40d-ff1b437f4de1" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;14&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301584&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="31.0" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="30.988693237304688" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id815bf65e-d9c7-4791-bf0a-b06f771bf1f8">
+      <TestOrderId>5b065e34-a580-40bd-8652-89ce06374096</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id635de4c5-cd87-4e26-8235-e995794cf498">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idb5b52896-2947-4020-b729-4d4c4d834df4">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id3bd035c7-68b5-4c4b-931d-d54d3dc67d48">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id628277d5-8c30-4279-834d-ad4fabec2435" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id3bd035c7-68b5-4c4b-931d-d54d3dc67d48">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id351f1125-d235-47b8-935f-4d407a039713" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;26&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011301582&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="27.9" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="27.856826782226562" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id2122a70b-9714-44cd-9f20-cb326aa1645a">
+      <TestOrderId>eea3e01f-ada4-4a3c-8fdf-8f17c3b8a0e5</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id08b3838d-7e4a-4bf0-b93c-6bf7083de291">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idc03e9a44-ee61-49c3-9210-d55bb8b5c1f3">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id9c04fc38-b1f9-4c7a-80ce-666841f68ecb">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id81d05bd0-86f7-4a2a-85ec-a2d43bb5555b" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id9c04fc38-b1f9-4c7a-80ce-666841f68ecb">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id71a53cb4-02f7-4b38-a739-2d17225c625a" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;38&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011401461&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="28.8" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="28.838729858398438" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id4648b2d2-bed6-415b-8d89-899414a152b2">
+      <TestOrderId>893ca319-6d6b-452a-b18a-6b9d30545a1c</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id603c22e9-6100-4676-96cb-f1beb0c66c84">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id1123f4a2-c250-4615-b216-66e16726c8e2">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Ida018276e-2b10-47c3-8343-90fcfbb09a49">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id0617bf30-75ff-4dfe-b8f7-1f9877be7665" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Ida018276e-2b10-47c3-8343-90fcfbb09a49">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id999aa26d-b977-42b9-a13a-8bc6d61c116a" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;50&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011401624&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="32.8" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="32.791519165039062" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Idaeb5d6eb-1734-45a2-a63e-8ffe59ff4c57">
+      <TestOrderId>115b80ca-59de-45c2-aaeb-9706421377e7</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idabacb774-b91b-47af-a341-878b530d4c5a">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idbdf1bb20-5724-4fb4-a0a3-fb6738571086">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id09d413d9-32f0-441e-ad02-61e3092ade54">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Ida7174afe-0418-41f1-b812-546c34e99dd8" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id09d413d9-32f0-441e-ad02-61e3092ade54">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id8af3448b-0546-4249-aff2-d297fded2295" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;62&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011401454&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="33.9" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="33.935165405273438" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id840d48ab-9723-40d2-b1f8-b0f1d9206e22">
+      <TestOrderId>65cd89a4-30c0-479b-9ad3-e397aca58c60</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <Flags>
+            <Flag Code="X2" />
+          </Flags>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idf285bb93-2c87-4246-8f1f-d37c2b1536c4">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id76d267ed-9ca2-4e1c-8dee-2ae578da9e18">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id071e364e-6cff-4e87-8fba-9a27787df4a4">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id7497f00e-07d7-49be-8d57-65562db60ef3" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id071e364e-6cff-4e87-8fba-9a27787df4a4">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id9677868f-2f90-4a72-84c0-09dc902d71a4" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;74&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011501306&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="29.2" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="29.202651977539062" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern>X2</FlagPattern>
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id39f2b88f-2ee3-471a-a1f6-7a7862129eca">
+      <TestOrderId>b82c734a-ea14-4719-a8f3-b21306579269</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <Flags>
+            <Flag Code="X2" />
+          </Flags>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Ide41dbe7c-63d7-4d22-8c8c-253f3f040d3e">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idb7c5e3d0-2b82-4e83-934d-c149f42471c0">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id6b3b6944-d63a-45ff-99ca-dee0a210ae79">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id4a62429e-ed35-41e8-976d-648c80cbc2e0" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id6b3b6944-d63a-45ff-99ca-dee0a210ae79">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idf8805da8-33af-4905-a2db-01e11d082e3a" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;86&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011501466&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="30.6" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="30.556869506835938" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern>X2</FlagPattern>
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id1bb290a8-8749-4cd5-9e15-309649d16c49">
+      <TestOrderId>1028eefb-58b5-41dc-9f90-9b456d548aad</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <Flags>
+            <Flag Code="X2" />
+          </Flags>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idf71332a4-edc5-4193-ac91-42bb46ef8c6d">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id9cfffe17-bfa4-4911-bb1c-f5d9ba5c117f">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id15056f4d-f6da-4739-8e5c-bd8ef2af707f">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Idf515a206-47e8-4621-b5b1-becf728afd35" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id15056f4d-f6da-4739-8e5c-bd8ef2af707f">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id30872945-21b0-4ad5-8447-345874a38c14" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;3&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011501295&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="32.1" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="32.130813598632812" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern>X2</FlagPattern>
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Idc881d834-2cae-4dec-b9b1-32f523ef80df">
+      <TestOrderId>15dbb507-8eca-4a8e-b66a-7e03b69131e1</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idd3bf4bba-34f9-4ebf-bc98-4908c7a608b8">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id8edc3ad6-acd7-4d10-a99d-8d7ef3ac5abe">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id92be9859-661e-472b-8254-0a951af9be72">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id4b89590a-35bd-405f-969c-46d7f8497c59" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id92be9859-661e-472b-8254-0a951af9be72">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idaa0d9286-1648-43ea-8587-4c1e2ef90089" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;15&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011401458&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="29.2" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="29.240036010742188" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Ida9924836-2721-44c0-a00b-b1c9cfb49d5a">
+      <TestOrderId>4b6825be-b42f-4cf3-86ae-805f2f3b27f5</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Iddbb99028-bed2-495d-99bf-a18c225183bb">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id3a9da836-b954-44c3-bd22-becfa23ad902">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id361ebe97-b682-4e52-a1da-f6bdcabf9a23">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Ided567024-2dda-4667-b288-8a6b7716640c" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id361ebe97-b682-4e52-a1da-f6bdcabf9a23">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idfa60b49f-46e5-447e-be06-a5de91e9b7e7" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;27&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011401457&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="32.7" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="32.748031616210938" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Idaabe6704-87b0-4406-88e7-88798bce5828">
+      <TestOrderId>cea5a047-5116-4672-b6a0-85913a07ee7c</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idec051b7b-78a5-4833-a09c-3bdf88e9ed46">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id9cec4381-1e97-4f01-8c52-2bd1fe420600">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id309db4e6-5d13-4e43-a29b-2cab45586dce">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Iddee7c5a9-9a4d-493c-92cf-44434f900448" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id309db4e6-5d13-4e43-a29b-2cab45586dce">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idb32d4e0c-996f-4a78-9de1-e483884f9517" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;39&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011501320&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="27.1" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="27.070999145507812" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id94f95b07-773c-408e-ad5c-fe6209844098">
+      <TestOrderId>7d65ab3d-1b42-43c2-8360-571c044c8bfd</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id5140a298-4c16-4dcc-968c-722cd82a8bc5">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id6dca3628-a2f5-4cbb-8073-4272141a8a34">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id66c45196-0da3-415f-a3ea-04b7c711a058">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id42ec1222-7846-4fd5-8c8d-183d97f3de85" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id66c45196-0da3-415f-a3ea-04b7c711a058">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Ide64e5bba-79d8-4546-b032-1bcc903f0de1" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;51&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011501301&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="29.8" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="29.767227172851562" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Id908f11c4-92ca-4924-bd4e-ab23d811bfb9">
+      <TestOrderId>b8799e02-3e65-4995-9079-b927b6866452</TestOrderId>
+      <TestOrderDate>2014-01-16T00:42:07Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="HPV High Risk Panel + Genotyping" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id9ccb48ed-f65e-4b6c-bd1e-b414087b0cb0" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;63&quot; TestType=&quot;HPV&quot; MediaType=&quot;PC&quot; SpecimenType=&quot;Sample&quot; SampleID=&quot;14011501299&quot; SubTest=&quot;HPVHRwGT&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key&gt;HPVHRwGT&lt;/Key&gt;&lt;Value&gt;Other HR HPV NEG, HPV16 NEG, HPV18 NEG &lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;NEG&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Other HR HPV NEG, HPV16 NEG, HPV18 NEG " />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id860700f7-b200-4b57-a84c-43d9af443950">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Ide6d3c5f9-23bd-4b56-ba63-5165e296b9cf">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idf4361154-9601-4c7b-bd16-801e7023a231">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+          <Consumables>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3336405</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905333640517064</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026730147</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026731146</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026713147</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026730146</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026731147</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026709147</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026715147</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026713146</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>aba19b86-b7a6-4c2f-9510-33a070279e80</Classification>
+              <LotNumber>3310267</LotNumber>
+              <Name>1000ul Tips</Name>
+              <SerialNumber>235905331026711147</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>c1e7cc8c-c4df-4cbd-bbba-5df3133755eb</Classification>
+              <LotNumber>19</LotNumber>
+              <Name>Deep Well Plate</Name>
+              <SerialNumber>FA1906723</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>e36b9dfb-5cbd-4c83-8d20-5f0b4f0deb21</Classification>
+              <LotNumber>A</LotNumber>
+              <Name>200ml Reservoir</Name>
+              <SerialNumber>5640601DA11803</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>60b4b04d-1a89-42bd-8661-a6d1be335ef6</Classification>
+              <LotNumber>D</LotNumber>
+              <Name>50ml Reservoir</Name>
+              <SerialNumber>5640602DD17500</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>60b4b04d-1a89-42bd-8661-a6d1be335ef6</Classification>
+              <LotNumber>D</LotNumber>
+              <Name>50ml Reservoir</Name>
+              <SerialNumber>5640602DD17958</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>60b4b04d-1a89-42bd-8661-a6d1be335ef6</Classification>
+              <LotNumber>D</LotNumber>
+              <Name>50ml Reservoir</Name>
+              <SerialNumber>5640602DD17968</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>60b4b04d-1a89-42bd-8661-a6d1be335ef6</Classification>
+              <LotNumber>D</LotNumber>
+              <Name>50ml Reservoir</Name>
+              <SerialNumber>5640602DD17967</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+          </Consumables>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Ided32b84d-acde-4828-8f18-a7c4e316813a" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idf4361154-9601-4c7b-bd16-801e7023a231">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+          <Consumables>
+            <ConsumableTracking>
+              <Classification>dee23e64-ec18-460c-8747-4d2cc43ae5b3</Classification>
+              <LotNumber>21</LotNumber>
+              <Name>Microwell Plate</Name>
+              <SerialNumber>FD2102231</SerialNumber>
+              <Expiration>9999-12-31T14:59:59Z</Expiration>
+              <KitId>00000000-0000-0000-0000-000000000000</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+          </Consumables>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="34.4" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="34.417343139648438" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Other HR HPV NEG, HPV16 NEG, HPV18 NEG </Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Ida5af7d83-be40-40b3-bf4d-35d43966111c">
+      <TestOrderId>c80e5a96-774f-4640-965c-2a9759a4fac1</TestOrderId>
+      <TestOrderDate>2014-01-16T00:54:02Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="N/A" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Id0620e4db-1669-4975-b2f6-b56257cab96c" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;1&quot; TestType=&quot;HPV&quot; MediaType=&quot;&quot; SpecimenType=&quot;PosCtrl&quot; SampleID=&quot;2H1S014746F01YJ&quot; SubTest=&quot;&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;positive&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key /&gt;&lt;Value&gt;Valid&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;None, column is greyed out&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Valid" />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id2ae1af23-d08f-4fea-81a7-8fe9f44aeafb">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id7be86328-e9ff-45dd-903e-4b530cd49adc">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Idbfd31367-5a82-4317-803b-8d3917ece647">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id6c7fedd8-4f45-4770-9ee3-95061914c497" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Idbfd31367-5a82-4317-803b-8d3917ece647">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="36.902236938476562" />
+          <StringValue Name="Display_HPV18" Value="39.1" />
+          <StringValue Name="Display_BG" Value="37.9" />
+          <StringValue Name="Display_OtherHRHPV" Value="37.6" />
+          <StringValue Name="CT_DYE5" Value="37.853622436523438" />
+          <StringValue Name="Display_HPV16" Value="36.9" />
+          <StringValue Name="CT_DYE3" Value="39.054489135742188" />
+          <StringValue Name="CT_DYE0" Value="37.598037719726562" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Valid</Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+    <TestOrder TestRequested="Idb17e7ccc-ad9b-4f58-9ac0-68472f60d1b7" Specimen="Idc3112188-caea-4461-98cf-8dfbf5075dac">
+      <TestOrderId>8acde2b6-aa50-4a4b-bf1f-672898faa853</TestOrderId>
+      <TestOrderDate>2014-01-16T00:54:02Z</TestOrderDate>
+      <Details>
+        <StringValue Name="TestType" Value="HPV" />
+        <StringValue Name="SubTestType" Value="N/A" />
+      </Details>
+      <Info />
+      <ProcessInfos>
+        <ProcessInfo Process="Id73aabd7a-0063-4d7a-908b-8f0402598bd3" ProcessResult="Idb8780214-e79f-4273-88a2-a863e7c524d6" ProcessRun="Id5e9d3686-4bf2-4f63-8e55-9f97eaaeb046">
+          <Details>
+            <StringValue Name="WellInterpretationResult" Value="&lt;WellInterpretationResult Position=&quot;13&quot; TestType=&quot;HPV&quot; MediaType=&quot;&quot; SpecimenType=&quot;NegCtrl&quot; SampleID=&quot;0NCS015345F0Q10&quot; SubTest=&quot;&quot;&gt;&lt;DyeInterpretation&gt;&lt;DyeInterpretationResult FilterPos=&quot;0&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;1&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;3&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;DyeInterpretationResult FilterPos=&quot;5&quot;&gt;&lt;IntermediateResult&gt;negative&lt;/IntermediateResult&gt;&lt;InterpretationFlags /&gt;&lt;/DyeInterpretationResult&gt;&lt;/DyeInterpretation&gt;&lt;QualitativeResults&gt;&lt;StrStrPair&gt;&lt;Key /&gt;&lt;Value&gt;Valid&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;CtEvaluationCode&lt;/Key&gt;&lt;Value&gt;None, column is greyed out&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;WellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;StrStrPair&gt;&lt;Key&gt;MultiWellResultIsValid&lt;/Key&gt;&lt;Value&gt;true&lt;/Value&gt;&lt;/StrStrPair&gt;&lt;/QualitativeResults&gt;&lt;InterpretationFlags /&gt;&lt;/WellInterpretationResult&gt;" />
+            <StringValue Name="Interpretation" Value="Valid" />
+            <StringValue Name="Index" Value="2" />
+          </Details>
+          <StartTime>2014-01-16T04:31:34Z</StartTime>
+          <EndTime>2014-01-16T04:31:46Z</EndTime>
+          <ProcessorId>C4CZC1156LYN</ProcessorId>
+        </ProcessInfo>
+        <ProcessInfo Process="Id9146f888-07db-4cd5-817c-04e8cf454041" ProcessRun="Id97b47f6b-6a0f-4599-8a6c-cafaa895e361">
+          <Details>
+            <StringValue Name="Index" Value="0" />
+          </Details>
+          <StartTime>2014-01-16T00:54:19Z</StartTime>
+          <EndTime>2014-01-16T02:19:30Z</EndTime>
+          <ProcessorId>5998_51046</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id4a6b7730-c406-4cc2-97c2-5b655c4e1455">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id13d2e5fe-7f0f-4091-88aa-7d3e91aed164">
+              <Input>true</Input>
+              <Output>false</Output>
+            </SpecimenTracking>
+            <SpecimenTracking SpecimenIdentification="Id29fe671f-cdbf-4952-84c9-53f8956e46d8">
+              <Input>false</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+          <Consumables>
+            <ConsumableTracking>
+              <Classification>d9985131-de3d-4e2c-acb3-72fd168136cb</Classification>
+              <LotNumber>S02908</LotNumber>
+              <Name>Wash Buffer</Name>
+              <SerialNumber>0S0S029084F05WS</SerialNumber>
+              <Expiration>2015-04-30T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>dd1d5f6d-41cd-40b1-a7e4-e1d7fd7f152e</Classification>
+              <LotNumber>S06759</LotNumber>
+              <Name>SDS Reagent</Name>
+              <SerialNumber>0SAS067595F00G1</SerialNumber>
+              <Expiration>2015-05-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>c065d1f3-e3e6-412a-9eca-7d5b008e24b2</Classification>
+              <LotNumber>S06762</LotNumber>
+              <Name>Lysis Buffer</Name>
+              <SerialNumber>0S6S067625F014X</SerialNumber>
+              <Expiration>2015-05-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>eba7cae6-9a61-4c8a-9192-cbfbcf4b96c9</Classification>
+              <LotNumber>S00653</LotNumber>
+              <Name>Magnetic Glass Particles</Name>
+              <SerialNumber>0S2S006530F05OC</SerialNumber>
+              <Expiration>2014-12-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>e797f72a-9e99-4977-8b96-8cf39da50935</Classification>
+              <LotNumber>S05847</LotNumber>
+              <Name>Elution Buffer</Name>
+              <SerialNumber>0S4S058475F0B7B</SerialNumber>
+              <Expiration>2015-05-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>6fd2e8f7-8679-4f2a-acfd-5dad16e238ab</Classification>
+              <LotNumber>S00645</LotNumber>
+              <Name>Proteinase K</Name>
+              <SerialNumber>0S8S006450F07RQ</SerialNumber>
+              <Expiration>2014-12-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>edeed1e8-eef3-42ea-9aa1-3e3012530766</Classification>
+              <LotNumber>S01474</LotNumber>
+              <Name>HPV Positive Control</Name>
+              <SerialNumber>2H1S014746F01YJ</SerialNumber>
+              <Expiration>2015-06-30T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>e53c513c-fa2f-4b05-8d25-98ad86c6cb57</Classification>
+              <LotNumber>S01534</LotNumber>
+              <Name>Negative Control</Name>
+              <SerialNumber>0NCS015345F0Q10</SerialNumber>
+              <Expiration>2015-05-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>041848f8-cf52-4e86-a145-038d02e29210</Classification>
+              <LotNumber>S01210</LotNumber>
+              <Name>HPV Test Master Mix</Name>
+              <SerialNumber>2H4S012107F05LV</SerialNumber>
+              <Expiration>2015-07-31T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+            <ConsumableTracking>
+              <Classification>c2859daf-1a4d-431a-9d51-cc0cf548e089</Classification>
+              <LotNumber>S09910</LotNumber>
+              <Name>HPV Mg/Mn Reagent</Name>
+              <SerialNumber>2H3S099106F0D07</SerialNumber>
+              <Expiration>2015-06-30T15:00:00Z</Expiration>
+              <KitId>62a6184d-a479-4fc9-ae6a-4301b47c6991</KitId>
+              <KitClassification>00000000-0000-0000-0000-000000000000</KitClassification>
+            </ConsumableTracking>
+          </Consumables>
+        </ProcessInfo>
+        <ProcessInfo Process="Id7ca184c6-45d1-47e8-a84c-f6996bbd2a64" ProcessResult="Id88608cb9-9587-4938-8cf1-ea4cca439609" ProcessRun="Idaedfdbc4-525c-4b85-b239-2aa2825cce99">
+          <Details>
+            <StringValue Name="Index" Value="1" />
+          </Details>
+          <StartTime>2014-01-16T02:31:53Z</StartTime>
+          <EndTime>2014-01-16T04:31:33Z</EndTime>
+          <ProcessorId>51319_31940</ProcessorId>
+          <Specimens>
+            <SpecimenTracking SpecimenIdentification="Id29fe671f-cdbf-4952-84c9-53f8956e46d8">
+              <Input>true</Input>
+              <Output>true</Output>
+            </SpecimenTracking>
+          </Specimens>
+        </ProcessInfo>
+      </ProcessInfos>
+      <TestResult>
+        <Created>2014-01-16T04:31:46Z</Created>
+        <Details>
+          <StringValue Name="CT_DYE1" Value="NaN" />
+          <StringValue Name="Display_HPV18" Value="negative" />
+          <StringValue Name="Display_BG" Value="negative" />
+          <StringValue Name="Display_OtherHRHPV" Value="negative" />
+          <StringValue Name="CT_DYE5" Value="NaN" />
+          <StringValue Name="Display_HPV16" Value="negative" />
+          <StringValue Name="CT_DYE3" Value="NaN" />
+          <StringValue Name="CT_DYE0" Value="NaN" />
+        </Details>
+        <Comment />
+        <FlagPattern />
+        <Interpretation>Valid</Interpretation>
+        <Remark />
+        <Unit>cycles</Unit>
+        <Value>0</Value>
+        <AcceptedDateTime>2014-01-16T04:36:11Z</AcceptedDateTime>
+        <AcceptedUserId>Labmanager</AcceptedUserId>
+      </TestResult>
+      <Orders>
+        <Order Id="Idac1bb081-68db-40ee-9c9d-7e864d5c7d81" />
+      </Orders>
+    </TestOrder>
+  </TestOrders>
+</DomainObjects>

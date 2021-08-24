@@ -1,0 +1,16 @@
+SELECT DISTINCT        a.RECEIPTDATE           AS HOSPDATE 
+     , a.SPECIMENNUM           AS BARCODE  
+     , a.RECEIPTNO             AS CHARTNO  
+     , a.PTNO                  AS PID      
+     , a.SNAME                 AS PNAME    
+     , COUNT(a.LABCODE)        AS CNT      
+   FROM SLA_LabMaster a, SLA_LabResult b   
+ WHERE a.RECEIPTNO     = b.RECEIPTNO       
+   AND a.ORDERCODE     = b.ORDERCODE       
+   and a.RECEIPTDATE   = b.RECEIPTDATE     
+   AND a.SPECIMENNUM   = b.SPECIMENNUM     
+   AND a.RECEIPTDATE BETWEEN '2019-12-12' and '2019-12-12'
+   AND b.LABCODE IN ('D0002010','D0002030','D0002050','D0002040','MCV','MCH','MCHC','D0002070','LYMPH','MID','GRAN','D0002020','D0002020','PDW','D0002060','MPV','PCT')   
+   AND a.JSTATUS < '3'                     
+ GROUP BY a.RECEIPTDATE, a.SPECIMENNUM, a.RECEIPTNO, a.IPDOPD, a.PTNO, a.SNAME 
+ ORDER BY a.RECEIPTDATE,a.SPECIMENNUM 

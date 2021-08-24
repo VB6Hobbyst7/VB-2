@@ -1,0 +1,14 @@
+SELECT DISTINCT        READING_YMD     AS HOSPDATE         
+     , BCODE_NO        AS BARCODE          
+     , PTNT_NO         AS PID              
+     , PTNT_NM         AS PNAME            
+     , AGE             AS AGE              
+     , SEX             AS SEX              
+     , IO_GB           AS INOUT            
+     , ORD_CD          AS ITEM             
+     , SP_CD           AS SPCCD            
+  FROM LIS_INTERFACE1_V                    
+ WHERE BCODE_NO    = '1000001531'  
+   AND ORD_CD IN ('LB1050','LB1040','LB1010','LB1020','LH218','LH219','LH220','LB1060','LH10207','LH10208','LH10201','LH10204','LH10205','LH124','LH123','LH222','LH221')      
+ ORDER BY ORD_CD                           
+

@@ -1,0 +1,8 @@
+Select DISTINCT ORCD AS ITEM       
+  From emr.LRESULT                 
+ Where PAID = '00056747'   
+   And SPNO =  '202011240429'
+   And ORCD IN ('C3825A','CL-IN','K-IN','NA-IN')
+   And OKFL <> 'Y'                 
+ Order By ORCD                     
+

@@ -1,0 +1,50 @@
+SELECT DISTINCT L.LABODRSTP as ORDCODE             
+  FROM ME_LABDAT L, ME_DAT D                       
+ WHERE L.LABBARCOD = '2011200092'            
+   AND L.LABKEYNUM  = D.DATKEYNUM                  
+   AND L.LABATTEND  = D.DATATTEND                  
+   AND L.LABATTEND  = M.MANATTEND                  
+   AND L.LABCHTNUM  = D.DATCHTNUM                  
+   AND L.LABCHTNUM  = M.MANCHTNUM                  
+   AND L.LABODRDTE  = D.DATODRDTE                  
+   AND L.LABODRCOD IN ('C011','C468242','D3061')         
+   AND (L.LABCANCEL = '' OR L.LABCANCEL IS NULL)   
+   AND (L.LABRESULT = ''  OR L.LABRESULT IS NULL)  
+   AND L.LABENDDEP < '3'                           
+
+SELECT DISTINCT L.LABODRSTP as ORDCODE             
+  FROM ME_LABDAT L, ME_DAT D                       
+ WHERE L.LABBARCOD = '2011200092'            
+   AND L.LABKEYNUM  = D.DATKEYNUM                  
+   AND L.LABATTEND  = D.DATATTEND                  
+   AND L.LABCHTNUM  = D.DATCHTNUM                  
+   AND L.LABODRDTE  = D.DATODRDTE                  
+   AND L.LABODRCOD IN ('C011','C468242','D3061')         
+   AND (L.LABCANCEL = '' OR L.LABCANCEL IS NULL)   
+   AND (L.LABRESULT = ''  OR L.LABRESULT IS NULL)  
+   AND L.LABENDDEP < '3'                           
+
+SELECT DISTINCT L.LABODRSTP as ORDCODE             
+  FROM ME_LABDAT L, ME_DAT D                       
+ WHERE L.LABBARCOD = '2011200092'            
+   AND L.LABKEYNUM  = D.DATKEYNUM                  
+   AND L.LABATTEND  = D.DATATTEND                  
+   AND L.LABCHTNUM  = D.DATCHTNUM                  
+   AND L.LABODRDTE  = D.DATODRDTE                  
+   AND L.LABODRCOD IN ()         
+   AND (L.LABCANCEL = '' OR L.LABCANCEL IS NULL)   
+   AND (L.LABRESULT = ''  OR L.LABRESULT IS NULL)  
+   AND L.LABENDDEP < '3'                           
+
+SELECT DISTINCT L.LABODRSTP as ORDCODE             
+  FROM ME_LABDAT L, ME_DAT D                       
+ WHERE L.LABBARCOD = '2011200092'            
+   AND L.LABKEYNUM  = D.DATKEYNUM                  
+   AND L.LABATTEND  = D.DATATTEND                  
+   AND L.LABCHTNUM  = D.DATCHTNUM                  
+   AND L.LABODRDTE  = D.DATODRDTE                  
+   AND L.LABODRCOD IN ()         
+   AND (L.LABCANCEL = '' OR L.LABCANCEL IS NULL)   
+   AND (L.LABRESULT = ''  OR L.LABRESULT IS NULL)  
+   AND L.LABENDDEP < '3'                           
+

@@ -1,0 +1,15 @@
+SELECT DISTINCT        READING_YMD                 AS HOSPDATE                 
+     , BCODE_NO                    AS BARCODE                  
+     , PTNT_NO                     AS PID                      
+     , PTNT_NM                     AS PNAME                    
+     , AGE                         AS AGE                      
+     , SEX                         AS SEX                      
+     , IO_GB                       AS INOUT                    
+     , COUNT(ORD_CD)               AS COUNT                    
+  FROM LIS_INTERFACE1_V                                        
+ WHERE READING_YMD BETWEEN '20200109' AND '20200109'   
+   AND ORD_CD IN ('LC3791','LC3792','LC3793')                          
+   AND STS_CD = '0'                                            
+ GROUP BY READING_YMD,BCODE_NO,PTNT_NO,PTNT_NM,AGE,SEX,IO_GB   
+ ORDER BY READING_YMD,PTNT_NO,BCODE_NO                         
+

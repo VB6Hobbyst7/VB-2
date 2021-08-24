@@ -1,0 +1,513 @@
+안녕하세요 CMC 의료정보시스템 유지보수를 하고있는 여인환입니다.
+시스템 database 접속 정보와 병리과 사용자 확인 정보 전달 합니다.(패스워드는 암호화 제공이 되지 않습니다. 사원번호만으로 확인을 합니다.)
+ 
+성빈센트 ORACLE 로그인 아이디 / 패스워드 = lisu02 / lisu02
+ 
+1. Tnsname 접속 정보
+# 성빈센트병원 운영(REAL)  이중화 1호기 실패시 2호기
+REAL_HIS017_CTF=
+    (DESCRIPTION=
+        (ADDRESS_LIST=
+            (ADDRESS=(PROTOCOL=TCP)(HOST=172.17.81.151)(PORT=1521))
+            (ADDRESS=(PROTOCOL=TCP)(HOST=172.17.81.152)(PORT=1521))
+            (FAILOVER=ON)
+            (LOAD_BALANCE=OFF)
+        )
+        (CONNECT_DATA=
+            (SERVICE_NAME=HIS017)
+        )
+    )
+# 성빈센트병원 교육(TEST)
+HIS017_EDU=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=172.17.102.183)
+      (PORT=1525)
+    )
+    (CONNECT_DATA=
+      (SERVICE_NAME=HIS017)
+    )
+  )
+ 
+2. 사용자 로그인 정보
+ 
+SELECT usab.instcd, -- 기관기호
+       usab.userid, -- 사용자아이디
+       usab.USERABBR as usernm -- 사용자성명
+  FROM lis.lpcmusab usab,  -- 병리과 사용자관리
+       com.zsumusrb usrb   -- 시스템 사용자정보
+ WHERE usab.instcd     = '017'
+   AND usab.delflagcd  = '0'
+   AND usab.userid  = :arg_userid
+   AND usab.userid     = usrb.userid
+   AND to_char(sysdate,'yyyymmdd')    BETWEEN usrb.userfromdd AND usrb.usertodd
+ 
+ 
+오더조회 쿼리
+    Sql = ""
+    Sql = Sql & " SELECT"
+    Sql = Sql & " A.ACPTDD," '접수일자
+    Sql = Sql & " A.ACPTNO," '접수번호
+    Sql = Sql & " A.ACPTITEMNO," '접수항목번호
+    Sql = Sql & " A.ptno," '병리번호
+    Sql = Sql & " A.pid," '등록번호
+    Sql = Sql & " A.testcd," '검사코드
+    Sql = Sql & " T.testengnm," '영문검사명
+    Sql = Sql & " S.spcnm," '검체명
+    Sql = Sql & " A.prcpgenrflag," '--> 입원/외래구분
+    Sql = Sql & " A.ORDDEPTCD," '진료과코드
+    Sql = Sql & " D.deptengabbr," '-->진료과명
+    Sql = Sql & " A.PRCPDD," '처방일자',
+    Sql = Sql & " A.EXECPRCPUNIQNO," '실시처방유일번호
+    Sql = Sql & " A.prcpno," '처방번호
+    Sql = Sql & " P.hngnm," '환자명
+    Sql = Sql & " P.SEX," '성별
+    Sql = Sql & " P.BRTHDD" '나이
+    Sql = Sql & " FROM lis.lpjmacpt A, lis.lpcmtest T, lis.lpcmspcm S, pam.pmcmptbs P, com.zsdddept D"
+    Sql = Sql & " WHERE A.instcd= '017'" '성빈센트병원(instcd = 017)는 고정입니다.
+    Sql = Sql & " AND A.acptdd BETWEEN '" & Format(frmMain.cboDDCalendar(1), "YYYYMMDD")
+    Sql = Sql & "' AND '" & Format(frmMain.cboDDCalendar(2), "YYYYMMDD")
+    Sql = Sql & "' AND (A.testcd= 'PMO07001' OR A.testcd= 'PMO07002')" ' 고정 TESTCODE PMO07001
+    Sql = Sql & " AND A.acptstatcd IN ('0')" 'acptstatcd는 고정입니다
+    Sql = Sql & " AND A.instcd          = T.instcd"
+    Sql = Sql & " AND A.testcd          = T.testcd"
+    Sql = Sql & " AND A.instcd          = S.instcd"
+    Sql = Sql & " AND A.spccd           = S.spccd"
+    Sql = Sql & " AND A.instcd          = P.instcd"
+    Sql = Sql & " AND A.pid             = P.pid"
+    Sql = Sql & " AND A.instcd          = D.instcd"
+    Sql = Sql & " AND A.orddeptcd       = D.deptcd"
+    Sql = Sql & " AND A.prcpdd BETWEEN D.valifromdd AND D.valitodd"
+
+
+
+결과등록 쿼리
+        Call Regist_Result(RgtDD, RgtTM, PTNO, Reg_NO, PID, USERID, SPCNM, TESTNM)
+        Call Regist_Result1(RgtDD, PTNO, Reg_NO, PID, USERID, F_RSLT)
+        Call Regist_Result_Item(PTNO, RgtDD, Reg_NO, RISKFLAGCD, ACPTDD, ACPTNO, TESTCD, ACPTITEMNO, F_RSLT, USERID)
+        Call Regist_Slide(RgtDD, RgtTM, USERID, PTNO)
+        Call Regist_Status_Insert710(PRCPDD, EXECPRCPUNIQNO, RgtDD, RgtTM, USERID)
+        Call Regist_Status_Insert700(PRCPDD, EXECPRCPUNIQNO, RgtDD, RgtTM, USERID)
+        Call Regist_Status_Update(Check_Kubun, USERID, PID, PRCPDD, EXECPRCPUNIQNO, PRCPNO)
+        Call Regist_Status_Update_ACPT(ACPTDD, ACPTNO, ACPTITEMNO, PTNO, PID)
+
+
+Regist_Result(ByVal RgtDD, ByVal RgtTM, ByVal PTNO, ByVal Reg_NO, ByVal PID, ByVal USERID, ByVal SPCNM, ByVal TESTNM)
+'=====CHECK DATA BY SELECT SQL
+    Sql = ""
+    Sql = Sql & " SELECT ptno FROM lis.lprmrslt"
+    Sql = Sql & " WHERE"
+    Sql = Sql & " ptno='" & PTNO & "' AND"
+    Sql = Sql & " instcd='017' AND"
+    Sql = Sql & " pid='" & PID & "' AND"
+    Sql = Sql & " rsltrgstid='" & USERID & "' AND"
+    Sql = Sql & " fstrgstrid='" & USERID & "' AND"
+    Sql = Sql & " lastupdtrid='" & USERID & "' AND"
+    Sql = Sql & " EXTRPARTCNTS='" & SPCNM & "' AND"
+    Sql = Sql & " EXTRMTHDCNTS='" & TESTNM & "'"
+    
+    If SVRCon.Execute(Sql).EOF Then
+        Sql2 = ""
+        Sql2 = Sql2 & " INSERT INTO lis.lprmrslt ("
+        Sql2 = Sql2 & " ptno," ''병리번호.........#ptno#
+        Sql2 = Sql2 & " rsltrgstdd," '결과등록일자.........#rsltrgstdd#
+        Sql2 = Sql2 & " rsltrgstno," '결과등록번호#rsltrgstno#
+        Sql2 = Sql2 & " rsltrgsthistno," '결과등록이력번호...1
+        Sql2 = Sql2 & " instcd," '기관코드:성빈센트병원(instcd = 017)는 고정입니다...#instcd#
+        Sql2 = Sql2 & " pid," '등록번호..#pid#
+        Sql2 = Sql2 & " rsltrgsttm," '결과등록시간..#rsltrgsttm#
+        Sql2 = Sql2 & " grostestrecdd," '육안검사기록일자..#grostestrecdd#
+        Sql2 = Sql2 & " grostestrectm," '육안검사기록시간..#grostestrectm#
+        Sql2 = Sql2 & " grostestrecid," '육안검사기록자ID..#grostestrecid#
+        
+        Sql2 = Sql2 & " readdd," '판독일자..#readdd#
+        Sql2 = Sql2 & " readtm," '판독시간..#readtm#
+        Sql2 = Sql2 & " readid," '판독자ID..#readid#
+        Sql2 = Sql2 & " EXTRPARTCNTS," '#extrpartcnts# 검체명(spcm.spcnm)
+        Sql2 = Sql2 & " EXTRMTHDCNTS," '#extrmthdcnts# 검사명(test.testengnm)
+        Sql2 = Sql2 & " DIAGCNTS," '진단코드.. #diagcd#
+        Sql2 = Sql2 & " spckeepflagcd," '검체보관구분코드(0:미보관, 1:보관)..#spckeepflagcd#
+        Sql2 = Sql2 & " rslthideflagcd," '결과숨기기구분코드(0:보여주기, 1:숨기기)..#rslthideflagcd#
+        Sql2 = Sql2 & " conccaseflagcd," '관심증례구분코드(0:일반Case, 1:관심Case)..#conccaseflagcd#
+        Sql2 = Sql2 & " preprsltflagcd," '예비결과구분코드(0:미표시, 1:표시)..#preprsltflagcd#
+        
+        Sql2 = Sql2 & " rsltrgstid," '결과등록자ID..#rsltrgstid#
+        Sql2 = Sql2 & " cnclflagcd," '취소구분코드..'-'
+        Sql2 = Sql2 & " cnclresncd," '취소사유코드..'-'
+        Sql2 = Sql2 & " cncldd," '취소일자..'-'
+        Sql2 = Sql2 & " cncltm," '취소시간..'-'
+        Sql2 = Sql2 & " cnclid," '취소자ID..'-'
+        Sql2 = Sql2 & " grospic," '육안사진(0:없음, 1:있음)..'0'
+        Sql2 = Sql2 & " keybloc," '검체보관구분코드(0:미보관, 1:보관)..'-'
+        Sql2 = Sql2 & " tissbloct," '조직은행 블록(T)..'-'
+        Sql2 = Sql2 & " tissblocnt," '조직은행 블록(NT)..'-'
+        
+        Sql2 = Sql2 & " delflagcd," '삭제구분(0:미삭제, 1:삭제)..'0'
+        Sql2 = Sql2 & " IMGRGSTDD," '..'-'
+        Sql2 = Sql2 & " IMGNO," '..'0'
+        Sql2 = Sql2 & " SIGNNO," '..'0'
+        Sql2 = Sql2 & " HISTNO," '..'0'
+        Sql2 = Sql2 & " PACSNO," '..'0'
+        Sql2 = Sql2 & " readgrade," '판독등급..''
+        Sql2 = Sql2 & " fstrgstdt," '최초등록일시(시스템정보)
+        Sql2 = Sql2 & " fstrgstrid," '최초등록자ID(시스템정보)
+        Sql2 = Sql2 & " lastupdtdt," '최종수정일시(시스템정보)
+        
+        Sql2 = Sql2 & " lastupdtrid," '최종수정자ID(시스템정보)
+        Sql2 = Sql2 & " DIAGCD," '진단코드.. ''
+        Sql2 = Sql2 & " UGCYALERTFLAGCD)" '진단코드.. '0'
+        
+        Sql2 = Sql2 & " VALUES('"
+        Sql2 = Sql2 & PTNO & "','" ''병리번호.........
+        Sql2 = Sql2 & RgtDD & "'," '결과등록일자.........
+        Sql2 = Sql2 & Reg_NO & "," '결과등록번호
+        Sql2 = Sql2 & " 1," '결과등록이력번호
+        Sql2 = Sql2 & " '017','" '기관코드:성빈센트병원(instcd = 017)는 고정입니다.
+        Sql2 = Sql2 & PID & "','"  '등록번호
+        Sql2 = Sql2 & RgtTM & "'," '결과등록시간
+        Sql2 = Sql2 & " '-'," '육안검사기록일자
+        Sql2 = Sql2 & " '-'," '육안검사기록시간
+        Sql2 = Sql2 & " '-','" '육안검사기록자ID
+        
+        Sql2 = Sql2 & "-','"  '판독일자
+        Sql2 = Sql2 & "-','"  '판독시간
+        Sql2 = Sql2 & "-','" '판독자ID
+        Sql2 = Sql2 & SPCNM & "','" '#extrpartcnts# 검체명(spcm.spcnm)
+        Sql2 = Sql2 & TESTNM & "'," '#extrmthdcnts# 검사명(test.testengnm)
+        Sql2 = Sql2 & " ''," '진단코드.. #diagcd#
+        Sql2 = Sql2 & " '0'," '검체보관구분코드(0:미보관, 1:보관)
+        Sql2 = Sql2 & " '0'," '결과숨기기구분코드(0:보여주기, 1:숨기기)
+        Sql2 = Sql2 & " '0'," '관심증례구분코드(0:일반Case, 1:관심Case)
+        Sql2 = Sql2 & " '0','" '예비결과구분코드(0:미표시, 1:표시)
+        
+        Sql2 = Sql2 & USERID & "'," '결과등록자ID
+        Sql2 = Sql2 & " '-'," '취소구분코드
+        Sql2 = Sql2 & " '-'," '취소사유코드
+        Sql2 = Sql2 & " '-'," '취소일자
+        Sql2 = Sql2 & " '-'," '취소시간
+        Sql2 = Sql2 & " '-'," '취소자ID
+        Sql2 = Sql2 & " '0'," '육안사진(0:없음, 1:있음)
+        Sql2 = Sql2 & " '-'," '검체보관구분코드(0:미보관, 1:보관)..'-'
+        Sql2 = Sql2 & " '-'," '조직은행 블록(T)..'-'
+        Sql2 = Sql2 & " '-'," '조직은행 블록(NT)..'-'
+        
+        Sql2 = Sql2 & " '0'," '판독등급
+        Sql2 = Sql2 & " '-'," 'IMGRGSTDD..'-'
+        Sql2 = Sql2 & " '0'," 'IMGNO..'0'
+        Sql2 = Sql2 & " '0'," 'SIGNNO..'0'
+        Sql2 = Sql2 & " '0'," 'HISTNO..'0'
+        Sql2 = Sql2 & " '0'," 'PACSNO..'0'
+        Sql2 = Sql2 & " ''," ''판독등급..''
+        Sql2 = Sql2 & " SYSDATE,'" '최초등록일시(시스템정보)
+        Sql2 = Sql2 & USERID & "',"  '최초등록자ID(시스템정보)
+        Sql2 = Sql2 & " SYSDATE,'" '최종수정일시(시스템정보)
+        
+        Sql2 = Sql2 & USERID & "'," '최종수정자ID(시스템정보)
+        Sql2 = Sql2 & " ''," 'DIAGCD진단코드.. ''
+        Sql2 = Sql2 & " '0')" 'UGCYALERTFLAGCD긴급알림구분코드(0:미알림,1:알림).. '0'
+    Else
+        Sql2 = ""
+    End If
+
+Regist_Result1(ByVal RgtDD, ByVal PTNO, ByVal Reg_NO, ByVal PID, ByVal USERID, ByVal F_RSLT)
+'=====CHECK DATA BY SELECT SQL
+    Sql = ""
+    Sql = Sql & " SELECT ptno FROM lis.lprmcnts"
+    Sql = Sql & " WHERE"
+    Sql = Sql & " ptno='" & PTNO & "' AND"
+    Sql = Sql & " instcd='017' AND"
+    Sql = Sql & " pid='" & PID & "' AND"
+    Sql = Sql & " FSTRGSTRID='" & USERID & "' AND"
+    Sql = Sql & " LASTUPDTRID='" & USERID & "'" ' AND"
+'    Sql = Sql & " RSLTCNTS1='" & F_RSLT & "'"
+    
+    If SVRCon.Execute(Sql).EOF Then
+        Sql9 = ""
+        Sql9 = Sql9 & " INSERT INTO lis.lprmcnts ("
+        
+        Sql9 = Sql9 & " PTNO," '병리번호
+        Sql9 = Sql9 & " RSLTRGSTDD," '결과등록일자
+        Sql9 = Sql9 & " RSLTRGSTNO," '결과등록번호
+        Sql9 = Sql9 & " RSLTRGSTHISTNO," '결과등록이력번호
+        Sql9 = Sql9 & " INSTCD," '기관코드
+        Sql9 = Sql9 & " PID," '등록번호
+        Sql9 = Sql9 & " RSLTCNTS1," '검사결과1
+        Sql9 = Sql9 & " RSLTCNTS2," '검사결과2
+        Sql9 = Sql9 & " RSLTCNTS3," '검사결과3
+        Sql9 = Sql9 & " RSLTCNTS4," '검사결과4
+        
+        Sql9 = Sql9 & " RSLTCNTS5," '검사결과5
+        Sql9 = Sql9 & " RSLTCNTS6," '검사결과6
+        Sql9 = Sql9 & " CMTCNTS," 'Comment내용
+        Sql9 = Sql9 & " DELFLAGCD," '삭제구분(0:미삭제, 1:삭제)
+        Sql9 = Sql9 & " FSTRGSTDT," '최초등록일시(시스템정보)
+        Sql9 = Sql9 & " FSTRGSTRID," '최초등록자ID(시스템정보)
+        Sql9 = Sql9 & " LASTUPDTDT," '최종수정일시(시스템정보)
+        Sql9 = Sql9 & " LASTUPDTRID)" '최종수정자ID(시스템정보)
+        
+        Sql9 = Sql9 & " VALUES('"
+        
+        Sql9 = Sql9 & PTNO & "','" '병리번호
+        Sql9 = Sql9 & RgtDD & "'," '결과등록일자
+        Sql9 = Sql9 & Reg_NO & "," '결과등록번호
+        Sql9 = Sql9 & " 1," '결과등록이력번호
+        Sql9 = Sql9 & " '017','" '기관코드
+        Sql9 = Sql9 & PID & "','" '등록번호
+        Sql9 = Sql9 & F_RSLT & "'," '검사결과1
+        Sql9 = Sql9 & " '-'," '검사결과2
+        Sql9 = Sql9 & " '-'," '검사결과3
+        Sql9 = Sql9 & " '-'," '검사결과4
+        
+        Sql9 = Sql9 & " '-'," '검사결과5
+        Sql9 = Sql9 & " '-'," '검사결과6
+        Sql9 = Sql9 & " '" & Make_commenttext & "'," 'Comment내용
+        Sql9 = Sql9 & " '0'," '삭제구분(0:미삭제, 1:삭제)
+        Sql9 = Sql9 & " SYSDATE,'" '최초등록일시(시스템정보)
+        Sql9 = Sql9 & USERID & "'," '최초등록자ID(시스템정보)
+        Sql9 = Sql9 & " SYSDATE,'" '최종수정일시(시스템정보)
+        Sql9 = Sql9 & USERID & "')" '최종수정자ID(시스템정보)
+    Else
+        Sql9 = ""
+    End If
+
+Regist_Result_Item(ByVal PTNO, ByVal RgtDD, ByVal Reg_NO, ByVal RISKFLAGCD, ByVal ACPTDD, ByVal ACPTNO, ByVal TESTCD, ByVal ACPTITEMNO, ByVal F_RSLT, ByVal USERID)
+'=====CHECK DATA BY SELECT SQL
+    Sql = ""
+    Sql = Sql & " SELECT ptno FROM lis.lprmtrlt"
+    Sql = Sql & " WHERE"
+    Sql = Sql & " ptno='" & PTNO & "' AND"
+    Sql = Sql & " instcd='017' AND"
+    Sql = Sql & " riskflagcd='" & RISKFLAGCD & "' AND"
+    Sql = Sql & " acptdd='" & ACPTDD & "' AND"
+    Sql = Sql & " acptno=" & ACPTNO & " AND" '접수번호==>integer
+    Sql = Sql & " testcd='" & TESTCD & "' AND"
+    Sql = Sql & " acptitemno=" & ACPTITEMNO & " AND" ''접수항목번호==>integer
+    Sql = Sql & " fstrgstrid='" & USERID & "' AND"
+    Sql = Sql & " lastupdtrid='" & USERID & "' AND"
+    Sql = Sql & " testrslt='" & F_RSLT & "'"
+    
+    If SVRCon.Execute(Sql).EOF Then
+        Sql3 = ""
+        Sql3 = Sql3 & " INSERT INTO lis.lprmtrlt("
+        Sql3 = Sql3 & " ptno," ''병리번호.........
+        Sql3 = Sql3 & " rsltrgstdd," '결과등록일자.........
+        Sql3 = Sql3 & " rsltrgstno," '결과등록번호
+        Sql3 = Sql3 & " rsltrgsthistno," '결과등록이력번호
+        Sql3 = Sql3 & " riskflagcd," 'HIGH/LOW구분코드(9:NORMAL, 0:HIGH, 1:LOW)
+        Sql3 = Sql3 & " instcd," '기관코드:성빈센트병원(instcd = 017)는 고정입니다.
+        Sql3 = Sql3 & " acptdd," '접수일자
+        Sql3 = Sql3 & " acptno," '접수번호
+        Sql3 = Sql3 & " testcd," '검사코드
+        Sql3 = Sql3 & " acptitemno," '접수항목번호
+        Sql3 = Sql3 & " testrslt," '검사결과
+        Sql3 = Sql3 & " delflagcd," '삭제구분(0:미삭제, 1:삭제)
+        Sql3 = Sql3 & " fstrgstdt," '최초등록일시(시스템정보)
+        Sql3 = Sql3 & " fstrgstrid," '최초등록자ID(시스템정보)
+        Sql3 = Sql3 & " lastupdtdt," '최종수정일시(시스템정보)
+        Sql3 = Sql3 & " lastupdtrid)" '최종수정자ID(시스템정보)
+    
+        Sql3 = Sql3 & " VALUES('"
+        Sql3 = Sql3 & PTNO & "','" ''병리번호.........
+        Sql3 = Sql3 & RgtDD & "'," '결과등록일자.........
+        Sql3 = Sql3 & Reg_NO & "," '결과등록번호########
+        Sql3 = Sql3 & " 1,'" '결과등록이력번호
+        Sql3 = Sql3 & RISKFLAGCD & "'," 'HIGH/LOW구분코드(9:NORMAL, 0:HIGH, 1:LOW)
+        Sql3 = Sql3 & " '017','" '기관코드:성빈센트병원(instcd = 017)는 고정입니다.
+        Sql3 = Sql3 & ACPTDD & "',"  '접수일자
+        Sql3 = Sql3 & ACPTNO & ",'"  '접수번호==>integer
+        Sql3 = Sql3 & TESTCD & "',"  '검사코드
+        Sql3 = Sql3 & ACPTITEMNO & ",'"  '접수항목번호
+        Sql3 = Sql3 & F_RSLT & "'," '검사결과
+        Sql3 = Sql3 & " '0'," '삭제구분(0:미삭제, 1:삭제)
+        Sql3 = Sql3 & " SYSDATE,'" '최초등록일시(시스템정보)
+        Sql3 = Sql3 & USERID & "',"  '최초등록자ID(시스템정보)
+        Sql3 = Sql3 & " SYSDATE,'" '최종수정일시(시스템정보)
+        Sql3 = Sql3 & USERID & "')"  '최종수정자ID(시스템정보)
+    Else
+        Sql3 = ""
+    End If
+
+Regist_Slide(ByVal RgtDD, ByVal RgtTM, ByVal USERID, ByVal PTNO)
+    
+    Sql4 = ""
+    Sql4 = Sql4 & "Update lis.lpcmpnis set"
+    Sql4 = Sql4 & " makeenddd='" & RgtDD
+    Sql4 = Sql4 & "', makeendtm='" & RgtTM
+    Sql4 = Sql4 & "', makeendid='" & USERID
+    
+    Sql4 = Sql4 & "' WHERE"
+    Sql4 = Sql4 & " ptno='" & PTNO
+    Sql4 = Sql4 & "' AND instcd='017'"
+    
+End Sub
+Public Sub Regist_Status_Insert710(ByVal PRCPDD, ByVal EXECPRCPUNIQNO, ByVal RgtDD, ByVal RgtTM, ByVal USERID)
+'=====CHECK DATA BY SELECT SQL
+    Sql = ""
+    Sql = Sql & " SELECT PRCPDD FROM emr.mmodexpt"
+    Sql = Sql & " WHERE"
+    Sql = Sql & " PRCPDD='" & PRCPDD & "' AND"
+    Sql = Sql & " TRETFLAGCD='710' AND"
+    Sql = Sql & " instcd='017' AND"
+    Sql = Sql & " TRETPSNID='" & USERID & "' AND"
+    Sql = Sql & " FSTRGSTRID='" & USERID & "' AND"
+    Sql = Sql & " LASTUPDTRID='" & USERID & "' AND"
+    Sql = Sql & " EXECPRCPUNIQNO=" & EXECPRCPUNIQNO '실시처방유일번호(integer)
+    
+    If SVRCon.Execute(Sql).EOF Then
+        Sql5 = ""
+        Sql5 = Sql5 & " Insert into emr.mmodexpt ("
+        Sql5 = Sql5 & " PRCPDD,"
+        Sql5 = Sql5 & " EXECPRCPUNIQNO,"
+        Sql5 = Sql5 & " TRETFLAGCD,"
+        Sql5 = Sql5 & " INSTCD,"
+        Sql5 = Sql5 & " TRETDD,"
+        Sql5 = Sql5 & " TRETTM,"
+        Sql5 = Sql5 & " TRETPSNID,"
+        Sql5 = Sql5 & " FSTRGSTRID,"
+        Sql5 = Sql5 & " FSTRGSTDT,"
+        Sql5 = Sql5 & " LASTUPDTRID,"
+        Sql5 = Sql5 & " LASTUPDTDT)"
+        
+        Sql5 = Sql5 & " Values('"
+        Sql5 = Sql5 & PRCPDD & "'," '처방일자
+        Sql5 = Sql5 & EXECPRCPUNIQNO & ","  '실시처방유일번호(integer)
+        Sql5 = Sql5 & " '710',"  '==============================>Update 목적==상태코드('710')
+        Sql5 = Sql5 & " '017','" '기관코드:강남성모병원(instcd = 012)는 고정
+        Sql5 = Sql5 & RgtDD & "','" '등록일자
+        Sql5 = Sql5 & RgtTM & "','" '등록시간
+        Sql5 = Sql5 & USERID & "','" '최초등록자ID(시스템정보)
+        Sql5 = Sql5 & USERID & "'," '최초등록자ID(시스템정보)
+        Sql5 = Sql5 & " SYSDATE,'" '최초등록일시(시스템정보)
+        Sql5 = Sql5 & USERID & "'," '최종수정자ID(시스템정보)
+        Sql5 = Sql5 & " SYSDATE)" '최종수정일시(시스템정보)
+    Else
+        Sql5 = ""
+    End If
+    
+
+Regist_Status_Insert700(ByVal PRCPDD, ByVal EXECPRCPUNIQNO, ByVal RgtDD, ByVal RgtTM, ByVal USERID)
+'=====CHECK DATA BY SELECT SQL
+    Sql = ""
+    Sql = Sql & " SELECT PRCPDD FROM emr.mmodexpt"
+    Sql = Sql & " WHERE"
+    Sql = Sql & " PRCPDD='" & PRCPDD & "' AND"
+    Sql = Sql & " TRETFLAGCD='700' AND"
+    Sql = Sql & " instcd='017' AND"
+    Sql = Sql & " TRETPSNID='" & USERID & "' AND"
+    Sql = Sql & " FSTRGSTRID='" & USERID & "' AND"
+    Sql = Sql & " LASTUPDTRID='" & USERID & "' AND"
+    Sql = Sql & " EXECPRCPUNIQNO=" & EXECPRCPUNIQNO  '실시처방유일번호(integer)
+    
+    If SVRCon.Execute(Sql).EOF Then
+        Sql10 = ""
+        Sql10 = Sql10 & " Insert into emr.mmodexpt ("
+        Sql10 = Sql10 & " PRCPDD,"
+        Sql10 = Sql10 & " EXECPRCPUNIQNO,"
+        Sql10 = Sql10 & " TRETFLAGCD,"
+        Sql10 = Sql10 & " INSTCD,"
+        Sql10 = Sql10 & " TRETDD,"
+        Sql10 = Sql10 & " TRETTM,"
+        Sql10 = Sql10 & " TRETPSNID,"
+        Sql10 = Sql10 & " FSTRGSTRID,"
+        Sql10 = Sql10 & " FSTRGSTDT,"
+        Sql10 = Sql10 & " LASTUPDTRID,"
+        Sql10 = Sql10 & " LASTUPDTDT)"
+        
+        Sql10 = Sql10 & " Values('"
+        Sql10 = Sql10 & PRCPDD & "'," '처방일자
+        Sql10 = Sql10 & EXECPRCPUNIQNO & ","  '실시처방유일번호(integer)
+        Sql10 = Sql10 & " '700',"  '==============================>Update 목적==상태코드('700')
+        Sql10 = Sql10 & " '017','" '기관코드:강남성모병원(instcd = 012)는 고정
+        Sql10 = Sql10 & RgtDD & "','" '등록일자
+        Sql10 = Sql10 & RgtTM & "','" '등록시간
+        Sql10 = Sql10 & USERID & "','" '최초등록자ID(시스템정보)
+        Sql10 = Sql10 & USERID & "'," '최초등록자ID(시스템정보)
+        Sql10 = Sql10 & " SYSDATE,'" '최초등록일시(시스템정보)
+        Sql10 = Sql10 & USERID & "'," '최종수정자ID(시스템정보)
+        Sql10 = Sql10 & " SYSDATE)" '최종수정일시(시스템정보)
+    Else
+        Sql10 = ""
+    End If
+    
+
+Regist_Status_Update(ByVal Check_Kubun%, ByVal USERID, ByVal PID, ByVal PRCPDD, ByVal EXECPRCPUNIQNO, ByVal PRCPNO)
+'            lis.lpjmacpt의 prcpgenrflag가 (I, E, D)인 경우는 emr.mmodexip/emr.mmohiprc에,
+'            다른 경우는 emr.mmodexop/emr.mmohoprc에 update합니다.
+    If Check_Kubun = 1 Then '입원인 경우
+        Sql6 = ""
+        Sql6 = Sql6 & " Update emr.mmohiprc SET" '---------------------------------> 주의 요망.
+        Sql6 = Sql6 & " prcpstatcd  = '710'," '==============================>Update 목적==상태코드('710')
+        Sql6 = Sql6 & " lastupdtdt  = SYSDATE,"
+        Sql6 = Sql6 & " lastupdtrid = '" & USERID & "'"
+        Sql6 = Sql6 & " WHERE (instcd, pid, prcpdd, prcpno, prcphistno) IN"
+        Sql6 = Sql6 & " (SELECT instcd, pid, prcpdd, prcpno, prcphistno"
+        Sql6 = Sql6 & " FROM emr.mmodexip" '-------------------------> 주의 요망.
+        Sql6 = Sql6 & " WHERE"
+        Sql6 = Sql6 & " instcd         = '017'"    '기관코드:강남성모병원(instcd = 012)는 고정
+        Sql6 = Sql6 & " AND pid            = '" & PID & "'" '    ---> lis.lpjmacpt의 pid
+        Sql6 = Sql6 & " AND prcpdd         = '" & PRCPDD & "'" ' ---> lis.lpjmacpt의 prcpdd
+        Sql6 = Sql6 & " AND execprcpuniqno = '" & EXECPRCPUNIQNO & "'" '   ---> lis.lpjmacpt의 execprcpuniqno
+        Sql6 = Sql6 & " AND execprcphistcd = 'O')"
+        Sql6 = Sql6 & " AND prcphistcd   = 'O'"
+        Sql6 = Sql6 & " AND prcpclscd    = 'D2'"
+        Sql6 = Sql6 & " AND tempprcpflag = 'N'"
+        
+        Sql7 = ""
+        Sql7 = Sql7 & " Update emr.mmodexip SET" '---------------------------------> 주의 요망.
+        Sql7 = Sql7 & " execprcpstatcd  = '710'," '==============================>Update 목적==상태코드('710')
+        Sql7 = Sql7 & " lastupdtdt  = SYSDATE,"
+        Sql7 = Sql7 & " lastupdtrid = '" & USERID & "'"
+        Sql7 = Sql7 & " WHERE "
+        Sql7 = Sql7 & " instcd         = '017'"    '기관코드:강남성모병원(instcd = 012)는 고정
+        Sql7 = Sql7 & " AND prcpdd         = '" & PRCPDD & "'" ' ---> lis.lpjmacpt의 prcpdd
+        Sql7 = Sql7 & " AND execprcpuniqno = " & EXECPRCPUNIQNO  '   ---> lis.lpjmacpt의 execprcpuniqno
+        Sql7 = Sql7 & " AND execprcphistcd   = 'O'"
+        Sql7 = Sql7 & " AND prcpno   = " & PRCPNO
+    
+    Else '외래인 경우
+        Sql6 = ""
+        Sql6 = Sql6 & " Update emr.mmohoprc SET" '---------------------------------> 주의 요망.
+        Sql6 = Sql6 & " prcpstatcd  = '710'," '==============================>Update 목적==상태코드('710')
+        Sql6 = Sql6 & " lastupdtdt  = SYSDATE,"
+        Sql6 = Sql6 & " lastupdtrid = '" & USERID & "'"
+        Sql6 = Sql6 & " WHERE (instcd, pid, prcpdd, prcpno, prcphistno) IN"
+        Sql6 = Sql6 & " (SELECT instcd, pid, prcpdd, prcpno, prcphistno"
+        Sql6 = Sql6 & " FROM emr.mmodexop" '-------------------------> 주의 요망.
+        Sql6 = Sql6 & " WHERE"
+        Sql6 = Sql6 & " instcd         = '017'"    '기관코드:강남성모병원(instcd = 012)는 고정
+        Sql6 = Sql6 & " AND pid            = '" & PID & "'" '    ---> lis.lpjmacpt의 pid
+        Sql6 = Sql6 & " AND prcpdd         = '" & PRCPDD & "'" ' ---> lis.lpjmacpt의 prcpdd
+        Sql6 = Sql6 & " AND execprcpuniqno = " & EXECPRCPUNIQNO  '   ---> lis.lpjmacpt의 execprcpuniqno
+        Sql6 = Sql6 & " AND execprcphistcd = 'O')"
+        Sql6 = Sql6 & " AND prcphistcd   = 'O'"
+        Sql6 = Sql6 & " AND prcpclscd    = 'D2'"
+        Sql6 = Sql6 & " AND tempprcpflag = 'N'"
+    
+        Sql7 = ""
+        Sql7 = Sql7 & " Update emr.mmodexop SET" '---------------------------------> 주의 요망.
+        Sql7 = Sql7 & " execprcpstatcd  = '710'," '==============================>Update 목적==상태코드('710')
+        Sql7 = Sql7 & " lastupdtdt  = SYSDATE,"
+        Sql7 = Sql7 & " lastupdtrid = '" & USERID & "'"
+        Sql7 = Sql7 & " WHERE "
+        Sql7 = Sql7 & " instcd         = '017'"    '기관코드:강남성모병원(instcd = 012)는 고정
+        Sql7 = Sql7 & " AND prcpdd         = '" & PRCPDD & "'" ' ---> lis.lpjmacpt의 prcpdd
+        Sql7 = Sql7 & " AND execprcpuniqno = " & EXECPRCPUNIQNO   '   ---> lis.lpjmacpt의 execprcpuniqno
+        Sql7 = Sql7 & " AND execprcphistcd   = 'O'"
+        Sql7 = Sql7 & " AND prcpno   = " & PRCPNO
+    End If
+    
+
+Regist_Status_Update_ACPT(ByVal ACPTDD, ByVal ACPTNO, ByVal ACPTITEMNO, ByVal PTNO, ByVal PID)
+'lis.lpjmacpt의 acptstatcd를 '2'으로 update합니다. (0:접수, 1:취소, 2:결과등록, 3:진단, 4:수정결과)
+    Sql8 = ""
+    Sql8 = Sql8 & " Update lis.lpjmacpt Set"
+    Sql8 = Sql8 & " acptstatcd='2'"
+    Sql8 = Sql8 & " Where"
+    Sql8 = Sql8 & " ACPTDD='" & ACPTDD '접수일자
+    Sql8 = Sql8 & "' And ACPTNO=" & ACPTNO '접수번호
+    Sql8 = Sql8 & " And ACPTITEMNO=" & ACPTITEMNO '접수항목번호
+    Sql8 = Sql8 & " And PTNO='" & PTNO '병리번호
+    Sql8 = Sql8 & "' And PID='" & PID & "'" '등록번호
+
+

@@ -1,0 +1,7 @@
+SELECT DISTINCT LABCODE AS ITEM            
+  FROM SLA_Labresult                       
+ WHERE LABCODE IN ('D0113')     
+   AND RECEIPTDATE = '2021-02-16'  
+   AND SPECIMENNUM = '453929'  
+ ORDER BY LABCODE                          
+

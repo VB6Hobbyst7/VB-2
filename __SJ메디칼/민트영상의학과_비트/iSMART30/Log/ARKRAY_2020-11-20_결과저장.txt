@@ -1,0 +1,12 @@
+UPDATE ME_LABDAT                           
+   Set LABRESULT = '5.5'       
+     , LABENDDEP = '2'                     
+     , LABRSTDTE = '2020-11-20'       
+     , LABRSTTIM = '14:34:24'       
+     , LABRSTUID = 'A1c'  
+     , LABRSTCOM = 'ARKRAY'  
+ WHERE LABATTEND = '2020112012522600134593'      
+   And LABODRCOD = 'D3061'     
+   And LABODRSTP = '1'      
+   And LABODRDTE = '2020-11-20'   
+

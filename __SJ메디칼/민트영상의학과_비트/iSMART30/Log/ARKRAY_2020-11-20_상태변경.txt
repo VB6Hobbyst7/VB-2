@@ -1,0 +1,10 @@
+UPDATE ME_DAT                              
+   Set DATENDDEP   = '2'                   
+     , DATRSTDTE = '2020-11-20'       
+     , DATRSTTIM = '14:34:24'       
+     , DATRSTUID = 'A1c'  
+     , DATRSTCOM = 'ARKRAY'  
+ WHERE DATATTEND = '2020112012522600134593'      
+   And DATODRCOD = 'D3061'     
+   And DATODRSTP = '1'      
+   And DATODRDTE = '2020-11-20'

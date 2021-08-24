@@ -1,0 +1,8 @@
+UPDATE H3LAB_RESULT    
+   SET STS_CD     = 'R'
+      ,RESULT_VAL = '5.6'      
+      ,RESULT_NM  = '5.6'      
+      ,HL_GB      = ''     
+ WHERE RECEPT_NO  = '24052'   
+   And ORD_CD     = 'D3064030'    
+

@@ -1,0 +1,88 @@
+의정부성모병원 병리과 담당자 박현민 내선 031-820-3166     (긴급 : 010-4706-1955)
+ 
+/*    시스템 database 접속 정보와 병리과 사용자 확인 정보 전달 합니다.(패스워드는 암호화 제공이 되지 않습니다. 사원번호만으로 확인을 합니다.)
+      의정부성모병원 ORACLE 로그인 아이디 / 패스워드 = lisu02 / lisu02
+1. Tnsname 접속 정보
+ 
+의정부성모병원 운영(REAL)  이중화 1호기 실패시 2호기
+REAL_HIS013_CTF=
+    (DESCRIPTION=
+        (ADDRESS_LIST=
+            (ADDRESS=(PROTOCOL=TCP)(HOST=172.17.41.151)(PORT=1521))
+            (ADDRESS=(PROTOCOL=TCP)(HOST=172.17.41.152)(PORT=1521))
+            (FAILOVER=ON)
+            (LOAD_BALANCE=OFF)
+        )
+        (CONNECT_DATA=
+            (SERVICE_NAME=HIS013)
+        )
+    )
+ 
+ 
+# 의정부성모병원 교육(TEST)
+ 
+HIS013_EDU=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=172.17.102.183)
+      (PORT=1525)
+    )
+    (CONNECT_DATA=
+      (SERVICE_NAME=HIS013)
+    )
+  )
+ 
+*/
+ 
+ 
+/* -- 병리과 소속  사용자 로그인 정보 요청자 사번 10708735 / 박현민
+param=['10708735']
+의정부성모병원 병리과 기준자료에 등록된 분들만 대상으로 조회됩니다.
+*/
+select usab.instcd, -- 기관기호
+       usab.userid, -- 사용자아이디
+       usrb.usernm as usernm -- 사용자성명    <--- 빈센트와 다릅니다.
+  from lis.lpcmusab usab,  -- 병리과 사용자관리
+       com.zsumusrb usrb   -- 시스템 사용자정보
+ where usab.instcd     = '013'
+   and usab.delflagcd  = '0'
+   and usab.userid  = :arg_userid
+   and usab.userid  = usrb.userid
+   and to_char(sysdate,'yyyymmdd')    between usrb.userfromdd and usrb.usertodd
+ 
+ 
+참고 - 성빈센트와 모두 동일합니다. (참고 사항으로 기재합니다.)
+필수점검사항 점검사항 - 성빈센트와 동일합니다.
+ 
+1. lis.lpjmacpt -- 검체접수정보관리 테이블의 ACPTSTATCD 접수상태코드(0:접수,1:취소,2:예비결과,3:최종결과, 4:수정결과) 관련하여
+   acptstatcd 코드가 0,2 일경우만 0 : 최초연동, 2 : 재연동이 되고 다른 상태에서는 연동이 되어서는 안됩니다.
+  
+    is.lpjmacpt.acptstatcd 값을 비교하여 acptstatcd 코드가 0,2 일경우만 0 : 최초연동, 2 : 재연동
+    아닐경우
+    "해당 처방의 정보가 변경되었습니다. 확인바랍니다." 메세지 팝업하고 Roll Back 을 합니다.
+    아래내역은 보내주신 처리로그중에 수정해주시면 됩니다.
+ 
+2. 워크리스트 조회하는 sql 의 항목값 ACPT.acptstatcd as STATCD  ==> '0' 또는 '2' 일때만 프로그램 연동되고 다른 상태 코드일경우는 Blocking 막아주세요
+SELECT /*+ leading(acpt) */   ACPT.INSTCD , ACPT.ACPTDD AS HOSPDATE, ACPT.ACPTNO AS BARCODE, ACPT.ACPTITEMNO AS SEQ, ACPT.ptno
+AS CHARTNO,
+ACPT.acptstatcd as STATCD , <==
+ACPT.pid AS PID, ACPT.prcpgenrflag AS INOUT, ACPT.ORDDEPTCD AS RACKNO, DEPT.deptengabbr
+AS POSNO, ACPT.PRCPDD AS KEY1, ACPT.EXECPRCPUNIQNO AS KEY2, ACPT.prcpno AS JUMIN, PTBS.hngnm AS PNAME, PTBS.SEX AS SEX,
+PTBS.BRTHDD AS DOB, com.fn_zz_getage(ptbs.rrgstno1, ptbs.rrgstno2, acpt.acptdd, 'A', ptbs.brthdd) as AGE,,
+( SELECT min(rslt.rsltrgstno)
+    FROM lis.lprmrslt rslt
+   WHERE ACPT.instcd = rslt.instcd
+     AND ACPT.ptno   = rslt.ptno
+     AND ACPT.pid    = rslt.pid
+     AND rslt.delflagcd = '0'
+     AND rslt.rsltrgsthistno = 1
+) as rsltrgstno   
+FROM lis.lpjmacpt ACPT, lis.lpcmtest TEST, lis.lpcmspcm SPCM, pam.pmcmptbs PTBS, com.zsdddept DEPT  
+WHERE ACPT.instcd= :V00001     AND
+ACPT.acptdd BETWEEN :V00002 AND :V00003     AND ACPT.testcd IN (:V00004)     
+AND ACPT.acptstatcd = 0    <== 이부분은 사용자와 협의되어 전송/미전송으로 협의 하시면됩니다. ( 샘플 화면에서 조회조건 체크박스 ■ 전체, □ 연동, □ 미연동 )
+ AND ACPT.instcd        
+  = TEST.instcd    AND ACPT.testcd          = TEST.testcd    AND ACPT.instcd          = SPCM.instcd    AND ACPT.spccd           
+= SPCM.spccd    AND ACPT.instcd          = PTBS.instcd    AND ACPT.pid             = PTBS.pid    AND ACPT.instcd          =
+DEPT.instcd    AND ACPT.orddeptcd       = DEPT.deptcd    AND ACPT.prcpdd BETWEEN DEPT.valifromdd AND DEPT.valitodd

@@ -1,0 +1,56 @@
+1. 파일열기
+
+	1-1. Sub MakeLayout
+		1-1-1. Function objMake
+			[대체 속성]
+			- Static Label			
+			무조건고정 : obj.DataMember [chkTStatic.Value]
+			출력안함   : obj.DataField [chkPrint.Value]
+
+			- Dynamic Label			
+			출력안함   : obj.DataMember [chkPrint.Value]
+			
+			- Static Image
+			이미지경로 : obj.DataMember [txtImageName(0).Text]
+			무조건고정 : obj.ToolTipText [chkIStatic.Value]
+			출력안함   : obj.DataField [chkPrint.Value]
+			
+			- Dynamic Image
+			이미지경로 : obj.DataMember [txtImageName(0).Text]
+			출력안함   : obj.DataField [chkPrint.Value]
+			
+			- Barcode : Barcode Image
+			이미지경로 : obj.DataMember [txtImageName(0).Text]
+			바코드타입 : obj.ToolTipText [cboBarType.ListIndex]
+			출력안함   : obj.DataField [chkPrint.Value]
+
+			- Line : Line Image
+			출력안함   : obj.ToolTipText [chkPrint.Value]
+			Rotate     : obj.DataMember [chkLineRotate.Value]
+
+
+			
+			성공 : 끝
+			실패 : 객체명 리네임 한 후 1-1.다시 진행
+	1-2. Sub SetList
+
+2. 적용(개체수정)
+
+
+3. 전체이동
+
+
+4. 크기조정
+
+
+5. 저장
+
+
+6. 삭제
+
+
+7. 인쇄
+
+
+8. 설정
+

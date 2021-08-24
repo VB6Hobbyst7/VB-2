@@ -1,0 +1,56 @@
+.OPTION EXPLICIT
+.Set Cabinet=off
+.Set Compress=off
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=6144
+.Set DiskDirectoryTemplate=".."
+.Set CompressionType=MSZIP
+.Set CompressionLevel=7
+.Set CompressionMemory=21
+.Set CabinetNameTemplate="LabelDesign.CAB"
+"Setup.Lst"
+"setup.exe"
+.Set Cabinet=on
+.Set Compress=on
+"LabelDesign.exe"
+"MSVBVM60.DLL"
+"OLEAUT32.DLL"
+"OLEPRO32.DLL"
+"ASYCFILT.DLL"
+"STDOLE2.TLB"
+"COMCAT.DLL"
+"VB6KO.DLL"
+"dao360.dll"
+"msjet40.dll"
+"msjter40.dll"
+"msjint40.dll"
+"vbajet32.dll"
+"expsrv.dll"
+"mswstr10.dll"
+"mswdat10.dll"
+"msrd2x40.dll"
+"msrd3x40.dll"
+"msrepl40.dll"
+"msjtes40.dll"
+"VB5DB.DLL"
+"MSCOMCTL.OCX"
+"MSCMCKO.DLL"
+"Comdlg32.ocx"
+"CMDLGKO.DLL"
+"TABCTL32.OCX"
+"TABCTKO.DLL"
+"SPR32X30.ocx"
+"mfc42.dll"
+"MSVCRT.DLL"
+"MSVCRT40.DLL"
+"barcod32.ocx"
+"SETUP1.EXE"
+"VB6STKIT.DLL"
+"ST6UNST.EXE"
+"ostem.ini"
+"hline.jpg"
+"wline.jpg"
+"noimage.bmp"
+"sample.lof"
+"Job.txt"
+"log.txt"

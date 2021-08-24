@@ -1,0 +1,11 @@
+UPDATE PATRESULT SET HOSPDATE = '접수일자' 
+,BARCODE = '검체번호' 
+,PID = '등록번호' 
+,HOSPITAL = '검사명' 
+,INOUT = '입/외' 
+,PNAME = '환자명' 
+,PSEX = '성별' 
+,PAGE = '나이' 
+ WHERE EQUIPNO = 'B4C' 
+   AND SAVESEQ = SN
+   AND BARCODE = '' 

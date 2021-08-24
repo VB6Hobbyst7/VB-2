@@ -1,0 +1,483 @@
+OLLYDBG EXCEPTION PROTOCOL
+
+This file is created by OllyDbg due to unrecoverable error. It
+contains data necessary to locate and remove this and previous
+errors. Please describe circumstances that preceded exception:
+
+>
+>
+>
+>
+
+and email protocol to:
+
+   Ollydbg@t-online.de
+
+Feel free to remove any private data. Thank you for your help!
+
+Operating system:   5.1.2600, platform 2 (Service Pack 3)
+OllyDbg version:    2.01.00 alpha 4
+Exception code:     C0000005
+Parameters:         00000000 000E05BA
+Exception address:  00425E7D
+Executable module:  D:\
+
+EAX=00000001  EBX=00000000  ECX=000E05B6  EDX=000E05B6
+ESP=0012A994  EBP=0012A9D4  ESI=0040926C  EDI=0012BDD4
+EIP=00425E7D  EFL=00210202
+
+Code dump:
+00425E3D  00 00 00 F6  45 FC 10 75  01 4A 52 66  8B 4D 08 66
+00425E4D  81 E1 FF FF  0F B7 C1 50  FF 75 0C E8  E9 7C 0C 00
+00425E5D  85 C0 74 06  83 7D E0 00  75 0D 68 64  F2 50 00 E8
+00425E6D  DF 2E FE FF  59 EB 23 8B  55 E0 89 55  F0 8B 4D F0
+00425E7D> 83 79 04 00  75 07 B8 64  F2 50 00 EB  06 8B 55 F0
+00425E8D  8B 42 04 50  E8 BA 2E FE  FF 59 8B E5  5D C3 90 55
+00425E9D  8B EC 83 C4  B8 83 7D 08  00 0F 84 3F  01 00 00 FF
+00425EAD  35 CC 5C 56  00 E8 7D 7C  0C 00 85 C0  0F 85 2C 01
+00425EBD  00 00 E8 5C  7B 0C 00 89  45 EC 83 7D  EC 00 0F 84
+00425ECD  1A 01 00 00  FF 75 EC FF  35 CC 5C 56  00 E8 99 7D
+
+Stack dump:
+0012A994  00000030 00000020 00000000 00000000  0... ...........
+0012A9A4  00000000 00000000 00000000 00000000  ................
+0012A9B4  000E05B6 00000000 00000000 00000000  ∂...............
+0012A9C4  000E05B6 00000000 00000000 00008090  ∂...........êÄ..
+0012A9D4  0012BD6C 00409978 80900000 00BD06CF  lΩ..xô@...êÄœ.Ω.
+0012A9E4  0012BDD4 0040926C 00000000 7FFDF000  ‘Ω..lí@......˝
+0012A9F4  00000000 010A076F 00000000 00000000  ....o...........
+0012AA04  77D0B372 00000000 00000000 0012AA34  r≥–w........4™..
+0012AA14  00000282 009B73B8 0012AA48 77D3661E  Ç...∏sõ.H™...f”w
+0012AA24  000C0000 00000000 0012AA34 10078120  ........4™.. Å..
+0012AA34  00000000 00000000 00000002 00000282  ............Ç...
+0012AA44  000B042C 0012AA70 77D08EEC 009B73B8  ,...p™..Ïé–w∏sõ.
+0012AA54  00000282 00000002 77D08EFC 00000000  Ç.......¸é–w....
+0012AA64  00000000 00000000 00000000 0012AAD0  ............–™..
+0012AA74  7C93E473 0012AA80 00000018 009B73B8  s‰ì|Ä™......∏sõ.
+0012AA84  00000282 00000002 00000000 10078120  Ç........... Å..
+0012AA94  77D365C0 77CF94BE 77D0C174 000B042C  ¿e”wæîœwt¡–w,...
+0012AAA4  00000282 00000002 00000000 00000000  Ç...............
+0012AAB4  000002B0 00000000 00149E00 009B73B8  ∞........û..∏sõ.
+0012AAC4  00000002 000B042C 0014F404 0012AB18  ....,....Ù...´..
+0012AAD4  77D2B642 009B73B8 00000282 00000002  B∂“w∏sõ.Ç.......
+0012AAE4  00000000 00000000 0012BF84 0040926C  ........Ñø..lí@.
+0012AAF4  00000000 7C93F668 FFFFFFFF 7C93F661  ....hˆì|....aˆì|
+0012AB04  77F56A4E 77F56A87 100D30D0 80000002  Njıwájıw–0.....Ä
+0012AB14  00000020 0012AB34 77D08DD9 002D03CE   ...4´..Ÿç–wŒ.-.
+0012AB24  00000282 00000002 00000000 00000000  Ç...............
+0012AB34  77CF8BD9 77D51088 0012AA98 0012AB7C  Ÿãœwà.’wò™..|´..
+0012AB44  77D08DAC 77D08D8B 0012BF84 0040926C  ¨ç–wãç–wÑø..lí@.
+0012AB54  00000000 00000000 00000001 00000000  ................
+0012AB64  0012AB4C 7C7DBB20 0012BFA0 77D2048F  L´.. ª}|†ø..è.“w
+0012AB74  77D08D90 FFFFFFFF 77D08D8B 0040B399  êç–w....ãç–wô≥@.
+0012AB84  002D03CE 00000282 00000002 00000000  Œ.-.Ç...........
+
+Stack walk:
+0012A9D4  0012BD6C 00409978 80900000 00BD06CF 0012BDD4 0040926C 
+          00000000 7FFDF000 00000000 010A076F 00000000 00000000 
+          (D:\)
+0012BD6C  0012BD98 77CF8734 002D03CE 0000011F 80900000 00BD06CF 
+          0040926C DCBAABCD 00000000 0012BDD4 0040926C 0012BE00 
+          (C:\WINDOWS\system32\USER32.dll)
+0012BD98  0012BE00 77CF8816 0040926C 002D03CE 0000011F 80900000 
+          00BD06CF 0000011F 0040926C 00000000 00000014 00000001 
+          (C:\WINDOWS\system32\USER32.dll)
+0012BE00  0012BE30 77D0A013 00000000 0040926C 002D03CE 0000011F 
+          80900000 00BD06CF 00000000 00000000 00000000 0014D4E0 
+          (C:\WINDOWS\system32\USER32.dll)
+0012BE30  0012BE50 77D0A039 0040926C 002D03CE 0000011F 80900000 
+          00BD06CF 00000000 0012BE6C 5C825E5E 0040926C 002D03CE 
+          (C:\WINDOWS\system32\USER32.dll)
+0012BE50  0012BE6C 5C825E5E 0040926C 002D03CE 0000011F 80900000 
+          00BD06CF 0012BEC8 5C82602F 002D03CE 0000011F 80900000 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012BE6C  0012BEC8 5C82602F 002D03CE 0000011F 80900000 00BD06CF 
+          00000000 0040926C 00000000 0014D4E0 00000000 5C825E44 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012BEC8  0012BEEC 5C825FE4 0014D4E0 002D03CE 0000011F 80900000 
+          00BD06CF 0000011F 002D03CE 0012BF08 5C8731A2 002D03CE 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012BEEC  0012BF08 5C8731A2 002D03CE 0000011F 80900000 00BD06CF 
+          0014D4E0 0012BF64 5C82602F 002D03CE 0000011F 80900000 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012BF08  0012BF64 5C82602F 002D03CE 0000011F 80900000 00BD06CF 
+          000A0532 00000018 002D03CE 0014D4E0 00000000 5C873149 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012BF64  0012BFB8 5C8260BE 0014D4E0 002D03CE 0000011F 80900000 
+          00BD06CF 0012C020 5C82607D 00000000 00000002 00000000 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012BFB8  0012BFE4 77CF8734 002D03CE 0000011F 80900000 00BD06CF 
+          5C82607D DCBAABCD 00000000 0012C020 5C82607D 0012C04C 
+          (C:\WINDOWS\system32\USER32.dll)
+0012BFE4  0012C04C 77CF8816 5C82607D 002D03CE 0000011F 80900000 
+          00BD06CF 00000000 002D03CE 008215E8 00000014 00000001 
+          (C:\WINDOWS\system32\USER32.dll)
+0012C04C  0012C0A0 77D08EA0 00000000 5C82607D 002D03CE 0000011F 
+          80900000 00BD06CF 009B712C 00000001 00000112 009B7118 
+          (C:\WINDOWS\system32\USER32.dll)
+0012C0A0  0012C0C8 77D08EEC 009B7118 0000011F 80900000 00BD06CF 
+          5C82607D 00000000 00000000 00000000 0012C140 7C93E473 
+          (C:\WINDOWS\system32\USER32.dll)
+0012C0C8  0012C140 7C93E473 0012C0D8 00000018 009B7118 0000011F 
+          80900000 00BD06CF 5C82607D 77D08E53 77CF94BE 77D08E0D 
+          (C:\WINDOWS\system32\ntdll.dll)
+0012C140  0012C15C 77D08DD9 002D03CE 00000112 0000F095 0023000C 
+          00000000 0012C174 5A483BC2 002D03CE 00000112 0000F095 
+          (C:\WINDOWS\system32\USER32.dll)
+0012C15C  0012C174 5A483BC2 002D03CE 00000112 0000F095 0023000C 
+          0012C184 5A49C7F6 0012C1A0 003E48B8 0012C1D4 5A481AC7 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012C174  0012C184 5A49C7F6 0012C1A0 003E48B8 0012C1D4 5A481AC7 
+          003E48B8 0012C1A0 0012D640 0040926C 00000000 002D03CE 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012C184  0012C1D4 5A481AC7 003E48B8 0012C1A0 0012D640 0040926C 
+          00000000 002D03CE 00000112 0000F095 0023000C 00000004 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012C1D4  0012C1F0 5A481B3D 5A49C7CB 00000000 0000F095 0023000C 
+          00000001 0012C238 77D094ED 002D03CE 00000112 0000F095 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012C1F0  0012C238 77D094ED 002D03CE 00000112 0000F095 0023000C 
+          0012D640 0040926C 00000000 00000004 00000001 100D30D0 
+          (C:\WINDOWS\system32\USER32.dll)
+0012C238  0012D5D8 00409B40 002D03CE 00000112 0000F095 0023000C 
+          0012D640 0040926C 00000000 00000000 00000000 0012C518 
+          (D:\)
+0012D5D8  0012D604 77CF8734 002D03CE 00000112 0000F095 0023000C 
+          0040926C DCBAABCD 00000000 0012D640 0040926C 0012D66C 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D604  0012D66C 77CF8816 0040926C 002D03CE 00000112 0000F095 
+          0023000C 00000112 0040926C 0000F095 00000014 00000001 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D66C  0012D69C 77D0A013 00000000 0040926C 002D03CE 00000112 
+          0000F095 0023000C 00000000 00000000 00000000 0014D4E0 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D69C  0012D6BC 77D0A039 0040926C 002D03CE 00000112 0000F095 
+          0023000C 00000000 0012D6D8 5C825E5E 0040926C 002D03CE 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D6BC  0012D6D8 5C825E5E 0040926C 002D03CE 00000112 0000F095 
+          0023000C 0012D734 5C82602F 002D03CE 00000112 0000F095 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012D6D8  0012D734 5C82602F 002D03CE 00000112 0000F095 0023000C 
+          00000000 0040926C 00000000 0014D4E0 0000F095 5C825E44 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012D734  0012D758 5C825FE4 0014D4E0 002D03CE 00000112 0000F095 
+          0023000C 00000112 002D03CE 0012D774 5C8731A2 002D03CE 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012D758  0012D774 5C8731A2 002D03CE 00000112 0000F095 0023000C 
+          0014D4E0 0012D7D0 5C82602F 002D03CE 00000112 0000F095 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012D774  0012D7D0 5C82602F 002D03CE 00000112 0000F095 0023000C 
+          000A0532 00000018 002D03CE 0014D4E0 0000F095 5C873149 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012D7D0  0012D824 5C8260BE 0014D4E0 002D03CE 00000112 0000F095 
+          0023000C 0023000C 5C82607D 0000F095 00000002 00000000 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012D824  0012D850 77CF8734 002D03CE 00000112 0000F095 0023000C 
+          5C82607D DCBAABCD 0000F095 0023000C 5C82607D 0012D8B8 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D850  0012D8B8 77D0BDF1 5C82607D 002D03CE 00000112 0000F095 
+          0023000C 00000000 002D03CE 008215E8 00000014 00000001 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D8B8  0012D90C 77D08EA0 00000000 5C82607D 002D03CE 00000112 
+          0000F095 0023000C 009B712C 00000001 000000A1 009B7118 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D90C  0012D934 77D08EEC 009B7118 00000112 0000F095 0023000C 
+          5C82607D 00000000 00000000 00000000 0012D9AC 7C93E473 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D934  0012D9AC 7C93E473 0012D944 00000018 009B7118 00000112 
+          0000F095 0023000C 5C82607D 77D08E53 77CF94BE 77D08E0D 
+          (C:\WINDOWS\system32\ntdll.dll)
+0012D9AC  0012D9C8 77D08DD9 002D03CE 000000A1 00000005 0023000C 
+          00000000 0012D9E0 5A483BC2 002D03CE 000000A1 00000005 
+          (C:\WINDOWS\system32\USER32.dll)
+0012D9C8  0012D9E0 5A483BC2 002D03CE 000000A1 00000005 0023000C 
+          0012D9F8 5A4A882A 0012DA14 002D03CE 003E48B8 00000000 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012D9E0  0012D9F8 5A4A882A 0012DA14 002D03CE 003E48B8 00000000 
+          0012DA48 5A481AC7 003E48B8 0012DA14 009B7118 00158A30 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012D9F8  0012DA48 5A481AC7 003E48B8 0012DA14 009B7118 00158A30 
+          009E3850 002D03CE 000000A1 00000005 0023000C 00000004 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012DA48  0012DA64 5A481B3D 5A4A87ED 00000000 00000005 0023000C 
+          00000001 0012DAAC 77D094ED 002D03CE 000000A1 00000005 
+          (C:\WINDOWS\system32\uxtheme.dll)
+0012DA64  0012DAAC 77D094ED 002D03CE 000000A1 00000005 0023000C 
+          009B7118 00158A30 009E3850 00000002 00000001 009B7118 
+          (C:\WINDOWS\system32\USER32.dll)
+0012DAAC  0012DAC4 77D09D09 002D03CE 000000A1 00000005 0023000C 
+          0012DB2C 77D108E6 009B7118 000000A1 00000005 0023000C 
+          (C:\WINDOWS\system32\USER32.dll)
+0012DAC4  0012DB2C 77D108E6 009B7118 000000A1 00000005 0023000C 
+          00000000 0040926C 00000000 0012EF58 7C9442B8 FFFFFFFF 
+          (C:\WINDOWS\system32\USER32.dll)
+0012DB2C  0012DB4C 77D1084E 002D03CE 000A0508 000000A1 00000005 
+          0023000C 00000000 0012EEF0 0040B3B2 002D03CE 000A0508 
+          (C:\WINDOWS\system32\USER32.dll)
+0012DB4C  0012EEF0 0040B3B2 002D03CE 000A0508 000000A1 00000005 
+          0023000C 0012EF58 0040926C 00140000 00149710 0012DB68 
+          (D:\)
+0012EEF0  0012EF1C 77CF8734 002D03CE 000000A1 00000005 0023000C 
+          0040926C DCBAABCD 00000000 0012EF58 0040926C 0012EF84 
+          (C:\WINDOWS\system32\USER32.dll)
+0012EF1C  0012EF84 77CF8816 0040926C 002D03CE 000000A1 00000005 
+          0023000C 000000A1 0040926C 00000000 00000014 00000001 
+          (C:\WINDOWS\system32\USER32.dll)
+0012EF84  0012EFB4 77D0A013 00000000 0040926C 002D03CE 000000A1 
+          00000005 0023000C 00000000 00000000 00000000 0014D4E0 
+          (C:\WINDOWS\system32\USER32.dll)
+0012EFB4  0012EFD4 77D0A039 0040926C 002D03CE 000000A1 00000005 
+          0023000C 00000000 0012EFF0 5C825E5E 0040926C 002D03CE 
+          (C:\WINDOWS\system32\USER32.dll)
+0012EFD4  0012EFF0 5C825E5E 0040926C 002D03CE 000000A1 00000005 
+          0023000C 0012F04C 5C82602F 002D03CE 000000A1 00000005 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012EFF0  0012F04C 5C82602F 002D03CE 000000A1 00000005 0023000C 
+          00000000 0040926C 00000000 0014D4E0 00000000 5C825E44 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012F04C  0012F070 5C825FE4 0014D4E0 002D03CE 000000A1 00000005 
+          0023000C 000000A1 002D03CE 0012F08C 5C8731A2 002D03CE 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012F070  0012F08C 5C8731A2 002D03CE 000000A1 00000005 0023000C 
+          0014D4E0 0012F0E8 5C82602F 002D03CE 000000A1 00000005 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012F08C  0012F0E8 5C82602F 002D03CE 000000A1 00000005 0023000C 
+          000A0532 00000018 002D03CE 0014D4E0 00000000 5C873149 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012F0E8  0012F13C 5C8260BE 0014D4E0 002D03CE 000000A1 00000005 
+          0023000C 0012F1A4 5C82607D 00000000 00000002 00000002 
+          (C:\WINDOWS\system32\COMCTL32.DLL)
+0012F13C  0012F168 77CF8734 002D03CE 000000A1 00000005 0023000C 
+          5C82607D DCBAABCD 00000000 0012F1A4 5C82607D 0012F1D0 
+          (C:\WINDOWS\system32\USER32.dll)
+0012F168  0012F1D0 77CF8816 5C82607D 002D03CE 000000A1 00000005 
+          0023000C 0012F2A8 0012F2A0 009B7118 00000014 00000001 
+          (C:\WINDOWS\system32\USER32.dll)
+0012F1D0  0012F230 77CF89CD 00000000 5C82607D 002D03CE 000000A1 
+          00000005 0023000C 009B712C 00000001 0056D998 0012F618 
+          (C:\WINDOWS\system32\USER32.dll)
+0012F230  0012F240 77CF8A10 0012F2A0 00000000 0012FF88 0040F0EE 
+          0012F2A0 00000000 004EE190 001423AD 00000020 0000001B 
+          (C:\WINDOWS\system32\USER32.dll)
+0012F240  0012FF88 0040F0EE 0012F2A0 00000000 004EE190 001423AD 
+          00000020 0000001B 7FFFFFFF 7FFFFFFF FFFFFFFF FB57A000 
+          (D:\)
+0012FF88  0012FFB8 004E9163 00400000 00000000 001423AD 00000001 
+          02FDD680 7C93D96E 7FFD4000 7FFD4000 0012FFE0 004E08D4 
+          (D:\)
+0012FFB8  0012FFF0 00000000 004EE190 7C7E7077 02FDD680 7C93D96E 
+          7FFD4000 805532FA 0012FFC8 83449C00 FFFFFFFF 7C809AD8 
+
+[Settings]
+Check DLL versions=0
+Topmost window=0
+Show main menu items that don't apply=0
+Show popup items that don't apply=0
+Show toolbar=1
+Use system colours in toolbar=0
+Status in toolbar=0
+Flash duration=1
+Autoupdate interval=4
+Mode of main window=0
+Restore windows=1
+Bring OllyDbg to top on pause=1
+Restore window positions=1
+Restore width of columns=0
+Restore sorting criterium=1
+Highlight sorted column=1
+Right click selects=1
+Index of default font=1
+Index of default UNICODE font=3
+Index of default colours=0
+Code highlighting=0
+Horizontal scroll=0
+Snow-free drawing=1
+Append arguments=1
+Allow diacritical symbols=0
+Decode pascal strings=1
+Use IsTextUnicode=0
+String decoding=0
+File graph mode=1
+Put ASCII text to clipboard=0
+Dialog font mode=0
+Font in dialogs=0
+Align dialogs=1
+Global search=1
+Aligned search=0
+Ignore case=0
+Search direction=1
+Floating search with margin=0
+Allow extra commands in sequence=1
+Allow jumps into the sequence=0
+Keep size of hex edit selection=1
+List sorting mode=0
+Modify FPU tag=0
+MMX display mode=0
+Show tooltips in dialog windows=1
+X options coordinate=755
+Y options coordinate=198
+Last selected options pane=1
+Last edited font in options=0
+Last edited scheme in options=0
+Last edited colour index in options=0
+Last edited highlighting in options=1
+Last edited highlighting index in options=0
+Warnmode when not administrator=1
+Warnmode for packed code in Analyzer=0
+Warnmode when INT3 breakpoint is corrupt=0
+Warnmode when breakpoint set on non-command=0
+Warnmode when EIP set on non-command=0
+Warnmode when clipboard size too large=0
+Warnmode when all threads are suspended=0
+Warnmode when thread is changed=0
+Warnmode when process is still running=0
+Warnmode when active when closing OllyDbg=6
+Warnmode when unable to close process=0
+Warnmode when executable differs from udd=0
+Warnmode when INT3 in udd has different cmd=0
+Warnmode when fixups are modified=0
+Warnmode when copy of executable file changed=0
+Warnmode when memory breakpoint on stack=0
+Warnmode when modified debug registers=0
+Warnmode when launching loaddll=0
+Warnmode when EIP inside the patch=0
+Only ASCII printable in dump=0
+Code page for ASCII dumps=1252
+Underline fixups=1
+Show jump direction=1
+Show jump path=1
+Show grayed path if jump is not taken=1
+Fill rest of command with NOPs=1
+Action on letter key in Disassembler=1
+Wide characters in UNICODE dumps=1
+Automatically backup user code=0
+Visible lines when scrolling disasm=1
+IDEAL disassembling mode=0
+Disassemble in lowercase=0
+Separate arguments with TAB=0
+Extra space between arguments=0
+Show default segments=1
+Always show memory size=1
+NEAR jump modifiers=0
+Use short form of string commands=0
+Use RET instead of RETN=0
+SSE size decoding mode=0
+Jump hint decoding mode=0
+Size sensitive mnemonics=1
+Top of FPU stack=1
+Show symbolic addresses=1
+Show local module names=0
+Demangle symbolic names=0
+Use hardware breakpoints for stepping=0
+First pause=3
+Pause on attach=1
+Pause on Loaddll=1
+Assume flat selectors=0
+Ignore access violations in KERNEL32=1
+Ignore INT3=0
+Ignore TRAP=0
+Ignore access violations=0
+Ignore division by 0=0
+Ignore illegal instructions=0
+Ignore all FPU exceptions=0
+Ignore all service exceptions=1
+Ignore custom exception ranges=0
+Call UnhandledExceptionFilter=0
+Report ignored exceptions to log=1
+Autoreturn=0
+Use DebugBreakProcess=0
+Use ExitProcess=1
+Warn when frequent breaks=1
+Allow command emulation=1
+Debug child processes=0
+Animation delay index=0
+Stop on new DLL=0
+Stop on DLL unload=0
+Stop only on selected modules=0
+Stop on debug string=0
+Stop on new thread=0
+Stop on thread end=0
+Enable use of debugging data=1
+Use dbghelp to walk stack=0
+Use Microsoft Symbol Server=0
+Hide missing source files=1
+Hide internal compiler names=1
+Skip leading spaces from source=1
+Hide Call DLL window on call=0
+Pause after call to DLL is finished=1
+Allow .NET debugging=0
+Scan registry for GUIDs on starup=0
+Run trace protocolling options=0
+Run trace buffer size index=2
+Trace over system DLLs=1
+Trace over string commands=1
+Save traced commands=0
+Save accessed memory to trace=0
+Save FPU registers to trace=0
+Synchronize CPU and Run trace=1
+Set breakpoints on callbacks in hit trace=0
+Hit trace mode for indirect jumps=0
+Stop hit trace if not command=0
+Hit trace outside the code section=2
+Show symbolic names in protocol range list=0
+Allow automatic SFX extraction=1
+SFX extraction mode=0
+Use real SFX entry from previous run=1
+Ignore SFX exceptions=1
+Use predictions in search=1
+References include indirect jumps=1
+Add origin to search results=0
+Default resource language=9
+Gray inactive windows=1
+Gray register names=0
+Center FOLLOWed command=1
+Decode registers for any IP=0
+Remove code hilite on register hilite=1
+Automatically select register type=0
+Enable SSE registers=1
+Label display mode=0
+Highlight symbolic labels=0
+Log buffer size index=2
+Tabulate columns in log file=0
+Append data to existing log file=0
+Auto analysis=1
+No predicted registers in system DLLs=0
+Fuzzy analysis=1
+Report problems during analysis=0
+Decode tricks=1
+Mark tricks=0
+Decode ifs as switches=0
+Mark only important operands=0
+Functions preserve registers=1
+Ignore braces in udd path=1
+Guess number of arguments=1
+Guess arguments from mangled names=0
+Guess meaning of guessed arguments=1
+Show uncertain arguments=1
+Rename value dependent arguments=0
+Show predicted values=1
+Show ARG and LOCAL in disassembly=1
+Use symbolic names for ARG and LOCAL=0
+Show ARG and LOCAL in comments=1
+Show loops=1
+Accept far calls and returns=0
+Accept direct segment modifications=0
+Accept privileged commands=0
+Accept I/O commands=0
+Accept NOPs=1
+Accept shifts out of range=0
+Accept superfluous prefixes=0
+Accept default prefixes=1
+Accept valid LOCK prefixes=1
+Accept unaligned stack operations=1
+Accept suspicious ESP operations=0
+Accept non-standard command forms=1
+Accept access to nonexisting memory=0
+Accept interrupt commands=0
+Block external WM_CLOSE=1
+Activate speech=0
+Translate commands and registers=1
+Skip leading zeros in hex numbers=1
+
+--------------------------------------------------------------
+

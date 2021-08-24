@@ -1,0 +1,1278 @@
+12:08:20 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+12:08:20 [Tx]
+12:08:20 [Tx]
+12:08:20 [Tx]
+12:08:20 [Tx]
+12:08:20 [Tx]
+12:08:20 [Tx]
+12:08:20 [Tx]
+12:09:04 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+12:09:04 [Tx]
+12:09:04 [Tx]
+12:09:04 [Tx]
+12:09:04 [Tx]
+12:09:04 [Tx]
+12:09:04 [Tx]
+12:09:04 [Tx]
+13:20:40 [Rx]Select Case intPhase
+            Case 1
+                Select Case BufChar
+                    Case ENQ
+                        Erase strRecvData
+                        intBufCnt = 1
+                        ReDim Preserve strRecvData(intBufCnt)
+                        intPhase = 2
+                        Call SendWSckData(ACK)
+                End Select
+            Case 2
+                Select Case BufChar
+                    Case ENQ
+                        Erase strRecvData
+                        Call SendWSckData(ACK)
+                    Case STX
+                        intBufCnt = 1
+                        Erase strRecvData
+                        ReDim Preserve strRecvData(intBufCnt)
+                    Case ETB
+                        blnIsETB = True
+                        intPhase = 3
+                    Case ETX
+                        intBufCnt = intBufCnt + 1
+                        ReDim Preserve strRecvData(intBufCnt)
+                        intPhase = 3
+                    Case vbCr
+                        intBufCnt = intBufCnt + 1
+                        ReDim Preserve strRecvData(intBufCnt)
+                    Case vbLf
+                    Case EOT
+                        intPhase = 1
+                    Case Else
+                        If blnIsETB = False Then
+                            strRecvData(intBufCnt) = strRecvData(intBufCnt) & BufChar
+                        Else
+                            blnIsETB = False
+                        End If
+                End Select
+            Case 3      '## Transfer Phase
+                Select Case BufChar
+                    Case vbCr
+                    Case vbLf
+                        intPhase = 4
+                        Call SendWSckData(ACK)
+                End Select
+            Case 4      '## Termination Phase
+                Select Case BufChar
+                    Case STX
+                        intPhase = 2
+                    Case EOT
+                        intPhase = 1
+                        Call TCPRcvData_GENEXPERT
+                        
+                End Select
+        End Select
+13:21:28 [Rx] 1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:21:28 [Tx]
+13:21:28 [Tx]
+13:21:28 [Tx]
+13:21:28 [Tx]
+13:21:28 [Tx]
+13:21:28 [Tx]
+13:21:28 [Tx]
+13:22:21 [lsBarcode]
+13:22:28 [gRow]1
+13:23:18 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:23:19 [Tx]
+13:23:19 [Tx]
+13:23:19 [Tx]
+13:23:19 [Tx]
+13:23:19 [Tx]
+13:23:19 [Tx]
+13:23:19 [Tx]
+13:34:15 20121705056 : 서버 결과 전송 시작
+13:34:15 20121705056 : 장부 정보 가져오기
+13:34:54 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:34:54 [Tx]
+13:34:54 [Tx]
+13:34:54 [Tx]
+13:34:54 [Tx]
+13:34:54 [Tx]
+13:34:54 [Tx]
+13:34:54 [Tx]
+13:39:38 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:39:38 [Tx]
+13:39:38 [Tx]
+13:39:38 [Tx]
+13:39:38 [Tx]
+13:39:38 [Tx]
+13:39:38 [Tx]
+13:39:38 [Tx]
+13:43:53 20121705056 : 서버 결과 전송 시작
+13:43:53 20121705056 : 장부 정보 가져오기
+13:44:45 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:44:45 [Tx]
+13:44:45 [Tx]
+13:44:45 [Tx]
+13:44:45 [Tx]
+13:44:45 [Tx]
+13:44:45 [Tx]
+13:44:45 [Tx]
+13:45:46 20121705056 : 서버 결과 전송 시작
+13:45:46 20121705056 : 장부 정보 가져오기
+13:45:49 20121705056 : 서버 결과 전송 완료!
+13:52:31 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:52:31 [Tx]
+13:52:31 [Tx]
+13:52:31 [Tx]
+13:52:31 [Tx]
+13:52:31 [Tx]
+13:52:31 [Tx]
+13:52:31 [Tx]
+13:52:49 20121705056 : 서버 결과 전송 시작
+13:52:49 20121705056 : 장부 정보 가져오기
+13:52:51 20121705056 : 서버 결과 전송 완료!
+13:53:20 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:53:20 [Tx]
+13:53:20 [Tx]
+13:53:20 [Tx]
+13:53:20 [Tx]
+13:53:20 [Tx]
+13:53:20 [Tx]
+13:53:20 [Tx]
+13:53:31 20121705056 : 서버 결과 전송 시작
+13:53:31 20121705056 : 장부 정보 가져오기
+13:53:34 20121705056 : 서버 결과 전송 완료!
+13:53:57 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:53:57 [Tx]
+13:53:57 [Tx]
+13:53:57 [Tx]
+13:53:57 [Tx]
+13:53:57 [Tx]
+13:53:57 [Tx]
+13:53:57 [Tx]
+13:56:52 20121705056 : 서버 결과 전송 시작
+13:56:52 20121705056 : 장부 정보 가져오기
+13:56:54 20121705056 : 서버 결과 전송 완료!
+13:57:08 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+13:57:08 [Tx]
+13:57:08 [Tx]
+13:57:08 [Tx]
+13:57:08 [Tx]
+13:57:08 [Tx]
+13:57:08 [Tx]
+13:57:08 [Tx]
+14:15:59 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+14:15:59 [Tx]
+14:15:59 [Tx]
+14:15:59 [Tx]
+14:15:59 [Tx]
+14:15:59 [Tx]
+14:15:59 [Tx]
+14:15:59 [Tx]
+14:20:40 [Rx]1H|@^\|URM-XK+kzZXA-68||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201217180040
+P|1|||20121705056|^^^^
+O|1|20121705056||^^^C|R|20201217171851|||||||||ORH|||^^|||||||F
+R|1|^C^^diff^Xpert C.difficile G3^3^Tox^Toxigenic C|NEGATIVE^|||||F80
+2||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|2|^C^^diff^^^Tox^Toxin B|NEG^|||
+R|3|^C^^diff^^^Tox^Toxin B|^0.0|||
+R|4|^C^^diff^^^Tox^Toxin B|^1.0|||
+R|5|^C^^diff^^^Tox^Binary Toxin|NEG^|||
+R|6|^C^^dD2
+3iff^^^Tox^Binary Toxin|^0.0|||
+R|7|^C^^diff^^^Tox^Binary Toxin|^1.0|||
+R|8|^C^^diff^^^Tox^TcdC|NEG^|||
+R|9|^C^^diff^^^Tox^TcdC|^0.0|||
+R|10|^C^^diff^^^Tox^TcdC|^2.0|||
+R|11|^C^^diff^^^Tox^SPC|PASS^|||
+R|12|^C^^diff^^^Tox^SPC|^31.5|||
+R|13|^62
+4C^^diff^^^Tox^SPC|^404.0|||
+R|14|^C^^diff^Xpert C.difficile G3^3^Bl^027-NAP1-BI|PRESUMPTIVE NEG^|||||F||<None>|20201217171851|20201217180124|D84L2SM1^707419^614415^57813976^32501^20211010
+R|15|^C^^diff^^^Bl^Toxin B|NEG^|||
+R|16|^C^^diff^^^B16
+5l^Toxin B|^0.0|||
+R|17|^C^^diff^^^Bl^Toxin B|^1.0|||
+R|18|^C^^diff^^^Bl^Binary Toxin|NEG^|||
+R|19|^C^^diff^^^Bl^Binary Toxin|^0.0|||
+R|20|^C^^diff^^^Bl^Binary Toxin|^1.0|||
+R|21|^C^^diff^^^Bl^TcdC|NEG^|||
+R|22|^C^^diff^^^Bl^TcdC|^0.0|||
+R|240
+63|^C^^diff^^^Bl^TcdC|^2.0|||
+R|24|^C^^diff^^^Bl^SPC|PASS^|||
+R|25|^C^^diff^^^Bl^SPC|^31.5|||
+R|26|^C^^diff^^^Bl^SPC|^404.0|||
+L|1|N
+3B
+
+
+14:20:40 [Tx]
+14:20:40 [Tx]
+14:20:40 [Tx]
+14:20:40 [Tx]
+14:20:40 [Tx]
+14:20:40 [Tx]
+14:20:40 [Tx]
+14:21:38 20121705056 : 서버 결과 전송 완료!
+14:23:25 [Rx]1H|@^\|URM-gnIW2ZXA-72||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218065442
+P|1|||20121800558|^^^^
+O|1|20121800558||^^^CR|R|20201218060556|||||||||ORH|||^^|||||||F
+R|1|^CR^^IMP1^Xpert Carba-R^2^IMP1^|NOT DETECTED^|||||F||<None>|20FC
+2201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|2|^CR^^IMP1^^^IMP1^|NEG^|||
+R|3|^CR^^IMP1^^^IMP1^Ct|^0.0|||
+R|4|^CR^^IMP1^^^IMP1^EndPt|^2.0|||
+R|5|^CR^^IMP1^^^SPC^|PASS^|||
+R|6|^CR^^IMP1^^^SPC^Ct|^33.9|||
+R|7|^DD
+3CR^^IMP1^^^SPC^EndPt|^67.0|||
+R|8|^CR^^VIM^Xpert Carba-R^2^VIM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|9|^CR^^VIM^^^VIM^|NEG^|||
+R|10|^CR^^VIM^^^VIM^Ct|^0.0|||
+R|11|^CR^^VAC
+4IM^^^VIM^EndPt|^2.0|||
+R|12|^CR^^VIM^^^SPC^|PASS^|||
+R|13|^CR^^VIM^^^SPC^Ct|^33.9|||
+R|14|^CR^^VIM^^^SPC^EndPt|^67.0|||
+R|15|^CR^^NDM^Xpert Carba-R^2^NDM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458001
+548765^08707^20210822
+R|16|^CR^^NDM^^^NDM^|NEG^|||
+R|17|^CR^^NDM^^^NDM^Ct|^0.0|||
+R|18|^CR^^NDM^^^NDM^EndPt|^1.0|||
+R|19|^CR^^NDM^^^SPC^|PASS^|||
+R|20|^CR^^NDM^^^SPC^Ct|^33.9|||
+R|21|^CR^^NDM^^^SPC^EndPt|^67.0|||
+R|22|^CR^^KPC^Xpert Carba-R^DE
+62^KPC^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|23|^CR^^KPC^^^KPC^|NEG^|||
+R|24|^CR^^KPC^^^KPC^Ct|^0.0|||
+R|25|^CR^^KPC^^^KPC^EndPt|^2.0|||
+R|26|^CR^^KPC^^^SPC^|PASS^|||
+R|247
+77|^CR^^KPC^^^SPC^Ct|^33.9|||
+R|28|^CR^^KPC^^^SPC^EndPt|^67.0|||
+R|29|^CR^^OXA48^Xpert Carba-R^2^OXA48^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|30|^CR^^OXA48^^^OXA48^|NEG^||7F
+0|
+R|31|^CR^^OXA48^^^OXA48^Ct|^0.0|||
+R|32|^CR^^OXA48^^^OXA48^EndPt|^5.0|||
+R|33|^CR^^OXA48^^^SPC^|PASS^|||
+R|34|^CR^^OXA48^^^SPC^Ct|^33.9|||
+R|35|^CR^^OXA48^^^SPC^EndPt|^67.0|||
+L|1|N
+98
+
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:23:25 [Tx]
+14:24:52 20121800558 : 서버 결과 전송 완료!
+14:25:05 [Rx]                    '모듈번호를 보기쉽게 변경한다.
+                    If strModule = "614414" Then
+                        strModule = "B1"
+                        SetText vasList, strModule, gRow, colRack
+                    ElseIf strModule = "614415" Then
+                        strModule = "B2"
+                        SetText vasList, strModule, gRow, colRack
+                    ElseIf strModule = "619205" Then
+                        strModule = "B3"
+                        SetText vasList, strModule, gRow, colRack
+                    ElseIf strModule = "633147" Then
+                        strModule = "B4"
+                        SetText vasList, strModule, gRow, colRack
+                    Else
+                        SetText vasList, strModule, gRow, colRack
+                    End If
+14:25:10 [Rx]1H|@^\|URM-gnIW2ZXA-72||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218065442
+P|1|||20121800558|^^^^
+O|1|20121800558||^^^CR|R|20201218060556|||||||||ORH|||^^|||||||F
+R|1|^CR^^IMP1^Xpert Carba-R^2^IMP1^|NOT DETECTED^|||||F||<None>|20FC
+2201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|2|^CR^^IMP1^^^IMP1^|NEG^|||
+R|3|^CR^^IMP1^^^IMP1^Ct|^0.0|||
+R|4|^CR^^IMP1^^^IMP1^EndPt|^2.0|||
+R|5|^CR^^IMP1^^^SPC^|PASS^|||
+R|6|^CR^^IMP1^^^SPC^Ct|^33.9|||
+R|7|^DD
+3CR^^IMP1^^^SPC^EndPt|^67.0|||
+R|8|^CR^^VIM^Xpert Carba-R^2^VIM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|9|^CR^^VIM^^^VIM^|NEG^|||
+R|10|^CR^^VIM^^^VIM^Ct|^0.0|||
+R|11|^CR^^VAC
+4IM^^^VIM^EndPt|^2.0|||
+R|12|^CR^^VIM^^^SPC^|PASS^|||
+R|13|^CR^^VIM^^^SPC^Ct|^33.9|||
+R|14|^CR^^VIM^^^SPC^EndPt|^67.0|||
+R|15|^CR^^NDM^Xpert Carba-R^2^NDM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458001
+548765^08707^20210822
+R|16|^CR^^NDM^^^NDM^|NEG^|||
+R|17|^CR^^NDM^^^NDM^Ct|^0.0|||
+R|18|^CR^^NDM^^^NDM^EndPt|^1.0|||
+R|19|^CR^^NDM^^^SPC^|PASS^|||
+R|20|^CR^^NDM^^^SPC^Ct|^33.9|||
+R|21|^CR^^NDM^^^SPC^EndPt|^67.0|||
+R|22|^CR^^KPC^Xpert Carba-R^DE
+62^KPC^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|23|^CR^^KPC^^^KPC^|NEG^|||
+R|24|^CR^^KPC^^^KPC^Ct|^0.0|||
+R|25|^CR^^KPC^^^KPC^EndPt|^2.0|||
+R|26|^CR^^KPC^^^SPC^|PASS^|||
+R|247
+77|^CR^^KPC^^^SPC^Ct|^33.9|||
+R|28|^CR^^KPC^^^SPC^EndPt|^67.0|||
+R|29|^CR^^OXA48^Xpert Carba-R^2^OXA48^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|30|^CR^^OXA48^^^OXA48^|NEG^||7F
+0|
+R|31|^CR^^OXA48^^^OXA48^Ct|^0.0|||
+R|32|^CR^^OXA48^^^OXA48^EndPt|^5.0|||
+R|33|^CR^^OXA48^^^SPC^|PASS^|||
+R|34|^CR^^OXA48^^^SPC^Ct|^33.9|||
+R|35|^CR^^OXA48^^^SPC^EndPt|^67.0|||
+L|1|N
+98
+
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:25:10 [Tx]
+14:29:11 [Rx]1H|@^\|URM-gnIW2ZXA-72||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218065442
+P|1|||20121800558|^^^^
+O|1|20121800558||^^^CR|R|20201218060556|||||||||ORH|||^^|||||||F
+R|1|^CR^^IMP1^Xpert Carba-R^2^IMP1^|NOT DETECTED^|||||F||<None>|20FC
+2201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|2|^CR^^IMP1^^^IMP1^|NEG^|||
+R|3|^CR^^IMP1^^^IMP1^Ct|^0.0|||
+R|4|^CR^^IMP1^^^IMP1^EndPt|^2.0|||
+R|5|^CR^^IMP1^^^SPC^|PASS^|||
+R|6|^CR^^IMP1^^^SPC^Ct|^33.9|||
+R|7|^DD
+3CR^^IMP1^^^SPC^EndPt|^67.0|||
+R|8|^CR^^VIM^Xpert Carba-R^2^VIM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|9|^CR^^VIM^^^VIM^|NEG^|||
+R|10|^CR^^VIM^^^VIM^Ct|^0.0|||
+R|11|^CR^^VAC
+4IM^^^VIM^EndPt|^2.0|||
+R|12|^CR^^VIM^^^SPC^|PASS^|||
+R|13|^CR^^VIM^^^SPC^Ct|^33.9|||
+R|14|^CR^^VIM^^^SPC^EndPt|^67.0|||
+R|15|^CR^^NDM^Xpert Carba-R^2^NDM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458001
+548765^08707^20210822
+R|16|^CR^^NDM^^^NDM^|NEG^|||
+R|17|^CR^^NDM^^^NDM^Ct|^0.0|||
+R|18|^CR^^NDM^^^NDM^EndPt|^1.0|||
+R|19|^CR^^NDM^^^SPC^|PASS^|||
+R|20|^CR^^NDM^^^SPC^Ct|^33.9|||
+R|21|^CR^^NDM^^^SPC^EndPt|^67.0|||
+R|22|^CR^^KPC^Xpert Carba-R^DE
+62^KPC^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|23|^CR^^KPC^^^KPC^|NEG^|||
+R|24|^CR^^KPC^^^KPC^Ct|^0.0|||
+R|25|^CR^^KPC^^^KPC^EndPt|^2.0|||
+R|26|^CR^^KPC^^^SPC^|PASS^|||
+R|247
+77|^CR^^KPC^^^SPC^Ct|^33.9|||
+R|28|^CR^^KPC^^^SPC^EndPt|^67.0|||
+R|29|^CR^^OXA48^Xpert Carba-R^2^OXA48^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|30|^CR^^OXA48^^^OXA48^|NEG^||7F
+0|
+R|31|^CR^^OXA48^^^OXA48^Ct|^0.0|||
+R|32|^CR^^OXA48^^^OXA48^EndPt|^5.0|||
+R|33|^CR^^OXA48^^^SPC^|PASS^|||
+R|34|^CR^^OXA48^^^SPC^Ct|^33.9|||
+R|35|^CR^^OXA48^^^SPC^EndPt|^67.0|||
+L|1|N
+98
+
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:29:11 [Tx]
+14:37:24 [Rx]1H|@^\|URM-gnIW2ZXA-72||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218065442
+P|1|||20121800558|^^^^
+O|1|20121800558||^^^CR|R|20201218060556|||||||||ORH|||^^|||||||F
+R|1|^CR^^IMP1^Xpert Carba-R^2^IMP1^|NOT DETECTED^|||||F||<None>|20FC
+2201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|2|^CR^^IMP1^^^IMP1^|NEG^|||
+R|3|^CR^^IMP1^^^IMP1^Ct|^0.0|||
+R|4|^CR^^IMP1^^^IMP1^EndPt|^2.0|||
+R|5|^CR^^IMP1^^^SPC^|PASS^|||
+R|6|^CR^^IMP1^^^SPC^Ct|^33.9|||
+R|7|^DD
+3CR^^IMP1^^^SPC^EndPt|^67.0|||
+R|8|^CR^^VIM^Xpert Carba-R^2^VIM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|9|^CR^^VIM^^^VIM^|NEG^|||
+R|10|^CR^^VIM^^^VIM^Ct|^0.0|||
+R|11|^CR^^VAC
+4IM^^^VIM^EndPt|^2.0|||
+R|12|^CR^^VIM^^^SPC^|PASS^|||
+R|13|^CR^^VIM^^^SPC^Ct|^33.9|||
+R|14|^CR^^VIM^^^SPC^EndPt|^67.0|||
+R|15|^CR^^NDM^Xpert Carba-R^2^NDM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458001
+548765^08707^20210822
+R|16|^CR^^NDM^^^NDM^|NEG^|||
+R|17|^CR^^NDM^^^NDM^Ct|^0.0|||
+R|18|^CR^^NDM^^^NDM^EndPt|^1.0|||
+R|19|^CR^^NDM^^^SPC^|PASS^|||
+R|20|^CR^^NDM^^^SPC^Ct|^33.9|||
+R|21|^CR^^NDM^^^SPC^EndPt|^67.0|||
+R|22|^CR^^KPC^Xpert Carba-R^DE
+62^KPC^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|23|^CR^^KPC^^^KPC^|NEG^|||
+R|24|^CR^^KPC^^^KPC^Ct|^0.0|||
+R|25|^CR^^KPC^^^KPC^EndPt|^2.0|||
+R|26|^CR^^KPC^^^SPC^|PASS^|||
+R|247
+77|^CR^^KPC^^^SPC^Ct|^33.9|||
+R|28|^CR^^KPC^^^SPC^EndPt|^67.0|||
+R|29|^CR^^OXA48^Xpert Carba-R^2^OXA48^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|30|^CR^^OXA48^^^OXA48^|NEG^||7F
+0|
+R|31|^CR^^OXA48^^^OXA48^Ct|^0.0|||
+R|32|^CR^^OXA48^^^OXA48^EndPt|^5.0|||
+R|33|^CR^^OXA48^^^SPC^|PASS^|||
+R|34|^CR^^OXA48^^^SPC^Ct|^33.9|||
+R|35|^CR^^OXA48^^^SPC^EndPt|^67.0|||
+L|1|N
+98
+
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:37:24 [Tx]
+14:43:40 20121800558 : 서버 결과 전송 완료!
+14:45:37 [Rx]1H|@^\|URM-gnIW2ZXA-72||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218065442
+P|1|||20121800558|^^^^
+O|1|20121800558||^^^CR|R|20201218060556|||||||||ORH|||^^|||||||F
+R|1|^CR^^IMP1^Xpert Carba-R^2^IMP1^|NOT DETECTED^|||||F||<None>|20FC
+2201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|2|^CR^^IMP1^^^IMP1^|NEG^|||
+R|3|^CR^^IMP1^^^IMP1^Ct|^0.0|||
+R|4|^CR^^IMP1^^^IMP1^EndPt|^2.0|||
+R|5|^CR^^IMP1^^^SPC^|PASS^|||
+R|6|^CR^^IMP1^^^SPC^Ct|^33.9|||
+R|7|^DD
+3CR^^IMP1^^^SPC^EndPt|^67.0|||
+R|8|^CR^^VIM^Xpert Carba-R^2^VIM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|9|^CR^^VIM^^^VIM^|NEG^|||
+R|10|^CR^^VIM^^^VIM^Ct|^0.0|||
+R|11|^CR^^VAC
+4IM^^^VIM^EndPt|^2.0|||
+R|12|^CR^^VIM^^^SPC^|PASS^|||
+R|13|^CR^^VIM^^^SPC^Ct|^33.9|||
+R|14|^CR^^VIM^^^SPC^EndPt|^67.0|||
+R|15|^CR^^NDM^Xpert Carba-R^2^NDM^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458001
+548765^08707^20210822
+R|16|^CR^^NDM^^^NDM^|NEG^|||
+R|17|^CR^^NDM^^^NDM^Ct|^0.0|||
+R|18|^CR^^NDM^^^NDM^EndPt|^1.0|||
+R|19|^CR^^NDM^^^SPC^|PASS^|||
+R|20|^CR^^NDM^^^SPC^Ct|^33.9|||
+R|21|^CR^^NDM^^^SPC^EndPt|^67.0|||
+R|22|^CR^^KPC^Xpert Carba-R^DE
+62^KPC^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|23|^CR^^KPC^^^KPC^|NEG^|||
+R|24|^CR^^KPC^^^KPC^Ct|^0.0|||
+R|25|^CR^^KPC^^^KPC^EndPt|^2.0|||
+R|26|^CR^^KPC^^^SPC^|PASS^|||
+R|247
+77|^CR^^KPC^^^SPC^Ct|^33.9|||
+R|28|^CR^^KPC^^^SPC^EndPt|^67.0|||
+R|29|^CR^^OXA48^Xpert Carba-R^2^OXA48^|NOT DETECTED^|||||F||<None>|20201218060556|20201218065525|D84L2SM1^707419^614415^458048765^08707^20210822
+R|30|^CR^^OXA48^^^OXA48^|NEG^||7F
+0|
+R|31|^CR^^OXA48^^^OXA48^Ct|^0.0|||
+R|32|^CR^^OXA48^^^OXA48^EndPt|^5.0|||
+R|33|^CR^^OXA48^^^SPC^|PASS^|||
+R|34|^CR^^OXA48^^^SPC^Ct|^33.9|||
+R|35|^CR^^OXA48^^^SPC^EndPt|^67.0|||
+L|1|N
+98
+
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:45:37 [Tx]
+14:46:57 20121800558 : 서버 결과 전송 완료!
+14:49:39 [Rx]1H|@^\|URM-S26z2ZXA-73||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218090450
+P|1|||20121704817|^^^^
+O|1|20121704817||^^^Xpert MTB-RIF A|R|20201218072427|||||||||ORH|||^^|||||||F
+R|1|^Xpert MTB-RIF A^^1^Xpert MTB-RIF Assay G4^5^MTB^1B
+2|NOT DETECTED^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|2|^Xpert MTB-RIF A^^1^^^Probe D^|NEG^|||
+R|3|^Xpert MTB-RIF A^^1^^^Probe D^Ct|^0.0|||
+R|4|^Xpert MTB-RIF A^^1^^^Probe D^EndPt|^1.0|E0
+3||
+R|5|^Xpert MTB-RIF A^^1^^^Probe C^|NEG^|||
+R|6|^Xpert MTB-RIF A^^1^^^Probe C^Ct|^0.0|||
+R|7|^Xpert MTB-RIF A^^1^^^Probe C^EndPt|^3.0|||
+R|8|^Xpert MTB-RIF A^^1^^^Probe E^|NEG^|||
+R|9|^Xpert MTB-RIF A^^1^^^Probe E^Ct|^0.0|||
+R|10|^Xpert M01
+4TB-RIF A^^1^^^Probe E^EndPt|^-1.0|||
+R|11|^Xpert MTB-RIF A^^1^^^Probe B^|NEG^|||
+R|12|^Xpert MTB-RIF A^^1^^^Probe B^Ct|^0.0|||
+R|13|^Xpert MTB-RIF A^^1^^^Probe B^EndPt|^4.0|||
+R|14|^Xpert MTB-RIF A^^1^^^Probe A^|NEG^|||
+R|15|^Xpert MTB-RIF 65
+5A^^1^^^Probe A^Ct|^0.0|||
+R|16|^Xpert MTB-RIF A^^1^^^Probe A^EndPt|^1.0|||
+R|17|^Xpert MTB-RIF A^^1^^^SPC^|PASS^|||
+R|18|^Xpert MTB-RIF A^^1^^^SPC^Ct|^26.4|||
+R|19|^Xpert MTB-RIF A^^1^^^SPC^EndPt|^304.0|||
+R|20|^Xpert MTB-RIF A^^3^Xpert MTB30
+6-RIF Assay G4^5^Rif Resistance^|^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|21|^Xpert MTB-RIF A^^3^^^Probe D^|NEG^|||
+R|22|^Xpert MTB-RIF A^^3^^^Probe D^Ct|^0.0|||
+R|23|^Xpert MTB-RIF A^^301
+7^^^Probe D^EndPt|^1.0|||
+R|24|^Xpert MTB-RIF A^^3^^^Probe C^|NEG^|||
+R|25|^Xpert MTB-RIF A^^3^^^Probe C^Ct|^0.0|||
+R|26|^Xpert MTB-RIF A^^3^^^Probe C^EndPt|^3.0|||
+R|27|^Xpert MTB-RIF A^^3^^^Probe E^|NEG^|||
+R|28|^Xpert MTB-RIF A^^3^^^ProbeAC
+0 E^Ct|^0.0|||
+R|29|^Xpert MTB-RIF A^^3^^^Probe E^EndPt|^-1.0|||
+R|30|^Xpert MTB-RIF A^^3^^^Probe B^|NEG^|||
+R|31|^Xpert MTB-RIF A^^3^^^Probe B^Ct|^0.0|||
+R|32|^Xpert MTB-RIF A^^3^^^Probe B^EndPt|^4.0|||
+R|33|^Xpert MTB-RIF A^^3^^^Probe A^|NA8
+1EG^|||
+R|34|^Xpert MTB-RIF A^^3^^^Probe A^Ct|^0.0|||
+R|35|^Xpert MTB-RIF A^^3^^^Probe A^EndPt|^1.0|||
+R|36|^Xpert MTB-RIF A^^3^^^SPC^|PASS^|||
+R|37|^Xpert MTB-RIF A^^3^^^SPC^Ct|^26.4|||
+R|38|^Xpert MTB-RIF A^^3^^^SPC^EndPt|^304.0|||
+R|39|^X72
+2pert MTB-RIF A^^2^Xpert MTB-RIF Assay G4^5^QC Check^|^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|40|^Xpert MTB-RIF A^^2^^^QC-1^|NEG^|||
+R|41|^Xpert MTB-RIF A^^2^^^QC-1^Ct|^0.0|||
+R|42|^XpeB2
+3rt MTB-RIF A^^2^^^QC-1^EndPt|^0.0|||
+R|43|^Xpert MTB-RIF A^^2^^^QC-2^|NEG^|||
+R|44|^Xpert MTB-RIF A^^2^^^QC-2^Ct|^0.0|||
+R|45|^Xpert MTB-RIF A^^2^^^QC-2^EndPt|^0.0|||
+L|1|N
+DD
+
+
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:49:39 [Tx]
+14:50:18 20121704817 : 서버 결과 전송 완료!
+14:51:35 [Rx]1H|@^\|URM-S26z2ZXA-73||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218090450
+P|1|||20121704817|^^^^
+O|1|20121704817||^^^Xpert MTB-RIF A|R|20201218072427|||||||||ORH|||^^|||||||F
+R|1|^Xpert MTB-RIF A^^1^Xpert MTB-RIF Assay G4^5^MTB^1B
+2|NOT DETECTED^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|2|^Xpert MTB-RIF A^^1^^^Probe D^|NEG^|||
+R|3|^Xpert MTB-RIF A^^1^^^Probe D^Ct|^0.0|||
+R|4|^Xpert MTB-RIF A^^1^^^Probe D^EndPt|^1.0|E0
+3||
+R|5|^Xpert MTB-RIF A^^1^^^Probe C^|NEG^|||
+R|6|^Xpert MTB-RIF A^^1^^^Probe C^Ct|^0.0|||
+R|7|^Xpert MTB-RIF A^^1^^^Probe C^EndPt|^3.0|||
+R|8|^Xpert MTB-RIF A^^1^^^Probe E^|NEG^|||
+R|9|^Xpert MTB-RIF A^^1^^^Probe E^Ct|^0.0|||
+R|10|^Xpert M01
+4TB-RIF A^^1^^^Probe E^EndPt|^-1.0|||
+R|11|^Xpert MTB-RIF A^^1^^^Probe B^|NEG^|||
+R|12|^Xpert MTB-RIF A^^1^^^Probe B^Ct|^0.0|||
+R|13|^Xpert MTB-RIF A^^1^^^Probe B^EndPt|^4.0|||
+R|14|^Xpert MTB-RIF A^^1^^^Probe A^|NEG^|||
+R|15|^Xpert MTB-RIF 65
+5A^^1^^^Probe A^Ct|^0.0|||
+R|16|^Xpert MTB-RIF A^^1^^^Probe A^EndPt|^1.0|||
+R|17|^Xpert MTB-RIF A^^1^^^SPC^|PASS^|||
+R|18|^Xpert MTB-RIF A^^1^^^SPC^Ct|^26.4|||
+R|19|^Xpert MTB-RIF A^^1^^^SPC^EndPt|^304.0|||
+R|20|^Xpert MTB-RIF A^^3^Xpert MTB30
+6-RIF Assay G4^5^Rif Resistance^|^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|21|^Xpert MTB-RIF A^^3^^^Probe D^|NEG^|||
+R|22|^Xpert MTB-RIF A^^3^^^Probe D^Ct|^0.0|||
+R|23|^Xpert MTB-RIF A^^301
+7^^^Probe D^EndPt|^1.0|||
+R|24|^Xpert MTB-RIF A^^3^^^Probe C^|NEG^|||
+R|25|^Xpert MTB-RIF A^^3^^^Probe C^Ct|^0.0|||
+R|26|^Xpert MTB-RIF A^^3^^^Probe C^EndPt|^3.0|||
+R|27|^Xpert MTB-RIF A^^3^^^Probe E^|NEG^|||
+R|28|^Xpert MTB-RIF A^^3^^^ProbeAC
+0 E^Ct|^0.0|||
+R|29|^Xpert MTB-RIF A^^3^^^Probe E^EndPt|^-1.0|||
+R|30|^Xpert MTB-RIF A^^3^^^Probe B^|NEG^|||
+R|31|^Xpert MTB-RIF A^^3^^^Probe B^Ct|^0.0|||
+R|32|^Xpert MTB-RIF A^^3^^^Probe B^EndPt|^4.0|||
+R|33|^Xpert MTB-RIF A^^3^^^Probe A^|NA8
+1EG^|||
+R|34|^Xpert MTB-RIF A^^3^^^Probe A^Ct|^0.0|||
+R|35|^Xpert MTB-RIF A^^3^^^Probe A^EndPt|^1.0|||
+R|36|^Xpert MTB-RIF A^^3^^^SPC^|PASS^|||
+R|37|^Xpert MTB-RIF A^^3^^^SPC^Ct|^26.4|||
+R|38|^Xpert MTB-RIF A^^3^^^SPC^EndPt|^304.0|||
+R|39|^X72
+2pert MTB-RIF A^^2^Xpert MTB-RIF Assay G4^5^QC Check^|^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|40|^Xpert MTB-RIF A^^2^^^QC-1^|NEG^|||
+R|41|^Xpert MTB-RIF A^^2^^^QC-1^Ct|^0.0|||
+R|42|^XpeB2
+3rt MTB-RIF A^^2^^^QC-1^EndPt|^0.0|||
+R|43|^Xpert MTB-RIF A^^2^^^QC-2^|NEG^|||
+R|44|^Xpert MTB-RIF A^^2^^^QC-2^Ct|^0.0|||
+R|45|^Xpert MTB-RIF A^^2^^^QC-2^EndPt|^0.0|||
+L|1|N
+DD
+
+
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:51:35 [Tx]
+14:55:35 20121704817 : 서버 결과 전송 완료!
+14:56:15 [Rx]1H|@^\|URM-S26z2ZXA-73||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218090450
+P|1|||20121704817|^^^^
+O|1|20121704817||^^^Xpert MTB-RIF A|R|20201218072427|||||||||ORH|||^^|||||||F
+R|1|^Xpert MTB-RIF A^^1^Xpert MTB-RIF Assay G4^5^MTB^1B
+2|NOT DETECTED^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|2|^Xpert MTB-RIF A^^1^^^Probe D^|NEG^|||
+R|3|^Xpert MTB-RIF A^^1^^^Probe D^Ct|^0.0|||
+R|4|^Xpert MTB-RIF A^^1^^^Probe D^EndPt|^1.0|E0
+3||
+R|5|^Xpert MTB-RIF A^^1^^^Probe C^|NEG^|||
+R|6|^Xpert MTB-RIF A^^1^^^Probe C^Ct|^0.0|||
+R|7|^Xpert MTB-RIF A^^1^^^Probe C^EndPt|^3.0|||
+R|8|^Xpert MTB-RIF A^^1^^^Probe E^|NEG^|||
+R|9|^Xpert MTB-RIF A^^1^^^Probe E^Ct|^0.0|||
+R|10|^Xpert M01
+4TB-RIF A^^1^^^Probe E^EndPt|^-1.0|||
+R|11|^Xpert MTB-RIF A^^1^^^Probe B^|NEG^|||
+R|12|^Xpert MTB-RIF A^^1^^^Probe B^Ct|^0.0|||
+R|13|^Xpert MTB-RIF A^^1^^^Probe B^EndPt|^4.0|||
+R|14|^Xpert MTB-RIF A^^1^^^Probe A^|NEG^|||
+R|15|^Xpert MTB-RIF 65
+5A^^1^^^Probe A^Ct|^0.0|||
+R|16|^Xpert MTB-RIF A^^1^^^Probe A^EndPt|^1.0|||
+R|17|^Xpert MTB-RIF A^^1^^^SPC^|PASS^|||
+R|18|^Xpert MTB-RIF A^^1^^^SPC^Ct|^26.4|||
+R|19|^Xpert MTB-RIF A^^1^^^SPC^EndPt|^304.0|||
+R|20|^Xpert MTB-RIF A^^3^Xpert MTB30
+6-RIF Assay G4^5^Rif Resistance^|^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|21|^Xpert MTB-RIF A^^3^^^Probe D^|NEG^|||
+R|22|^Xpert MTB-RIF A^^3^^^Probe D^Ct|^0.0|||
+R|23|^Xpert MTB-RIF A^^301
+7^^^Probe D^EndPt|^1.0|||
+R|24|^Xpert MTB-RIF A^^3^^^Probe C^|NEG^|||
+R|25|^Xpert MTB-RIF A^^3^^^Probe C^Ct|^0.0|||
+R|26|^Xpert MTB-RIF A^^3^^^Probe C^EndPt|^3.0|||
+R|27|^Xpert MTB-RIF A^^3^^^Probe E^|NEG^|||
+R|28|^Xpert MTB-RIF A^^3^^^ProbeAC
+0 E^Ct|^0.0|||
+R|29|^Xpert MTB-RIF A^^3^^^Probe E^EndPt|^-1.0|||
+R|30|^Xpert MTB-RIF A^^3^^^Probe B^|NEG^|||
+R|31|^Xpert MTB-RIF A^^3^^^Probe B^Ct|^0.0|||
+R|32|^Xpert MTB-RIF A^^3^^^Probe B^EndPt|^4.0|||
+R|33|^Xpert MTB-RIF A^^3^^^Probe A^|NA8
+1EG^|||
+R|34|^Xpert MTB-RIF A^^3^^^Probe A^Ct|^0.0|||
+R|35|^Xpert MTB-RIF A^^3^^^Probe A^EndPt|^1.0|||
+R|36|^Xpert MTB-RIF A^^3^^^SPC^|PASS^|||
+R|37|^Xpert MTB-RIF A^^3^^^SPC^Ct|^26.4|||
+R|38|^Xpert MTB-RIF A^^3^^^SPC^EndPt|^304.0|||
+R|39|^X72
+2pert MTB-RIF A^^2^Xpert MTB-RIF Assay G4^5^QC Check^|^|||||F||<None>|20201218072427|20201218090536|D84L2SM1^707419^614414^602897260^57901^20210620
+R|40|^Xpert MTB-RIF A^^2^^^QC-1^|NEG^|||
+R|41|^Xpert MTB-RIF A^^2^^^QC-1^Ct|^0.0|||
+R|42|^XpeB2
+3rt MTB-RIF A^^2^^^QC-1^EndPt|^0.0|||
+R|43|^Xpert MTB-RIF A^^2^^^QC-2^|NEG^|||
+R|44|^Xpert MTB-RIF A^^2^^^QC-2^Ct|^0.0|||
+R|45|^Xpert MTB-RIF A^^2^^^QC-2^EndPt|^0.0|||
+L|1|N
+DD
+
+
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:56:15 [Tx]
+14:59:50 20121704817 : 서버 결과 전송 완료!
+15:02:25 [Rx]1H|@^\|URM-+fAS3ZXA-74||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218111618
+P|1|||20121701564|^^^^
+O|1|20121701564||^^^Cov19|R|20201217082440|||||||||ORH|||^^|||||||F
+R|1|^^^Cov19^Xpert Xpress SARS-CoV-2^2^^|NEGATIVE^|||||F||<None6B
+2>|20201217082440|20201217091305|D84L2SM1^707419^614414^994738708^13504^20211024
+R|2|^^^Cov19^^^E^|NEG^|||
+R|3|^^^Cov19^^^E^Ct|^0.0|||
+R|4|^^^Cov19^^^E^EndPt|^4.0|||
+R|5|^^^Cov19^^^N2^|NEG^|||
+R|6|^^^Cov19^^^N2^Ct|^0.0|||
+R|7|^^^Cov19^^^N2^E14
+3ndPt|^5.0|||
+R|8|^^^Cov19^^^SPC^|PASS^|||
+R|9|^^^Cov19^^^SPC^Ct|^29.3|||
+R|10|^^^Cov19^^^SPC^EndPt|^217.0|||
+L|1|N
+F6
+
+15:02:25 [Tx]
+15:02:25 [Tx]
+15:02:25 [Tx]
+15:02:25 [Tx]
+15:04:08 [Rx]1H|@^\|URM-+fAS3ZXA-74||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218111618
+P|1|||20121701564|^^^^
+O|1|20121701564||^^^Cov19|R|20201217082440|||||||||ORH|||^^|||||||F
+R|1|^^^Cov19^Xpert Xpress SARS-CoV-2^2^^|NEGATIVE^|||||F||<None6B
+2>|20201217082440|20201217091305|D84L2SM1^707419^614414^994738708^13504^20211024
+R|2|^^^Cov19^^^E^|NEG^|||
+R|3|^^^Cov19^^^E^Ct|^0.0|||
+R|4|^^^Cov19^^^E^EndPt|^4.0|||
+R|5|^^^Cov19^^^N2^|NEG^|||
+R|6|^^^Cov19^^^N2^Ct|^0.0|||
+R|7|^^^Cov19^^^N2^E14
+3ndPt|^5.0|||
+R|8|^^^Cov19^^^SPC^|PASS^|||
+R|9|^^^Cov19^^^SPC^Ct|^29.3|||
+R|10|^^^Cov19^^^SPC^EndPt|^217.0|||
+L|1|N
+F6
+
+15:04:08 [Tx]
+15:04:08 [Tx]
+15:04:08 [Tx]
+15:04:08 [Tx]
+15:06:00 [Rx]1H|@^\|URM-+fAS3ZXA-74||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218111618
+P|1|||20121701564|^^^^
+O|1|20121701564||^^^Cov19|R|20201217082440|||||||||ORH|||^^|||||||F
+R|1|^^^Cov19^Xpert Xpress SARS-CoV-2^2^^|NEGATIVE^|||||F||<None6B
+2>|20201217082440|20201217091305|D84L2SM1^707419^614414^994738708^13504^20211024
+R|2|^^^Cov19^^^E^|NEG^|||
+R|3|^^^Cov19^^^E^Ct|^0.0|||
+R|4|^^^Cov19^^^E^EndPt|^4.0|||
+R|5|^^^Cov19^^^N2^|NEG^|||
+R|6|^^^Cov19^^^N2^Ct|^0.0|||
+R|7|^^^Cov19^^^N2^E14
+3ndPt|^5.0|||
+R|8|^^^Cov19^^^SPC^|PASS^|||
+R|9|^^^Cov19^^^SPC^Ct|^29.3|||
+R|10|^^^Cov19^^^SPC^EndPt|^217.0|||
+L|1|N
+F6
+
+15:06:00 [Tx]
+15:06:00 [Tx]
+15:06:00 [Tx]
+15:06:00 [Tx]
+15:08:52 20121701564 : 서버 결과 전송 완료!
+15:09:06 [Rx]1H|@^\|URM-+fAS3ZXA-74||GeneXpert PC^GeneXpert^4.7b|||||HOST||P|1394-97|20201218111618
+P|1|||20121701564|^^^^
+O|1|20121701564||^^^Cov19|R|20201217082440|||||||||ORH|||^^|||||||F
+R|1|^^^Cov19^Xpert Xpress SARS-CoV-2^2^^|NEGATIVE^|||||F||<None6B
+2>|20201217082440|20201217091305|D84L2SM1^707419^614414^994738708^13504^20211024
+R|2|^^^Cov19^^^E^|NEG^|||
+R|3|^^^Cov19^^^E^Ct|^0.0|||
+R|4|^^^Cov19^^^E^EndPt|^4.0|||
+R|5|^^^Cov19^^^N2^|NEG^|||
+R|6|^^^Cov19^^^N2^Ct|^0.0|||
+R|7|^^^Cov19^^^N2^E14
+3ndPt|^5.0|||
+R|8|^^^Cov19^^^SPC^|PASS^|||
+R|9|^^^Cov19^^^SPC^Ct|^29.3|||
+R|10|^^^Cov19^^^SPC^EndPt|^217.0|||
+L|1|N
+F6
+
+15:09:06 [Tx]
+15:09:06 [Tx]
+15:09:06 [Tx]
+15:09:06 [Tx]

@@ -1,0 +1,381 @@
+USE [KDEXT]
+GO
+
+ Object  Table [dbo].[LBL_BAR_DETAIL]    Script Date 2020-03-05 오후 20520 
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_BAR_DETAIL](
+	[BAR_CD] [nvarchar](10) NULL,
+	[BAR_ITEM_NO] [nvarchar](2) NULL,
+	[BAR_ITEM_SEQ] [nvarchar](2) NULL,
+	[BAR_ITEM_NAME] [nvarchar](20) NULL,
+	[BAR_CHR_NUM] [nvarchar](2) NULL,
+	[LABEL_ITEM_TYPE] [nvarchar](2) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_BAR_MASTER]    Script Date: 2020-03-05 오후 2:06:01 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_BAR_MASTER](
+	[BAR_CD] [nvarchar](10) NULL,
+	[PROD_CD] [nvarchar](5) NULL,
+	[COMP_CD] [nvarchar](3) NULL,
+	[BAR_TYPE] [nvarchar](1) NULL,
+	[BAR_GU] [nvarchar](1) NULL,
+	[TEMP_MASTER_GU] [nvarchar](10) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+'============================================================================
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_LABEL_DETAIL]    Script Date: 2020-03-05 오후 2:06:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_LABEL_DETAIL](
+	[PROD_LABEL_CD] [nvarchar](8) NULL,
+	[LABEL_ITEM_NO] [nvarchar](2) NULL,
+	[LABEL_ITEM_SEQ] [nvarchar](2) NULL,
+	[LABEL_ITEM_NAME] [nvarchar](50) NULL,
+	[LABEL_ITEM_NAME_PRT] [nvarchar](1) NULL,
+	[BAR_CD] [nvarchar](10) NULL,
+	[LABEL_ITEM_X_COORD] [nvarchar](5) NULL,
+	[LABEL_ITEM_Y_COORD] [nvarchar](5) NULL,
+	[LABEL_ITEM_GU] [nvarchar](10) NULL,
+	[LABEL_ITEM_FONT] [nvarchar](2) NULL,
+	[LABEL_ITEM_ROT] [int] NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_LABEL_MASTER]    Script Date: 2020-03-05 오후 2:07:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_LABEL_MASTER](
+	[PROD_LABEL_CD] [nvarchar](8) NULL,
+	[PROD_CD] [nvarchar](5) NULL,
+	[COMP_CD] [nvarchar](3) NULL,
+	[PROD_LABEL_TYPE] [nvarchar](1) NULL,
+	[LABEL_PRT_NO] [int] NULL,
+	[LABEL_PRT_SIDE] [nvarchar](1) NULL,
+	[LABEL_BAR_SIDE01_TYPE] [nvarchar](2) NULL,
+	[LABEL_BAR_SIDE02_TYPE] [nvarchar](2) NULL,
+	[PROD_MAX_TOT] [int] NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_M_COMP]    Script Date: 2020-03-05 오후 2:07:16 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_M_COMP](
+	[COMP_CD] [nvarchar](3) NULL,
+	[COMP_NAME] [nvarchar](30) NULL,
+	[COMP_LINE] [nvarchar](100) NULL,
+	[COMP_VIEW] [nvarchar](10) NULL,
+	[COMP_DIS_NO] [nvarchar](3) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_M_MATERIAL]    Script Date: 2020-03-05 오후 2:07:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_M_MATERIAL](
+	[MAT_CD] [nvarchar](30) NULL,
+	[MAT_NAME] [nvarchar](30) NULL,
+	[MAT_DIS_NO] [nvarchar](30) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_M_PACK]    Script Date: 2020-03-05 오후 2:07:35 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_M_PACK](
+	[PACK_CD] [nvarchar](3) NULL,
+	[PACK_NAME] [nvarchar](5) NULL,
+	[PACK_CORE] [nvarchar](10) NULL,
+	[PACK_DIA] [nvarchar](10) NULL,
+	[PACK_CAT_WIDTH] [nvarchar](20) NULL,
+	[PACK_PRO_WIDTH] [nvarchar](20) NULL,
+	[PACK_PRO_LENGTH] [nvarchar](20) NULL,
+	[PACK_CAT_GU] [nvarchar](50) NULL,
+	[PACK_DIS_NO] [nvarchar](3) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_M_PROD]    Script Date: 2020-03-05 오후 2:07:43 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_M_PROD](
+	[PROD_CD] [nvarchar](5) NULL,
+	[COMP_CD] [nvarchar](3) NULL,
+	[PROD_NAME] [nvarchar](50) NULL,
+	[PROD_PRT_NAME] [nvarchar](50) NULL,
+	[PROD_LENGTH] [nvarchar](10) NULL,
+	[PROD_MATERIAL_CD] [nvarchar](20) NULL,
+	[EXPIR_MONTH] [nvarchar](2) NULL,
+	[PROD_STOR_TEMP] [nvarchar](20) NULL,
+	[PROD_SIZE] [nvarchar](20) NULL,
+	[PROD_CHIMEI_PN] [nvarchar](20) NULL,
+	[VENDER_CD] [nvarchar](20) NULL,
+	[PROD_LINE_FA] [nvarchar](1) NULL,
+	[PROD_SLIT_FA] [nvarchar](1) NULL,
+	[PROD_CONTROL_YN] [nvarchar](1) NULL,
+	[PROD_PCN_NO] [nvarchar](1) NULL,
+	[ITEM_BARCODE] [nvarchar](20) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_M_USER]    Script Date: 2020-03-05 오후 2:07:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_M_USER](
+	[USER_CD] [nvarchar](6) NULL,
+	[USER_NAME] [nvarchar](30) NULL,
+	[USER_PW] [nvarchar](20) NULL,
+	[USER_DEPART] [nvarchar](30) NULL,
+	[USER_COMP] [nvarchar](1) NULL,
+	[USED_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_MAX_NO]    Script Date: 2020-03-05 오후 2:08:04 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_MAX_NO](
+	[PROD_ORDER_DT] [nvarchar](8) NULL,
+	[PROD_CD] [nvarchar](5) NULL,
+	[BOX_GU] [nvarchar](1) NULL,
+	[MAX_NO] [int] NULL,
+	[LOT_NO] [nvarchar](10) NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_PACK_TRACK]    Script Date: 2020-03-05 오후 2:08:13 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_PACK_TRACK](
+	[PROD_ORDER_DT] [nvarchar](8) NULL,
+	[PROD_CD] [nvarchar](5) NULL,
+	[PROD_REEL_BAR] [nvarchar](40) NULL,
+	[PROD_PP_BAR] [nvarchar](40) NULL,
+	[PROD_ICE_BAR] [nvarchar](40) NULL,
+	[PROD_PP_BAR_IN] [nvarchar](40) NULL,
+	[PROD_ICE_BAR_IN] [nvarchar](40) NULL,
+	[PROD_LOT_NO] [nvarchar](10) NULL,
+	[REGIST_ID_R] [nvarchar](6) NULL,
+	[REGIST_DT_R] [datetime] NULL,
+	[REGIST_ID_P] [nvarchar](6) NULL,
+	[REGIST_DT_P] [datetime] NULL,
+	[REGIST_ID_I] [nvarchar](6) NULL,
+	[REGIST_DT_I] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_PROD_ORDER]    Script Date: 2020-03-05 오후 2:08:21 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_PROD_ORDER](
+	[PROD_ORDER_DT] [nvarchar](8) NULL,
+	[PROD_CD] [nvarchar](5) NULL,
+	[SLITING_NO] [int] NULL,
+	[COMP_CD] [nvarchar](3) NULL,
+	[PROD_NAME] [nvarchar](50) NULL,
+	[PACK_CD] [nvarchar](3) NULL,
+	[REEL_QTY] [int] NULL,
+	[JOB_INFO] [nvarchar](255) NULL,
+	[ORDER_MEMO] [nvarchar](255) NULL,
+	[LOT_NO] [nvarchar](10) NULL,
+	[CLOSE_YN] [nvarchar](1) NULL,
+	[REGIST_ID] [nvarchar](6) NULL,
+	[REGIST_DT] [datetime] NULL,
+	[MODIFY_ID] [nvarchar](6) NULL,
+	[MODIFY_DT] [datetime] NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+USE [KDEXT]
+GO
+
+/****** Object:  Table [dbo].[LBL_SLITING_ORDER]    Script Date: 2020-03-05 오후 2:08:30 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LBL_SLITING_ORDER](
+	[PROD_ORDER_DT] [nvarchar](8) NULL,
+	[PROD_CD] [nvarchar](5) NULL,
+	[SLITING_NO] [int] NULL,
+	[SEQ_NO] [int] NULL,
+	[SLITING_INFO] [nvarchar](255) NULL,
+	[P_NO_F] [nvarchar](4) NULL,
+	[P_NO_T] [nvarchar](4) NULL
+) ON [PRIMARY]
+GO
+
+
+'============================================================================
+
+
+'============================================================================
+
+
+'============================================================================
+

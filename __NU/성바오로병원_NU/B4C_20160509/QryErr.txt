@@ -1,0 +1,4 @@
+Select equipcode, examcode, examname, resprec, seqno, gubun, examtype 
+  From EQPMASTER 
+ Where equipno = 'B4C' 
+ Order by gubun, seqno * 10 

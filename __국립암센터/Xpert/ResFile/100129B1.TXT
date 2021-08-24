@@ -1,0 +1,282 @@
+	Versant 440 HBV DNA 3.0 Assay (bDNA)	Ser. #AI0002570746 v1.2.2.15						DMS Version 7.5.2
+
+	Operator:		cmj			ID List File:			100129B1.DML
+
+	Lot Number:		E024			Expiration Date:			2010-06-01
+
+	Data File:		100129B1.DMS			Collected:		01/29/10	11:48	Left Tray
+
+	Relative Luminescence
+	  1	  2	  3	  4	  5	  6	  7	  8	  9	  10	  11	  12	
+A	18216	15120	 5588	150.5	15.85	5.501	6.041	3.403	3.347	2.277	6.772	11787
+B	2.318	2.764	7.461	6.953	9.060	98.96	24224	2.430	1.983	2.322	 1141	2.362
+C	2.745	2.084	4.262	18.94	2.407	2.083	20569	789.6	0.173	0.167	0.200	0.161
+
+	Standards and Controls							Comments
+				Log			
+	Loc	ID	copies/mL	Avg RL	%CV		
+
+	A1-2	Std A	105616000	16596	13.1				
+	A3	Std B	10351100	 5588					
+	A4	Std C	207735	150.5					
+	A5	Std D	20774	15.85					
+	A6-7	Std E	4148	5.765	6.6				
+	A8-9	Std F	780	3.375	1.2						Pos Control Results
+	A10	N-Ctl	0	2.277							 copies/mL
+	A11	Lo-PCtl	5394	6.772						Lo-PCtl	 5397
+	A12	Hi-PCtl	48603400	11787						Hi-PCtl	40339508
+
+	Diagnostics:	1.000	0.259	0.010	4.247	<0.001	-5.75	<0.001	1.041	<0.001	4.392	16122
+
+	Patient Specimens							Result		Comments
+						Log		
+#	Loc	ID				Avg RL	%CV	copies/mL				IU/mL
+1	B1	10012602876				2.318		< 2000				< 357
+2	B2	10012602929				2.764		< 2000				< 357
+3	B3	10012603166				7.461		 6478				1157
+4	B4	10012700657				6.953		 5678				1014
+5	B5	10012701147				9.060		 9072				1620
+6	B6	10012701444				98.96		146407				26144
+7	B7	10012701624				24224		> 100000000				> 17857100
+8	B8	10012701810				2.430		< 2000				< 357
+9	B9	10012701921				1.983		< 2000				< 357
+10	B10	10012701927				2.322		< 2000				< 357
+11	B11	10012701985				 1141		1419287				253444
+12	B12	10012702229				2.362		< 2000				< 357
+13	C1	10012702691				2.745		< 2000				< 357
+14	C2	10012702680				2.084		< 2000				< 357
+15	C3	10012702772				4.262		< 2000				< 357
+16	C4	10012701361				18.94		25780				4604
+17	C5	10012702909				2.407		< 2000				< 357
+18	C6	10012702914				2.083		< 2000				< 357
+19	C7	10012800834				20569		> 100000000				> 17857100
+20	C8	10012801291				789.6		988554				176528
+21	C9					0.173		< 2000				< 357
+22	C10					0.167		< 2000				< 357
+23	C11					0.200		< 2000				< 357
+24	C12					0.161		< 2000				< 357
+25	D1					
+26	D2					
+27	D3					
+28	D4					
+29	D5					
+30	D6					
+31	D7					
+32	D8					
+33	D9					
+34	D10					
+35	D11					
+36	D12					
+37	E1					
+38	E2					
+39	E3					
+40	E4					
+41	E5					
+42	E6					
+43	E7					
+44	E8					
+45	E9					
+46	E10					
+47	E11					
+48	E12					
+49	F1					
+50	F2					
+51	F3					
+52	F4					
+53	F5					
+54	F6					
+55	F7					
+56	F8					
+57	F9					
+58	F10					
+59	F11					
+60	F12					
+61	G1					
+62	G2					
+63	G3					
+64	G4					
+65	G5					
+66	G6					
+67	G7					
+68	G8					
+69	G9					
+70	G10					
+71	G11					
+72	G12					
+73	H1					
+74	H2					
+75	H3					
+76	H4					
+77	H5					
+78	H6					
+79	H7					
+80	H8					
+81	H9					
+82	H10					
+83	H11					
+84	H12					
+
+	Event Log
+
+	S	28Jan10  13:52 	Test: HBV DNA 3.0
+	S	28Jan10  13:52 	Version date: 3/16/2007 12:29 PM
+	S	28Jan10  13:52 	Kit Lot Number: E024
+	S	28Jan10  13:52 	Expiration Date: 2010-06-01
+	S	28Jan10  13:52 	Operator: V31007A\440 SUser
+	S	28Jan10  13:52 	Run size: 3
+	S	28Jan10  13:52 	Step: TEST
+	S	28Jan10  13:53 	PMT Results:
+          	+	  Non-attenuated IRL count :	1052885
+          	+	  Attenuated IRL count     :	   7134
+          	+	  Non-attenuated dark count:	    113
+          	+	  Attenuated dark count    :	    104
+          	+	  Attenuation factor       :	  149.8
+          	+	  IRL adjustment factor    :	   0.95
+	S	28Jan10  13:53 	Test paused.
+	S	28Jan10  14:44 	Test resumed.
+	S	28Jan10  14:44 	Step: MOVE
+	S	28Jan10  14:45 	Step: TIMEOUT
+	S	28Jan10  14:45 	Step: CLAMP
+	S	28Jan10  14:45 	Step: TIMEOUT_STOP
+	S	28Jan10  14:45 	Step: EXPRBWASH
+	S	28Jan10  14:46 	Step: EXPRBWASH
+	S	28Jan10  14:47 	Step: EXPRBWASH
+	S	28Jan10  14:47 	Step: FLUSH
+	S	28Jan10  14:48 	Step: FLUSH
+	S	28Jan10  14:49 	Step: FLUSH
+	S	28Jan10  14:50 	Step: FLUSH
+	S	28Jan10  14:50 	Step: FLUSH
+	S	28Jan10  14:51 	Step: FLUSH
+	S	28Jan10  14:51 	Step: FLUSH
+	S	28Jan10  14:52 	Step: FLUSH
+	S	28Jan10  14:52 	Step: RGTVOLCHK
+	S	28Jan10  15:02 	Step: MOVE
+	S	28Jan10  15:03 	Step: EXPRBWASH
+	S	28Jan10  15:06 	Step: INCUBATE_START
+	S	28Jan10  15:06 	Starting ramp up cycle
+	S	28Jan10  15:13 	Ramp up cycle complete
+	S	28Jan10  15:13 	Step: WAIT
+	S	28Jan10  15:58 	Step: INPRBWASH
+	S	28Jan10  16:13 	Starting cooldown cycle
+	S	28Jan10  16:18 	Cooldown cycle complete
+	S	28Jan10  16:18 	Step: TIMEOUT
+	S	28Jan10  16:18 	Step: UNCLAMP
+	S	28Jan10  16:18 	Step: TIMEOUT_STOP
+	S	28Jan10  16:18 	Step: DISPRGT2B
+	S	28Jan10  16:22 	Step: TIMEOUT
+	S	28Jan10  16:22 	Step: CLAMP
+	S	28Jan10  16:22 	Step: TIMEOUT_STOP
+	S	28Jan10  16:22 	Step: INCUBATE_START
+	S	28Jan10  16:22 	Starting ramp up cycle
+	S	28Jan10  16:25 	Ramp up cycle complete
+	S	28Jan10  16:25 	Step: INPRBWASH
+	S	28Jan10  16:28 	Step: EXPRBWASH
+	S	28Jan10  16:34 	Step: WAIT
+	S	29Jan10  07:24 	Step: FLUSH
+	S	29Jan10  07:25 	Starting cooldown cycle
+	S	29Jan10  07:31 	Cooldown cycle complete
+	S	29Jan10  07:31 	Step: TIMEOUT
+	S	29Jan10  07:31 	Step: UNCLAMP
+	S	29Jan10  07:31 	Step: TIMEOUT_STOP
+	S	29Jan10  07:31 	Step: WASH
+	S	29Jan10  07:38 	Step: DISPRGT2B
+	S	29Jan10  07:51 	Step: TIMEOUT
+	S	29Jan10  07:51 	Step: CLAMP
+	S	29Jan10  07:51 	Step: TIMEOUT_STOP
+	S	29Jan10  07:51 	Step: INCUBATE_START
+	S	29Jan10  07:51 	Starting ramp up cycle
+	S	29Jan10  07:56 	Ramp up cycle complete
+	S	29Jan10  07:56 	Step: INPRBWASH
+	S	29Jan10  07:59 	Step: EXPRBWASH
+	S	29Jan10  08:05 	Step: WAIT
+	S	29Jan10  08:25 	Step: FLUSH
+	S	29Jan10  08:26 	Starting cooldown cycle
+	S	29Jan10  08:30 	Cooldown cycle complete
+	S	29Jan10  08:30 	Step: TIMEOUT
+	S	29Jan10  08:30 	Step: UNCLAMP
+	S	29Jan10  08:30 	Step: TIMEOUT_STOP
+	S	29Jan10  08:30 	Step: WASH
+	S	29Jan10  08:39 	Step: DISPRGT2B
+	S	29Jan10  08:52 	Step: TIMEOUT
+	S	29Jan10  08:52 	Step: CLAMP
+	S	29Jan10  08:52 	Step: TIMEOUT_STOP
+	S	29Jan10  08:52 	Step: INCUBATE_START
+	S	29Jan10  08:52 	Starting ramp up cycle
+	S	29Jan10  08:57 	Ramp up cycle complete
+	S	29Jan10  08:57 	Step: INPRBWASH
+	S	29Jan10  08:59 	Step: EXPRBWASH
+	S	29Jan10  09:06 	Step: WAIT
+	S	29Jan10  09:21 	Step: RGTMIX
+	S	29Jan10  09:26 	Step: RGTRESUS
+	S	29Jan10  09:27 	Starting cooldown cycle
+	S	29Jan10  09:28 	Step: RGTMIX
+	S	29Jan10  09:31 	Cooldown cycle complete
+	S	29Jan10  09:33 	Step: RGTRESUS
+	S	29Jan10  09:35 	Step: MOVE
+	S	29Jan10  09:35 	Step: FLUSH
+	S	29Jan10  09:35 	Step: TIMEOUT
+	S	29Jan10  09:35 	Step: UNCLAMP
+	S	29Jan10  09:36 	Step: TIMEOUT_STOP
+	S	29Jan10  09:36 	Step: WASH
+	S	29Jan10  09:44 	Step: DISPRGT2B
+	S	29Jan10  09:50 	Step: TIMEOUT
+	S	29Jan10  09:50 	Step: CLAMP
+	S	29Jan10  09:51 	Step: TIMEOUT_STOP
+	S	29Jan10  09:51 	Step: INPRBWASH
+	S	29Jan10  09:51 	Step: EXPRBWASH
+	S	29Jan10  09:53 	Step: RGTTEMP
+	S	29Jan10  09:53 	Step: INCUBATE_START
+	S	29Jan10  09:53 	Starting ramp up cycle
+	S	29Jan10  09:57 	Ramp up cycle complete
+	S	29Jan10  09:57 	Step: INPRBWASH
+	S	29Jan10  10:10 	Step: EXPRBWASH
+	S	29Jan10  10:27 	Step: WAIT
+	S	29Jan10  10:42 	Starting cooldown cycle
+	S	29Jan10  10:43 	Step: FLUSH
+	S	29Jan10  10:46 	Cooldown cycle complete
+	S	29Jan10  10:46 	Step: TIMEOUT
+	S	29Jan10  10:46 	Step: UNCLAMP
+	S	29Jan10  10:47 	Step: TIMEOUT_STOP
+	S	29Jan10  10:47 	Step: WASH
+	S	29Jan10  10:54 	Step: FLUSH
+	S	29Jan10  10:55 	Step: WASH
+	S	29Jan10  11:05 	Step: RGTMIX
+	S	29Jan10  11:07 	Step: RGTRESUS
+	S	29Jan10  11:09 	Step: RGTMIX
+	S	29Jan10  11:10 	Step: RGTRESUS
+	S	29Jan10  11:13 	Step: DISPRGT2B
+	S	29Jan10  11:18 	Step: TIMEOUT
+	S	29Jan10  11:18 	Step: CLAMP
+	S	29Jan10  11:18 	Step: TIMEOUT_STOP
+	S	29Jan10  11:18 	Step: INCUBATE_START
+	S	29Jan10  11:18 	Starting ramp up cycle
+	S	29Jan10  11:21 	Ramp up cycle complete
+	S	29Jan10  11:21 	Step: INPRBWASH
+	S	29Jan10  11:22 	Step: INPRBWASH
+	S	29Jan10  11:23 	Step: EXPRBWASH
+	S	29Jan10  11:31 	Step: INPRBWASH
+	S	29Jan10  11:35 	Step: EXPRBWASH
+	S	29Jan10  11:38 	Step: FLUSH
+	S	29Jan10  11:39 	Step: FLUSH
+	S	29Jan10  11:40 	Starting cooldown cycle
+	S	29Jan10  11:43 	Cooldown cycle complete
+	S	29Jan10  11:44 	Step: FLUSH
+	S	29Jan10  11:46 	Step: FLUSH
+	S	29Jan10  11:48 	Step: TIMEOUT
+	S	29Jan10  11:48 	Step: UNCLAMP
+	S	29Jan10  11:48 	Step: TIMEOUT_STOP
+	S	29Jan10  11:48 	Step: READ
+	S	29Jan10  11:48 	PMT Results:
+          	+	  Non-attenuated IRL count :	1053357
+          	+	  Attenuated IRL count     :	   7161
+          	+	  Non-attenuated dark count:	    111
+          	+	  Attenuated dark count    :	    111
+          	+	  Attenuation factor       :	  149.4
+          	+	  IRL adjustment factor    :	   0.95
+	S	29Jan10  11:50 	PMT Results:
+          	+	  Non-attenuated IRL count :	1052713
+          	+	  Attenuated IRL count     :	   7111
+          	+	  Non-attenuated dark count:	    124
+          	+	  Attenuated dark count    :	    123
+          	+	  Attenuation factor       :	  150.6
+          	+	  IRL adjustment factor    :	   0.95

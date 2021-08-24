@@ -1,0 +1,10 @@
+SELECT DISTINCT a.ORD_CD AS ITEM                   
+  FROM H3LAB_RESULT a, H1OPDIN b                   
+ WHERE a.ACC_YMD   = '20210310'          
+   AND a.RECEPT_NO = '24052'          
+   AND a.ORD_CD IN ('D3064030','D3064039')            
+   AND a.STS_CD     = 'A'                      
+   AND (a.RESULT_NM = '' OR a.RESULT_NM IS NULL)
+   AND a.RECEPT_NO = b.RECEPT_NO                   
+ ORDER BY a.ORD_CD                                 
+

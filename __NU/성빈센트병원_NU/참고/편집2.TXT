@@ -1,0 +1,188 @@
+/* -- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */   
+/* himed/his/lis/plgyrsltmngtmgr/testrsltrgstmgt/dao/sqls/testrsltrgstdao_sqls.xml instestitemrslt 
+param=[M17003176, 20170724, 32715, 9, 017, 20170724, 33978, PMO12040, 1, [Methods]
+   Seegene HPV Real-time PCR (Anyplex II HPV 28 Detection Real-time PCR)
+
+[Result]
+HPV High Risk Type : POSITIVE (18+, 68+, 31+++)
+HPV Low  Risk Type : POSITIVE (70+, 61+) , null, null, 10602673, 10602673] */ 
+        
+            INSERT INTO lis.lprmtrlt 
+                   (ptno,          rsltrgstdd,  rsltrgstno,           rsltrgsthistno, 
+                    riskflagcd,    instcd,
+                    acptdd,        acptno,                            testcd,     
+                    acptitemno,                      testrslt,        testrsltxml,  testrsltetc, delflagcd,
+                    fstrgstdt,     fstrgstrid,
+                    lastupdtdt,    lastupdtrid)
+            VALUES (:arg_ptno         :arg_rsltrgstdd  CAST(:arg_rsltrgstno: AS DECIMAL(12,0)), 1, 
+                    :arg_riskflagcd   :arg_instcd 
+                    :arg_acptdd       CAST(:arg_acptno AS DECIMAL(12,0)),   :arg_testcd      
+                    CAST(:arg_acptitemno AS SMALLINT),  :arg_testrslt      :arg_testrsltxml  , :arg_testrsltetc  ,   '0',
+                    SYSDATE, :arg_userid 
+                    SYSDATE, :arg_userid)
+        
+     
+ /* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml getacptstatref     
+param=[017, M17003176, 20170724, 33978, 1, PMO12040, 17488137, 20170724, 1151787391]*/
+        
+            SELECT acptstatcd 
+              FROM lis.lpjmacpt 
+             WHERE instcd         = :arg_instcd
+               AND ptno           = :arg_ptno
+               AND acptdd         = :arg_acptdd
+               AND acptno         = :arg_acptno
+               AND acptitemno     = :arg_acptitemno
+               AND testcd         = :arg_testcd
+               AND pid            = :arg_pid 
+               AND prcpdd         = :arg_prcpdd
+               AND execprcpuniqno = :arg_execprcpuniqno 
+        
+     
+---- 워크리스트의 acptstatcd 상태와 조회된 getacptstatref  에서 조회된 상태가 값으면...아래 udpapte 수행
+---- 다르면  exception  "처방상태를 조회할 수 없습니다." 중지합니다.
+     
+     /* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml updacptstat 
+param=[2, 10602673, 017, M17003176, 20170724, 33978, 1, PMO12040, 17488137, 20170724, 1151787391] */ 
+        
+            UPDATE lis.lpjmacpt
+               SET acptstatcd  = :arg_newacptstatcd,   
+                   lastupdtdt  = SYSDATE,
+                   lastupdtrid = :arg_userid
+             WHERE instcd         = :arg_instcd
+               AND ptno           = :arg_ptno
+               AND acptdd         = :arg_acptdd
+               AND acptno         = CAST(:arg_acptno AS DECIMAL(12,0))
+               AND acptitemno     = CAST(:arg_acptitemno AS SMALLINT)
+               AND testcd         = :arg_testcd
+               AND pid            = :arg_pid 
+               AND prcpdd         = :arg_prcpdd
+               AND execprcpuniqno = CAST(:arg_execprcpuniqno AS INTEGER)
+/* -- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */   
+        
+        
+
+/* --bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb , cccccccccccccccccccccccccccccccccc 는 중복 연속처방만 해당함. */   
+
+
+
+/* -- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb */   
+--getprcpacptstatref");   // 처방별 접수된 검사의 접수상태 검색 쿼리
+--                 // 한 처방에 여러개의 검사가 존재할 수 있기에 처방별로 접수상태를 검색하여
+--                 // 모든 검사의 접수상태가 일치할 경우 처방상태를 수정한다.
+--조회괸건이 있다면 아래 조회/update 수행 없다면 skip
+            SELECT COUNT(distinct acptstatcd) AS acptststcnt , COUNT(distinct ptnocd) AS ptnocd 
+              FROM lis.lpjmacpt 
+             WHERE instcd          = :arg_instcd
+               AND pid             = :arg_pid 
+               AND prcpdd          = :arg_prcpdd
+               AND execprcpuniqno  = CAST(:arg_execprcpuniqno AS INTEGER)
+               AND acptstatcd     IN ('0', '2', '3', '4', '9')
+             GROUP BY instcd, pid, prcpdd, execprcpuniqno
+--조회괸건이 있다면 아래 조회/update 수행 없다면 skip
+
+
+     /* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml getprcpstat 
+param=[017, 17488137, 20170724, 1151787391]*/
+            
+            SELECT b.prcpstatcd
+
+              FROM emr.mmodexop a, emr.mmohoprc b  -- prcpgenrflag" compare="O" 외래
+              FROM emr.mmodexop a, emr.mmohoprc b  -- prcpgenrflag" compare="S  건진
+              FROM emr.mmodexip a, emr.mmohiprc b  -- prcpgenrflag" compare="I   입원
+              FROM emr.mmodexip a, emr.mmohiprc b  -- prcpgenrflag" compare="E"  응급
+              FROM emr.mmodexip a, emr.mmohiprc b  -- prcpgenrflag" compare="D"  DSC 낮병동
+
+             WHERE a.instcd         = :arg_dutplceinstcd
+               AND a.pid            = :arg_pid
+               AND a.prcpdd         = :arg_prcpdd
+               AND a.execprcpuniqno = :arg_execprcpuniqno
+               AND a.execprcphistcd = 'O'
+               AND a.instcd         = b.instcd
+               AND a.prcpdd         = b.prcpdd
+               AND a.prcpno         = b.prcpno
+               AND a.prcphistno     = b.prcphistno
+               AND b.prcphistcd     = 'O'
+               AND b.prcpclscd      = 'D2'
+               AND b.tempprcpflag   = 'N'
+
+/* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml setprcpstat 
+param=[710, 10602673, 017, 17488137, 20170724, 1151787391]*/
+            
+            UPDATE 
+                   emr.mmohoprc  -- prcpgenrflag" compare="O"
+                   emr.mmohoprc  -- prcpgenrflag" compare="S"
+                   emr.mmohiprc  -- prcpgenrflag" compare="I"
+                   emr.mmohiprc  -- prcpgenrflag" compare="E"
+                   emr.mmohiprc  -- prcpgenrflag" compare="D"
+               SET prcpstatcd  = :arg_newprcpstatcd:arg_,
+                   lastupdtdt  = SYSDATE,
+                   lastupdtrid = :arg_%userid:arg_
+             WHERE (instcd, pid, prcpdd, prcpno, prcphistno) IN
+                   (SELECT instcd, pid, prcpdd, prcpno, prcphistno
+                      FROM emr.mmodexop  -- prcpgenrflag" compare="O"
+                      FROM emr.mmodexop  -- prcpgenrflag" compare="S"
+                      FROM emr.mmodexip  -- prcpgenrflag" compare="I"
+                      FROM emr.mmodexip  -- prcpgenrflag" compare="E"
+                      FROM emr.mmodexip  -- prcpgenrflag" compare="D"
+                     WHERE instcd         = :arg_dutplceinstcd
+                       AND pid            = :arg_pid
+                       AND prcpdd         = :arg_prcpdd
+                       AND execprcpuniqno = :arg_execprcpuniqno
+                       AND execprcphistcd = 'O'
+                   )
+               AND prcphistcd   = 'O'
+               AND prcpclscd    = 'D2'
+               AND tempprcpflag = 'N'
+
+
+   
+     /* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml setexecprcpstat 
+param=[710, 10602673, 017, 17488137, 20170724, 1151787391]*/
+
+            UPDATE 
+                   emr.mmodexop a  -- prcpgenrflag" compare="O"
+                   emr.mmodexop a  -- prcpgenrflag" compare="S"
+                   emr.mmodexip a  -- prcpgenrflag" compare="I"
+                   emr.mmodexip a  -- prcpgenrflag" compare="E"
+                   emr.mmodexip a  -- prcpgenrflag" compare="D"
+               SET a.execprcpstatcd = :arg_newprcpstatcd,
+                   a.lastupdtdt     = SYSDATE,
+                   a.lastupdtrid    = :arg_userid
+             WHERE a.instcd         = :arg_dutplceinstcd
+               AND a.pid            = :arg_pid
+               AND a.prcpdd         = :arg_prcpdd
+               AND a.execprcpuniqno = :arg_execprcpuniqno
+               AND a.execprcphistcd = 'O'
+          
+/* -- bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb */   
+
+
+
+/* -- cccccccccccccccccccccccccccccccccc */  
+-- 실시처방처리정보 조회    
+     /* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml getDoPrcpTret 
+param=[017, 1151787391, 20170724, 710]  */
+            
+            SELECT COUNT(prcpdd) AS tretcnt
+              FROM emr.mmodexpt
+             WHERE instcd         = :arg_dutplceinstcd
+               AND execprcpuniqno = :arg_execprcpuniqno
+               AND prcpdd         = :arg_prcpdd
+               AND tretflagcd     = :arg_bizflagcd
+-- 조회되면 아래 SKIP 없으면 insert 
+
+     /* himed/his/lis/lib/plgycommonmgt/dao/sqls/plgycommondao_sqls.xml insDoPrcpTret
+param=[20170724, 1151787391, 710, 017, 20170724, 142613, null, 10602673, null, 10602673, 10602673] */ 
+            
+            INSERT INTO emr.mmodexpt (prcpdd,       execprcpuniqno, 
+                                      tretflagcd,   instcd,            
+                                      tretdd,       trettm,    tretpsnid, 
+                                      fstrgstrid,   fstrgstdt, 
+                                      lastupdtrid,  lastupdtdt)
+                              VALUES (:arg_prcpdd,     CAST(:arg_execprcpuniqno AS INTEGER), 
+                                      :arg_bizflagcd,  :arg_dutplceinstcd,  
+                                      :arg_tretdd,     :arg_trettm,  CASE WHEN :arg_cnfmid IS NULL THEN :arg_userid ELSE :arg_cnfmid END,
+                                      :arg_userid,    SYSDATE,
+                                      :arg_userid,    SYSDATE)
+        
+/* -- cccccccccccccccccccccccccccccccccc */
