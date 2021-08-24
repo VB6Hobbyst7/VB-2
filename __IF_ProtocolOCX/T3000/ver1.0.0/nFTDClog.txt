@@ -1,0 +1,64 @@
+Thu Nov 06 14:27:07 2008
+winmain start
+winmain [-p 61.42.12.46 443 974475]
+winmain ClientManager.SetConnection 전 
+CnFTDClientManager::SetConnection [-p 61.42.12.46 443 974475]
+CnFTDClientManager::SetConnection 1
+CnFTDClientManager::SetConnection 2
+CnFTDClientManager::SetConnection end
+winmain ClientManager.SetConnection 후 
+winmain ClientManager.Connection() 전
+CnFTDClientSocket::Connection() start[0]
+Thu Nov 06 14:27:09 2008
+CnFTDClientSocket::Connection()[61.42.12.46] m_port[443] i[0]
+Connection() if(m_iServerNum != 0) 
+Connection()  if(!SendExact()
+Thu Nov 06 14:27:10 2008
+Connection() CryptInit 
+CnFTDClientSocket::Connection() end
+winmain ClientManager.Connection() 후
+CnFTDClientManager::run start
+CnFTDClientManager::run while [11]
+CnFTDClientSocket::FileList start
+CnFTDClientSocket::FileList end
+CnFTDClientManager::run while [9]
+CnFTDClientManager::RemainSpace start
+CnFTDClientManager::RemainSpace end [0]
+CnFTDClientManager::run while [8]
+Thu Nov 06 14:27:11 2008
+CnFTDClientManager::run while [12]
+CnFTDClientSocket::DriveList start
+CnFTDClientSocket::DriveList end
+Thu Nov 06 14:30:00 2008
+CnFTDClientManager::run while [7]
+CnFTDClientManager::run while [11]
+CnFTDClientSocket::FileList start
+CnFTDClientSocket::FileList end
+CnFTDClientManager::run while [9]
+CnFTDClientManager::RemainSpace start
+CnFTDClientManager::RemainSpace end [0]
+Thu Nov 06 14:30:01 2008
+CnFTDClientManager::run while [8]
+Thu Nov 06 14:30:03 2008
+CnFTDClientManager::run while [14]
+CnFTDClientSocket::Connection() start[0]
+Thu Nov 06 14:30:05 2008
+CnFTDClientSocket::Connection()[61.42.12.46] m_port[443] i[0]
+Connection() if(m_iServerNum != 0) 
+Connection()  if(!SendExact()
+Connection() CryptInit 
+CnFTDClientSocket::Connection() end
+CnFTDClientManager::run while [10]
+CnFTDClientManager::CurrentPath start
+CnFTDClientManager::CurrentPath end str1.type[0]
+CnFTDClientSocket::RecvFile from[(null)]	to[(null)] start
+Thu Nov 06 14:30:06 2008
+CnFTDClientSocket::RecvFile from[(null)]	to[(null)] end
+Thu Nov 06 14:30:07 2008
+CnFTDClientManager::run while [11]
+CnFTDClientSocket::FileList start
+CnFTDClientSocket::FileList end
+CnFTDClientManager::run while [9]
+CnFTDClientManager::RemainSpace start
+CnFTDClientManager::RemainSpace end [0]
+CnFTDClientManager::run while [8]

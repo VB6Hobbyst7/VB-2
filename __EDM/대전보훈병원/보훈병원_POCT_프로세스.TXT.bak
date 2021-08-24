@@ -1,0 +1,38 @@
+EPOC 프로세스
+
+1. 처방의 조회
+         strSql = " Select Work_prsnid "
+strSql = strSql & "   From modeexamst "
+strSql = strSql & "  Where spc_no = '" & SpcNo & "'"
+
+2 접수번호 조회
+         strSql = "SELECT pt_no, ord_date, spc_cd_1, bld_col_prsnid, spc_no, exam_date, BLD_COL_PRSNID, BLD_COL_YN, EXAM_GRPCD,BLD_COL_DATE "
+strSql = strSql + "  FROM SLA1COLMT                "
+strSql = strSql + " WHERE spc_no = '" & SpcNo & "' "
+
+3. 채혈확인 : PG_SLA_SpecimenOrderAccept.SP_SLA_SamAcp_U01
+
+4. 검체접수 : SP_SLA_P_02_ACPT_CP
+
+5. 검사결과저장 : PG_SLA_INTERFACEMGT.SP_SLA_INTERFACEMGT_U02
+   ==> 결과테이블 : slaxworkt..spc_no = '16051999902'
+   ==> 결과컬럼 : exam_rslt
+                    
+6. 진료의 처방상태 변경 : SP_SLA_P_03_MAIN2
+
+7. 검사결과 검증 : SP_SLA_UPDATE_STATUS2
+
+jsh144@bohun.or.kr
+
+환자명 : 강신수  
+환자번호 : 21243028
+검체번호 : 16051999902
+
+
+부산보훈병원 
+
+select acp_date FROM SLA1COLMT 
+ where spc_no = '" & SpcNo & "'"
+ ==> 없을 경우  acp_date EPOC 검사일자로 업데이트 함
+ 
+ 

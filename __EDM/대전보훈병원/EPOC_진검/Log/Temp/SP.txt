@@ -1,0 +1,219 @@
+ /**********************************************************************************************
+    *    서비스이름  : SP_SLA_INTERFACEMGT_U02
+    *    최초 작성일 : 2007.10.30
+    *    최초 작성자 : 조진창
+    *    Description : 의뢰검사 결과저장(Upload)
+    **********************************************************************************************/
+   PROCEDURE sp_sla_interfacemgt_u02 (
+      in_spcno     IN       VARCHAR2,
+      in_examcd    IN       VARCHAR2,
+      in_result    IN       VARCHAR2,
+      in_userid    IN       VARCHAR2,
+      in_rflag     IN       VARCHAR2,
+      in_eqpcd     IN       VARCHAR2,
+      in_imgpath   IN       VARCHAR2,
+      io_acpno     IN OUT   VARCHAR2,
+      io_erryn     IN OUT   VARCHAR2,
+      io_errmsg    IN OUT   VARCHAR2
+   )
+   AS
+      t_panic       VARCHAR2 (0001) := '';
+      t_delta       VARCHAR2 (0001) := '';
+      t_userid      VARCHAR2 (0006) := '';
+      t_acpno       VARCHAR2 (0005) := '';
+      t_grpcd       VARCHAR2 (0003) := '';
+      t_rptid       VARCHAR2 (0006) := '';
+      t_nValue      VARCHAR2 (0006) := '';
+      t_nValue1     VARCHAR2 (0020) := '';
+      t_nValue2     VARCHAR2 (0020) := '';
+      t_Sex         VARCHAR2 (0001) := '';
+      m_rptprsnid2  VARCHAR2 (0006) :=  '';
+      t_count       VARCHAR2 (0003) := '';
+      t_stat        VARCHAR2(0001)  := '';
+      t_bsts_cnt    VARCHAR2(0001)  := '';
+      t_BSTS_NOTRSLT_YN VARCHAR2(0001):= 'N';  -- 채혈상태에서 결과 저장안되게 체크여부
+      
+    BEGIN
+
+    t_BSTS_NOTRSLT_YN := FC_SCM_Read_ComCode( 'SUP', 'SL8', 'BSTS_NOTRSLT_YN', 'Y', 'CD_NAME' );
+
+    IF t_BSTS_NOTRSLT_YN = 'Y' THEN 
+        
+        BEGIN
+            SELECT count(*)
+              INTO t_bsts_cnt
+              FROM sla1colmt b
+             WHERE b.spc_no         = in_spcno
+               AND b.exam_pross_sts = 'B'
+             ;
+     
+            IF t_bsts_cnt = 1 THEN
+                io_erryn  := 'Y';
+                io_errmsg := '검체가 채혈상태 입니다. ErrCd = ' || TO_CHAR (SQLCODE);
+                RAISE_APPLICATION_ERROR (-20551, '검체가 채혈상태 입니다');
+                RETURN;
+            END IF;
+        
+        END;
+
+
+    END IF;
+
+
+    if in_result IS not NULL or  TRIM(in_result) <> ''  THEN
+
+
+--          if   gv_bsns_cd = '11' THEN
+--
+--            begin
+--                 INSERT INTO /* 진료지원-진단검사의학-GenRst.SpcAcp_pkg14 */
+--                        drexam( USERID
+--                                 , EXAMDATE
+--                                 , MODAL )
+--                          VALUES( 'u02--' || in_examcd
+--                                      ,in_spcno
+--                                      ,TO_CHAR(sysdate))
+--
+--                             ;
+--
+--                 EXCEPTION
+--                      WHEN OTHERS
+--                      THEN
+--                          io_erryn := 'Y';
+--
+--
+--
+--          end;
+
+ --    END IF;
+
+
+
+
+
+        /************************************************************************************************************************************************
+        **  Description  보고자,접수자 조회
+        *************************************************************************************************************************************************/
+        BEGIN
+              SELECT  /* 진료지원-진단검사의학-ExampleEnvManagement.ExCls_pkg04 */
+                     chrg_prsnid, acpno_1, a.exam_grpcd, c.sex
+                     INTO t_userid, t_acpno, t_grpcd, t_Sex
+              FROM   sla0roomt a, sla1colmt b, arrpatbamv c
+              WHERE  b.spc_no     = in_spcno
+              AND    a.exam_grpcd = b.exam_grpcd
+              AND    c.pt_no      = b.pt_no
+             ;
+
+              io_acpno := t_acpno;
+
+        -- 예외처리
+        EXCEPTION
+           WHEN OTHERS
+           THEN
+              raise_application_error (-100,
+                                          'SP_SLA_INTERFACEMGT_U02 '
+                                       || ' errcode = '
+                                       || SQLCODE
+                                       || SQLERRM
+                                      );
+        END;
+
+        /************************************************************************************************************************************************
+        **  Description  Delta/Panic 결과 유형조회
+        *************************************************************************************************************************************************/
+        BEGIN
+
+            t_panic :='';
+            t_delta :='';
+
+            pg_sla_specimenorderresult.sp_sla_genrst_s01 (in_spcno,
+                                                          in_examcd,
+                                                          in_result,
+                                                          t_panic,
+                                                          t_delta,
+                                                          io_erryn,
+                                                          io_errmsg
+                                                        );
+
+            IF io_erryn = 'Y'
+            THEN
+               RETURN;
+            END IF;
+
+        EXCEPTION
+           WHEN OTHERS
+           THEN
+              t_panic :='Y';
+              t_delta :='Y';
+        END;
+
+        /************************************************************************************************************************************************
+        **  Description  Normal Value 결과 유형조회
+        *************************************************************************************************************************************************/
+        BEGIN
+             SELECT  /* 진료지원-진단검사의학-ExampleEnvManagement.ExCls_pkg04 */
+                    decode(t_Sex, 'M', a.m_ref_vlue_1, a.f_ref_vlue_1), decode(t_Sex, 'M', a.m_ref_vlue_2, a.f_ref_vlue_2)
+                    INTO t_nValue1, t_nValue2
+              FROM   sla0itemvt a
+             WHERE  a.exam_cd    = in_examcd
+             ;
+
+             t_nValue := FC_SLA_GET_RSLT_HL(in_result, t_nValue2, t_nValue1);
+             t_rptid  := '';
+-- 6/5일 L21도 자동검증 삭제
+--             if t_grpcd = 'L21' then
+--                t_rptid := '103289';
+--             Elsif t_grpcd = 'L30' or t_grpcd = 'L31' or t_grpcd = 'L32' or t_grpcd = 'L33' or t_grpcd = 'L34' or t_grpcd = 'L51' or t_grpcd = 'L52' then
+--                t_rptid := '100321';
+--             End if;
+
+--             if t_grpcd = 'L30' or t_grpcd = 'L31' or t_grpcd = 'L32' or t_grpcd = 'L33' or t_grpcd = 'L34' or t_grpcd = 'L51' or t_grpcd = 'L52' then
+
+
+--             if t_grpcd = 'L30' or t_grpcd = 'L31' or t_grpcd = 'L33' or t_grpcd = 'L34' then --이과장이 똥개 훈련시킨것 2008.07.22
+----             if t_grpcd = 'L30' or t_grpcd = 'L31' or t_grpcd = 'L33' or t_grpcd = 'L34'  or t_grpcd = 'L80'  then --이과장이 똥개 훈련시킨것 2008.07.22
+--                t_rptid := '100321';
+--             End if;
+
+
+        if t_grpcd = 'L30' or t_grpcd = 'L31' or t_grpcd = 'L33' or t_grpcd = 'L34' then --이과장이 똥개 훈련시킨것 2008.07.22
+			begin
+		        SELECT count(DR_PRSNID)   INTO m_rptprsnid2
+		          FROM SLA0DRMT
+		         WHERE EXAM_GRPCD  = t_grpcd
+		           AND EXAM_CD     = in_examcd;
+	        end;
+	        IF m_rptprsnid2 != '0' THEN
+	             begin
+	               SELECT nvl(DR_PRSNID,'A')   INTO t_rptid
+	                 FROM SLA0DRMT
+	                WHERE EXAM_GRPCD  = t_grpcd
+	                  AND EXAM_CD     = in_examcd
+	                GROUP BY DR_PRSNID ;
+	             end;
+	        end if;
+             IF t_rptid = 'A' or m_rptprsnid2 = '0' THEN
+	            t_rptid := in_userid;
+	         End if;
+        END IF;
+-- L80도 자동검증 처리 시작 20081128
+--            if t_grpcd = 'L80' then
+--               t_rptid := '103289';   -- 최윤미과장
+--               IF in_examcd > 'L8007' THEN
+--                  t_rptid := '100321';  -- 이명희과장
+--               ELSE
+--                  t_rptid := '103289';  -- 최윤미과장
+--               END IF;
+--           end if;
+
+        -- 예외처리
+        EXCEPTION
+           WHEN OTHERS
+           THEN
+              raise_application_error (-100,
+                                          'SP_SLA_INTERFACEMGT_U02 '
+                                       || ' errcode = '
+                                       || SQLCODE
+                                       || SQLERRM
+                                      );
+        END;

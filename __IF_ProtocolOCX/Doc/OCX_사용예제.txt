@@ -1,0 +1,177 @@
+# ORDER_NEXT
+
+    Dim sRetVal As String
+    Dim sTest   As String
+    
+    sRetVal = GetNowOrderList
+
+    '다시 Order List를 찾는다
+    If sRetVal = "NONE" Then
+        ViewMsg "Order 전송이 완료되었습니다."
+    ElseIf sRetVal = "OK" Then
+        With gOrderTable
+            ELECSYS1.p_sID = .sSampID
+            ELECSYS1.P_sRack = .sRack
+            ELECSYS1.P_sPos = .sPos
+            ELECSYS1.p_iOrdCnt = .iOrdCnt
+            
+            'ORDER 편집(계산식 or 중복 오더 체크...)
+            sTest = Order_Check
+            ELECSYS1.P_sTotIFCD = sTest
+        End With
+    
+        With ELECSYS1
+            .Send_Chr (5)
+            .iPhase = 3
+        End With
+    End If
+
+
+# cmdSendOrd_Click
+
+    Dim sTest   As String
+    Dim ii      As Integer
+    
+    If GetNowOrderList = "NONE" Then
+    Else
+        With gOrderTable
+            ELECSYS1.p_sID = .sSampID
+            ELECSYS1.P_sRack = .sRack
+            ELECSYS1.P_sPos = .sPos
+            ELECSYS1.p_iOrdCnt = .iOrdCnt
+            
+            'ORDER 편집(계산식 or 중복 오더 체크...)
+            sTest = Order_Check
+            ELECSYS1.P_sTIFCD = sTest
+        End With
+        
+        With ELECSYS1
+            .Send_Chr (5)
+            .iPhase = 3
+        End With
+    End If
+
+
+# Form_Load
+
+    '===== INTERFACE OCX 초기화
+    With Phase1
+	.EqName = "ELECSYS2010"
+        .iPhase = 1
+        .iSendPhase = 1		
+        .iFrameN = 1
+        
+        .CommPort = gCommInfo.sPort
+        .Settings = gCommInfo.sBaudRate & "," & gCommInfo.sParity & "," & _
+                      gCommInfo.sDataBit & "," & gCommInfo.sStopBIt
+        .RTSEnable = True
+        .RThreshold = 1
+        .PortOpen = True
+    End With
+    '==========================
+
+
+# Phase1_AppendData
+
+    Dim sLabDate    As String
+    Dim sSlipCd     As String
+    Dim sLabSeq     As String
+    Dim iCRow       As Integer
+    
+    sLabDate = Left$(sID, 8)
+    sSlipCd = Mid$(sID, 9, 3)
+    sLabSeq = Mid$(sID, 12, 5)
+                
+    '현재 장비에서 전송된 작업번호 표시
+    lblResult = sLabDate & "-" & sSlipCd & "-" & sLabSeq
+    
+    '현재의 전송과 매칭되는 Row 찾기
+    iCRow = FindCurRow(0, sLabDate, sSlipCd, sLabSeq)
+    
+    '결과 처리
+    If iCRow > 0 Then
+        Call ResultProcess(iCRow, giIFCdMode, iRstCnt, 0, sTIFCd, sTRst1, "")
+    End If
+    
+
+# Phase1_RequestNextOrder()
+
+    Call spdIntList.SetText(9, gOrderTable.iCRow, "Y")    
+    Call Order_Next
+            
+
+
+# SYSMEX1_SendOrderOK(SampleID)	-> CA500 사용
+
+    If SampID <> "" Then
+	lblOrder = Left(SampID, 8) & "-" & gsMachineSlip & "-" & Mid(sSampID, 9, 5)
+    End If
+                        
+    If gOrderTable.iCRow > 0 Then
+	Call SpdForeBack(spdIntList, 5, 10, gOrderTable.iCRow, gOrderTable.iCRow, RGB(0, 0, 0), 연하늘)
+                            
+        Call spdIntList.SetText(9, gOrderTable.iCRow, "Y")  
+    End If
+
+
+# SYSMEX1_RequestCurOrder(ID, RACK, POS)
+
+    With spdIntList
+        For I = 1 To .MaxRows
+            Call .GetText(2, I, vLabDate)
+            Call .GetText(4, I, vLabSeq)
+            Call .GetText(7, I, vRack)
+            Call .GetText(8, I, vPos)
+            Call .GetText(16, I, vIFCnt)
+
+            If gOrderTable.sRack = vRack And gOrderTable.sPos = vPos Then
+                gOrderTable.sSampID = Left(CStr(vLabDate & vLabSeq) & Space(15), 15)
+                gOrderTable.iCRow = I
+
+                gOrderTable.iOrdCnt = CInt(vIFCnt)
+
+                ReDim gOrderTable.sIFTestCd(CInt(vIFCnt))
+
+                sTestCd = ""
+
+                For j = 1 To CInt(vIFCnt)
+                    Call .GetText(16 + j, I, vTmp)
+
+                    sTmp = CStr(vTmp)
+                    sTestSeq = GetByOne(sTmp, sTmp)
+
+                    For k = 1 To giIntItemCnt
+                        If gIFItem(k).s02 & gIFItem(k).s03 & gIFItem(k).s04 & gIFItem(k).s05 & gIFItem(k).s06 = sTestSeq Then
+                            If Trim(gIFItem(k).s08) = "" Then
+                            Else
+                                iPos = InStr(sTestCd, Left(Trim(gIFItem(k).s08), 2) & "0")
+
+                                If iPos = 0 Then
+                                    sTestCd = sTestCd & Left(Trim(gIFItem(k).s08), 2) & "0" & Space(6)
+                                End If
+                            End If
+
+                            Exit For
+                        End If
+                    Next
+                Next
+
+                Exit For
+            End If
+        Next
+    End With
+
+
+# ELECSYS1_DispMsg(sMsg As String)
+
+    ViewMsg sMsg
+    
+
+#ELECSYS1_PrintRcvLog(sLog As String)
+
+    Print #301, sLog;
+
+   
+#ELECSYS1_PrintSendLog(sLog As String)
+
+    Print #302, sLog;

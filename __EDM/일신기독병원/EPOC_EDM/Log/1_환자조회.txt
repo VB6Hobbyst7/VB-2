@@ -1,0 +1,23 @@
+Select ptbsname                    
+     , substr(ptbsrrns,1,1) JNO1   
+     , substr(ptbsrrns,2,6) JNO2   
+     , ptbsrrnf JNO                
+     , ipslward                    
+     , ipslroom                    
+     , ipsldept                    
+     , ipsldoct                    
+     , ipslgnus                    
+     , ipslmddt                    
+     , ipslacdt                    
+     , ipslactm                    
+     , ipslhpdt                    
+     , ipslhptm                    
+     , ipslgndt                    
+     , ipslgntm                    
+  From pmcptbsm, ocsipslh          
+ Where ipslidno = '06770782'
+   And ipslmddt IN ('20191229','20191230') 
+   And ipslcode = 'SUEBGAG' 
+   And ipslidno = ptbsidno         
+   And ipslflag = 'O'              
+

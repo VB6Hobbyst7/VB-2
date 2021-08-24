@@ -1,0 +1,27 @@
+[CONFIG]
+OCS=MEDINOL
+Equip=W1
+EquipCode=W1
+AutoSave=True
+
+
+[DATABASE]
+DBTYPE=1
+server=tot1mmcocs
+uid=cpl_int
+pwd=cpl_int
+hostname = 
+ordtable=MEDI.VW_CPL_INTERFACE_ORDER_HO_DONG
+rsttable=MEDI.LMI_RESULT
+
+[DRDATABASE]
+DBTYPE=2
+;SERVER=labpc\sqlexpress
+SERVER=192.168.71.61\sqlexpress
+DATABASE=epoc
+UID=edm
+PWD=iuilll3ak##
+
+[Server]
+IFUser=EPOC EDM
+

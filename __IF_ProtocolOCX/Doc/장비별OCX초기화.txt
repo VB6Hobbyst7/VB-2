@@ -1,0 +1,96 @@
+< ELECSYS 2010 (No Barcode) >
+
+    With ELECSYS1
+	.OpenPW = ?
+	.EditPW = ?
+	.EqName = "ELECSYS2010"
+	.bUseBarCode = No
+        .iPhase = 1
+        .iSendPhase = 1		
+        .iFrameN = 1
+        
+        .CommPort = gCommInfo.sPort
+        .Settings = gCommInfo.sBaudRate & "," & gCommInfo.sParity & "," & _
+                      gCommInfo.sDataBit & "," & gCommInfo.sStopBIt
+        .RTSEnable = True
+        .RThreshold = 1
+        .PortOpen = True
+    End With
+
+
+< DIMENSION >
+    with DIMENSION
+	.iSendPhase = 0
+
+        ''' 나머지 위와 동일
+    end with
+
+
+< Clinitek-500 >
+
+    with URINE1
+	.p_sTIFCd = 전체 장비코드
+	.p_iOrdCnt = 전체 장비코드 갯수
+
+	.iPhase = 1
+
+	''' 나머지 위와 동일
+    end with
+
+
+< SE-9000 >	# 검사항목 고정	
+
+    with SYSMEX1
+	.EqName = "SE9000"
+
+	.iPhase = 1
+
+	''' 나머지 위와 동일
+    end with
+
+	
+< KX-21 >	# 검사항목 고정	
+
+    with SYSMEX1
+	.EqName = "KX21"
+
+	.iPhase = 1
+
+	''' 나머지 위와 동일
+    end with
+
+
+< CA-500 >
+
+    with SYSMEX1
+	.EqName = "CA500"
+
+	.iPhase = 1
+	.iOrderFlag = 0
+	.iTotalItemCnt = 설정된 전체 항목수
+
+	''' 나머지 위와 동일
+    end with
+
+    오더전송 성공 후 이벤트 발생
+
+
+< RapidLab-840 >
+
+    With RAPIDLAB1
+        .EqName = "RAPIDLAB840"
+        .PortOpen = True
+        .iPhase = 1
+    End With
+
+
+< HITACHI 7600 >
+
+    With HITACHI
+	.bUseBarCode = No
+        .iPhase = 1
+        .iSendPhase = 1		
+        .iFrameN = 1
+        
+	''' 기본 내용
+    End With

@@ -1,0 +1,55 @@
+Mon Aug 25 11:31:34 2008
+winmain start
+winmain [-p 61.42.12.46 443 875591]
+winmain ClientManager.SetConnection 전 
+CnFTDClientManager::SetConnection [-p 61.42.12.46 443 875591]
+CnFTDClientManager::SetConnection 1
+CnFTDClientManager::SetConnection 2
+CnFTDClientManager::SetConnection end
+winmain ClientManager.SetConnection 후 
+winmain ClientManager.Connection() 전
+CnFTDClientSocket::Connection() start[0]
+Mon Aug 25 11:31:36 2008
+CnFTDClientSocket::Connection()[61.42.12.46] m_port[443] i[0]
+Connection() if(m_iServerNum != 0) 
+Connection()  if(!SendExact()
+Connection() CryptInit 
+CnFTDClientSocket::Connection() end
+winmain ClientManager.Connection() 후
+CnFTDClientManager::run start
+CnFTDClientManager::run while [11]
+CnFTDClientSocket::FileList start
+CnFTDClientSocket::FileList end
+Mon Aug 25 11:31:37 2008
+CnFTDClientManager::run while [9]
+CnFTDClientManager::RemainSpace start
+CnFTDClientManager::RemainSpace end [0]
+CnFTDClientManager::run while [8]
+CnFTDClientManager::run while [12]
+CnFTDClientSocket::DriveList start
+CnFTDClientSocket::DriveList end
+Mon Aug 25 11:31:44 2008
+CnFTDClientManager::run while [14]
+CnFTDClientSocket::Connection() start[0]
+Mon Aug 25 11:31:46 2008
+CnFTDClientSocket::Connection()[61.42.12.46] m_port[443] i[0]
+Connection() if(m_iServerNum != 0) 
+Connection()  if(!SendExact()
+Connection() CryptInit 
+CnFTDClientSocket::Connection() end
+CnFTDClientManager::run while [10]
+CnFTDClientManager::CurrentPath start
+CnFTDClientManager::CurrentPath end str1.type[0]
+Mon Aug 25 11:31:47 2008
+CnFTDClientSocket::RecvFile from[(null)]	to[(null)] start
+Mon Aug 25 11:31:50 2008
+CnFTDClientSocket::RecvFile from[(null)]	to[(null)] end
+Mon Aug 25 11:31:52 2008
+CnFTDClientManager::run while [11]
+CnFTDClientSocket::FileList start
+CnFTDClientSocket::FileList end
+CnFTDClientManager::run while [9]
+CnFTDClientManager::RemainSpace start
+CnFTDClientManager::RemainSpace end [0]
+Mon Aug 25 11:31:53 2008
+CnFTDClientManager::run while [8]

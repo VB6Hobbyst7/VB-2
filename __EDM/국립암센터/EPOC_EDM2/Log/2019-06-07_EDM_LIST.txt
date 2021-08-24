@@ -1,0 +1,14 @@
+16:01:58 Select M.TEST_ID, M.PatientOrLotID, CONVERT(CHAR(19), M.TESTDT, 20) AS EDTM, M.EDMUploadDT, M.OperatorID, M.HostSerialNumber, M.HostAlias, S.LISStatus, S.SendResultMessage,M.Department  
+  From Tests M, TestSendLog S 
+ Where M.TestStatus in ('Success', 'iQC') 
+   And M.Test_ID = S.EPOCTestID      And M.TestDT between '2019-06-07 00:00:00' and '2019-06-07 23:59:59'    And M.Department = '7C'    And M.HostSerialNumber = '123456789'    And s.LISStatus < 8 
+ Order by EDTM                  
+16:02:33 Select M.TEST_ID, M.PatientOrLotID, CONVERT(CHAR(19), M.TESTDT, 20) AS EDTM, M.EDMUploadDT, M.OperatorID, M.HostSerialNumber, M.HostAlias, S.LISStatus, S.SendResultMessage,M.Department  
+  From Tests M, TestSendLog S 
+ Where M.TestStatus in ('Success', 'iQC') 
+   And M.Test_ID = S.EPOCTestID   
+   And M.TestDT between '2019-06-07 00:00:00' and '2019-06-07 23:59:59'
+   And M.Department = '7C'
+   And M.HostSerialNumber = '123456789'
+   And s.LISStatus < 8 
+ Order by EDTM                  

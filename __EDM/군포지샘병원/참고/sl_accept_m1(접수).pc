@@ -1,0 +1,429 @@
+/*  -------------------------------------------------------------
+ *  Copyright (c) 2001  SAMSUNG SDS Co.,Ltd. All rights reserved.
+ *  -------------------------------------------------------------
+ *
+ *  Service ID : SL_ACCEPT_M1
+ *
+ *  Specification
+ *    1. 검체접수 자료 검사일자 설정 및 접수 FLAG UPDATE
+ *    2. 접수일자는 client단에서 넘겨온값으로 execdate를 setting(미래가 될 수 있다)
+ *
+ *  Related Tables
+ *    1. ORAS1.SLSPCMDT
+ *    2. ORAS1.SLSPEXDT
+ *    3. ORAS1.SLEXAMCV
+ *    4. ORAM1.MDEXMORT
+ *    5. ORAS1.SU2EXAMT
+ *    6. ORAS1.SG2EXAMT
+ *
+ *  Input Parameters
+ *    1. S_CODE1   : p_sSpcid        ( FML_BUF : DB_COLUMN )
+ *    2. S_DATE1   : p_tAcptdate       ( FML_BUF : DB_COLUMN )
+ *    3. L_NO1     : p_lAreano         ( FML_BUF : DB_COLUMN )
+ *
+ *  Modification Log
+ *      ==========================================================
+ *    #   Date         Author                          EditLabel
+ *      ----------------------------------------------------------
+ *       Description
+ *      ==========================================================
+ *    0.  2001-05-23   LEE Yun-Han                     C010523-1
+ *       Create
+ *    1.  2001-08-03 20:13:13  Manwoong Park           C010523-1
+ *       접수일자 UPDATE를 접수일시로 수정
+ *    2.  2001-08-11 11:18:12  Manwoong Park           C010523-1
+ *       요일검사 execdate setting BUG수정
+ *    3.  2001-08-21 09:20:33  Manwoong Park           C010523-1
+ *       접수자ID(ACPTID), 접수일시(ACPTDT)추가
+ *    4.  2001-08-24 10:40:13  Manwoong Park           C010523-1
+ *       응급검체인 경우 요일설정 SKIP OPTION추가
+ *       in_flag = "EMR"
+ *    5.  2001-11-24 10:11:10  Manwoong Park
+ *       일반건진(검체번호 flag = '5')추가 --> 출장건진(검체번호 flag = '7')은 일건에 포함예정
+ *    6.  2002-02-08 11:32:47  Manwoong Park
+ *       이미 단계지난검체 ERROR check (client에서 잘못 넘어온것 procstat > E)
+ *    7.  2002-02-08 17:50:55  Manwoong Park
+ *       검사가능한 요일이 없으면 당일로 검사요일 설정하게 변경
+ *    8.  2002-04-01 14:43:07  Manwoong Park
+ *       출장건진(검체번호 flag = '7')추가 --> 일건에 포함
+ *    9.  2002-10-11 11:40:58  Manwoong Park           C021011
+ *       건진쪽 I/F 미정으로 임시 block
+ *    10. 2003-03-06 13:26:10  Manwoong Park           C030306
+ *      접수시 MDEXMORT 실시취소일시(EXCLDATE) update (NULL)
+ *    11. 2003-07-09 14:28:50  Joohyuk Choi            C030709-1
+ *       원무기준변경(외래청구시 실시 --> 접수)
+ *
+ *
+ */
+
+#include <global.h>           /* Mandatory */
+
+#define     MAXROWCNT   100
+
+exec sql include oravar;      /* To Use asciz99 variable */
+
+/*
+    Define asciz variable as
+   ==========================
+    asciz1  | varchar2[1]
+    asciz10 | varchar2[10]
+    asciz20 | varchar2[20]
+    asciz30 | varchar2[30]
+    asciz50 | varchar2[50]
+    asciz1h | varchar2[100]
+    asciz3h | varchar2[300]
+    asciz5h | varchar2[500]
+    asciz3k | varchar2[3000]
+   ==========================
+*/
+
+/*------------------------------------------------------------------*/
+/* 검체접수 일자 및 상태자료와 검사코드의 설정일자를 변경           */
+/*------------------------------------------------------------------*/
+#if defined(__STDC__)
+SL_ACCEPT_M1(TPSVCINFO *msg)
+#else
+SL_ACCEPT_M1(msg)
+TPSVCINFO *msg;
+#endif
+{
+   FBFR *transf;
+   char message[MSGLEN];          /*tpreurn용 Message buffer*/
+   char param_message[MSGLEN];    /*Subroutine용 Message buffer*/
+
+   /* input */
+   asciz10     p_sSpcid;                   /* 처리할 검체번호 */
+   asciz20     p_tAcptdate;                /* 접수일자        */
+   asciz20     upd_Acptdate;               /* 접수일시 update용 */
+   asciz10     p_sAreano;                  /* AREA NO         */
+   asciz20     p_editid;
+   asciz1      in_flag;                    /* 응급검체인지 여부 */
+
+   asciz10     spcid[MAXROWCNT];          /* 검체번호        */
+   long        ordseqno[MAXROWCNT];       /* 처방내림순번    */
+   asciz10     examcode[MAXROWCNT];       /* 검사코드        */
+   asciz20     hopedate[MAXROWCNT];       /* 검사희망일자    */
+   asciz1      ordtype[MAXROWCNT];        /* 처방구분        */
+   asciz20     set_examdate;              /* 검사일자        */
+   asciz20     tmp_examdate;              /* 검사일자        */
+   asciz1      examday;                   /* 검사요일(1-7)   */
+   asciz10     dayinfo [MAXROWCNT];       /* 일월화수목금토  */
+   asciz10     ac_patno[MAXROWCNT];       /* 등록번호 */
+   asciz20     ac_orddate[MAXROWCNT];     /* 처방일   */
+   asciz10     ac_ordseqno[MAXROWCNT];    /* 처방순번 */
+   
+   asciz10     tmp_patno;                 
+   
+   int      exday;                  /* 접수요일(int)   */
+   int      addday=0;               /* 요일검사 검사일자산정용   */
+   int      rowcnt=0,ii=0,jj=0,ix=0,iy=0;
+   int      DataCnt=0;
+
+   applog(msg);         /* Write Svc Info To Trace File */
+
+   memset(param_message,0,sizeof(param_message));
+
+   memset(p_tAcptdate, 0, sizeof(p_tAcptdate ));
+   memset(upd_Acptdate,0, sizeof(upd_Acptdate));
+   memset(p_sSpcid,    0, sizeof(p_sSpcid    ));
+   memset(p_sAreano,   0, sizeof(p_sAreano   ));
+   memset(p_editid,    0, sizeof(p_editid    ));
+   memset(in_flag,     0, sizeof(in_flag     ));
+
+   memset(spcid   ,    0, sizeof(spcid       ));
+   memset(examcode,    0, sizeof(examcode    ));
+   memset(hopedate,    0, sizeof(hopedate    ));
+   memset(ordtype ,    0, sizeof(ordtype     ));
+   memset(set_examdate,0, sizeof(set_examdate));
+   memset(tmp_examdate,0, sizeof(tmp_examdate));
+   memset(examday ,    0, sizeof(examday     ));
+   memset(dayinfo ,    0, sizeof(dayinfo     ));
+
+   memset(tmp_patno,   0, sizeof(tmp_patno   )); 
+
+   transf = (FBFR *)msg->data;   /* get input buffer Pointer */
+
+   /* in Non-XA Svc Case, Delete Following 1 line */
+   if  (tpgetlev()==0)  TPRETURN_ERROR(BADXA,-1);  /* XA Svc Mode Check */
+
+#ifdef DEBUG
+   Fprint(transf);            /* Print Input Buffer to stdout File */
+#endif
+
+   /* get Data From FML Buffer to variable */
+   GET (S_NO1     , 0, p_sAreano  );
+   GET (S_DATE1   , 0, p_tAcptdate);
+   GET (S_CODE1   , 0, p_sSpcid   );
+   GET (S_USERID10, 0, p_editid   );
+   GET (S_FLAG1   , 0, in_flag    );
+
+   /*************************/
+   /* 검체DETAIL정보 select */
+   /************************/
+   EXEC SQL
+      select a.spcid,
+             a.ordseqno,
+             a.examcode,
+             rtrim(to_char(a.hopedate, 'yyyy-mm-dd')),
+             a.ordtype,
+             nvl(b.examday1, 'N')||
+             nvl(b.examday2, 'N')||
+             nvl(b.examday3, 'N')||
+             nvl(b.examday4, 'N')||
+             nvl(b.examday5, 'N')||
+             nvl(b.examday6, 'N')||
+             nvl(b.examday7, 'N')
+        into :spcid   ,
+             :ordseqno,
+             :examcode,
+             :hopedate,
+             :ordtype ,
+             :dayinfo
+        from slspexdt a, slexamcv b
+       where a.spcid    = :p_sSpcid
+         and a.examcode = b.examcode;
+
+   rowcnt = SQLCNT;
+
+   if (rowcnt == 0  &&  SQLCODE != 0L) {
+     MakeMsg(message, SF_D320, NF380);       /* 접수작업을 진행할 수 없습니다. */
+     TPRETURN_ERROR(message, -1);
+   }
+
+   /*****************/
+   /* 검사실시일자  */
+   /*****************/
+   EXEC SQL
+      select to_char(sysdate, 'yyyy-mm-dd'),
+             to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss')
+        into :set_examdate,
+             :upd_Acptdate
+        from dual;
+   if (SQLCODE != 0L) {
+     MakeErrMsg(message,SVCNAME,"set_examdate qry ERR",SQLMSG);
+     TPRETURN_ERROR(message, -1);
+   }
+
+   /* client에서 넘겨온 접수일자가 현재보다 미래이면 미래일자로 접수일자를 setting */
+   if (strcmp(p_tAcptdate, set_examdate) == 1) {
+      strcpy(set_examdate, p_tAcptdate);
+
+      /* 미래일자로 접수시에서 접수시간을 08:00으로 setting */
+      memset(upd_Acptdate, 0, sizeof(upd_Acptdate));
+      strcpy(upd_Acptdate, p_tAcptdate);
+      strcat(upd_Acptdate, " 08:00:00");
+   }
+
+   /*************************/
+   /* 검체MASTER정보 update */
+   /*************************/
+   EXEC SQL
+      update slspcmdt
+         set procstat = 'C',
+             areano   = :p_sAreano,
+             acptdate = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss'),
+             acptid   = :p_editid,
+             acptdt   = SYSDATE
+       where spcid    = :p_sSpcid
+         and procstat = 'B';
+
+   if (SQLCODE != 0L && SQLCODE != NOTFOUND) {
+     MakeErrMsg(message,SVCNAME,"SLSPCMDT UPD ERR",SQLMSG);
+     TPRETURN_ERROR(message, -1);
+   }
+   if (SQLCODE == NOTFOUND) {
+     sprintf(message,"%s","◈ Acceptable STATUS(B) Specimen not found!");
+     strcat(message,"\n\n[");
+     strcat(message,p_sSpcid);
+     strcat(message,"]");
+     strcat(message,"\n\n▶ Confirm Specimen Status!");
+
+     TPRETURN_ERROR(message, -1);
+   }
+
+   /*********************************************************************/
+   /* 처방 procstat update                                              */
+   /* MDEXMORT/SU2EXAMT/SG2EXAMT에 INDEX가 꼭 있어야 함(SPCID1, SPCID2) */
+   /*********************************************************************/
+   if (p_sSpcid[0] == 'D')  /* 종합건진환자 */
+   {         
+      exec sql                                                      /*  c021011  */
+         update su2examt
+            set examstat = 'C',
+                acptdate = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss')
+          where spcid1   = :p_sSpcid;
+   } 
+   else if (  (p_sSpcid[0] == '5') /* 일반건진환자(출장건진포함) */
+            ||(p_sSpcid[0] == '7')) 
+   {  
+      exec sql                                                      /*  C021011  */
+         update sg2examt
+            set examstat = 'C',
+                acptdate = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss')
+          where spcid1    = :p_sSpcid;
+   } 
+   else /* 병동  */
+   {     
+      /* 정도관리 구분 2007.05.07 */
+      exec sql
+         select   patno
+           into   :tmp_patno
+           from   slspcmdt
+          where   spcid = :p_sSpcid;
+          
+       if (tmp_patno[0] == 'Q')                                                    
+       {                                                                           
+/*          exec sql                                                                 
+             update   slqcordt                                                     
+                set   procstat  = 'C',                                             
+                      acptdate  = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss'), 
+                      excldate  = NULL,                                            
+                      editid    = :p_editid,                                       
+                      editdate  = sysdate                                          
+              where   spcid     = :p_sSpcid;                                       
+*/              
+       }                                                                           
+       else                                                                        
+       {                                                                           
+         /*****************************************/
+         /* 검체번호로 수진자 정보 가져오기       */
+         /*****************************************/
+         EXEC SQL
+            select patno, to_char(orddate,'yyyy-mm-dd'), to_char(ordseqno, 'FM00000')
+              into :ac_patno, :ac_orddate, :ac_ordseqno
+              from mdexmort
+             where spcid1 = :p_sSpcid;
+                 
+         DataCnt = SQLCNT;
+         
+         /********************************************/
+         /* 외래원무청구기준을 접수로 로   C030709-1 */
+         /********************************************/
+		   /* 2007.07.27 변경 */
+		   /* 청구는 채취일자 기준으로... */
+		   /********************************************/
+		 
+         if ( DataCnt > 0 )  {
+            EXEC SQL for :DataCnt
+               update /*+ rule */
+                      acopcalt
+                  set execdate = SYSDATE
+                where orderkey = :ac_patno
+                               ||:ac_orddate
+                               ||:ac_ordseqno
+                  and ordtable =  'MDEXMORT'
+                  and meddept <> 'ER'  /*응급실은 제외 */
+                  and reqdate  is null
+                  and execdate is null; 
+                  
+            
+            if (SQLCODE!=0 && SQLCODE != NOTFOUND) {
+               MakeErrMsg(message,SVCNAME,"Update ACOPCALT Err",SQLMSG);
+               TPRETURN_ERROR(message, -1);         
+            }
+         }
+                  	
+         EXEC SQL
+            update mdexmort
+               set procstat = 'C',
+                   acptdate = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss'),
+                   excldate = NULL
+             where spcid1   = :p_sSpcid; 
+      }             
+   }
+   if (SQLCODE != NOTFOUND  &&  SQLCODE != 0L) 
+   {
+      MakeErrMsg(message,SVCNAME,"MDEXMORT/SU2EXAMT/SG2EXAMT/SLQCORDT UPD ERR",SQLMSG);
+      TPRETURN_ERROR(message, -1);
+   }
+
+   /*******************/
+   /* 요일검사SETTING */
+   /*******************/
+   EXEC SQL
+      select to_char(to_date(:set_examdate, 'yyyy-mm-dd'), 'D')
+        into :examday
+        from dual;
+   if (SQLCODE != 0L) {
+     MakeErrMsg(message,SVCNAME,"EXAMDAY QRY ERR",SQLMSG);
+     TPRETURN_ERROR(message, -1);
+   }
+
+   exday = atoi(examday); /* 1234567:일월화수목금토 */
+
+   for (ii = 0;  ii < rowcnt;  ii++) {
+      addday = 0;  /*더해야할일자수*/
+      ix = 0;
+      for (jj = exday-1;jj < (exday-1)+7;jj++) {
+         ix = jj;
+
+         if ( ix > 6 ) {
+            ix = jj-7;
+         }
+
+         if ( dayinfo[ii][ix] == 'Y' ) {
+            break;
+         } else {
+            addday++;
+         }
+      }
+
+      /* 검사가능요일이 없으면 당일 */
+      if ( addday == 7 ) {
+         addday = 0;
+      }
+
+      memset(tmp_examdate,0, sizeof(tmp_examdate));
+      EXEC SQL
+         select to_char(to_date(:set_examdate, 'yyyy-mm-dd') + :addday, 'yyyy-mm-dd')
+           into :tmp_examdate
+           from dual;
+      if (SQLCODE != 0L) {
+          MakeErrMsg(message,SVCNAME,"EXAMDATE+ADD QRY ERR",SQLMSG);
+          TPRETURN_ERROR(message, -1);
+      }
+
+      /*******************************/
+      /* 검체DETAIL정보 HOPEDATE UPD */
+      /*******************************/
+      if (strcmp(in_flag,"EMR")==0) {  /* 응급검체인 경우는 요일설정없이 바로 그날로 */
+         EXEC SQL
+            update SLSPEXDT
+               set procstat = 'C',
+                   hopedate = to_date(:set_examdate, 'yyyy-mm-dd')
+             where spcid    = :p_sSpcid
+               and ordseqno = :ordseqno[ii]
+               and examcode = :examcode[ii];
+
+         if (SQLCODE != 0L) {
+           MakeErrMsg(message,SVCNAME,"",SQLMSG);
+           TPRETURN_ERROR(message, -1);
+         }
+      } else {
+         EXEC SQL
+            update SLSPEXDT
+               set procstat = 'C',
+                   hopedate = to_date(:tmp_examdate, 'yyyy-mm-dd')
+             where spcid    = :p_sSpcid
+               and ordseqno = :ordseqno[ii]
+               and examcode = :examcode[ii];
+
+         if (SQLCODE != 0L) {
+           MakeErrMsg(message,SVCNAME,"",SQLMSG);
+           TPRETURN_ERROR(message, -1);
+         }
+      }
+   }
+
+   MakeMsg(message, SF_A410, NF380);               /* 접수작업이 완료되었습니다. */
+
+   TPRETURN(message, 0);
+}
+
+/*
+ * End of Service
+ */
+
+/*
+ * End of Source
+ */

@@ -1,0 +1,45 @@
+### ver1.0.3 ###
+
+1. 2008/2/3
+   - 추가내용 : DispMsgComm 이벤트 추가 (통신상태에 대한 메시지만 표시)
+
+2. 2008/6/30
+   - 추가내용 : 오더전송시 Dilution 기능 추가
+
+3. 2008/8/7
+   - 추가내용 : Calibration Result 수신 기능 추가 (신촌세브란스병원 적용)
+
+
+
+
+### ver1.0.2 ###
+
+1. 2005/6/9
+   - Date/Time Results Reported or Last Modified 필드 추가 (건대병원 요구사항)	
+   - QC 자료인 경우도 결과시간 추가
+
+''''AppendData(.ID, .SEQNO, .RACK, .POS, .RSTCNT, .IFCD, .RST1, .RST2, .UNIT, .FLAG, .INSTID, .ALARMCD, .KIND, 결과시간, other1)
+
+2. 2005/8/1
+   - 추가내용 : Comment1 란에 특정정보 전송(건대의 경우 바코드번호 표시)
+
+3. 2006/9/6
+   - 추가내용 : Batch Mode 추가(Sample No Mode)
+
+4. 2007/1/9
+   - 추가내용 : Comment1 수신. Other란에 전송함 (천안충무병원)
+
+
+
+### ver1.0.1 ###
+
+1. 2005/4/20
+   - AlarmCode 부분 수정
+
+
+
+### ver1.0.0 ###
+
+1. 2005/1/3 
+   - 지원장비 : Modular (DPE)
+   - Hitachi 1.2.2 버전 사용

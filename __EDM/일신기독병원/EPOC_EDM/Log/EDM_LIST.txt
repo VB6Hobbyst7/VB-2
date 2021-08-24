@@ -1,0 +1,5 @@
+Select M.TEST_ID, M.PatientOrLotID, CONVERT(CHAR(19), M.TESTDT, 20) AS EDTM, M.EDMUploadDT, M.OperatorID, M.HostSerialNumber, M.HostAlias, S.LISStatus, S.SendResultMessage 
+  From Tests M, TestSendLog S 
+ Where M.TestStatus in ('Success', 'iQC') 
+   And M.Test_ID = S.EPOCTestID      And M.TestDT between '2019-12-26 00:00:00' and '2019-12-30 23:59:59'    And s.LISStatus < 8 
+ Order by EDTM 

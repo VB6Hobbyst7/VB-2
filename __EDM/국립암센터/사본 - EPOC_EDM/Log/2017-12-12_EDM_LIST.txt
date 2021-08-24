@@ -1,0 +1,15 @@
+08:46:47 Select M.TEST_ID, M.PatientOrLotID, CONVERT(CHAR(19), M.TESTDT, 20) AS EDTM, M.EDMUploadDT, M.OperatorID, M.HostSerialNumber, M.HostAlias, S.LISStatus, S.SendResultMessage,M.Department  
+  From Tests M, TestSendLog S 
+ Where M.TestStatus in ('Success', 'iQC') 
+   And M.Test_ID = S.EPOCTestID      And M.TestDT between '2017-12-12 00:00:00' and '2017-12-12 23:59:59'    And s.LISStatus < 8 
+ Order by EDTM                  
+09:33:27 Select M.TEST_ID, M.PatientOrLotID, CONVERT(CHAR(19), M.TESTDT, 20) AS EDTM, M.EDMUploadDT, M.OperatorID, M.HostSerialNumber, M.HostAlias, S.LISStatus, S.SendResultMessage,M.Department  
+  From Tests M, TestSendLog S 
+ Where M.TestStatus in ('Success', 'iQC') 
+   And M.Test_ID = S.EPOCTestID      And M.TestDT between '2017-12-12 00:00:00' and '2017-12-12 23:59:59'    And s.LISStatus < 8 
+ Order by EDTM                  
+09:38:22 Select M.TEST_ID, M.PatientOrLotID, CONVERT(CHAR(19), M.TESTDT, 20) AS EDTM, M.EDMUploadDT, M.OperatorID, M.HostSerialNumber, M.HostAlias, S.LISStatus, S.SendResultMessage,M.Department  
+  From Tests M, TestSendLog S 
+ Where M.TestStatus in ('Success', 'iQC') 
+   And M.Test_ID = S.EPOCTestID      And M.TestDT between '2017-12-12 00:00:00' and '2017-12-12 23:59:59'    And s.LISStatus < 8 
+ Order by EDTM                  

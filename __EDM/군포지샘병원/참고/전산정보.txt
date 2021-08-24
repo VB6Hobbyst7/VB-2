@@ -1,0 +1,158 @@
+'Provider=OraOLEDB.Oracle.1;Password=oras1;User ID=oras1;Data Source=GSAM2;Persist Security Info=True';
+                             
+//바코드 첫번째 자리에 따라 환자정보 테이블이 다름
+Case TMaster.FBarCode[1] of
+      '1','2','3','4','5': PatTableName:= 'ORAA1.APPATBAT @aoraa1 AS P';
+      else
+          PatTableName:= 'ORAA1.APPATBAT AS P';
+  end;
+  
+  
+' SELECT W.SPCID,                                  '+#13#10+
+'       to_char(W.ORDDATE, ''yyyymmdd'') AS ODT,   '+#13#10+
+'       W.ORDSEQNO,                                '+#13#10+
+'       W.EXAMCODE,                                '+#13#10+
+'       to_char(W.WORKNO),                         '+#13#10+
+'       to_char(W.AREANO),                         '+#13#10+
+'       W.RSLTTEXT,                                '+#13#10+
+'       S.SPCCODE ,                                '+#13#10+
+'       W.MEDDEPT,                                 '+#13#10+
+'       S.PATNO,                                   '+#13#10+
+'       P.PATNAME,                                 '+#13#10+
+'       P.SEX,                                     '+#13#10+
+'       to_char(P.BIRTdate, ''yyyymmdd'') AS BIR   '+#13#10+
+'  FROM SLXWORKT W,                                '+#13#10+
+'       SLSPCMDT S,                                '+#13#10+
+'       '+PatTableName+'                           '+#13#10+   //샘병원 DB링크
+' WHERE W.SPCID    = '''+TMaster.FBarCode+'''      '+#13#10+
+'   AND W.PROCSTAT = ''E''                         '+#13#10+
+'   AND S.SPCID    = W.SPCID                       '+#13#10+
+'   AND W.PATNO    = P.PATNO                       '+#13#10+
+' ORDER BY W.WORKNO, W.SPCID, W.EXAMCODE           ';
+
+ECD:= Trim(FieldByName('EXAMCODE').AsString);                      
+                                                                   
+if TCode.IsSetCodeOK(ECD, TMaster.FIfCode) then begin
+    TMaster.FPID:= FieldByName('PATNO').AsString;    
+    TMaster.FPNM:= FieldByName('PATNAME').AsString;  
+    TMaster.FADT:= FieldByName('ODT').AsString;      
+    TMaster.FANO:= FieldByName('ORDSEQNO').AsString; 
+    Result:= True;                                   
+    TMaster.FOrdState:= 'Y';                         
+    TMaster.FExamCode:= ECD;                         
+    Exit;                                            
+end;     
+
+
+//결과전송
+프로시져명: PR_SL_RESLTEXT_INTERFACE_PROC
+IN_SPCID string(4000)                         
+IN_EXAMCODE string(4000)
+IN_RSLT string(4000)
+IN_ROOT string(4000)
+IN_LABRMK string(4000)
+IN_EQIPCODE string(4000)
+IN_EDITID string(4000)
+IN_EDITIP string(4000)
+out_Err string(4000)  Output
+
+var                                                                                                                                            
+  sMsg:string;                                                                                     
+begin                                                                                              
+  Result:=False;                                                                                   
+                                                                                                                                                                                          
+  with spUpload do begin                                                                           
+      Close;                                                                                       
+      Parameters.ParamByName('IN_SPCID').Value    := TMaster.FBarCode;                             
+      Parameters.ParamByName('IN_EXAMCODE').Value := TMaster.FExamCode;                            
+	    Parameters.ParamByName('IN_RSLT').Value     := TMaster.FResult;                              
+      Parameters.ParamByName('IN_ROOT').Value     := TMaster.FResult;                              
+      Parameters.ParamByName('IN_LABRMK').Value   := '';                                           
+      Parameters.ParamByName('IN_EQIPCODE').Value := TGlobal.FICode;                               
+      Parameters.ParamByName('IN_EDITID').Value   := TGlobal.FUserId;                              
+      Parameters.ParamByName('IN_EDITIP').Value   := TGlobal.FIpAddr;                              
+      Parameters.ParamByName('out_Err').Value     := sMsg;                                         
+                                                                                                   
+      try                                                                                          
+          ExecProc;                                                                                
+          sMsg:='';                                                                                
+                                                                                                   
+          if VarIsNull( Parameters.ParamByName('out_Err').Value ) then begin                       
+              Result:= True;                                                                       
+          end                                                                                      
+          else begin                                                                               
+              sMsg:= Parameters.ParamByName('out_Err').Value;                                      
+              if sMsg = '' then begin                                                              
+                  Result:= True;                                                                   
+              end                                                                                  
+              else begin                                                                           
+                  TGlobal.ErrMsg:= '------결과 처리 에러----------------------------'      +#13#10+
+                                   '[SERVER 메세지]  '                                     +#13#10+
+                                   '    '+sMsg                                             +#13#10+
+                                   '[DATA]'                                                +#13#10+
+                                   '   BARCODE : '+TMaster.FBarCode             +#13#10+           
+                                   '   EXAMCODE: '+TMaster.FExamCode             +#13#10+          
+                                   '   RESULT  : '+TMaster.FResult          +#13#10+               
+                                   '   REMARK  : '+''              +#13#10+                        
+                                   '   EQIPCODE: '+TGlobal.FICode   +#13#10+                       
+                                   '   EDITID  : '+TGlobal.FUserId     +#13#10+                    
+                                   '   EDITIP  : '+TGlobal.FIpAddr  +#13#10+                       
+                                   '-----------------------------------------------';              
+                                                                                                   
+                  exit;                                                                            
+              end;                                                                                 
+          end;                                                                                     
+                                                                                                   
+      except                                                                                       
+          on e:exception do begin                                                                  
+              TGlobal.ErrMsg:= '------결과 처리 에러----------------------------'      +#13#10+    
+                               '[SERVER 메세지]  '                                     +#13#10+    
+                               '    '+e.Message                                        +#13#10+    
+                               '[DATA]'                                                +#13#10+    
+                               '   BARCODE : '+TMaster.FBarCode              +#13#10+              
+                               '   EXAMCODE: '+TMaster.FExamCode             +#13#10+              
+                               '   RESULT  : '+TMaster.FResult           +#13#10+                  
+                               '   REMARK  : '+''              +#13#10+                            
+                               '   EQIPCODE: '+TGlobal.FICode   +#13#10+                           
+                               '   EDITID  : '+TGlobal.FUserId     +#13#10+                        
+                               '   EDITIP  : '+TGlobal.FIpAddr  +#13#10+                           
+                               '-----------------------------------------------';                  
+              exit;                                                                                
+          end;                                                                                     
+      end;                                                                                         
+  end;                                                                                             
+                                                                                                   
+end;   
+
+
+
+
+///보고 상태로
+//SLXWORKT
+
+/*************************/
+   /* 검체MASTER정보 update */
+   /*************************/
+   EXEC SQL
+      update slspcmdt
+         set procstat = 'C',
+             areano   = :p_sAreano,
+             acptdate = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss'),
+             acptid   = :p_editid,
+             acptdt   = SYSDATE
+       where spcid    = :p_sSpcid
+         and procstat = 'B';
+                                    
+                                    
+update SLSPEXDT
+               set procstat = 'C',
+                   hopedate = to_date(:set_examdate, 'yyyy-mm-dd')
+             where spcid    = :p_sSpcid
+               and ordseqno = :ordseqno[ii]
+               and examcode = :examcode[ii];     
+               
+update mdexmort
+               set procstat = 'C',
+                   acptdate = to_date(:upd_Acptdate, 'yyyy-mm-dd hh24:mi:ss'),
+                   excldate = NULL
+             where spcid1   = :p_sSpcid;                                                    

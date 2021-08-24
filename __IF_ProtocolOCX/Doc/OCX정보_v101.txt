@@ -1,0 +1,55 @@
+===== 인터페이스 OCX 정보 (ver 1.0.1) =====
+
+< 속성 >
+OpenPW : Port Open 시 확인 암호
+EditPW : Edit_Data 호출시 확인 암호
+EqName : 장비명(띄어쓰기 없이 대문자로 입력)
+	예) 장비가 Elecsys2010인 경우 -> 'ELECSYS2010'
+
+'--- CommPort 설정
+COMMPORT
+SETTINGS
+RTSENABLE
+RTHRESHOLD
+'-----------------
+
+PortOpen : Boolean
+
+
+bUseBarcode
+iPhase
+iSendPhase
+sTestMode
+iFrameN
+
+iOrderFlag
+
+'---- Order 관련
+p_sID
+p_sSEQ
+p_sRACK
+p_sPOS
+p_iOrdCnt : ORDER 갯수
+p_sTIFCD  : 전체 장비 코드
+'---------------
+
+iTotalItemCnt : 장비에 설정된 전체 항목수(CA-500 에 사용)
+
+
+< 이벤트 >
+DispMsg(문자열) : 메세지 표시
+PrintRcvLog(문자열)  : 받은 메세지 LOG 파일로 저장
+PrintSendLog(문자열) : 보낸            "
+
+RequestCurOrder(바코드 ID) : 해당 바코드에 해당하는 오더 조회(바코드 사용할 경우...)
+RequestNextOrder : 다음 샘플의 오더 조회(바코드 사용 안하는 경우...)
+AppendData(ID, SeqNo, Rack, Pos, 결과갯수, 검사코드, 결과1, 결과2, 단위, FLAG) : 결과 등록
+SendOrderOK(SampleID) : 오더전송 성공적으로 완료 후 발생
+			RequestNextOrder 이벤트를 사용하는 경우는 필요 없음(예:CA500, DIMENSION 사용)
+
+RaiseError(에러내용) : 심각한 오류일 경우 메세지 표시 후 프로그램 종료 (v1.0.1 추가)
+
+
+
+< 메소드 >
+Send_Chr(Chr값) : 문자 전송

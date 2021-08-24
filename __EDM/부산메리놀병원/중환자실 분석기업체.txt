@@ -1,0 +1,56 @@
+db연결 
+cpl_int/cpl_int@tot1mmcocs
+
+
+
+MEID.VW_CPL_INTERFACE_ORDER_HO_DONG =>  장비 ORDERING 
+
+select * from MEID.VW_CPL_INTERFACE_ORDER_HO_DONG
+where specimen_ser = ' 검체번호' 
+
+
+-----항목코드 매핑 -------------------------
+
+항목코드 명칭                  장비검사코드 
+EC01	Blood gas analysis        ?
+EC01001	PH                        ?
+EC01002	Pco2                      ?
+EC01003	Po2                       ?
+EC01004	Hco3
+EC01005	BE
+EC01006	O₂CT
+EC01007	O₂SAT
+EC01008	Temp
+EC01009	Hb
+EC01010	TCO₂						?????
+EC01011	pO2(A)					????
+EC01012	pO2(A-a)				????
+EC01013	pO2(a/A)				????
+EC01014	pO2/FiO2 Ratio	????
+EC01015	FiO2
+
+EG03A	Ionized Ca           ????      
+EG05	Sodium
+EG06	Potassium
+EG07	Chloride
+
+
+
+
+W1 => 장비 코드 
+
+INSERT INTO MEDI.LMI_RESULT
+( SPECIMEN_SER, LAB_MAC_CODE, LMI_ITEM_CODE, EXAM_RESULT_SEQ, EXAM_RESULT, LAB_MAC_RACK_NO, LAB_MAC_TUBE_POSITION, STATUS_FLAG, RESULT_DATE ) 
+VALUES ( '검체번호'  
+       , '장비코드' => 'W1'
+       , '장비검사코드'  
+       , MEID.FN_CPL_LOAD_MAX_LMI_RESULT('검체번호','장비코드','장비검사코드')  
+       , '결과값'  
+       , ''                        -- LAB_MAC_RACK_NO
+       , ''                        -- LAB_MAC_TUBE_POSITION
+       , '0'                       --STATUS_FLAG (0:정상)
+       , SYSDATE ) 
+
+
+
+KOREAN_KOREA.KO16MSWIN949
