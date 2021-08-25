@@ -12135,42 +12135,118 @@ On Error GoTo DBErr
         Exit Function
     End If
     
-    If Not IsNumeric(strBarcode) = "" Then
+    If Not IsNumeric(strBarcode) Then
         Exit Function
+    End If
+    
+    If IsNumeric(strBarcode) Then
+        strBarcode = Val(strBarcode)
+    End If
+    
+    Screen.MousePointer = 11
+'
+'    SQL = ""
+'    SQL = SQL & "Select DISTINCT "
+'    SQL = SQL & "       W.OcmAcpDtm AS HOSPDATE                             " & vbCrLf
+'    SQL = SQL & "     , ''          AS INOUT                                " & vbCrLf
+'    SQL = SQL & "     , ''          AS DEPT                                 " & vbCrLf
+'    SQL = SQL & "     , R.ResOcmNum AS BARCODE                              " & vbCrLf
+'    SQL = SQL & "     , ''          AS PID                                  " & vbCrLf
+'    SQL = SQL & "     , W.OcmChtNum AS CHARTNO                              " & vbCrLf
+'    SQL = SQL & "     , ''          AS PJUMIN                               " & vbCrLf
+'    SQL = SQL & "     , P.PbsPatNam AS PNAME                                " & vbCrLf
+'    SQL = SQL & "     , ''          AS SEX                                  " & vbCrLf
+'    SQL = SQL & "     , ''          AS AGE                                  " & vbCrLf
+'    SQL = SQL & "     , ''          AS ORDCODE                              " & vbCrLf
+'    SQL = SQL & "     , R.ResLabCod AS ITEM                                 " & vbCrLf
+'    SQL = SQL & "     , ''          AS SUBCODE                              " & vbCrLf
+'    SQL = SQL & "  From OcmInf AS W                                         " & vbCrLf
+'    SQL = SQL & "     , OdrInf AS O                                         " & vbCrLf
+'    SQL = SQL & "     , ResInf AS R                                         " & vbCrLf
+'    SQL = SQL & "     , PbsInf AS P                                         " & vbCrLf
+'    SQL = SQL & "     , LabMst AS E                                         " & vbCrLf
+'    SQL = SQL & " Where W.OcmNum    = R.ResOcmNum                           " & vbCrLf
+'    SQL = SQL & "   And W.OcmChtNum = P.PbsChtNum                           " & vbCrLf
+'    SQL = SQL & "   and W.OcmNum    = O.OdrOcmNum                           " & vbCrLf
+'    SQL = SQL & "   And O.Odrdelflg = 'N'                                   " & vbCrLf
+'    SQL = SQL & "   and O.OdrSeq    = R.ResOdrSeq                           " & vbCrLf
+'    SQL = SQL & "   and R.ResLabCod = E.LabCod                              " & vbCrLf
+'    SQL = SQL & "   and R.ResOcmNum = '" & strBarcode & "'                  " & vbCrLf
+'    SQL = SQL & "   and W.OcmComStt Not In ('CN', 'CR','VC')                " & vbCrLf
+'    SQL = SQL & "   and Upper(R.ResLabCod) IN (" & UCase(gAllTestCd) & ")   " & vbCrLf
+'    SQL = SQL & "   and (R.ResRltVal is null or R.ResRltVal = '')           " & vbCrLf
+
+'    Dim strRegDate      As String
+'    Dim strBarcode      As String
+'    Dim strPatID        As String
+'    Dim strChartNo      As String
+'    Dim intCol          As Integer
+'    Dim intTestCnt      As Integer
+'    Dim lngRegNo            As Long
+'    Dim strSchBarNo     As String
+    
+On Error GoTo DBErr
+    
+    GetSampleInfo_BIT = -1
+    
+    intTestCnt = 0
+    gPatOrdCd = ""
+    
+    strRegDate = Trim(GetText(SPD, asRow, colHOSPDATE))
+    strBarcode = Trim(GetText(SPD, asRow, colBARCODE))
+    strPatID = Trim(GetText(SPD, asRow, colPID))
+    strChartNo = Trim(GetText(SPD, asRow, colCHARTNO))
+    
+    If strBarcode = "" Then
+        Exit Function
+    Else
+        If IsNumeric(strBarcode) Then
+            strBarcode = Val(strBarcode)
+        End If
+        'strSchBarNo = Space(10 - Len(strBarcode)) & strBarcode
     End If
     
     Screen.MousePointer = 11
         
+'    SQL = ""
+'    SQL = SQL & "SELECT DISTINCT "
+'    SQL = SQL & "       SUBSTRING(R.RESACPDTM,1,8)  AS HOSPDATE     " & vbCrLf
+'    SQL = SQL & "     , R.RESSPMNUM                 AS BARCODE      " & vbCrLf 'RESOCMNUM
+'    SQL = SQL & "     , R.RESCHTNUM                 AS CHARTNO      " & vbCrLf
+'    SQL = SQL & "     , P.PBSPATNAM                 AS PNAME        " & vbCrLf
+'    SQL = SQL & "     , R.RESLABCOD                 AS ITEM         " & vbCrLf
+'    SQL = SQL & "  FROM RESINF AS R                                 " & vbCrLf
+'    SQL = SQL & "     , PBSINF AS P                                 " & vbCrLf
+'    SQL = SQL & "WHERE R.RESOCMNUM  = '" & strBarcode & "'          " & vbCrLf
+'    SQL = SQL & "  AND R.RESCHTNUM  = P.PBSCHTNUM                   " & vbCrLf
+'    SQL = SQL & "  AND R.RESLABCOD IN (" & gAllTestCd & ")          " & vbCrLf
+'    SQL = SQL & "  AND (R.RESREPTYP IS NULL OR R.RESREPTYP <> 'F')  " & vbCrLf         '--  'I':중간 'F' 완료"
+'    SQL = SQL & "  AND (R.RESRLTVAL = ''  OR R.RESRLTVAL IS NULL)   " & vbCrLf
+    
     SQL = ""
-    SQL = SQL & "Select DISTINCT "
-    SQL = SQL & "       W.OcmAcpDtm AS HOSPDATE                             " & vbCrLf
-    SQL = SQL & "     , ''          AS INOUT                                " & vbCrLf
-    SQL = SQL & "     , ''          AS DEPT                                 " & vbCrLf
-    SQL = SQL & "     , R.ResOcmNum AS BARCODE                              " & vbCrLf
-    SQL = SQL & "     , ''          AS PID                                  " & vbCrLf
-    SQL = SQL & "     , W.OcmChtNum AS CHARTNO                              " & vbCrLf
-    SQL = SQL & "     , ''          AS PJUMIN                               " & vbCrLf
-    SQL = SQL & "     , P.PbsPatNam AS PNAME                                " & vbCrLf
-    SQL = SQL & "     , ''          AS SEX                                  " & vbCrLf
-    SQL = SQL & "     , ''          AS AGE                                  " & vbCrLf
-    SQL = SQL & "     , ''          AS ORDCODE                              " & vbCrLf
-    SQL = SQL & "     , R.ResLabCod AS ITEM                                 " & vbCrLf
-    SQL = SQL & "     , ''          AS SUBCODE                              " & vbCrLf
-    SQL = SQL & "  From OcmInf AS W                                         " & vbCrLf
-    SQL = SQL & "     , OdrInf AS O                                         " & vbCrLf
-    SQL = SQL & "     , ResInf AS R                                         " & vbCrLf
-    SQL = SQL & "     , PbsInf AS P                                         " & vbCrLf
-    SQL = SQL & "     , LabMst AS E                                         " & vbCrLf
-    SQL = SQL & " Where W.OcmNum    = R.ResOcmNum                           " & vbCrLf
-    SQL = SQL & "   And W.OcmChtNum = P.PbsChtNum                           " & vbCrLf
-    SQL = SQL & "   and W.OcmNum    = O.OdrOcmNum                           " & vbCrLf
-    SQL = SQL & "   And O.Odrdelflg = 'N'                                   " & vbCrLf
-    SQL = SQL & "   and O.OdrSeq    = R.ResOdrSeq                           " & vbCrLf
-    SQL = SQL & "   and R.ResLabCod = E.LabCod                              " & vbCrLf
-    SQL = SQL & "   and R.ResOcmNum = '" & strBarcode & "'                  " & vbCrLf
-    SQL = SQL & "   and W.OcmComStt Not In ('CN', 'CR','VC')                " & vbCrLf
-    SQL = SQL & "   and Upper(R.ResLabCod) IN (" & UCase(gAllTestCd) & ")   " & vbCrLf
-    SQL = SQL & "   and (R.ResRltVal is null or R.ResRltVal = '')           " & vbCrLf
+    SQL = SQL & " select " 'odrdtm     as HOSPDATE1,                                       "
+    SQL = SQL & "      P.PbsPatNam AS PNAME                                       " & vbCrLf
+    SQL = SQL & "    , P.PbsResNum AS PJUMIN                                   " & vbCrLf
+    SQL = SQL & "    , W.OcmAcpDtm AS HOSPDATE                                   " & vbCrLf
+    SQL = SQL & "    , R.ResOcmNum AS BARCODE                                   " & vbCrLf
+    SQL = SQL & "    , W.OcmChtNum AS CHARTNO                                   " & vbCrLf
+    SQL = SQL & "    , R.ResLabCod AS ITEM                                   " & vbCrLf
+    SQL = SQL & "    From OcmInf AS W                                            " & vbCrLf
+    SQL = SQL & "       , OdrInf AS O                                            " & vbCrLf
+    SQL = SQL & "       , ResInf AS R                                            " & vbCrLf
+    SQL = SQL & "       , PbsInf AS P                                            " & vbCrLf
+    SQL = SQL & "       , LabMst AS E                                            " & vbCrLf
+    SQL = SQL & "    where W.OcmNum    = R.ResOcmNum                             " & vbCrLf
+    SQL = SQL & "      and W.OcmChtNum = P.PbsChtNum                             " & vbCrLf
+    SQL = SQL & "      and W.OcmNum    = O.OdrOcmNum                             " & vbCrLf
+    SQL = SQL & "      And O.Odrdelflg = 'N'                                  " & vbCrLf
+    SQL = SQL & "      and O.OdrSeq = R.ResOdrSeq                               " & vbCrLf
+    SQL = SQL & "      and R.ResLabCod = E.LabCod                               " & vbCrLf
+    SQL = SQL & "      and Upper(R.ResLabCod) IN (" & gAllTestCd & ")       " & vbCrLf
+    SQL = SQL & "      and W.OcmComStt Not In ('CN', 'CR','VC')             " & vbCrLf
+    SQL = SQL & "      and (R.ResRltVal is null or R.ResRltVal = '')        " & vbCrLf
+    SQL = SQL & "      and LTRIM(RTRIM(R.ResOcmNum)) = '" & strBarcode & "' " & vbCrLf
+    
     
     Call SetSQLData("바코드조회", SQL)
     
@@ -12178,8 +12254,53 @@ On Error GoTo DBErr
     AdoCn.CursorLocation = adUseClient
     Set RS = AdoCn.Execute(SQL, , 1)
     
-    'If WriteSampleList(RS, SPD, asRow) Then
-    'End If
+    
+'    If Not RS.EOF = True And Not RS.BOF = True Then
+'        Do Until RS.EOF
+'            With SPD
+'                .ReDraw = False
+'                intTestCnt = intTestCnt + 1
+'
+'                SetText SPD, "1", asRow, colCHECKBOX
+'                SetText SPD, Trim(RS.Fields("HOSPDATE")) & "", asRow, colHOSPDATE
+'                SetText SPD, Trim(RS.Fields("CHARTNO")) & "", asRow, colCHARTNO
+'                SetText SPD, Trim(RS.Fields("BARCODE")) & "", asRow, colBARCODE
+'                SetText SPD, Trim(RS.Fields("PNAME")) & "", asRow, colPNAME
+'
+'                '오더갯수
+'                SetText SPD, CStr(intTestCnt), asRow, colOCNT
+'
+'                '오더정보에 저장
+'                With mOrder
+'                    .BarNo = Trim(RS.Fields("BARCODE")) & ""
+'                    .PID = Trim(RS.Fields("CHARTNO")) & ""
+'                    .PNAME = Trim(RS.Fields("PNAME")) & ""
+'                    .Count = CStr(intTestCnt)
+'                    .NoOrder = False
+'                End With
+'
+'                '-- 화면에 표시
+'                For intCol = colSTATE + 1 To .MaxCols
+'                    If UCase(Trim(RS.Fields("ITEM"))) = UCase(gArrEQP(intCol - colSTATE, 2)) Then
+'                        .Row = asRow
+'                        .Col = intCol
+'                        .BackColor = vbYellow
+''                        Call SetText(SPD, "◇", asRow, intCol)
+'
+'                        '-- 처방코드
+'                        'gArrEQP(intCol - colSTATE, 16) = Trim(RS.Fields("ORDCODE")) & ""
+'
+'                        Exit For
+'                    End If
+'                Next
+'
+'                gPatOrdCd = gPatOrdCd & "'" & Trim(RS.Fields("ITEM")) & "',"
+'            End With
+'            DoEvents
+'
+'            RS.MoveNext
+'        Loop
+'    End If
     
     If Not RS.EOF = True And Not RS.BOF = True Then
         Do Until RS.EOF
@@ -12207,7 +12328,8 @@ On Error GoTo DBErr
                 
                 '-- 화면에 표시
                 For intCol = colSTATE + 1 To .MaxCols
-                    If UCase(Trim(RS.Fields("ITEM"))) = UCase(gArrEQP(intCol - colSTATE, 2)) Then
+                    'If UCase(Trim(RS.Fields("ITEM"))) = UCase(gArrEQP(intCol - colSTATE, 2)) Then
+                    If GetTestNm(Trim(RS.Fields("ITEM")), False) = gArrEQP(intCol - colSTATE, 6) Then
                         .Row = asRow
                         .Col = intCol
                         .BackColor = vbYellow
@@ -12227,6 +12349,9 @@ On Error GoTo DBErr
             RS.MoveNext
         Loop
     End If
+    
+    RS.Close
+    
     GetSampleInfo_BIT = 1
 
     Screen.MousePointer = 0

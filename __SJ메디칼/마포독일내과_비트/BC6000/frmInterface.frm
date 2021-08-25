@@ -6,7 +6,7 @@ Object = "{248DD890-BB45-11CF-9ABC-0080C7E7B78D}#1.0#0"; "MSWINSCK.OCX"
 Object = "{4BD5DFC7-B668-44E0-A002-C1347061239D}#1.0#0"; "HSCotrol.ocx"
 Object = "{48E59290-9880-11CF-9754-00AA00C00908}#1.0#0"; "MSINET.OCX"
 Object = "{F856EC8B-F03C-4515-BDC6-64CBD617566A}#8.0#0"; "fpSPR80.OCX"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmInterface 
    BackColor       =   &H00FFFFFF&
    Caption         =   "SANSOFT"
@@ -1177,7 +1177,7 @@ Begin VB.Form frmInterface
       _ExtentX        =   53
       _ExtentY        =   53
       _Version        =   393216
-      Format          =   198705153
+      Format          =   124715009
       CurrentDate     =   44029
    End
    Begin VB.PictureBox picHeader 
@@ -1367,7 +1367,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   198770689
+         Format          =   124715009
          CurrentDate     =   40457
       End
       Begin MSComCtl2.DTPicker dtpTo 
@@ -1389,7 +1389,7 @@ Begin VB.Form frmInterface
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Format          =   198770689
+         Format          =   124715009
          CurrentDate     =   40457
       End
       Begin HSCotrol.CButton cmdSearch 
@@ -5609,8 +5609,15 @@ On Error GoTo ErrHandle
         Call SetSQLData("RCV", strRcvBuf, "A")
         strType = mGetP(strRcvBuf, 1, "|")
 
+
+'[Rx]MSH|^~\&|LabXpert|Mindray|||20210825135335||ORU^R01|2|P|2.3.1||||||UNICODE
+'PID|1||^^^^MR
+'PV1|1
+'OBR|1||1|00001^Automated Count^99MRC|||20210825133114|||||||||||||||||HM|NotValidated|||||||User
+'OBX|1|IS|08001^Take Mode^99MRC||C||||||F
+'
         Select Case strType
-            Case "MSH"
+            Case "MSH", "MSH"
                 strOldBarno = ""
                 mOrder.MsgType = mGetP(strRcvBuf, 9, "|")
                 mOrder.MsgCtrlID = mGetP(strRcvBuf, 10, "|")
@@ -5626,6 +5633,7 @@ On Error GoTo ErrHandle
                 
             Case "ORC"
                 strBarno = mGetP(mGetP(strRcvBuf, 4, "|"), 1, "^")
+                mOrder.OrgBarNo = strBarno
                 mOrder.BarNo = strBarno
                 If mOrder.MsgType = "ORM^O01" Then
                     Call GetOrder_BC6200(strBarno, gHOSP.RSTTYPE)
@@ -5635,6 +5643,10 @@ On Error GoTo ErrHandle
             Case "PV1"
             Case "OBR"
                 strBarno = mGetP(mGetP(strRcvBuf, 4, "|"), 1, "^")
+                mOrder.OrgBarNo = strBarno
+                If IsNumeric(strBarno) Then
+                    strBarno = Val(strBarno)
+                End If
                 mResult.BarNo = strBarno
                 
                 'If Trim(strBarno) <> Trim(strOldBarno) Then
@@ -5648,11 +5660,17 @@ On Error GoTo ErrHandle
                 'End If
                 
                 Call SetPatInfo(strBarno, gHOSP.RSTTYPE)
+            
             Case "OBX"
+                'OBX|22|NM|32207-3^PDW^LN||15.6||15.0-17.0|N|||F
+                'OBX|60|NM|12227-5^CORRECTED WBC^LN||4.86|10*3/uL|4.00-10.00|N|||F
+
                 strIntBase = mGetP(mGetP(strRcvBuf, 4, "|"), 2, "^")
                 If strIntBase = "" Then
                     strIntBase = Trim(mGetP(strRcvBuf, 5, "|"))
                 End If
+                
+                strIntBase = Replace(strIntBase, "CORRECTED ", "")
                 
                 strResult = Trim$(mGetP(strRcvBuf, 6, "|"))
                 strIntResult = strResult
@@ -6718,9 +6736,9 @@ On Error GoTo ErrHandle
             strSend = strSend & "MSH|^~\&|LIS||||" & Format(Now, "yyyymmddhhmmss") & "||ORR^O02|1|P|2.3.1||||||UNICODE" & vbCr
             strSend = strSend & "MSA|AA|" & mOrder.MsgCtrlID & vbCr
             strSend = strSend & "PID|1||" & mOrder.PID & "^^^^MR||^" & mOrder.PNAME & "|||" & vbCr
-            strSend = strSend & "PV1|1|E|^^||||||||||||||||||AF|" & mOrder.BarNo & "|||" & vbCr
-            strSend = strSend & "ORC|AF|" & mOrder.BarNo & "|||" & vbCr
-            strSend = strSend & "OBR|1|" & mOrder.BarNo & "||||||||||||||||||||||HM||||||||" & vbCr
+            strSend = strSend & "PV1|1|E|^^||||||||||||||||||AF|" & mOrder.OrgBarNo & "|||" & vbCr
+            strSend = strSend & "ORC|AF|" & mOrder.OrgBarNo & "|||" & vbCr
+            strSend = strSend & "OBR|1|" & mOrder.OrgBarNo & "||||||||||||||||||||||HM||||||||" & vbCr
             strSend = strSend & "OBX|1|IS|08001^Take Mode^99MRC||A||||||F" & vbCr                   'O : open-vial,     A : autoloading,    C : closed-tube
             strSend = strSend & "OBX|2|IS|08002^Blood Mode^99MRC||W||||||F" & vbCr                  'W : whole blood,   P : predilute,      B : body fluid,     Q : control,    M : micro-WB
             strSend = strSend & "OBX|3|IS|08003^Test Mode^99MRC||" & strItems & "||||||F" & vbCr    'CBC, CBC+DIFF, CBC+RET, CBC+NRBC, CBC+DIFF+RET, CBC+DIFF+NRBC, CBC+DIFF+RET+NRBC, RET
